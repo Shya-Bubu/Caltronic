@@ -1,0 +1,42 @@
+.container {
+    background: linear-gradient(180deg, #0d0d1a 0%, #12121f 100%);
+    border: 1px solid #2a2a3a;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+}
+
+.title {
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Recharts overrides for dark engineering theme */
+.container :global(.recharts-cartesian-grid-horizontal line),
+.container :global(.recharts-cartesian-grid-vertical line) {
+    stroke: rgba(255, 255, 255, 0.05);
+}
+
+.container :global(.recharts-tooltip-wrapper) {
+    z-index: 100;
+}
+
+.container :global(.recharts-default-tooltip) {
+    background: #1a1a2e !important;
+    border-color: #333 !important;
+}
+
+/* Glow effect on lines */
+.container :global(.recharts-line-curve) {
+    filter: drop-shadow(0 0 3px currentColor);
+}
+
+/* Scatter points glow */
+.container :global(.recharts-scatter-symbol) {
+    filter: drop-shadow(0 0 4px currentColor);
+}
