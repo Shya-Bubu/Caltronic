@@ -17,7 +17,6 @@ type ViewKey =
     | 'engineering'
     | 'mathematics'
     | 'exam'
-    | 'summary'
     | 'quiz'
     | 'flashcards';
 type LectureMode = 'overview' | 'concepts' | 'synthesis' | 'resources';
@@ -27,7 +26,6 @@ const VIEW_TABS: ReadonlyArray<TabItem<ViewKey>> = [
     { key: 'engineering', label: 'Engineering' },
     { key: 'mathematics', label: 'Mathematics' },
     { key: 'exam', label: 'Exam' },
-    { key: 'summary', label: 'Summary' },
     { key: 'quiz', label: 'Quiz' },
     { key: 'flashcards', label: 'Flashcards' },
 ] as const;
@@ -192,7 +190,7 @@ function ConceptSidebar({
                             aria-hidden
                         />
                         <div className={styles.conceptText}>
-                            <div className={styles.conceptIndex}>📚</div>
+                            <div className={styles.conceptIndex}>•</div>
                             <div className={styles.conceptTitle}>Resources</div>
                         </div>
                     </button>
@@ -222,7 +220,6 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
         if (activeView === 'engineering') return concept.layers.engineering;
         if (activeView === 'mathematics') return concept.layers.mathematics;
         if (activeView === 'exam') return concept.layers.exam;
-        if (activeView === 'summary') return concept.layers.summary ?? '';
         return '';
     }, [concept, activeView]);
 
@@ -311,16 +308,7 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
                     </Button>
                 </div>
 
-                <div className={styles.navCenter}>
-                    <Button
-                        variant={isComplete ? 'secondary' : 'primary'}
-                        onClick={() => flow.markConceptComplete(concept.id)}
-                        disabled={isComplete}
-                        title={isComplete ? 'Already completed' : 'Mark this concept complete'}
-                    >
-                        {isComplete ? '✓ Completed' : 'Mark Concept Complete'}
-                    </Button>
-                </div>
+                {/* Exploration tracking replaces manual completion */}
 
                 <div className={styles.navRight}>
                     <Button
@@ -446,9 +434,19 @@ export default function LectureClient({
                         subtitle="Key takeaways and closure"
                         markdown={synthesisMarkdown}
                         actions={
-                            <Button variant="secondary" onClick={() => setMode('resources')}>
-                                View Resources
-                            </Button>
+                            <>
+                                <Button
+                                    variant="primary"
+                                    onClick={() => {
+                                        try {
+                                            localStorage.setItem(`caltronic:lesson:${lecture.id}:complete:v1`, 'true');
+                                            alert(`${lecture.title} marked complete!`);
+                                        } catch { /* ignore */ }
+                                    }}
+                                >
+                                    Mark {lecture.title} Complete
+                                </Button>
+                            </>
                         }
                     />
                 ) : mode === 'resources' ? (
@@ -456,7 +454,7 @@ export default function LectureClient({
                         <header className={styles.viewerHeader}>
                             <div className={styles.viewerHeading}>
                                 <div className={styles.viewerKicker}>External Materials</div>
-                                <h2 className={styles.viewerTitle}>📚 Resources</h2>
+                                <h2 className={styles.viewerTitle}>Resources</h2>
                             </div>
                         </header>
                         <div className={styles.contentShell}>

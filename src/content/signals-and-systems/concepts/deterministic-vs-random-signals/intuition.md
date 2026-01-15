@@ -6,14 +6,21 @@
 
 ---
 
-## 🎮 Interactive Simulation (Tier 1)
+## 📖 Resources
 
-| Simulation | Controls |
-|------------|----------|
-| **Noise Overlay Visualizer** | Sliders: signal amplitude, noise variance |
-| **SNR Explorer** | Inputs: signal power, noise power → live SNR display |
+| Type | Resource |
+|------|----------|
+| 📺 Video | [MIT 6.041: Probability](https://www.youtube.com/watch?v=j9WZyLZCBzs) |
+| 📚 Textbook | Haykin, Communication Systems, Chapter 1 |
+| 🎓 Lectures | University of Peradeniya EE2020 Week 1-2 |
 
-*Coming soon — placeholder for future implementation*
+---
+
+## 🖼️ Visual: Deterministic vs Random
+
+![Deterministic vs Random Comparison](/course/signals-and-systems/lesson-01/concepts/deterministic-random.png)
+
+Top: A deterministic signal (predictable). Bottom: A random signal (containing noise).
 
 ---
 

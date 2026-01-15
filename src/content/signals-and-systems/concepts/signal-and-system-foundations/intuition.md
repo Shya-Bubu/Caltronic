@@ -6,14 +6,21 @@
 
 ---
 
-## 🎮 Interactive Simulation (Tier 1)
+## 📖 Resources
 
-| Simulation | Controls |
-|------------|----------|
-| **Signal Type Explorer** | Toggle: acoustic, electrical, thermal signals |
-| **System Chain Builder** | Drag-drop: microphone → amplifier → speaker |
+| Type | Resource |
+|------|----------|
+| 📺 Video | [3Blue1Brown: But what is a Fourier series?](https://www.youtube.com/watch?v=r6sGWTCMz2k) |
+| 📚 Textbook | Oppenheim & Willsky, Chapter 1 |
+| 🎓 Lectures | University of Peradeniya EE2020 Week 1-2 |
 
-*Coming soon — placeholder for future implementation*
+---
+
+## 🖼️ Visual: The System Model
+
+![System Input-Output Model](/course/signals-and-systems/lesson-01/concepts/signal-system-block.png)
+
+**The fundamental model**: Every system transforms input x(t) into output y(t).
 
 ---
 
@@ -28,6 +35,14 @@ Think about it. Right now, as you read this:
 **A signal is any quantity that varies with one or more independent variables.**
 
 That's it. Simple, yet profound.
+
+---
+
+## 🖼️ Visual: Real-World Signals
+
+![Real World Signals](/course/signals-and-systems/lesson-01/concepts/real-world-signals.png)
+
+Signals appear in biology (ECG), economics (stocks), and acoustics (audio). All can be modeled mathematically.
 
 ---
 
@@ -54,6 +69,16 @@ A system takes an input signal and produces an output signal:
 ```
 Input Signal → [SYSTEM] → Output Signal
 ```
+
+---
+
+## 🖼️ Visual: Audio Signal Chain
+
+![Audio Signal Chain](/course/signals-and-systems/lesson-01/concepts/audio-chain.png)
+
+A classic engineering system: Microphone (Transducer) → Amplifier (System) → Speaker (Transducer).
+
+---
 
 ### The Audio Chain Example
 
@@ -103,3 +128,4 @@ When you process audio, you're manipulating a signal.
 When you design a controller, you're shaping the input-output relationship.
 
 **Master this vocabulary, and you've mastered the language of engineering.**
+

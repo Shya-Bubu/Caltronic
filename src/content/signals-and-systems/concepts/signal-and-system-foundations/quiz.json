@@ -1,137 +1,125 @@
 {
-    "conceptId": "signal-and-system-foundations",
-    "title": "Signal and System Foundations Quiz",
-    "passingScore": 70,
+    "id": "signal-and-system-foundations-quiz",
     "questions": [
         {
             "id": "q1",
-            "type": "multiple-choice",
-            "question": "What is a signal?",
+            "prompt": "What is a signal?",
             "options": [
                 "A device that processes information",
                 "A physical quantity that varies with time or space",
                 "An electrical component",
                 "A mathematical operator"
             ],
-            "correctAnswer": 1,
-            "explanation": "A signal is defined as a physical quantity (like voltage, temperature, or pressure) that varies with one or more independent variables, typically time."
+            "correctAnswer": "A physical quantity that varies with time or space",
+            "explanation": "A signal is defined as a physical quantity (like voltage, temperature, or pressure) that varies with one or more independent variables, typically time. Devices that process information are called systems. Electrical components are hardware elements. Mathematical operators describe transformations, not signals themselves."
         },
         {
             "id": "q2",
-            "type": "multiple-choice",
-            "question": "Which of the following is a SYSTEM?",
+            "prompt": "Which of the following is a SYSTEM?",
             "options": [
                 "An ECG waveform",
                 "The temperature in a room",
                 "An amplifier",
                 "A stock price chart"
             ],
-            "correctAnswer": 2,
-            "explanation": "An amplifier is a system because it transforms an input signal (low amplitude) into an output signal (high amplitude). The others are all signals."
+            "correctAnswer": "An amplifier",
+            "explanation": "An amplifier is a system because it transforms an input signal (low amplitude) into an output signal (high amplitude). ECG waveforms, temperature readings, and stock prices are all signals—they represent varying quantities, not devices that transform signals."
         },
         {
             "id": "q3",
-            "type": "multiple-choice",
-            "question": "What does x(t) notation indicate?",
+            "prompt": "What does x(t) notation indicate?",
             "options": [
                 "A discrete-time signal",
                 "A continuous-time signal",
                 "A random signal",
                 "A complex signal"
             ],
-            "correctAnswer": 1,
-            "explanation": "Parentheses x(t) indicate a continuous-time signal, defined for all real values of t. Brackets x[n] would indicate discrete-time."
+            "correctAnswer": "A continuous-time signal",
+            "explanation": "Parentheses x(t) indicate a continuous-time signal, defined for all real values of t. Brackets x[n] would indicate discrete-time. The notation convention is universal in signals and systems: () for continuous, [] for discrete."
         },
         {
             "id": "q4",
-            "type": "multiple-choice",
-            "question": "A microphone is best described as:",
+            "prompt": "A microphone is best described as:",
             "options": [
                 "A signal",
                 "A transducer",
                 "An amplifier",
                 "A filter"
             ],
-            "correctAnswer": 1,
-            "explanation": "A microphone is a transducer — a type of system that converts one form of signal (acoustic pressure) to another form (electrical voltage)."
+            "correctAnswer": "A transducer",
+            "explanation": "A microphone is a transducer—a type of system that converts one form of signal (acoustic pressure waves) to another form (electrical voltage). It's not the signal itself, not an amplifier (which increases magnitude), and not a filter (which removes frequencies)."
         },
         {
             "id": "q5",
-            "type": "multiple-choice",
-            "question": "In the notation y(t) = T{x(t)}, what does T represent?",
+            "prompt": "In the notation y(t) = T{x(t)}, what does T represent?",
             "options": [
                 "Time",
                 "Temperature",
                 "The system operator",
                 "The transfer function"
             ],
-            "correctAnswer": 2,
-            "explanation": "T (or 𝒯) represents the system operator that transforms the input signal x(t) into the output signal y(t)."
+            "correctAnswer": "The system operator",
+            "explanation": "T (or 𝒯) represents the system operator that transforms the input signal x(t) into the output signal y(t). Time is the independent variable t, not T. Temperature is unrelated. Transfer function H(s) is a Laplace domain representation, different from the general operator notation."
         },
         {
             "id": "q6",
-            "type": "multiple-choice",
-            "question": "Which is an example of a 2D signal?",
+            "prompt": "Which is an example of a 2D signal?",
             "options": [
                 "Audio waveform",
                 "Temperature over time",
                 "A grayscale image",
                 "Stock price"
             ],
-            "correctAnswer": 2,
-            "explanation": "A grayscale image I(x,y) is a 2D signal with two independent spatial variables (x and y). Audio and temperature are 1D signals indexed by time."
+            "correctAnswer": "A grayscale image",
+            "explanation": "A grayscale image I(x,y) is a 2D signal with two independent spatial variables (x and y position). Audio waveforms, temperature over time, and stock prices are all 1D signals indexed only by time."
         },
         {
             "id": "q7",
-            "type": "multiple-choice",
-            "question": "What type of connection feeds the output back to the input?",
+            "prompt": "What type of connection feeds the output back to the input?",
             "options": [
                 "Cascade connection",
                 "Parallel connection",
                 "Feedback connection",
                 "Series connection"
             ],
-            "correctAnswer": 2,
-            "explanation": "In a feedback connection, the output signal is fed back and combined with the input. This is the basis of control systems."
+            "correctAnswer": "Feedback connection",
+            "explanation": "In a feedback connection, the output signal is fed back and combined with the input. This is the basis of control systems. Cascade (series) connection chains systems sequentially. Parallel sends the same input to multiple systems. Series is another name for cascade."
         },
         {
             "id": "q8",
-            "type": "multiple-choice",
-            "question": "Why are electrical signals preferred for processing?",
+            "prompt": "Why are electrical signals preferred for processing?",
             "options": [
                 "They are the only type that exists",
                 "They are easy to amplify, filter, and transmit",
                 "They don't require transducers",
                 "They are always digital"
             ],
-            "correctAnswer": 1,
-            "explanation": "Electrical signals are preferred because they are easy to process (amplify, filter), transmit (wires, wireless), and store (digital memory)."
+            "correctAnswer": "They are easy to amplify, filter, and transmit",
+            "explanation": "Electrical signals are preferred because they are easy to process (amplify, filter), transmit (wires, wireless), and store (digital memory). Many other signal types exist. Transducers are needed to convert other signals to electrical. Electrical signals can be analog or digital."
         },
         {
             "id": "q9",
-            "type": "multiple-choice",
-            "question": "In a block diagram, what do arrows represent?",
+            "prompt": "In a block diagram, what do arrows represent?",
             "options": [
                 "Power flow",
                 "Signal flow",
                 "System boundaries",
                 "Time direction"
             ],
-            "correctAnswer": 1,
-            "explanation": "In block diagrams, arrows represent the flow of signals from one system (block) to another."
+            "correctAnswer": "Signal flow",
+            "explanation": "In block diagrams, arrows represent the flow of signals from one system (block) to another. Power flow is a different engineering concept. System boundaries are the blocks themselves. Time direction is implicit, not shown by arrows."
         },
         {
             "id": "q10",
-            "type": "multiple-choice",
-            "question": "A speaker converts:",
+            "prompt": "A speaker converts:",
             "options": [
                 "Electrical signals to acoustic signals",
                 "Acoustic signals to electrical signals",
                 "Digital signals to analog signals",
                 "Light signals to electrical signals"
             ],
-            "correctAnswer": 0,
-            "explanation": "A speaker is a transducer that converts electrical signals (voltage variations) into acoustic signals (sound pressure variations). A microphone does the opposite."
+            "correctAnswer": "Electrical signals to acoustic signals",
+            "explanation": "A speaker is a transducer that converts electrical signals (voltage variations) into acoustic signals (sound pressure variations). A microphone does the opposite (acoustic to electrical). DACs convert digital to analog. Photodiodes convert light to electrical."
         }
     ]
 }

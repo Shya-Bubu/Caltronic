@@ -1,137 +1,125 @@
 {
-    "conceptId": "signal-classification-by-time",
-    "title": "Continuous vs Discrete Signals Quiz",
-    "passingScore": 70,
+    "id": "signal-classification-by-time-quiz",
     "questions": [
         {
             "id": "q1",
-            "type": "multiple-choice",
-            "question": "What notation indicates a discrete-time signal?",
+            "prompt": "What notation indicates a discrete-time signal?",
             "options": [
                 "x(t)",
                 "x[n]",
                 "x{t}",
                 "x<n>"
             ],
-            "correctAnswer": 1,
-            "explanation": "Brackets [n] indicate discrete-time. Parentheses (t) indicate continuous-time."
+            "correctAnswer": "x[n]",
+            "explanation": "Brackets [n] indicate discrete-time signals, defined only at integer values. Parentheses (t) indicate continuous-time signals defined for all real t values. This is a universal convention in signals and systems."
         },
         {
             "id": "q2",
-            "type": "multiple-choice",
-            "question": "A continuous-time signal is defined for:",
+            "prompt": "A continuous-time signal is defined for:",
             "options": [
                 "Integer values only",
                 "All real values of t",
                 "Positive values only",
                 "Rational values only"
             ],
-            "correctAnswer": 1,
-            "explanation": "CT signals are defined for all real values of the independent variable t."
+            "correctAnswer": "All real values of t",
+            "explanation": "Continuous-time signals x(t) are defined for every real value of the independent variable t—you can zoom in infinitely and the signal remains defined. Discrete signals are only at integers."
         },
         {
             "id": "q3",
-            "type": "multiple-choice",
-            "question": "What is the Nyquist sampling rate for a 10 kHz signal?",
+            "prompt": "What is the Nyquist sampling rate for a 10 kHz signal?",
             "options": [
                 "5 kHz",
                 "10 kHz",
                 "20 kHz",
                 "40 kHz"
             ],
-            "correctAnswer": 2,
-            "explanation": "Nyquist rate = 2 × maximum frequency = 2 × 10 kHz = 20 kHz."
+            "correctAnswer": "20 kHz",
+            "explanation": "The Nyquist theorem states: sample at fs > 2×fmax. For a 10 kHz signal, Nyquist rate = 2 × 10 kHz = 20 kHz. Sampling below this causes aliasing."
         },
         {
             "id": "q4",
-            "type": "multiple-choice",
-            "question": "Aliasing occurs when:",
+            "prompt": "Aliasing occurs when:",
             "options": [
                 "Sampling rate is too high",
                 "Sampling rate is below Nyquist",
                 "Signal has DC component",
                 "Signal is periodic"
             ],
-            "correctAnswer": 1,
-            "explanation": "Aliasing occurs when sampling below Nyquist rate, causing high frequencies to fold back."
+            "correctAnswer": "Sampling rate is below Nyquist",
+            "explanation": "Aliasing occurs when sampling below Nyquist rate (fs < 2×fmax), causing high frequencies to 'fold' and appear as lower frequencies. High sampling rate prevents aliasing. DC and periodicity are unrelated."
         },
         {
             "id": "q5",
-            "type": "multiple-choice",
-            "question": "An ADC converts:",
+            "prompt": "An ADC converts:",
             "options": [
                 "Digital to analog",
                 "Continuous to discrete",
                 "Discrete to continuous",
                 "Voltage to current"
             ],
-            "correctAnswer": 1,
-            "explanation": "An Analog-to-Digital Converter (ADC) converts continuous-time signals to discrete-time."
+            "correctAnswer": "Continuous to discrete",
+            "explanation": "An Analog-to-Digital Converter (ADC) converts continuous-time analog signals to discrete-time digital signals through sampling and quantization. DAC does the reverse."
         },
         {
             "id": "q6",
-            "type": "multiple-choice",
-            "question": "CD audio uses 44.1 kHz sampling because:",
+            "prompt": "CD audio uses 44.1 kHz sampling because:",
             "options": [
                 "It's the minimum possible",
                 "Human hearing is up to ~20 kHz",
                 "It reduces file size",
                 "It matches video frame rate"
             ],
-            "correctAnswer": 1,
-            "explanation": "44.1 kHz > 2×20 kHz, satisfying Nyquist for the ~20 kHz human hearing limit."
+            "correctAnswer": "Human hearing is up to ~20 kHz",
+            "explanation": "Human hearing ranges up to ~20 kHz. Per Nyquist, we need fs > 40 kHz. CD uses 44.1 kHz which exceeds this requirement and provides a safety margin for anti-aliasing filters."
         },
         {
             "id": "q7",
-            "type": "multiple-choice",
-            "question": "In discrete-time, what replaces integration?",
+            "prompt": "In discrete-time, what replaces integration?",
             "options": [
                 "Differentiation",
                 "Summation",
                 "Multiplication",
                 "Division"
             ],
-            "correctAnswer": 1,
-            "explanation": "Summation (Σ) in DT corresponds to integration (∫) in CT."
+            "correctAnswer": "Summation",
+            "explanation": "Summation (Σ) in discrete-time corresponds to integration (∫) in continuous-time. The fundamental parallel: integrals over continuous domains become sums over discrete indices."
         },
         {
             "id": "q8",
-            "type": "multiple-choice",
-            "question": "The value x[1.5] for a discrete signal is:",
+            "prompt": "The value x[1.5] for a discrete signal is:",
             "options": [
                 "Zero",
                 "Undefined",
                 "Interpolated",
                 "Same as x[1]"
             ],
-            "correctAnswer": 1,
-            "explanation": "Discrete signals are only defined at integer indices. x[1.5] is undefined, not zero."
+            "correctAnswer": "Undefined",
+            "explanation": "Discrete-time signals x[n] are only defined at integer indices. x[1.5] is undefined (not zero!)—the signal simply doesn't exist between sample points. This is fundamental to discrete signal definition."
         },
         {
             "id": "q9",
-            "type": "multiple-choice",
-            "question": "What component prevents aliasing?",
+            "prompt": "What component prevents aliasing?",
             "options": [
                 "Amplifier",
                 "Anti-aliasing filter",
                 "DAC",
                 "Oscillator"
             ],
-            "correctAnswer": 1,
-            "explanation": "An anti-aliasing (lowpass) filter removes frequencies above Nyquist before sampling."
+            "correctAnswer": "Anti-aliasing filter",
+            "explanation": "An anti-aliasing filter (lowpass filter) is applied before sampling to remove frequency components above Nyquist, preventing them from folding back and corrupting the signal."
         },
         {
             "id": "q10",
-            "type": "multiple-choice",
-            "question": "Ts in sampling represents:",
+            "prompt": "Ts in sampling represents:",
             "options": [
                 "Total samples",
                 "Sampling period",
                 "Time constant",
                 "Threshold"
             ],
-            "correctAnswer": 1,
-            "explanation": "Ts is the sampling period — the time between consecutive samples."
+            "correctAnswer": "Sampling period",
+            "explanation": "Ts is the sampling period—the time interval between consecutive samples, measured in seconds. Sampling frequency fs = 1/Ts. This is standard notation in DSP."
         }
     ]
 }

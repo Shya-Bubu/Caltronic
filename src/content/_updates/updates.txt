@@ -1,4 +1,4 @@
-# Caltronic V2 Content Updates
+# CalTronic V2 Content Updates
 # Format: MODULE_SLUG | WEEK_NUMBER | STATUS
 # 
 # STATUS options: planned, in-progress, complete

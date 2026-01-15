@@ -1,137 +1,125 @@
 {
-    "conceptId": "energy-and-power-signals",
-    "title": "Energy and Power Signals Quiz",
-    "passingScore": 70,
+    "id": "energy-and-power-signals-quiz",
     "questions": [
         {
             "id": "q1",
-            "type": "multiple-choice",
-            "question": "An energy signal has:",
+            "prompt": "An energy signal has:",
             "options": [
                 "Infinite energy",
                 "Finite total energy",
                 "Finite average power",
                 "Zero energy"
             ],
-            "correctAnswer": 1,
-            "explanation": "Energy signals have finite total energy, calculated by integrating |x(t)|²."
+            "correctAnswer": "Finite total energy",
+            "explanation": "Energy signals have finite total energy E = ∫|x(t)|²dt < ∞. They 'run out' eventually. Examples include pulses and decaying exponentials that don't extend forever."
         },
         {
             "id": "q2",
-            "type": "multiple-choice",
-            "question": "A sinusoid x(t) = Acos(ωt) is:",
+            "prompt": "A sinusoid x(t) = Acos(ωt) is:",
             "options": [
                 "Energy signal",
                 "Power signal",
                 "Both",
                 "Neither"
             ],
-            "correctAnswer": 1,
-            "explanation": "Sinusoids go on forever, have infinite energy but finite average power = A²/2."
+            "correctAnswer": "Power signal",
+            "explanation": "Sinusoids extend infinitely in time, giving infinite total energy. But their average power P = A²/2 is finite. Infinite energy + finite power = power signal."
         },
         {
             "id": "q3",
-            "type": "multiple-choice",
-            "question": "The power of x(t) = 6cos(100t) is:",
+            "prompt": "The power of x(t) = 6cos(100t) is:",
             "options": [
                 "36",
                 "18",
                 "6",
                 "12"
             ],
-            "correctAnswer": 1,
-            "explanation": "Power of sinusoid = A²/2 = 36/2 = 18."
+            "correctAnswer": "18",
+            "explanation": "For a sinusoid x(t) = Acos(ωt), average power P = A²/2. Here A = 6, so P = 36/2 = 18. This is a fundamental formula to memorize."
         },
         {
             "id": "q4",
-            "type": "multiple-choice",
-            "question": "If a signal has finite energy, its average power is:",
+            "prompt": "If a signal has finite energy, its average power is:",
             "options": [
                 "Also finite",
                 "Zero",
                 "Infinite",
                 "Cannot be determined"
             ],
-            "correctAnswer": 1,
-            "explanation": "Finite energy spread over infinite time gives zero average power."
+            "correctAnswer": "Zero",
+            "explanation": "Finite energy spread over infinite time gives zero average power: P = lim(E/T) as T→∞ = 0. This is why energy and power signals are mutually exclusive."
         },
         {
             "id": "q5",
-            "type": "multiple-choice",
-            "question": "The formula for signal energy is:",
+            "prompt": "The formula for signal energy is:",
             "options": [
                 "∫x(t)dt",
                 "∫|x(t)|²dt",
                 "(1/2T)∫|x(t)|²dt",
                 "|x(t)|²"
             ],
-            "correctAnswer": 1,
-            "explanation": "Energy = integral of magnitude squared over all time."
+            "correctAnswer": "∫|x(t)|²dt",
+            "explanation": "Energy E = ∫|x(t)|²dt over all time. We use magnitude squared to handle complex signals and ensure non-negative energy. Not just x(t), not time-averaged."
         },
         {
             "id": "q6",
-            "type": "multiple-choice",
-            "question": "A rectangular pulse of amplitude A and width 2T has energy:",
+            "prompt": "A rectangular pulse of amplitude A and width 2T has energy:",
             "options": [
                 "2AT",
                 "A²T",
                 "2A²T",
                 "AT²"
             ],
-            "correctAnswer": 2,
-            "explanation": "E = ∫A²dt from -T to T = A² × 2T = 2A²T."
+            "correctAnswer": "2A²T",
+            "explanation": "E = ∫|x(t)|²dt = ∫A²dt from -T to T = A² × 2T = 2A²T. Area under the squared amplitude for the pulse duration."
         },
         {
             "id": "q7",
-            "type": "multiple-choice",
-            "question": "A DC signal x(t) = 5 has power:",
+            "prompt": "A DC signal x(t) = 5 has power:",
             "options": [
                 "5",
                 "25",
                 "2.5",
                 "10"
             ],
-            "correctAnswer": 1,
-            "explanation": "Power of DC signal = A² = 25."
+            "correctAnswer": "25",
+            "explanation": "For a constant signal x(t) = A, power P = A². No division by 2 like sinusoids because the signal is constant, not oscillating. P = 5² = 25."
         },
         {
             "id": "q8",
-            "type": "multiple-choice",
-            "question": "Can a signal be both energy and power type?",
+            "prompt": "Can a signal be both energy and power type?",
             "options": [
                 "Yes, if periodic",
                 "Yes, if finite duration",
                 "No, never",
                 "Only for complex signals"
             ],
-            "correctAnswer": 2,
-            "explanation": "A signal is either energy OR power, mutually exclusive."
+            "correctAnswer": "No, never",
+            "explanation": "Energy and power classifications are mutually exclusive. If E is finite, P = 0 (energy signal). If P is finite, E = ∞ (power signal). No signal can be both."
         },
         {
             "id": "q9",
-            "type": "multiple-choice",
-            "question": "x(t) = e^(-t)u(t) is:",
+            "prompt": "x(t) = e^(-t)u(t) is:",
             "options": [
                 "Power signal",
                 "Energy signal",
                 "Neither",
                 "Both"
             ],
-            "correctAnswer": 1,
-            "explanation": "Decaying exponential has finite integral of |x|², hence energy signal."
+            "correctAnswer": "Energy signal",
+            "explanation": "The decaying exponential has E = ∫e^(-2t)dt from 0 to ∞ = 1/2, which is finite. Finite energy means it's an energy signal, not a power signal."
         },
         {
             "id": "q10",
-            "type": "multiple-choice",
-            "question": "Why use |x(t)|² instead of x(t)²?",
+            "prompt": "Why use |x(t)|² instead of x(t)² in energy formulas?",
             "options": [
                 "Convention only",
                 "For positive results",
                 "To handle complex signals",
                 "Mathematical convenience"
             ],
-            "correctAnswer": 2,
-            "explanation": "For complex signals, |x|² = x × x* ensures real, positive power values."
+            "correctAnswer": "To handle complex signals",
+            "explanation": "For complex-valued signals, |x|² = x × x* ensures the result is always real and non-negative. For real signals, |x|² = x², so it reduces to the same thing."
         }
     ]
 }

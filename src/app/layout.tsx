@@ -15,7 +15,7 @@ import "katex/dist/katex.min.css";
 import AppChrome from "./components/AppChrome";
 
 export const metadata: Metadata = {
-    title: "Caltronic V2",
+    title: "CalTronic V2",
     description: "Advanced learning system",
 };
 

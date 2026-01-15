@@ -1,7 +1,7 @@
 # Content Directory
 
 ## Responsibility
-This directory stores all learning content for the Caltronic V2 system.
+This directory stores all learning content for the CalTronic V2 system.
 
 **CRITICAL**: This system enforces CONCEPT-BASED learning architecture.
 Single-file lectures are **FORBIDDEN** and will be rejected by validators.

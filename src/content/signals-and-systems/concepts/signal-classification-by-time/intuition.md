@@ -6,14 +6,21 @@
 
 ---
 
-## 🎮 Interactive Simulation (Tier 1)
+## 📖 Resources
 
-| Simulation | Controls |
-|------------|----------|
-| **Sampling Visualizer** | Sliders: sampling frequency, signal frequency |
-| **Aliasing Demonstrator** | Input: frequency, Output: aliased result |
+| Type | Resource |
+|------|----------|
+| 📺 Video | [MIT 6.003: Sampling](https://www.youtube.com/watch?v=VtP0CgqC3LQ) |
+| 📚 Textbook | Oppenheim & Willsky, Section 7.1-7.3 |
+| 🎓 Lectures | University of Peradeniya EE2020 Week 1 |
 
-*Coming soon — placeholder for future implementation*
+---
+
+## 🖼️ Visual: Continuous vs Discrete
+
+![Continuous vs Discrete Comparison](/course/signals-and-systems/lesson-01/concepts/continuous-vs-discrete.png)
+
+Side-by-side: Continuous-time x(t) is defined everywhere; discrete-time x[n] is defined only at integer samples.
 
 ---
 
@@ -75,6 +82,12 @@ Continuous Signal x(t)
 Discrete Signal x[n] = x(nT_s)
 ```
 
+## 🖼️ Visual: The Sampling Process
+
+![Sampling Process Diagram](/course/signals-and-systems/lesson-01/concepts/sampling-process.png)
+
+An analog signal enters, a switch closes every Ts seconds, and a discrete sequence exits.
+
 Where:
 - $T_s$ = sampling period (time between samples)
 - $f_s = 1/T_s$ = sampling frequency
@@ -83,6 +96,14 @@ Where:
 - Sampling frequency: $f_s = 44,100$ Hz
 - Sampling period: $T_s = 1/44100 \approx 22.7 \mu s$
 - That's 44,100 samples every second!
+
+---
+
+## 🖼️ Visual: Aliasing
+
+![Aliasing Visualized](/course/signals-and-systems/lesson-01/concepts/aliasing.png)
+
+When sampling is too slow (dots), the high-frequency white wave appears as a low-frequency cyan wave. This is aliasing.
 
 ---
 

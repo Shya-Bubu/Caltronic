@@ -6,14 +6,29 @@
 
 ---
 
-## 🎮 Interactive Simulation (Tier 1)
+## 📖 Resources
 
-| Simulation | Controls |
-|------------|----------|
-| **Pulse Shape Builder** | Sliders: amplitude, width, shift |
-| **Equation ↔ Graph Trainer** | Input equation → auto-sketch or vice versa |
+| Type | Resource |
+|------|----------|
+| 📺 Video | [Michel van Biezen: Plotting Signals](https://www.youtube.com/watch?v=O0Y8FChBaFU) |
+| 📚 Textbook | Oppenheim & Willsky, Section 1.2 |
+| 🎓 Lectures | University of Peradeniya EE2020 Week 2 |
 
-*Coming soon — placeholder for future implementation*
+---
+
+## 🖼️ Visual: Standard Signal Shapes
+
+![Unit Step Function](/course/signals-and-systems/lesson-01/concepts/unit-step.png)
+
+The switch function: zero for t<0, one for t≥0.
+
+![Rectangular Pulse rect(t)](/course/signals-and-systems/lesson-01/concepts/rect-pulse.png)
+
+A box function: value is 1 for a finite duration.
+
+![Triangular Pulse tri(t)](/course/signals-and-systems/lesson-01/concepts/tri-pulse.png)
+
+A ramp up and ramp down, centered at zero.
 
 ---
 

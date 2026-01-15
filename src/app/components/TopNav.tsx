@@ -15,11 +15,11 @@ export default function TopNav({
     <header className={mode === 'lecture' ? styles.headerLecture : styles.header}>
       <div className={styles.inner}>
         <div className={styles.left}>
-          <Link href="/" className={styles.brand} aria-label="Caltronic home">
+          <Link href="/" className={styles.brand} aria-label="CalTronic home">
             <span className={styles.brandMark} aria-hidden>
               C
             </span>
-            <span className={styles.brandText}>Caltronic</span>
+            <span className={styles.brandText}>CalTronic</span>
           </Link>
 
           <div className={styles.divider} aria-hidden />

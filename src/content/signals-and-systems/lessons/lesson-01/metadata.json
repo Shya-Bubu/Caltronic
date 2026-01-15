@@ -5,6 +5,8 @@
         1,
         2
     ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
     "concepts": [
         "signal-and-system-foundations",
         "signal-classification-by-time",
@@ -13,5 +15,5 @@
         "signal-sketching-basics"
     ],
     "description": "Foundational vocabulary of signals and systems, classification schemes, and basic signal analysis.",
-    "status": "in-progress"
+    "status": "complete"
 }

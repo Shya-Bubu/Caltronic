@@ -1,4 +1,4 @@
-# Caltronic V2
+# CalTronic V2
 
 > **AI-Orchestrated Learning Platform for Electrical Engineering**
 

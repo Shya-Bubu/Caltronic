@@ -6,14 +6,29 @@
 
 ---
 
-## 🎮 Interactive Simulation (Tier 1)
+## 📖 Resources
 
-| Simulation | Controls |
-|------------|----------|
-| **Energy vs Power Classification Explorer** | Sliders: pulse width, frequency, amplitude |
-| **Live Energy/Power Calculator** | Input signal → real-time E and P display |
+| Type | Resource |
+|------|----------|
+| 📺 Video | [Neso Academy: Energy and Power Signals](https://www.youtube.com/watch?v=mXwUYN2Q_rQ) |
+| 📚 Textbook | Oppenheim & Willsky, Section 1.1 |
+| 🎓 Lectures | University of Peradeniya EE2020 Week 1 |
 
-*Coming soon — placeholder for future implementation*
+---
+
+## 🖼️ Visual: Energy vs Power Signals
+
+![Energy Signal Example](/course/signals-and-systems/lesson-01/concepts/energy-signal.png)
+
+A pulse has finite area (energy) and decays to zero.
+
+![Power Signal Example](/course/signals-and-systems/lesson-01/concepts/power-signal.png)
+
+A sinusoid extends forever, having infinite energy but finite average power.
+
+![Energy vs Power Analogy](/course/signals-and-systems/lesson-01/concepts/energy-power-analogy.png)
+
+Think of energy signals as batteries (finite life) and power signals as grid power (continuous source).
 
 ---
 
