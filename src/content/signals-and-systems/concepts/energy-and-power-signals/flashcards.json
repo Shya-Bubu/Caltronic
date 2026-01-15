@@ -1,0 +1,66 @@
+{
+    "conceptId": "energy-and-power-signals",
+    "title": "Energy and Power Signals Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is an energy signal?",
+            "back": "A signal with finite total energy: E = ∫|x(t)|²dt < ∞",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f2",
+            "front": "What is a power signal?",
+            "back": "A signal with finite average power but infinite total energy.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f3",
+            "front": "What is the power of x(t) = Acos(ωt)?",
+            "back": "P = A²/2",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f4",
+            "front": "What is the power of a DC signal x(t) = A?",
+            "back": "P = A²",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f5",
+            "front": "If energy is finite, what is average power?",
+            "back": "Zero. Finite energy / infinite time = 0 average power.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f6",
+            "front": "Can a signal be both energy and power type?",
+            "back": "No, never. They are mutually exclusive classifications.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f7",
+            "front": "Give an example of an energy signal.",
+            "back": "• Single pulse\n• Decaying exponential e^(-t)u(t)\n• Any finite-duration signal",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f8",
+            "front": "Give an example of a power signal.",
+            "back": "• Sinusoid Acos(ωt)\n• DC constant\n• Any periodic signal",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f9",
+            "front": "Why use |x(t)|² in energy/power formulas?",
+            "back": "To handle complex-valued signals. |x|² = x × x* is always real and positive.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "f10",
+            "front": "Energy of rectangular pulse with amplitude A, width 2T?",
+            "back": "E = 2A²T",
+            "difficulty": "medium"
+        }
+    ]
+}

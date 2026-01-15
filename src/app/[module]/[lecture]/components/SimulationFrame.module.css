@@ -1,0 +1,117 @@
+.wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.01);
+  overflow: hidden;
+}
+
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kicker {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.title {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.body {
+  padding: 1rem;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.simCard {
+  /* Container for real simulations (SignalPlot, etc.) */
+}
+
+.card {
+  border: 1px solid rgba(231, 238, 247, 0.10);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.12);
+  padding: 0.85rem 0.95rem;
+}
+
+.cardTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cardTitle {
+  font-weight: 750;
+}
+
+.cardType {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.cardDesc {
+  margin-top: 0.35rem;
+  color: var(--text);
+}
+
+.cardMeta {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.placeholder {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px dashed rgba(231, 238, 247, 0.18);
+  color: var(--muted);
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.details {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(231, 238, 247, 0.10);
+  padding-top: 0.75rem;
+}
+
+.details summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.pre {
+  margin: 0.75rem 0 0;
+  padding: 0.85rem 0.95rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(231, 238, 247, 0.10);
+  background: rgba(0, 0, 0, 0.20);
+  overflow: auto;
+}

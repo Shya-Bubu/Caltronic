@@ -1,0 +1,66 @@
+{
+    "conceptId": "signal-and-system-foundations",
+    "title": "Signal and System Foundations Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is a signal?",
+            "back": "A physical quantity that varies with one or more independent variables (typically time).",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f2",
+            "front": "What is a system?",
+            "back": "A device or process that transforms an input signal into an output signal.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f3",
+            "front": "What does x(t) notation mean?",
+            "back": "A continuous-time signal — defined for all real values of t. Parentheses = continuous.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f4",
+            "front": "What does x[n] notation mean?",
+            "back": "A discrete-time signal — defined only for integer values of n. Brackets = discrete.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f5",
+            "front": "What is a transducer?",
+            "back": "A system that converts one type of physical signal to another (e.g., microphone: sound → voltage).",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f6",
+            "front": "Give 3 examples of real-world signals.",
+            "back": "1. Speech (acoustic)\n2. ECG (electrical)\n3. Temperature over time\n4. Stock prices\n5. Video",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f7",
+            "front": "What is the formal notation for a system transforming x(t) to y(t)?",
+            "back": "y(t) = 𝒯{x(t)}\n\nWhere 𝒯 is the system operator.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f8",
+            "front": "What are the three main system connection types?",
+            "back": "1. Cascade (series) — output of one to input of next\n2. Parallel — same input to multiple systems\n3. Feedback — output fed back to input",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f9",
+            "front": "Why are electrical signals preferred for processing?",
+            "back": "Because they are:\n1. Easy to amplify and filter\n2. Easy to transmit (wired/wireless)\n3. Easy to store (digital memory)",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f10",
+            "front": "What is a 2D signal? Give an example.",
+            "back": "A signal with two independent variables.\n\nExample: Image I(x,y) where x and y are spatial coordinates.",
+            "difficulty": "hard"
+        }
+    ]
+}

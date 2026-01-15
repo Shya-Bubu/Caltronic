@@ -1,0 +1,29 @@
+{
+    "conceptId": "signal-and-system-foundations",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "image",
+            "title": "System Input-Output Model",
+            "src": "/course/signals-and-systems/lesson-01/concepts/signal-system-block.png",
+            "caption": "The fundamental model of all engineering systems: input x(t) is transformed into output y(t).",
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "image",
+            "title": "Real World Signals",
+            "src": "/course/signals-and-systems/lesson-01/concepts/real-world-signals.png",
+            "caption": "Signals appear in biology, economics, and acoustics. All can be modeled mathematically.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "image",
+            "title": "Audio Signal Chain",
+            "src": "/course/signals-and-systems/lesson-01/concepts/audio-chain.png",
+            "caption": "A classic engineering system: Microphone (Transducer) → Amplifier (System) → Speaker (Transducer).",
+            "placement": "engineering"
+        }
+    ]
+}

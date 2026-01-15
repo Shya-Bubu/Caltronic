@@ -1,0 +1,198 @@
+/**
+ * GLOBAL STYLES & DESIGN TOKENS
+ * 
+ * Caltronic V2 Design System
+ * - Dark-first design with light mode support
+ * - Typography-first, restrained aesthetic
+ * - Academic, engineering-focused visual language
+ */
+
+/* ============================================
+   CSS RESET (Minimal, Opinionated)
+   ============================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    line-height: 1.6;
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+    /* Dark theme (default) */
+    --bg: #0b0f14;
+    --bg-subtle: #0e1218;
+    --panel: rgba(255, 255, 255, 0.02);
+    --text: #e7eef7;
+    --text-muted: rgba(231, 238, 247, 0.65);
+    --text-faint: rgba(231, 238, 247, 0.45);
+    --border: rgba(231, 238, 247, 0.10);
+    --border-strong: rgba(231, 238, 247, 0.18);
+
+    /* Typography scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+
+    /* Spacing */
+    --radius: 12px;
+    --radius-sm: 8px;
+
+    /* Font */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Light theme */
+[data-theme='light'] {
+    --bg: #f8f9fb;
+    --bg-subtle: #ffffff;
+    --panel: rgba(0, 0, 0, 0.02);
+    --text: #0b1320;
+    --text-muted: rgba(11, 19, 32, 0.65);
+    --text-faint: rgba(11, 19, 32, 0.45);
+    --border: rgba(11, 19, 32, 0.10);
+    --border-strong: rgba(11, 19, 32, 0.18);
+}
+
+/* ============================================
+   BASE TYPOGRAPHY
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 650;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: var(--text-3xl);
+}
+
+h2 {
+    font-size: var(--text-2xl);
+}
+
+h3 {
+    font-size: var(--text-xl);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-faint {
+    color: var(--text-faint);
+}
+
+/* ============================================
+   SELECTION STYLING
+   ============================================ */
+::selection {
+    background: rgba(102, 170, 255, 0.25);
+    color: inherit;
+}
+
+/* ============================================
+   SCROLLBAR STYLING (Dark theme aesthetic)
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(231, 238, 247, 0.15);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(231, 238, 247, 0.25);
+}
+
+[data-theme='light']::-webkit-scrollbar-thumb {
+    background: rgba(11, 19, 32, 0.15);
+}
+
+[data-theme='light']::-webkit-scrollbar-thumb:hover {
+    background: rgba(11, 19, 32, 0.25);
+}

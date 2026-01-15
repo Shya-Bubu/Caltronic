@@ -1,0 +1,66 @@
+{
+    "conceptId": "deterministic-vs-random-signals",
+    "title": "Deterministic vs Random Signals Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is a deterministic signal?",
+            "back": "A signal whose value can be exactly calculated from a mathematical formula for any time t.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f2",
+            "front": "What is a random signal?",
+            "back": "A signal whose values follow a probability distribution and cannot be exactly predicted.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f3",
+            "front": "Give 3 examples of random signals.",
+            "back": "1. Thermal noise\n2. Speech\n3. Stock prices\n4. Radio interference",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f4",
+            "front": "What is SNR?",
+            "back": "Signal-to-Noise Ratio = Signal Power / Noise Power. Higher is better.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f5",
+            "front": "Convert 30 dB SNR to linear ratio.",
+            "back": "10^(30/10) = 10^3 = 1000. Signal is 1000× stronger than noise.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f6",
+            "front": "What is a Gaussian random variable?",
+            "back": "A random variable following the normal (bell-curve) distribution, characterized by mean μ and variance σ².",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f7",
+            "front": "In y(t) = x(t) + n(t), what does n(t) represent?",
+            "back": "Noise — the random component added by the channel or system.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f8",
+            "front": "Why is most real-world noise Gaussian?",
+            "back": "Central Limit Theorem: sum of many small independent effects tends to Gaussian distribution.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "f9",
+            "front": "What does it mean for a random process to be stationary?",
+            "back": "Its statistical properties (mean, variance, autocorrelation) don't change over time.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "f10",
+            "front": "Is a periodic signal deterministic or random?",
+            "back": "Deterministic. If it repeats exactly, you can predict all future values.",
+            "difficulty": "easy"
+        }
+    ]
+}

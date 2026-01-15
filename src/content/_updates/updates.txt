@@ -1,0 +1,12 @@
+# Caltronic V2 Content Updates
+# Format: MODULE_SLUG | WEEK_NUMBER | STATUS
+# 
+# STATUS options: planned, in-progress, complete
+# Update this file when you add new content
+
+circuit-analysis | 0 | planned
+signals-and-systems | 2 | in-progress
+digital-logic-design | 0 | planned
+analog-electronics | 0 | planned
+design-and-manufacturing | 0 | planned
+computational-methods | 0 | planned

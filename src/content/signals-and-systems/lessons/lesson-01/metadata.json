@@ -1,0 +1,17 @@
+{
+    "id": "lesson-01",
+    "title": "Introduction to Signals and Systems",
+    "weeksCovered": [
+        1,
+        2
+    ],
+    "concepts": [
+        "signal-and-system-foundations",
+        "signal-classification-by-time",
+        "deterministic-vs-random-signals",
+        "energy-and-power-signals",
+        "signal-sketching-basics"
+    ],
+    "description": "Foundational vocabulary of signals and systems, classification schemes, and basic signal analysis.",
+    "status": "in-progress"
+}

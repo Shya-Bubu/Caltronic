@@ -1,0 +1,35 @@
+.wrap {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.status {
+  color: rgba(231, 238, 247, 0.75);
+  font-weight: 750;
+  font-size: 0.9rem;
+}
+
+.count {
+  color: rgba(231, 238, 247, 0.58);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+}
+
+.bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(231, 238, 247, 0.08);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: rgba(102, 170, 255, 0.85);
+}

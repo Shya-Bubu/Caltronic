@@ -1,0 +1,48 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.compact {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.93rem;
+}
+
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.sep {
+  margin: 0 0.35rem;
+  color: rgba(231, 238, 247, 0.3);
+}
+
+.link {
+  color: rgba(231, 238, 247, 0.72);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.current {
+  color: rgba(231, 238, 247, 0.85);
+  font-weight: 650;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

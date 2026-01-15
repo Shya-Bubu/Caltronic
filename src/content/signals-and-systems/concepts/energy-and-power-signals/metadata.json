@@ -1,0 +1,13 @@
+{
+    "id": "energy-and-power-signals",
+    "title": "Energy Signals vs Power Signals",
+    "lesson": "lesson-01",
+    "order": 4,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

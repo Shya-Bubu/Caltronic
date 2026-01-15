@@ -1,0 +1,66 @@
+{
+    "conceptId": "signal-classification-by-time",
+    "title": "Continuous vs Discrete Signals Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What notation is used for continuous-time signals?",
+            "back": "x(t) — parentheses indicate continuous-time",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f2",
+            "front": "What notation is used for discrete-time signals?",
+            "back": "x[n] — brackets indicate discrete-time",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f3",
+            "front": "What is sampling?",
+            "back": "The process of converting a continuous-time signal to discrete-time by taking values at regular intervals: x[n] = x(nTs)",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f4",
+            "front": "What is the Nyquist sampling theorem?",
+            "back": "To perfectly reconstruct a signal, sample at fs > 2×fmax (twice the highest frequency)",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f5",
+            "front": "What is aliasing?",
+            "back": "When sampling below Nyquist rate, high frequencies fold back and appear as lower frequencies. It's irreversible.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f6",
+            "front": "What does an ADC do?",
+            "back": "Analog-to-Digital Converter: converts continuous-time signals to discrete-time (sampling + quantization)",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f7",
+            "front": "What does a DAC do?",
+            "back": "Digital-to-Analog Converter: reconstructs continuous-time signal from discrete samples",
+            "difficulty": "easy"
+        },
+        {
+            "id": "f8",
+            "front": "Why is CD audio sampled at 44.1 kHz?",
+            "back": "Human hearing goes up to ~20 kHz. Nyquist requires >40 kHz. 44.1 kHz provides safety margin.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f9",
+            "front": "In DT, what replaces integrals?",
+            "back": "Summations (Σ). The DT equivalent of ∫x(τ)dτ is Σx[k]",
+            "difficulty": "medium"
+        },
+        {
+            "id": "f10",
+            "front": "What is an anti-aliasing filter?",
+            "back": "A lowpass filter applied before sampling to remove frequencies above Nyquist, preventing aliasing.",
+            "difficulty": "hard"
+        }
+    ]
+}

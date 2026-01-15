@@ -1,0 +1,35 @@
+.root {
+  min-height: 100vh;
+}
+
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 3rem;
+}
+
+.main {
+  min-height: calc(100vh - 64px);
+}
+
+.footer {
+  margin-top: 2.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: rgba(231, 238, 247, 0.55);
+  font-size: var(--text-xs);
+}
+
+:root[data-theme='light'] .footer {
+  color: rgba(11, 19, 32, 0.55);
+}
+
+/* Lecture pages already own their layout. Keep chrome minimal and avoid extra padding. */
+.lectureShell {
+  padding: 0;
+}
+
+.lectureMain {
+  min-height: calc(100vh - 50px);
+}

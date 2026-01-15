@@ -1,0 +1,148 @@
+.header {
+  padding: 1.25rem 0 0.9rem;
+}
+
+.kicker {
+  color: rgba(231, 238, 247, 0.62);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.title {
+  margin: 0.5rem 0 0;
+  font-size: 2.05rem;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.subtitle {
+  margin: 0.75rem 0 0;
+  max-width: 75ch;
+  color: rgba(231, 238, 247, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.progress {
+  margin-top: 1.2rem;
+  border: 1px solid rgba(231, 238, 247, 0.10);
+  border-radius: var(--radius);
+  padding: 1rem 1.05rem;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.progressLabel {
+  color: rgba(231, 238, 247, 0.65);
+  font-weight: 700;
+}
+
+.progressValue {
+  color: rgba(231, 238, 247, 0.82);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.progressBar {
+  margin-top: 0.75rem;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(231, 238, 247, 0.08);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: rgba(102, 170, 255, 0.85);
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.lectures {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+@media (max-width: 860px) {
+  .lectures {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lectureCard {
+  border: 1px solid rgba(231, 238, 247, 0.10);
+  border-radius: var(--radius);
+  padding: 1rem 1.05rem;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.lectureTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.lectureTitle {
+  font-weight: 750;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.lectureMeta {
+  margin-top: 0.35rem;
+  color: rgba(231, 238, 247, 0.58);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.92rem;
+}
+
+.lectureProgress {
+  min-width: 170px;
+}
+
+.lectureActions {
+  margin-top: 0.9rem;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(102, 170, 255, 0.35);
+  background: rgba(102, 170, 255, 0.12);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary:hover {
+  text-decoration: none;
+  background: rgba(102, 170, 255, 0.16);
+}
+
+.empty {
+  margin-top: 0.85rem;
+  color: rgba(231, 238, 247, 0.65);
+  padding: 1rem 1.05rem;
+  border: 1px dashed rgba(231, 238, 247, 0.15);
+  border-radius: var(--radius);
+}

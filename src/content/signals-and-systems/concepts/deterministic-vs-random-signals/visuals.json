@@ -1,0 +1,21 @@
+{
+    "conceptId": "deterministic-vs-random-signals",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "image",
+            "title": "Deterministic vs Random",
+            "src": "/course/signals-and-systems/lesson-01/concepts/deterministic-random.png",
+            "caption": "Top: A deterministic signal (predictable). Bottom: A random signal (containing noise).",
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "image",
+            "title": "SNR Visualized",
+            "src": "/course/signals-and-systems/lesson-01/concepts/snr-plot.png",
+            "caption": "Signal-to-Noise Ratio is the difference between signal strength and the noise floor.",
+            "placement": "engineering"
+        }
+    ]
+}

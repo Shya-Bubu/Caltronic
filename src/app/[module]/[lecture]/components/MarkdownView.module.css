@@ -1,0 +1,113 @@
+.markdown {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  margin: 1.4rem 0 0.6rem;
+}
+
+.markdown h1 {
+  font-size: 1.75rem;
+}
+
+.markdown h2 {
+  font-size: 1.35rem;
+}
+
+.markdown h3 {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.markdown p {
+  margin: 0.9rem 0;
+  color: var(--text);
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+}
+
+.markdown li {
+  margin: 0.35rem 0;
+  color: var(--text);
+}
+
+.markdown blockquote {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid rgba(102, 170, 255, 0.5);
+  background: rgba(102, 170, 255, 0.08);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+}
+
+.markdown pre {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  background: rgba(15, 22, 32, 0.9);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: auto;
+}
+
+.markdown code {
+  font-size: 0.95em;
+}
+
+.markdown :not(pre) > code {
+  padding: 0.12rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.25rem 0;
+}
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.markdown th,
+.markdown td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+.markdown th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+.markdown tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.tableWrap {
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.tableWrap table {
+  min-width: 520px;
+}
+
+.markdown a {
+  color: var(--accent);
+}

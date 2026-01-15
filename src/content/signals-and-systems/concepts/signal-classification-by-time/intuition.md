@@ -1,0 +1,119 @@
+# Continuous vs Discrete Signals
+
+> **Narrative thread**: This concept teaches us why digital systems exist — continuous signals must be sampled for computers to process them, and understanding this bridge is essential for all DSP and embedded systems.
+
+> The first major classification: is time smooth or sampled?
+
+---
+
+## 🎮 Interactive Simulation (Tier 1)
+
+| Simulation | Controls |
+|------------|----------|
+| **Sampling Visualizer** | Sliders: sampling frequency, signal frequency |
+| **Aliasing Demonstrator** | Input: frequency, Output: aliased result |
+
+*Coming soon — placeholder for future implementation*
+
+---
+
+## Two Worlds of Signals
+
+When we look at signals in nature, we see **continuous** variation — a smooth curve with no gaps.
+
+But when we process signals on computers, we need **discrete** values — individual samples at specific moments.
+
+Understanding this distinction is foundational to all of digital signal processing.
+
+---
+
+## Continuous-Time Signals
+
+A **continuous-time (CT) signal** is defined for ALL values of time.
+
+Think of:
+- A swinging pendulum — position changes smoothly
+- Temperature throughout the day — no "gaps" in time
+- Your voice — air pressure varies continuously
+
+**Key characteristic**: You can zoom in infinitely, and the signal is still defined.
+
+### Notation
+$$x(t), \quad t \in \mathbb{R}$$
+
+The parentheses `( )` indicate continuous time.
+
+---
+
+## Discrete-Time Signals
+
+A **discrete-time (DT) signal** is defined only at specific time instants.
+
+Think of:
+- Daily stock closing prices — one value per day
+- Digital audio samples — typically 44,100 per second
+- Sensor readings — one value every 100ms
+
+**Key characteristic**: Signal exists only at integer indices. Between samples? Undefined.
+
+### Notation
+$$x[n], \quad n \in \mathbb{Z}$$
+
+The brackets `[ ]` indicate discrete time.
+
+---
+
+## The Sampling Process
+
+How do we go from continuous to discrete? **Sampling**.
+
+```
+Continuous Signal x(t)
+        ↓
+   [Sample at regular intervals]
+        ↓
+Discrete Signal x[n] = x(nT_s)
+```
+
+Where:
+- $T_s$ = sampling period (time between samples)
+- $f_s = 1/T_s$ = sampling frequency
+
+### Example: CD Audio
+- Sampling frequency: $f_s = 44,100$ Hz
+- Sampling period: $T_s = 1/44100 \approx 22.7 \mu s$
+- That's 44,100 samples every second!
+
+---
+
+## Visual Comparison
+
+| Continuous Signal | Discrete Signal |
+|-------------------|-----------------|
+| Smooth curve | Stem plot (dots) |
+| Defined everywhere | Defined at integers only |
+| x(t) | x[n] |
+| Analog systems | Digital systems |
+
+---
+
+## Why Does This Matter?
+
+1. **Computers can only handle discrete data** — they need numbers at specific times
+2. **Sampling rate determines quality** — too slow = aliasing (distortion)
+3. **Different math tools** — integrals for CT, summations for DT
+4. **Different system models** — differential equations vs difference equations
+
+---
+
+## The Bridge
+
+Most real-world signals start as **continuous** (nature is analog).
+
+We **sample** them to make them discrete for digital processing.
+
+We can **reconstruct** them back to continuous (if sampled properly).
+
+This bridge is what makes digital audio, video, and communications possible.
+
+> **Nyquist's insight**: Sample at least 2× the highest frequency, and you lose nothing.

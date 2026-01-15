@@ -1,0 +1,150 @@
+.hero {
+  padding: 2.25rem 0 1.5rem;
+}
+
+.title {
+  margin: 0.45rem 0 0;
+  font-size: 2.15rem;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 0.85rem 0 0;
+  color: var(--text-muted);
+  max-width: 70ch;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border: 0.5px solid var(--border);
+  border-left: 3px solid var(--module-accent);
+  border-radius: var(--radius);
+  background: transparent;
+  padding: 1.25rem 1.25rem 1rem;
+  transition: border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+.category {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.moduleName {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.meta {
+  margin-top: 0.6rem;
+  color: var(--text-faint);
+  font-size: 0.92rem;
+}
+
+.progressRow {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: color-mix(in oklab, var(--module-accent) 65%, rgba(255, 255, 255, 0.08));
+}
+
+.progressText {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  width: 3.25rem;
+  text-align: right;
+}
+
+.actions {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--module-accent) 42%, rgba(231, 238, 247, 0.12));
+  background: color-mix(in oklab, var(--module-accent) 18%, rgba(255, 255, 255, 0.01));
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.primary:hover {
+  text-decoration: none;
+  background: color-mix(in oklab, var(--module-accent) 24%, rgba(255, 255, 255, 0.02));
+}
+
+/* Light mode overrides */
+:root[data-theme='light'] .card {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+:root[data-theme='light'] .meta {
+  color: var(--text-faint);
+}
+
+:root[data-theme='light'] .progressTrack {
+  border-color: var(--border);
+  background: var(--panel);
+}
+
+:root[data-theme='light'] .progressText {
+  color: var(--text-muted);
+}
+
+:root[data-theme='light'] .category {
+  color: var(--text-faint);
+}

@@ -1,0 +1,137 @@
+{
+    "conceptId": "signal-sketching-basics",
+    "title": "Signal Sketching Basics Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "The unit step u(t) equals:",
+            "options": [
+                "0 for all t",
+                "1 for t ≥ 0, 0 for t < 0",
+                "1 for all t",
+                "t for t ≥ 0"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The unit step is 0 before t=0 and 1 at and after t=0."
+        },
+        {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "|t| at t = -3 equals:",
+            "options": [
+                "-3",
+                "3",
+                "0",
+                "Undefined"
+            ],
+            "correctAnswer": 1,
+            "explanation": "|−3| = 3. Absolute value gives the magnitude."
+        },
+        {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "A function with |t| in it is:",
+            "options": [
+                "Odd",
+                "Even",
+                "Neither",
+                "Cannot determine"
+            ],
+            "correctAnswer": 1,
+            "explanation": "f(|t|) = f(|-t|), so it's always symmetric (even)."
+        },
+        {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "rect(t/2) is non-zero from:",
+            "options": [
+                "-2 to 2",
+                "-1 to 1",
+                "-0.5 to 0.5",
+                "0 to 2"
+            ],
+            "correctAnswer": 1,
+            "explanation": "rect(t/τ) is 1 for |t| ≤ τ/2. With τ=2, it's from -1 to 1."
+        },
+        {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "To shift x(t) right by 3, use:",
+            "options": [
+                "x(t + 3)",
+                "x(t - 3)",
+                "x(3t)",
+                "x(t/3)"
+            ],
+            "correctAnswer": 1,
+            "explanation": "x(t - t₀) shifts RIGHT by t₀. x(t-3) shifts right by 3."
+        },
+        {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "x(2t) compared to x(t) is:",
+            "options": [
+                "Wider",
+                "Narrower",
+                "Same width",
+                "Shifted"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Multiplying t by a>1 compresses (narrows) the signal."
+        },
+        {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "The triangle function tri(t/T) has base width:",
+            "options": [
+                "T",
+                "2T",
+                "T/2",
+                "4T"
+            ],
+            "correctAnswer": 1,
+            "explanation": "tri(t/T) goes from -T to T, so base width = 2T."
+        },
+        {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "u(t+2) - u(t-2) represents:",
+            "options": [
+                "Step at t=-2",
+                "Step at t=2",
+                "Pulse from -2 to 2",
+                "Pulse from 0 to 4"
+            ],
+            "correctAnswer": 2,
+            "explanation": "u(t+2) turns on at -2, u(t-2) turns on at 2. Difference is pulse from -2 to 2."
+        },
+        {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "At t=0, 1-|t|/T equals:",
+            "options": [
+                "0",
+                "1",
+                "T",
+                "-1"
+            ],
+            "correctAnswer": 1,
+            "explanation": "At t=0: 1 - 0/T = 1 - 0 = 1."
+        },
+        {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "A pulse from t=1 to t=5 with height 2 can be written as:",
+            "options": [
+                "2rect((t-3)/4)",
+                "2rect((t-3)/2)",
+                "2rect(t/4)",
+                "rect((t-3)/4)"
+            ],
+            "correctAnswer": 0,
+            "explanation": "Center at 3, width 4. rect((t-3)/4) gives pulse from 1 to 5. Multiply by 2 for height."
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "conceptId": "energy-and-power-signals",
+    "title": "Energy and Power Signals Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "An energy signal has:",
+            "options": [
+                "Infinite energy",
+                "Finite total energy",
+                "Finite average power",
+                "Zero energy"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Energy signals have finite total energy, calculated by integrating |x(t)|²."
+        },
+        {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "A sinusoid x(t) = Acos(ωt) is:",
+            "options": [
+                "Energy signal",
+                "Power signal",
+                "Both",
+                "Neither"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Sinusoids go on forever, have infinite energy but finite average power = A²/2."
+        },
+        {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "The power of x(t) = 6cos(100t) is:",
+            "options": [
+                "36",
+                "18",
+                "6",
+                "12"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Power of sinusoid = A²/2 = 36/2 = 18."
+        },
+        {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "If a signal has finite energy, its average power is:",
+            "options": [
+                "Also finite",
+                "Zero",
+                "Infinite",
+                "Cannot be determined"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Finite energy spread over infinite time gives zero average power."
+        },
+        {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "The formula for signal energy is:",
+            "options": [
+                "∫x(t)dt",
+                "∫|x(t)|²dt",
+                "(1/2T)∫|x(t)|²dt",
+                "|x(t)|²"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Energy = integral of magnitude squared over all time."
+        },
+        {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "A rectangular pulse of amplitude A and width 2T has energy:",
+            "options": [
+                "2AT",
+                "A²T",
+                "2A²T",
+                "AT²"
+            ],
+            "correctAnswer": 2,
+            "explanation": "E = ∫A²dt from -T to T = A² × 2T = 2A²T."
+        },
+        {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "A DC signal x(t) = 5 has power:",
+            "options": [
+                "5",
+                "25",
+                "2.5",
+                "10"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Power of DC signal = A² = 25."
+        },
+        {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "Can a signal be both energy and power type?",
+            "options": [
+                "Yes, if periodic",
+                "Yes, if finite duration",
+                "No, never",
+                "Only for complex signals"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A signal is either energy OR power, mutually exclusive."
+        },
+        {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "x(t) = e^(-t)u(t) is:",
+            "options": [
+                "Power signal",
+                "Energy signal",
+                "Neither",
+                "Both"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Decaying exponential has finite integral of |x|², hence energy signal."
+        },
+        {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "Why use |x(t)|² instead of x(t)²?",
+            "options": [
+                "Convention only",
+                "For positive results",
+                "To handle complex signals",
+                "Mathematical convenience"
+            ],
+            "correctAnswer": 2,
+            "explanation": "For complex signals, |x|² = x × x* ensures real, positive power values."
+        }
+    ]
+}

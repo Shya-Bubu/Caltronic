@@ -1,0 +1,29 @@
+{
+    "conceptId": "signal-sketching-basics",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "image",
+            "title": "Unit Step Function u(t)",
+            "src": "/course/signals-and-systems/lesson-01/concepts/unit-step.png",
+            "caption": "The switch function: zero for t<0, one for t≥0.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "image",
+            "title": "Rectangular Pulse rect(t)",
+            "src": "/course/signals-and-systems/lesson-01/concepts/rect-pulse.png",
+            "caption": "A box function: value is 1 for a finite duration.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "image",
+            "title": "Triangular Pulse tri(t)",
+            "src": "/course/signals-and-systems/lesson-01/concepts/tri-pulse.png",
+            "caption": "A ramp up and ramp down, centered at zero.",
+            "placement": "intuition"
+        }
+    ]
+}

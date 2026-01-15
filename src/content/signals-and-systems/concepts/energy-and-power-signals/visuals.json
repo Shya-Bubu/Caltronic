@@ -1,0 +1,29 @@
+{
+    "conceptId": "energy-and-power-signals",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "image",
+            "title": "Energy Signal Example",
+            "src": "/course/signals-and-systems/lesson-01/concepts/energy-signal.png",
+            "caption": "A pulse has finite area (energy) and decays to zero.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "image",
+            "title": "Power Signal Example",
+            "src": "/course/signals-and-systems/lesson-01/concepts/power-signal.png",
+            "caption": "A sinusoid extends forever, having infinite energy but finite average power.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "image",
+            "title": "Energy vs Power Analogy",
+            "src": "/course/signals-and-systems/lesson-01/concepts/energy-power-analogy.png",
+            "caption": "Think of energy signals as batteries (finite life) and power signals as grid power (continuous source).",
+            "placement": "intuition"
+        }
+    ]
+}

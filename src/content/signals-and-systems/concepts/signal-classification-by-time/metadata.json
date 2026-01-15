@@ -1,0 +1,13 @@
+{
+    "id": "signal-classification-by-time",
+    "title": "Continuous vs Discrete Signals",
+    "lesson": "lesson-01",
+    "order": 2,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

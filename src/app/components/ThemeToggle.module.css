@@ -1,0 +1,31 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel) 80%, rgba(255, 255, 255, 0.02));
+  color: color-mix(in oklab, var(--text) 70%, var(--muted));
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  color: var(--text);
+  background: color-mix(in oklab, var(--panel) 70%, rgba(255, 255, 255, 0.06));
+}
+
+.icon {
+  opacity: 0.9;
+}
+
+.label {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 520px) {
+  .label {
+    display: none;
+  }
+}
