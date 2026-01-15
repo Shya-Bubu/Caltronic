@@ -51,7 +51,7 @@
 .markdown pre {
   margin: 1rem 0;
   padding: 0.9rem 1rem;
-  background: rgba(15, 22, 32, 0.9);
+  background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: auto;
@@ -61,11 +61,11 @@
   font-size: 0.95em;
 }
 
-.markdown :not(pre) > code {
+.markdown :not(pre)>code {
   padding: 0.12rem 0.35rem;
   border: 1px solid var(--border);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--code-inline-bg);
 }
 
 .markdown hr {

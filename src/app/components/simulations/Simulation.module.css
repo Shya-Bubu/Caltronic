@@ -1,68 +1,71 @@
 .simulation {
-    background: linear-gradient(180deg, #0f0f1a 0%, #14141f 100%);
-    border: 1px solid #2a2a3a;
+    background: var(--sim-bg);
+    border: 1px solid var(--sim-border);
     border-radius: 12px;
-    padding: 1.5rem;
-    margin: 2rem 0;
+    padding: 1rem;
+    margin: 1.5rem 0;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .title {
-    color: #fff;
-    font-size: 1.25rem;
+    color: var(--sim-text-strong);
+    font-size: 1.1rem;
     font-weight: 600;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.25rem 0;
 }
 
 .subtitle {
-    color: #888;
-    font-size: 0.9rem;
+    color: var(--sim-text);
+    font-size: 0.85rem;
     margin: 0;
 }
 
-/* Controls */
+/* Controls - compact horizontal layout */
 .controls {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: var(--sim-panel);
     border-radius: 8px;
 }
 
 .sliderGroup {
+    flex: 1;
+    min-width: 180px;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.35rem;
 }
 
 .label {
-    color: #ccc;
-    font-size: 0.9rem;
+    color: var(--sim-text);
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    flex-wrap: wrap;
 }
 
 .value {
-    color: #00ff88;
+    color: var(--sim-accent);
     font-weight: 600;
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 .warning {
-    color: #ff4444;
+    color: var(--sim-warning);
     font-weight: 600;
     animation: pulse 1s ease-in-out infinite;
 }
 
 .ok {
-    color: #00ff88;
+    color: var(--sim-accent);
 }
 
 @keyframes pulse {
@@ -81,9 +84,9 @@
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 6px;
+    height: 5px;
     border-radius: 3px;
-    background: #333;
+    background: var(--border);
     outline: none;
     cursor: pointer;
 }
@@ -91,82 +94,82 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background: #00ff88;
+    background: var(--sim-accent);
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    box-shadow: 0 0 6px var(--sim-accent);
     transition: transform 0.15s ease;
 }
 
 .slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 .slider::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background: #00ff88;
+    background: var(--sim-accent);
     cursor: pointer;
     border: none;
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    box-shadow: 0 0 6px var(--sim-accent);
 }
 
-/* Info panel */
+/* Info panel - compact horizontal */
 .info {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    background: rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: var(--sim-panel);
     border-radius: 6px;
 }
 
 .infoItem {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
 }
 
 .infoLabel {
-    color: #666;
-    font-size: 0.8rem;
+    color: var(--text-faint);
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 }
 
 .infoValue {
-    color: #00ccff;
+    color: var(--sim-accent-alt);
     font-weight: 600;
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
-/* Insight box */
+/* Insight box - compact */
 .insight {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: rgba(0, 255, 136, 0.05);
-    border: 1px solid rgba(0, 255, 136, 0.2);
-    border-radius: 8px;
-    color: #ccc;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    background: color-mix(in oklab, var(--sim-accent) 8%, transparent);
+    border: 1px solid color-mix(in oklab, var(--sim-accent) 25%, transparent);
+    border-radius: 6px;
+    color: var(--sim-text);
+    font-size: 0.8rem;
+    line-height: 1.4;
 }
 
 .insight strong {
-    color: #fff;
+    color: var(--sim-text-strong);
 }
 
 /* Two-column layout for multiple plots */
 .plotGrid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 @media (min-width: 900px) {
@@ -178,69 +181,70 @@
 /* Formula display */
 .formula {
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 0.75rem 1rem;
+    background: var(--sim-panel);
+    padding: 0.5rem 0.75rem;
     border-radius: 6px;
-    color: #ffcc00;
+    color: var(--sim-formula);
     text-align: center;
-    margin: 1rem 0;
-    border-left: 3px solid #ffcc00;
+    margin: 0.5rem 0;
+    border-left: 3px solid var(--sim-formula);
+    font-size: 0.9rem;
 }
 
 /* Legend */
 .legend {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
 }
 
 .legendItem {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    color: #aaa;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--sim-text);
 }
 
 .legendDot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
 }
 
 .legendLine {
-    width: 24px;
+    width: 20px;
     height: 3px;
     border-radius: 2px;
 }
 
 /* Select dropdown */
 .select {
-    background: #1a1a2e;
-    color: #fff;
-    border: 1px solid #333;
+    background: var(--sim-bg-flat);
+    color: var(--sim-text-strong);
+    border: 1px solid var(--sim-border);
     border-radius: 6px;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
     cursor: pointer;
     outline: none;
     width: 100%;
 }
 
 .select:hover {
-    border-color: #00ff88;
+    border-color: var(--sim-accent);
 }
 
 .select:focus {
-    border-color: #00ff88;
-    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+    border-color: var(--sim-accent);
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--sim-accent) 25%, transparent);
 }
 
 .select option {
-    background: #1a1a2e;
-    color: #fff;
+    background: var(--sim-bg-flat);
+    color: var(--sim-text-strong);
 }
 
 /* Block Diagram */
@@ -248,8 +252,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    margin: 1.5rem 0;
+    gap: 0.4rem;
+    margin: 0.75rem 0;
     flex-wrap: wrap;
 }
 
@@ -258,39 +262,40 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    min-width: 80px;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    min-width: 60px;
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.85rem;
 }
 
 .inputBlock {
-    background: rgba(0, 204, 255, 0.1);
-    border: 2px solid #00ccff;
-    color: #00ccff;
+    background: color-mix(in oklab, var(--sim-accent-alt) 12%, transparent);
+    border: 1.5px solid var(--sim-accent-alt);
+    color: var(--sim-accent-alt);
 }
 
 .systemBlock {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid #888;
-    color: #fff;
+    background: var(--sim-panel);
+    border: 1.5px solid var(--border-strong);
+    color: var(--sim-text-strong);
 }
 
 .outputBlock {
-    background: rgba(255, 136, 68, 0.1);
-    border: 2px solid #ff8844;
+    background: color-mix(in oklab, #ff8844 12%, transparent);
+    border: 1.5px solid #ff8844;
     color: #ff8844;
 }
 
 .blockLabel {
-    font-size: 0.7rem;
-    color: #666;
-    margin-top: 0.25rem;
+    font-size: 0.6rem;
+    color: var(--text-faint);
+    margin-top: 0.2rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 }
 
 .arrow {
-    font-size: 1.5rem;
-    color: #444;
+    font-size: 1.25rem;
+    color: var(--text-faint);
 }

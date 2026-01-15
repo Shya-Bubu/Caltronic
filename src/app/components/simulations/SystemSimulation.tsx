@@ -176,7 +176,7 @@ export default function SystemSimulation() {
                 title="System Input and Output"
                 xLabel="Time (s)"
                 yLabel="Amplitude"
-                height={350}
+                height={200}
                 xDomain={[0, 2]}
             />
 

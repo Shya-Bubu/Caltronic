@@ -1,25 +1,25 @@
 .container {
-    background: linear-gradient(180deg, #0d0d1a 0%, #12121f 100%);
-    border: 1px solid #2a2a3a;
+    background: var(--sim-bg);
+    border: 1px solid var(--sim-border);
     border-radius: 8px;
-    padding: 1rem;
-    margin: 1.5rem 0;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
 }
 
 .title {
-    color: #888;
-    font-size: 0.85rem;
+    color: var(--text-faint);
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
     text-align: center;
 }
 
-/* Recharts overrides for dark engineering theme */
+/* Recharts overrides for theming */
 .container :global(.recharts-cartesian-grid-horizontal line),
 .container :global(.recharts-cartesian-grid-vertical line) {
-    stroke: rgba(255, 255, 255, 0.05);
+    stroke: var(--border);
 }
 
 .container :global(.recharts-tooltip-wrapper) {
@@ -27,16 +27,17 @@
 }
 
 .container :global(.recharts-default-tooltip) {
-    background: #1a1a2e !important;
-    border-color: #333 !important;
+    background: var(--sim-bg-flat) !important;
+    border-color: var(--sim-border) !important;
+    color: var(--sim-text) !important;
 }
 
-/* Glow effect on lines */
+/* Glow effect on lines - subtle */
 .container :global(.recharts-line-curve) {
-    filter: drop-shadow(0 0 3px currentColor);
+    filter: drop-shadow(0 0 2px currentColor);
 }
 
 /* Scatter points glow */
 .container :global(.recharts-scatter-symbol) {
-    filter: drop-shadow(0 0 4px currentColor);
+    filter: drop-shadow(0 0 3px currentColor);
 }

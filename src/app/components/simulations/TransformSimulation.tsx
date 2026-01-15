@@ -178,7 +178,7 @@ export default function TransformSimulation() {
                 title="Original vs Transformed Signal"
                 xLabel="Time (t)"
                 yLabel="Amplitude"
-                height={350}
+                height={200}
                 xDomain={[-3, 3]}
                 yDomain={[-0.5, 1.5]}
             />

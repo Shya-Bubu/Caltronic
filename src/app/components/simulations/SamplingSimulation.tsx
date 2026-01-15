@@ -172,7 +172,7 @@ export default function SamplingSimulation() {
                 title="Continuous Signal with Discrete Samples"
                 xLabel="Time (s)"
                 yLabel="Amplitude"
-                height={350}
+                height={200}
                 xDomain={[0, 1]}
                 yDomain={[-1.5, 1.5]}
             />

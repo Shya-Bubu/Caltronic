@@ -73,6 +73,26 @@ h6 {
     --border: rgba(231, 238, 247, 0.10);
     --border-strong: rgba(231, 238, 247, 0.18);
 
+    /* Navigation */
+    --nav-bg: rgba(11, 15, 20, 0.92);
+    --nav-border: rgba(231, 238, 247, 0.08);
+
+    /* Simulation theming */
+    --sim-bg: linear-gradient(180deg, #0f0f1a 0%, #14141f 100%);
+    --sim-bg-flat: #0f0f1a;
+    --sim-border: #2a2a3a;
+    --sim-panel: rgba(0, 0, 0, 0.3);
+    --sim-text: #ccc;
+    --sim-text-strong: #fff;
+    --sim-accent: #00ff88;
+    --sim-accent-alt: #00ccff;
+    --sim-warning: #ff4444;
+    --sim-formula: #ffcc00;
+
+    /* Code blocks */
+    --code-bg: rgba(15, 22, 32, 0.9);
+    --code-inline-bg: rgba(255, 255, 255, 0.04);
+
     /* Typography scale */
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
@@ -100,6 +120,26 @@ h6 {
     --text-faint: rgba(11, 19, 32, 0.45);
     --border: rgba(11, 19, 32, 0.10);
     --border-strong: rgba(11, 19, 32, 0.18);
+
+    /* Navigation */
+    --nav-bg: rgba(255, 255, 255, 0.92);
+    --nav-border: rgba(11, 19, 32, 0.08);
+
+    /* Simulation theming - light mode */
+    --sim-bg: linear-gradient(180deg, #f4f6f9 0%, #eef1f5 100%);
+    --sim-bg-flat: #f4f6f9;
+    --sim-border: #d0d5dd;
+    --sim-panel: rgba(0, 0, 0, 0.04);
+    --sim-text: #444;
+    --sim-text-strong: #111;
+    --sim-accent: #00aa66;
+    --sim-accent-alt: #0088cc;
+    --sim-warning: #cc3333;
+    --sim-formula: #996600;
+
+    /* Code blocks */
+    --code-bg: rgba(0, 0, 0, 0.04);
+    --code-inline-bg: rgba(0, 0, 0, 0.06);
 }
 
 /* ============================================

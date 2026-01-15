@@ -68,30 +68,46 @@ function ConceptSidebar({
     flow,
     mode,
     setMode,
+    collapsed,
+    onToggle,
 }: {
     concepts: LoadedConcept[];
     flow: UseLectureFlowResult;
     mode: LectureMode;
     setMode: (m: LectureMode) => void;
+    collapsed: boolean;
+    onToggle: () => void;
 }) {
     const isOverview = mode === 'overview';
     const isSynthesis = mode === 'synthesis';
     const isResources = mode === 'resources';
 
     return (
-        <aside className={styles.sidebar} aria-label="Concept list">
+        <aside className={`${styles.sidebar} ${collapsed ? styles.sidebarCollapsed : ''}`} aria-label="Concept list">
             <div className={styles.sidebarHeader}>
-                <div className={styles.sidebarTitle}>Concepts</div>
-                <div className={styles.sidebarMeta}>
-                    {mode === 'concepts' ? (
-                        <>
-                            {flow.currentIndex + 1} / {flow.totalConcepts}
-                            {flow.isLectureComplete ? ' • Complete' : ''}
-                        </>
-                    ) : (
-                        <>Lecture • {flow.totalConcepts} concepts</>
-                    )}
-                </div>
+                <button
+                    type="button"
+                    className={styles.collapseBtn}
+                    onClick={onToggle}
+                    title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                >
+                    {collapsed ? '→' : '←'}
+                </button>
+                {!collapsed && (
+                    <>
+                        <div className={styles.sidebarTitle}>Concepts</div>
+                        <div className={styles.sidebarMeta}>
+                            {mode === 'concepts' ? (
+                                <>
+                                    {flow.currentIndex + 1} / {flow.totalConcepts}
+                                    {flow.isLectureComplete ? ' • Complete' : ''}
+                                </>
+                            ) : (
+                                <>Lecture • {flow.totalConcepts} concepts</>
+                            )}
+                        </div>
+                    </>
+                )}
             </div>
 
             <ol className={styles.conceptList}>
@@ -111,7 +127,7 @@ function ConceptSidebar({
                         />
                         <div className={styles.conceptText}>
                             <div className={styles.conceptIndex}>—</div>
-                            <div className={styles.conceptTitle}>Overview</div>
+                            {!collapsed && <div className={styles.conceptTitle}>Overview</div>}
                         </div>
                     </button>
                 </li>
@@ -127,6 +143,7 @@ function ConceptSidebar({
                                 className={[
                                     styles.conceptRow,
                                     isActive ? styles.conceptRowActive : '',
+                                    collapsed ? styles.conceptRowCollapsed : '',
                                 ]
                                     .filter(Boolean)
                                     .join(' ')}
@@ -134,6 +151,7 @@ function ConceptSidebar({
                                     setMode('concepts');
                                     flow.goToIndex(index);
                                 }}
+                                title={collapsed ? concept.title : undefined}
                             >
                                 <div
                                     className={[
@@ -147,8 +165,8 @@ function ConceptSidebar({
                                 />
 
                                 <div className={styles.conceptText}>
-                                    <div className={styles.conceptIndex}>{index + 1}.</div>
-                                    <div className={styles.conceptTitle}>{concept.title}</div>
+                                    <div className={styles.conceptIndex}>{index + 1}</div>
+                                    {!collapsed && <div className={styles.conceptTitle}>{concept.title}</div>}
                                 </div>
                             </button>
                         </li>
@@ -356,6 +374,7 @@ export default function LectureClient({
 }) {
     const flow = useLectureFlow({ lecture, concepts });
     const [mode, setMode] = useState<LectureMode>('overview');
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
     const storageKey = useMemo(() => {
         return `caltronic:lecture:${lecture.id}:completion:v1`;
@@ -434,8 +453,15 @@ export default function LectureClient({
                 </div>
             </header>
 
-            <div className={styles.shell}>
-                <ConceptSidebar concepts={concepts} flow={flow} mode={mode} setMode={setMode} />
+            <div className={`${styles.shell} ${sidebarCollapsed ? styles.shellCollapsed : ''}`}>
+                <ConceptSidebar
+                    concepts={concepts}
+                    flow={flow}
+                    mode={mode}
+                    setMode={setMode}
+                    collapsed={sidebarCollapsed}
+                    onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
+                />
                 {mode === 'overview' ? (
                     <LectureEdgeScreen
                         title="Overview"

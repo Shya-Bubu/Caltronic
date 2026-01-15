@@ -167,7 +167,7 @@ export default function EnergyPowerSimulation() {
                 title={`${signalType === 'pulse' ? 'Rectangular Pulse' : signalType === 'sinusoid' ? 'Sinusoidal Signal' : 'Exponential Decay'}`}
                 xLabel="Time (s)"
                 yLabel="Amplitude"
-                height={350}
+                height={200}
             />
 
             <div className={styles.formula}>

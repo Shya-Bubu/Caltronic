@@ -127,7 +127,7 @@ export default function NoiseSimulation() {
                 title="Deterministic Signal with Random Noise"
                 xLabel="Time (s)"
                 yLabel="Amplitude"
-                height={350}
+                height={200}
                 yDomain={[-3, 3]}
             />
 
