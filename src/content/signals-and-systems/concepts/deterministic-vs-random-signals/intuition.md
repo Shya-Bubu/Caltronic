@@ -16,11 +16,9 @@
 
 ---
 
-## 🖼️ Visual: Deterministic vs Random
+## Deterministic vs Random
 
-![Deterministic vs Random Comparison](/course/signals-and-systems/lesson-01/concepts/deterministic-random.png)
-
-Top: A deterministic signal (predictable). Bottom: A random signal (containing noise).
+The interactive simulation above shows how noise affects a deterministic signal. Adjust the noise level to see the difference.
 
 ---
 

@@ -16,17 +16,12 @@
 
 ---
 
-## 🖼️ Visual: Energy vs Power Signals
+## Energy vs Power Signals
 
-![Energy Signal Example](/course/signals-and-systems/lesson-01/concepts/energy-signal.png)
+Use the interactive simulation above to explore different signal types and see how their energy and power are calculated.
 
-A pulse has finite area (energy) and decays to zero.
-
-![Power Signal Example](/course/signals-and-systems/lesson-01/concepts/power-signal.png)
-
-A sinusoid extends forever, having infinite energy but finite average power.
-
-![Energy vs Power Analogy](/course/signals-and-systems/lesson-01/concepts/energy-power-analogy.png)
+- **Energy signals**: A pulse has finite area (energy) and decays to zero
+- **Power signals**: A sinusoid extends forever, having infinite energy but finite average power
 
 Think of energy signals as batteries (finite life) and power signals as grid power (continuous source).
 

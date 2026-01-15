@@ -16,11 +16,9 @@
 
 ---
 
-## 🖼️ Visual: The System Model
+## The System Model
 
-![System Input-Output Model](/course/signals-and-systems/lesson-01/concepts/signal-system-block.png)
-
-**The fundamental model**: Every system transforms input x(t) into output y(t).
+**The fundamental model**: Every system transforms input x(t) into output y(t). The interactive simulation above demonstrates this.
 
 ---
 
@@ -38,9 +36,7 @@ That's it. Simple, yet profound.
 
 ---
 
-## 🖼️ Visual: Real-World Signals
-
-![Real World Signals](/course/signals-and-systems/lesson-01/concepts/real-world-signals.png)
+## Real-World Signals
 
 Signals appear in biology (ECG), economics (stocks), and acoustics (audio). All can be modeled mathematically.
 
@@ -72,9 +68,7 @@ Input Signal → [SYSTEM] → Output Signal
 
 ---
 
-## 🖼️ Visual: Audio Signal Chain
-
-![Audio Signal Chain](/course/signals-and-systems/lesson-01/concepts/audio-chain.png)
+## Audio Signal Chain
 
 A classic engineering system: Microphone (Transducer) → Amplifier (System) → Speaker (Transducer).
 

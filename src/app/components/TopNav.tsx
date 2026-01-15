@@ -28,13 +28,7 @@ export default function TopNav({
         </div>
 
         <nav className={styles.right} aria-label="Top navigation">
-          {mode === 'default' ? (
-            <ThemeToggle />
-          ) : (
-            <Link href={crumbs[1]?.href ?? '/'} className={styles.navLink}>
-              Back
-            </Link>
-          )}
+          <ThemeToggle />
         </nav>
       </div>
     </header>
