@@ -10,6 +10,7 @@ import MarkdownView from './components/MarkdownView';
 import QuizView from './components/QuizView';
 import FlashcardView from './components/FlashcardView';
 import Tabs, { type TabItem } from './components/Tabs';
+import SimulationEmbed from './components/SimulationEmbed';
 import styles from './LectureClient.module.css';
 
 type ViewKey =
@@ -200,6 +201,15 @@ function ConceptSidebar({
     );
 }
 
+// Map concept IDs to their respective simulation IDs
+const CONCEPT_SIMULATION_MAP: Record<string, string> = {
+    'signal-and-system-foundations': 'system',
+    'signal-classification-by-time': 'sampling',
+    'deterministic-vs-random-signals': 'noise',
+    'energy-and-power-signals': 'energy-power',
+    'signal-sketching-basics': 'transform',
+};
+
 function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
     const concept = flow.currentConcept;
     const [activeView, setActiveView] = useState<ViewKey>('intuition');
@@ -222,6 +232,9 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
         if (activeView === 'exam') return concept.layers.exam;
         return '';
     }, [concept, activeView]);
+
+    // Get simulation ID for this concept
+    const simulationId = concept ? CONCEPT_SIMULATION_MAP[concept.id] : undefined;
 
     if (!concept) return null;
 
@@ -292,7 +305,13 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
                     ) : activeView === 'flashcards' ? (
                         <FlashcardView deck={concept.layers.flashcards} />
                     ) : (
-                        <MarkdownView markdown={layerMarkdown} visuals={concept.layers.visuals} />
+                        <>
+                            {/* Show simulation at top of Intuition view */}
+                            {activeView === 'intuition' && simulationId && (
+                                <SimulationEmbed simulationId={simulationId} />
+                            )}
+                            <MarkdownView markdown={layerMarkdown} visuals={concept.layers.visuals} />
+                        </>
                     )}
                 </article>
             </div>
