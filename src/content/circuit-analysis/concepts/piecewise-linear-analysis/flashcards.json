@@ -1,0 +1,77 @@
+{
+    "id": "piecewise-linear-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is PWL approximation?",
+            "back": "Piecewise-Linear: approximate nonlinear curves with straight line segments.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Concave resistor parameters",
+            "back": "G = slope after breakpoint\nE = breakpoint voltage\ni = G(v - E) for v > E, else 0",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Convex resistor parameters",
+            "back": "R = slope after breakpoint\nI0 = breakpoint current\nv = R(i - I0) for i > I0, else 0",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Synthesis of v-controlled PWL",
+            "back": "Current source + linear resistor + concave resistors in parallel.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Synthesis of i-controlled PWL",
+            "back": "Voltage source + linear resistor + convex resistors in series.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Number of breakpoints for (n+1) segments",
+            "back": "n breakpoints.\nEach breakpoint separates two segments.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Zener diode PWL model",
+            "back": "3 segments:\n• Forward: v ≈ VF, i ≥ 0\n• Reverse: i ≈ 0, -VZ < v < VF\n• Breakdown: v ≈ -VZ, i < 0",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Advantage of PWL",
+            "back": "Use linear analysis techniques in each region.\nSimplifies computer simulation.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "PWL accuracy trade-off",
+            "back": "More segments = better accuracy.\nMore segments = more complexity.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Concave vs Convex resistor",
+            "back": "Concave: voltage-controlled\nConvex: current-controlled\nThey are duals.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f11",
+            "front": "General PWL formula (v-controlled)",
+            "back": "i = I0 + m0·v + Σ mk·max(0, v - Ek)\nWhere Ek are breakpoints.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f12",
+            "front": "When is PWL preferred over exponential model?",
+            "back": "When speed is more important than accuracy.\nFor circuit topologies with many operating regions.",
+            "difficultyLevel": 3
+        }
+    ]
+}

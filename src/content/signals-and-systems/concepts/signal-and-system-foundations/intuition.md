@@ -1,125 +1,171 @@
 # What Are Signals and Systems?
 
-> **Narrative thread**: This concept teaches us that signals and systems are the universal language of engineering — you cannot analyze any circuit, control system, or communication channel without them.
-
-> The foundation of everything in electrical engineering.
+> **Narrative thread:** This is where your engineering journey truly begins. Signals and systems form the universal language of electrical engineering — every circuit, every communication system, every control loop uses these concepts.
 
 ---
 
-## 📖 Resources
+## FROM BASICS: Connecting to What You Know
 
-| Type | Resource |
-|------|----------|
-| 📺 Video | [3Blue1Brown: But what is a Fourier series?](https://www.youtube.com/watch?v=r6sGWTCMz2k) |
-| 📚 Textbook | Oppenheim & Willsky, Chapter 1 |
-| 🎓 Lectures | University of Peradeniya EE2020 Week 1-2 |
+Before we dive into formal definitions, let's connect to what you already understand from A-Level physics and maths.
 
----
+Think about a simple experiment: You drop a ball and record its height over time. That recording — height as a function of time h(t) — is a **signal**. 
 
-## The System Model
+Now think about what gravity does to the ball. Gravity takes the initial conditions (position, velocity) and produces a predictable motion. Gravity is acting as a **system** that transforms the input (initial state) into an output (trajectory).
 
-**The fundamental model**: Every system transforms input x(t) into output y(t). The interactive simulation above demonstrates this.
+**That's the essence:**
+- **Signal** = Any quantity that changes with time (or space)
+- **System** = Anything that transforms one signal into another
 
 ---
 
-Before we dive into equations, let's ask the most basic question: **What exactly is a signal?**
+## THE BIG IDEA: The Universal Engineering Framework
 
-Think about it. Right now, as you read this:
-- Light signals are hitting your eyes
-- If you're listening to music, sound signals are reaching your ears
-- Your heart is generating electrical signals
-- The temperature around you is a signal
+[[visual:v1]]
 
-**A signal is any quantity that varies with one or more independent variables.**
+The block diagram above captures the most important concept in all of engineering:
 
-That's it. Simple, yet profound.
+$$\boxed{x(t) \xrightarrow{\text{System } H} y(t)}$$
+
+- **x(t)** = Input signal (what goes in)
+- **H** = The system (what transforms it)
+- **y(t)** = Output signal (what comes out)
+
+This simple model applies to:
+- Amplifiers (input voltage → output voltage)
+- Filters (noisy signal → clean signal)
+- Control systems (error → correction)
+- Communication channels (transmitted → received)
+
+**Master this model, and you've mastered the framework for all of EEE.**
 
 ---
 
-## Real-World Signals
+## BUILDING UNDERSTANDING: What Exactly Is a Signal?
 
-Signals appear in biology (ECG), economics (stocks), and acoustics (audio). All can be modeled mathematically.
+[[visual:v2]]
 
----
+The waveform above shows a **continuous-time sinusoidal signal** — the most fundamental signal in engineering. Notice how the amplitude varies smoothly with time.
 
-## Real-World Signals Are Everywhere
+### Formal Definition
 
-| Signal Type | Example | Physical Property |
-|-------------|---------|-------------------|
-| **Acoustic** | Your voice | Air pressure variations |
-| **Electrical** | Power line voltage | Voltage over time |
-| **Optical** | Video feed | Light intensity |
-| **Biological** | ECG | Heart's electrical activity |
-| **Economic** | Stock price | Value over time |
+> **A signal is any physical quantity that carries information and varies with one or more independent variables.**
 
-The moment you realize signals are everywhere, engineering starts to make sense.
+The independent variable is usually **time** (t), but can also be:
+- **Space** (x, y, z) — like an image
+- **Frequency** (f) — like a spectrum
+- **Both** — like a video
+
+### Real-World Examples
+
+| Signal Type | Physical Quantity | Independent Variable |
+|------------|-------------------|---------------------|
+| Audio | Air pressure | Time |
+| ECG | Heart voltage | Time |
+| Image | Light intensity | Space (x, y) |
+| Video | Light intensity | Time + Space |
+| Temperature | Thermal energy | Time + Space |
+
+The moment you realize **signals are everywhere**, engineering starts making deep sense.
 
 ---
 
 ## What About Systems?
 
-Now, if signals are the "nouns" of engineering, **systems are the verbs**.
-
-A system takes an input signal and produces an output signal:
-
-```
-Input Signal → [SYSTEM] → Output Signal
-```
-
----
-
-## Audio Signal Chain
-
-A classic engineering system: Microphone (Transducer) → Amplifier (System) → Speaker (Transducer).
-
----
+If signals are the **nouns** of engineering (what we describe), systems are the **verbs** (what we do).
 
 ### The Audio Chain Example
 
-Think about when you speak into a microphone:
+Consider what happens when you speak into a microphone:
 
-1. **Your voice** (acoustic signal) → **Microphone** (system) → **Electrical signal**
-2. **Electrical signal** → **Amplifier** (system) → **Louder electrical signal**
-3. **Electrical signal** → **Speaker** (system) → **Louder acoustic signal**
+```
+Voice (acoustic) → [Microphone] → Electrical signal
+                        ↓
+Electrical signal → [Amplifier] → Louder electrical signal
+                        ↓
+Louder signal → [Speaker] → Louder sound (acoustic)
+```
 
-Three systems, each transforming one signal into another.
+**Three systems in a row**, each transforming one type of signal into another.
+
+### Why the Split Matters
+
+You might wonder: why study signals AND systems separately?
+
+Here's the deep insight: **They're defined in terms of each other.**
+
+- You can't measure a signal without a system (your oscilloscope is a system!)
+- A system without signals is just a box doing nothing
+
+This is why the course is called **"Signals AND Systems"** — the two are inseparable.
 
 ---
 
-## Why This Split Matters
+## The Mathematical Framework
 
-You might wonder: why study signals AND systems? Can't we just study one?
+Now let's introduce the formal notation you'll use throughout this course.
 
-Here's the insight: **They're inseparable.**
+### Continuous-Time Signals
 
-- A signal without a system to measure it is unknowable
-- A system without signals is just a box doing nothing
+$$x(t) \quad \text{where } t \in \mathbb{R}$$
 
-This is why the course is called "Signals AND Systems" — not one or the other.
+The signal value exists for **every** instant in the continuum of time.
+
+### Discrete-Time Signals
+
+$$x[n] \quad \text{where } n \in \mathbb{Z}$$
+
+The signal value exists only at **integer** time indices.
+
+### System as Transformation
+
+We write a system as an operator **H** that maps input to output:
+
+$$y(t) = H\{x(t)\}$$
+
+Or more compactly:
+
+$$y = H(x)$$
 
 ---
 
 ## The Vocabulary You Need
 
-| Term | Meaning |
-|------|---------|
-| **Signal** | Physical quantity varying with time (or space) |
-| **System** | Device/process that transforms signals |
-| **Input** | Signal going into a system |
-| **Output** | Signal coming out of a system |
-| **Transducer** | System that converts one signal type to another |
+| Term | Definition | Example |
+|------|------------|---------|
+| **Signal** | Quantity varying with independent variable | Voltage v(t) |
+| **System** | Device that transforms signals | Amplifier |
+| **Input** | Signal entering a system | Microphone output |
+| **Output** | Signal leaving a system | Speaker input |
+| **Transducer** | System converting signal types | Microphone, sensor |
+| **Excitation** | Another word for input | Same as input |
+| **Response** | Another word for output | Same as output |
 
 ---
 
-## One More Thing
+## Why This Foundation Matters
 
-This might sound abstract now, but here's why it matters:
+> **Every single topic in EE uses this framework.**
 
-> **Every single topic in EE** — circuits, control, communications, power, DSP — uses this framework.
+| When you study... | You're analyzing... |
+|-------------------|---------------------|
+| Filters | Systems that select frequencies |
+| Amplifiers | Systems that scale magnitude |
+| Control | Systems with feedback loops |
+| Communications | Signals through noisy channels |
+| DSP | Discrete systems on digital signals |
 
-When you analyze a filter, you're studying a system.  
-When you process audio, you're manipulating a signal.  
-When you design a controller, you're shaping the input-output relationship.
+**The signal-system paradigm is the unifying language of electrical engineering.**
 
-**Master this vocabulary, and you've mastered the language of engineering.**
+---
 
+## Key Takeaways
+
+1. **Signals** are functions that carry information (usually vs. time)
+2. **Systems** are operators that transform signals
+3. The box model **x(t) → H → y(t)** is universal
+4. Continuous uses x(t), Discrete uses x[n]
+5. This framework underlies ALL of EEE
+
+---
+
+*Next: We'll classify signals by their time properties — continuous vs. discrete, periodic vs. aperiodic.*

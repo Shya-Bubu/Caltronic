@@ -58,20 +58,20 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
 
         {hasLectures ? (
           <div className={styles.lectures}>
-            {lectureCards.map((card) => (
+            {lectureCards.map((card, index) => (
               <article key={card.link.id} className={styles.lectureCard}>
-                <div className={styles.lectureTop}>
-                  <div>
-                    <div className={styles.lectureTitle}>{card.link.title}</div>
-                    <div className={styles.lectureMeta}>
-                      {card.conceptCount} concepts
-                    </div>
-                  </div>
-                  <div className={styles.lectureProgress}>
-                    <LectureProgress lectureId={card.lectureId} conceptCount={card.conceptCount} />
+                <div className={styles.lectureNumber}>
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+                <div className={styles.lectureInfo}>
+                  <div className={styles.lectureTitle}>{card.link.title}</div>
+                  <div className={styles.lectureMeta}>
+                    {card.conceptCount} concepts
                   </div>
                 </div>
-
+                <div className={styles.lectureProgress}>
+                  <LectureProgress lectureId={card.lectureId} conceptCount={card.conceptCount} />
+                </div>
                 <div className={styles.lectureActions}>
                   <Link href={card.link.path} className={styles.primary}>
                     Open

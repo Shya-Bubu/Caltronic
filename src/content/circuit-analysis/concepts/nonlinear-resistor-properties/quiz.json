@@ -1,0 +1,149 @@
+{
+    "id": "nonlinear-resistor-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is a time-varying resistor?",
+            "options": [
+                "R changes with current",
+                "R changes with time",
+                "R is always constant",
+                "R depends on frequency"
+            ],
+            "correctAnswer": "R changes with time",
+            "explanation": "A time-varying resistor has R = R(t), where resistance changes as a function of time."
+        },
+        {
+            "id": "q2",
+            "prompt": "A nonlinear resistor with sinusoidal input can produce:",
+            "options": [
+                "Only the fundamental frequency",
+                "Harmonics (multiples of input frequency)",
+                "DC only",
+                "No output"
+            ],
+            "correctAnswer": "Harmonics (multiples of input frequency)",
+            "explanation": "Nonlinear characteristics distort sinusoidal inputs, creating harmonic content."
+        },
+        {
+            "id": "q3",
+            "prompt": "The bilateral property requires:",
+            "options": [
+                "f(v,i) = f(-v,-i)",
+                "R > 0",
+                "Linear characteristic",
+                "Passive behavior"
+            ],
+            "correctAnswer": "f(v,i) = f(-v,-i)",
+            "explanation": "Bilateral means the characteristic is symmetric about the origin."
+        },
+        {
+            "id": "q4",
+            "prompt": "A time-varying resistor with G(t) = Ga + Gb·cos(ωt) driven by v(t) = Vm·cos(ω1·t) produces output at:",
+            "options": [
+                "Only ω1",
+                "ω, ω1, ω±ω1",
+                "Only DC",
+                "ω1 and 2ω1"
+            ],
+            "correctAnswer": "ω, ω1, ω±ω1",
+            "explanation": "Multiplication of two sinusoids produces sum and difference frequencies."
+        },
+        {
+            "id": "q5",
+            "prompt": "Time-varying resistors are used in:",
+            "options": [
+                "DC power supplies",
+                "Modulation circuits",
+                "Ground connections",
+                "Fuses"
+            ],
+            "correctAnswer": "Modulation circuits",
+            "explanation": "The frequency-shifting property is the basis for AM and other modulation schemes."
+        },
+        {
+            "id": "q6",
+            "prompt": "A linear resistor is always:",
+            "options": [
+                "Bilateral only",
+                "Time-invariant only",
+                "Both bilateral and time-invariant",
+                "Neither"
+            ],
+            "correctAnswer": "Both bilateral and time-invariant",
+            "explanation": "Standard linear resistors (R = constant) are symmetric and don't change with time."
+        },
+        {
+            "id": "q7",
+            "prompt": "Nonlinear resistors can be used as:",
+            "options": [
+                "Frequency multipliers",
+                "Perfect filters",
+                "Ideal amplifiers",
+                "Lossless elements"
+            ],
+            "correctAnswer": "Frequency multipliers",
+            "explanation": "Harmonic generation in nonlinear resistors enables frequency multiplication."
+        },
+        {
+            "id": "q8",
+            "prompt": "A resistor is nonlinear if:",
+            "options": [
+                "v = Ri with constant R",
+                "v-i relationship is not a straight line through origin",
+                "R < 0",
+                "It's an open circuit"
+            ],
+            "correctAnswer": "v-i relationship is not a straight line through origin",
+            "explanation": "Nonlinear means the relationship between v and i is not proportional."
+        },
+        {
+            "id": "q9",
+            "prompt": "What distinguishes a time-varying resistor from a nonlinear one?",
+            "options": [
+                "Nonlinear: R depends on v or i; Time-varying: R depends on t",
+                "They are the same",
+                "Time-varying is always linear",
+                "Nonlinear is always passive"
+            ],
+            "correctAnswer": "Nonlinear: R depends on v or i; Time-varying: R depends on t",
+            "explanation": "Key distinction is what the resistance depends on."
+        },
+        {
+            "id": "q10",
+            "prompt": "A photoresistor (LDR) is best modeled as:",
+            "options": [
+                "Linear resistor",
+                "Time-varying resistor",
+                "Nonlinear resistor",
+                "Open circuit"
+            ],
+            "correctAnswer": "Time-varying resistor",
+            "explanation": "LDR resistance changes with light intensity, which is an external time-varying parameter."
+        },
+        {
+            "id": "q11",
+            "prompt": "Thermal voltage VT increases with:",
+            "options": [
+                "Decreasing temperature",
+                "Increasing temperature",
+                "Current",
+                "Voltage"
+            ],
+            "correctAnswer": "Increasing temperature",
+            "explanation": "VT = kT/q, so it's proportional to absolute temperature."
+        },
+        {
+            "id": "q12",
+            "prompt": "A varistor (MOV) is:",
+            "options": [
+                "Linear",
+                "Nonlinear bilateral",
+                "Nonlinear unilateral",
+                "Time-varying"
+            ],
+            "correctAnswer": "Nonlinear bilateral",
+            "explanation": "Varistors have symmetric nonlinear characteristics used for surge protection."
+        }
+    ]
+}

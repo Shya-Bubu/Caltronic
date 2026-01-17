@@ -1,134 +1,142 @@
 # Continuous vs Discrete Signals
 
-> **Narrative thread**: This concept teaches us why digital systems exist — continuous signals must be sampled for computers to process them, and understanding this bridge is essential for all DSP and embedded systems.
-
-> The first major classification: is time smooth or sampled?
+> **Narrative thread:** This is your first major classification. Understanding whether time is "smooth" or "sampled" determines which mathematical tools you'll use and whether your signal can live inside a computer.
 
 ---
 
-## 📖 Resources
+## FROM BASICS: Two Ways to Measure Time
 
-| Type | Resource |
-|------|----------|
-| 📺 Video | [MIT 6.003: Sampling](https://www.youtube.com/watch?v=VtP0CgqC3LQ) |
-| 📚 Textbook | Oppenheim & Willsky, Section 7.1-7.3 |
-| 🎓 Lectures | University of Peradeniya EE2020 Week 1 |
+Think back to your A-Level physics. When you measured the position of a falling ball:
+- If you used a **video camera**, you got frames at specific times (e.g., 30 frames per second)
+- If you used a **ruler and stopwatch**, you could theoretically measure at ANY instant
 
----
-
-## Continuous vs Discrete
-
-Use the interactive simulation above to see how continuous signals are sampled into discrete signals.
+This is the fundamental distinction we're about to formalize.
 
 ---
 
-## Two Worlds of Signals
+## THE BIG IDEA: Smooth vs. Sampled
 
-When we look at signals in nature, we see **continuous** variation — a smooth curve with no gaps.
+[[visual:v1]]
 
-But when we process signals on computers, we need **discrete** values — individual samples at specific moments.
+The waveform above shows a **continuous-time signal** — notice how the curve is smooth and defined at every instant.
 
-Understanding this distinction is foundational to all of digital signal processing.
+**Continuous-time (CT) signals** exist for ALL values of time. You can zoom in infinitely, and the signal is still defined.
 
----
-
-## Continuous-Time Signals
-
-A **continuous-time (CT) signal** is defined for ALL values of time.
-
-Think of:
-- A swinging pendulum — position changes smoothly
-- Temperature throughout the day — no "gaps" in time
-- Your voice — air pressure varies continuously
-
-**Key characteristic**: You can zoom in infinitely, and the signal is still defined.
-
-### Notation
 $$x(t), \quad t \in \mathbb{R}$$
 
 The parentheses `( )` indicate continuous time.
 
 ---
 
-## Discrete-Time Signals
+[[visual:v2]]
 
-A **discrete-time (DT) signal** is defined only at specific time instants.
+Now look at this **discrete-time signal** — notice the individual stems, each representing a sample at a specific integer index.
 
-Think of:
-- Daily stock closing prices — one value per day
-- Digital audio samples — typically 44,100 per second
-- Sensor readings — one value every 100ms
+**Discrete-time (DT) signals** exist only at INTEGER time indices. Between samples? The signal is simply undefined.
 
-**Key characteristic**: Signal exists only at integer indices. Between samples? Undefined.
-
-### Notation
 $$x[n], \quad n \in \mathbb{Z}$$
 
 The brackets `[ ]` indicate discrete time.
 
 ---
 
-## The Sampling Process
+## Visual Comparison
 
-How do we go from continuous to discrete? **Sampling**.
+| Property | Continuous x(t) | Discrete x[n] |
+|----------|-----------------|---------------|
+| **Plot style** | Smooth curve | Stem plot (dots) |
+| **Time values** | All real numbers | Integers only |
+| **Zoom in** | Still defined | Just one point |
+| **Hardware** | Analog circuits | Digital processors |
+| **Math tools** | Integrals | Summations |
+
+---
+
+## BUILDING UNDERSTANDING: The Sampling Bridge
+
+The natural world is analog — your voice, light, temperature all vary continuously.
+
+But computers are digital — they only understand discrete numbers.
+
+So how do we bridge these two worlds? **Sampling.**
+
+### The Sampling Process
 
 ```
 Continuous Signal x(t)
         ↓
-   [Sample at regular intervals]
+   [Sample every T_s seconds]
         ↓
 Discrete Signal x[n] = x(nT_s)
 ```
 
-## The Sampling Process
-
-An analog signal enters, a switch closes every Ts seconds, and a discrete sequence exits.
-
 Where:
-- $T_s$ = sampling period (time between samples)
-- $f_s = 1/T_s$ = sampling frequency
+- $T_s$ = **sampling period** (time between samples)
+- $f_s = 1/T_s$ = **sampling frequency** (samples per second)
 
-### Example: CD Audio
+### Real Example: CD Audio
+
 - Sampling frequency: $f_s = 44,100$ Hz
-- Sampling period: $T_s = 1/44100 \approx 22.7 \mu s$
-- That's 44,100 samples every second!
+- Sampling period: $T_s = 1/44100 \approx 22.7 \, \mu s$
+- For a 3-minute song: $44100 \times 180 = 7.94$ million samples!
 
 ---
 
-## Aliasing
+## THE CRITICAL WARNING: Aliasing
 
-When sampling is too slow, a high-frequency wave appears as a low-frequency wave. This is aliasing. The simulation above demonstrates this with the Nyquist rate indicator.
+What happens if you don't sample fast enough?
 
----
+[[visual:v3]]
 
-## Visual Comparison
+The interactive simulation above demonstrates **aliasing** — when a high-frequency signal appears as a low-frequency imposter due to inadequate sampling.
 
-| Continuous Signal | Discrete Signal |
-|-------------------|-----------------|
-| Smooth curve | Stem plot (dots) |
-| Defined everywhere | Defined at integers only |
-| x(t) | x[n] |
-| Analog systems | Digital systems |
+### The Nyquist-Shannon Theorem
 
----
+> To perfectly capture a signal with maximum frequency $f_{max}$, you must sample at:
+> $$f_s > 2 f_{max}$$
 
-## Why Does This Matter?
+This $2 f_{max}$ is called the **Nyquist rate**.
 
-1. **Computers can only handle discrete data** — they need numbers at specific times
-2. **Sampling rate determines quality** — too slow = aliasing (distortion)
-3. **Different math tools** — integrals for CT, summations for DT
-4. **Different system models** — differential equations vs difference equations
+**Example:** To capture audio up to 20 kHz (human hearing limit):
+$$f_s > 2 \times 20,000 = 40,000 \text{ Hz}$$
+
+That's why CD audio uses 44,100 Hz — safely above the Nyquist rate!
 
 ---
 
-## The Bridge
+## Why This Classification Matters
 
-Most real-world signals start as **continuous** (nature is analog).
+| When you work with... | You're using... |
+|----------------------|-----------------|
+| Analog circuits | Continuous-time signals |
+| Microcontrollers | Discrete-time signals |
+| Digital filters | Discrete-time systems |
+| Control theory | Both, depending on implementation |
+| Communications | Continuous transmitted, discrete processed |
 
-We **sample** them to make them discrete for digital processing.
+---
 
-We can **reconstruct** them back to continuous (if sampled properly).
+## Mathematical Implications
 
-This bridge is what makes digital audio, video, and communications possible.
+The choice between CT and DT changes your entire mathematical toolkit:
 
-> **Nyquist's insight**: Sample at least 2× the highest frequency, and you lose nothing.
+| Operation | Continuous-Time | Discrete-Time |
+|-----------|-----------------|---------------|
+| **System model** | Differential equations | Difference equations |
+| **Integration** | $\int_{-\infty}^{\infty}$ | $\sum_{n=-\infty}^{\infty}$ |
+| **Convolution** | $x*h = \int x(\tau)h(t-\tau)d\tau$ | $x*h = \sum x[k]h[n-k]$ |
+| **Transform** | Laplace, Fourier | Z-transform, DTFT |
+
+---
+
+## Key Takeaways
+
+1. **Continuous signals** x(t) exist for all real t — smooth curves
+2. **Discrete signals** x[n] exist only at integers — stem plots
+3. **Sampling** converts CT → DT at rate $f_s = 1/T_s$
+4. **Nyquist theorem**: Sample at $f_s > 2f_{max}$ to avoid aliasing
+5. Different math tools for each — integrals vs. summations
+
+---
+
+*Next: We'll explore another classification — deterministic vs. random signals.*

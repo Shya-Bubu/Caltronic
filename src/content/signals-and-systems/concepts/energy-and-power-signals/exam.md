@@ -31,6 +31,8 @@ $$= 2\int_0^T (1 - 2t/T + t^2/T^2) \, dt$$
 $$= 2\left[t - t^2/T + t^3/(3T^2)\right]_0^T$$
 $$= 2\left[T - T + T/3\right] = 2T/3$$
 
+[[visual:v4]]
+
 ---
 
 ### Type 3: Power Calculation (5-8 marks)

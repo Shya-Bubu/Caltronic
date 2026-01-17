@@ -1,125 +1,150 @@
 # Deterministic vs Random Signals
 
-> **Narrative thread**: This concept teaches us that real-world signals are never perfectly known — understanding the boundary between predictable and probabilistic is essential for communications, estimation, and AI.
-
-> Can you predict the future, or only describe its probabilities?
+> **Narrative thread:** This classification determines whether you can predict the future or only describe its probabilities. It's the dividing line between ideal textbook signals and messy real-world engineering.
 
 ---
 
-## 📖 Resources
+## FROM BASICS: Predictable vs Unpredictable
 
-| Type | Resource |
-|------|----------|
-| 📺 Video | [MIT 6.041: Probability](https://www.youtube.com/watch?v=j9WZyLZCBzs) |
-| 📚 Textbook | Haykin, Communication Systems, Chapter 1 |
-| 🎓 Lectures | University of Peradeniya EE2020 Week 1-2 |
+Think about two different scenarios from everyday experience:
 
----
+**Scenario 1:** A grandfather clock pendulum. Once you know its length and release angle, you can calculate its position at ANY future time using physics formulas. This is **deterministic**.
 
-## Deterministic vs Random
+**Scenario 2:** The dice in a board game. No matter how precisely you analyze the throw, you cannot predict the outcome — only the probability of each face. This is **random**.
 
-The interactive simulation above shows how noise affects a deterministic signal. Adjust the noise level to see the difference.
+This same split applies to signals in engineering.
 
 ---
 
-## The Fundamental Split
+## THE BIG IDEA: The Fundamental Division
 
-Signals fall into two categories based on **predictability**:
+[[visual:v1]]
 
-| Type | Can you know the exact value? | Example |
-|------|------------------------------|---------|
-| **Deterministic** | Yes — use the formula | $x(t) = A\cos(\omega t)$ |
-| **Random** | No — only probabilities | Noise, speech, stock prices |
+The waveform above shows a **deterministic signal** — a clean sinusoid. Given the equation $x(t) = A\sin(\omega t + \phi)$, you can compute the exact value at any instant.
 
-This distinction shapes everything in signal processing.
+### Deterministic Signals
 
----
+> A signal is **deterministic** if you can write an explicit formula and compute exact values.
 
-## Deterministic Signals
+$$x(t) = 5\cos(100t + \pi/4)$$
 
-A signal is **deterministic** if you can write an explicit mathematical formula for it.
+Substitute $t = 0.01$s, get exactly $x = 5\cos(1 + \pi/4) \approx 0.95$.
 
-Given any time $t$, substitute it and get the exact value.
-
-### Examples
-- $x(t) = 5\cos(100t + \pi/4)$
-- $x(t) = e^{-t}u(t)$ (exponential decay)
-- $x[n] = 0.9^n$ (geometric sequence)
-
-### Key Property
-> **Probability = 1**: The value is known with absolute certainty.
+**Probability of this value? 100%** — absolute certainty.
 
 ---
 
-## Random Signals
+### Random (Stochastic) Signals
 
-A signal is **random** (or stochastic) if its values follow a probability distribution.
+Now consider **noise** in a circuit, or **stock prices** over time.
 
-You can't predict the exact value — only likely ranges.
+Can you write a formula? **No.**
 
-### Examples
-- Thermal noise in circuits
-- Stock market fluctuations
-- Speech signals
-- Atmospheric interference
+Can you predict the exact next value? **No.**
 
-### Key Property
-> **Values on a PDF**: Each sample is drawn from a probability density function.
+Can you describe the probability distribution of values? **Yes!**
 
----
+> A signal is **random** if its values follow a probability distribution.
 
-## Why Random Signals Matter
-
-Here's the reality check:
-
-| In textbooks | In real life |
-|--------------|--------------|
-| Clean sinusoids | Sinusoids + noise |
-| Perfect pulses | Pulses with jitter |
-| Known signals | Signals we must estimate |
-
-Almost every **real** signal has a random component.
+You can say "70% chance between 0.5 and 1.5 volts" but never "exactly 0.87 volts."
 
 ---
 
 ## Visual Comparison
 
-### Deterministic (Clean Cosine)
-A perfect cosine wave — smooth, predictable, repeatable.
+| Property | Deterministic | Random |
+|----------|---------------|--------|
+| **Formula** | Explicit equation | None (only statistics) |
+| **Prediction** | Exact value known | Only probability distribution |
+| **Repeatability** | Identical every time | Never exactly repeats |
+| **Examples** | Sine wave, step, pulse | Noise, speech, wind |
 
-### Random (Noise)
-Unpredictable fluctuations — no formula can describe it exactly.
+---
 
-### Real Communication Signal
-A deterministic carrier with random noise added:
-$$y(t) = x(t) + n(t)$$
+## BUILDING UNDERSTANDING: Why Does This Matter?
 
-Where $x(t)$ is your signal and $n(t)$ is noise.
+Here's the uncomfortable truth about engineering:
+
+| In Textbooks | In Real Life |
+|--------------|--------------|
+| Clean sinusoids | Sinusoids + noise |
+| Perfect step functions | Steps with jitter |
+| Known transmitted signals | Signals we must estimate |
+
+**Almost every real signal has a random component.**
+
+Your microphone doesn't capture pure voice — it captures voice + thermal noise + amplifier noise + background sounds.
+
+---
+
+## The Communication Model
+
+In any real communication system:
+
+$$\boxed{y(t) = s(t) + n(t)}$$
+
+Where:
+- $s(t)$ = **deterministic** signal (what you sent)
+- $n(t)$ = **random** noise (what nature added)
+- $y(t)$ = **received** signal (what you got)
+
+You observe $y(t)$ but want $s(t)$. This is the fundamental problem of signal processing!
+
+---
+
+## Examples Classified
+
+| Signal | Type | Why? |
+|--------|------|------|
+| $x(t) = 3\cos(2\pi \cdot 1000t)$ | Deterministic | Formula exists |
+| Thermal noise in resistor | Random | Probability distribution |
+| ECG heartbeat | Quasi-deterministic | Mostly predictable with variation |
+| Stock price | Random | Unpredictable moment-to-moment |
+| Speech waveform | Random | Can't predict exact words |
+| Sinusoid + noise | Mixed | Deterministic + random |
 
 ---
 
 ## The Practical Consequence
 
-When you receive a noisy signal, you can't just "extract" the exact original.
+When you receive a noisy signal $y(t) = s(t) + n(t)$, you cannot "extract" the exact original.
 
-You must:
-1. **Model** the noise statistically
-2. **Estimate** the original signal
-3. **Accept** some uncertainty
+**You must:**
+1. **Model** the noise statistically (mean, variance, spectrum)
+2. **Estimate** the original signal using that model
+3. **Accept** some remaining uncertainty
 
-This is the foundation of:
-- Detection theory
-- Estimation theory
-- Filtering (Wiener, Kalman)
-- Machine learning
+This leads to entire fields:
+- **Estimation theory** — best guess from noisy data
+- **Detection theory** — is this bit 0 or 1?
+- **Filtering** — Wiener, Kalman filters
+- **Machine learning** — probabilistic models
 
 ---
 
 ## In This Course
 
-We'll focus mostly on **deterministic signals** because:
-- The math is tractable
-- Fundamental concepts are clearer
-- It's the prerequisite for random analysis
+We focus primarily on **deterministic signals** because:
+- The mathematics is tractable
+- Fundamental concepts become clear
+- It's the prerequisite for understanding random signals
 
-But always remember: **real signals are random**. Third/fourth year courses will build on this.
+But always remember: **real signals are random**. The tools you learn here are building blocks for more advanced courses.
+
+Adjust the simulation below to see how noise level affects signal quality:
+
+[[visual:v2]]
+
+---
+
+## Key Takeaways
+
+1. **Deterministic** = explicit formula, exact prediction
+2. **Random** = probability distribution, statistical description only
+3. Real signals are almost always **deterministic + random**
+4. This distinction drives all of communication and estimation theory
+5. We study deterministic first, then build to random
+
+---
+
+*Next: We'll classify signals by energy and power — an orthogonal and equally important distinction.*

@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
 import {
     LineChart,
     Line,
@@ -10,15 +9,13 @@ import {
     Tooltip,
     ResponsiveContainer,
     ReferenceLine,
-    Scatter,
-    ScatterChart,
     ComposedChart,
+    Scatter,
 } from 'recharts';
 import styles from './SignalPlot.module.css';
 
 /**
  * Data point for signal plots
- * Use 't' for time axis, then any other keys for signal values
  */
 interface SignalPoint {
     t: number;
@@ -39,32 +36,20 @@ interface SignalLine {
 }
 
 interface SignalPlotProps {
-    /** Array of data points with t (time) and value fields */
     data: SignalPoint[];
-    /** Configuration for each signal line */
     lines?: SignalLine[];
-    /** X-axis label */
     xLabel?: string;
-    /** Y-axis label */
     yLabel?: string;
-    /** Plot title */
     title?: string;
-    /** Height in pixels */
     height?: number;
-    /** Show grid */
     showGrid?: boolean;
-    /** Reference lines at y=0 */
     showZeroLine?: boolean;
-    /** Domain for X axis [min, max] */
     xDomain?: [number, number];
-    /** Domain for Y axis [min, max] */
     yDomain?: [number, number];
 }
 
 /**
- * Engineering-style signal plot with dark theme
- * 
- * Styled to look like oscilloscope/MATLAB/Simulink output
+ * Engineering-style signal plot using recharts
  */
 export default function SignalPlot({
     data,
@@ -150,7 +135,7 @@ export default function SignalPlot({
 }
 
 /**
- * Stem plot for discrete signals (like MATLAB stem())
+ * Stem plot for discrete signals
  */
 export function StemPlot({
     data,
@@ -167,14 +152,6 @@ export function StemPlot({
     height?: number;
     color?: string;
 }) {
-    // Convert data to include stem lines
-    const stemData = useMemo(() => {
-        return data.flatMap((point) => [
-            { n: point.n, value: 0, type: 'base' },
-            { n: point.n, value: point.value, type: 'top' },
-        ]);
-    }, [data]);
-
     return (
         <div className={styles.container}>
             {title && <div className={styles.title}>{title}</div>}
@@ -211,7 +188,6 @@ export function StemPlot({
                         }}
                     />
 
-                    {/* Stem markers (circles at top) */}
                     <Scatter
                         dataKey="value"
                         fill={color}

@@ -115,15 +115,15 @@ h6 {
     --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 }
 
-/* Light theme - Refined */
+/* Light theme - Refined with better contrast */
 [data-theme='light'] {
     --bg: #fafafa;
     --bg-subtle: #ffffff;
     --panel: rgba(0, 0, 0, 0.02);
     --panel-hover: rgba(0, 0, 0, 0.04);
     --text: #18181b;
-    --text-muted: rgba(24, 24, 27, 0.6);
-    --text-faint: rgba(24, 24, 27, 0.4);
+    --text-muted: #3f3f46;
+    --text-faint: #71717a;
     --border: rgba(0, 0, 0, 0.08);
     --border-strong: rgba(0, 0, 0, 0.15);
 
@@ -140,7 +140,7 @@ h6 {
     --sim-bg-flat: #f4f4f5;
     --sim-border: rgba(0, 0, 0, 0.1);
     --sim-panel: rgba(0, 0, 0, 0.03);
-    --sim-text: #52525b;
+    --sim-text: #3f3f46;
     --sim-text-strong: #18181b;
     --sim-accent: #2563eb;
     --sim-accent-alt: #0891b2;
@@ -150,6 +150,99 @@ h6 {
     /* Code blocks */
     --code-bg: rgba(0, 0, 0, 0.04);
     --code-inline-bg: rgba(0, 0, 0, 0.06);
+}
+
+/* Dark Modern theme - Antigravity aesthetic */
+[data-theme='dark-modern'] {
+    --bg: #030305;
+    --bg-subtle: #07070a;
+    --panel: rgba(255, 255, 255, 0.03);
+    --panel-hover: rgba(255, 255, 255, 0.06);
+    --text: #f0f0f5;
+    --text-muted: rgba(240, 240, 245, 0.65);
+    --text-faint: rgba(240, 240, 245, 0.35);
+    --border: rgba(100, 200, 255, 0.1);
+    --border-strong: rgba(100, 200, 255, 0.2);
+
+    /* Navigation - Glowing effect */
+    --nav-bg: rgba(3, 3, 5, 0.92);
+    --nav-border: rgba(100, 200, 255, 0.15);
+
+    /* Accent colors - Neon cyan/purple */
+    --accent: #22d3ee;
+    --accent-muted: rgba(34, 211, 238, 0.12);
+    --accent-secondary: #a855f7;
+
+    /* Simulation theming - Antigravity style */
+    --sim-bg: #050508;
+    --sim-bg-flat: #050508;
+    --sim-border: rgba(100, 200, 255, 0.12);
+    --sim-panel: rgba(34, 211, 238, 0.04);
+    --sim-text: #94a3b8;
+    --sim-text-strong: #f0f0f5;
+    --sim-accent: #22d3ee;
+    --sim-accent-alt: #a855f7;
+    --sim-warning: #f43f5e;
+    --sim-formula: #facc15;
+
+    /* Code blocks - Glassy */
+    --code-bg: rgba(34, 211, 238, 0.06);
+    --code-inline-bg: rgba(34, 211, 238, 0.1);
+}
+
+/* Dark Modern scrollbar */
+[data-theme='dark-modern']::-webkit-scrollbar-thumb {
+    background: rgba(34, 211, 238, 0.2);
+}
+
+[data-theme='dark-modern']::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 238, 0.35);
+}
+
+/* Eye Comfort theme - Low contrast for reduced eye strain */
+[data-theme='eye-comfort'] {
+    --bg: #1a1a1a;
+    --bg-subtle: #1f1f1f;
+    --panel: rgba(255, 255, 255, 0.02);
+    --panel-hover: rgba(255, 255, 255, 0.04);
+    --text: #a0a0a0;
+    --text-muted: #787878;
+    --text-faint: #5a5a5a;
+    --border: rgba(255, 255, 255, 0.04);
+    --border-strong: rgba(255, 255, 255, 0.08);
+
+    /* Navigation - Subtle */
+    --nav-bg: rgba(26, 26, 26, 0.95);
+    --nav-border: rgba(255, 255, 255, 0.03);
+
+    /* Accent colors - Muted warm tones */
+    --accent: #8b8b6e;
+    --accent-muted: rgba(139, 139, 110, 0.1);
+
+    /* Simulation theming - Low contrast */
+    --sim-bg: #1c1c1c;
+    --sim-bg-flat: #1c1c1c;
+    --sim-border: rgba(255, 255, 255, 0.05);
+    --sim-panel: rgba(255, 255, 255, 0.02);
+    --sim-text: #707070;
+    --sim-text-strong: #a0a0a0;
+    --sim-accent: #8b8b6e;
+    --sim-accent-alt: #7a9e9e;
+    --sim-warning: #a06060;
+    --sim-formula: #a09060;
+
+    /* Code blocks - Subtle */
+    --code-bg: rgba(255, 255, 255, 0.02);
+    --code-inline-bg: rgba(255, 255, 255, 0.04);
+}
+
+/* Eye Comfort scrollbar */
+[data-theme='eye-comfort']::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='eye-comfort']::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* ============================================
@@ -246,4 +339,22 @@ a:hover {
 
 [data-theme='light']::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   SVG ICON ANIMATIONS
+   ============================================ */
+button svg,
+a svg {
+    transition: transform 0.2s ease;
+}
+
+button:hover svg,
+a:hover svg {
+    transform: scale(1.1);
+}
+
+button:active svg,
+a:active svg {
+    transform: scale(0.95);
 }

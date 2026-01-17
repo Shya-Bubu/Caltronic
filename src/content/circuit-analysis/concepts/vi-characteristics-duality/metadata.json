@@ -1,0 +1,13 @@
+{
+    "id": "vi-characteristics-duality",
+    "title": "v-i Characteristics and Circuit Duality",
+    "lesson": "lesson-01",
+    "order": 2,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

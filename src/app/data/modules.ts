@@ -26,8 +26,14 @@ export const modules: Module[] = [
     description: "Core circuit laws, analysis techniques, and engineering problem solving.",
     category: "Core Theory",
     accent: "#4f8cff",
-    updatedToWeek: 0,
-    lectures: [],
+    updatedToWeek: 3,
+    lectures: [
+      {
+        id: "lesson-01",
+        title: "Two-Terminal Resistors",
+        path: "/circuit-analysis/lesson-01",
+      },
+    ],
   },
   {
     id: "EE2020",
@@ -37,12 +43,22 @@ export const modules: Module[] = [
     description: "Signals, systems, and the mathematical language of engineering change over time.",
     category: "Core Theory",
     accent: "#6b62ff",
-    updatedToWeek: 2,
+    updatedToWeek: 3,
     lectures: [
       {
         id: "lesson-01",
         title: "Introduction to Signals and Systems",
         path: "/signals-and-systems/lesson-01",
+      },
+      {
+        id: "lesson-02",
+        title: "Impulse Function and System Properties",
+        path: "/signals-and-systems/lesson-02",
+      },
+      {
+        id: "lesson-03",
+        title: "Convolution and LTI System Response",
+        path: "/signals-and-systems/lesson-03",
       },
     ],
   },

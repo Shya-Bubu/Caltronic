@@ -1,0 +1,32 @@
+{
+    "id": "system-classification-modeling",
+    "title": "System Classification and Modeling",
+    "lesson": "lesson-02",
+    "order": 2,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "description": "Understanding continuous vs discrete systems and modeling them using differential and difference equations",
+    "difficulty": "intermediate",
+    "estimatedTime": "60-90 minutes",
+    "keywords": [
+        "continuous time",
+        "discrete time",
+        "differential equations",
+        "difference equations",
+        "system modeling"
+    ],
+    "prerequisites": [
+        "impulse-and-unit-step"
+    ],
+    "learningObjectives": [
+        "Distinguish between continuous and discrete-time systems",
+        "Model continuous systems using differential equations",
+        "Model discrete systems using difference equations",
+        "Understand the relationship between system type and mathematical representation"
+    ]
+}

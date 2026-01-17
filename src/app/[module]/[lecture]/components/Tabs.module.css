@@ -5,6 +5,25 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--panel);
+
+  /* Mobile horizontal scroll */
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Full width on mobile */
+@media (max-width: 640px) {
+  .tabs {
+    width: 100%;
+    display: flex;
+  }
+}
+
+/* Hide scrollbar on mobile for cleaner look */
+.tabs::-webkit-scrollbar {
+  height: 0;
+  display: none;
 }
 
 .tab {
@@ -14,9 +33,11 @@
   border-radius: 8px;
 
   background: transparent;
-  color: var(--muted);
+  color: var(--text-muted);
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tab:hover {
@@ -24,7 +45,7 @@
 }
 
 .active {
-  background: var(--panel-2);
+  background: var(--panel-hover);
   color: var(--text);
   border-color: var(--border-strong);
 }

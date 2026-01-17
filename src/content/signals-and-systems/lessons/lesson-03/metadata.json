@@ -1,0 +1,25 @@
+{
+    "id": "lesson-03",
+    "title": "Convolution and LTI System Response",
+    "description": "Understanding convolution as the fundamental operation for computing LTI system outputs from impulse responses",
+    "concepts": [
+        "lti-system-response",
+        "discrete-convolution",
+        "continuous-convolution"
+    ],
+    "estimatedTime": "3-4 hours",
+    "difficulty": "intermediate",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02"
+    ],
+    "learningObjectives": [
+        "Understand impulse response as complete system characterization",
+        "Derive the convolution sum from LTI properties",
+        "Compute discrete convolution step-by-step",
+        "Visualize convolution as sliding and summing"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "status": "complete"
+}

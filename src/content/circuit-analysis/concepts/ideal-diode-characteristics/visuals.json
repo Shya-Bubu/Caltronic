@@ -1,0 +1,172 @@
+{
+    "conceptId": "ideal-diode-characteristics",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-vi-curve",
+            "curveType": "diode",
+            "title": "Ideal Diode v-i Characteristic",
+            "description": "Two-segment piecewise-linear: horizontal (reverse bias, i=0) and vertical (forward conducting, v=0)."
+        },
+        {
+            "id": "v2",
+            "type": "d3-vi-curve",
+            "curveType": "pn-junction",
+            "title": "pn-Junction Diode",
+            "description": "Exponential Shockley equation: i = Is(e^(v/VT) - 1). VT ≈ 26mV at room temperature."
+        },
+        {
+            "id": "v3",
+            "type": "d3-vi-curve",
+            "curveType": "tunnel",
+            "title": "Tunnel Diode (Negative Resistance)",
+            "description": "N-shaped curve with negative differential resistance region where di/dv < 0. Used in oscillators."
+        },
+        {
+            "id": "v4",
+            "type": "d3-vi-curve",
+            "curveType": "glow",
+            "title": "Glow Tube (S-Curve)",
+            "description": "Current-controlled resistor with S-shaped folding characteristic. Used in voltage regulation."
+        },
+        {
+            "id": "v5",
+            "type": "d3-vi-curve",
+            "curveType": "zener",
+            "title": "Zener Diode",
+            "description": "Forward diode + reverse breakdown. Vz is the breakdown voltage where reverse current flows."
+        },
+        {
+            "id": "v6",
+            "type": "image",
+            "title": "Nonlinear Resistor Analysis (Lecture Notes)",
+            "src": "/course/circuit-analysis/lesson-01/images/page07_img03.png",
+            "caption": "From lecture: Multi-panel analysis showing v-i characteristic, voltage/current waveforms, and circuit schematic."
+        },
+        {
+            "id": "v7",
+            "type": "d3-block-diagram",
+            "title": "Half-Wave Rectifier",
+            "description": "Diode conducts on positive half-cycle, blocks negative. Converts AC to pulsating DC.",
+            "blocks": [
+                {
+                    "id": "ac",
+                    "label": "AC\\nSource",
+                    "x": 20,
+                    "y": 50,
+                    "width": 70,
+                    "type": "input"
+                },
+                {
+                    "id": "diode",
+                    "label": "Diode",
+                    "x": 130,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "load",
+                    "label": "Load",
+                    "x": 230,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "ac",
+                    "to": "diode"
+                },
+                {
+                    "from": "diode",
+                    "to": "load",
+                    "label": "Pulsating DC"
+                }
+            ]
+        },
+        {
+            "id": "v8",
+            "type": "d3-iv-curve",
+            "title": "Ideal vs Real Diode Comparison",
+            "description": "Ideal diode (sharp corner at origin) vs real pn-junction (exponential with Vf ≈ 0.7V).",
+            "curves": [
+                {
+                    "label": "Ideal Diode",
+                    "type": "ideal-diode",
+                    "color": "#3b82f6"
+                },
+                {
+                    "label": "Real Diode (pn)",
+                    "type": "pn-junction",
+                    "color": "#ef4444",
+                    "dashed": true
+                }
+            ]
+        },
+        {
+            "id": "v9",
+            "type": "d3-iv-curve",
+            "title": "Forward Voltage Drop",
+            "description": "Real diodes have Vf (0.3V for Schottky, 0.7V for Si, 1.2V for LED). This causes power loss P = Vf × I.",
+            "curves": [
+                {
+                    "label": "Si Diode (Vf=0.7V)",
+                    "type": "pn-junction",
+                    "color": "#3b82f6"
+                }
+            ],
+            "annotations": [
+                {
+                    "point": {
+                        "v": 0.7,
+                        "i": 0.05
+                    },
+                    "text": "50mA @ 0.7V"
+                }
+            ]
+        },
+        {
+            "id": "v10",
+            "type": "d3-block-diagram",
+            "title": "Diode Applications Overview",
+            "description": "Diodes used in: rectification, voltage clamping, signal detection, switching, and voltage regulation.",
+            "blocks": [
+                {
+                    "id": "rect",
+                    "label": "Rectifier",
+                    "x": 30,
+                    "y": 30,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "clamp",
+                    "label": "Clamp",
+                    "x": 140,
+                    "y": 30,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "protect",
+                    "label": "Protection",
+                    "x": 250,
+                    "y": 30,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "regulator",
+                    "label": "Zener Reg",
+                    "x": 85,
+                    "y": 90,
+                    "width": 90,
+                    "type": "process"
+                }
+            ],
+            "connections": []
+        }
+    ]
+}

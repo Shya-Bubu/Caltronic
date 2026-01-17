@@ -1,5 +1,6 @@
 import type { LectureContract } from '@/core/contracts/LectureContract';
 import { loadConcept, loadLecture, type LoadedConcept } from '@/core/loaders';
+import { notFound } from 'next/navigation';
 import LectureClient from './LectureClient';
 
 import { readFile } from 'fs/promises';
@@ -18,18 +19,38 @@ export default async function LecturePage({ params }: LecturePageProps) {
     const contentRoot = resolve(process.cwd(), 'src', 'content');
     const lectureDir = resolve(contentRoot, module, 'lessons', lecture);
 
-    const lectureData: LectureContract = await loadLecture(lectureDir);
+    let lectureData: LectureContract;
+    try {
+        lectureData = await loadLecture(lectureDir);
+    } catch (e) {
+        console.error('Failed to load lecture data:', e);
+        // Lecture directory doesn't exist or is malformed
+        notFound();
+    }
 
-    const [overviewMarkdown, synthesisMarkdown] = await Promise.all([
-        readFile(resolve(lectureDir, lectureData.overviewPath), 'utf-8'),
-        readFile(resolve(lectureDir, lectureData.synthesisPath), 'utf-8'),
-    ]);
+    let overviewMarkdown: string;
+    let synthesisMarkdown: string;
+    try {
+        [overviewMarkdown, synthesisMarkdown] = await Promise.all([
+            readFile(resolve(lectureDir, lectureData.overviewPath), 'utf-8'),
+            readFile(resolve(lectureDir, lectureData.synthesisPath), 'utf-8'),
+        ]);
+    } catch (e) {
+        console.error('Failed to load markdown files:', e);
+        notFound();
+    }
 
-    const concepts: LoadedConcept[] = await Promise.all(
-        lectureData.concepts.map((conceptId) =>
-            loadConcept(resolve(contentRoot, module, 'concepts', conceptId))
-        )
-    );
+    let concepts: LoadedConcept[];
+    try {
+        concepts = await Promise.all(
+            lectureData.concepts.map((conceptId) =>
+                loadConcept(resolve(contentRoot, module, 'concepts', conceptId))
+            )
+        );
+    } catch (e) {
+        console.error('Failed to load concepts:', e);
+        notFound();
+    }
 
     return (
         <LectureClient
@@ -40,3 +61,4 @@ export default async function LecturePage({ params }: LecturePageProps) {
         />
     );
 }
+

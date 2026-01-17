@@ -1,0 +1,125 @@
+{
+    "id": "discrete-convolution-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the first step in graphical convolution?",
+            "options": [
+                "Shift h[k]",
+                "Flip h[k] to h[-k]",
+                "Multiply x[k] and h[k]",
+                "Sum all values"
+            ],
+            "correctAnswer": "Flip h[k] to h[-k]",
+            "explanation": "The first step is to flip (time-reverse) h[k] to get h[-k]. Then you shift, multiply, and sum. Forgetting to flip is a common mistake that leads to incorrect results."
+        },
+        {
+            "id": "q2",
+            "prompt": "If x[n] has 3 samples and h[n] has 4 samples, how many samples does y[n] = x*h have?",
+            "options": [
+                "3",
+                "4",
+                "6",
+                "7"
+            ],
+            "correctAnswer": "6",
+            "explanation": "Output length = N₁ + N₂ - 1 = 3 + 4 - 1 = 6 samples. This accounts for all possible overlaps between the signals. Not 7 (that would be N₁+N₂), and not 3 or 4 (those are input lengths)."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is x[n] * δ[n]?",
+            "options": [
+                "0",
+                "δ[n]",
+                "x[n]",
+                "x[0]"
+            ],
+            "correctAnswer": "x[n]",
+            "explanation": "The impulse δ[n] is the identity element of convolution. Convolving any signal with δ[n] returns the original signal unchanged, just like multiplying by 1."
+        },
+        {
+            "id": "q4",
+            "prompt": "What is x[n] * δ[n-3]?",
+            "options": [
+                "x[n]",
+                "x[n+3]",
+                "x[n-3]",
+                "x[3]"
+            ],
+            "correctAnswer": "x[n-3]",
+            "explanation": "Convolving with a shifted impulse δ[n-3] delays the signal by 3 samples. The result is x[n-3]. This is a fundamental property used in digital delay lines."
+        },
+        {
+            "id": "q5",
+            "prompt": "Is convolution commutative? (x * h = h * x)",
+            "options": [
+                "Yes, always",
+                "No, never",
+                "Only for finite signals",
+                "Only for causal signals"
+            ],
+            "correctAnswer": "Yes, always",
+            "explanation": "Convolution is commutative: x * h = h * x. This can be proven by substitution in the convolution sum. The order doesn't matter mathematically, though we often flip h by convention."
+        },
+        {
+            "id": "q6",
+            "prompt": "What property states that (x * h₁) * h₂ = x * (h₁ * h₂)?",
+            "options": [
+                "Commutativity",
+                "Associativity",
+                "Distributivity",
+                "Linearity"
+            ],
+            "correctAnswer": "Associativity",
+            "explanation": "Associativity allows regrouping of cascaded convolutions. This means cascaded LTI systems can be combined into a single equivalent system with combined impulse response."
+        },
+        {
+            "id": "q7",
+            "prompt": "For y[n] = Σ x[k]h[n-k], what does h[n-k] represent for fixed n?",
+            "options": [
+                "h[k] shifted right by n",
+                "h[-k] shifted right by n",
+                "h[k] multiplied by n",
+                "h[k] scaled by n"
+            ],
+            "correctAnswer": "h[-k] shifted right by n",
+            "explanation": "h[n-k] = h[-(k-n)] is h[-k] shifted by n. First flip h[k] to get h[-k], then shift to get h[n-k]. This is the flip-then-shift operation of graphical convolution."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the frequency domain, convolution becomes what operation?",
+            "options": [
+                "Convolution",
+                "Addition",
+                "Multiplication",
+                "Division"
+            ],
+            "correctAnswer": "Multiplication",
+            "explanation": "Convolution in time domain equals multiplication in frequency domain: Y(ω) = X(ω)·H(ω). This is the power of transform methods—they simplify convolution to multiplication."
+        },
+        {
+            "id": "q9",
+            "prompt": "What is the convolution of u[n] * u[n], where u[n] is the unit step?",
+            "options": [
+                "u[n]",
+                "δ[n]",
+                "(n+1)u[n]",
+                "n·u[n]"
+            ],
+            "correctAnswer": "(n+1)u[n]",
+            "explanation": "u[n] * u[n] = (n+1)u[n], a ramp starting at n=0. This is because convolution of step with step gives the running sum, which grows linearly."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why do we flip h[k] instead of x[k] when computing convolution?",
+            "options": [
+                "It's more efficient",
+                "Convention only, either works",
+                "Because h represents the system",
+                "To ensure causality"
+            ],
+            "correctAnswer": "Convention only, either works",
+            "explanation": "Due to commutativity, you can flip either signal. Convention is to flip h[k], but flipping x[k] gives the same result. Choose whichever is more convenient for your calculation."
+        }
+    ]
+}

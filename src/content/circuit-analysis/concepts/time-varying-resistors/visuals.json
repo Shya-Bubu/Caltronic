@@ -1,0 +1,272 @@
+{
+    "conceptId": "time-varying-resistors",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-waveform",
+            "title": "Time-Varying Resistance R(t)",
+            "description": "Example: R(t) = 50 + 50·sin(2πt) Ω varies sinusoidally between 0Ω and 100Ω. The resistance value changes continuously over time.",
+            "placement": "intuition",
+            "waveType": "custom",
+            "mode": "continuous",
+            "customFunction": "50 + 50*sin(2*pi*t)",
+            "axes": {
+                "xLabel": "Time t (s)",
+                "yLabel": "Resistance R(t) (Ω)",
+                "duration": 2.0
+            },
+            "params": {
+                "amplitude": 50,
+                "offset": 50,
+                "frequency": 1
+            }
+        },
+        {
+            "id": "v2",
+            "type": "d3-iv-curve",
+            "title": "V-I Characteristic Changes Over Time",
+            "description": "For time-varying resistors, the v-i characteristic slope changes with time. Shown: snapshots at different times as R(t) varies. The slope dv/di = R(t) is not constant.",
+            "placement": "intuition",
+            "animated": true,
+            "curves": [
+                {
+                    "label": "R(t) at t=0s (R=50Ω)",
+                    "type": "linear-resistor",
+                    "resistance": 50,
+                    "color": "#3b82f6",
+                    "time": 0
+                },
+                {
+                    "label": "R(t) at t=0.25s (R=100Ω)",
+                    "type": "linear-resistor",
+                    "resistance": 100,
+                    "color": "#8b5cf6",
+                    "dashed": true,
+                    "time": 0.25
+                },
+                {
+                    "label": "R(t) at t=0.5s (R=50Ω)",
+                    "type": "linear-resistor",
+                    "resistance": 50,
+                    "color": "#10b981",
+                    "dashed": true,
+                    "time": 0.5
+                },
+                {
+                    "label": "R(t) at t=0.75s (R≈0Ω)",
+                    "type": "linear-resistor",
+                    "resistance": 0.1,
+                    "color": "#f59e0b",
+                    "dashed": true,
+                    "time": 0.75
+                }
+            ],
+            "axes": {
+                "xLabel": "Voltage v (V)",
+                "yLabel": "Current i (A)",
+                "xRange": [
+                    -10,
+                    10
+                ],
+                "yRange": [
+                    -1,
+                    1
+                ]
+            },
+            "showTimeControl": true,
+            "annotations": [
+                {
+                    "x": -8,
+                    "y": 0.8,
+                    "text": "Slope = R(t) changes with time"
+                }
+            ]
+        },
+        {
+            "id": "v3",
+            "type": "d3-simulation",
+            "title": "Interactive Time-Varying Resistor",
+            "description": "Adjust the resistance variation parameters to see how the v-i characteristic evolves. Observe how the slope changes as R(t) = R₀ + ΔR·sin(2πft) varies.",
+            "placement": "intuition",
+            "simulationType": "time-varying-resistor",
+            "controls": [
+                {
+                    "parameter": "R0",
+                    "label": "Base Resistance R₀ (Ω)",
+                    "min": 10,
+                    "max": 100,
+                    "default": 50,
+                    "step": 5
+                },
+                {
+                    "parameter": "deltaR",
+                    "label": "Variation ΔR (Ω)",
+                    "min": 0,
+                    "max": 50,
+                    "default": 50,
+                    "step": 5
+                },
+                {
+                    "parameter": "frequency",
+                    "label": "Frequency f (Hz)",
+                    "min": 0.1,
+                    "max": 2,
+                    "default": 1,
+                    "step": 0.1
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "waveform",
+                    "signal": "R(t)",
+                    "color": "#3b82f6"
+                },
+                {
+                    "type": "iv-curve",
+                    "animated": true,
+                    "color": "#ef4444"
+                }
+            ]
+        },
+        {
+            "id": "v4",
+            "type": "d3-block-diagram",
+            "title": "Photoresistor (LDR) Application",
+            "description": "Light-Dependent Resistor: R increases in darkness, decreases in light. Used in automatic lighting control.",
+            "blocks": [
+                {
+                    "id": "ldr",
+                    "label": "LDR\\nR(light)",
+                    "x": 100,
+                    "y": 50,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "light",
+                    "label": "Light\\nInput",
+                    "x": 100,
+                    "y": 120,
+                    "type": "input"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "light",
+                    "to": "ldr",
+                    "label": "Controls R"
+                }
+            ]
+        },
+        {
+            "id": "v5",
+            "type": "d3-block-diagram",
+            "title": "Thermistor Application",
+            "description": "Temperature-sensitive resistor. NTC: R decreases with temperature. PTC: R increases with temperature.",
+            "blocks": [
+                {
+                    "id": "thermistor",
+                    "label": "Thermistor\\nR(T)",
+                    "x": 100,
+                    "y": 50,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "temp",
+                    "label": "Temp\\nInput",
+                    "x": 100,
+                    "y": 120,
+                    "type": "input"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "temp",
+                    "to": "thermistor",
+                    "label": "Controls R"
+                }
+            ]
+        },
+        {
+            "id": "v6",
+            "type": "d3-iv-curve",
+            "title": "Multiplier Application",
+            "description": "Voltage-controlled resistor acts as analog multiplier: i = v/R(vcontrol). Output current proportional to v × vcontrol.",
+            "curves": [
+                {
+                    "label": "Low Vcontrol (High R)",
+                    "type": "linear-resistor",
+                    "resistance": 200,
+                    "color": "#3b82f6"
+                },
+                {
+                    "label": "High Vcontrol (Low R)",
+                    "type": "linear-resistor",
+                    "resistance": 50,
+                    "color": "#ef4444"
+                }
+            ]
+        },
+        {
+            "id": "v7",
+            "type": "d3-waveform",
+            "title": "Step Change in R(t)",
+            "description": "Resistance suddenly switches from R1 to R2. Used in switching applications.",
+            "waveType": "step",
+            "mode": "continuous"
+        },
+        {
+            "id": "v8",
+            "type": "d3-block-diagram",
+            "title": "Analog Gain Control",
+            "description": "Variable resistor used to control circuit gain. As R changes, amplifier gain varies proportionally.",
+            "blocks": [
+                {
+                    "id": "input",
+                    "label": "Signal\\nInput",
+                    "x": 20,
+                    "y": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "amp",
+                    "label": "Amplifier",
+                    "x": 100,
+                    "y": 50,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "rvar",
+                    "label": "R(t)\\nGain Control",
+                    "x": 220,
+                    "y": 50,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "output",
+                    "label": "Output",
+                    "x": 340,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "input",
+                    "to": "amp"
+                },
+                {
+                    "from": "amp",
+                    "to": "rvar"
+                },
+                {
+                    "from": "rvar",
+                    "to": "output"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "id": "linear-resistor-fundamentals-flashcards",
+    "cards": [
+        {
+            "id": "f1-ohms-law",
+            "front": "What is Ohm's Law?",
+            "back": "V = IR\n\nVoltage equals current times resistance.\n\nAlternatively: I = V/R or R = V/I",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2-voltage-def",
+            "front": "What is voltage?",
+            "back": "Electric potential difference — the \"push\" that drives current through a circuit.\n\nAnalogy: Water pressure in pipes.\n\nUnit: Volts (V)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3-current-def",
+            "front": "What is current?",
+            "back": "The rate of flow of electric charge.\n\nAnalogy: Water flow rate.\n\nUnit: Amperes (A)\n\nDirection: from + to − (conventional)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4-resistance-def",
+            "front": "What is resistance?",
+            "back": "The opposition to current flow.\n\nAnalogy: Narrow pipes restrict water flow.\n\nUnit: Ohms (Ω)\n\nHigher R → less current for same voltage",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5-conductance",
+            "front": "What is conductance? How does it relate to resistance?",
+            "back": "G = 1/R\n\nConductance measures how easily current flows (opposite of resistance).\n\nUnit: Siemens (S)\n\nHigher G → more current for same voltage",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6-power-formulas",
+            "front": "Write the three power formulas for resistors",
+            "back": "P = VI\nP = I²R\nP = V²/R\n\nUse whichever matches what you're given!",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7-voltage-divider",
+            "front": "Voltage divider formula",
+            "back": "V_out = V_in × (R₂/(R₁+R₂))\n\nTwo resistors in series: output taken across R₂.\n\nVoltages divide proportionally to resistances.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8-series-resistors",
+            "front": "How do resistances add in series?",
+            "back": "R_total = R₁ + R₂ + R₃ + ...\n\nIn series: same current flows through all.\n\nVoltages add up.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9-linear-meaning",
+            "front": "Why is it called a LINEAR resistor?",
+            "back": "Because the v-i graph is a STRAIGHT LINE through the origin.\n\nDoubling voltage doubles current (proportional).\n\nMathematically: V = IR has the form y = mx + 0",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10-led-resistor",
+            "front": "Why do LEDs always have a resistor in series?",
+            "back": "To limit current to ~20mA.\n\nWithout it: LED draws huge current → burns out.\n\nR = (V_supply − V_LED) / I_desired",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f11-units-conversion",
+            "front": "Convert these units:\n1kΩ = ? Ω\n50mA = ? A",
+            "back": "1kΩ = 1000Ω (kilo = ×1000)\n\n50mA = 0.05A (milli = ÷1000)\n\nALWAYS convert to base units before calculating!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f12-duality",
+            "front": "What is the relationship between resistance and conductance forms?",
+            "back": "V = IR ↔ I = GV\n\nThey're DUAL forms (swap V↔I, R↔G).\n\nSame information, different perspectives.\n\nOn v-i plane: slope = G\nOn i-v plane: slope = R",
+            "difficultyLevel": 4
+        }
+    ]
+}

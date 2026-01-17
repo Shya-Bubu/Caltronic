@@ -1,0 +1,65 @@
+{
+    "id": "power-and-passivity-cards",
+    "cards": [
+        {
+            "id": "pc1",
+            "front": "Define Electric Power",
+            "back": "Rate of energy transfer. P = dE/dt",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "pc2",
+            "front": "Unit of Power",
+            "back": "Watt (W) = 1 Joule/second",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "pc3",
+            "front": "Passive Sign Convention",
+            "back": "Current enters positive terminal → P = VI means absorbed power.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "pc4",
+            "front": "Absorbed Power",
+            "back": "Energy consumed by element (P > 0).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "pc5",
+            "front": "Delivered Power",
+            "back": "Energy supplied by element (P < 0).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "pc6",
+            "front": "Law of Conservation of Power",
+            "back": "Sum of power in a closed circuit is ZERO.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "pc7",
+            "front": "Active Element",
+            "back": "Capable of generating energy (e.g., Battery, Op-Amp).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "pc8",
+            "front": "Passive Element",
+            "back": "Consumes energy (e.g., Resistor, Bulb).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "pc9",
+            "front": "Instantaneous Power",
+            "back": "p(t) = v(t) * i(t)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "pc10",
+            "front": "Power in Resistor",
+            "back": "Always positive (absorbs). P = I^2R >= 0.",
+            "difficultyLevel": 2
+        }
+    ]
+}

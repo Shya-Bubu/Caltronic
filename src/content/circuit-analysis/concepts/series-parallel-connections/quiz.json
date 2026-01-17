@@ -1,0 +1,149 @@
+{
+    "id": "series-parallel-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In a series connection of resistors, which quantity is common?",
+            "options": [
+                "Voltage",
+                "Current",
+                "Power",
+                "Conductance"
+            ],
+            "correctAnswer": "Current",
+            "explanation": "Current flows through all series elements equally: i1 = i2 = i."
+        },
+        {
+            "id": "q2",
+            "prompt": "In a parallel connection, which quantity is common?",
+            "options": [
+                "Current",
+                "Voltage",
+                "Resistance",
+                "Power"
+            ],
+            "correctAnswer": "Voltage",
+            "explanation": "Parallel elements share the same voltage: v1 = v2 = v."
+        },
+        {
+            "id": "q3",
+            "prompt": "For series current-controlled resistors, port voltage equals:",
+            "options": [
+                "v = v1 + v2",
+                "v = v1 × v2",
+                "v = v1 - v2",
+                "v = v1/v2"
+            ],
+            "correctAnswer": "v = v1 + v2",
+            "explanation": "KVL requires the voltage to sum around the loop: v = v̂1(i) + v̂2(i). This is fundamental to series circuit analysis."
+        },
+        {
+            "id": "q4",
+            "prompt": "For parallel voltage-controlled resistors, port current equals:",
+            "options": [
+                "i = i1 + i2",
+                "i = i1 × i2",
+                "i = i1 - i2",
+                "i = i1/i2"
+            ],
+            "correctAnswer": "i = i1 + i2",
+            "explanation": "KCL requires currents at a node to sum: i = i1(v) + i2(v). For parallel voltage-controlled resistors, the total current is the sum of individual currents."
+        },
+        {
+            "id": "q5",
+            "prompt": "The driving-point characteristic of a one-port is:",
+            "options": [
+                "Internal structure details",
+                "Relationship between port v and port i",
+                "Maximum power rating",
+                "Component values"
+            ],
+            "correctAnswer": "Relationship between port v and port i",
+            "explanation": "It describes the v-i relationship as seen from the terminals."
+        },
+        {
+            "id": "q6",
+            "prompt": "Series connection of two current-controlled resistors results in:",
+            "options": [
+                "Voltage-controlled",
+                "Current-controlled",
+                "Neither",
+                "Linear only"
+            ],
+            "correctAnswer": "Current-controlled",
+            "explanation": "If v1 = f1(i) and v2 = f2(i), then v = f1(i) + f2(i), still current-controlled."
+        },
+        {
+            "id": "q7",
+            "prompt": "Graphical series addition involves:",
+            "options": [
+                "Adding voltages at each current",
+                "Adding currents at each voltage",
+                "Multiplying characteristics",
+                "Subtracting characteristics"
+            ],
+            "correctAnswer": "Adding voltages at each current",
+            "explanation": "For each i value, add the corresponding v values from each curve."
+        },
+        {
+            "id": "q8",
+            "prompt": "Graphical parallel addition involves:",
+            "options": [
+                "Adding voltages",
+                "Adding currents at each voltage",
+                "Subtracting curves",
+                "Finding intersection"
+            ],
+            "correctAnswer": "Adding currents at each voltage",
+            "explanation": "For each v value, add the corresponding i values from each curve."
+        },
+        {
+            "id": "q9",
+            "prompt": "If a nonlinear resistor's terminals are reversed:",
+            "options": [
+                "No change for bilateral",
+                "Always changes",
+                "Never changes",
+                "Only affects linear resistors"
+            ],
+            "correctAnswer": "No change for bilateral",
+            "explanation": "Bilateral resistors are symmetric, so reversing has no effect."
+        },
+        {
+            "id": "q10",
+            "prompt": "KCL states:",
+            "options": [
+                "Sum of voltages = 0",
+                "Sum of currents entering = Sum leaving",
+                "Power in = Power out",
+                "v = iR"
+            ],
+            "correctAnswer": "Sum of currents entering = Sum leaving",
+            "explanation": "Kirchhoff's Current Law: algebraic sum of currents at a node is zero."
+        },
+        {
+            "id": "q11",
+            "prompt": "KVL states:",
+            "options": [
+                "Sum of currents = 0",
+                "Sum of voltages around loop = 0",
+                "P = VI",
+                "i = Gv"
+            ],
+            "correctAnswer": "Sum of voltages around loop = 0",
+            "explanation": "Kirchhoff's Voltage Law: algebraic sum of voltages around any closed path is zero."
+        },
+        {
+            "id": "q12",
+            "prompt": "Series connection is the dual of:",
+            "options": [
+                "Series connection",
+                "Parallel connection",
+                "Open circuit",
+                "Short circuit"
+            ],
+            "correctAnswer": "Parallel connection",
+            "explanation": "Series and parallel are duals: swap v↔i, R↔G, series↔parallel."
+        }
+    ]
+}

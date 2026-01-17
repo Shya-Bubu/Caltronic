@@ -1,3 +1,8 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
 .toggle {
   display: inline-flex;
   align-items: center;
@@ -9,23 +14,120 @@
   color: color-mix(in oklab, var(--text) 70%, var(--muted));
   font-weight: 650;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .toggle:hover {
   color: var(--text);
   background: color-mix(in oklab, var(--panel) 70%, rgba(255, 255, 255, 0.06));
+  border-color: var(--border-strong);
 }
 
 .icon {
+  display: flex;
+  align-items: center;
   opacity: 0.9;
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 .label {
   font-size: 0.9rem;
 }
 
+.chevron {
+  opacity: 0.5;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: dropdownFadeIn 0.15s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.1s ease;
+}
+
+.option:hover {
+  background: var(--panel-hover);
+  color: var(--text);
+}
+
+.optionActive {
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+
+.optionActive:hover {
+  background: var(--accent-muted);
+}
+
+.optionIcon {
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.optionIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.check {
+  margin-left: auto;
+  color: var(--accent);
+}
+
 @media (max-width: 520px) {
   .label {
     display: none;
+  }
+
+  .dropdown {
+    right: auto;
+    left: 0;
+    min-width: 140px;
   }
 }

@@ -1,145 +1,170 @@
 # Energy Signals vs Power Signals
 
-> **Narrative thread**: This concept teaches us how engineers decide whether a signal is physically realizable or sustainable — pulses have finite energy budgets, while continuous signals require ongoing power.
-
-> Finite burst or endless hum? Two fundamentally different signal types.
+> **Narrative thread:** This classification determines whether a signal represents a finite burst or a continuous hum — critical for hardware design, battery life, and system analysis.
 
 ---
 
-## 📖 Resources
+## FROM BASICS: The Battery vs Power Plant Analogy
 
-| Type | Resource |
-|------|----------|
-| 📺 Video | [Neso Academy: Energy and Power Signals](https://www.youtube.com/watch?v=mXwUYN2Q_rQ) |
-| 📚 Textbook | Oppenheim & Willsky, Section 1.1 |
-| 🎓 Lectures | University of Peradeniya EE2020 Week 1 |
+Recall from A-Level physics:
+- **Energy** is the capacity to do work (Joules)
+- **Power** is the rate of energy flow (Watts = Joules/second)
 
----
+For a resistor with current $I$ and voltage $V$:
+- Power dissipated: $P = VI = I^2R$ (Watts)
+- Energy consumed over time T: $E = P \cdot T$ (Joules)
 
-## Energy vs Power Signals
-
-Use the interactive simulation above to explore different signal types and see how their energy and power are calculated.
-
-- **Energy signals**: A pulse has finite area (energy) and decays to zero
-- **Power signals**: A sinusoid extends forever, having infinite energy but finite average power
-
-Think of energy signals as batteries (finite life) and power signals as grid power (continuous source).
+Now apply this to signals. The signal $x(t)$ carries "energy content" proportional to $|x(t)|^2$.
 
 ---
 
-## The Core Question
+## THE BIG IDEA: Finite Burst vs Endless Hum
 
-When you look at a signal, ask: **Does it eventually run out?**
+[[visual:v1]]
 
-| If yes... | If no... |
-|-----------|----------|
-| Energy signal | Power signal |
-| Finite total energy | Finite average power |
-| Like a pulse | Like a sinusoid |
+The rectangular pulse above is an **energy signal**. Notice how it exists only for a limited time — like a flashlight with a battery, it eventually "runs out."
 
----
+[[visual:v2]]
 
-## Energy Signals
-
-An **energy signal** has finite total energy.
-
-Think of it like a flashlight with a battery:
-- Turn it on, use some energy
-- Eventually, battery depletes
-- Total energy is finite and measurable
-
-### Examples
-- A single pulse
-- A decaying exponential $e^{-t}u(t)$
-- A short burst of data
-
-### Key Property
-$$E = \int_{-\infty}^{\infty} |x(t)|^2 \, dt < \infty$$
-
-Total energy is finite.
+The sinusoid above is a **power signal**. It extends forever in both directions — like a power grid, it delivers continuous power indefinitely.
 
 ---
 
-## Power Signals
+## Formal Definitions
 
-A **power signal** has finite average power (but infinite energy).
+### Energy of a Signal
 
-Think of it like a power plant:
-- Runs forever (conceptually)
-- Infinite total energy over infinite time
-- But average power per second is finite
+The **total energy** of a continuous-time signal:
 
-### Examples
-- A sinusoid $A\cos(\omega t)$
-- A constant DC signal
-- Periodic waveforms
+$$\boxed{E = \int_{-\infty}^{\infty} |x(t)|^2 \, dt}$$
 
-### Key Property
-$$P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 \, dt < \infty$$
+For discrete-time:
+$$E = \sum_{n=-\infty}^{\infty} |x[n]|^2$$
 
-Average power is finite.
+### Power of a Signal
 
----
+The **average power** of a signal:
 
-## The Mutual Exclusion
+$$\boxed{P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 \, dt}$$
 
-Here's the key insight:
-
-> A signal is either an energy signal OR a power signal. **Never both.**
-
-| Signal Type | Total Energy | Average Power |
-|-------------|--------------|---------------|
-| **Energy** | Finite | Zero |
-| **Power** | Infinite | Finite |
-| **Neither** | Infinite | Infinite |
-
-**If E is finite, P must be zero** (finite energy spread over infinite time → zero average)
-
-**If P is finite, E must be infinite** (finite power × infinite time → infinite energy)
+For discrete-time:
+$$P = \lim_{N \to \infty} \frac{1}{2N+1} \sum_{n=-N}^{N} |x[n]|^2$$
 
 ---
 
-## Intuitive Comparison
+## The Mutual Exclusion Principle
 
-### Energy Signal (Pulse)
+Here's the critical insight:
+
+> **A signal is either an energy signal OR a power signal. Never both!**
+
+| Signal Type | Total Energy E | Average Power P |
+|-------------|----------------|-----------------|
+| **Energy signal** | Finite | Zero |
+| **Power signal** | Infinite | Finite |
+| **Neither** | Infinite | Infinite (rare) |
+
+### Why the exclusion?
+
+**If E is finite:**
+$$P = \lim_{T \to \infty} \frac{E}{2T} = \frac{\text{finite}}{\infty} = 0$$
+
+**If P is finite and non-zero:**
+$$E = P \times \text{(infinite time)} = \infty$$
+
+---
+
+## BUILDING UNDERSTANDING: Classifying Common Signals
+
+### Example 1: Rectangular Pulse
+
+$$x(t) = \begin{cases} A & |t| < T_0 \\ 0 & \text{otherwise} \end{cases}$$
+
+**Energy:**
+$$E = \int_{-T_0}^{T_0} A^2 \, dt = 2A^2 T_0 < \infty \checkmark$$
+
+**Classification:** Energy signal
+
+---
+
+### Example 2: Sinusoid
+
+$$x(t) = A\cos(\omega_0 t)$$
+
+**Energy:**
+$$E = \int_{-\infty}^{\infty} A^2\cos^2(\omega_0 t) \, dt = \infty$$
+
+**Power:**
+$$P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} A^2\cos^2(\omega_0 t) \, dt = \frac{A^2}{2}$$
+
+**Classification:** Power signal with $P = A^2/2$
+
+---
+
+### Example 3: DC Signal
+
+$$x(t) = C \quad \text{(constant)}$$
+
+**Energy:** $E = \int_{-\infty}^{\infty} C^2 \, dt = \infty$
+
+**Power:** $P = \lim \frac{1}{2T} \int_{-T}^{T} C^2 \, dt = C^2$
+
+**Classification:** Power signal with $P = C^2$
+
+---
+
+### Example 4: Unit Step
+
+$$u(t) = \begin{cases} 1 & t \geq 0 \\ 0 & t < 0 \end{cases}$$
+
+[[visual:v4]]
+
+**Energy:** $E = \int_0^{\infty} 1 \, dt = \infty$
+
+**Power:** $P = \lim_{T \to \infty} \frac{1}{2T} \int_0^{T} 1 \, dt = \frac{1}{2}$
+
+**Classification:** Power signal with $P = 1/2$
+
+---
+
+## Quick Classification Algorithm
+
 ```
-      ┌───┐
-      │   │
-──────┴───┴──────  t
-```
-- Exists for limited time
-- Squash it → finite area under curve
-- Total energy is calculable
+1. Calculate E = ∫|x(t)|² dt
 
-### Power Signal (Sinusoid)
+2. If E < ∞ → ENERGY SIGNAL ✓
+   (Average power will be zero)
+
+3. If E = ∞ → Calculate P = lim (1/2T)∫|x(t)|² dt
+
+4. If P < ∞ → POWER SIGNAL ✓
+   (Total energy is infinite)
+
+5. If both E = ∞ and P = ∞ → NEITHER
+   (Pathological case, rare in practice)
 ```
-   /\    /\    /\
-  /  \  /  \  /  \  ...forever
-      \/    \/
-```
-- Goes on forever
-- Infinite total energy
-- But average power per cycle is constant
 
 ---
 
-## Why Does This Matter?
+## Why This Classification Matters
 
-This classification affects:
-
-1. **Analysis methods** — Different tools for each type
-2. **Fourier transform behavior** — Energy signals have nice transforms
-3. **Communication systems** — Data bursts vs carrier waves
-4. **Filter design** — Response to pulses vs continuous inputs
+| Application | Relevance |
+|-------------|-----------|
+| **Fourier Transform** | Energy signals have nice transforms (Parseval's theorem) |
+| **Communication** | Data packets = energy signals, carriers = power signals |
+| **Battery design** | Energy signals drain battery predictably |
+| **Thermal analysis** | Power signals determine heat dissipation |
 
 ---
 
-## Quick Test
+## Key Takeaways
 
-To classify a signal:
+1. **Energy signals** have finite $E = \int |x(t)|^2 dt$ and zero average power
+2. **Power signals** have finite $P = \lim (1/2T)\int |x(t)|^2 dt$ and infinite energy
+3. A signal is **never both** — they're mutually exclusive
+4. Pulses, transients → energy signals
+5. Sinusoids, periodic, DC → power signals
 
-1. Calculate $E = \int |x(t)|^2 dt$
-2. If $E < \infty$ → **Energy signal** ✓
-3. If $E = \infty$, calculate $P = \lim \frac{1}{2T}\int |x(t)|^2 dt$
-4. If $P < \infty$ → **Power signal** ✓
-5. If both are infinite → **Neither** (rare, usually pathological)
+---
+
+*Next: We'll learn how to sketch and manipulate these signals graphically.*

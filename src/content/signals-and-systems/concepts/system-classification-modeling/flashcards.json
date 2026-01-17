@@ -1,0 +1,65 @@
+{
+    "id": "system-classification-modeling-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What type of equation models continuous-time systems?",
+            "back": "Differential equations (e.g., dy/dt + ay = x(t))",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What type of equation models discrete-time systems?",
+            "back": "Difference equations (e.g., y[n] = ay[n-1] + x[n])",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is the time constant τ of an RC circuit?",
+            "back": "τ = RC. It determines the speed of response. After t = τ, the response reaches ~63.2% of final value.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "How do you determine the order of a differential equation system?",
+            "back": "By the highest derivative present. If d²y/dt² is highest, it's second order.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What does an ADC (Analog-to-Digital Converter) do?",
+            "back": "Converts continuous-time signals to discrete-time signals by sampling at regular intervals and quantizing values.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is the discrete-time equivalent of differentiation?",
+            "back": "The backward difference: y[n] - y[n-1]. Also called the first difference operator.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is the discrete-time equivalent of integration?",
+            "back": "The accumulator (running sum): y[n] = Σx[k] from k=-∞ to n",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Give an example of a real-world discrete-time system.",
+            "back": "Bank account (balance updated monthly), digital filters, sampled control systems, or any computer-based system.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "What does the equation dy/dt + y/RC = x(t)/RC represent?",
+            "back": "A first-order RC circuit (low-pass filter) with time constant τ = RC.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Why can discrete systems approximate continuous systems?",
+            "back": "With sufficiently high sampling rate (per Nyquist), discrete samples capture all information in a band-limited continuous signal.",
+            "difficultyLevel": 4
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "id": "series-parallel-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Series connection property",
+            "back": "Common current: i1 = i2 = i\nVoltages add: v = v1 + v2",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Parallel connection property",
+            "back": "Common voltage: v1 = v2 = v\nCurrents add: i = i1 + i2",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Driving-point characteristic",
+            "back": "v-i relationship of a one-port as seen from its terminals.\nAlso called port characteristic.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Series addition (graphical)",
+            "back": "For each i, add v values from both curves.\nNew curve: v = v1(i) + v2(i)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Parallel addition (graphical)",
+            "back": "For each v, add i values from both curves.\nNew curve: i = i1(v) + i2(v)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What does KCL enforce in parallel?",
+            "back": "i = i1 + i2\nCurrents sum at the common node.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f7",
+            "front": "What does KVL enforce in series?",
+            "back": "v = v1 + v2\nVoltages sum around the loop.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f8",
+            "front": "Series of current-controlled resistors",
+            "back": "Result is current-controlled.\nv = v̂1(i) + v̂2(i)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Parallel of voltage-controlled resistors",
+            "back": "Result is voltage-controlled.\ni = î1(v) + î2(v)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "What is dual of series connection?",
+            "back": "Parallel connection.\nSwap v↔i, R↔G, series↔parallel.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f11",
+            "front": "Reversing nonlinear resistor polarity",
+            "back": "For bilateral: no change.\nFor non-bilateral: v becomes -v̂(-i).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f12",
+            "front": "Parametric representation of series-parallel",
+            "back": "When result is neither v- nor i-controlled.\nUse parameter θ: v = f(θ), i = g(θ)",
+            "difficultyLevel": 4
+        }
+    ]
+}

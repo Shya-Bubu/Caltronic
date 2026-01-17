@@ -1,0 +1,299 @@
+{
+    "conceptId": "piecewise-linear-analysis",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-vi-curve",
+            "curveType": "diode",
+            "title": "Piecewise-Linear Approximation",
+            "description": "Replace smooth nonlinear curve with connected straight line segments. Each segment is a linear resistor."
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "Concave Resistor Model",
+            "description": "Voltage-controlled PWL: E in series with R and ideal diode.",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "+",
+                    "x": 10,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "e",
+                    "label": "E",
+                    "x": 60,
+                    "y": 40,
+                    "width": 40
+                },
+                {
+                    "id": "r",
+                    "label": "R",
+                    "x": 130,
+                    "y": 40,
+                    "width": 40
+                },
+                {
+                    "id": "d",
+                    "label": "D",
+                    "x": 200,
+                    "y": 40,
+                    "width": 40
+                },
+                {
+                    "id": "out",
+                    "label": "-",
+                    "x": 270,
+                    "y": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "e"
+                },
+                {
+                    "from": "e",
+                    "to": "r"
+                },
+                {
+                    "from": "r",
+                    "to": "d"
+                },
+                {
+                    "from": "d",
+                    "to": "out"
+                }
+            ]
+        },
+        {
+            "id": "v3",
+            "type": "d3-vi-curve",
+            "curveType": "zener",
+            "title": "Zener Diode PWL Model",
+            "description": "3-segment model: forward conducting, reverse blocking, and breakdown region."
+        },
+        {
+            "id": "v4",
+            "type": "d3-vi-curve",
+            "curveType": "tunnel",
+            "title": "Multi-Segment PWL",
+            "description": "(n+1) segments have n breakpoints. More segments = better accuracy, more complexity."
+        },
+        {
+            "id": "v5",
+            "type": "d3-iv-curve",
+            "title": "Two-Segment Diode Model",
+            "description": "Simplest PWL: horizontal (off) + sloped (on with slope Ron). Breakpoint at Vf ≈ 0.7V.",
+            "curves": [
+                {
+                    "label": "Real Diode",
+                    "type": "pn-junction",
+                    "color": "#ef4444",
+                    "dashed": true
+                },
+                {
+                    "label": "2-Segment PWL",
+                    "type": "ideal-diode",
+                    "color": "#3b82f6"
+                }
+            ]
+        },
+        {
+            "id": "v6",
+            "type": "d3-block-diagram",
+            "title": "Convex Resistor Model",
+            "description": "Current-controlled PWL: F in parallel with G and ideal diode. Used for tunnel diodes.",
+            "blocks": [
+                {
+                    "id": "f",
+                    "label": "F (source)",
+                    "x": 50,
+                    "y": 30,
+                    "width": 90,
+                    "type": "input"
+                },
+                {
+                    "id": "par",
+                    "label": "||",
+                    "x": 170,
+                    "y": 60,
+                    "width": 30,
+                    "type": "sum"
+                },
+                {
+                    "id": "g",
+                    "label": "G",
+                    "x": 230,
+                    "y": 30,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "d",
+                    "label": "Diode",
+                    "x": 230,
+                    "y": 90,
+                    "width": 60,
+                    "type": "process"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "v7",
+            "type": "d3-iv-curve",
+            "title": "Breakpoint Selection Strategy",
+            "description": "Choose breakpoints where curvature changes most. Optimize segment slopes to minimize error.",
+            "curves": [
+                {
+                    "label": "Original Curve",
+                    "type": "pn-junction",
+                    "color": "#8b5cf6"
+                }
+            ],
+            "annotations": [
+                {
+                    "point": {
+                        "v": 0.5,
+                        "i": 0.001
+                    },
+                    "text": "Breakpoint 1"
+                },
+                {
+                    "point": {
+                        "v": 0.65,
+                        "i": 0.01
+                    },
+                    "text": "Breakpoint 2"
+                }
+            ]
+        },
+        {
+            "id": "v8",
+            "type": "d3-block-diagram",
+            "title": "PWL Analysis Procedure",
+            "description": "Step 1: Assume diode states. Step 2: Solve linear circuit. Step 3: Check assumptions. Step 4: Iterate if wrong.",
+            "blocks": [
+                {
+                    "id": "assume",
+                    "label": "Assume\\nStates",
+                    "x": 30,
+                    "y": 50,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "solve",
+                    "label": "Solve\\nLinear",
+                    "x": 140,
+                    "y": 50,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "check",
+                    "label": "Check",
+                    "x": 250,
+                    "y": 50,
+                    "width": 70,
+                    "type": "sum"
+                },
+                {
+                    "id": "done",
+                    "label": "Done",
+                    "x": 350,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "assume",
+                    "to": "solve"
+                },
+                {
+                    "from": "solve",
+                    "to": "check"
+                },
+                {
+                    "from": "check",
+                    "to": "done",
+                    "label": "OK"
+                }
+            ]
+        },
+        {
+            "id": "v9",
+            "type": "d3-iv-curve",
+            "title": "Accuracy vs Complexity Tradeoff",
+            "description": "More segments (higher n) = better accuracy but harder to solve. 2-3 segments usually sufficient.",
+            "curves": [
+                {
+                    "label": "1-Segment (worst)",
+                    "type": "linear-resistor",
+                    "resistance": 100,
+                    "color": "#ef4444"
+                },
+                {
+                    "label": "3-Segment (good)",
+                    "type": "pn-junction",
+                    "color": "#3b82f6"
+                }
+            ]
+        },
+        {
+            "id": "v10",
+            "type": "d3-block-diagram",
+            "title": "PWL in SPICE Simulators",
+            "description": "Circuit simulators use PWL models internally. Diode model D(IS,N,RS,BV,IBV) implemented as PWL segments.",
+            "blocks": [
+                {
+                    "id": "spice",
+                    "label": "SPICE\\nEngine",
+                    "x": 100,
+                    "y": 40,
+                    "width": 100,
+                    "type": "process"
+                },
+                {
+                    "id": "pwl",
+                    "label": "PWL\\nModel",
+                    "x": 100,
+                    "y": 100,
+                    "width": 100,
+                    "type": "process"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "spice",
+                    "to": "pwl",
+                    "label": "Uses"
+                }
+            ]
+        },
+        {
+            "id": "v11",
+            "type": "d3-iv-curve",
+            "title": "Real Diode vs PWL Models Comparison",
+            "description": "Visual comparison of exponential diode vs various PWL approximations (1-seg, 2-seg, 3-seg).",
+            "curves": [
+                {
+                    "label": "Real Diode (exponential)",
+                    "type": "pn-junction",
+                    "color": "#000000"
+                },
+                {
+                    "label": "Ideal PWL (2-seg)",
+                    "type": "ideal-diode",
+                    "color": "#3b82f6",
+                    "dashed": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-power-and-passivity",
+    "questions": [
+        {
+            "id": "pq1",
+            "prompt": "What is the fundamental definition of electric power?",
+            "options": [
+                "P = V/I",
+                "P = VI",
+                "P = I/V",
+                "P = V+I"
+            ],
+            "correctAnswer": "P = VI",
+            "explanation": "The formula P = VI corresponds to the definition of electric power as the rate at which electrical energy is transferred or converted into other forms."
+        },
+        {
+            "id": "pq2",
+            "prompt": "Which of the following is true about a passive component?",
+            "options": [
+                "It can generate net energy",
+                "It can only consume or store energy",
+                "It always has negative power",
+                "It is a source of electromotive force"
+            ],
+            "correctAnswer": "It can only consume or store energy",
+            "explanation": "Passive components, such as resistors, capacitors, and inductors, are defined by their inability to generate net energy; they can only consume or store it."
+        },
+        {
+            "id": "pq3",
+            "prompt": "Which component is considered an 'active' element?",
+            "options": [
+                "Resistor",
+                "Capacitor",
+                "Voltage Source",
+                "Inductor"
+            ],
+            "correctAnswer": "Voltage Source",
+            "explanation": "Active components like voltage sources and transistors are capable of introducing net energy into a circuit, distinguishing them from passive components."
+        },
+        {
+            "id": "pq4",
+            "prompt": "Under the passive sign convention, if current enters the positive terminal, power is:",
+            "options": [
+                "Negative (Supplied)",
+                "Zero",
+                "Positive (Absorbed)",
+                "Undefined"
+            ],
+            "correctAnswer": "Positive (Absorbed)",
+            "explanation": "According to the passive sign convention, power is positive when current enters the positive voltage terminal, indicating the element is absorbing power."
+        },
+        {
+            "id": "pq5",
+            "prompt": "If calculation yields a negative power value (P < 0) for an element, what does it mean?",
+            "options": [
+                "The element is absorbing power",
+                "The element is broken",
+                "The element is supplying power",
+                "The calculation must be wrong"
+            ],
+            "correctAnswer": "The element is supplying power",
+            "explanation": "If the calculated power is negative (P < 0), it implies that the actual direction of energy flow is leaving the component, meaning it is supplying power."
+        },
+        {
+            "id": "pq6",
+            "prompt": "Can a resistor ever supply average power to a circuit?",
+            "options": [
+                "Yes, in AC circuits",
+                "No, it always absorbs power",
+                "Yes, if connected backwards",
+                "Only at high frequencies"
+            ],
+            "correctAnswer": "No, it always absorbs power",
+            "explanation": "Resistors are inherently passive devices that dissipate electrical energy as heat, so the power absorbed by a resistor is always a positive value."
+        },
+        {
+            "id": "pq7",
+            "prompt": "Which is a valid alternative formula for power in a resistor?",
+            "options": [
+                "P = I²R",
+                "P = V²/I",
+                "P = IR",
+                "P = V/R"
+            ],
+            "correctAnswer": "P = I²R",
+            "explanation": "To modify the formula P = VI for a resistor using Ohm's Law (V = IR), replace V to get P = (IR)I = I²R, or replace I to get P = V(V/R) = V²/R."
+        },
+        {
+            "id": "pq8",
+            "prompt": "How is energy related to power?",
+            "options": [
+                "Energy is the derivative of Power",
+                "Energy is Power divided by Time",
+                "Energy is the integral of Power over time",
+                "They are the same thing"
+            ],
+            "correctAnswer": "Energy is the integral of Power over time",
+            "explanation": "Energy is the accumulation of power over time, calculated by integrating the power function P(t) with respect to time over the desired interval."
+        },
+        {
+            "id": "pq9",
+            "prompt": "In a complete circuit, the algebraic sum of power for all elements must be:",
+            "options": [
+                "Positive",
+                "Negative",
+                "Zero",
+                "Infinite"
+            ],
+            "correctAnswer": "Zero",
+            "explanation": "Conservation of power states that in any isolated circuit, the total power generated by active elements must exactly equal the total power consumed by passive elements."
+        },
+        {
+            "id": "pq10",
+            "prompt": "A 100W bulb runs for 1 hour. How much energy is consumed?",
+            "options": [
+                "100 J",
+                "360 kJ",
+                "60 J",
+                "1000 J"
+            ],
+            "correctAnswer": "360 kJ",
+            "explanation": "A 100W light bulb left on for 1 hour consumes energy equal to Power × Time. 100 W × 3600 s = 360,000 Joules, or 0.1 kWh."
+        }
+    ]
+}

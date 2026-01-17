@@ -28,19 +28,19 @@
         {
             "id": "f5",
             "front": "Convert 30 dB SNR to linear ratio.",
-            "back": "10^(30/10) = 10^3 = 1000. Signal is 1000× stronger than noise.",
+            "back": "10^(30/10) = 10^3 = 1000. Signal is 1000Ã— stronger than noise.",
             "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "What is a Gaussian random variable?",
-            "back": "A random variable following the normal (bell-curve) distribution, characterized by mean μ and variance σ².",
+            "back": "A random variable following the normal (bell-curve) distribution, characterized by mean Î¼ and variance ÏƒÂ².",
             "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "In y(t) = x(t) + n(t), what does n(t) represent?",
-            "back": "Noise — the random component added by the channel or system.",
+            "back": "Noise â€” the random component added by the channel or system.",
             "difficultyLevel": 1
         },
         {

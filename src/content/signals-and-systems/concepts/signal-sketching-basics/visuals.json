@@ -3,26 +3,29 @@
     "visuals": [
         {
             "id": "v1",
-            "type": "image",
+            "type": "d3-waveform",
             "title": "Unit Step Function u(t)",
-            "src": "/course/signals-and-systems/lesson-01/concepts/unit-step.png",
-            "caption": "The switch function: zero for t<0, one for t≥0.",
+            "waveType": "step",
+            "mode": "continuous",
+            "description": "The switch function: zero for t<0, one for t≥0. Building block for piecewise signals.",
             "placement": "intuition"
         },
         {
             "id": "v2",
-            "type": "image",
+            "type": "d3-waveform",
             "title": "Rectangular Pulse rect(t)",
-            "src": "/course/signals-and-systems/lesson-01/concepts/rect-pulse.png",
-            "caption": "A box function: value is 1 for a finite duration.",
+            "waveType": "rect",
+            "mode": "continuous",
+            "description": "A box function: equal to 1 for |t| ≤ 1/2, zero elsewhere. Finite duration, finite energy.",
             "placement": "intuition"
         },
         {
             "id": "v3",
-            "type": "image",
+            "type": "d3-waveform",
             "title": "Triangular Pulse tri(t)",
-            "src": "/course/signals-and-systems/lesson-01/concepts/tri-pulse.png",
-            "caption": "A ramp up and ramp down, centered at zero.",
+            "waveType": "triangle",
+            "mode": "continuous",
+            "description": "A triangle: ramps up to 1 at t=0, then ramps down. Smoother transitions than rect(t).",
             "placement": "intuition"
         }
     ]

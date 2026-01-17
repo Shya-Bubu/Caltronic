@@ -1,0 +1,77 @@
+{
+    "id": "dc-operating-points-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "DC operating point definition",
+            "back": "Steady-state solution of a circuit with DC sources.\nWhere device characteristic meets load line.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Load line equation",
+            "back": "For source Eb and resistor Rb:\ni = (Eb - v)/Rb\nLine from (Eb, 0) to (0, Eb/Rb).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Linear passive circuit solution",
+            "back": "Always has a unique DC operating point.\nNo ambiguity in solution.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "Nonlinear circuit solutions",
+            "back": "May have:\n• Unique solution\n• Multiple solutions\n• No solution",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Graphical method steps",
+            "back": "1. Draw device v-i curve\n2. Draw load line\n3. Find intersection(s)\n4. Each intersection is an operating point",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Newton-Raphson formula",
+            "back": "xn = xn-1 - f(xn-1)/f'(xn-1)\nIterative root finding.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "When to use Newton-Raphson",
+            "back": "When analytical solution is impractical.\nNonlinear circuits with complex equations.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Transfer characteristic",
+            "back": "vo = f(vi)\nRelates output to input at different ports.\nNot a driving-point characteristic.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Back-to-back connection equations",
+            "back": "KCL: ia = -ib (currents oppose)\nKVL: va = vb (voltages equal)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Stability of operating point",
+            "back": "Generally stable if device and load have opposing slopes at intersection.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f11",
+            "front": "No solution means",
+            "back": "Load line and device curve don't intersect.\nCircuit cannot operate with given sources.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f12",
+            "front": "Multiple solutions mean",
+            "back": "Multiple valid operating points.\nCircuit behavior depends on initial conditions.",
+            "difficultyLevel": 3
+        }
+    ]
+}

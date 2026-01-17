@@ -4,13 +4,13 @@
         {
             "id": "f1",
             "front": "What is u(t)?",
-            "back": "Unit step function: 1 for t ≥ 0, 0 for t < 0",
+            "back": "Unit step function: 1 for t â‰¥ 0, 0 for t < 0",
             "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "What does |t| mean?",
-            "back": "Absolute value: |t| = t for t≥0, |t| = -t for t<0",
+            "back": "Absolute value: |t| = t for tâ‰¥0, |t| = -t for t<0",
             "difficultyLevel": 1
         },
         {
@@ -27,14 +27,14 @@
         },
         {
             "id": "f5",
-            "front": "What is rect(t/τ)?",
-            "back": "Rectangle pulse: 1 for |t| ≤ τ/2, 0 otherwise. Width = τ.",
+            "front": "What is rect(t/Ï„)?",
+            "back": "Rectangle pulse: 1 for |t| â‰¤ Ï„/2, 0 otherwise. Width = Ï„.",
             "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "What is tri(t/T)?",
-            "back": "Triangle pulse: 1 - |t|/T for |t| ≤ T, 0 otherwise. Peak = 1, base = 2T.",
+            "back": "Triangle pulse: 1 - |t|/T for |t| â‰¤ T, 0 otherwise. Peak = 1, base = 2T.",
             "difficultyLevel": 2
         },
         {

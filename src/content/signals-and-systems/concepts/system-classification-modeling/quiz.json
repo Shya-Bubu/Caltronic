@@ -1,0 +1,125 @@
+{
+    "id": "system-classification-modeling-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Which type of system uses differential equations for modeling?",
+            "options": [
+                "Discrete-time system",
+                "Continuous-time system",
+                "Digital system",
+                "Sampled system"
+            ],
+            "correctAnswer": "Continuous-time system",
+            "explanation": "Continuous-time systems are modeled by differential equations because they deal with continuous signals x(t) where derivatives dx/dt are defined. Discrete-time systems use difference equations instead."
+        },
+        {
+            "id": "q2",
+            "prompt": "A bank account balance updated monthly is best modeled as:",
+            "options": [
+                "Continuous-time system",
+                "Discrete-time system",
+                "Hybrid system",
+                "Analog system"
+            ],
+            "correctAnswer": "Discrete-time system",
+            "explanation": "A bank balance is updated at discrete time intervals (monthly), making it a discrete-time system. The balance y[n] depends on previous balance y[n-1] plus interest and deposits, forming a difference equation."
+        },
+        {
+            "id": "q3",
+            "prompt": "For the RLC circuit equation LC(d²v/dt²) + RC(dv/dt) + v = x(t), what is the system order?",
+            "options": [
+                "First order",
+                "Second order",
+                "Third order",
+                "Zero order"
+            ],
+            "correctAnswer": "Second order",
+            "explanation": "The order of a differential equation (and thus the system) is determined by the highest derivative. Here d²v/dt² is the highest, making it a second-order system."
+        },
+        {
+            "id": "q4",
+            "prompt": "Which equation represents a discrete-time system?",
+            "options": [
+                "dy/dt + 3y = x(t)",
+                "y[n] = 0.5y[n-1] + x[n]",
+                "∫y(τ)dτ = x(t)",
+                "LC(d²y/dt²) + y = 0"
+            ],
+            "correctAnswer": "y[n] = 0.5y[n-1] + x[n]",
+            "explanation": "The equation y[n] = 0.5y[n-1] + x[n] uses discrete indices [n] and [n-1], characteristic of difference equations for discrete-time systems. All other options use continuous-time notation."
+        },
+        {
+            "id": "q5",
+            "prompt": "An analog-to-digital converter (ADC) converts:",
+            "options": [
+                "Discrete signals to continuous signals",
+                "Continuous signals to discrete signals",
+                "Analog signals to higher voltage",
+                "Digital signals to binary"
+            ],
+            "correctAnswer": "Continuous signals to discrete signals",
+            "explanation": "An ADC samples a continuous-time signal at discrete intervals and quantizes the values, converting continuous analog signals into discrete-time digital signals."
+        },
+        {
+            "id": "q6",
+            "prompt": "The time constant τ of a first-order system RC is:",
+            "options": [
+                "R + C",
+                "R/C",
+                "RC",
+                "1/RC"
+            ],
+            "correctAnswer": "RC",
+            "explanation": "For an RC circuit, the time constant τ = RC determines how quickly the system responds. After time t = τ, the response reaches about 63.2% of its final value."
+        },
+        {
+            "id": "q7",
+            "prompt": "A difference equation y[n] - y[n-1] = x[n] represents which operation?",
+            "options": [
+                "Integration",
+                "Differentiation (backward difference)",
+                "Multiplication",
+                "Convolution"
+            ],
+            "correctAnswer": "Differentiation (backward difference)",
+            "explanation": "The backward difference y[n] - y[n-1] is the discrete-time analog of differentiation. It approximates dy/dt in continuous time and measures the rate of change."
+        },
+        {
+            "id": "q8",
+            "prompt": "Which statement about system classification is TRUE?",
+            "options": [
+                "All physical systems are discrete-time",
+                "Continuous-time systems cannot be implemented digitally",
+                "Discrete-time systems can approximate continuous-time behavior",
+                "Differential equations only apply to electrical systems"
+            ],
+            "correctAnswer": "Discrete-time systems can approximate continuous-time behavior",
+            "explanation": "With sufficiently high sampling rates, discrete-time systems can accurately approximate continuous-time behavior. This is the basis of digital signal processing and digital control systems."
+        },
+        {
+            "id": "q9",
+            "prompt": "For the system y(t) = ∫x(τ)dτ, this represents:",
+            "options": [
+                "A differentiator",
+                "An integrator",
+                "A filter",
+                "An amplifier"
+            ],
+            "correctAnswer": "An integrator",
+            "explanation": "The integral operation accumulates the input signal over time, making this an integrator. The output is the 'running total' of the input, which is the opposite of differentiation."
+        },
+        {
+            "id": "q10",
+            "prompt": "The discrete-time accumulator y[n] = Σx[k] for k from -∞ to n is the discrete equivalent of:",
+            "options": [
+                "Differentiation",
+                "Integration",
+                "Multiplication",
+                "Time-shifting"
+            ],
+            "correctAnswer": "Integration",
+            "explanation": "The accumulator sums all past input values, which is the discrete-time equivalent of integration. Just as integration is the inverse of differentiation, accumulation is the inverse of differencing."
+        }
+    ]
+}

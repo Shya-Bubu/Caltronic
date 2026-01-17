@@ -15,6 +15,8 @@ For current $i(t)$ through resistance $R$:
 We normalize to $R = 1\Omega$ for signal analysis, giving:
 $$P(t) = |x(t)|^2$$
 
+[[visual:v3]]
+
 ---
 
 ## Communication Systems

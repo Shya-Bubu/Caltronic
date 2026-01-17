@@ -1,0 +1,13 @@
+{
+    "id": "lti-system-response",
+    "title": "LTI System Response from Impulse",
+    "lesson": "lesson-03",
+    "order": 1,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -38,11 +38,13 @@ function LectureEdgeScreen({
     subtitle,
     markdown,
     actions,
+    actionsPosition = 'header',
 }: {
     title: string;
     subtitle?: string;
     markdown: string;
     actions?: React.ReactNode;
+    actionsPosition?: 'header' | 'footer';
 }) {
     return (
         <section className={styles.viewer} aria-label={title}>
@@ -51,7 +53,9 @@ function LectureEdgeScreen({
                     {subtitle ? <div className={styles.viewerKicker}>{subtitle}</div> : null}
                     <h2 className={styles.viewerTitle}>{title}</h2>
                 </div>
-                {actions ? <div className={styles.viewerControls}>{actions}</div> : null}
+                {actions && actionsPosition === 'header' ? (
+                    <div className={styles.viewerControls}>{actions}</div>
+                ) : null}
             </header>
 
             <div className={styles.contentShell}>
@@ -59,6 +63,12 @@ function LectureEdgeScreen({
                     <MarkdownView markdown={markdown} />
                 </article>
             </div>
+
+            {actions && actionsPosition === 'footer' ? (
+                <footer className={styles.viewerFooter}>
+                    {actions}
+                </footer>
+            ) : null}
         </section>
     );
 }
@@ -126,7 +136,7 @@ function ConceptSidebar({
                             aria-hidden
                         />
                         <div className={styles.conceptText}>
-                            <div className={styles.conceptIndex}>—</div>
+                            <div className={styles.conceptIndex}>0</div>
                             {!collapsed && <div className={styles.conceptTitle}>Overview</div>}
                         </div>
                     </button>
@@ -188,7 +198,7 @@ function ConceptSidebar({
                             aria-hidden
                         />
                         <div className={styles.conceptText}>
-                            <div className={styles.conceptIndex}>—</div>
+                            <div className={styles.conceptIndex}>•</div>
                             <div className={styles.conceptTitle}>Summary</div>
                         </div>
                     </button>
@@ -221,11 +231,20 @@ function ConceptSidebar({
 
 // Map concept IDs to their respective simulation IDs
 const CONCEPT_SIMULATION_MAP: Record<string, string> = {
+    // Lesson 01 concepts
     'signal-and-system-foundations': 'system',
     'signal-classification-by-time': 'sampling',
     'deterministic-vs-random-signals': 'noise',
     'energy-and-power-signals': 'energy-power',
     'signal-sketching-basics': 'transform',
+
+    // Lesson 02 concepts
+    'impulse-and-unit-step': 'transform', // Shows step function and transformations
+    'system-classification-modeling': 'sampling', // Shows continuous vs discrete
+    'system-interconnections-feedback': 'system', // Shows system input/output
+
+    // NOTE: Circuit Analysis simulations removed until proper circuit-specific ones are built
+    // Circuit Analysis needs: v-i curve plotter, load-line analyzer, PWL simulator
 };
 
 function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
@@ -284,9 +303,19 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
     // Next button: go to next section, or next concept's intuition if on flashcards
     const handleNext = () => {
         if (isLastSection) {
+            // Mark current concept as complete when leaving flashcards
+            flow.markConceptComplete(concept.id);
             // Go to next concept
             if (flow.goNext()) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Scroll to the viewer header instead of page top
+                setTimeout(() => {
+                    const viewerHeader = document.querySelector('[aria-label="Concept content"]');
+                    if (viewerHeader) {
+                        viewerHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }, 50);
             }
         } else {
             handleViewChange(VIEW_ORDER[activeIndex + 1]!);
@@ -467,6 +496,7 @@ export default function LectureClient({
                         title="Overview"
                         subtitle={`Lecture • ${concepts.length} concepts`}
                         markdown={overviewMarkdown}
+                        actionsPosition="footer"
                         actions={
                             <Button variant="primary" onClick={() => setMode('concepts')}>
                                 Start

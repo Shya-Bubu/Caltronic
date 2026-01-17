@@ -3,18 +3,19 @@
     "visuals": [
         {
             "id": "v1",
-            "type": "image",
-            "title": "Deterministic vs Random",
-            "src": "/course/signals-and-systems/lesson-01/concepts/deterministic-random.png",
-            "caption": "Top: A deterministic signal (predictable). Bottom: A random signal (containing noise).",
+            "type": "d3-waveform",
+            "title": "Deterministic Signal",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "A deterministic signal is fully predictable. Given the equation x(t), we can compute its exact value at any time.",
             "placement": "intuition"
         },
         {
             "id": "v2",
-            "type": "image",
-            "title": "SNR Visualized",
-            "src": "/course/signals-and-systems/lesson-01/concepts/snr-plot.png",
-            "caption": "Signal-to-Noise Ratio is the difference between signal strength and the noise floor.",
+            "type": "d3-sampling",
+            "title": "Signal + Noise Demo",
+            "signalFrequency": 2,
+            "description": "Random signals (noise) are unpredictable. The sampling rate affects how well we can distinguish signal from noise.",
             "placement": "engineering"
         }
     ]

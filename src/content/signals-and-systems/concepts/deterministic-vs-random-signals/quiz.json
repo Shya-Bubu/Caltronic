@@ -23,7 +23,7 @@
                 "Unit step function"
             ],
             "correctAnswer": "Thermal noise",
-            "explanation": "Thermal noise is inherently random—caused by random electron motion, it has no formula and can only be described statistically. The others are all deterministic with explicit formulas."
+            "explanation": "Thermal noise is inherently randomâ€”caused by random electron motion, it has no formula and can only be described statistically. The others are all deterministic with explicit formulas."
         },
         {
             "id": "q3",
@@ -59,7 +59,7 @@
                 "Both simultaneously"
             ],
             "correctAnswer": "Random",
-            "explanation": "Speech is random because even the same person saying the same word produces slightly different waveforms each time. No formula can predict exact speech values—we can only describe it statistically."
+            "explanation": "Speech is random because even the same person saying the same word produces slightly different waveforms each time. No formula can predict exact speech valuesâ€”we can only describe it statistically."
         },
         {
             "id": "q6",
@@ -71,7 +71,7 @@
                 "Unknown"
             ],
             "correctAnswer": "1",
-            "explanation": "Deterministic signals have probability = 1 for their calculated values. If x(t) = cos(t), then x(0) = 1 with absolute certainty. No randomness, no probability distribution—just certainty."
+            "explanation": "Deterministic signals have probability = 1 for their calculated values. If x(t) = cos(t), then x(0) = 1 with absolute certainty. No randomness, no probability distributionâ€”just certainty."
         },
         {
             "id": "q7",
@@ -83,7 +83,7 @@
                 "Step functions"
             ],
             "correctAnswer": "Probability distributions",
-            "explanation": "Random signals cannot be described by explicit formulas—instead we characterize them by their probability density functions (PDFs), mean, variance, and other statistical measures."
+            "explanation": "Random signals cannot be described by explicit formulasâ€”instead we characterize them by their probability density functions (PDFs), mean, variance, and other statistical measures."
         },
         {
             "id": "q8",
@@ -119,7 +119,7 @@
                 "Zero mean only"
             ],
             "correctAnswer": "Bell-shaped distribution",
-            "explanation": "Gaussian (normal) noise follows the bell-curve probability distribution, fully characterized by mean μ and variance σ². It's common because the Central Limit Theorem makes sums of many effects Gaussian."
+            "explanation": "Gaussian (normal) noise follows the bell-curve probability distribution, fully characterized by mean Î¼ and variance ÏƒÂ². It's common because the Central Limit Theorem makes sums of many effects Gaussian."
         }
     ]
 }

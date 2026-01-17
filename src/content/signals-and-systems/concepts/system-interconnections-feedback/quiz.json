@@ -1,0 +1,125 @@
+{
+    "id": "system-interconnections-feedback-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In a cascade (series) connection of systems S₁ and S₂, the overall output is:",
+            "options": [
+                "S₁(x) + S₂(x)",
+                "S₂(S₁(x))",
+                "S₁(x) × S₂(x)",
+                "S₁(S₂(x))"
+            ],
+            "correctAnswer": "S₂(S₁(x))",
+            "explanation": "In cascade connection, the output of S₁ becomes the input to S₂. So the overall transformation is S₂(S₁(x)), where S₁ processes first and S₂ processes second."
+        },
+        {
+            "id": "q2",
+            "prompt": "In a parallel connection of systems S₁ and S₂ with the same input, the output is typically:",
+            "options": [
+                "S₂(S₁(x))",
+                "S₁(x) + S₂(x)",
+                "S₁(x) - S₂(x)",
+                "S₁(x) × S₂(x)"
+            ],
+            "correctAnswer": "S₁(x) + S₂(x)",
+            "explanation": "In parallel connection, both systems receive the same input and their outputs are summed. The overall output is y = S₁(x) + S₂(x)."
+        },
+        {
+            "id": "q3",
+            "prompt": "A feedback system differs from an open-loop system because:",
+            "options": [
+                "It has multiple inputs",
+                "The output is fed back to influence the input",
+                "It uses differential equations",
+                "It only works with digital signals"
+            ],
+            "correctAnswer": "The output is fed back to influence the input",
+            "explanation": "Feedback is defined by the output being fed back and combined with the input (usually subtracted to create an error signal). This creates a closed loop that can self-correct."
+        },
+        {
+            "id": "q4",
+            "prompt": "In negative feedback, the error signal e = r - y represents:",
+            "options": [
+                "The sum of reference and output",
+                "The difference between desired and actual output",
+                "The product of input and output",
+                "The derivative of the output"
+            ],
+            "correctAnswer": "The difference between desired and actual output",
+            "explanation": "In negative feedback, e = r - y where r is the reference (desired) and y is the actual output. The error signal drives the system to minimize the difference."
+        },
+        {
+            "id": "q5",
+            "prompt": "For cascade systems with transfer functions H₁(s) and H₂(s), the overall transfer function is:",
+            "options": [
+                "H₁(s) + H₂(s)",
+                "H₁(s) - H₂(s)",
+                "H₁(s) × H₂(s)",
+                "H₁(s) / H₂(s)"
+            ],
+            "correctAnswer": "H₁(s) × H₂(s)",
+            "explanation": "In cascade/series connection, transfer functions multiply. If Y = H₂(H₁·X), then Y/X = H₁·H₂. This is because the output of one becomes the input to the next."
+        },
+        {
+            "id": "q6",
+            "prompt": "The closed-loop transfer function for unity feedback with forward gain G(s) is:",
+            "options": [
+                "G(s)",
+                "1 + G(s)",
+                "G(s)/(1 + G(s))",
+                "1/G(s)"
+            ],
+            "correctAnswer": "G(s)/(1 + G(s))",
+            "explanation": "For unity negative feedback, the closed-loop transfer function is T(s) = G(s)/(1 + G(s)). This is derived from Y = G(R - Y), solving for Y/R."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the main advantage of feedback control?",
+            "options": [
+                "Simpler implementation",
+                "Lower cost",
+                "Ability to reject disturbances and reduce sensitivity to parameter changes",
+                "Faster response always"
+            ],
+            "correctAnswer": "Ability to reject disturbances and reduce sensitivity to parameter changes",
+            "explanation": "Feedback's key advantage is robustness: it can reject disturbances and reduce sensitivity to plant parameter variations. This comes at the cost of potential instability if not designed properly."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the feedback system with forward path G and feedback path H, the closed-loop transfer function is:",
+            "options": [
+                "G + H",
+                "G/(1 - GH)",
+                "G/(1 + GH)",
+                "GH/(1 + G)"
+            ],
+            "correctAnswer": "G/(1 + GH)",
+            "explanation": "For negative feedback with forward G and feedback H: T = G/(1 + GH). If H = 1 (unity feedback), this simplifies to G/(1 + G)."
+        },
+        {
+            "id": "q9",
+            "prompt": "A thermostat controlling room temperature is an example of:",
+            "options": [
+                "Open-loop control",
+                "Closed-loop (feedback) control",
+                "Parallel system",
+                "Cascade system"
+            ],
+            "correctAnswer": "Closed-loop (feedback) control",
+            "explanation": "A thermostat measures actual temperature (output), compares it to desired temperature (reference), and adjusts heating/cooling based on the difference. This is classic feedback control."
+        },
+        {
+            "id": "q10",
+            "prompt": "If two parallel systems have transfer functions H₁(s) = 2 and H₂(s) = 3, their combined transfer function is:",
+            "options": [
+                "6",
+                "5",
+                "1",
+                "2/3"
+            ],
+            "correctAnswer": "5",
+            "explanation": "Parallel systems have transfer functions that add: H_total = H₁ + H₂ = 2 + 3 = 5. Both systems receive the same input and their outputs are summed."
+        }
+    ]
+}

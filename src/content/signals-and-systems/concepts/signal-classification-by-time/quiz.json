@@ -23,7 +23,7 @@
                 "Rational values only"
             ],
             "correctAnswer": "All real values of t",
-            "explanation": "Continuous-time signals x(t) are defined for every real value of the independent variable t—you can zoom in infinitely and the signal remains defined. Discrete signals are only at integers."
+            "explanation": "Continuous-time signals x(t) are defined for every real value of the independent variable tâ€”you can zoom in infinitely and the signal remains defined. Discrete signals are only at integers."
         },
         {
             "id": "q3",
@@ -35,7 +35,7 @@
                 "40 kHz"
             ],
             "correctAnswer": "20 kHz",
-            "explanation": "The Nyquist theorem states: sample at fs > 2×fmax. For a 10 kHz signal, Nyquist rate = 2 × 10 kHz = 20 kHz. Sampling below this causes aliasing."
+            "explanation": "The Nyquist theorem states: sample at fs > 2Ã—fmax. For a 10 kHz signal, Nyquist rate = 2 Ã— 10 kHz = 20 kHz. Sampling below this causes aliasing."
         },
         {
             "id": "q4",
@@ -47,7 +47,7 @@
                 "Signal is periodic"
             ],
             "correctAnswer": "Sampling rate is below Nyquist",
-            "explanation": "Aliasing occurs when sampling below Nyquist rate (fs < 2×fmax), causing high frequencies to 'fold' and appear as lower frequencies. High sampling rate prevents aliasing. DC and periodicity are unrelated."
+            "explanation": "Aliasing occurs when sampling below Nyquist rate (fs < 2Ã—fmax), causing high frequencies to 'fold' and appear as lower frequencies. High sampling rate prevents aliasing. DC and periodicity are unrelated."
         },
         {
             "id": "q5",
@@ -83,7 +83,7 @@
                 "Division"
             ],
             "correctAnswer": "Summation",
-            "explanation": "Summation (Σ) in discrete-time corresponds to integration (∫) in continuous-time. The fundamental parallel: integrals over continuous domains become sums over discrete indices."
+            "explanation": "Summation (Î£) in discrete-time corresponds to integration (âˆ«) in continuous-time. The fundamental parallel: integrals over continuous domains become sums over discrete indices."
         },
         {
             "id": "q8",
@@ -95,7 +95,7 @@
                 "Same as x[1]"
             ],
             "correctAnswer": "Undefined",
-            "explanation": "Discrete-time signals x[n] are only defined at integer indices. x[1.5] is undefined (not zero!)—the signal simply doesn't exist between sample points. This is fundamental to discrete signal definition."
+            "explanation": "Discrete-time signals x[n] are only defined at integer indices. x[1.5] is undefined (not zero!)â€”the signal simply doesn't exist between sample points. This is fundamental to discrete signal definition."
         },
         {
             "id": "q9",
@@ -119,7 +119,7 @@
                 "Threshold"
             ],
             "correctAnswer": "Sampling period",
-            "explanation": "Ts is the sampling period—the time interval between consecutive samples, measured in seconds. Sampling frequency fs = 1/Ts. This is standard notation in DSP."
+            "explanation": "Ts is the sampling periodâ€”the time interval between consecutive samples, measured in seconds. Sampling frequency fs = 1/Ts. This is standard notation in DSP."
         }
     ]
 }

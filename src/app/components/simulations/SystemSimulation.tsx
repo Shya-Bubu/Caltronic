@@ -1,7 +1,16 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import SignalPlot from './SignalPlot';
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+    ReferenceLine,
+} from 'recharts';
 import styles from './Simulation.module.css';
 
 /**
@@ -167,18 +176,53 @@ export default function SystemSimulation() {
                 {systemDescription}
             </div>
 
-            <SignalPlot
-                data={data}
-                lines={[
-                    { dataKey: 'input', name: 'Input x(t)', color: '#00ccff', strokeWidth: 2 },
-                    { dataKey: 'output', name: 'Output y(t)', color: '#ff8844', strokeWidth: 2 },
-                ]}
-                title="System Input and Output"
-                xLabel="Time (s)"
-                yLabel="Amplitude"
-                height={200}
-                xDomain={[0, 2]}
-            />
+            <div style={{ width: '100%', height: 200 }}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                        <XAxis
+                            dataKey="t"
+                            stroke="#888"
+                            tick={{ fill: '#888', fontSize: 11 }}
+                            domain={[0, 2]}
+                            label={{ value: 'Time (s)', position: 'bottom', fill: '#888', fontSize: 12 }}
+                        />
+                        <YAxis
+                            stroke="#888"
+                            tick={{ fill: '#888', fontSize: 11 }}
+                            label={{ value: 'Amplitude', angle: -90, position: 'insideLeft', fill: '#888', fontSize: 12 }}
+                        />
+                        <ReferenceLine y={0} stroke="#555" strokeWidth={1} />
+                        <Tooltip
+                            contentStyle={{
+                                backgroundColor: '#1a1a2e',
+                                border: '1px solid #333',
+                                borderRadius: '4px',
+                                color: '#fff',
+                                fontSize: '12px',
+                            }}
+                        />
+                        <Line
+                            type="monotone"
+                            dataKey="input"
+                            name="Input x(t)"
+                            stroke="#00ccff"
+                            strokeWidth={2}
+                            dot={false}
+                            isAnimationActive={false}
+                        />
+                        <Line
+                            type="monotone"
+                            dataKey="output"
+                            name="Output y(t)"
+                            stroke="#ff8844"
+                            strokeWidth={2}
+                            dot={false}
+                            isAnimationActive={false}
+                        />
+                    </LineChart>
+                </ResponsiveContainer>
+            </div>
 
             <div className={styles.legend}>
                 <div className={styles.legendItem}>

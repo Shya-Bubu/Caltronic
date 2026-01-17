@@ -1,0 +1,284 @@
+{
+    "conceptId": "linear-resistor-fundamentals",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "image-gallery",
+            "title": "Water-Circuit Analogy",
+            "description": "Visual comparison showing water pressure, flow, and pipe resistance mapped to voltage, current, and electrical resistance",
+            "images": [
+                {
+                    "src": "/course/circuit-analysis/lesson-01/images/water_analogy.png",
+                    "alt": "Water flowing through pipes compared to current in circuits",
+                    "caption": "Water System: Pressure pushes water through narrow pipes"
+                },
+                {
+                    "src": "/course/circuit-analysis/lesson-01/images/circuit_analogy.png",
+                    "alt": "Electrical circuit with battery and resistor",
+                    "caption": "Electrical System: Voltage pushes current through resistors"
+                }
+            ]
+        },
+        {
+            "id": "v2",
+            "type": "d3-ohms-law-explorer",
+            "title": "Interactive Ohm's Law Explorer",
+            "description": "Adjust voltage and resistance using the sliders to see how current and power change in real-time. Watch the operating point move along the IV characteristic curve!"
+        },
+        {
+            "id": "v3",
+            "type": "d3-vi-curve",
+            "curveType": "linear",
+            "title": "v-i Plane: Voltage (horizontal) vs Current (vertical)",
+            "description": "Slope = G = 1/R (conductance). Steeper slope means lower resistance.",
+            "parameters": {
+                "axes": "v-i",
+                "defaultR": 100,
+                "showGridLines": true,
+                "highlightSlope": true,
+                "slopeLabel": "G = 1/R"
+            }
+        },
+        {
+            "id": "v4",
+            "type": "d3-vi-curve",
+            "curveType": "linear",
+            "title": "i-v Plane: Current (horizontal) vs Voltage (vertical)",
+            "description": "Slope = R (resistance). Same resistor, different axis orientation shows resistance directly.",
+            "parameters": {
+                "axes": "i-v",
+                "defaultR": 100,
+                "showGridLines": true,
+                "highlightSlope": true,
+                "slopeLabel": "R"
+            }
+        },
+        {
+            "id": "v5",
+            "type": "image",
+            "title": "Linear Resistor Characteristics in Both Planes",
+            "description": "Comparison showing the same resistor plotted on v-i and i-v planes",
+            "src": "/course/circuit-analysis/lesson-01/images/page02_img01.png",
+            "alt": "Linear resistor characteristic on both v-i and i-v planes",
+            "caption": "From lecture notes: Both representations show the same linear relationship"
+        },
+        {
+            "id": "v6",
+            "type": "d3-vi-curve",
+            "curveType": "comparison",
+            "title": "Comparing Multiple Resistors",
+            "description": "See how different resistance values affect the v-i characteristic",
+            "parameters": {
+                "resistors": [
+                    10,
+                    50,
+                    100,
+                    500,
+                    1000
+                ],
+                "vRange": [
+                    -5,
+                    5
+                ],
+                "showLabels": true,
+                "colorScheme": "categorical"
+            }
+        },
+        {
+            "id": "v7",
+            "type": "d3-iv-curve",
+            "title": "Conductance Comparison (G = 1/R)",
+            "description": "Same resistors plotted showing conductance G = 1/R. Higher conductance means steeper slope on v-i plane.",
+            "curves": [
+                {
+                    "label": "10Ω (G=100mS)",
+                    "type": "linear-resistor",
+                    "resistance": 10,
+                    "color": "#3b82f6"
+                },
+                {
+                    "label": "100Ω (G=10mS)",
+                    "type": "linear-resistor",
+                    "resistance": 100,
+                    "color": "#10b981"
+                },
+                {
+                    "label": "1000Ω (G=1mS)",
+                    "type": "linear-resistor",
+                    "resistance": 1000,
+                    "color": "#ef4444"
+                }
+            ]
+        },
+        {
+            "id": "v8",
+            "type": "d3-iv-curve",
+            "title": "Power Dissipation: P = I²R",
+            "description": "For a fixed 100Ω resistor, power increases quadratically with current. At I=50mA, P=250mW.",
+            "curves": [
+                {
+                    "label": "100Ω Resistor",
+                    "type": "linear-resistor",
+                    "resistance": 100,
+                    "color": "#8b5cf6"
+                }
+            ],
+            "annotations": [
+                {
+                    "point": {
+                        "v": 5,
+                        "i": 0.05
+                    },
+                    "text": "P = 250mW"
+                }
+            ]
+        },
+        {
+            "id": "v9",
+            "type": "d3-iv-curve",
+            "title": "Extreme Resistances",
+            "description": "Comparing very low (1Ω) and very high (10kΩ) resistances. Notice the dramatic difference in slopes.",
+            "curves": [
+                {
+                    "label": "1Ω (near short)",
+                    "type": "linear-resistor",
+                    "resistance": 1,
+                    "color": "#10b981"
+                },
+                {
+                    "label": "10kΩ (near open)",
+                    "type": "linear-resistor",
+                    "resistance": 10000,
+                    "color": "#ef4444"
+                }
+            ]
+        },
+        {
+            "id": "v10",
+            "type": "d3-block-diagram",
+            "title": "Voltage Divider Circuit",
+            "description": "Two resistors in series divide the input voltage proportionally. Vout = Vin × (R2/(R1+R2))",
+            "blocks": [
+                {
+                    "id": "vin",
+                    "label": "Vin",
+                    "x": 20,
+                    "y": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "r1",
+                    "label": "R1",
+                    "x": 100,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "r2",
+                    "label": "R2",
+                    "x": 200,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "vout",
+                    "label": "Vout",
+                    "x": 300,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "vin",
+                    "to": "r1"
+                },
+                {
+                    "from": "r1",
+                    "to": "r2"
+                },
+                {
+                    "from": "r2",
+                    "to": "vout"
+                }
+            ]
+        },
+        {
+            "id": "v11",
+            "type": "d3-block-diagram",
+            "title": "LED Current Limiter",
+            "description": "A resistor limits current through an LED to prevent damage. R = (Vsupply - VLED) / ILED",
+            "blocks": [
+                {
+                    "id": "battery",
+                    "label": "5V",
+                    "x": 20,
+                    "y": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "resistor",
+                    "label": "150Ω",
+                    "x": 100,
+                    "y": 50,
+                    "width": 70,
+                    "type": "process"
+                },
+                {
+                    "id": "led",
+                    "label": "LED",
+                    "x": 210,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "gnd",
+                    "label": "GND",
+                    "x": 310,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "battery",
+                    "to": "resistor",
+                    "label": "5V"
+                },
+                {
+                    "from": "resistor",
+                    "to": "led",
+                    "label": "20mA"
+                },
+                {
+                    "from": "led",
+                    "to": "gnd"
+                }
+            ]
+        },
+        {
+            "id": "v12",
+            "type": "d3-iv-curve",
+            "title": "Temperature Effect Comparison",
+            "description": "Resistance changes with temperature. Shown: 100Ω resistor at different temperatures (approximate).",
+            "curves": [
+                {
+                    "label": "25°C (100Ω)",
+                    "type": "linear-resistor",
+                    "resistance": 100,
+                    "color": "#3b82f6"
+                },
+                {
+                    "label": "75°C (~104Ω)",
+                    "type": "linear-resistor",
+                    "resistance": 104,
+                    "color": "#f59e0b",
+                    "dashed": true
+                }
+            ]
+        }
+    ]
+}

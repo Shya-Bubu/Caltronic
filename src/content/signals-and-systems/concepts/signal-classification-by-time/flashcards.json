@@ -4,13 +4,13 @@
         {
             "id": "f1",
             "front": "What notation is used for continuous-time signals?",
-            "back": "x(t) — parentheses indicate continuous-time",
+            "back": "x(t) â€” parentheses indicate continuous-time",
             "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "What notation is used for discrete-time signals?",
-            "back": "x[n] — brackets indicate discrete-time",
+            "back": "x[n] â€” brackets indicate discrete-time",
             "difficultyLevel": 1
         },
         {
@@ -22,7 +22,7 @@
         {
             "id": "f4",
             "front": "What is the Nyquist sampling theorem?",
-            "back": "To perfectly reconstruct a signal, sample at fs > 2×fmax (twice the highest frequency)",
+            "back": "To perfectly reconstruct a signal, sample at fs > 2Ã—fmax (twice the highest frequency)",
             "difficultyLevel": 2
         },
         {
@@ -52,7 +52,7 @@
         {
             "id": "f9",
             "front": "In DT, what replaces integrals?",
-            "back": "Summations (Σ). The DT equivalent of ∫x(τ)dτ is Σx[k]",
+            "back": "Summations (Î£). The DT equivalent of âˆ«x(Ï„)dÏ„ is Î£x[k]",
             "difficultyLevel": 2
         },
         {

@@ -14,6 +14,12 @@ export interface VisualItem {
   elements?: unknown;
   columns?: unknown;
   rows?: unknown;
+  // Circuit analysis specific props
+  curveType?: string;
+  circuitType?: string;
+  // Image specific props
+  src?: string;
+  caption?: string;
 }
 
 export type SignalPlotMode = 'continuous' | 'discrete';
@@ -59,15 +65,26 @@ export function parseVisualRoot(value: unknown): VisualRoot | null {
 
   const visualsRaw = value.visuals;
   const visuals: VisualItem[] | undefined = Array.isArray(visualsRaw)
-    ? visualsRaw.filter(isObject).map((v) => ({
+    ? visualsRaw.filter(isObject).map((v) => {
+      // Preserve ALL properties from the original visual item
+      // This is critical for d3-iv-curve curves array, block diagram blocks/connections, etc.
+      const item: VisualItem & Record<string, unknown> = {
+        // Spread all original properties first
+        ...v,
+        // Then override with validated string properties
         id: typeof v.id === 'string' ? v.id : undefined,
         title: typeof v.title === 'string' ? v.title : undefined,
         type: typeof v.type === 'string' ? (v.type as VisualType) : undefined,
         description: typeof v.description === 'string' ? v.description : undefined,
-        elements: (v as Record<string, unknown>).elements,
-        columns: (v as Record<string, unknown>).columns,
-        rows: (v as Record<string, unknown>).rows,
-      }))
+        // Circuit analysis specific props
+        curveType: typeof v.curveType === 'string' ? v.curveType : undefined,
+        circuitType: typeof v.circuitType === 'string' ? v.circuitType : undefined,
+        // Image specific props
+        src: typeof v.src === 'string' ? v.src : undefined,
+        caption: typeof v.caption === 'string' ? v.caption : undefined,
+      };
+      return item;
+    })
     : undefined;
 
   return {
@@ -76,6 +93,7 @@ export function parseVisualRoot(value: unknown): VisualRoot | null {
     metadata: (value as Record<string, unknown>).metadata,
   };
 }
+
 
 export function isSignalPlotElements(value: unknown): value is SignalPlotElements {
   if (!isObject(value)) return false;

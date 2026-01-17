@@ -1,0 +1,85 @@
+.diagram {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--panel);
+}
+
+.diagramTitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    fill: var(--sim-text-strong);
+}
+
+.smallLabel {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    fill: var(--sim-text);
+}
+
+.axisLabel {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    font-style: italic;
+    fill: var(--sim-text);
+}
+
+.systemLabel {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 700;
+    fill: var(--accent);
+}
+
+.systemSubLabel {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    fill: var(--sim-text);
+    font-style: italic;
+}
+
+.caption {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .diagram {
+        padding: 1rem;
+    }
+    
+    .label {
+        font-size: 12px;
+    }
+    
+    .smallLabel {
+        font-size: 10px;
+    }
+    
+    .axisLabel {
+        font-size: 11px;
+    }
+}

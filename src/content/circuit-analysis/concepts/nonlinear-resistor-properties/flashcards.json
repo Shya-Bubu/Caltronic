@@ -1,0 +1,77 @@
+{
+    "id": "nonlinear-resistor-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Time-varying resistor equation",
+            "back": "v(t) = R(t)·i(t)\nResistance changes with time.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Harmonic generation in nonlinear resistors",
+            "back": "Sinusoidal input → output with harmonics.\ni(t) = I0 + ΣIk·sin(kωt + φk)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Bilateral resistor condition",
+            "back": "f(v, i) = f(-v, -i)\nSymmetric about origin.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Frequency mixing in time-varying resistors",
+            "back": "G(t)·v(t) with sinusoids produces sum/difference frequencies.\nBasis for modulation.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Example of time-varying resistor",
+            "back": "Photoresistor (LDR)\nThermistor with changing temperature\nPeriodically operated switch",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Example of nonlinear bilateral resistor",
+            "back": "Varistor (MOV)\nSymmetric surge protector.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Difference: nonlinear vs time-varying",
+            "back": "Nonlinear: R depends on v or i\nTime-varying: R depends on t",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Modulation using time-varying G(t)",
+            "back": "Output contains: ω1, (ω-ω1), (ω+ω1)\nWhere ω is carrier, ω1 is signal.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why do nonlinear resistors create harmonics?",
+            "back": "Non-proportional relationship distorts waveform.\nFourier analysis shows new frequencies.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Is a diode bilateral?",
+            "back": "No! Diodes conduct differently in each direction.\nNot symmetric about origin.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f11",
+            "front": "Linear resistor properties",
+            "back": "• Bilateral (symmetric)\n• Time-invariant (R constant)\n• Passive (if R ≥ 0)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f12",
+            "front": "Practical use of harmonic generation",
+            "back": "• Frequency multipliers\n• Audio effects (distortion)\n• Mixer circuits",
+            "difficultyLevel": 3
+        }
+    ]
+}

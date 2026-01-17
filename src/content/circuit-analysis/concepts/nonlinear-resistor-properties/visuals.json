@@ -1,0 +1,156 @@
+{
+    "conceptId": "nonlinear-resistor-properties",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-vi-curve",
+            "curveType": "tunnel",
+            "title": "Harmonic Generation",
+            "description": "Sinusoidal input through nonlinear resistor produces harmonics. Output contains fundamental plus 2f, 3f, etc."
+        },
+        {
+            "id": "v2",
+            "type": "d3-vi-curve",
+            "curveType": "pn-junction",
+            "title": "Small-Signal Conductance",
+            "description": "Tangent line at operating point Q gives small-signal conductance G = di/dv. Linearization around Q."
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "Time-Varying Resistor",
+            "description": "R = R(t) or G = G(t). Examples: switch, photoresistor. Used in modulation circuits.",
+            "blocks": [
+                {
+                    "id": "v",
+                    "label": "v(t)",
+                    "x": 20,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "g",
+                    "label": "G(t)",
+                    "x": 100,
+                    "y": 40,
+                    "width": 60
+                },
+                {
+                    "id": "i",
+                    "label": "i(t)",
+                    "x": 220,
+                    "y": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "v",
+                    "to": "g"
+                },
+                {
+                    "from": "g",
+                    "to": "i"
+                }
+            ]
+        },
+        {
+            "id": "v4",
+            "type": "d3-waveform",
+            "title": "Frequency Mixing Output",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "Time-varying G(t)·v(t) produces sum and difference frequencies. Basis for AM and mixer circuits."
+        },
+        {
+            "id": "v5",
+            "type": "d3-iv-curve",
+            "title": "Incremental Resistance vs Static Resistance",
+            "description": "Rdynamic = dv/di (slope at Q-point) ≠ Rstatic = V/I (ratio at Q-point). Critical for AC analysis.",
+            "curves": [
+                {
+                    "label": "Nonlinear Element",
+                    "type": "pn-junction",
+                    "color": "#8b5cf6"
+                }
+            ],
+            "annotations": [
+                {
+                    "point": {
+                        "v": 0.7,
+                        "i": 0.05
+                    },
+                    "text": "Q-point: Rinc vs Rstatic"
+                }
+            ]
+        },
+        {
+            "id": "v6",
+            "type": "d3-iv-curve",
+            "title": "Memristor Pinched Hysteresis",
+            "description": "Memory resistor shows figure-8 hysteresis loop when driven by AC. Resistance depends on history!",
+            "curves": [
+                {
+                    "label": "Memristor Loop",
+                    "type": "linear-resistor",
+                    "resistance": 100,
+                    "color": "#f59e0b"
+                }
+            ]
+        },
+        {
+            "id": "v7",
+            "type": "d3-block-diagram",
+            "title": "Nonlinear Applications",
+            "description": "Nonlinear resistors used in: detectors, mixers, multipliers, limiters, and temperature sensors.",
+            "blocks": [
+                {
+                    "id": "detector",
+                    "label": "RF Detector",
+                    "x": 30,
+                    "y": 30,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "mixer",
+                    "label": "Mixer",
+                    "x": 150,
+                    "y": 30,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "limiter",
+                    "label": "Limiter",
+                    "x": 30,
+                    "y": 90,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "sensor",
+                    "label": "Temp Sensor",
+                    "x": 150,
+                    "y": 90,
+                    "width": 100,
+                    "type": "process"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "v8",
+            "type": "d3-iv-curve",
+            "title": "Varistor (Voltage-Dependent Resistor)",
+            "description": "Metal-oxide varistor (MOV): R decreases dramatically at high voltage. Used for surge protection.",
+            "curves": [
+                {
+                    "label": "Varistor Characteristic",
+                    "type": "bilateral",
+                    "color": "#10b981"
+                }
+            ]
+        }
+    ]
+}

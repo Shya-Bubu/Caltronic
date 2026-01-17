@@ -1,0 +1,149 @@
+{
+    "id": "dc-operating-points-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A DC operating point is:",
+            "options": [
+                "The solution to a circuit with DC input",
+                "Only for AC circuits",
+                "Maximum power point",
+                "Open circuit voltage"
+            ],
+            "correctAnswer": "The solution to a circuit with DC input",
+            "explanation": "DC operating points are the steady-state solutions when all sources are DC."
+        },
+        {
+            "id": "q2",
+            "prompt": "A linear passive circuit with DC input has:",
+            "options": [
+                "Always unique solution",
+                "Multiple solutions",
+                "No solution",
+                "Infinite solutions"
+            ],
+            "correctAnswer": "Always unique solution",
+            "explanation": "Linear passive circuits always have a unique DC operating point."
+        },
+        {
+            "id": "q3",
+            "prompt": "Nonlinear circuits can have:",
+            "options": [
+                "Only unique solutions",
+                "Unique, multiple, or no solutions",
+                "Only no solution",
+                "Always two solutions"
+            ],
+            "correctAnswer": "Unique, multiple, or no solutions",
+            "explanation": "Nonlinearity can lead to multiple intersections (solutions) or no intersection."
+        },
+        {
+            "id": "q4",
+            "prompt": "The load line represents:",
+            "options": [
+                "Device characteristic",
+                "Source and load constraint",
+                "Maximum power",
+                "Frequency response"
+            ],
+            "correctAnswer": "Source and load constraint",
+            "explanation": "The load line is derived from KVL around the loop containing source and load."
+        },
+        {
+            "id": "q5",
+            "prompt": "DC operating point is found at:",
+            "options": [
+                "Origin",
+                "Intersection of device curve and load line",
+                "Maximum of device curve",
+                "Edge of graph"
+            ],
+            "correctAnswer": "Intersection of device curve and load line",
+            "explanation": "The operating point satisfies both the device equation and the circuit equation."
+        },
+        {
+            "id": "q6",
+            "prompt": "For a source Eb and resistor Rb, the load line equation is:",
+            "options": [
+                "i = (Eb - v)/Rb",
+                "i = v/Rb",
+                "v = Eb",
+                "i = Eb"
+            ],
+            "correctAnswer": "i = (Eb - v)/Rb",
+            "explanation": "From KVL around the loop: v + i·Rb = Eb, which rearranges to give the load line equation i = (Eb - v)/Rb."
+        },
+        {
+            "id": "q7",
+            "prompt": "The Newton-Raphson method is used when:",
+            "options": [
+                "Graphical analysis is sufficient",
+                "Analytical solution is difficult",
+                "Circuit is linear",
+                "Only for AC analysis"
+            ],
+            "correctAnswer": "Analytical solution is difficult",
+            "explanation": "Newton-Raphson provides numerical iteration for complex nonlinear equations."
+        },
+        {
+            "id": "q8",
+            "prompt": "Newton-Raphson iteration formula is:",
+            "options": [
+                "xn = xn-1 - f(xn-1)/f'(xn-1)",
+                "xn = xn-1 + f(xn-1)",
+                "xn = f(xn-1)",
+                "xn = xn-1/2"
+            ],
+            "correctAnswer": "xn = xn-1 - f(xn-1)/f'(xn-1)",
+            "explanation": "The iteration uses the tangent line to approach the root."
+        },
+        {
+            "id": "q9",
+            "prompt": "Transfer characteristic relates:",
+            "options": [
+                "Input at one port to output at another port",
+                "Voltage to current at same port",
+                "Power to frequency",
+                "Time to voltage"
+            ],
+            "correctAnswer": "Input at one port to output at another port",
+            "explanation": "Transfer characteristic: vo = f(vi), input and output at different ports."
+        },
+        {
+            "id": "q10",
+            "prompt": "If two one-ports are connected back-to-back:",
+            "options": [
+                "KCL: ia = -ib, KVL: va = vb",
+                "Both have same current direction",
+                "Only KVL applies",
+                "Only KCL applies"
+            ],
+            "correctAnswer": "KCL: ia = -ib, KVL: va = vb",
+            "explanation": "Current into one equals current out of other; voltages are equal."
+        },
+        {
+            "id": "q11",
+            "prompt": "A stable DC operating point requires:",
+            "options": [
+                "Negative resistance",
+                "Positive slope intersection",
+                "No graphical analysis",
+                "Multiple solutions"
+            ],
+            "correctAnswer": "Positive slope intersection",
+            "explanation": "Stability typically requires the device and load lines to cross with appropriate slopes."
+        },
+        {
+            "id": "q12",
+            "prompt": "When no DC operating point exists:",
+            "options": [
+                "Device and load lines don't intersect",
+                "Circuit has infinite solutions",
+                "Linear analysis failed",
+                "All sources are AC"
+            ],
+            "correctAnswer": "Device and load lines don't intersect",
+            "explanation": "If the curves never meet, no valid DC solution exists for the circuit."
+        }
+    ]
+}

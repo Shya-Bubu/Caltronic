@@ -1,0 +1,13 @@
+{
+    "id": "dc-operating-points",
+    "title": "DC Operating Points and Transfer Characteristics",
+    "lesson": "lesson-01",
+    "order": 7,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

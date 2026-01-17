@@ -1,0 +1,125 @@
+{
+    "id": "linear-resistor-fundamentals-quiz",
+    "questions": [
+        {
+            "id": "q1-ohms-law",
+            "prompt": "A 470Ω resistor has 12V across it. What current flows through it?",
+            "options": [
+                "25.5mA",
+                "39.2mA",
+                "5.64mA",
+                "56.4mA"
+            ],
+            "correctAnswer": "25.5mA",
+            "explanation": "Use I = V/R = 12V / 470Ω = 0.0255A = 25.5mA. Remember to convert to milliamps at the end!"
+        },
+        {
+            "id": "q2-power-calc",
+            "prompt": "A resistor dissipates 5W when carrying 0.5A. What is its resistance?",
+            "options": [
+                "10Ω",
+                "20Ω",
+                "2.5Ω",
+                "50Ω"
+            ],
+            "correctAnswer": "20Ω",
+            "explanation": "Use P = I²R, so R = P/I² = 5W/(0.5A)² = 5/0.25 = 20Ω. When you have P and I, this is the fastest formula!"
+        },
+        {
+            "id": "q3-voltage-divider",
+            "prompt": "Two resistors (6kΩ and 3kΩ) in series across 18V. What's the voltage across the 3kΩ resistor?",
+            "options": [
+                "6V",
+                "9V",
+                "12V",
+                "3V"
+            ],
+            "correctAnswer": "6V",
+            "explanation": "V_out = V_in × (R₂/(R₁+R₂)) = 18V × (3k/(6k+3k)) = 18V × (3/9) = 18V × (1/3) = 6V. The smaller resistor gets proportionally less voltage."
+        },
+        {
+            "id": "q4-conductance",
+            "prompt": "A resistor has conductance G = 0.02S. What is its resistance?",
+            "options": [
+                "50Ω",
+                "20Ω",
+                "0.02Ω",
+                "500Ω"
+            ],
+            "correctAnswer": "50Ω",
+            "explanation": "R = 1/G = 1/0.02 = 50Ω. Conductance and resistance are reciprocals: G = 1/R"
+        },
+        {
+            "id": "q5-unit-conversion",
+            "prompt": "Which of these is equivalent to 2.2kΩ?",
+            "options": [
+                "2200Ω",
+                "220Ω",
+                "22000Ω",
+                "0.0022Ω"
+            ],
+            "correctAnswer": "2200Ω",
+            "explanation": "kilo (k) means ×1000, so 2.2kΩ = 2.2 × 1000Ω = 2200Ω. This is a very common source of errors!"
+        },
+        {
+            "id": "q6-power-from-voltage",
+            "prompt": "A 100Ω resistor has 10V across it. How much power does it dissipate?",
+            "options": [
+                "1W",
+                "10W",
+                "0.1W",
+                "100W"
+            ],
+            "correctAnswer": "1W",
+            "explanation": "P = V²/R = (10V)²/100Ω = 100/100 = 1W. When you have V and R, use P = V²/R!"
+        },
+        {
+            "id": "q7-series-current",
+            "prompt": "Two resistors (10Ω and 20Ω) in series with a 6V battery. What current flows?",
+            "options": [
+                "0.2A",
+                "0.3A",
+                "0.6A",
+                "2A"
+            ],
+            "correctAnswer": "0.2A",
+            "explanation": "R_total = R₁ + R₂ = 10Ω + 20Ω = 30Ω. Then I = V/R_total = 6V/30Ω = 0.2A. In series, resistances add!"
+        },
+        {
+            "id": "q8-linearity",
+            "prompt": "What does it mean for a resistor to be 'linear'?",
+            "options": [
+                "The V-I graph is a straight line through the origin",
+                "The resistance increases with temperature",
+                "The current is constant regardless of voltage",
+                "Power dissipation is linear with voltage"
+            ],
+            "correctAnswer": "The V-I graph is a straight line through the origin",
+            "explanation": "Linearity means the relationship between cause (Voltage) and effect (Current) is proportional, i.e., I ∝ V. Graphically, this is a straight line passing through (0,0)."
+        },
+        {
+            "id": "q9-open-circuit",
+            "prompt": "An open circuit is equivalent to a resistor with what value?",
+            "options": [
+                "Infinite Resistance (∞Ω)",
+                "Zero Resistance (0Ω)",
+                "1 kΩ",
+                "Negative Resistance"
+            ],
+            "correctAnswer": "Infinite Resistance (∞Ω)",
+            "explanation": "An open circuit allows NO current to flow (I=0) regardless of voltage. From R=V/I, as I approaches 0, R approaches infinity."
+        },
+        {
+            "id": "q10-led-safety",
+            "prompt": "Why is a resistor connected in series with an LED?",
+            "options": [
+                "To limit the current and prevent burnout",
+                "To increase the brightness",
+                "To convert DC to AC",
+                "To store energy"
+            ],
+            "correctAnswer": "To limit the current and prevent burnout",
+            "explanation": "LEDs are non-linear devices that will draw excessive current if connected directly to a voltage source above their forward voltage. The resistor limits this current to a safe value (e.g., 20mA)."
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "discrete-convolution-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the convolution formula?",
+            "back": "y[n] = Σₖ x[k]h[n-k]",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "Four steps of graphical convolution?",
+            "back": "1. Flip, 2. Shift, 3. Multiply, 4. Sum",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Output length for convolving N₁ and N₂ sample signals?",
+            "back": "N₁ + N₂ - 1",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is x[n] * δ[n]?",
+            "back": "x[n] (identity property)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "What is x[n] * δ[n-k]?",
+            "back": "x[n-k] (delay by k)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Is convolution commutative?",
+            "back": "Yes: x * h = h * x",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f7",
+            "front": "Is convolution associative?",
+            "back": "Yes: (x*h₁)*h₂ = x*(h₁*h₂)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Convolution in time = ??? in frequency",
+            "back": "Multiplication: Y(ω) = X(ω)H(ω)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What does u[n] * u[n] equal?",
+            "back": "(n+1)u[n] (ramp function)",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Why flip h[k] before shifting?",
+            "back": "Because convolution definition has h[n-k] = h[-(k-n)]",
+            "difficultyLevel": 3
+        }
+    ]
+}

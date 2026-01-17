@@ -1,0 +1,91 @@
+{
+    "conceptId": "system-classification-modeling",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-waveform",
+            "title": "Continuous-Time Signal",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "x(t) exists for all real t — continuous time domain"
+        },
+        {
+            "id": "v2",
+            "type": "d3-waveform",
+            "title": "Discrete-Time Signal",
+            "waveType": "sine",
+            "mode": "discrete",
+            "description": "x[n] exists only at integer n — discrete time domain (samples)"
+        },
+        {
+            "id": "v3",
+            "type": "d3-sampling",
+            "title": "ADC Sampling Process",
+            "signalFrequency": 2,
+            "description": "Interactive: See how analog signals are converted to discrete samples. Adjust sampling rate to explore aliasing."
+        },
+        {
+            "id": "v4",
+            "type": "d3-block-diagram",
+            "title": "ADC → DSP → DAC Signal Chain",
+            "description": "Complete digital signal processing chain: Analog input → Sampling → Processing → Reconstruction → Analog output",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "x(t)",
+                    "x": 10,
+                    "y": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "adc",
+                    "label": "ADC",
+                    "x": 80,
+                    "y": 50,
+                    "width": 50
+                },
+                {
+                    "id": "dsp",
+                    "label": "DSP",
+                    "x": 180,
+                    "y": 50,
+                    "width": 60
+                },
+                {
+                    "id": "dac",
+                    "label": "DAC",
+                    "x": 290,
+                    "y": 50,
+                    "width": 50
+                },
+                {
+                    "id": "out",
+                    "label": "y(t)",
+                    "x": 390,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "adc"
+                },
+                {
+                    "from": "adc",
+                    "to": "dsp",
+                    "label": "x[n]"
+                },
+                {
+                    "from": "dsp",
+                    "to": "dac",
+                    "label": "y[n]"
+                },
+                {
+                    "from": "dac",
+                    "to": "out"
+                }
+            ]
+        }
+    ]
+}

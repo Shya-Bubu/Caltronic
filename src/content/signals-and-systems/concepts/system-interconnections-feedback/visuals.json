@@ -1,0 +1,203 @@
+{
+    "conceptId": "system-interconnections-feedback",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-block-diagram",
+            "title": "Cascade Connection",
+            "description": "Two systems in series: overall response H = H₁ × H₂",
+            "blocks": [
+                {
+                    "id": "x",
+                    "label": "x(t)",
+                    "x": 10,
+                    "y": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "h1",
+                    "label": "H₁",
+                    "x": 80,
+                    "y": 50,
+                    "width": 60
+                },
+                {
+                    "id": "h2",
+                    "label": "H₂",
+                    "x": 190,
+                    "y": 50,
+                    "width": 60
+                },
+                {
+                    "id": "y",
+                    "label": "y(t)",
+                    "x": 300,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x",
+                    "to": "h1"
+                },
+                {
+                    "from": "h1",
+                    "to": "h2"
+                },
+                {
+                    "from": "h2",
+                    "to": "y"
+                }
+            ]
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "Parallel Connection",
+            "description": "Two systems in parallel: overall response H = H₁ + H₂",
+            "blocks": [
+                {
+                    "id": "x",
+                    "label": "x(t)",
+                    "x": 10,
+                    "y": 80,
+                    "type": "input"
+                },
+                {
+                    "id": "h1",
+                    "label": "H₁",
+                    "x": 120,
+                    "y": 20,
+                    "width": 60
+                },
+                {
+                    "id": "h2",
+                    "label": "H₂",
+                    "x": 120,
+                    "y": 100,
+                    "width": 60
+                },
+                {
+                    "id": "sum",
+                    "label": "Σ",
+                    "x": 240,
+                    "y": 60,
+                    "width": 40,
+                    "height": 40,
+                    "type": "sum"
+                },
+                {
+                    "id": "y",
+                    "label": "y(t)",
+                    "x": 320,
+                    "y": 80,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x",
+                    "to": "h1"
+                },
+                {
+                    "from": "x",
+                    "to": "h2"
+                },
+                {
+                    "from": "h1",
+                    "to": "sum"
+                },
+                {
+                    "from": "h2",
+                    "to": "sum",
+                    "toSide": "bottom"
+                },
+                {
+                    "from": "sum",
+                    "to": "y"
+                }
+            ]
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "Negative Feedback Loop",
+            "description": "Closed-loop system: Y/X = G/(1+GH). Feedback reduces sensitivity and improves stability.",
+            "blocks": [
+                {
+                    "id": "r",
+                    "label": "R(s)",
+                    "x": 10,
+                    "y": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "sum",
+                    "label": "Σ",
+                    "x": 80,
+                    "y": 50,
+                    "width": 40,
+                    "height": 40,
+                    "type": "sum"
+                },
+                {
+                    "id": "g",
+                    "label": "G",
+                    "x": 160,
+                    "y": 50,
+                    "width": 60
+                },
+                {
+                    "id": "y",
+                    "label": "Y(s)",
+                    "x": 280,
+                    "y": 60,
+                    "type": "output"
+                },
+                {
+                    "id": "h",
+                    "label": "H",
+                    "x": 160,
+                    "y": 130,
+                    "width": 60
+                }
+            ],
+            "connections": [
+                {
+                    "from": "r",
+                    "to": "sum"
+                },
+                {
+                    "from": "sum",
+                    "to": "g"
+                },
+                {
+                    "from": "g",
+                    "to": "y"
+                },
+                {
+                    "from": "g",
+                    "to": "h",
+                    "fromSide": "bottom",
+                    "toSide": "top"
+                },
+                {
+                    "from": "h",
+                    "to": "sum",
+                    "fromSide": "left",
+                    "toSide": "bottom",
+                    "label": "-"
+                }
+            ]
+        },
+        {
+            "id": "v4",
+            "type": "d3-waveform",
+            "title": "Step Response with Feedback",
+            "waveType": "step",
+            "mode": "continuous",
+            "description": "Feedback affects how quickly a system responds to sudden changes. Well-designed feedback speeds up settling."
+        }
+    ]
+}
