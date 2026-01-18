@@ -446,13 +446,14 @@ export default function LectureClient({
                 version: 1,
                 lectureId: lecture.id,
                 completedIds,
+                totalCount: concepts.length,
                 updatedAt: Date.now(),
             };
             localStorage.setItem(storageKey, JSON.stringify(payload));
         } catch {
             // Ignore storage failures (e.g., quota)
         }
-    }, [flow.completionStatus, lecture.id, storageKey]);
+    }, [flow.completionStatus, lecture.id, storageKey, concepts.length]);
 
     useEffect(() => {
         // No enforced progression: completion updates are informational only.

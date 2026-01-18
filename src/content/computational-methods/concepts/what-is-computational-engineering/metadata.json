@@ -1,0 +1,13 @@
+{
+    "id": "what-is-computational-engineering",
+    "title": "What is Computational Engineering?",
+    "lesson": "lesson-01",
+    "order": 1,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

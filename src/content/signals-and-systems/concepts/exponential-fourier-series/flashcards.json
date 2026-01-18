@@ -1,0 +1,65 @@
+{
+    "id": "exponential-fourier-series-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Euler's formula",
+            "back": "e^(jθ) = cos(θ) + j·sin(θ)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Express cos(θ) using e^(jθ)",
+            "back": "cos(θ) = (e^(jθ) + e^(-jθ))/2",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Express sin(θ) using e^(jθ)",
+            "back": "sin(θ) = (e^(jθ) - e^(-jθ))/(2j)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Fourier Series synthesis equation",
+            "back": "x(t) = Σ Xk·e^(jkω₀t) for k from -∞ to +∞",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is X₀?",
+            "back": "The DC component (average value of signal)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f6",
+            "front": "What is 1/j?",
+            "back": "-j (or e^(-jπ/2))",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Conjugate symmetry for real signals",
+            "back": "X₋k = Xk* (magnitudes equal, phases opposite)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Convert A·cos(ωt) to Fourier coefficients",
+            "back": "X₁ = A/2, X₋₁ = A/2",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "What does magnitude spectrum show?",
+            "back": "|Xk| vs k — amplitude at each harmonic",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Why use complex exponentials instead of sin/cos?",
+            "back": "Simpler algebra, unified representation, eigenfunction property",
+            "difficultyLevel": 3
+        }
+    ]
+}

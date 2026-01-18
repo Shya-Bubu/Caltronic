@@ -1,0 +1,125 @@
+{
+    "id": "algorithm-efficiency-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the time complexity of a nested loop where both loops run n times?",
+            "options": [
+                "O(n)",
+                "O(n log n)",
+                "O(n²)",
+                "O(2n)"
+            ],
+            "correctAnswer": "O(n²)",
+            "explanation": "Each of the n outer loop iterations runs the inner loop n times, giving n × n = n² total operations, or O(n²)."
+        },
+        {
+            "id": "q2",
+            "prompt": "FFT has complexity O(n log n). For n = 1024, approximately how many operations?",
+            "options": [
+                "1024",
+                "10,240",
+                "1,048,576",
+                "10"
+            ],
+            "correctAnswer": "10,240",
+            "explanation": "1024 × log₂(1024) = 1024 × 10 = 10,240 operations. This is much better than direct DFT's 1024² = 1,048,576."
+        },
+        {
+            "id": "q3",
+            "prompt": "Gaussian elimination for solving Ax = b has complexity:",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(n log n)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Gaussian elimination requires approximately n³/3 operations for an n×n system, making it O(n³)."
+        },
+        {
+            "id": "q4",
+            "prompt": "Which grows faster for large n: O(n²) or O(2ⁿ)?",
+            "options": [
+                "O(n²)",
+                "O(2ⁿ)",
+                "They grow equally",
+                "Depends on constants"
+            ],
+            "correctAnswer": "O(2ⁿ)",
+            "explanation": "Exponential O(2ⁿ) always eventually dominates polynomial O(n²). For n=20, n²=400 but 2ⁿ≈1,000,000!"
+        },
+        {
+            "id": "q5",
+            "prompt": "Binary search has complexity:",
+            "options": [
+                "O(1)",
+                "O(log n)",
+                "O(n)",
+                "O(n²)"
+            ],
+            "correctAnswer": "O(log n)",
+            "explanation": "Binary search halves the search space each step. After k steps, size is n/2ᵏ. Finding an element takes k = log₂(n) steps."
+        },
+        {
+            "id": "q6",
+            "prompt": "Memory for a 1000×1000 double precision matrix is approximately:",
+            "options": [
+                "1 KB",
+                "1 MB",
+                "8 MB",
+                "1 GB"
+            ],
+            "correctAnswer": "8 MB",
+            "explanation": "1000 × 1000 elements × 8 bytes/double = 8,000,000 bytes = 8 MB."
+        },
+        {
+            "id": "q7",
+            "prompt": "If an O(n²) algorithm takes 0.01s for n=100, approximately how long for n=1000?",
+            "options": [
+                "0.1 s",
+                "1 s",
+                "10 s",
+                "100 s"
+            ],
+            "correctAnswer": "1 s",
+            "explanation": "n increased 10×, so time increases (10)² = 100×. Original: 0.01s × 100 = 1 second."
+        },
+        {
+            "id": "q8",
+            "prompt": "For a sparse matrix with mostly zeros, the best storage approach is:",
+            "options": [
+                "Store all elements including zeros",
+                "Use compressed sparse format (CSR/CSC)",
+                "Convert to dense first",
+                "Use integers instead of doubles"
+            ],
+            "correctAnswer": "Use compressed sparse format (CSR/CSC)",
+            "explanation": "Sparse formats store only non-zero elements, reducing memory from O(n²) to O(nnz), where nnz is the number of non-zeros."
+        },
+        {
+            "id": "q9",
+            "prompt": "The Master Theorem is used to analyze:",
+            "options": [
+                "Iterative algorithms",
+                "Divide-and-conquer recursive algorithms",
+                "Memory usage",
+                "Numerical precision"
+            ],
+            "correctAnswer": "Divide-and-conquer recursive algorithms",
+            "explanation": "The Master Theorem solves recurrences of the form T(n) = aT(n/b) + f(n), which arise in divide-and-conquer algorithms like FFT, merge sort, etc."
+        },
+        {
+            "id": "q10",
+            "prompt": "What matters more: optimizing O(n²) code or switching to an O(n log n) algorithm?",
+            "options": [
+                "Optimizing the code",
+                "Switching algorithms",
+                "Neither matters",
+                "Depends on problem size"
+            ],
+            "correctAnswer": "Switching algorithms",
+            "explanation": "For large n, algorithm choice dominates. A 10× optimized O(n²) is still slower than unoptimized O(n log n) for large enough n. The asymptotic behavior wins eventually."
+        }
+    ]
+}

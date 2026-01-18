@@ -1,0 +1,125 @@
+{
+    "id": "fourier-series-properties-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "For time shifting x(t - t₀), what happens to |Xk|?",
+            "options": [
+                "Increases",
+                "Decreases",
+                "Unchanged",
+                "Depends on k"
+            ],
+            "correctAnswer": "Unchanged",
+            "explanation": "Time shifting only affects phase, not magnitude. The new coefficient is Xk·e^(-jkω₀t₀), which has |e^(-jkω₀t₀)| = 1, so |Yk| = |Xk|."
+        },
+        {
+            "id": "q2",
+            "prompt": "What is the Fourier coefficient of x(-t) at k=3 if x(t) has X₃ = 2j?",
+            "options": [
+                "2j",
+                "-2j",
+                "X₋₃ depends on the signal",
+                "Cannot determine"
+            ],
+            "correctAnswer": "X₋₃ depends on the signal",
+            "explanation": "Time reversal gives Y₃ = X₋₃. We're told X₃ = 2j, but we need X₋₃ for x(t) to find the coefficient for x(-t) at k=3. Unless given X₋₃, we cannot determine it."
+        },
+        {
+            "id": "q3",
+            "prompt": "For linearity to apply to αx(t) + βy(t), what condition is required?",
+            "options": [
+                "Signals must be real",
+                "Same amplitude",
+                "Same fundamental frequency ω₀",
+                "Same phase"
+            ],
+            "correctAnswer": "Same fundamental frequency ω₀",
+            "explanation": "Linearity requires both signals to share the same ω₀. Otherwise, harmonics don't align and coefficients can't be simply added."
+        },
+        {
+            "id": "q4",
+            "prompt": "If x(t) → Xk with ω₀ = 10, what is the fundamental of x(2t)?",
+            "options": [
+                "5 rad/s",
+                "10 rad/s",
+                "20 rad/s",
+                "40 rad/s"
+            ],
+            "correctAnswer": "20 rad/s",
+            "explanation": "Time scaling by α changes ω₀ to αω₀. With α = 2 and original ω₀ = 10, new fundamental is 2 × 10 = 20 rad/s."
+        },
+        {
+            "id": "q5",
+            "prompt": "For real x(t), if X₅ = 3 + 2j, what is X₋₅?",
+            "options": [
+                "3 + 2j",
+                "3 - 2j",
+                "-3 - 2j",
+                "-3 + 2j"
+            ],
+            "correctAnswer": "3 - 2j",
+            "explanation": "Conjugate symmetry for real signals: X₋k = Xk*. So X₋₅ = (3 + 2j)* = 3 - 2j."
+        },
+        {
+            "id": "q6",
+            "prompt": "The phase shift due to time delay t₀ is:",
+            "options": [
+                "-ω₀t₀ for all k",
+                "-kω₀t₀ (varies with k)",
+                "t₀ (constant)",
+                "kω₀/t₀"
+            ],
+            "correctAnswer": "-kω₀t₀ (varies with k)",
+            "explanation": "The phase change is -kω₀t₀, meaning higher harmonics (larger k) experience larger phase shifts for the same time delay."
+        },
+        {
+            "id": "q7",
+            "prompt": "Compressing a signal in time (α > 1) causes the frequency spectrum to:",
+            "options": [
+                "Compress",
+                "Expand",
+                "Shift right",
+                "Stay the same"
+            ],
+            "correctAnswer": "Expand",
+            "explanation": "Time-frequency duality: compressing in time expands in frequency. The new ω₀ = αω₀ > ω₀, so harmonic spacing increases."
+        },
+        {
+            "id": "q8",
+            "prompt": "If X₀ = 5 for x(t), what is the DC component of 3x(t) - x(t-1)?",
+            "options": [
+                "15",
+                "10",
+                "5",
+                "0"
+            ],
+            "correctAnswer": "10",
+            "explanation": "DC: 3X₀ - X₀·e^(-j·0·ω₀·1) = 3(5) - 5(1) = 15 - 5 = 10. At k=0, the phase factor e^0 = 1."
+        },
+        {
+            "id": "q9",
+            "prompt": "What does conjugate symmetry tell us about the magnitude spectrum?",
+            "options": [
+                "It's always constant",
+                "It's even: |X₋k| = |Xk|",
+                "It's odd: |X₋k| = -|Xk|",
+                "It has no symmetry"
+            ],
+            "correctAnswer": "It's even: |X₋k| = |Xk|",
+            "explanation": "For real signals, X₋k = Xk*, so |X₋k| = |Xk*| = |Xk|. The magnitude spectrum is symmetric about k=0."
+        },
+        {
+            "id": "q10",
+            "prompt": "Time reversal x(-t) swaps Xk with:",
+            "options": [
+                "X₋k",
+                "Xk*",
+                "-Xk",
+                "X₁/k"
+            ],
+            "correctAnswer": "X₋k",
+            "explanation": "Time reversal: x(-t) ↔ X₋k. The kth coefficient of x(-t) is the -kth coefficient of x(t)."
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "computing-fourier-coefficients-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Analysis equation for Xk",
+            "back": "Xk = (1/T₀)∫x(t)e^(-jkω₀t)dt over one period",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "Formula for X₀",
+            "back": "X₀ = (1/T₀)∫x(t)dt = average value of x(t)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Xk for square pulse train",
+            "back": "Xk = sin(kω₀T₁)/(kπ) where 2T₁ is pulse width",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "Why does |Xk| → 0 as k → ∞?",
+            "back": "High-frequency oscillations cancel during integration",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is Gibbs phenomenon?",
+            "back": "~9% overshoot at discontinuities in Fourier reconstruction",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "How does |Xk| decay for square wave vs triangle wave?",
+            "back": "Square: 1/k, Triangle: 1/k² (smoother = faster decay)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Best integration window for symmetric signals?",
+            "back": "-T₀/2 to +T₀/2 (centered window)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Parseval's theorem",
+            "back": "(1/T₀)∫|x(t)|²dt = Σ|Xk|² (power conservation)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What makes analysis equation work?",
+            "back": "Orthogonality of complex exponentials at different frequencies",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "X₀ for 25% duty cycle square pulse (amplitude 1)",
+            "back": "X₀ = 0.25 (average value)",
+            "difficultyLevel": 2
+        }
+    ]
+}

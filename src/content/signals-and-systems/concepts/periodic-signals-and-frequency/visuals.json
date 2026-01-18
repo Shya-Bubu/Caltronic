@@ -1,0 +1,153 @@
+{
+    "conceptId": "periodic-signals-and-frequency",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-waveform",
+            "title": "What is a Periodic Signal?",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "A sine wave that repeats every T₀ seconds. This is the simplest periodic signal.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-waveform",
+            "title": "Period Markers",
+            "waveType": "square",
+            "mode": "continuous",
+            "description": "Square wave showing clear repetition. One complete cycle = one period T₀.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "Frequency-Period Relationship",
+            "description": "f₀ = 1/T₀. Double the frequency → Half the period.",
+            "blocks": [
+                {
+                    "id": "period",
+                    "label": "Period T₀",
+                    "x": 30,
+                    "y": 50,
+                    "width": 100,
+                    "type": "input"
+                },
+                {
+                    "id": "inverse",
+                    "label": "1/x",
+                    "x": 170,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "freq",
+                    "label": "Frequency f₀",
+                    "x": 270,
+                    "y": 50,
+                    "width": 110,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "period",
+                    "to": "inverse"
+                },
+                {
+                    "from": "inverse",
+                    "to": "freq"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "sim1",
+            "type": "d3-harmonic-builder",
+            "title": "🎮 Build Your Own Waveform",
+            "description": "Adjust harmonic amplitudes to see how they combine into complex shapes!",
+            "preset": "custom",
+            "placement": "engineering"
+        },
+        {
+            "id": "v4",
+            "type": "d3-waveform",
+            "title": "50 Hz Power Signal",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "AC mains at 50 Hz: T₀ = 20 ms. This powers your house!",
+            "placement": "engineering"
+        },
+        {
+            "id": "v5",
+            "type": "d3-waveform",
+            "title": "Composite Signal: DC + Harmonics",
+            "waveType": "triangle",
+            "mode": "continuous",
+            "description": "Triangle wave = DC + multiple harmonics. The fundamental determines T₀.",
+            "placement": "engineering"
+        },
+        {
+            "id": "v6",
+            "type": "d3-block-diagram",
+            "title": "Power vs Energy Signals",
+            "description": "Periodic signals have FINITE power but INFINITE energy (run forever).",
+            "blocks": [
+                {
+                    "id": "periodic",
+                    "label": "Periodic\\nSignal",
+                    "x": 30,
+                    "y": 50,
+                    "width": 90,
+                    "type": "input"
+                },
+                {
+                    "id": "power",
+                    "label": "Finite\\nPower ✓",
+                    "x": 160,
+                    "y": 30,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "energy",
+                    "label": "Infinite\\nEnergy ∞",
+                    "x": 160,
+                    "y": 90,
+                    "width": 80,
+                    "type": "process"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "periodic",
+                    "to": "power"
+                },
+                {
+                    "from": "periodic",
+                    "to": "energy"
+                }
+            ],
+            "placement": "mathematics"
+        },
+        {
+            "id": "v7",
+            "type": "d3-waveform",
+            "title": "ω₀ = 2πf₀",
+            "waveType": "cosine",
+            "mode": "continuous",
+            "description": "Angular frequency ω₀ in radians/second. One cycle = 2π radians.",
+            "placement": "mathematics"
+        },
+        {
+            "id": "v8",
+            "type": "d3-waveform",
+            "title": "Discrete Periodic Sequence",
+            "waveType": "sine",
+            "mode": "discrete",
+            "description": "Discrete signals x[n] also repeat: x[n] = x[n + N] for integer period N.",
+            "placement": "exam"
+        }
+    ]
+}

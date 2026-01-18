@@ -28,11 +28,9 @@ export default function AppChrome({ children }: { children: React.ReactNode }) {
       <TopNav mode={lectureMode ? 'lecture' : 'default'} crumbs={crumbs} />
       <div className={lectureMode ? styles.lectureShell : styles.shell}>
         <main className={lectureMode ? styles.lectureMain : styles.main}>{children}</main>
-        {!lectureMode ? (
-          <footer className={styles.footer} aria-label="Site note">
-            Powered by 22 Jila · Made with AI — may contain inaccuracies · Built for academic study, not official use
-          </footer>
-        ) : null}
+        <footer className={styles.footer} aria-label="Site note">
+          Made with AI · May contain inaccuracies · Built for academic study, not official use · Powered by 22 Jila
+        </footer>
       </div>
     </div>
   );

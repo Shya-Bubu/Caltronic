@@ -142,23 +142,103 @@ concepts/my-concept/
 | `cards[].back` | string | Answer side |
 | `cards[].difficultyLevel` | number | 1-5 scale |
 
-### 5. visuals.json
+### 5. visuals.json (CRITICAL for 100 IQ Accessibility)
+
+> ⚠️ **ESSENTIAL:** Visuals are the ESSENCE of this learning system. Every concept MUST have adequate illustrations and simulations so even a 100 IQ person can understand abstract concepts.
+
+**MINIMUM REQUIREMENTS:**
+- **8+ visuals per concept** (minimum)
+- **Every layer** (intuition, engineering, mathematics, exam) should have at least 1 visual
+- Use **block diagrams** to break down complex processes
+- Use **waveforms** to show signal shapes
+
 ```json
 {
     "conceptId": "concept-name",
     "visuals": [
         {
             "id": "v1",
-            "type": "d3-waveform|d3-block-diagram|d3-vi-curve|d3-iv-curve|d3-sampling",
-            "title": "Visual Title",
-            "description": "Description",
-            "placement": "intuition|engineering|mathematics"
+            "type": "d3-waveform",
+            "title": "Descriptive Title",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "ALWAYS explain what the visual shows",
+            "placement": "intuition"
         }
     ]
 }
 ```
 
-**If no visuals needed, use empty object:** `{}`
+> 🚨 **CRITICAL FORMAT:** Properties like `waveType`, `mode`, `blocks`, `connections` go DIRECTLY on the item object, NOT nested in a `config` object!
+
+```
+❌ WRONG: {"type": "d3-waveform", "config": {"waveType": "sine"}}
+✅ CORRECT: {"type": "d3-waveform", "waveType": "sine", "mode": "continuous"}
+```
+
+**Visual Types Reference:**
+
+| Type | Required Properties | Use Case |
+|------|-------------------|----------|
+| `d3-waveform` | `waveType`, `mode` | Signals, pulses, steps |
+| `d3-block-diagram` | `blocks`, `connections` | System diagrams, processes |
+| `d3-vi-curve`, `d3-iv-curve` | `curves` array | Circuit characteristics |
+| `d3-sampling` | `signalFrequency` | Aliasing demos |
+
+**waveType Options:** `sine`, `cosine`, `square`, `step`, `impulse`, `ramp`, `triangle`, `rect`
+**mode Options:** `continuous`, `discrete`
+
+**Block Diagram Example:**
+```json
+{
+    "id": "v1",
+    "type": "d3-block-diagram",
+    "title": "System Overview",
+    "blocks": [
+        {"id": "in", "label": "Input", "x": 30, "y": 50, "width": 70, "type": "input"},
+        {"id": "sys", "label": "System", "x": 140, "y": 45, "width": 80, "type": "process"},
+        {"id": "out", "label": "Output", "x": 260, "y": 50, "width": 70, "type": "output"}
+    ],
+    "connections": [
+        {"from": "in", "to": "sys"},
+        {"from": "sys", "to": "out"}
+    ],
+    "placement": "intuition"
+}
+```
+
+**If visuals are absolutely not applicable, use empty structure:** 
+```json
+{"conceptId": "name", "visuals": []}
+```
+
+### 6. CRITICAL: Embedding Visuals in Markdown
+
+> 🚨 **Visuals will NOT appear unless you embed them in markdown files!**
+
+Use the `[[visual:vX]]` syntax in your .md files to place visuals:
+
+```markdown
+## Section Title
+
+Here's some explanatory text before the visual...
+
+[[visual:v1]]
+
+And here's text after the visual that explains what it shows.
+```
+
+**Rules:**
+1. Place `[[visual:vX]]` on its own line
+2. The `vX` ID must match an entry in `visuals.json`
+3. Add visual tags to EVERY layer (.md file) where relevant
+4. Space out visuals throughout the content—don't cluster them
+
+**Example distribution for a concept:**
+- `intuition.md`: 3-4 visuals (fundamental diagrams, simple waveforms)
+- `engineering.md`: 2-3 visuals (real-world applications)
+- `mathematics.md`: 1-2 visuals (formula illustrations)
+- `exam.md`: 1-2 visuals (worked examples)
 
 ---
 
@@ -216,10 +296,12 @@ Only use: `"process"`, `"sum"`, `"branch"`, `"input"`, `"output"`
 ```
 
 ### Multi-line Block Labels
-Use `\\n` (double backslash) for line breaks:
+Use `\n` for line breaks in JSON:
 ```json
-{"label": "Line 1\\nLine 2"}
+{"label": "Line 1\nLine 2"}
 ```
+
+> ⚠️ **BUG FIX (Jan 18, 2026):** If labels display literal `\n` instead of breaking lines, the `BlockDiagram.tsx` component regex was incorrect. The fix: change `text.replace(/\\\\n/g, '\n')` to `text.replace(/\\n/g, '\n')`.
 
 ---
 
@@ -315,5 +397,27 @@ Before creating any content, verify:
 
 ---
 
-*Last Updated: January 17, 2026*
-*Document Version: 2.0 — Comprehensive Validation Rules*
+## 🐛 BUG FIXES LOG
+
+### 2026-01-18: Block Diagram Newline Fix
+**Symptom:** Block diagram labels show literal `\n` text instead of line breaks.
+**Cause:** `BlockDiagram.tsx` regex was `\\\\n` (matching `\\n`) instead of `\\n` (matching `\n`).
+**Fix:** Update `renderMultilineText` function:
+```typescript
+// Before (wrong):
+text.replace(/\\\\n/g, '\n')
+// After (correct):
+text.replace(/\\n/g, '\n')
+```
+**File:** `src/app/components/visualizations/BlockDiagram.tsx`, line 62
+
+### 2026-01-17: Visuals Not Rendering
+**Symptom:** All 8 visuals defined in `visuals.json` don't appear on the page.
+**Cause 1:** Properties nested in `config` object instead of flat on item.
+**Cause 2:** Missing `[[visual:vX]]` tags in markdown files.
+**Fix:** Use flat format in JSON and add visual tags to .md files.
+
+---
+
+*Last Updated: January 18, 2026*
+*Document Version: 2.1 — Added Bug Fixes Log*

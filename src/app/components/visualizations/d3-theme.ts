@@ -58,6 +58,33 @@ export const D3_THEME_LIGHT = {
     textDim: 'rgba(30, 41, 59, 0.4)',
 } as const;
 
+// Eye Comfort theme - Low contrast, muted colors for reduced eye strain
+export const D3_THEME_EYE_COMFORT = {
+    // Background & Grid - Low contrast
+    background: '#1c1c1c',
+    surface: '#222222',
+    grid: 'rgba(255, 255, 255, 0.06)',
+    gridMajor: 'rgba(255, 255, 255, 0.1)',
+    axis: 'rgba(255, 255, 255, 0.25)',
+
+    // Signal Colors - Muted, low saturation
+    signalPrimary: '#7a8a7a',     // Muted sage green
+    signalSecondary: '#9a8a7a',   // Muted tan
+    signalTertiary: '#7a9a9a',    // Muted teal
+    signalQuaternary: '#8a7a9a',  // Muted purple
+
+    // Accent Colors - Subdued
+    highlight: '#a09060',         // Muted gold
+    success: '#6a8a6a',           // Muted green
+    warning: '#9a8060',           // Muted amber
+    danger: '#9a6a6a',            // Muted red
+
+    // Text - Low contrast
+    text: '#a0a0a0',
+    textMuted: 'rgba(160, 160, 160, 0.6)',
+    textDim: 'rgba(160, 160, 160, 0.4)',
+} as const;
+
 // Shared constants (mode-independent)
 export const D3_SHARED = {
     // Typography
@@ -82,8 +109,15 @@ export const D3_SHARED = {
 } as const;
 
 // Helper function to get theme based on mode
-export function getD3Theme(isDarkMode: boolean) {
-    const colors = isDarkMode ? D3_THEME_DARK : D3_THEME_LIGHT;
+export function getD3Theme(mode: 'dark' | 'light' | 'eye-comfort') {
+    let colors;
+    if (mode === 'light') {
+        colors = D3_THEME_LIGHT;
+    } else if (mode === 'eye-comfort') {
+        colors = D3_THEME_EYE_COMFORT;
+    } else {
+        colors = D3_THEME_DARK;
+    }
     return { ...colors, ...D3_SHARED };
 }
 

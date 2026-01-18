@@ -58,8 +58,8 @@ export default function BlockDiagram({
         fontFamily: string,
         fontWeight: number = 400
     ) => {
-        // Replace literal \\n with actual newline for splitting
-        const lines = text.replace(/\\\\n/g, '\n').split('\n');
+        // Replace literal \n or \\n with actual newline for splitting
+        const lines = text.replace(/\\n/g, '\n').split('\n');
         const lineHeight = fontSize * 1.2;
         const startY = y - ((lines.length - 1) * lineHeight) / 2;
 

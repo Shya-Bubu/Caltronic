@@ -1,0 +1,125 @@
+{
+    "id": "periodic-signals-and-frequency-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the fundamental period T₀ of x(t) = sin(10t)?",
+            "options": [
+                "10 s",
+                "2π/10 s",
+                "10/2π s",
+                "1/10 s"
+            ],
+            "correctAnswer": "2π/10 s",
+            "explanation": "For sin(ωt), the period is T = 2π/ω. Here ω = 10 rad/s, so T₀ = 2π/10 = π/5 ≈ 0.628 s. The answer '10 s' confuses ω with T. The answer '1/10 s' would be correct if 10 were frequency in Hz, not rad/s."
+        },
+        {
+            "id": "q2",
+            "prompt": "If f₀ = 50 Hz, what is ω₀?",
+            "options": [
+                "50 rad/s",
+                "100π rad/s",
+                "50π rad/s",
+                "25 rad/s"
+            ],
+            "correctAnswer": "100π rad/s",
+            "explanation": "Angular frequency ω₀ = 2πf₀ = 2π × 50 = 100π rad/s ≈ 314.16 rad/s. A common mistake is forgetting the 2π factor."
+        },
+        {
+            "id": "q3",
+            "prompt": "Is x(t) = cos(t) + cos(√2 t) periodic?",
+            "options": [
+                "Yes, with period 2π",
+                "Yes, with period 2π√2",
+                "No, because frequencies are incommensurate",
+                "Yes, with period π"
+            ],
+            "correctAnswer": "No, because frequencies are incommensurate",
+            "explanation": "For a sum to be periodic, the ratio of periods must be rational. T₁/T₂ = 2π/(2π/√2) = √2, which is irrational. Therefore x(t) is not periodic."
+        },
+        {
+            "id": "q4",
+            "prompt": "What is the fundamental frequency of x(t) = 5 + 3cos(6t) + cos(18t)?",
+            "options": [
+                "6 rad/s",
+                "18 rad/s",
+                "5 rad/s",
+                "24 rad/s"
+            ],
+            "correctAnswer": "6 rad/s",
+            "explanation": "The fundamental frequency is the GCD of all non-zero frequencies. GCD(6, 18) = 6 rad/s. The DC component (5) has zero frequency and doesn't affect ω₀."
+        },
+        {
+            "id": "q5",
+            "prompt": "A signal has T₀ = 0.02 s. How many complete cycles occur in 1 second?",
+            "options": [
+                "0.02",
+                "50",
+                "20",
+                "100"
+            ],
+            "correctAnswer": "50",
+            "explanation": "The number of cycles per second is the frequency: f₀ = 1/T₀ = 1/0.02 = 50 Hz. So 50 complete cycles occur in 1 second."
+        },
+        {
+            "id": "q6",
+            "prompt": "Which of the following is NOT a power signal?",
+            "options": [
+                "sin(t)",
+                "Square wave",
+                "Unit step u(t)",
+                "cos(5t) + sin(7t)"
+            ],
+            "correctAnswer": "Unit step u(t)",
+            "explanation": "Periodic signals (sin, cos, square wave) are power signals with finite average power. The unit step u(t) is neither power nor energy—it has infinite energy and non-zero average, but doesn't fit the power signal definition since power → 0.5 as T→∞."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the relationship between the 3rd harmonic frequency and the fundamental?",
+            "options": [
+                "3 times larger",
+                "3 times smaller",
+                "Equal",
+                "Unrelated"
+            ],
+            "correctAnswer": "3 times larger",
+            "explanation": "The kth harmonic has frequency k × ω₀. So the 3rd harmonic has frequency 3ω₀, which is 3 times the fundamental frequency."
+        },
+        {
+            "id": "q8",
+            "prompt": "If x(t) has period T₀, what is the period of x(t) + x(t)?",
+            "options": [
+                "2T₀",
+                "T₀/2",
+                "T₀",
+                "4T₀"
+            ],
+            "correctAnswer": "T₀",
+            "explanation": "Adding identical signals: 2x(t) still has the same period T₀. Scaling amplitude doesn't change the period. The period would only change if we time-scaled the signal."
+        },
+        {
+            "id": "q9",
+            "prompt": "What is the DC component of x(t) = 11 + 4sin(5t) + cos(10t)?",
+            "options": [
+                "0",
+                "11",
+                "4",
+                "15"
+            ],
+            "correctAnswer": "11",
+            "explanation": "The DC component is the constant term that doesn't vary with time. Here it's 11. The sin and cos terms have zero average over a complete period."
+        },
+        {
+            "id": "q10",
+            "prompt": "For the signal x(t) = sin(4t) + sin(6t), what is T₀?",
+            "options": [
+                "π/2",
+                "π/3",
+                "π",
+                "2π"
+            ],
+            "correctAnswer": "π",
+            "explanation": "T₁ = 2π/4 = π/2, T₂ = 2π/6 = π/3. The fundamental period is LCM(π/2, π/3) = π. In one period π, the first component completes 2 cycles and the second completes 3 cycles."
+        }
+    ]
+}

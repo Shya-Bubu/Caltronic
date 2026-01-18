@@ -3,19 +3,27 @@
 import { useEffect, useState } from 'react';
 import { getD3Theme, type D3Theme } from './d3-theme';
 
+type ThemeMode = 'dark' | 'light' | 'eye-comfort';
+
 /**
  * Hook to detect current theme mode and return appropriate D3 theme
  * Listens for changes to the data-theme attribute on document root
  */
 export function useD3Theme(): D3Theme {
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [themeMode, setThemeMode] = useState<ThemeMode>('dark');
 
     useEffect(() => {
         // Check initial theme
         const checkTheme = () => {
             const root = document.documentElement;
             const theme = root.getAttribute('data-theme');
-            setIsDarkMode(theme !== 'light');
+            if (theme === 'light') {
+                setThemeMode('light');
+            } else if (theme === 'eye-comfort') {
+                setThemeMode('eye-comfort');
+            } else {
+                setThemeMode('dark');
+            }
         };
 
         checkTheme();
@@ -37,5 +45,6 @@ export function useD3Theme(): D3Theme {
         return () => observer.disconnect();
     }, []);
 
-    return getD3Theme(isDarkMode);
+    return getD3Theme(themeMode);
 }
+

@@ -1,0 +1,23 @@
+{
+    "id": "lesson-01",
+    "title": "Nuts and Bolts of Computational Methods",
+    "description": "Introduction to computational thinking, numerical representations, and error analysis fundamentals",
+    "concepts": [
+        "what-is-computational-engineering",
+        "number-representation-and-precision",
+        "sources-of-numerical-error",
+        "algorithm-efficiency-and-complexity"
+    ],
+    "estimatedTime": "2-3 hours",
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "learningObjectives": [
+        "Understand why computational methods are essential in EEE",
+        "Explain floating-point representation and precision limits",
+        "Identify and quantify sources of numerical error",
+        "Analyze algorithm complexity using Big-O notation"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "status": "complete"
+}

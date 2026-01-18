@@ -19,6 +19,10 @@ import {
   SamplingDemo,
   BlockDiagram as D3BlockDiagram,
   OhmsLawExplorer,
+  HarmonicBuilder,
+  SignalDecomposer,
+  FourierCoefficientsExplorer,
+  TimeShiftExplorer,
 } from '@/app/components/visualizations';
 
 export default function VisualRenderer({
@@ -202,7 +206,92 @@ export default function VisualRenderer({
     );
   }
 
+  // ===== FOURIER SERIES SIMULATIONS =====
+
+  // D3 Harmonic Builder (Interactive)
+  if (type === 'd3-harmonic-builder') {
+    const preset = ('preset' in item && typeof item.preset === 'string')
+      ? item.preset as 'custom' | 'square' | 'triangle' | 'sawtooth'
+      : 'custom';
+
+    return (
+      <div style={{ marginBlock: '1.5rem' }}>
+        <HarmonicBuilder
+          title={title}
+          width={600}
+          height={400}
+          preset={preset}
+        />
+        {description && (
+          <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)', textAlign: 'center', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
+            {description}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // D3 Signal Decomposer (Fourier Reconstruction)
+  if (type === 'd3-signal-decomposer') {
+    const signalType = ('signalType' in item && typeof item.signalType === 'string')
+      ? item.signalType as 'square' | 'triangle' | 'sawtooth'
+      : 'square';
+
+    return (
+      <div style={{ marginBlock: '1.5rem' }}>
+        <SignalDecomposer
+          title={title}
+          width={600}
+          height={420}
+          signalType={signalType}
+        />
+        {description && (
+          <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)', textAlign: 'center', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
+            {description}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // D3 Fourier Coefficients Explorer
+  if (type === 'd3-fourier-coefficients') {
+    return (
+      <div style={{ marginBlock: '1.5rem' }}>
+        <FourierCoefficientsExplorer
+          title={title}
+          width={700}
+          height={450}
+        />
+        {description && (
+          <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)', textAlign: 'center', maxWidth: 700, marginLeft: 'auto', marginRight: 'auto' }}>
+            {description}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // D3 Time Shift Explorer
+  if (type === 'd3-time-shift') {
+    return (
+      <div style={{ marginBlock: '1.5rem' }}>
+        <TimeShiftExplorer
+          title={title}
+          width={650}
+          height={450}
+        />
+        {description && (
+          <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)', textAlign: 'center', maxWidth: 650, marginLeft: 'auto', marginRight: 'auto' }}>
+            {description}
+          </div>
+        )}
+      </div>
+    );
+  }
+
   // ===== EXISTING COMPONENTS =====
+
 
   if (type === 'time-domain' && isTimeDomainPlotElements(item.elements)) {
     const cfg = item.elements;

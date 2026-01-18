@@ -1,0 +1,172 @@
+{
+    "conceptId": "sources-of-numerical-error",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-block-diagram",
+            "title": "Three Error Sources",
+            "description": "Truncation, Round-off, and Propagation",
+            "blocks": [
+                {
+                    "id": "trunc",
+                    "label": "Truncation\\nError",
+                    "x": 30,
+                    "y": 50,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "round",
+                    "label": "Round-off\\nError",
+                    "x": 150,
+                    "y": 50,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "prop",
+                    "label": "Propagation\\nError",
+                    "x": 270,
+                    "y": 50,
+                    "width": 90,
+                    "type": "process"
+                }
+            ],
+            "connections": [],
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "Truncation Error",
+            "description": "Stopping a Taylor series early",
+            "blocks": [
+                {
+                    "id": "series",
+                    "label": "Infinite\\nSeries",
+                    "x": 30,
+                    "y": 50,
+                    "width": 80,
+                    "type": "input"
+                },
+                {
+                    "id": "cut",
+                    "label": "Truncate\\nAfter N",
+                    "x": 140,
+                    "y": 45,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "approx",
+                    "label": "Finite\\nSum",
+                    "x": 250,
+                    "y": 30,
+                    "width": 70,
+                    "type": "output"
+                },
+                {
+                    "id": "error",
+                    "label": "Truncation\\nError",
+                    "x": 250,
+                    "y": 80,
+                    "width": 80,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "series",
+                    "to": "cut"
+                },
+                {
+                    "from": "cut",
+                    "to": "approx"
+                },
+                {
+                    "from": "cut",
+                    "to": "error"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "Error Propagation",
+            "description": "Stable vs. Unstable",
+            "blocks": [
+                {
+                    "id": "stable",
+                    "label": "Stable\\nErrors bounded",
+                    "x": 30,
+                    "y": 30,
+                    "width": 100,
+                    "type": "process"
+                },
+                {
+                    "id": "unstable",
+                    "label": "Unstable\\nErrors grow",
+                    "x": 30,
+                    "y": 90,
+                    "width": 100,
+                    "type": "input"
+                }
+            ],
+            "connections": [],
+            "placement": "intuition"
+        },
+        {
+            "id": "v4",
+            "type": "d3-waveform",
+            "title": "Error Accumulation",
+            "waveType": "ramp",
+            "mode": "continuous",
+            "description": "Small errors add up over many iterations",
+            "placement": "engineering"
+        },
+        {
+            "id": "v5",
+            "type": "d3-waveform",
+            "title": "Optimal Step Size",
+            "waveType": "triangle",
+            "mode": "continuous",
+            "description": "Too large: truncation error. Too small: round-off error.",
+            "placement": "engineering"
+        },
+        {
+            "id": "v6",
+            "type": "d3-block-diagram",
+            "title": "First vs Second Order",
+            "description": "O(h) vs O(h²) convergence",
+            "blocks": [
+                {
+                    "id": "first",
+                    "label": "O(h)\\n1st order",
+                    "x": 30,
+                    "y": 50,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "second",
+                    "label": "O(h²)\\n2nd order",
+                    "x": 140,
+                    "y": 50,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "fourth",
+                    "label": "O(h⁴)\\n4th order",
+                    "x": 250,
+                    "y": 50,
+                    "width": 80,
+                    "type": "output"
+                }
+            ],
+            "connections": [],
+            "placement": "mathematics"
+        }
+    ]
+}

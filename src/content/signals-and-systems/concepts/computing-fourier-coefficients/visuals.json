@@ -1,0 +1,252 @@
+{
+    "conceptId": "computing-fourier-coefficients",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-waveform",
+            "title": "Square Pulse Train",
+            "waveType": "square",
+            "mode": "continuous",
+            "description": "The classic example: amplitude 1, period T₀, pulse width 2T₁.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "The Analysis Equation",
+            "description": "Multiply x(t) by e^(-jkω₀t), integrate, divide by T₀ → Get Xk!",
+            "blocks": [
+                {
+                    "id": "xt",
+                    "label": "x(t)",
+                    "x": 20,
+                    "y": 50,
+                    "width": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "mult",
+                    "label": "× e^(-jkω₀t)",
+                    "x": 110,
+                    "y": 45,
+                    "width": 100,
+                    "type": "process"
+                },
+                {
+                    "id": "int",
+                    "label": "∫ dt",
+                    "x": 240,
+                    "y": 45,
+                    "width": 60,
+                    "type": "sum"
+                },
+                {
+                    "id": "div",
+                    "label": "÷ T₀",
+                    "x": 330,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "xk",
+                    "label": "Xk",
+                    "x": 420,
+                    "y": 50,
+                    "width": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "xt",
+                    "to": "mult"
+                },
+                {
+                    "from": "mult",
+                    "to": "int"
+                },
+                {
+                    "from": "int",
+                    "to": "div"
+                },
+                {
+                    "from": "div",
+                    "to": "xk"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "X₀ = Average Value",
+            "description": "For k=0, the exponential is 1. So X₀ = (1/T₀)∫x(t)dt = average.",
+            "blocks": [
+                {
+                    "id": "signal",
+                    "label": "x(t)",
+                    "x": 30,
+                    "y": 50,
+                    "width": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "avg",
+                    "label": "Average\\nover T₀",
+                    "x": 130,
+                    "y": 45,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "x0",
+                    "label": "X₀\\n(DC)",
+                    "x": 260,
+                    "y": 50,
+                    "width": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "signal",
+                    "to": "avg"
+                },
+                {
+                    "from": "avg",
+                    "to": "x0"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "sim1",
+            "type": "d3-signal-decomposer",
+            "title": "🎮 Fourier Series Reconstruction",
+            "description": "Watch how more harmonics improve the approximation!",
+            "signalType": "square",
+            "placement": "engineering"
+        },
+        {
+            "id": "v4",
+            "type": "d3-waveform",
+            "title": "Sinc Envelope of |Xk|",
+            "waveType": "impulse",
+            "mode": "discrete",
+            "description": "Square pulse has Xk = sin(kω₀T₁)/(kπ). Follows sinc-like envelope.",
+            "placement": "engineering"
+        },
+        {
+            "id": "v5",
+            "type": "d3-waveform",
+            "title": "Reconstruct with 1 Harmonic",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "Using only the fundamental: rough sine shape, nothing like a square.",
+            "placement": "engineering"
+        },
+        {
+            "id": "v6",
+            "type": "d3-waveform",
+            "title": "Reconstruct with More Harmonics",
+            "waveType": "triangle",
+            "mode": "continuous",
+            "description": "Add 3rd, 5th, 7th... harmonics: corners get sharper, closer to square.",
+            "placement": "engineering"
+        },
+        {
+            "id": "v7",
+            "type": "d3-block-diagram",
+            "title": "High k → Small |Xk|",
+            "description": "Higher harmonics decay to zero. |Xk| → 0 as k → ∞.",
+            "blocks": [
+                {
+                    "id": "k1",
+                    "label": "|X₁|\\nBig",
+                    "x": 30,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "k3",
+                    "label": "|X₃|\\nSmaller",
+                    "x": 110,
+                    "y": 50,
+                    "width": 70,
+                    "type": "process"
+                },
+                {
+                    "id": "k5",
+                    "label": "|X₅|\\nTiny",
+                    "x": 200,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "kinf",
+                    "label": "|X∞|\\n→ 0",
+                    "x": 280,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                }
+            ],
+            "connections": [],
+            "placement": "mathematics"
+        },
+        {
+            "id": "v8",
+            "type": "d3-block-diagram",
+            "title": "Smoother → Faster Decay",
+            "description": "Square wave: 1/k decay. Triangle wave: 1/k² decay (smoother).",
+            "blocks": [
+                {
+                    "id": "square",
+                    "label": "Square\\n(sharp)",
+                    "x": 30,
+                    "y": 40,
+                    "width": 80,
+                    "type": "input"
+                },
+                {
+                    "id": "decay1",
+                    "label": "1/k\\nSlow",
+                    "x": 150,
+                    "y": 40,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "tri",
+                    "label": "Triangle\\n(smooth)",
+                    "x": 30,
+                    "y": 100,
+                    "width": 80,
+                    "type": "input"
+                },
+                {
+                    "id": "decay2",
+                    "label": "1/k²\\nFast",
+                    "x": 150,
+                    "y": 100,
+                    "width": 60,
+                    "type": "process"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "square",
+                    "to": "decay1"
+                },
+                {
+                    "from": "tri",
+                    "to": "decay2"
+                }
+            ],
+            "placement": "exam"
+        }
+    ]
+}

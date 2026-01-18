@@ -1,0 +1,125 @@
+{
+    "id": "exponential-fourier-series-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is Euler's formula?",
+            "options": [
+                "e^(jθ) = cos(θ) + j·sin(θ)",
+                "e^(jθ) = cos(θ) - j·sin(θ)",
+                "e^(jθ) = sin(θ) + j·cos(θ)",
+                "e^(jθ) = 1 + jθ"
+            ],
+            "correctAnswer": "e^(jθ) = cos(θ) + j·sin(θ)",
+            "explanation": "Euler's formula states e^(jθ) = cos(θ) + j·sin(θ). The imaginary part is +j·sin(θ), not negative. This is the fundamental relationship connecting exponentials to trigonometric functions."
+        },
+        {
+            "id": "q2",
+            "prompt": "Express sin(θ) using complex exponentials:",
+            "options": [
+                "(e^(jθ) + e^(-jθ))/2",
+                "(e^(jθ) - e^(-jθ))/2j",
+                "e^(jθ) - e^(-jθ)",
+                "(e^(jθ) - e^(-jθ))/j"
+            ],
+            "correctAnswer": "(e^(jθ) - e^(-jθ))/2j",
+            "explanation": "sin(θ) = (e^(jθ) - e^(-jθ))/(2j). The cosine formula uses addition and divides by 2. The 2j in the denominator is crucial—without the 2, you'd get twice the actual value."
+        },
+        {
+            "id": "q3",
+            "prompt": "What does X₀ represent in the Fourier series?",
+            "options": [
+                "The fundamental frequency",
+                "The DC (average) component",
+                "The phase angle",
+                "The period"
+            ],
+            "correctAnswer": "The DC (average) component",
+            "explanation": "X₀ is the coefficient for k=0, which corresponds to e^(j·0·ω₀t) = 1, a constant. Thus X₀ is the DC or average value of the signal over one period."
+        },
+        {
+            "id": "q4",
+            "prompt": "For x(t) = 5cos(10t), what is X₁?",
+            "options": [
+                "5",
+                "2.5",
+                "10",
+                "5e^(j10t)"
+            ],
+            "correctAnswer": "2.5",
+            "explanation": "Using cos(θ) = (e^(jθ) + e^(-jθ))/2: 5cos(10t) = (5/2)e^(j10t) + (5/2)e^(-j10t). So X₁ = 5/2 = 2.5 (real, with zero phase)."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is 1/j equal to?",
+            "options": [
+                "j",
+                "-j",
+                "1",
+                "-1"
+            ],
+            "correctAnswer": "-j",
+            "explanation": "To find 1/j, multiply top and bottom by j: 1/j = j/(j·j) = j/(-1) = -j. This is equivalent to e^(-jπ/2)."
+        },
+        {
+            "id": "q6",
+            "prompt": "How many non-zero Fourier coefficients does x(t) = 3 + 2sin(5t) have?",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "Infinite"
+            ],
+            "correctAnswer": "3",
+            "explanation": "There are 3 non-zero coefficients: X₀ = 3 (DC), X₁ and X₋₁ (from the sine term). The sine produces two exponentials at ±ω₀."
+        },
+        {
+            "id": "q7",
+            "prompt": "In the magnitude spectrum, what does the height of each stem represent?",
+            "options": [
+                "Frequency",
+                "Phase angle",
+                "Amplitude of that harmonic",
+                "Period"
+            ],
+            "correctAnswer": "Amplitude of that harmonic",
+            "explanation": "The magnitude spectrum plots |Xk| vs k. The height at each k shows how much of the kth harmonic is present—its amplitude contribution to the signal."
+        },
+        {
+            "id": "q8",
+            "prompt": "For a real-valued signal, what is the relationship between X₋k and Xk?",
+            "options": [
+                "X₋k = Xk",
+                "X₋k = -Xk",
+                "X₋k = Xk*",
+                "No relationship"
+            ],
+            "correctAnswer": "X₋k = Xk*",
+            "explanation": "For real signals, X₋k = Xk* (complex conjugate). This means |X₋k| = |Xk| (symmetric magnitude) and ∠X₋k = -∠Xk (antisymmetric phase)."
+        },
+        {
+            "id": "q9",
+            "prompt": "If X₁ = 2e^(-jπ/2), what is the magnitude and phase?",
+            "options": [
+                "|X₁| = 2, ∠X₁ = π/2",
+                "|X₁| = 2, ∠X₁ = -π/2",
+                "|X₁| = 2π, ∠X₁ = -1/2",
+                "|X₁| = 1, ∠X₁ = -π"
+            ],
+            "correctAnswer": "|X₁| = 2, ∠X₁ = -π/2",
+            "explanation": "For X = A·e^(jφ), the magnitude is A and the phase is φ. Here A = 2 and φ = -π/2 (or -90°)."
+        },
+        {
+            "id": "q10",
+            "prompt": "The Fourier series represents x(t) as a sum of:",
+            "options": [
+                "Polynomials",
+                "Complex exponentials",
+                "Step functions",
+                "Impulses"
+            ],
+            "correctAnswer": "Complex exponentials",
+            "explanation": "The exponential Fourier series writes x(t) = Σ Xk·e^(jkω₀t), a sum of complex exponentials at harmonic frequencies. This is different from polynomial or impulse representations."
+        }
+    ]
+}

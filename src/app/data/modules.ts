@@ -43,7 +43,7 @@ export const modules: Module[] = [
     description: "Signals, systems, and the mathematical language of engineering change over time.",
     category: "Core Theory",
     accent: "#6b62ff",
-    updatedToWeek: 3,
+    updatedToWeek: 4,
     lectures: [
       {
         id: "lesson-01",
@@ -59,6 +59,11 @@ export const modules: Module[] = [
         id: "lesson-03",
         title: "Convolution and LTI System Response",
         path: "/signals-and-systems/lesson-03",
+      },
+      {
+        id: "lesson-04",
+        title: "Fourier Series Part I",
+        path: "/signals-and-systems/lesson-04",
       },
     ],
   },
@@ -103,7 +108,13 @@ export const modules: Module[] = [
     description: "Numerical methods and computation as an engineering tool.",
     category: "Computational",
     accent: "#62c6ff",
-    updatedToWeek: 0,
-    lectures: [],
+    updatedToWeek: 2,
+    lectures: [
+      {
+        id: "lesson-01",
+        title: "Nuts and Bolts of Computational Methods",
+        path: "/computational-methods/lesson-01",
+      },
+    ],
   },
 ];

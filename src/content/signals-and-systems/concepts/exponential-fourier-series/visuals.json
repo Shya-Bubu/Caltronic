@@ -1,0 +1,231 @@
+{
+    "conceptId": "exponential-fourier-series",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-waveform",
+            "title": "Complex Exponential e^(jωt)",
+            "waveType": "sine",
+            "mode": "continuous",
+            "description": "Real part (cos) of the complex exponential. Imaginary part is sin.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-waveform",
+            "title": "e^(jωt) = cos(ωt) + j·sin(ωt)",
+            "waveType": "cosine",
+            "mode": "continuous",
+            "description": "Euler's formula: complex exponential = spinning phasor in time.",
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "Signal → Fourier Coefficients",
+            "description": "Every periodic signal breaks into harmonic components Xk.",
+            "blocks": [
+                {
+                    "id": "signal",
+                    "label": "x(t)",
+                    "x": 20,
+                    "y": 50,
+                    "width": 70,
+                    "type": "input"
+                },
+                {
+                    "id": "analysis",
+                    "label": "Fourier\\nAnalysis",
+                    "x": 120,
+                    "y": 40,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "coeffs",
+                    "label": "X₀, X₁, X₂...",
+                    "x": 250,
+                    "y": 50,
+                    "width": 100,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "signal",
+                    "to": "analysis"
+                },
+                {
+                    "from": "analysis",
+                    "to": "coeffs"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "sim1",
+            "type": "d3-fourier-coefficients",
+            "title": "🎮 Fourier Coefficients Explorer",
+            "description": "Adjust amplitudes and see how time domain ↔ frequency domain are linked!",
+            "placement": "engineering"
+        },
+        {
+            "id": "v4",
+            "type": "d3-block-diagram",
+            "title": "Magnitude Spectrum Concept",
+            "description": "|Xk| shows HOW MUCH of each harmonic. Like an audio equalizer!",
+            "blocks": [
+                {
+                    "id": "dc",
+                    "label": "|X₀|\\nDC",
+                    "x": 30,
+                    "y": 60,
+                    "width": 50,
+                    "type": "process"
+                },
+                {
+                    "id": "h1",
+                    "label": "|X₁|\\n1st",
+                    "x": 100,
+                    "y": 40,
+                    "width": 50,
+                    "type": "process"
+                },
+                {
+                    "id": "h2",
+                    "label": "|X₂|\\n2nd",
+                    "x": 170,
+                    "y": 55,
+                    "width": 50,
+                    "type": "process"
+                },
+                {
+                    "id": "h3",
+                    "label": "|X₃|\\n3rd",
+                    "x": 240,
+                    "y": 70,
+                    "width": 50,
+                    "type": "process"
+                }
+            ],
+            "connections": [],
+            "placement": "engineering"
+        },
+        {
+            "id": "v5",
+            "type": "d3-waveform",
+            "title": "Fundamental + 3rd Harmonic",
+            "waveType": "triangle",
+            "mode": "continuous",
+            "description": "Adding harmonics creates complex shapes. Triangle = odd harmonics only.",
+            "placement": "engineering"
+        },
+        {
+            "id": "v6",
+            "type": "d3-block-diagram",
+            "title": "Why Negative Frequencies?",
+            "description": "Both +ω and -ω needed: sin(ωt) = (e^jωt - e^-jωt)/(2j)",
+            "blocks": [
+                {
+                    "id": "sin",
+                    "label": "sin(ωt)",
+                    "x": 20,
+                    "y": 50,
+                    "width": 70,
+                    "type": "input"
+                },
+                {
+                    "id": "split",
+                    "label": "Split",
+                    "x": 120,
+                    "y": 50,
+                    "width": 50,
+                    "type": "sum"
+                },
+                {
+                    "id": "pos",
+                    "label": "+ω",
+                    "x": 210,
+                    "y": 30,
+                    "width": 50,
+                    "type": "output"
+                },
+                {
+                    "id": "neg",
+                    "label": "-ω",
+                    "x": 210,
+                    "y": 80,
+                    "width": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "sin",
+                    "to": "split"
+                },
+                {
+                    "from": "split",
+                    "to": "pos"
+                },
+                {
+                    "from": "split",
+                    "to": "neg"
+                }
+            ],
+            "placement": "mathematics"
+        },
+        {
+            "id": "v7",
+            "type": "d3-block-diagram",
+            "title": "Xk is Complex: Magnitude + Phase",
+            "description": "Xk = |Xk|·e^(j∠Xk). Two plots needed: magnitude and phase spectra.",
+            "blocks": [
+                {
+                    "id": "xk",
+                    "label": "Xk",
+                    "x": 30,
+                    "y": 50,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "mag",
+                    "label": "|Xk|\\nMagnitude",
+                    "x": 130,
+                    "y": 30,
+                    "width": 90,
+                    "type": "process"
+                },
+                {
+                    "id": "phase",
+                    "label": "∠Xk\\nPhase",
+                    "x": 130,
+                    "y": 80,
+                    "width": 90,
+                    "type": "process"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "xk",
+                    "to": "mag"
+                },
+                {
+                    "from": "xk",
+                    "to": "phase"
+                }
+            ],
+            "placement": "mathematics"
+        },
+        {
+            "id": "v8",
+            "type": "d3-waveform",
+            "title": "DC Component X₀",
+            "waveType": "step",
+            "mode": "continuous",
+            "description": "X₀ is the average value. A constant 'DC offset' that shifts the signal up/down.",
+            "placement": "exam"
+        }
+    ]
+}

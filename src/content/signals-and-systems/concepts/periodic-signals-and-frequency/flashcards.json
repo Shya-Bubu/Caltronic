@@ -1,0 +1,65 @@
+{
+    "id": "periodic-signals-and-frequency-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is a periodic signal?",
+            "back": "A signal x(t) such that x(t) = x(t + T₀) for all t, where T₀ is the fundamental period",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Relationship between T₀, f₀, and ω₀?",
+            "back": "f₀ = 1/T₀ (Hz)\nω₀ = 2πf₀ = 2π/T₀ (rad/s)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "How to find T₀ for sin(ωt)?",
+            "back": "T₀ = 2π/ω",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "When is x(t) + y(t) periodic?",
+            "back": "When T₁/T₂ is a rational number. Then T₀ = LCM(T₁, T₂)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "What is the kth harmonic?",
+            "back": "Frequency component at k × ω₀, where ω₀ is fundamental frequency",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Are periodic signals power or energy signals?",
+            "back": "Power signals: finite average power, infinite total energy",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What is the DC component?",
+            "back": "The average value: X₀ = (1/T₀)∫x(t)dt over one period",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Convert 50 Hz to ω₀",
+            "back": "ω₀ = 2π × 50 = 100π ≈ 314.16 rad/s",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Why use different domains (time, frequency)?",
+            "back": "Each domain reveals different signal properties. Complex in time may be simple in frequency.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Period of e^(jω₀t)?",
+            "back": "T₀ = 2π/ω₀ (same as sinusoid with frequency ω₀)",
+            "difficultyLevel": 3
+        }
+    ]
+}

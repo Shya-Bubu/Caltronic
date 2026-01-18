@@ -1,0 +1,13 @@
+{
+    "id": "algorithm-efficiency-and-complexity",
+    "title": "Algorithm Efficiency and Complexity",
+    "lesson": "lesson-01",
+    "order": 4,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-import { modules } from './data/modules';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { modules, type Module } from './data/modules';
 
 import styles from './page.module.css';
 
@@ -17,8 +17,58 @@ const moduleColors = [
   { accent: '#ef4444', bg: 'rgba(239, 68, 68, 0.08)' },    // Red
 ];
 
+// Calculate how many concepts completed for a module from localStorage
+function getModuleProgress(module: Module): { completed: number; total: number } {
+  if (typeof window === 'undefined') return { completed: 0, total: 0 };
+
+  let totalCompleted = 0;
+  let totalConcepts = 0;
+
+  for (const lecture of module.lectures) {
+    const storageKey = `caltronic:lecture:${lecture.id}:completion:v1`;
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && Array.isArray(parsed.completedIds)) {
+          totalCompleted += parsed.completedIds.length;
+          totalConcepts += parsed.totalCount || parsed.completedIds.length;
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  return { completed: totalCompleted, total: totalConcepts };
+}
+
 export default function HomePage() {
   const gridRef = useRef<HTMLElement>(null);
+  const [progressMap, setProgressMap] = useState<Record<string, number>>({});
+
+  // Calculate progress for all modules from localStorage
+  const calculateProgress = useCallback(() => {
+    const map: Record<string, number> = {};
+    for (const module of modules) {
+      const { completed, total } = getModuleProgress(module);
+      if (total > 0) {
+        map[module.id] = Math.round((completed / total) * 100);
+      } else {
+        map[module.id] = 0;
+      }
+    }
+    setProgressMap(map);
+  }, []);
+
+  useEffect(() => {
+    calculateProgress();
+
+    // Listen for storage changes (cross-tab updates)
+    const onStorage = () => calculateProgress();
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, [calculateProgress]);
 
   // Spotlight effect on mouse move
   useEffect(() => {
@@ -65,9 +115,8 @@ export default function HomePage() {
 
       <section ref={gridRef} className={styles.grid} aria-label="Modules">
         {modules.map((module, index) => {
-          const progress = typeof module.progress === 'number' ? module.progress : undefined;
+          const safeProgress = progressMap[module.id] || 0;
           const moduleHref = `/${module.slug}`;
-          const safeProgress = progress === undefined ? 0 : Math.max(0, Math.min(100, progress));
           const updated = module.updatedToWeek
             ? `Updated to Week ${module.updatedToWeek}`
             : 'Coming soon';
@@ -96,7 +145,10 @@ export default function HomePage() {
                   {module.title}
                 </h2>
 
-                <p className={styles.meta}>{updated}</p>
+                <p className={styles.meta}>
+                  {updated}
+                  {module.lectures.length > 0 && ` · ${module.lectures.length} lesson${module.lectures.length > 1 ? 's' : ''}`}
+                </p>
 
                 <div className={styles.progressRow}>
                   <div className={styles.progressTrack}>
@@ -124,3 +176,4 @@ export default function HomePage() {
     </div>
   );
 }
+

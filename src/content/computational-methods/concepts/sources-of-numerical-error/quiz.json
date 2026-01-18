@@ -1,0 +1,125 @@
+{
+    "id": "sources-of-numerical-error-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Truncation error comes from:",
+            "options": [
+                "Limited floating-point precision",
+                "Approximating infinite processes with finite ones",
+                "Measurement noise",
+                "Programming bugs"
+            ],
+            "correctAnswer": "Approximating infinite processes with finite ones",
+            "explanation": "Truncation error arises when we approximate infinite series, continuous integrals, or infinite processes with finite versions—like using only 5 terms of a Taylor series."
+        },
+        {
+            "id": "q2",
+            "prompt": "Round-off error comes from:",
+            "options": [
+                "Using too few Taylor terms",
+                "Finite precision of floating-point numbers",
+                "Choosing a poor algorithm",
+                "Wrong initial conditions"
+            ],
+            "correctAnswer": "Finite precision of floating-point numbers",
+            "explanation": "Round-off error is due to the finite number of bits used to represent real numbers. Operations must round results to the nearest representable number."
+        },
+        {
+            "id": "q3",
+            "prompt": "The condition number measures:",
+            "options": [
+                "How fast an algorithm runs",
+                "The memory required",
+                "Sensitivity of output to input perturbations",
+                "The number of iterations needed"
+            ],
+            "correctAnswer": "Sensitivity of output to input perturbations",
+            "explanation": "Condition number κ = (relative change in output) / (relative change in input). High condition number means small input errors cause large output errors."
+        },
+        {
+            "id": "q4",
+            "prompt": "Forward difference has truncation error of order:",
+            "options": [
+                "O(h²)",
+                "O(h)",
+                "O(h³)",
+                "O(1)"
+            ],
+            "correctAnswer": "O(h)",
+            "explanation": "Forward difference (f(x+h) - f(x))/h has first-order accuracy. Error is proportional to h, so halving h halves the error."
+        },
+        {
+            "id": "q5",
+            "prompt": "Central difference has truncation error of order:",
+            "options": [
+                "O(h)",
+                "O(h²)",
+                "O(h³)",
+                "O(1/h)"
+            ],
+            "correctAnswer": "O(h²)",
+            "explanation": "Central difference (f(x+h) - f(x-h))/(2h) has second-order accuracy. Error is proportional to h², so halving h reduces error by a factor of 4."
+        },
+        {
+            "id": "q6",
+            "prompt": "As step size h decreases, eventually error increases because:",
+            "options": [
+                "Truncation error dominates",
+                "Round-off error dominates",
+                "The algorithm becomes unstable",
+                "Memory overflow"
+            ],
+            "correctAnswer": "Round-off error dominates",
+            "explanation": "For very small h, the difference f(x+h) - f(x) involves subtracting nearly equal numbers, causing catastrophic cancellation and round-off error growth."
+        },
+        {
+            "id": "q7",
+            "prompt": "A well-conditioned problem has condition number κ approximately:",
+            "options": [
+                "κ >> 100",
+                "κ ≈ 1 to 10",
+                "κ = 0",
+                "κ = ∞"
+            ],
+            "correctAnswer": "κ ≈ 1 to 10",
+            "explanation": "Well-conditioned problems have small condition numbers (near 1). Ill-conditioned problems have κ >> 1, meaning tiny input errors cause large output errors."
+        },
+        {
+            "id": "q8",
+            "prompt": "Relative error is more useful than absolute error when:",
+            "options": [
+                "The true value is zero",
+                "Comparing errors across different scales",
+                "Only one calculation is done",
+                "Speed is more important than accuracy"
+            ],
+            "correctAnswer": "Comparing errors across different scales",
+            "explanation": "An error of 0.001 is negligible for value 1000 (relative: 10⁻⁶) but huge for value 0.01 (relative: 10%). Relative error normalizes for scale."
+        },
+        {
+            "id": "q9",
+            "prompt": "Computing e^(−20) via Taylor series is problematic because:",
+            "options": [
+                "e^(−20) is too small to represent",
+                "Large positive and negative terms cancel",
+                "The series doesn't converge",
+                "It requires too many terms"
+            ],
+            "correctAnswer": "Large positive and negative terms cancel",
+            "explanation": "Series: 1 - 20 + 200 - 1333 + ... involves huge alternating terms. Subtracting nearly equal large numbers causes catastrophic cancellation."
+        },
+        {
+            "id": "q10",
+            "prompt": "Optimal step size for central difference is approximately:",
+            "options": [
+                "10⁻¹",
+                "10⁻⁵ to 10⁻⁶",
+                "10⁻¹⁶",
+                "1"
+            ],
+            "correctAnswer": "10⁻⁵ to 10⁻⁶",
+            "explanation": "For central difference with O(h²) truncation, optimal h ≈ ε^(1/3) ≈ (10⁻¹⁶)^(1/3) ≈ 10⁻⁵. This balances truncation and round-off errors."
+        }
+    ]
+}

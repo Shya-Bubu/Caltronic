@@ -1,0 +1,13 @@
+{
+    "id": "fourier-series-properties",
+    "title": "Fourier Series Properties",
+    "lesson": "lesson-04",
+    "order": 4,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

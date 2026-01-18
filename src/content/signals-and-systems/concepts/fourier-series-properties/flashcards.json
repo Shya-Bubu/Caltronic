@@ -1,0 +1,65 @@
+{
+    "id": "fourier-series-properties-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Linearity property",
+            "back": "αx(t) + βy(t) ↔ αXk + βYk (same ω₀ required)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "Time shifting property",
+            "back": "x(t - t₀) ↔ Xk·e^(-jkω₀t₀)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Time reversal property",
+            "back": "x(-t) ↔ X₋k",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Time scaling property",
+            "back": "x(αt) ↔ Xk with new ω₀' = αω₀",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Conjugate symmetry for real signals",
+            "back": "X₋k = Xk* → |X₋k| = |Xk|, ∠X₋k = -∠Xk",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Effect of time shift on magnitude",
+            "back": "Unchanged (|Yk| = |Xk|)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Effect of time shift on phase",
+            "back": "Linear shift: ∠Yk = ∠Xk - kω₀t₀",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Time-frequency duality for scaling",
+            "back": "Compress in time → Expand in frequency (and vice versa)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why does phase shift depend on k?",
+            "back": "Higher frequencies complete more cycles in time t₀, so more phase change",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "When can we add Fourier coefficients?",
+            "back": "Only when signals have the same fundamental frequency ω₀",
+            "difficultyLevel": 2
+        }
+    ]
+}

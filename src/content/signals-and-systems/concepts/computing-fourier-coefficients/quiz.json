@@ -1,0 +1,125 @@
+{
+    "id": "computing-fourier-coefficients-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the analysis equation for computing Xk?",
+            "options": [
+                "Xk = ∫x(t)dt",
+                "Xk = (1/T₀)∫x(t)e^(-jkω₀t)dt",
+                "Xk = Σx(t)e^(jkω₀t)",
+                "Xk = x(t)·e^(-jkω₀t)"
+            ],
+            "correctAnswer": "Xk = (1/T₀)∫x(t)e^(-jkω₀t)dt",
+            "explanation": "The analysis equation is Xk = (1/T₀)∫x(t)e^(-jkω₀t)dt, integrated over one period. The 1/T₀ factor normalizes the result, and the exponential with -jkω₀t extracts the kth harmonic."
+        },
+        {
+            "id": "q2",
+            "prompt": "What does X₀ represent?",
+            "options": [
+                "The fundamental frequency",
+                "The average value of x(t)",
+                "The amplitude of the first harmonic",
+                "Zero"
+            ],
+            "correctAnswer": "The average value of x(t)",
+            "explanation": "When k=0, the exponential becomes 1, so X₀ = (1/T₀)∫x(t)dt, which is exactly the average value of x(t) over one period."
+        },
+        {
+            "id": "q3",
+            "prompt": "For a square pulse train with 50% duty cycle, what is X₀?",
+            "options": [
+                "0",
+                "0.25",
+                "0.5",
+                "1"
+            ],
+            "correctAnswer": "0.5",
+            "explanation": "50% duty cycle means the pulse is high for half the period. If amplitude is 1, the average is 1×0.5 + 0×0.5 = 0.5."
+        },
+        {
+            "id": "q4",
+            "prompt": "Why does |Xk| → 0 as k → ∞ for most signals?",
+            "options": [
+                "Because sin(kx) oscillates faster",
+                "Because the integral cancels out high frequencies",
+                "Because high harmonics have less energy",
+                "All of the above"
+            ],
+            "correctAnswer": "All of the above",
+            "explanation": "High-frequency exponentials oscillate rapidly in the integration window, causing positive and negative contributions to cancel. This means smooth signals have little high-frequency content."
+        },
+        {
+            "id": "q5",
+            "prompt": "For the square pulse Xk = sin(kω₀T₁)/(kπ), when is Xk = 0?",
+            "options": [
+                "When k = 0",
+                "When kω₀T₁ = nπ (n integer)",
+                "Never",
+                "When k is even"
+            ],
+            "correctAnswer": "When kω₀T₁ = nπ (n integer)",
+            "explanation": "Xk = 0 when sin(kω₀T₁) = 0, which occurs when the argument equals nπ for any non-zero integer n. This creates the 'nulls' in the sinc-like spectrum."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is Gibbs phenomenon?",
+            "options": [
+                "Decay of harmonics",
+                "Overshoot at discontinuities",
+                "Phase distortion",
+                "Aliasing"
+            ],
+            "correctAnswer": "Overshoot at discontinuities",
+            "explanation": "Gibbs phenomenon is the ~9% overshoot that occurs when approximating a discontinuous signal with a finite Fourier series. It persists even with infinite terms, just becoming narrower."
+        },
+        {
+            "id": "q7",
+            "prompt": "Which integration window is often easiest for symmetric signals?",
+            "options": [
+                "0 to T₀",
+                "-T₀ to 0",
+                "-T₀/2 to +T₀/2",
+                "0 to 2T₀"
+            ],
+            "correctAnswer": "-T₀/2 to +T₀/2",
+            "explanation": "For signals symmetric about t=0, using -T₀/2 to +T₀/2 often simplifies integration because you may only need to integrate over non-zero regions once."
+        },
+        {
+            "id": "q8",
+            "prompt": "If x(t) is a triangle wave, how does |Xk| decay?",
+            "options": [
+                "1/k",
+                "1/k²",
+                "1/k³",
+                "No decay"
+            ],
+            "correctAnswer": "1/k²",
+            "explanation": "Triangle waves are continuous (unlike square waves), so their Fourier coefficients decay faster—as 1/k² instead of 1/k. Smoother signals have faster-decaying spectra."
+        },
+        {
+            "id": "q9",
+            "prompt": "What property of complex exponentials enables the analysis equation to work?",
+            "options": [
+                "Commutativity",
+                "Orthogonality",
+                "Associativity",
+                "Periodicity"
+            ],
+            "correctAnswer": "Orthogonality",
+            "explanation": "Complex exponentials at different harmonic frequencies are orthogonal over one period: their inner product (integral of product) is zero unless frequencies match. This allows extraction of individual coefficients."
+        },
+        {
+            "id": "q10",
+            "prompt": "Parseval's theorem states that:",
+            "options": [
+                "Σ|Xk|² = ∫|x(t)|²dt",
+                "(1/T₀)∫|x(t)|²dt = Σ|Xk|²",
+                "Xk = X₋k*",
+                "|Xk| = constant"
+            ],
+            "correctAnswer": "(1/T₀)∫|x(t)|²dt = Σ|Xk|²",
+            "explanation": "Parseval's theorem says average power in time equals sum of powers in frequency: (1/T₀)∫|x(t)|²dt = Σ|Xk|². This is power conservation between domains."
+        }
+    ]
+}

@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 
 import styles from './ThemeToggle.module.css';
 
-type Theme = 'dark' | 'light' | 'dark-modern' | 'eye-comfort';
+type Theme = 'dark' | 'light' | 'eye-comfort';
 
 const STORAGE_KEY = 'caltronic:theme';
 
@@ -17,23 +17,18 @@ const THEME_CONFIG: Record<Theme, { label: string; icon: string }> = {
     label: 'Light',
     icon: 'sun',
   },
-  'dark-modern': {
-    label: 'Antigravity',
-    icon: 'sparkle',
-  },
   'eye-comfort': {
     label: 'Eye Comfort',
     icon: 'eye',
   },
 };
 
-const THEME_ORDER: Theme[] = ['dark', 'light', 'dark-modern', 'eye-comfort'];
+const THEME_ORDER: Theme[] = ['dark', 'light', 'eye-comfort'];
 
 function getInitialTheme(): Theme {
   if (typeof document === 'undefined') return 'dark';
   const existing = document.documentElement.dataset.theme;
   if (existing === 'light') return 'light';
-  if (existing === 'dark-modern') return 'dark-modern';
   if (existing === 'eye-comfort') return 'eye-comfort';
   return 'dark';
 }
