@@ -1,0 +1,77 @@
+{
+    "id": "combinational-circuit-design-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "SOP stands for?",
+            "back": "Sum of Products\nOR of AND terms",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "POS stands for?",
+            "back": "Product of Sums\nAND of OR terms",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is a minterm?",
+            "back": "Product term with ALL variables\nEach in true or complemented form",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is a maxterm?",
+            "back": "Sum term with ALL variables\nEach in true or complemented form",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Minterms for n variables?",
+            "back": "2^n minterms\n(3 vars = 8 minterms)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "m3 for ABC?",
+            "back": "A'BC (011 in binary)\nSubscript = binary value",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Relationship mi and Mi?",
+            "back": "Mi = (mi)'\nMaxterm = NOT of minterm",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "SOP gate structure?",
+            "back": "AND-OR (2 levels)\nFirst AND, then OR",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "POS gate structure?",
+            "back": "OR-AND (2 levels)\nFirst OR, then AND",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Two-level logic delay?",
+            "back": "2 gate delays (fixed)\nFast and predictable",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f11",
+            "front": "Don't care conditions?",
+            "back": "Unused input combinations\nCan be 0 or 1 to simplify",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f12",
+            "front": "SOP from truth table?",
+            "back": "Take rows where output=1\nWrite and OR all minterms",
+            "difficultyLevel": 2
+        }
+    ]
+}

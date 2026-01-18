@@ -1,0 +1,149 @@
+{
+    "id": "arithmetic-circuits-adders-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Half adder Sum output is computed by:",
+            "options": [
+                "AND gate",
+                "OR gate",
+                "XOR gate",
+                "NAND gate"
+            ],
+            "correctAnswer": "XOR gate",
+            "explanation": "Half adder Sum = A XOR B. XOR outputs 1 when inputs differ, which is the single-bit sum without carry."
+        },
+        {
+            "id": "q2",
+            "prompt": "Half adder Carry output is computed by:",
+            "options": [
+                "XOR gate",
+                "OR gate",
+                "AND gate",
+                "NOR gate"
+            ],
+            "correctAnswer": "AND gate",
+            "explanation": "Half adder Carry = A AND B. Carry is 1 only when both inputs are 1."
+        },
+        {
+            "id": "q3",
+            "prompt": "How many inputs does a full adder have?",
+            "options": [
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "correctAnswer": "3",
+            "explanation": "Full adder has 3 inputs: A, B, and Carry-in (Cin). This allows chaining for multi-bit addition."
+        },
+        {
+            "id": "q4",
+            "prompt": "Full adder Sum for A=1, B=1, Cin=0 is:",
+            "options": [
+                "0",
+                "1",
+                "10",
+                "11"
+            ],
+            "correctAnswer": "0",
+            "explanation": "Sum = 1 XOR 1 XOR 0 = 0 XOR 0 = 0. The carry-out would be 1, giving result 10 in binary."
+        },
+        {
+            "id": "q5",
+            "prompt": "How many full adders are needed for a 16-bit adder?",
+            "options": [
+                "8",
+                "16",
+                "32",
+                "15"
+            ],
+            "correctAnswer": "16",
+            "explanation": "N-bit addition requires N full adders, one for each bit position."
+        },
+        {
+            "id": "q6",
+            "prompt": "In a ripple carry adder, carry propagates:",
+            "options": [
+                "In parallel",
+                "From MSB to LSB",
+                "From LSB to MSB",
+                "Randomly"
+            ],
+            "correctAnswer": "From LSB to MSB",
+            "explanation": "Carry ripples from Least Significant Bit (LSB) to Most Significant Bit (MSB), creating a serial delay."
+        },
+        {
+            "id": "q7",
+            "prompt": "A full adder can be built from:",
+            "options": [
+                "1 half adder",
+                "2 half adders + 1 OR",
+                "3 half adders",
+                "2 AND gates"
+            ],
+            "correctAnswer": "2 half adders + 1 OR",
+            "explanation": "Full adder = 2 half adders + 1 OR gate. First HA adds A,B; second HA adds result with Cin; OR combines carries."
+        },
+        {
+            "id": "q8",
+            "prompt": "Full adder Cout formula is:",
+            "options": [
+                "A + B",
+                "A XOR B",
+                "AB + Cin(A XOR B)",
+                "A XOR B XOR Cin"
+            ],
+            "correctAnswer": "AB + Cin(A XOR B)",
+            "explanation": "Cout = AB + Cin(A XOR B). Carry appears when both A,B are 1, or when Cin is 1 and A,B differ."
+        },
+        {
+            "id": "q9",
+            "prompt": "Ripple carry adder delay is proportional to:",
+            "options": [
+                "O(1)",
+                "O(log N)",
+                "O(N)",
+                "O(N squared)"
+            ],
+            "correctAnswer": "O(N)",
+            "explanation": "Delay is O(N) because carry must propagate through all N stages sequentially."
+        },
+        {
+            "id": "q10",
+            "prompt": "Maximum unsigned value from 4-bit adder (A+B) is:",
+            "options": [
+                "15",
+                "16",
+                "30",
+                "31"
+            ],
+            "correctAnswer": "30",
+            "explanation": "4-bit max = 15. But 15+15 = 30, which requires 5 bits. Max sum with Cout is 30 (11110 in binary)."
+        },
+        {
+            "id": "q11",
+            "prompt": "What determines if overflow occurred in unsigned addition?",
+            "options": [
+                "Sum = 0",
+                "Final carry-out = 1",
+                "First carry = 1",
+                "All sums = 1"
+            ],
+            "correctAnswer": "Final carry-out = 1",
+            "explanation": "Unsigned overflow is detected when the final carry-out (Cout from MSB position) equals 1."
+        },
+        {
+            "id": "q12",
+            "prompt": "1011 + 0110 in binary equals:",
+            "options": [
+                "10001",
+                "10101",
+                "10010",
+                "10011"
+            ],
+            "correctAnswer": "10001",
+            "explanation": "1011 (11) + 0110 (6) = 10001 (17). Working through: 1+0=1, 1+1=0 carry 1, 0+1+1=0 carry 1, 1+0+1=0 carry 1."
+        }
+    ]
+}

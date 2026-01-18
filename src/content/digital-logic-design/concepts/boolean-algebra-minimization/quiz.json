@@ -1,0 +1,149 @@
+{
+    "id": "boolean-algebra-minimization-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Simplify: X + XY =",
+            "options": [
+                "XY",
+                "X",
+                "Y",
+                "X + Y"
+            ],
+            "correctAnswer": "X",
+            "explanation": "This is the absorption law: X + XY = X. The XY term is 'absorbed' by X because whenever XY is 1, X must also be 1."
+        },
+        {
+            "id": "q2",
+            "prompt": "According to De Morgan's theorem, (AB)' equals:",
+            "options": [
+                "A'B'",
+                "A' + B'",
+                "A' · B",
+                "A + B"
+            ],
+            "correctAnswer": "A' + B'",
+            "explanation": "De Morgan: NOT(A AND B) = NOT(A) OR NOT(B). Break the bar, change AND to OR."
+        },
+        {
+            "id": "q3",
+            "prompt": "Simplify: AB + AB' =",
+            "options": [
+                "A",
+                "B",
+                "AB",
+                "0"
+            ],
+            "correctAnswer": "A",
+            "explanation": "Factor: A(B + B') = A(1) = A. The complementary terms B and B' combine to 1."
+        },
+        {
+            "id": "q4",
+            "prompt": "What is the Hamming distance between 101 and 111?",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "3"
+            ],
+            "correctAnswer": "1",
+            "explanation": "101 XOR 111 = 010, which has one 1. HD = 1, meaning these minterms can be combined."
+        },
+        {
+            "id": "q5",
+            "prompt": "Two minterms can be combined if their Hamming distance is:",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "Any value"
+            ],
+            "correctAnswer": "1",
+            "explanation": "Only minterms with HD = 1 can be combined. They differ in exactly one variable, which gets eliminated."
+        },
+        {
+            "id": "q6",
+            "prompt": "Apply De Morgan to (A + B + C)':",
+            "options": [
+                "A' + B' + C'",
+                "A'B'C'",
+                "A + B + C",
+                "ABC"
+            ],
+            "correctAnswer": "A'B'C'",
+            "explanation": "De Morgan generalizes: NOT(A OR B OR C) = NOT(A) AND NOT(B) AND NOT(C) = A'B'C'"
+        },
+        {
+            "id": "q7",
+            "prompt": "The absorption law X(X + Y) equals:",
+            "options": [
+                "XY",
+                "X + Y",
+                "X",
+                "Y"
+            ],
+            "correctAnswer": "X",
+            "explanation": "X(X + Y) = XX + XY = X + XY = X (by idempotent, then absorption). The Y term is absorbed."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why minimize Boolean expressions?",
+            "options": [
+                "Increase power consumption",
+                "Reduce circuit cost and area",
+                "Make circuits slower",
+                "Add more gates"
+            ],
+            "correctAnswer": "Reduce circuit cost and area",
+            "explanation": "Minimization reduces gate count, which decreases cost, area, and power consumption while potentially increasing speed."
+        },
+        {
+            "id": "q9",
+            "prompt": "Simplify: X + X'Y =",
+            "options": [
+                "X",
+                "Y",
+                "X + Y",
+                "XY"
+            ],
+            "correctAnswer": "X + Y",
+            "explanation": "This is a special absorption form: X + X'Y = X + Y. The X'Y covers cases where X=0 but Y=1."
+        },
+        {
+            "id": "q10",
+            "prompt": "A prime implicant is:",
+            "options": [
+                "The smallest possible term",
+                "A term that cannot be combined further",
+                "A minterm",
+                "Always essential"
+            ],
+            "correctAnswer": "A term that cannot be combined further",
+            "explanation": "A prime implicant cannot be combined with any other implicant to form a simpler term. It's a maximal grouping."
+        },
+        {
+            "id": "q11",
+            "prompt": "What is (X')'?",
+            "options": [
+                "0",
+                "1",
+                "X",
+                "X'"
+            ],
+            "correctAnswer": "X",
+            "explanation": "Double negation (involution): NOT(NOT(X)) = X. Two inversions cancel out."
+        },
+        {
+            "id": "q12",
+            "prompt": "For 4 variables, HD between m0 (0000) and m15 (1111) is:",
+            "options": [
+                "1",
+                "2",
+                "4",
+                "8"
+            ],
+            "correctAnswer": "4",
+            "explanation": "0000 XOR 1111 = 1111, which has 4 ones. HD = 4. These minterms cannot be combined (need HD = 1)."
+        }
+    ]
+}

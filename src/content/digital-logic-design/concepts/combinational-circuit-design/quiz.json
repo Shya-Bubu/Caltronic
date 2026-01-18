@@ -1,0 +1,149 @@
+{
+    "id": "combinational-circuit-design-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "SOP stands for:",
+            "options": [
+                "Sum of Primes",
+                "Sum of Products",
+                "Start of Process",
+                "Set of Partials"
+            ],
+            "correctAnswer": "Sum of Products",
+            "explanation": "SOP = Sum of Products. It's an OR of AND terms. Example: AB + CD is an SOP with two product terms."
+        },
+        {
+            "id": "q2",
+            "prompt": "A minterm is a product term where:",
+            "options": [
+                "Some variables appear",
+                "All variables appear exactly once",
+                "No variables appear",
+                "Only one variable appears"
+            ],
+            "correctAnswer": "All variables appear exactly once",
+            "explanation": "A minterm includes EVERY variable exactly once (complemented or not). For 3 vars: ABC, ABC', AB'C, etc."
+        },
+        {
+            "id": "q3",
+            "prompt": "For n variables, how many minterms exist?",
+            "options": [
+                "n",
+                "2n",
+                "2^n",
+                "n^2"
+            ],
+            "correctAnswer": "2^n",
+            "explanation": "Each variable can be complemented or not (2 choices). With n variables: 2^n total minterms. For 3 vars: 8 minterms."
+        },
+        {
+            "id": "q4",
+            "prompt": "POS stands for:",
+            "options": [
+                "Product of Sums",
+                "Point of Sale",
+                "Process of Selection",
+                "Prime of Sequence"
+            ],
+            "correctAnswer": "Product of Sums",
+            "explanation": "POS = Product of Sums. It's an AND of OR terms. Example: (A+B)(C+D) is a POS with two sum terms."
+        },
+        {
+            "id": "q5",
+            "prompt": "A maxterm is a sum term where:",
+            "options": [
+                "Some variables appear",
+                "All variables appear exactly once",
+                "No variables appear",
+                "Only one variable appears"
+            ],
+            "correctAnswer": "All variables appear exactly once",
+            "explanation": "A maxterm includes EVERY variable exactly once in an OR. For 3 vars: A+B+C, A+B+C', A+B'+C, etc."
+        },
+        {
+            "id": "q6",
+            "prompt": "Minterm m3 for 3 variables (ABC) equals:",
+            "options": [
+                "A'BC",
+                "A'B'C",
+                "AB'C'",
+                "ABC"
+            ],
+            "correctAnswer": "A'BC",
+            "explanation": "m3 = 011 in binary. A=0 (complemented), B=1, C=1. So m3 = A'BC. The subscript is the binary value."
+        },
+        {
+            "id": "q7",
+            "prompt": "The relationship between minterm mi and maxterm Mi is:",
+            "options": [
+                "They are equal",
+                "Mi = NOT(mi)",
+                "Mi = 2*mi",
+                "No relationship"
+            ],
+            "correctAnswer": "Mi = NOT(mi)",
+            "explanation": "Maxterm Mi equals the complement of minterm mi. If m3 = A'BC, then M3 = A+B'+C' (De Morgan applied)."
+        },
+        {
+            "id": "q8",
+            "prompt": "SOP form produces which gate structure?",
+            "options": [
+                "OR-AND (2 levels)",
+                "AND-OR (2 levels)",
+                "Only AND gates",
+                "Only OR gates"
+            ],
+            "correctAnswer": "AND-OR (2 levels)",
+            "explanation": "SOP: First level is AND gates (products), second level is OR gate (sum). This is AND-OR structure."
+        },
+        {
+            "id": "q9",
+            "prompt": "Don't care conditions are used when:",
+            "options": [
+                "Output matters for all inputs",
+                "Certain input combinations never occur",
+                "We don't know the function",
+                "Circuit is simple"
+            ],
+            "correctAnswer": "Certain input combinations never occur",
+            "explanation": "Don't cares (X) are assigned to unused input combinations. We can set them to 0 or 1 to simplify the expression."
+        },
+        {
+            "id": "q10",
+            "prompt": "Two-level logic has propagation delay of:",
+            "options": [
+                "1 gate delay",
+                "2 gate delays",
+                "N gate delays",
+                "Log N gate delays"
+            ],
+            "correctAnswer": "2 gate delays",
+            "explanation": "Two-level logic (SOP or POS) has exactly 2 gate delays: one for AND level, one for OR level. Fixed latency."
+        },
+        {
+            "id": "q11",
+            "prompt": "To get SOP from truth table, use rows where output is:",
+            "options": [
+                "0",
+                "1",
+                "X",
+                "Don't care"
+            ],
+            "correctAnswer": "1",
+            "explanation": "For SOP, take each row where output=1, write the minterm, then OR all minterms together."
+        },
+        {
+            "id": "q12",
+            "prompt": "Canonical SOP has:",
+            "options": [
+                "Minimized terms",
+                "All minterms with all variables",
+                "Only one term",
+                "No variables"
+            ],
+            "correctAnswer": "All minterms with all variables",
+            "explanation": "Canonical SOP uses full minterms (each has all variables). It's unique but not minimized. Minimization reduces it."
+        }
+    ]
+}

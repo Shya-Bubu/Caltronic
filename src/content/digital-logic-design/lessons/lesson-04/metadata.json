@@ -1,0 +1,18 @@
+{
+    "id": "lesson-04",
+    "title": "Special Logic Circuits",
+    "weeksCovered": [
+        7,
+        8
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "arithmetic-circuits-adders",
+        "negative-number-representation",
+        "subtractors-and-alu",
+        "multiplexers"
+    ],
+    "description": "Arithmetic circuits including adders and subtractors, number representation systems, and multiplexers for data selection.",
+    "status": "complete"
+}

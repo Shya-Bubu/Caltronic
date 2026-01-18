@@ -1,0 +1,356 @@
+{
+    "conceptId": "subtractors-and-alu",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-block-diagram",
+            "title": "XOR as Controlled Inverter",
+            "description": "Control=0 passes, Control=1 inverts",
+            "blocks": [
+                {
+                    "id": "b",
+                    "label": "B",
+                    "x": 30,
+                    "y": 40,
+                    "width": 35,
+                    "type": "input"
+                },
+                {
+                    "id": "sub",
+                    "label": "Sub",
+                    "x": 30,
+                    "y": 85,
+                    "width": 40,
+                    "type": "input"
+                },
+                {
+                    "id": "xor",
+                    "label": "XOR",
+                    "x": 110,
+                    "y": 60,
+                    "width": 55,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "B or B'",
+                    "x": 200,
+                    "y": 60,
+                    "width": 65,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "b",
+                    "to": "xor"
+                },
+                {
+                    "from": "sub",
+                    "to": "xor"
+                },
+                {
+                    "from": "xor",
+                    "to": "out"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "4-Bit Adder-Subtractor",
+            "description": "Sub signal controls XORs and carry-in",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A[3:0]",
+                    "x": 20,
+                    "y": 25,
+                    "width": 55,
+                    "type": "input"
+                },
+                {
+                    "id": "b",
+                    "label": "B[3:0]",
+                    "x": 20,
+                    "y": 70,
+                    "width": 55,
+                    "type": "input"
+                },
+                {
+                    "id": "sub",
+                    "label": "Sub",
+                    "x": 20,
+                    "y": 110,
+                    "width": 40,
+                    "type": "input"
+                },
+                {
+                    "id": "xors",
+                    "label": "XORs",
+                    "x": 110,
+                    "y": 85,
+                    "width": 55,
+                    "type": "process"
+                },
+                {
+                    "id": "adder",
+                    "label": "4-bit\\nAdder",
+                    "x": 200,
+                    "y": 55,
+                    "width": 65,
+                    "type": "process"
+                },
+                {
+                    "id": "result",
+                    "label": "Result",
+                    "x": 300,
+                    "y": 60,
+                    "width": 55,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "adder"
+                },
+                {
+                    "from": "b",
+                    "to": "xors"
+                },
+                {
+                    "from": "sub",
+                    "to": "xors"
+                },
+                {
+                    "from": "xors",
+                    "to": "adder"
+                },
+                {
+                    "from": "sub",
+                    "to": "adder"
+                },
+                {
+                    "from": "adder",
+                    "to": "result"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "Simple ALU Block",
+            "description": "Control selects operation: AND, OR, ADD, SUB",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "x": 30,
+                    "y": 25,
+                    "width": 35,
+                    "type": "input"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "x": 30,
+                    "y": 65,
+                    "width": 35,
+                    "type": "input"
+                },
+                {
+                    "id": "ctrl",
+                    "label": "Op",
+                    "x": 30,
+                    "y": 105,
+                    "width": 35,
+                    "type": "input"
+                },
+                {
+                    "id": "alu",
+                    "label": "ALU",
+                    "x": 110,
+                    "y": 55,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "result",
+                    "label": "Result",
+                    "x": 210,
+                    "y": 45,
+                    "width": 55,
+                    "type": "output"
+                },
+                {
+                    "id": "flags",
+                    "label": "Flags",
+                    "x": 210,
+                    "y": 85,
+                    "width": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "alu"
+                },
+                {
+                    "from": "b",
+                    "to": "alu"
+                },
+                {
+                    "from": "ctrl",
+                    "to": "alu"
+                },
+                {
+                    "from": "alu",
+                    "to": "result"
+                },
+                {
+                    "from": "alu",
+                    "to": "flags"
+                }
+            ],
+            "placement": "engineering"
+        },
+        {
+            "id": "v4",
+            "type": "d3-block-diagram",
+            "title": "ALU Status Flags",
+            "description": "Z (Zero), N (Negative), C (Carry), V (Overflow)",
+            "blocks": [
+                {
+                    "id": "result",
+                    "label": "Result",
+                    "x": 30,
+                    "y": 55,
+                    "width": 55,
+                    "type": "input"
+                },
+                {
+                    "id": "detect",
+                    "label": "Flag\\nLogic",
+                    "x": 120,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "z",
+                    "label": "Z",
+                    "x": 215,
+                    "y": 20,
+                    "width": 30,
+                    "type": "output"
+                },
+                {
+                    "id": "n",
+                    "label": "N",
+                    "x": 215,
+                    "y": 50,
+                    "width": 30,
+                    "type": "output"
+                },
+                {
+                    "id": "c",
+                    "label": "C",
+                    "x": 215,
+                    "y": 80,
+                    "width": 30,
+                    "type": "output"
+                },
+                {
+                    "id": "v",
+                    "label": "V",
+                    "x": 215,
+                    "y": 110,
+                    "width": 30,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "result",
+                    "to": "detect"
+                },
+                {
+                    "from": "detect",
+                    "to": "z"
+                },
+                {
+                    "from": "detect",
+                    "to": "n"
+                },
+                {
+                    "from": "detect",
+                    "to": "c"
+                },
+                {
+                    "from": "detect",
+                    "to": "v"
+                }
+            ],
+            "placement": "engineering"
+        },
+        {
+            "id": "v5",
+            "type": "d3-block-diagram",
+            "title": "Overflow Detection",
+            "description": "V = Carry into MSB XOR Carry out of MSB",
+            "blocks": [
+                {
+                    "id": "cn1",
+                    "label": "C(n-1)",
+                    "x": 30,
+                    "y": 35,
+                    "width": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "cn",
+                    "label": "C(n)",
+                    "x": 30,
+                    "y": 80,
+                    "width": 55,
+                    "type": "input"
+                },
+                {
+                    "id": "xor",
+                    "label": "XOR",
+                    "x": 130,
+                    "y": 55,
+                    "width": 55,
+                    "type": "process"
+                },
+                {
+                    "id": "v",
+                    "label": "V",
+                    "x": 220,
+                    "y": 55,
+                    "width": 35,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "cn1",
+                    "to": "xor"
+                },
+                {
+                    "from": "cn",
+                    "to": "xor"
+                },
+                {
+                    "from": "xor",
+                    "to": "v"
+                }
+            ],
+            "placement": "mathematics"
+        }
+    ]
+}

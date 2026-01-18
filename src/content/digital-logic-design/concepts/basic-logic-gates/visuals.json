@@ -1,0 +1,317 @@
+{
+    "conceptId": "basic-logic-gates",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-block-diagram",
+            "title": "NOT Gate (Inverter)",
+            "description": "Single input inverted to produce opposite output",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "A",
+                    "x": 30,
+                    "y": 50,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "not",
+                    "label": "NOT",
+                    "x": 120,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "A'",
+                    "x": 220,
+                    "y": 50,
+                    "width": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "not"
+                },
+                {
+                    "from": "not",
+                    "to": "out"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "AND Gate",
+            "description": "Output is 1 only when ALL inputs are 1",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "x": 30,
+                    "y": 30,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "x": 30,
+                    "y": 80,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "and",
+                    "label": "AND",
+                    "x": 120,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "A·B",
+                    "x": 220,
+                    "y": 55,
+                    "width": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "and"
+                },
+                {
+                    "from": "b",
+                    "to": "and"
+                },
+                {
+                    "from": "and",
+                    "to": "out"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "OR Gate",
+            "description": "Output is 1 when ANY input is 1",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "x": 30,
+                    "y": 30,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "x": 30,
+                    "y": 80,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "or",
+                    "label": "OR",
+                    "x": 120,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "A+B",
+                    "x": 220,
+                    "y": 55,
+                    "width": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "or"
+                },
+                {
+                    "from": "b",
+                    "to": "or"
+                },
+                {
+                    "from": "or",
+                    "to": "out"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v4",
+            "type": "d3-waveform",
+            "title": "NOT Gate Timing",
+            "description": "Input signal and its inverted output",
+            "waveType": "square",
+            "mode": "continuous",
+            "placement": "engineering"
+        },
+        {
+            "id": "v5",
+            "type": "d3-block-diagram",
+            "title": "3-Input AND Gate",
+            "description": "Multi-input AND: all must be 1 for output 1",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "x": 30,
+                    "y": 20,
+                    "width": 40,
+                    "type": "input"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "x": 30,
+                    "y": 55,
+                    "width": 40,
+                    "type": "input"
+                },
+                {
+                    "id": "c",
+                    "label": "C",
+                    "x": 30,
+                    "y": 90,
+                    "width": 40,
+                    "type": "input"
+                },
+                {
+                    "id": "and",
+                    "label": "AND",
+                    "x": 110,
+                    "y": 50,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "ABC",
+                    "x": 210,
+                    "y": 55,
+                    "width": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "and"
+                },
+                {
+                    "from": "b",
+                    "to": "and"
+                },
+                {
+                    "from": "c",
+                    "to": "and"
+                },
+                {
+                    "from": "and",
+                    "to": "out"
+                }
+            ],
+            "placement": "engineering"
+        },
+        {
+            "id": "v6",
+            "type": "d3-block-diagram",
+            "title": "Transistor-Level NOT Gate",
+            "description": "CMOS inverter with PMOS and NMOS transistors",
+            "blocks": [
+                {
+                    "id": "vdd",
+                    "label": "VDD",
+                    "x": 140,
+                    "y": 10,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "in",
+                    "label": "Input",
+                    "x": 30,
+                    "y": 60,
+                    "width": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "pmos",
+                    "label": "PMOS",
+                    "x": 130,
+                    "y": 40,
+                    "width": 70,
+                    "type": "process"
+                },
+                {
+                    "id": "nmos",
+                    "label": "NMOS",
+                    "x": 130,
+                    "y": 85,
+                    "width": 70,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "Output",
+                    "x": 240,
+                    "y": 60,
+                    "width": 60,
+                    "type": "output"
+                },
+                {
+                    "id": "gnd",
+                    "label": "GND",
+                    "x": 140,
+                    "y": 120,
+                    "width": 50,
+                    "type": "input"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "vdd",
+                    "to": "pmos"
+                },
+                {
+                    "from": "in",
+                    "to": "pmos"
+                },
+                {
+                    "from": "in",
+                    "to": "nmos"
+                },
+                {
+                    "from": "pmos",
+                    "to": "out"
+                },
+                {
+                    "from": "nmos",
+                    "to": "out"
+                },
+                {
+                    "from": "nmos",
+                    "to": "gnd"
+                }
+            ],
+            "placement": "engineering"
+        }
+    ]
+}

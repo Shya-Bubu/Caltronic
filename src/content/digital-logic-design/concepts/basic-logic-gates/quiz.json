@@ -1,0 +1,149 @@
+{
+    "id": "basic-logic-gates-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the output of a NOT gate when the input is 1?",
+            "options": [
+                "0",
+                "1",
+                "Undefined",
+                "Depends on voltage"
+            ],
+            "correctAnswer": "0",
+            "explanation": "A NOT gate inverts its input. When input is 1, output is 0. When input is 0, output is 1. This is the fundamental property of negation."
+        },
+        {
+            "id": "q2",
+            "prompt": "An OR gate outputs 0 only when:",
+            "options": [
+                "All inputs are 1",
+                "All inputs are 0",
+                "At least one input is 0",
+                "At least one input is 1"
+            ],
+            "correctAnswer": "All inputs are 0",
+            "explanation": "An OR gate outputs 1 if ANY input is 1. It only outputs 0 when ALL inputs are 0. This is the 'at least one' property of OR."
+        },
+        {
+            "id": "q3",
+            "prompt": "An AND gate outputs 1 only when:",
+            "options": [
+                "At least one input is 1",
+                "At least one input is 0",
+                "All inputs are 0",
+                "All inputs are 1"
+            ],
+            "correctAnswer": "All inputs are 1",
+            "explanation": "An AND gate requires ALL inputs to be 1 to output 1. If any input is 0, the output is 0. This is the 'all required' property of AND."
+        },
+        {
+            "id": "q4",
+            "prompt": "In Boolean algebra, what does X + 1 equal?",
+            "options": [
+                "X",
+                "0",
+                "1",
+                "X̄"
+            ],
+            "correctAnswer": "1",
+            "explanation": "X + 1 = 1 is the OR null law. Since 1 OR anything is always 1, the result is always 1 regardless of X."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the Boolean expression for 'A AND NOT B'?",
+            "options": [
+                "A + B̄",
+                "A · B̄",
+                "Ā · B",
+                "Ā + B"
+            ],
+            "correctAnswer": "A · B̄",
+            "explanation": "A AND NOT B is written as A · B̄. The dot (·) represents AND, and the bar over B represents NOT."
+        },
+        {
+            "id": "q6",
+            "prompt": "How many rows are in a truth table for a 3-input logic gate?",
+            "options": [
+                "3",
+                "6",
+                "8",
+                "9"
+            ],
+            "correctAnswer": "8",
+            "explanation": "A truth table has 2^n rows where n is the number of inputs. For 3 inputs: 2³ = 8 rows (all combinations from 000 to 111)."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the typical voltage for logic 1 in TTL circuits?",
+            "options": [
+                "0V",
+                "1V",
+                "3.3V",
+                "5V"
+            ],
+            "correctAnswer": "5V",
+            "explanation": "Traditional TTL (Transistor-Transistor Logic) uses 5V for logic 1 and 0V for logic 0. Modern circuits may use 3.3V or lower."
+        },
+        {
+            "id": "q8",
+            "prompt": "What is X · X equal to?",
+            "options": [
+                "0",
+                "1",
+                "X",
+                "X̄"
+            ],
+            "correctAnswer": "X",
+            "explanation": "X · X = X is the idempotent law for AND. ANDing a variable with itself produces the same variable."
+        },
+        {
+            "id": "q9",
+            "prompt": "Evaluate: (1 · 0) + 1",
+            "options": [
+                "0",
+                "1",
+                "Undefined",
+                "10"
+            ],
+            "correctAnswer": "1",
+            "explanation": "Step by step: 1 · 0 = 0 (AND operation), then 0 + 1 = 1 (OR operation). Final answer is 1."
+        },
+        {
+            "id": "q10",
+            "prompt": "What is X + X̄ equal to?",
+            "options": [
+                "0",
+                "1",
+                "X",
+                "X̄"
+            ],
+            "correctAnswer": "1",
+            "explanation": "X + X̄ = 1 is the complement law for OR. A variable OR its complement always equals 1 (one of them must be true)."
+        },
+        {
+            "id": "q11",
+            "prompt": "Which operator has the highest precedence in Boolean algebra?",
+            "options": [
+                "OR (+)",
+                "AND (·)",
+                "NOT (̄)",
+                "All equal"
+            ],
+            "correctAnswer": "NOT (̄)",
+            "explanation": "Precedence order: NOT (highest) > AND > OR (lowest). So Ā · B + C means ((NOT A) AND B) OR C."
+        },
+        {
+            "id": "q12",
+            "prompt": "What is X · 0 equal to?",
+            "options": [
+                "0",
+                "1",
+                "X",
+                "X̄"
+            ],
+            "correctAnswer": "0",
+            "explanation": "X · 0 = 0 is the AND null law. ANDing anything with 0 always produces 0, regardless of X."
+        }
+    ]
+}

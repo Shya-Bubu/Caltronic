@@ -1,0 +1,77 @@
+{
+    "id": "arithmetic-circuits-adders-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Half adder equations?",
+            "back": "Sum = A XOR B\nCarry = A AND B",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Full adder equations?",
+            "back": "Sum = A XOR B XOR Cin\nCout = AB + Cin(A XOR B)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Full adder inputs/outputs?",
+            "back": "3 inputs: A, B, Cin\n2 outputs: Sum, Cout",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "Build FA from HA?",
+            "back": "2 half adders + 1 OR gate",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "N-bit ripple adder needs?",
+            "back": "N full adders\nDelay: O(N)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Ripple carry delay?",
+            "back": "Carry propagates sequentially\nLSB to MSB through all stages",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Unsigned overflow detection?",
+            "back": "Cout = 1 from MSB adder",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "4-bit unsigned addition range?",
+            "back": "Input: 0-15 each\nSum: 0-30 (needs 5 bits)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "4-bit adder IC?",
+            "back": "74LS83 or 74LS283",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Generate and Propagate?",
+            "back": "G = AB (creates carry)\nP = A XOR B (passes carry)",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "Half adder: 1+1?",
+            "back": "Sum=0, Carry=1\nBinary 10 = 2",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f12",
+            "front": "Full adder: 1+1+1?",
+            "back": "Sum=1, Cout=1\nBinary 11 = 3",
+            "difficultyLevel": 2
+        }
+    ]
+}

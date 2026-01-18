@@ -399,15 +399,76 @@ Before creating any content, verify:
 
 ## 🐛 BUG FIXES LOG
 
+### 2026-01-18: Complete Checklist for New Lessons (CRITICAL)
+
+> 🚨 **Every time you add a new lesson, verify ALL of the following or you WILL get 404 errors!**
+
+**Step 1: Add lectures to modules.ts**
+```typescript
+// src/app/data/modules.ts
+lectures: [
+  { id: "lesson-01", title: "Lesson Title", path: "/module-slug/lesson-01" },
+]
+```
+Without this, lessons won't appear in the module page!
+
+**Step 2: Create concept metadata.json with ALL path fields**
+```json
+{
+    "id": "concept-folder-name",
+    "title": "Human Readable Title",
+    "lesson": "lesson-XX",
+    "order": 1,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}
+```
+
+**Step 3: Fix quiz.json format**
+```json
+{
+    "id": "concept-name-quiz",  // NOT "conceptId"!
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Question text?",  // NOT "question"!
+            "options": ["A", "B", "C", "D"],
+            "correctAnswer": "B",  // NOT "correctIndex": 1!
+            "explanation": "At least 50 chars explaining the answer..."
+        }
+    ]
+}
+```
+
+**Step 4: Fix flashcards.json format**
+```json
+{
+    "id": "concept-name-flashcards",  // NOT "conceptId"!
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Question",
+            "back": "Answer",
+            "difficultyLevel": 2  // NOT "difficulty"!
+        }
+    ]
+}
+```
+
 ### 2026-01-18: Block Diagram Newline Fix
 **Symptom:** Block diagram labels show literal `\n` text instead of line breaks.
-**Cause:** `BlockDiagram.tsx` regex was `\\\\n` (matching `\\n`) instead of `\\n` (matching `\n`).
+**Cause:** `BlockDiagram.tsx` regex was `\\\\\\\\n` (matching `\\\\n`) instead of `\\\\n` (matching `\n`).
 **Fix:** Update `renderMultilineText` function:
 ```typescript
 // Before (wrong):
-text.replace(/\\\\n/g, '\n')
+text.replace(/\\\\\\\\n/g, '\n')
 // After (correct):
-text.replace(/\\n/g, '\n')
+text.replace(/\\\\n/g, '\n')
 ```
 **File:** `src/app/components/visualizations/BlockDiagram.tsx`, line 62
 
@@ -420,4 +481,4 @@ text.replace(/\\n/g, '\n')
 ---
 
 *Last Updated: January 18, 2026*
-*Document Version: 2.1 — Added Bug Fixes Log*
+*Document Version: 2.2 — Added Missing metadata.json Bug Fix*

@@ -1,0 +1,77 @@
+{
+    "id": "subtractors-and-alu-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Subtraction formula using adder?",
+            "back": "A - B = A + B' + 1\n(Invert B, add 1 via Cin)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "XOR as controlled inverter?",
+            "back": "X XOR 0 = X (pass)\nX XOR 1 = X' (invert)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Adder-subtractor Sub signal?",
+            "back": "Sub=0: Add (B unchanged, Cin=0)\nSub=1: Subtract (B inverted, Cin=1)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is an ALU?",
+            "back": "Arithmetic Logic Unit\nAdd, subtract, AND, OR, etc.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "ALU status flags?",
+            "back": "Z (Zero), N (Negative)\nC (Carry), V (oVerflow)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Detect Zero flag?",
+            "back": "Z = NOR of all result bits\n(All 0s gives Z=1)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Signed overflow detection?",
+            "back": "V = Cn-1 XOR Cn\n(Carry in/out of MSB differ)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Unsigned borrow detection?",
+            "back": "Borrow = Cout = 0\n(No carry means A < B)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Compare A vs B using ALU?",
+            "back": "Compute A - B, check flags:\nZ=1 means equal",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "74LS181 IC?",
+            "back": "4-bit ALU\n16 logic + 16 arithmetic functions",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "Extra gates for adder-subtractor?",
+            "back": "N XOR gates (controlled inverters)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f12",
+            "front": "Why reuse adder for subtract?",
+            "back": "2's complement: A-B = A+(-B)\nSame hardware, different control",
+            "difficultyLevel": 2
+        }
+    ]
+}

@@ -1,0 +1,201 @@
+{
+    "conceptId": "negative-number-representation",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-block-diagram",
+            "title": "2's Complement Negation",
+            "description": "Invert all bits, then add 1",
+            "blocks": [
+                {
+                    "id": "x",
+                    "label": "+X",
+                    "x": 30,
+                    "y": 55,
+                    "width": 45,
+                    "type": "input"
+                },
+                {
+                    "id": "inv",
+                    "label": "Invert\\nAll Bits",
+                    "x": 110,
+                    "y": 45,
+                    "width": 70,
+                    "type": "process"
+                },
+                {
+                    "id": "add",
+                    "label": "Add 1",
+                    "x": 210,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "neg",
+                    "label": "-X",
+                    "x": 300,
+                    "y": 55,
+                    "width": 45,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x",
+                    "to": "inv"
+                },
+                {
+                    "from": "inv",
+                    "to": "add"
+                },
+                {
+                    "from": "add",
+                    "to": "neg"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "Sign Detection in 2's Complement",
+            "description": "MSB = 0 positive, MSB = 1 negative",
+            "blocks": [
+                {
+                    "id": "num",
+                    "label": "Number",
+                    "x": 30,
+                    "y": 55,
+                    "width": 65,
+                    "type": "input"
+                },
+                {
+                    "id": "msb",
+                    "label": "Check\\nMSB",
+                    "x": 130,
+                    "y": 50,
+                    "width": 65,
+                    "type": "process"
+                },
+                {
+                    "id": "pos",
+                    "label": "0=Pos",
+                    "x": 230,
+                    "y": 30,
+                    "width": 55,
+                    "type": "output"
+                },
+                {
+                    "id": "neg",
+                    "label": "1=Neg",
+                    "x": 230,
+                    "y": 75,
+                    "width": 55,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "num",
+                    "to": "msb"
+                },
+                {
+                    "from": "msb",
+                    "to": "pos"
+                },
+                {
+                    "from": "msb",
+                    "to": "neg"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "Range Comparison",
+            "description": "Different ranges for each representation",
+            "blocks": [
+                {
+                    "id": "uns",
+                    "label": "Unsigned\\n0 to 15",
+                    "x": 30,
+                    "y": 50,
+                    "width": 75,
+                    "type": "input"
+                },
+                {
+                    "id": "sm",
+                    "label": "Sign-Mag\\n-7 to +7",
+                    "x": 140,
+                    "y": 50,
+                    "width": 80,
+                    "type": "process"
+                },
+                {
+                    "id": "twos",
+                    "label": "2's Comp\\n-8 to +7",
+                    "x": 255,
+                    "y": 50,
+                    "width": 80,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "uns",
+                    "to": "sm"
+                },
+                {
+                    "from": "sm",
+                    "to": "twos"
+                }
+            ],
+            "placement": "engineering"
+        },
+        {
+            "id": "v4",
+            "type": "d3-block-diagram",
+            "title": "Sign Extension",
+            "description": "4-bit to 8-bit: copy MSB into upper bits",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "1101\\n(4-bit)",
+                    "x": 30,
+                    "y": 55,
+                    "width": 65,
+                    "type": "input"
+                },
+                {
+                    "id": "ext",
+                    "label": "Sign\\nExtend",
+                    "x": 130,
+                    "y": 50,
+                    "width": 65,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "11111101\\n(8-bit)",
+                    "x": 230,
+                    "y": 55,
+                    "width": 85,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "ext"
+                },
+                {
+                    "from": "ext",
+                    "to": "out"
+                }
+            ],
+            "placement": "engineering"
+        }
+    ]
+}

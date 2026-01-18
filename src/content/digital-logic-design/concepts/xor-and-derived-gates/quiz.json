@@ -1,0 +1,149 @@
+{
+    "id": "xor-and-derived-gates-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "XOR gate outputs 1 when:",
+            "options": [
+                "Both inputs are 0",
+                "Both inputs are 1",
+                "Inputs are different",
+                "Inputs are the same"
+            ],
+            "correctAnswer": "Inputs are different",
+            "explanation": "XOR (exclusive OR) outputs 1 when inputs are DIFFERENT (01 or 10), and 0 when they are the same (00 or 11). It detects difference."
+        },
+        {
+            "id": "q2",
+            "prompt": "NAND gate is equivalent to:",
+            "options": [
+                "AND followed by NOT",
+                "OR followed by NOT",
+                "NOT followed by AND",
+                "XOR followed by NOT"
+            ],
+            "correctAnswer": "AND followed by NOT",
+            "explanation": "NAND = NOT(AND). First perform AND, then invert the result. NAND outputs 0 only when all inputs are 1."
+        },
+        {
+            "id": "q3",
+            "prompt": "According to De Morgan's theorem, (A·B)' equals:",
+            "options": [
+                "A'·B'",
+                "A'+B'",
+                "A·B'",
+                "(A+B)'"
+            ],
+            "correctAnswer": "A'+B'",
+            "explanation": "De Morgan's first theorem: NOT(A AND B) = NOT(A) OR NOT(B). Break the bar, change AND to OR, complement each variable."
+        },
+        {
+            "id": "q4",
+            "prompt": "NAND gates are called 'universal' because:",
+            "options": [
+                "They are used universally",
+                "They can implement any logic function",
+                "They use universal voltage",
+                "They are the fastest"
+            ],
+            "correctAnswer": "They can implement any logic function",
+            "explanation": "NAND (and NOR) are universal gates because any Boolean function can be built using only NAND gates. NOT, AND, OR can all be made from NANDs."
+        },
+        {
+            "id": "q5",
+            "prompt": "To make a NOT gate from NAND gates, you need:",
+            "options": [
+                "1 NAND gate with inputs tied together",
+                "2 NAND gates",
+                "3 NAND gates",
+                "Cannot be done"
+            ],
+            "correctAnswer": "1 NAND gate with inputs tied together",
+            "explanation": "If both inputs of a NAND are the same (A), output = NOT(A·A) = NOT(A). This creates an inverter from one NAND gate."
+        },
+        {
+            "id": "q6",
+            "prompt": "XNOR gate outputs 1 when:",
+            "options": [
+                "Inputs are different",
+                "Inputs are the same",
+                "At least one input is 1",
+                "All inputs are 0"
+            ],
+            "correctAnswer": "Inputs are the same",
+            "explanation": "XNOR = NOT(XOR). It outputs 1 when inputs are EQUAL (both 0 or both 1). Also called equivalence gate."
+        },
+        {
+            "id": "q7",
+            "prompt": "NOR gate outputs 1 only when:",
+            "options": [
+                "All inputs are 1",
+                "All inputs are 0",
+                "At least one input is 1",
+                "Inputs are different"
+            ],
+            "correctAnswer": "All inputs are 0",
+            "explanation": "NOR = NOT(OR). Since OR outputs 0 only when all inputs are 0, NOR outputs 1 only when all inputs are 0."
+        },
+        {
+            "id": "q8",
+            "prompt": "How many NAND gates needed to make an AND gate?",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "correctAnswer": "2",
+            "explanation": "AND = NAND followed by NOT. Use 2 NAND gates: one for NAND(A,B), one with tied inputs to invert the result."
+        },
+        {
+            "id": "q9",
+            "prompt": "XOR of A and 0 equals:",
+            "options": [
+                "0",
+                "1",
+                "A",
+                "A'"
+            ],
+            "correctAnswer": "A",
+            "explanation": "A XOR 0 = A. XOR with 0 passes the input unchanged. This is the identity property of XOR."
+        },
+        {
+            "id": "q10",
+            "prompt": "XOR of A and 1 equals:",
+            "options": [
+                "0",
+                "1",
+                "A",
+                "A'"
+            ],
+            "correctAnswer": "A'",
+            "explanation": "A XOR 1 = A' (NOT A). XOR with 1 inverts the input. This makes XOR useful as a controlled inverter."
+        },
+        {
+            "id": "q11",
+            "prompt": "According to De Morgan, (A+B)' equals:",
+            "options": [
+                "A'+B'",
+                "A'·B'",
+                "A+B'",
+                "(A·B)'"
+            ],
+            "correctAnswer": "A'·B'",
+            "explanation": "De Morgan's second theorem: NOT(A OR B) = NOT(A) AND NOT(B). Break the bar, change OR to AND, complement each variable."
+        },
+        {
+            "id": "q12",
+            "prompt": "A XOR A equals:",
+            "options": [
+                "0",
+                "1",
+                "A",
+                "A'"
+            ],
+            "correctAnswer": "0",
+            "explanation": "A XOR A = 0. XORing any value with itself always gives 0. This is the self-inverse property of XOR."
+        }
+    ]
+}

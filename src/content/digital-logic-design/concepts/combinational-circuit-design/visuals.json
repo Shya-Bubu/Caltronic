@@ -1,0 +1,305 @@
+{
+    "conceptId": "combinational-circuit-design",
+    "visuals": [
+        {
+            "id": "v1",
+            "type": "d3-block-diagram",
+            "title": "Design Flow: Problem to Circuit",
+            "description": "Steps from specification to implementation",
+            "blocks": [
+                {
+                    "id": "spec",
+                    "label": "Problem",
+                    "x": 20,
+                    "y": 50,
+                    "width": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "tt",
+                    "label": "Truth\\nTable",
+                    "x": 100,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "sop",
+                    "label": "SOP/POS",
+                    "x": 180,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "circ",
+                    "label": "Circuit",
+                    "x": 260,
+                    "y": 50,
+                    "width": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "spec",
+                    "to": "tt"
+                },
+                {
+                    "from": "tt",
+                    "to": "sop"
+                },
+                {
+                    "from": "sop",
+                    "to": "circ"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v2",
+            "type": "d3-block-diagram",
+            "title": "SOP: AND-OR Structure",
+            "description": "First level AND gates, second level OR gate",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "x": 15,
+                    "y": 15,
+                    "width": 30,
+                    "type": "input"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "x": 15,
+                    "y": 50,
+                    "width": 30,
+                    "type": "input"
+                },
+                {
+                    "id": "c",
+                    "label": "C",
+                    "x": 15,
+                    "y": 85,
+                    "width": 30,
+                    "type": "input"
+                },
+                {
+                    "id": "and1",
+                    "label": "AND",
+                    "x": 80,
+                    "y": 25,
+                    "width": 50,
+                    "type": "process"
+                },
+                {
+                    "id": "and2",
+                    "label": "AND",
+                    "x": 80,
+                    "y": 75,
+                    "width": 50,
+                    "type": "process"
+                },
+                {
+                    "id": "or",
+                    "label": "OR",
+                    "x": 170,
+                    "y": 50,
+                    "width": 45,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "Y",
+                    "x": 250,
+                    "y": 50,
+                    "width": 35,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "and1"
+                },
+                {
+                    "from": "b",
+                    "to": "and1"
+                },
+                {
+                    "from": "b",
+                    "to": "and2"
+                },
+                {
+                    "from": "c",
+                    "to": "and2"
+                },
+                {
+                    "from": "and1",
+                    "to": "or"
+                },
+                {
+                    "from": "and2",
+                    "to": "or"
+                },
+                {
+                    "from": "or",
+                    "to": "out"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v3",
+            "type": "d3-block-diagram",
+            "title": "POS: OR-AND Structure",
+            "description": "First level OR gates, second level AND gate",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "x": 15,
+                    "y": 15,
+                    "width": 30,
+                    "type": "input"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "x": 15,
+                    "y": 50,
+                    "width": 30,
+                    "type": "input"
+                },
+                {
+                    "id": "c",
+                    "label": "C",
+                    "x": 15,
+                    "y": 85,
+                    "width": 30,
+                    "type": "input"
+                },
+                {
+                    "id": "or1",
+                    "label": "OR",
+                    "x": 80,
+                    "y": 25,
+                    "width": 45,
+                    "type": "process"
+                },
+                {
+                    "id": "or2",
+                    "label": "OR",
+                    "x": 80,
+                    "y": 75,
+                    "width": 45,
+                    "type": "process"
+                },
+                {
+                    "id": "and",
+                    "label": "AND",
+                    "x": 165,
+                    "y": 50,
+                    "width": 50,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "Y",
+                    "x": 250,
+                    "y": 50,
+                    "width": 35,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "or1"
+                },
+                {
+                    "from": "b",
+                    "to": "or1"
+                },
+                {
+                    "from": "b",
+                    "to": "or2"
+                },
+                {
+                    "from": "c",
+                    "to": "or2"
+                },
+                {
+                    "from": "or1",
+                    "to": "and"
+                },
+                {
+                    "from": "or2",
+                    "to": "and"
+                },
+                {
+                    "from": "and",
+                    "to": "out"
+                }
+            ],
+            "placement": "intuition"
+        },
+        {
+            "id": "v4",
+            "type": "d3-block-diagram",
+            "title": "Two-Level Logic Timing",
+            "description": "Fixed 2-gate delay regardless of function complexity",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "Inputs",
+                    "x": 20,
+                    "y": 50,
+                    "width": 55,
+                    "type": "input"
+                },
+                {
+                    "id": "l1",
+                    "label": "Level 1",
+                    "x": 110,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "l2",
+                    "label": "Level 2",
+                    "x": 200,
+                    "y": 45,
+                    "width": 60,
+                    "type": "process"
+                },
+                {
+                    "id": "out",
+                    "label": "Output",
+                    "x": 290,
+                    "y": 50,
+                    "width": 55,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "l1"
+                },
+                {
+                    "from": "l1",
+                    "to": "l2"
+                },
+                {
+                    "from": "l2",
+                    "to": "out"
+                }
+            ],
+            "placement": "engineering"
+        }
+    ]
+}
