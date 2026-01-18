@@ -28,10 +28,10 @@ export default function RootLayout({
         <html lang="en" data-theme="dark" suppressHydrationWarning>
             <head>
                 <script
-                    // Minimal theme boot: default is dark; allow persisted light.
+                    // Minimal theme boot: default is dark; allow persisted light and eye-comfort.
                     dangerouslySetInnerHTML={{
                         __html:
-                            "(function(){try{var t=localStorage.getItem('caltronic:theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();",
+                            "(function(){try{var t=localStorage.getItem('caltronic:theme');if(t==='light'||t==='dark'||t==='eye-comfort'){document.documentElement.dataset.theme=t;}}catch(e){}})();",
                     }}
                 />
             </head>

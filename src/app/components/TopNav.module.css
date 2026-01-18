@@ -20,11 +20,9 @@
   padding: 0.6rem 1.25rem;
 }
 
-.headerLecture .brandMark {
-  width: 24px;
-  height: 24px;
-  border-radius: 7px;
-  font-size: 0.85rem;
+.headerLecture .logo {
+  max-height: 24px;
+  width: auto;
 }
 
 .inner {
@@ -53,32 +51,38 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  color: var(--text);
   text-decoration: none;
-  font-weight: 750;
-  letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
 .brand:hover {
   text-decoration: none;
+  opacity: 0.9;
 }
 
-.brandMark {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  border: 1px solid color-mix(in oklab, #66aaff 35%, transparent);
-  background: color-mix(in oklab, #66aaff 8%, transparent);
-  color: var(--text);
-  font-size: 0.9rem;
+.logo {
+  display: block;
+  height: auto;
+  width: auto;
 }
 
-.brandText {
-  font-size: 1.0rem;
+/* Dark logo - visible by default (dark and eye-comfort themes) */
+.logoDark {
+  display: block;
+}
+
+/* Light logo - hidden by default */
+.logoLight {
+  display: none;
+}
+
+/* In light theme: hide dark logo, show light logo */
+:global([data-theme='light']) .logoDark {
+  display: none;
+}
+
+:global([data-theme='light']) .logoLight {
+  display: block;
 }
 
 .divider {

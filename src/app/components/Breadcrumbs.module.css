@@ -25,11 +25,11 @@
 
 .sep {
   margin: 0 0.35rem;
-  color: rgba(231, 238, 247, 0.3);
+  color: var(--text-faint);
 }
 
 .link {
-  color: rgba(231, 238, 247, 0.72);
+  color: var(--text-muted);
   text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,7 +41,7 @@
 }
 
 .current {
-  color: rgba(231, 238, 247, 0.85);
+  color: var(--text);
   font-weight: 650;
   overflow: hidden;
   text-overflow: ellipsis;
