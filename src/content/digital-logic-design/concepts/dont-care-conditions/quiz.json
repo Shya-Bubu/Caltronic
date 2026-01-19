@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-meaning",
+            "options": [
+                "The output must be 0",
+                "The output must be 1",
+                "The output can be either 0 or 1",
+                "The input is invalid and should cause an error"
+            ],
+            "correctAnswer": "The output can be either 0 or 1",
+            "explanation": "Don't care means the output can be either 0 or 1 — we choose whichever helps simplify the circuit.",
+            "prompt": "What does 'X' (don't care) mean in a K-map?"
+        },
+        {
+            "id": "q2-bcd-dontcares",
+            "options": [
+                "4 don't cares",
+                "5 don't cares",
+                "6 don't cares",
+                "8 don't cares"
+            ],
+            "correctAnswer": "6 don't cares",
+            "explanation": "BCD uses 4 bits for digits 0-9 (10 valid codes). The remaining 6 codes (10-15) are don't cares.",
+            "prompt": "How many don't care conditions exist in a BCD (4-bit) system?"
+        },
+        {
+            "id": "q3-usage-rule",
+            "options": [
+                "Always treat X as 1",
+                "Always treat X as 0",
+                "Treat X as 1 only if it helps form larger groups",
+                "Treat X as 1 for half and 0 for the other half"
+            ],
+            "correctAnswer": "Treat X as 1 only if it helps form larger groups",
+            "explanation": "For SOP minimization, treat X as 1 only when it allows forming larger groups. Otherwise, ignore it.",
+            "prompt": "When minimizing a SOP expression with don't cares, how should you treat X's?"
+        },
+        {
+            "id": "q4-coverage",
+            "options": [
+                "All minterms including don't cares",
+                "Only the minterms in the ON-set",
+                "Only the don't care minterms",
+                "Minterms in both ON-set and OFF-set"
+            ],
+            "correctAnswer": "Only the minterms in the ON-set",
+            "explanation": "Only ON-set minterms must be covered. Don't cares may or may not be covered, depending on what's optimal.",
+            "prompt": "In the final minimized expression, which minterms MUST be covered?"
+        },
+        {
+            "id": "q5-essential-pi",
+            "options": [
+                "Yes, if the X is the only cell in that group",
+                "Yes, if the X helps form a larger group",
+                "No, only ON-set minterms can make a PI essential",
+                "No, X's are never part of prime implicants"
+            ],
+            "correctAnswer": "No, only ON-set minterms can make a PI essential",
+            "explanation": "Essential PIs are determined only by ON-set minterms. An X covered by only one PI doesn't make that PI essential.",
+            "prompt": "Can a don't care minterm make a prime implicant essential?"
+        },
+        {
+            "id": "q6-pos-dontcare",
+            "options": [
+                "Treat X as 1 to enlarge groups of 1s",
+                "Treat X as 0 to enlarge groups of 0s",
+                "Ignore X completely",
+                "X cannot be used in POS minimization"
+            ],
+            "correctAnswer": "Treat X as 0 to enlarge groups of 0s",
+            "explanation": "For POS, we group 0s. Treating X as 0 (when helpful) lets us form larger groups of 0s.",
+            "prompt": "When minimizing a POS (Product of Sums) expression, how should X's be treated?"
+        },
+        {
+            "id": "q7-realizations",
+            "options": [
+                "4 realizations",
+                "8 realizations",
+                "16 realizations",
+                "32 realizations"
+            ],
+            "correctAnswer": "16 realizations",
+            "explanation": "Each don't care can be 0 or 1 independently. With 4 X's: 2^4 = 16 possible realizations.",
+            "prompt": "If a function has 4 don't care conditions, how many possible realizations exist?"
+        },
+        {
+            "id": "q8-application",
+            "options": [
+                "Invalid BCD codes",
+                "Unused addresses in memory",
+                "All possible input combinations in standard logic",
+                "Mutually exclusive control signals"
+            ],
+            "correctAnswer": "All possible input combinations in standard logic",
+            "explanation": "Standard logic where all inputs are valid has no don't cares. BCD, address decoders, and exclusive signals often have them.",
+            "prompt": "Which is NOT a common source of don't care conditions?"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "Invalid BCD codes",
+                "Unused addresses in memory",
+                "All possible input combinations in standard logic",
+                "Mutually exclusive control signals"
+            ],
+            "correctAnswer": "All possible input combinations in standard logic",
+            "explanation": "Standard logic where all inputs are valid has no don't cares. BCD, address decoders, and exclusive signals often have them.",
+            "prompt": "Which is NOT a common source of don't care conditions? (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "Invalid BCD codes",
+                "Unused addresses in memory",
+                "All possible input combinations in standard logic",
+                "Mutually exclusive control signals"
+            ],
+            "correctAnswer": "All possible input combinations in standard logic",
+            "explanation": "Standard logic where all inputs are valid has no don't cares. BCD, address decoders, and exclusive signals often have them.",
+            "prompt": "Which is NOT a common source of don't care conditions? (Review) (Review)"
+        }
+    ],
+    "id": "dont-care-conditions-quiz"
+}

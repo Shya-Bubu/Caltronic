@@ -96,6 +96,8 @@
   color: var(--text);
   letter-spacing: -0.01em;
   line-height: 1.4;
+  min-height: 2.8em;
+  /* Ensure 2 lines of space for alignment */
 }
 
 .moduleId {

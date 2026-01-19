@@ -1,0 +1,87 @@
+{
+    "conceptId": "nodal-analysis",
+    "diagrams": [
+        {
+            "id": "diag-nodal-procedure",
+            "type": "flowchart",
+            "title": "Nodal Analysis Procedure",
+            "content": "Identify Nodes → Choose Ground → Label Voltages → Write KCL → Solve → Verify"
+        },
+        {
+            "id": "diag-supernode",
+            "type": "static",
+            "title": "Supernode Formation",
+            "content": "Diagram showing two nodes connected by voltage source enclosed in supernode boundary"
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-nodal-builder",
+            "type": "interactive",
+            "title": "Nodal Equation Builder",
+            "description": "Build nodal equations step by step",
+            "purpose": "Practice systematic nodal analysis setup",
+            "interactivity": "Click nodes to write KCL, see equations build",
+            "suggestedImplementation": {
+                "component": "NodalEquationBuilder",
+                "features": [
+                    "Simple circuit with 2-3 nodes",
+                    "Click node to highlight connected elements",
+                    "Show current expressions",
+                    "Build KCL equation visually"
+                ]
+            }
+        },
+        {
+            "id": "vis-supernode",
+            "type": "interactive",
+            "title": "Supernode Visualizer",
+            "description": "See how supernodes work for floating voltage sources",
+            "purpose": "Understand supernode technique",
+            "interactivity": "Toggle supernode boundary, see equation changes",
+            "suggestedImplementation": {
+                "component": "SupernodeVisualizer",
+                "features": [
+                    "Circuit with floating voltage source",
+                    "Draw supernode boundary",
+                    "Show constraint equation",
+                    "Show combined KCL equation"
+                ]
+            }
+        },
+        {
+            "id": "vis-g-matrix",
+            "type": "interactive",
+            "title": "Conductance Matrix Builder",
+            "description": "Build G matrix by inspection",
+            "purpose": "Learn matrix method for nodal analysis",
+            "interactivity": "Add elements to circuit, see G matrix update",
+            "suggestedImplementation": {
+                "component": "GMatrixBuilder",
+                "features": [
+                    "Empty circuit canvas",
+                    "Add resistors between nodes",
+                    "Watch G matrix update in real-time",
+                    "Highlight matrix entry being computed"
+                ]
+            }
+        },
+        {
+            "id": "vis-nodal-solver",
+            "type": "interactive",
+            "title": "Complete Nodal Solver",
+            "description": "Enter circuit, solve for all voltages",
+            "purpose": "Practice complete nodal analysis workflow",
+            "interactivity": "Build circuit, see solution and verification",
+            "suggestedImplementation": {
+                "component": "NodalSolver",
+                "features": [
+                    "Circuit input (values and topology)",
+                    "Step-through solution",
+                    "Show all node voltages",
+                    "Power balance verification"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "conceptId": "matrix-sparsity-and-structure",
+    "diagrams": [
+        {
+            "id": "diag-csr-format",
+            "type": "illustration",
+            "title": "CSR Storage Format",
+            "content": "Shows how values, column indices, and row pointers represent sparse matrix"
+        },
+        {
+            "id": "diag-graph-model",
+            "type": "illustration",
+            "title": "Graph Model of Matrix",
+            "content": "Shows correspondence between matrix entries and graph edges"
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-spy-plot",
+            "type": "interactive",
+            "title": "Matrix Sparsity Visualizer",
+            "description": "Interactive spy plot showing non-zero patterns",
+            "purpose": "Visualize sparsity patterns in circuit matrices",
+            "interactivity": "Load different circuit types and see their sparsity patterns",
+            "suggestedImplementation": {
+                "component": "SpyPlot",
+                "features": [
+                    "Zoom and pan on matrix",
+                    "Show nnz count and sparsity percentage",
+                    "Highlight fill-in after factorization",
+                    "Compare original vs factored pattern"
+                ]
+            }
+        },
+        {
+            "id": "vis-fill-in-demo",
+            "type": "interactive",
+            "title": "Fill-in Animation",
+            "description": "Step-by-step visualization of fill-in during LU factorization",
+            "purpose": "Show how fill-in occurs and grows",
+            "interactivity": "Step through elimination, see fill-in appear",
+            "suggestedImplementation": {
+                "component": "FillInAnimation",
+                "features": [
+                    "Step-by-step elimination",
+                    "Highlight current pivot",
+                    "Show fill-in in different color",
+                    "Running fill-in count"
+                ]
+            }
+        },
+        {
+            "id": "vis-ordering-comparison",
+            "type": "interactive",
+            "title": "Ordering Strategy Comparison",
+            "description": "Compare fill-in for different ordering strategies",
+            "purpose": "Demonstrate importance of matrix ordering",
+            "interactivity": "Select ordering method and see resulting fill-in",
+            "suggestedImplementation": {
+                "component": "OrderingComparison",
+                "features": [
+                    "Side-by-side comparison",
+                    "Natural vs AMD vs Nested Dissection",
+                    "Show fill-in count for each",
+                    "Bandwidth visualization"
+                ]
+            }
+        },
+        {
+            "id": "vis-storage-comparison",
+            "type": "interactive",
+            "title": "Storage Format Calculator",
+            "description": "Compare memory usage of different storage formats",
+            "purpose": "Quantify memory savings from sparse storage",
+            "interactivity": "Input matrix parameters, see storage requirements",
+            "suggestedImplementation": {
+                "component": "StorageCalculator",
+                "features": [
+                    "Input n and nnz",
+                    "Show dense vs CSR vs COO storage",
+                    "Visual bar chart comparison",
+                    "Savings ratio"
+                ]
+            }
+        }
+    ]
+}

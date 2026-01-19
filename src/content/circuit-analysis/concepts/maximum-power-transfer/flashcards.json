@@ -1,0 +1,65 @@
+{
+    "id": "maximum-power-transfer-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "Maximum Power Transfer Condition",
+            "back": "Maximum power is delivered when:\n\nR_L = R_th\n\nThe load resistance equals the Thévenin (source) resistance.\n\nThis is called 'impedance matching' or 'resistance matching'.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "Maximum Power Formula",
+            "back": "When R_L = R_th:\n\nP_max = V_th² / (4R_th)\n\nOr equivalently:\nP_max = I_N² × R_N / 4\n\n(where I_N = V_th/R_th)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "Efficiency at Maximum Power",
+            "back": "At R_L = R_th:\n\nEfficiency = 50%\n\nHalf the power goes to the load.\nHalf the power is lost in R_th.\n\nYou CANNOT have both maximum power AND high efficiency!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "General Efficiency Formula",
+            "back": "For any load R_L:\n\nη = R_L / (R_th + R_L)\n\nEfficiency increases as R_L increases.\n\n• R_L = R_th → η = 50%\n• R_L = 9×R_th → η = 90%\n• R_L → ∞ → η → 100%",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "General Power Formula",
+            "back": "Power to load:\n\nP_L = V_th² × R_L / (R_th + R_L)²\n\nThis peaks at R_L = R_th.\n\nAt both R_L = 0 and R_L = ∞:\nP_L = 0",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "Why Match for Max Power?",
+            "back": "Match impedances when:\n\n• Signal power is small (audio, RF)\n• Source isn't depleted\n• Want maximum signal strength\n\nExamples:\n• Antenna systems (50Ω)\n• Audio amplifiers\n• Sensor interfaces",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Why NOT Match?",
+            "back": "Don't match when:\n\n• High efficiency is critical\n• Power levels are high\n• Energy cost matters\n\nExamples:\n• Power grid (want η > 95%)\n• Battery systems\n• Motor drives\n\nInstead: Make R_L >> R_th",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "At Matched Condition (R_L = R_th)",
+            "back": "Current: I = V_th / (2R_th)\n\nLoad voltage: V_L = V_th / 2\n\nLoad power: P_L = V_th² / (4R_th)\n\nSource power loss: Same as P_L!\n\nTotal from source: 2P_L",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Complex Impedance Matching (AC)",
+            "back": "For AC with Z_th = R_th + jX_th:\n\nMaximum power when:\nZ_L = Z_th* = R_th - jX_th\n\n(Complex conjugate)\n\n• Resistive parts match\n• Reactive parts cancel",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "Power-Efficiency Trade-off",
+            "back": "You must CHOOSE:\n\n| Goal | Set R_L |\n|------|---------|------|\n| Max Power | = R_th | η = 50% |\n| η = 67% | = 2R_th | P = 89% max |\n| η = 90% | = 9R_th | P = 36% max |\n\nCan't maximize both!",
+            "difficultyLevel": 1
+        }
+    ]
+}

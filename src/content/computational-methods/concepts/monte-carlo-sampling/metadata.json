@@ -1,0 +1,13 @@
+{
+    "id": "monte-carlo-sampling",
+    "title": "Monte Carlo Sampling",
+    "lesson": "lesson-02",
+    "order": 4,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,65 @@
+{
+    "id": "kirchhoffs-laws-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "Kirchhoff's Current Law (KCL)",
+            "back": "The algebraic sum of currents at any node equals zero:\n\nΣ I_node = 0\n\nOr: Currents in = Currents out\n\nBased on: Conservation of charge",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "Kirchhoff's Voltage Law (KVL)",
+            "back": "The algebraic sum of voltages around any closed loop equals zero:\n\nΣ V_loop = 0\n\nOr: Voltage rises = Voltage drops\n\nBased on: Conservation of energy",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "What is a Node?",
+            "back": "A point where two or more circuit elements connect.\n\nKey insight: All points connected by ideal wire are the SAME node (no voltage difference across ideal wire).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "What is a Loop vs a Mesh?",
+            "back": "Loop: Any closed path through a circuit\n\nMesh: A loop that contains no other loops inside it (the 'smallest' loops in a planar circuit)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "Number of Independent KCL Equations",
+            "back": "For a circuit with N nodes:\n\nIndependent KCL equations = N - 1\n\n(The Nth equation is automatically satisfied if the others are)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "Number of Independent KVL Equations",
+            "back": "For a circuit with B branches and N nodes:\n\nIndependent KVL equations = B - N + 1\n\n(This equals the number of meshes in a planar circuit)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Sign Convention for KCL",
+            "back": "Standard convention:\n• Current entering node: POSITIVE\n• Current leaving node: NEGATIVE\n\nThen: Σ I = 0\n\n(Or use: Σ I_in = Σ I_out)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Sign Convention for KVL",
+            "back": "Standard convention (tracing clockwise):\n• Voltage rise (− to +): POSITIVE\n• Voltage drop (+ to −): NEGATIVE\n\nThen: Σ V = 0",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Tellegen's Theorem",
+            "back": "For any circuit satisfying KCL and KVL:\n\nΣ v_k · i_k = 0\n\nMeaning: Total power delivered = Total power absorbed\n\nUseful for checking solutions!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "Current Divider Formula",
+            "back": "For two resistors R₁ and R₂ in parallel with total current I:\n\nI₁ = I × R₂/(R₁ + R₂)\n\nI₂ = I × R₁/(R₁ + R₂)\n\nCurrent splits inversely proportional to resistance.",
+            "difficultyLevel": 1
+        }
+    ]
+}

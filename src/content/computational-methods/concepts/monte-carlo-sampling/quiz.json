@@ -1,0 +1,123 @@
+{
+    "questions": [
+        {
+            "id": "mc-q1",
+            "options": [
+                "Use exact analytical formulas",
+                "Use random sampling to estimate quantities",
+                "Use only deterministic algorithms",
+                "Avoid all numerical approximations"
+            ],
+            "correctAnswer": "Use random sampling to estimate quantities",
+            "explanation": "Monte Carlo methods use random sampling to estimate quantities that may be difficult or impossible to calculate analytically. The law of large numbers ensures convergence to true values.",
+            "prompt": "What is the fundamental idea behind Monte Carlo methods?"
+        },
+        {
+            "id": "mc-q2",
+            "options": [
+                "Error ∝ 1/N",
+                "Error ∝ 1/√N",
+                "Error ∝ 1/N²",
+                "Error is constant"
+            ],
+            "correctAnswer": "Error ∝ 1/√N",
+            "explanation": "Monte Carlo error decreases as 1/√N. This means to halve the error, you need 4× the samples. While slow, this rate is independent of problem dimension.",
+            "prompt": "How does Monte Carlo estimation error scale with sample size N?"
+        },
+        {
+            "id": "mc-q3",
+            "correctAnswer": "10000",
+            "explanation": "Error ∝ 1/√N. To reduce error by factor of 10 (from 10% to 1%), need √N to increase by 10, so N increases by 100. Thus N = 100 × 100 = 10,000 samples.",
+            "prompt": "You run a Monte Carlo simulation with 100 samples and get 10% error. How many samples do you need for 1% error?",
+            "options": [
+                "10000",
+                "15000",
+                "7500",
+                "5000"
+            ]
+        },
+        {
+            "id": "mc-q4",
+            "options": [
+                "Make components more precise",
+                "Determine output distribution given component variations",
+                "Eliminate component tolerances",
+                "Calculate exact circuit values"
+            ],
+            "correctAnswer": "Determine output distribution given component variations",
+            "explanation": "Monte Carlo tolerance analysis randomly varies component values within their tolerance ranges, simulates the circuit many times, and builds a statistical picture of the output distribution.",
+            "prompt": "Monte Carlo tolerance analysis is used to:"
+        },
+        {
+            "id": "mc-q5",
+            "options": [
+                ".DC",
+                ".AC",
+                ".MC",
+                ".TRAN"
+            ],
+            "correctAnswer": ".MC",
+            "explanation": ".MC (Monte Carlo) analysis in SPICE runs multiple simulations with randomly varied component values according to their tolerance specifications.",
+            "prompt": "In SPICE, which analysis command runs Monte Carlo simulation?"
+        },
+        {
+            "id": "mc-q6",
+            "options": [
+                "It's more accurate than other methods",
+                "It's faster for 1D problems",
+                "Its convergence rate (1/√N) doesn't depend on dimension",
+                "It gives exact answers"
+            ],
+            "correctAnswer": "Its convergence rate (1/√N) doesn't depend on dimension",
+            "explanation": "Traditional integration methods (like Simpson's rule) have exponentially increasing cost with dimension (curse of dimensionality). Monte Carlo's 1/√N convergence is dimension-independent.",
+            "prompt": "Why is Monte Carlo particularly useful for high-dimensional integrals?"
+        },
+        {
+            "id": "mc-q7",
+            "correctAnswer": "False",
+            "explanation": "False. Monte Carlo typically uses pseudorandom number generators (PRNGs)—deterministic algorithms that produce sequences that appear random and pass statistical tests.",
+            "prompt": "Monte Carlo methods require truly random numbers from physical processes.",
+            "options": [
+                "True",
+                "False"
+            ]
+        },
+        {
+            "id": "mc-q8",
+            "options": [
+                "Stratified sampling",
+                "Importance sampling",
+                "Uniform sampling",
+                "Grid sampling"
+            ],
+            "correctAnswer": "Importance sampling",
+            "explanation": "Importance sampling concentrates samples in regions that contribute most to the result, weighting them appropriately. This can dramatically reduce variance compared to uniform sampling.",
+            "prompt": "Which technique can improve Monte Carlo convergence by sampling more from 'important' regions?"
+        },
+        {
+            "id": "mc-q9",
+            "correctAnswer": "3.14",
+            "explanation": "Ratio inside/total = π/4 (area of circle / area of square). So π ≈ 4 × (785/1000) = 4 × 0.785 = 3.14",
+            "prompt": "In estimating π by throwing darts at a unit circle inscribed in a 2×2 square, if 785 out of 1000 land inside the circle, what is your estimate of π?",
+            "options": [
+                "3.14",
+                "4.71",
+                "1.57",
+                "2.355"
+            ]
+        },
+        {
+            "id": "mc-q10",
+            "options": [
+                "Tolerance analysis with many components",
+                "High-dimensional integration",
+                "Simple 1D integrals with known analytical solutions",
+                "Yield estimation in manufacturing"
+            ],
+            "correctAnswer": "Simple 1D integrals with known analytical solutions",
+            "explanation": "For simple 1D integrals, analytical methods or standard numerical integration (Simpson's, Gaussian quadrature) are faster and more accurate. Monte Carlo's strength is in high dimensions and complex distributions.",
+            "prompt": "Monte Carlo is NOT well-suited for:"
+        }
+    ],
+    "id": "monte-carlo-sampling-quiz"
+}

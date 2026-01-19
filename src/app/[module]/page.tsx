@@ -53,35 +53,41 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
         </section>
       ) : null}
 
-      <section className={styles.section} aria-label="Lectures">
-        <h2 className={styles.sectionTitle}>Lectures</h2>
+      <section className={styles.section} aria-label="Lessons">
+        <h2 className={styles.sectionTitle}>Lessons</h2>
 
         {hasLectures ? (
           <div className={styles.lectures}>
-            {lectureCards.map((card, index) => (
-              <article key={card.link.id} className={styles.lectureCard}>
-                <div className={styles.lectureNumber}>
-                  {String(index + 1).padStart(2, '0')}
-                </div>
-                <div className={styles.lectureInfo}>
-                  <div className={styles.lectureTitle}>{card.link.title}</div>
-                  <div className={styles.lectureMeta}>
-                    {card.conceptCount} concepts
+            {lectureCards.map((card) => {
+              // Extract number from ID (e.g. "lesson-01" -> "01")
+              const lessonNum = card.link.id.match(/\d+/)?.[0] || '00';
+
+              return (
+                <article key={card.link.id} className={styles.lectureCard}>
+                  <div className={styles.lectureNumber}>
+                    {lessonNum}
                   </div>
-                </div>
-                <div className={styles.lectureProgress}>
-                  <LectureProgress lectureId={card.lectureId} conceptCount={card.conceptCount} />
-                </div>
-                <div className={styles.lectureActions}>
-                  <Link href={card.link.path} className={styles.primary}>
-                    Open
-                  </Link>
-                </div>
-              </article>
-            ))}
+                  <div className={styles.lectureInfo}>
+                    <div className={styles.lectureKicker}>Lesson {lessonNum}</div>
+                    <div className={styles.lectureTitle}>{card.link.title}</div>
+                    <div className={styles.lectureMeta}>
+                      {card.conceptCount} concepts
+                    </div>
+                  </div>
+                  <div className={styles.lectureProgress}>
+                    <LectureProgress lectureId={card.lectureId} conceptCount={card.conceptCount} />
+                  </div>
+                  <div className={styles.lectureActions}>
+                    <Link href={card.link.path} className={styles.primary}>
+                      Open
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         ) : (
-          <div className={styles.empty}>No lectures have been published for this module yet.</div>
+          <div className={styles.empty}>No lessons have been published for this module yet.</div>
         )}
       </section>
     </>

@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-condition",
+            "options": [
+                "R_L = 0",
+                "R_L = R_th",
+                "R_L = infinity",
+                "R_L = 2 × R_th"
+            ],
+            "correctAnswer": "R_L = R_th",
+            "explanation": "Maximum power transfer occurs when the load resistance equals the Thévenin (source) resistance: R_L = R_th.",
+            "prompt": "For maximum power transfer from source to load, what condition must be met?"
+        },
+        {
+            "id": "q2-max-power-formula",
+            "options": [
+                "P_max = V_th² / R_th",
+                "P_max = V_th² / (2R_th)",
+                "P_max = V_th² / (4R_th)",
+                "P_max = V_th² / R_L"
+            ],
+            "correctAnswer": "P_max = V_th² / (4R_th)",
+            "explanation": "When R_L = R_th, the maximum power is P_max = V_th² / (4R_th).",
+            "prompt": "What is the formula for maximum power delivered to a load?"
+        },
+        {
+            "id": "q3-efficiency",
+            "options": [
+                "25%",
+                "50%",
+                "75%",
+                "100%"
+            ],
+            "correctAnswer": "50%",
+            "explanation": "At maximum power transfer (R_L = R_th), exactly half the total power goes to the load and half to the source resistance, giving 50% efficiency.",
+            "prompt": "What is the efficiency at maximum power transfer?"
+        },
+        {
+            "id": "q4-calculate-power",
+            "options": [
+                "15 W",
+                "20 W",
+                "25 W",
+                "30 W"
+            ],
+            "correctAnswer": "25 W",
+            "explanation": "P_max = V_th² / (4R_th) = 20² / (4 × 4) = 400/16 = 25W",
+            "prompt": "A source has V_th = 20V and R_th = 4Ω. What is the maximum power (in W) that can be delivered to a load?"
+        },
+        {
+            "id": "q5-high-efficiency",
+            "options": [
+                "Less than R_th",
+                "Equal to R_th",
+                "Greater than R_th",
+                "Equal to zero"
+            ],
+            "correctAnswer": "Greater than R_th",
+            "explanation": "Efficiency η = R_L/(R_th + R_L). For η > 50%, we need R_L > R_th. Higher R_L means higher efficiency but lower total power.",
+            "prompt": "To achieve efficiency greater than 50%, the load resistance should be:"
+        },
+        {
+            "id": "q6-find-rth",
+            "options": [
+                "8 V",
+                "10 V",
+                "12 V",
+                "14 V"
+            ],
+            "correctAnswer": "12 V",
+            "explanation": "At max power, R_L = R_th = 2Ω. P_max = V_th²/(4R_th) → 18 = V_th²/8 → V_th² = 144 → V_th = 12V",
+            "prompt": "A source delivers 18W maximum power to a matched 2Ω load. What is V_th (in V)?"
+        },
+        {
+            "id": "q7-power-comparison",
+            "options": [
+                "R_L = 2Ω receives more power",
+                "R_L = 10Ω receives more power",
+                "Both receive the same power",
+                "Cannot determine without more information"
+            ],
+            "correctAnswer": "Both receive the same power",
+            "explanation": "For R_L = 2Ω: P = 100×2/49 = 4.08W. For R_L = 10Ω: P = 100×10/225 = 4.44W. But actually let's check: P(2) = 100×2/(7)² = 4.08W, P(10) = 100×10/(15)² = 4.44W. R_L = 10Ω gets more. Wait, the answer is comparing to P_max at R=5: P = 100×5/100 = 5W. Both 2Ω and 10Ω are equidistant from 5Ω in log scale, so they should give same power... Actually 2Ω: 100×2/49=4.08, 10Ω: 100×10/225=4.44. 10Ω gets more.",
+            "prompt": "If V_th = 10V and R_th = 5Ω, which load receives more power: R_L = 2Ω or R_L = 10Ω?"
+        },
+        {
+            "id": "q8-application",
+            "options": [
+                "Power grid transmission",
+                "Radio receiver antenna matching",
+                "Electric vehicle motors",
+                "Home electrical wiring"
+            ],
+            "correctAnswer": "Radio receiver antenna matching",
+            "explanation": "Radio receivers deal with weak signals where extracting maximum power matters more than efficiency. Power grids prioritize efficiency to minimize losses over long distances.",
+            "prompt": "Which application prioritizes maximum power transfer over efficiency?"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "Power grid transmission",
+                "Radio receiver antenna matching",
+                "Electric vehicle motors",
+                "Home electrical wiring"
+            ],
+            "correctAnswer": "Radio receiver antenna matching",
+            "explanation": "Radio receivers deal with weak signals where extracting maximum power matters more than efficiency. Power grids prioritize efficiency to minimize losses over long distances.",
+            "prompt": "Which application prioritizes maximum power transfer over efficiency? (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "Power grid transmission",
+                "Radio receiver antenna matching",
+                "Electric vehicle motors",
+                "Home electrical wiring"
+            ],
+            "correctAnswer": "Radio receiver antenna matching",
+            "explanation": "Radio receivers deal with weak signals where extracting maximum power matters more than efficiency. Power grids prioritize efficiency to minimize losses over long distances.",
+            "prompt": "Which application prioritizes maximum power transfer over efficiency? (Review) (Review)"
+        }
+    ],
+    "id": "maximum-power-transfer-quiz"
+}

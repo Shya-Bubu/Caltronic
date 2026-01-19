@@ -1,0 +1,77 @@
+{
+    "id": "linearization-fundamentals-flashcards",
+    "cards": [
+        {
+            "id": "lf-f1",
+            "front": "Linearization Formula (single variable)",
+            "back": "f(x) ≈ f(x₀) + f'(x₀)(x - x₀)\n\nThis is the equation of the tangent line at x₀.\nAlso called first-order Taylor approximation.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f2",
+            "front": "Linearization Formula (multiple variables)",
+            "back": "f(x) ≈ f(x₀) + J|_{x₀} · (x - x₀)\n\nwhere J is the Jacobian matrix.\nGeneralizes tangent line to tangent plane/hyperplane.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f3",
+            "front": "What is the Jacobian Matrix?",
+            "back": "J[i,j] = ∂fᵢ/∂xⱼ\n\nMatrix of all first partial derivatives.\nSize: (# outputs) × (# inputs)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f4",
+            "front": "What is an Operating Point?",
+            "back": "The point (x₀) around which you linearize.\n\nIn circuits: DC bias point / quiescent point.\nDifferent operating points → different linear models!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f5",
+            "front": "Diode Small-Signal Resistance Formula",
+            "back": "r_d = V_T / I_Q\n\nwhere V_T ≈ 26mV at room temperature\nI_Q = DC bias current\n\nRule of thumb: r_d ≈ 26Ω at 1mA",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f6",
+            "front": "How do eigenvalues determine stability?",
+            "back": "Eigenvalues of Jacobian at equilibrium:\n\n• All negative real parts → STABLE\n• Any positive real part → UNSTABLE  \n• Zero real part → MARGINAL (inconclusive)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f7",
+            "front": "When does linearization fail?",
+            "back": "1. Far from operating point (tangent diverges)\n2. At bifurcation points (eigenvalues cross zero)\n3. Discontinuous functions (no derivative)\n\nRule of thumb: Valid for ~10-20% deviation",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f8",
+            "front": "What is small-signal analysis?",
+            "back": "Analysis of small AC signals around a DC operating point.\n\nProcess:\n1. Find DC operating point\n2. Linearize around it\n3. Analyze AC with linear model\n\nUsed for amplifier gain, impedance, etc.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f9",
+            "front": "Linearization vs Taylor Series",
+            "back": "Linearization IS first-order Taylor series!\n\nLinearization: f ≈ f₀ + f'(x-x₀)  [1st order only]\nTaylor: f = f₀ + f'(x-x₀) + f''(x-x₀)²/2 + ... [all orders]\n\nLinearization = simplest useful approximation",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f10",
+            "front": "Why do linear systems have superposition?",
+            "back": "For linear L:\nL(αx + βy) = αL(x) + βL(y)\n\nInputs add → outputs add.\nNonlinear systems: NO superposition!\n\nThis is why we linearize: to use superposition.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f11",
+            "front": "State-Space Linearization",
+            "back": "Nonlinear: dx/dt = f(x, u)\n\nLinearized around (x₀, u₀):\nΔẋ = A·Δx + B·Δu\n\nwhere A = ∂f/∂x|₀, B = ∂f/∂u|₀",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "lf-f12",
+            "front": "Newton-Raphson uses linearization how?",
+            "back": "To solve f(x) = 0:\n\nx_{n+1} = x_n - f(x_n)/f'(x_n)\n\nThis uses the tangent line to predict where f crosses zero.\nRepeated linearization → converges to root.",
+            "difficultyLevel": 1
+        }
+    ]
+}

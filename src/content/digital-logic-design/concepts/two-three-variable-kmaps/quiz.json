@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-2var-group",
+            "options": [
+                "A",
+                "B",
+                "Ā",
+                "B̄"
+            ],
+            "correctAnswer": "B̄",
+            "explanation": "m0 = ĀB̄ and m2 = AB̄. These are column B=0. The common term is B̄ (A varies, B stays 0).",
+            "prompt": "In a 2-variable K-map, grouping cells m0 and m2 (column B=0) gives which term?"
+        },
+        {
+            "id": "q2-3var-placement",
+            "options": [
+                "Row A=0, Column BC=01",
+                "Row A=1, Column BC=01",
+                "Row A=1, Column BC=10",
+                "Row A=0, Column BC=10"
+            ],
+            "correctAnswer": "Row A=1, Column BC=01",
+            "explanation": "m5 = 101 means A=1, B=0, C=1. So BC=01. Position: Row A=1, Column BC=01.",
+            "prompt": "In a 3-variable K-map with rows=A and columns=BC, where does m5 (101) go?"
+        },
+        {
+            "id": "q3-wrap-around",
+            "options": [
+                "They're in the same row",
+                "They're adjacent via wrap-around (columns 00 and 10)",
+                "They have the same value",
+                "They can never be grouped"
+            ],
+            "correctAnswer": "They're adjacent via wrap-around (columns 00 and 10)",
+            "explanation": "Columns 00 and 10 are adjacent in Gray code order (they differ by one bit in B). The K-map wraps around, making these cells neighbors.",
+            "prompt": "In a 3-variable K-map, cells m0 and m2 can be grouped because:"
+        },
+        {
+            "id": "q4-group-term",
+            "options": [
+                "C̄",
+                "C",
+                "BC",
+                "AC"
+            ],
+            "correctAnswer": "C",
+            "explanation": "All four cells have C=1. A varies, B varies, so both are eliminated. The term is simply C.",
+            "prompt": "Grouping m1, m3, m5, m7 (all cells with C=1) in a 3-variable K-map gives:"
+        },
+        {
+            "id": "q5-minimize",
+            "options": [
+                "A + B",
+                "A + B̄",
+                "AB",
+                "Ā + B"
+            ],
+            "correctAnswer": "A + B",
+            "explanation": "K-map: m1 and m3 form column B=1 → B. m2 and m3 form row A=1 → A. Overlap at m3 is OK. F = A + B.",
+            "prompt": "F(A,B) = Σm(1, 2, 3) simplifies to:"
+        },
+        {
+            "id": "q6-3var-minimize",
+            "options": [
+                "C̄",
+                "B̄",
+                "Ā",
+                "ĀC̄ + AC̄"
+            ],
+            "correctAnswer": "C̄",
+            "explanation": "All minterms have C=0. They form a wrap-around group covering columns 00 and 10 (both rows). Term: C̄.",
+            "prompt": "F(A,B,C) = Σm(0, 2, 4, 6) simplifies to:"
+        },
+        {
+            "id": "q7-full-row",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "3"
+            ],
+            "correctAnswer": "1",
+            "explanation": "A group of 4 in a 3-variable map eliminates 2 variables (log₂(4) = 2). Remaining: 3 - 2 = 1 variable.",
+            "prompt": "A full row in a 3-variable K-map (4 cells) produces a term with how many variables?"
+        },
+        {
+            "id": "q8-invalid-group",
+            "options": [
+                "m0, m1 (adjacent columns)",
+                "m0, m4 (same column, different rows)",
+                "m0, m3 (diagonal)",
+                "m0, m2 (wrap-around)"
+            ],
+            "correctAnswer": "m0, m3 (diagonal)",
+            "explanation": "Diagonal cells (m0 and m3) differ by TWO variables, so they're not adjacent. Only horizontal, vertical, and wrap-around neighbors are valid grouping partners.",
+            "prompt": "Which is NOT a valid group in a 3-variable K-map?"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "m0, m1 (adjacent columns)",
+                "m0, m4 (same column, different rows)",
+                "m0, m3 (diagonal)",
+                "m0, m2 (wrap-around)"
+            ],
+            "correctAnswer": "m0, m3 (diagonal)",
+            "explanation": "Diagonal cells (m0 and m3) differ by TWO variables, so they're not adjacent. Only horizontal, vertical, and wrap-around neighbors are valid grouping partners.",
+            "prompt": "Which is NOT a valid group in a 3-variable K-map? (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "m0, m1 (adjacent columns)",
+                "m0, m4 (same column, different rows)",
+                "m0, m3 (diagonal)",
+                "m0, m2 (wrap-around)"
+            ],
+            "correctAnswer": "m0, m3 (diagonal)",
+            "explanation": "Diagonal cells (m0 and m3) differ by TWO variables, so they're not adjacent. Only horizontal, vertical, and wrap-around neighbors are valid grouping partners.",
+            "prompt": "Which is NOT a valid group in a 3-variable K-map? (Review) (Review)"
+        }
+    ],
+    "id": "two-three-variable-kmaps-quiz"
+}

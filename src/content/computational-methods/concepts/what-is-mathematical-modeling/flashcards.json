@@ -1,0 +1,77 @@
+{
+    "id": "what-is-mathematical-modeling-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "What is a mathematical model?",
+            "back": "A simplified mathematical representation of a physical system that captures essential behavior while deliberately ignoring less important details.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "When should you use a lumped model vs distributed model?",
+            "back": "Lumped model: when physical dimensions << wavelength (λ/10 rule).\nDistributed model: when dimensions are comparable to wavelength.\n\nλ = c/(f×√εr)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "What are state variables in a circuit?",
+            "back": "Variables associated with energy storage elements:\n• Capacitor voltage (vC)\n• Inductor current (iL)\n\nNumber of states = number of independent energy storage elements",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "State-space equations (LTI system)",
+            "back": "State equation: ẋ = Ax + Bu\nOutput equation: y = Cx + Du\n\nWhere x = state vector, u = input, y = output",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "How to get transfer function from state-space?",
+            "back": "H(s) = C(sI - A)⁻¹B + D\n\nPoles are eigenvalues of A matrix\ndet(sI - A) = 0",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "Steps to linearize a nonlinear system",
+            "back": "1. Find equilibrium point where ẋ = f(x₀, u₀) = 0\n2. Define perturbations: δx = x - x₀\n3. Compute Jacobians:\n   A = ∂f/∂x|₀, B = ∂f/∂u|₀\n4. Linear model: δẋ = Aδx + Bδu",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Diode small-signal resistance formula",
+            "back": "rd = VT/ID\n\nWhere VT ≈ 26mV at room temperature\n\nExample: ID = 1mA → rd = 26Ω",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Verification vs Validation",
+            "back": "Verification: Are equations solved correctly? (Math check)\n• Convergence studies\n• Manufactured solutions\n\nValidation: Do equations match reality? (Physics check)\n• Compare to measurements\n• Physical intuition check",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Ideal op-amp model assumptions",
+            "back": "• Infinite open-loop gain\n• Infinite input impedance\n• Zero output impedance\n• Infinite bandwidth\n• Zero input offset voltage\n• Infinite CMRR",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "When does the ideal op-amp model fail?",
+            "back": "• High frequency (finite GBW)\n• Large signals (saturation, slew rate)\n• Precision applications (finite gain)\n• Low impedance sources (input bias current)\n• High-speed transients (slew rate limit)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-11",
+            "front": "George Box's famous quote about models",
+            "back": "\"All models are wrong, some are useful.\"\n\nMeaning: No model perfectly represents reality, but good models are useful for prediction within their domain of validity.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-12",
+            "front": "The two pillars of model building for circuits",
+            "back": "1. Conservation Laws (universal physics)\n   • KCL: Σi = 0 at any node\n   • KVL: Σv = 0 around any loop\n\n2. Constitutive Relations (component-specific)\n   • v = iR (resistor)\n   • i = C dv/dt (capacitor)\n   • v = L di/dt (inductor)",
+            "difficultyLevel": 1
+        }
+    ]
+}

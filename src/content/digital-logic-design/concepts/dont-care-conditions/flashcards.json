@@ -1,0 +1,65 @@
+{
+    "id": "dont-care-conditions-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "What is a Don't Care (X)?",
+            "back": "An input combination where:\n• The output can be 0 or 1\n• Either value is acceptable\n• Marked as X (or d, Φ, -)\n\nWe CHOOSE 0 or 1 based on what simplifies the circuit.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "Two Main Sources of Don't Cares",
+            "back": "1. **Impossible Inputs**\n   Input combinations that can never occur\n   (e.g., BCD codes 10-15)\n\n2. **Irrelevant Outputs**\n   Output doesn't matter in that state\n   (e.g., display is off)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "BCD Don't Cares",
+            "back": "BCD uses 4 bits for 0-9:\n• Valid: 0000 to 1001 (0-9)\n• Invalid: 1010 to 1111 (10-15)\n\n**6 don't cares** in every BCD circuit!\n\nm10, m11, m12, m13, m14, m15",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "Function Notation with Don't Cares",
+            "back": "F = Σm(ON-set) + Σd(DC-set)\n\nExample:\nF = Σm(1,3,5) + Σd(7,9)\n\n• 1, 3, 5: MUST be 1\n• 7, 9: CAN be 0 or 1\n• All others: MUST be 0",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "Golden Rule for SOP with X",
+            "back": "**Treat X as 1 ONLY if it helps form larger groups**\n\n• X enlarges group → use as 1\n• X doesn't help → ignore (treat as 0)\n• Different X's can be treated differently\n\nGoal: Maximum group size = minimum literals",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "Golden Rule for POS with X",
+            "back": "**Treat X as 0 ONLY if it helps form larger groups of 0s**\n\n(Opposite of SOP rule!)\n\nIn POS, we group 0s to form maxterms.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Coverage Rule with Don't Cares",
+            "back": "✅ ON-set minterms: MUST all be covered\n\n❓ DC-set minterms: May or may not be covered\n\n❌ OFF-set minterms: Must NOT be covered\n\n**Verify**: Check every required 1 is in at least one group",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Number of Realizations",
+            "back": "With k don't cares:\n\n**2^k possible realizations**\n\nEach X can independently be 0 or 1.\n\nWe choose the realization with minimum cost (gates/literals).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Essential Prime Implicants with X",
+            "back": "A PI is essential only if it uniquely covers an **ON-set** minterm.\n\n⚠️ X's cannot make a PI essential!\n\nEven if PI is the only one covering some X, that X could just not be covered.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "Don't Care Benefit",
+            "back": "Don't cares NEVER hurt, they can only:\n• **Help**: Allow larger groups → simpler circuit\n• **No effect**: If X's don't enable better grouping\n\n**More X's = More optimization potential**",
+            "difficultyLevel": 1
+        }
+    ]
+}

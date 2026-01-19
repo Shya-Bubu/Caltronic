@@ -1,0 +1,65 @@
+{
+    "id": "pos-minimization-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "What is POS?",
+            "back": "**P**roduct **O**f **S**ums\n\nAND of OR terms:\nF = (A+B)(C+D̄)...\n\n• Each (sum) is called a **maxterm**\n• Maxterms are ANDed together\n• Dual of SOP (Sum of Products)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "POS Minimization Process",
+            "back": "1. Fill K-map with 0s and 1s\n2. **Group the 0s** (not 1s!)\n3. Same grouping rules (powers of 2, rectangular)\n4. Extract maxterm from each group\n5. AND all maxterms\n\nF = (M₁)(M₂)(M₃)...",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "Maxterm Complementation Rule",
+            "back": "**OPPOSITE of minterms!**\n\n| Input Bit | In Maxterm |\n|-----------|------------|\n| 0 | Variable (uncomp) |\n| 1 | Variable (comp) |\n\nExample: ABC=101\nA=1→Ā, B=0→B, C=1→C̄\nM₅ = Ā + B + C̄",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "From Group of 0s to Maxterm",
+            "back": "For each variable in the group:\n\n• **Constant at 0** → include **uncomplemented**\n• **Constant at 1** → include **complemented**\n• **Varies** → exclude (eliminated)\n\nResult is a sum (OR) term.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "SOP vs POS Comparison",
+            "back": "| Aspect | SOP | POS |\n|--------|-----|-----|\n| Group | 1s | 0s |\n| Terms | Products | Sums |\n| Combine | OR | AND |\n| 1 in input | Uncomp | Comp |\n| 0 in input | Comp | Uncomp |\n| Notation | Σm | ΠM |",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "When to Choose POS over SOP",
+            "back": "**Use POS when**:\n• More 1s than 0s (fewer 0s to group)\n• NOR gates available\n• Output drives AND logic\n\n**Use SOP when**:\n• More 0s than 1s\n• NAND gates available\n• Output drives OR logic",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Don't Cares in POS",
+            "back": "**Treat X as 0** when it helps!\n\n(Opposite of SOP where X→1)\n\nWhy? POS groups 0s, so adding more 0s (via X) can enlarge groups.\n\nMore Xs treated as 0 = larger groups = simpler maxterms",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Converting Between SOP and POS",
+            "back": "**Method 1**: K-map both ways\n- Group 1s → SOP\n- Group 0s → POS\n\n**Method 2**: Algebraic\n- Expand and collect terms\n\n**Method 3**: Complement approach\n- Minimize F̄ in SOP\n- Apply De Morgan's to get POS of F",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "POS Notation",
+            "back": "**ΠM(...)** = Product of Maxterms\n\nΠ = Product (AND)\nM = Maxterms\n\nExample: F = ΠM(0, 3, 5)\nmeans F = M₀ · M₃ · M₅\n\nThese are the positions where F = 0",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "Gate Implementation: POS",
+            "back": "**OR-AND Network**:\n\n```\nInputs → [OR] → [OR] → [AND] → F\n```\n\n• OR gates for each maxterm\n• One AND gate to combine\n\n**NOR-NOR** implementation is direct.",
+            "difficultyLevel": 1
+        }
+    ]
+}

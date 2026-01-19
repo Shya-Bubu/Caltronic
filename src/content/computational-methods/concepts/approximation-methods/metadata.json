@@ -1,0 +1,13 @@
+{
+    "id": "approximation-methods",
+    "title": "Approximation Methods",
+    "lesson": "lesson-02",
+    "order": 1,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

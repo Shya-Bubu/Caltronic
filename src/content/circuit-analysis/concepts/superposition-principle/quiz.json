@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-definition",
+            "options": [
+                "Power equals current times voltage",
+                "Total response equals the sum of individual source responses",
+                "Voltage and current must be in phase",
+                "Current always flows from high to low potential"
+            ],
+            "correctAnswer": "Total response equals the sum of individual source responses",
+            "explanation": "Superposition states that the total response (voltage or current) equals the sum of responses due to each independent source acting alone.",
+            "prompt": "What does the superposition principle state for linear circuits?"
+        },
+        {
+            "id": "q2-voltage-source-off",
+            "options": [
+                "Remove it completely",
+                "Replace with open circuit",
+                "Replace with short circuit",
+                "Set it to 1V"
+            ],
+            "correctAnswer": "Replace with short circuit",
+            "explanation": "An ideal voltage source set to 0V has no voltage across it—equivalent to a short circuit (wire).",
+            "prompt": "How do you 'turn off' an ideal voltage source?"
+        },
+        {
+            "id": "q3-current-source-off",
+            "options": [
+                "Replace with short circuit",
+                "Replace with open circuit",
+                "Replace with 1Ω resistor",
+                "Set it to 1A"
+            ],
+            "correctAnswer": "Replace with open circuit",
+            "explanation": "An ideal current source set to 0A carries no current—equivalent to an open circuit (break in wire).",
+            "prompt": "How do you 'turn off' an ideal current source?"
+        },
+        {
+            "id": "q4-linearity",
+            "options": [
+                "Nonlinear",
+                "Time-varying",
+                "Linear",
+                "Active"
+            ],
+            "correctAnswer": "Linear",
+            "explanation": "R, L, C are linear elements—doubling the input doubles the output. This linearity allows responses to be added.",
+            "prompt": "Superposition works because circuits with R, L, C are:"
+        },
+        {
+            "id": "q5-dependent-sources",
+            "options": [
+                "Turned off like voltage sources",
+                "Turned off like current sources",
+                "Never turned off—always kept active",
+                "Replaced with their DC equivalent"
+            ],
+            "correctAnswer": "Never turned off—always kept active",
+            "explanation": "Dependent sources depend on circuit variables, not external inputs. They must remain active during all superposition analyses.",
+            "prompt": "When applying superposition, dependent sources are:"
+        },
+        {
+            "id": "q6-power-superposition",
+            "options": [
+                "Yes, always",
+                "Yes, but only for resistors",
+                "No, power is nonlinear (P = I²R)",
+                "No, power requires AC analysis"
+            ],
+            "correctAnswer": "No, power is nonlinear (P = I²R)",
+            "explanation": "Power is proportional to I² or V², which is nonlinear. You must first find total I or V using superposition, then calculate power.",
+            "prompt": "Can you use superposition to find power directly (P = P₁ + P₂)?"
+        },
+        {
+            "id": "q7-calculation",
+            "options": [
+                "0.5 A",
+                "1.0 A",
+                "1.5 A",
+                "2.0 A"
+            ],
+            "correctAnswer": "1.5 A",
+            "explanation": "I₁ = 12/4 = 3A, I₂ = -6/4 = -1.5A (opposite). Total = 3 - 1.5 = 1.5A.",
+            "prompt": "A 12V source through 4Ω gives current I₁. A 6V source through the same 4Ω (other source shorted) gives current I₂ in opposite direction. What is the total current magnitude (in A)?"
+        },
+        {
+            "id": "q8-three-sources",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "6"
+            ],
+            "correctAnswer": "3",
+            "explanation": "Superposition requires one analysis per independent source. Three sources means three separate analyses, then sum the results.",
+            "prompt": "A circuit has three independent sources. How many separate analyses are needed for superposition?"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "6"
+            ],
+            "correctAnswer": "3",
+            "explanation": "Superposition requires one analysis per independent source. Three sources means three separate analyses, then sum the results.",
+            "prompt": "A circuit has three independent sources. How many separate analyses are needed for superposition? (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "6"
+            ],
+            "correctAnswer": "3",
+            "explanation": "Superposition requires one analysis per independent source. Three sources means three separate analyses, then sum the results.",
+            "prompt": "A circuit has three independent sources. How many separate analyses are needed for superposition? (Review) (Review)"
+        }
+    ],
+    "id": "superposition-principle-quiz"
+}

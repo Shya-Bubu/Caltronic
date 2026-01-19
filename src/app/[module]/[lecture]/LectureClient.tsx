@@ -499,7 +499,10 @@ export default function LectureClient({
                         markdown={overviewMarkdown}
                         actionsPosition="footer"
                         actions={
-                            <Button variant="primary" onClick={() => setMode('concepts')}>
+                            <Button variant="primary" onClick={() => {
+                                setMode('concepts');
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}>
                                 Start
                             </Button>
                         }

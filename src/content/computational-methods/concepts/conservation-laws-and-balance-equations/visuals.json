@@ -1,0 +1,119 @@
+{
+    "conceptId": "conservation-laws-and-balance-equations",
+    "diagrams": [
+        {
+            "id": "diag-kcl-kvl-summary",
+            "type": "comparison",
+            "title": "KCL vs KVL Comparison",
+            "content": {
+                "kcl": {
+                    "conserves": "Charge",
+                    "applies_to": "Nodes",
+                    "equation": "Σi = 0",
+                    "physical_basis": "Charge continuity"
+                },
+                "kvl": {
+                    "conserves": "Energy",
+                    "applies_to": "Loops",
+                    "equation": "Σv = 0",
+                    "physical_basis": "Work is path-independent"
+                }
+            }
+        },
+        {
+            "id": "diag-balance-equation-template",
+            "type": "flowchart",
+            "title": "General Balance Equation Structure",
+            "content": "d(stored)/dt = In - Out + Generated"
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-kcl-node-animation",
+            "type": "interactive",
+            "title": "KCL Node Current Visualizer",
+            "description": "Animated visualization showing currents flowing into and out of a node",
+            "purpose": "Build intuition for charge conservation at circuit nodes",
+            "interactivity": "Adjust current values and watch the balance",
+            "suggestedImplementation": {
+                "component": "KCLNodeVisualizer",
+                "features": [
+                    "Central node with 4 branches",
+                    "Animated current flow (particles)",
+                    "Adjustable current values per branch",
+                    "Real-time sum display",
+                    "Color indicator (green=balanced, red=violation)"
+                ]
+            }
+        },
+        {
+            "id": "vis-kvl-loop-explorer",
+            "type": "interactive",
+            "title": "KVL Loop Voltage Explorer",
+            "description": "Interactive loop showing voltage rises and drops",
+            "purpose": "Demonstrate energy conservation around closed paths",
+            "interactivity": "Walk around the loop and see voltage accumulation",
+            "suggestedImplementation": {
+                "component": "KVLLoopExplorer",
+                "features": [
+                    "Circuit loop with components",
+                    "Animated walker tracing the loop",
+                    "Running total of voltage changes",
+                    "Highlight rises vs drops",
+                    "Multiple loop paths to explore"
+                ]
+            }
+        },
+        {
+            "id": "vis-conductance-matrix-builder",
+            "type": "interactive",
+            "title": "Conductance Matrix Builder",
+            "description": "Build the G matrix step by step from circuit topology",
+            "purpose": "Teach systematic nodal analysis setup",
+            "interactivity": "Add components and watch matrix update",
+            "suggestedImplementation": {
+                "component": "GMatrixBuilder",
+                "features": [
+                    "Drag-and-drop circuit builder",
+                    "Real-time matrix display",
+                    "Color-coded entries (diagonal vs off-diagonal)",
+                    "Step-by-step mode showing contribution of each component"
+                ]
+            }
+        },
+        {
+            "id": "vis-power-balance-meter",
+            "type": "interactive",
+            "title": "Power Balance Verification",
+            "description": "Visual power accounting for circuit analysis verification",
+            "purpose": "Teach power balance as a check on circuit solutions",
+            "interactivity": "Input voltages/currents and verify energy conservation",
+            "suggestedImplementation": {
+                "component": "PowerBalanceMeter",
+                "features": [
+                    "Split display: sources vs dissipation",
+                    "Real-time calculation as values change",
+                    "Error indicator when imbalanced",
+                    "Animated energy flow visualization"
+                ]
+            }
+        },
+        {
+            "id": "vis-water-circuit-analogy",
+            "type": "diagram",
+            "title": "Water-Circuit Conservation Analogy",
+            "description": "Side-by-side comparison of water flow and electrical circuits",
+            "purpose": "Bridge intuition from hydraulics to electronics",
+            "interactivity": "Toggle between water and circuit view",
+            "suggestedImplementation": {
+                "component": "WaterCircuitAnalogy",
+                "features": [
+                    "Split screen: pipes vs wires",
+                    "Corresponding elements highlighted",
+                    "Same conservation equations shown for both",
+                    "Animated flow in both systems"
+                ]
+            }
+        }
+    ]
+}

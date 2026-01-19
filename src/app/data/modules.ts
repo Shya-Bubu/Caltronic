@@ -26,12 +26,17 @@ export const modules: Module[] = [
     description: "Core circuit laws, analysis techniques, and engineering problem solving.",
     category: "Core Theory",
     accent: "#4f8cff",
-    updatedToWeek: 3,
+    updatedToWeek: 6,
     lectures: [
       {
         id: "lesson-01",
         title: "Two-Terminal Resistors",
         path: "/circuit-analysis/lesson-01",
+      },
+      {
+        id: "lesson-02",
+        title: "General Resistive Circuit Analysis",
+        path: "/circuit-analysis/lesson-02",
       },
     ],
   },
@@ -75,12 +80,17 @@ export const modules: Module[] = [
     description: "Boolean reasoning, combinational/sequential design, and synthesis fundamentals.",
     category: "Foundational",
     accent: "#2fbf8f",
-    updatedToWeek: 8,
+    updatedToWeek: 6,
     lectures: [
       {
         id: "lesson-01",
         title: "Processing of Logical Information",
         path: "/digital-logic-design/lesson-01",
+      },
+      {
+        id: "lesson-03",
+        title: "Karnaugh Maps and Systematic Minimization",
+        path: "/digital-logic-design/lesson-03",
       },
       {
         id: "lesson-04",
@@ -119,12 +129,27 @@ export const modules: Module[] = [
     description: "Numerical methods and computation as an engineering tool.",
     category: "Computational",
     accent: "#62c6ff",
-    updatedToWeek: 2,
+    updatedToWeek: 6,
     lectures: [
       {
         id: "lesson-01",
         title: "Nuts and Bolts of Computational Methods",
         path: "/computational-methods/lesson-01",
+      },
+      {
+        id: "lesson-02",
+        title: "Approximation, Discretization, and Linearization",
+        path: "/computational-methods/lesson-02",
+      },
+      {
+        id: "lesson-03",
+        title: "Mathematical Modeling for Engineers",
+        path: "/computational-methods/lesson-03",
+      },
+      {
+        id: "lesson-04",
+        title: "Complexity Analysis",
+        path: "/computational-methods/lesson-04",
       },
     ],
   },

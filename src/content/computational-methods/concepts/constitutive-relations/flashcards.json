@@ -1,0 +1,89 @@
+{
+    "id": "constitutive-relations-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "Resistor Constitutive Relation",
+            "back": "v = iR (Ohm's Law)\n\nAlso: i = Gv where G = 1/R\n\nPower: P = vi = i²R = v²/R",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "Capacitor Constitutive Relation",
+            "back": "Time domain: i = C dv/dt\n\nIntegral form: v = (1/C)∫i dt\n\nCharge: q = Cv",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "Inductor Constitutive Relation",
+            "back": "Time domain: v = L di/dt\n\nIntegral form: i = (1/L)∫v dt\n\nFlux: φ = Li",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "Capacitor Impedance",
+            "back": "Z_C = 1/(jωC) = -j/(ωC)\n\nMagnitude: |Z_C| = 1/(ωC)\n\nPhase: -90° (current leads voltage)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "Inductor Impedance",
+            "back": "Z_L = jωL\n\nMagnitude: |Z_L| = ωL\n\nPhase: +90° (voltage leads current)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "Capacitor Energy Storage",
+            "back": "W_C = ½Cv² = ½q²/C\n\nEnergy stored in electric field\n\nNo energy dissipation (ideal)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Inductor Energy Storage",
+            "back": "W_L = ½Li² = ½φ²/L\n\nEnergy stored in magnetic field\n\nNo energy dissipation (ideal)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Diode Equation (Shockley)",
+            "back": "i = I_s(e^(v/nV_T) - 1)\n\nI_s = saturation current (~10⁻¹² A)\nV_T = thermal voltage (≈26mV at 25°C)\nn = ideality factor (1-2)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Diode Small-Signal Resistance",
+            "back": "r_d = V_T/I_D = nV_T/I_D\n\nAt I_D = 1mA: r_d = 26Ω\n\nDerived from slope of V-I curve",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "Why can't v_C change instantly?",
+            "back": "From i = C dv/dt:\n\nInstant change → dv/dt = ∞\nThis requires i = ∞ (impossible)\n\nCapacitor voltage MUST be continuous",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-11",
+            "front": "Why can't i_L change instantly?",
+            "back": "From v = L di/dt:\n\nInstant change → di/dt = ∞\nThis requires v = ∞ (impossible)\n\nInductor current MUST be continuous",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-12",
+            "front": "MOSFET Square Law Model",
+            "back": "Saturation region:\nI_D = (k/2)(V_GS - V_TH)²\n\nk = μ_n C_ox (W/L)\n\nTransconductance: g_m = √(2k·I_D)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-13",
+            "front": "Series RLC Resonance",
+            "back": "Resonant frequency: ω₀ = 1/√(LC)\n\nAt resonance:\n• Z = R (purely resistive)\n• |Z| is minimum\n• Current is maximum",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-14",
+            "front": "Parallel RLC Resonance",
+            "back": "Resonant frequency: ω₀ = 1/√(LC)\n\nAt resonance:\n• Z = R (purely resistive)\n• |Z| is maximum\n• Current is minimum",
+            "difficultyLevel": 1
+        }
+    ]
+}

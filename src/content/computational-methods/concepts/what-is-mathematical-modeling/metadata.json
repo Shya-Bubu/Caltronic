@@ -1,0 +1,13 @@
+{
+    "id": "what-is-mathematical-modeling",
+    "title": "What is Mathematical Modeling?",
+    "lesson": "lesson-03",
+    "order": 1,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

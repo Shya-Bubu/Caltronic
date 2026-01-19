@@ -1,0 +1,17 @@
+{
+    "id": "lesson-02",
+    "title": "General Resistive Circuit Analysis",
+    "weeksCovered": [4, 5],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "kirchhoffs-laws",
+        "nodal-analysis",
+        "mesh-analysis",
+        "superposition-principle",
+        "thevenin-norton-equivalents",
+        "maximum-power-transfer"
+    ],
+    "description": "Systematic methods for analyzing resistive circuits: Kirchhoff's Laws as foundation, nodal and mesh analysis as systematic approaches, superposition for multi-source circuits, Thévenin/Norton equivalents for simplification, and maximum power transfer for design optimization.",
+    "status": "complete"
+}

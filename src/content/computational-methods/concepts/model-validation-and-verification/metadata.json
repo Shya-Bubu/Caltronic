@@ -1,0 +1,13 @@
+{
+    "id": "model-validation-and-verification",
+    "title": "Model Validation and Verification",
+    "lesson": "lesson-03",
+    "order": 4,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

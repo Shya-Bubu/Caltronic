@@ -1,0 +1,65 @@
+{
+    "id": "matrix-sparsity-and-structure-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "Sparsity Formula",
+            "back": "Sparsity = 1 - nnz/n²\n\nWhere:\n• nnz = number of non-zeros\n• n = matrix dimension\n\nCircuit matrices: typically 99%+ sparse",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "Why Circuit Matrices Are Sparse",
+            "back": "Each circuit element connects only 2-3 nodes.\n\n• Resistor: 2 nodes → 4 matrix entries\n• Capacitor: 2 nodes → 4 matrix entries\n• Transistor: 3 nodes → 9 matrix entries\n\nResult: Each row has ~3-10 non-zeros regardless of circuit size",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "Fill-in Definition",
+            "back": "Fill-in = new non-zeros created during LU factorization\n\nOccurs when: A[i,k] ≠ 0 and A[k,j] ≠ 0 but A[i,j] = 0\n\nElimination creates A[i,j] ≠ 0\n\nFill-in determines sparse LU complexity!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "CSR Storage Format",
+            "back": "Compressed Sparse Row stores:\n\n• values[nnz]: non-zero values\n• col_idx[nnz]: column of each value\n• row_ptr[n+1]: index where each row starts\n\nTotal storage: O(nnz + n) vs O(n²) dense",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "Sparse Matrix-Vector Multiply Complexity",
+            "back": "Dense: O(n²) operations\nSparse: O(nnz) operations\n\nFor circuits with nnz ≈ 5n:\n• Sparse is n/5 times faster\n• For n = 10,000: 2000× speedup!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "Matrix Bandwidth",
+            "back": "Bandwidth β = max |i - j| for all A[i,j] ≠ 0\n\nBanded LU complexity: O(nβ²)\n\n• Tridiagonal: β = 1 → O(n)\n• Pentadiagonal: β = 2 → O(4n)\n• Dense: β = n → O(n³)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Minimum Degree Ordering",
+            "back": "Heuristic to minimize fill-in:\n\n1. Find node with fewest connections\n2. Eliminate it\n3. Update connection counts\n4. Repeat\n\nOften gives near-optimal fill-in for circuit matrices",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Arrow Matrix Fill-in Example",
+            "back": "Arrow with hub at node 1:\n\nEliminate hub first → O(n²) fill-in (disaster!)\nEliminate leaves first → O(n) fill-in (optimal!)\n\nSame matrix, different ordering → dramatically different fill-in",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Nested Dissection",
+            "back": "For very large matrices (>100k nodes):\n\n1. Find separator dividing graph in half\n2. Recursively order each half\n3. Separator nodes ordered last\n\nFor grids: O(n log n) fill-in, O(n^1.5) factorization",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "Symbolic vs Numeric Factorization",
+            "back": "SPICE separates LU into two phases:\n\n1. Symbolic: Determine fill-in pattern (done once)\n2. Numeric: Compute actual values (repeated)\n\nAllows reusing pattern for:\n• Transient analysis\n• Newton iterations\n• AC sweeps",
+            "difficultyLevel": 1
+        }
+    ]
+}

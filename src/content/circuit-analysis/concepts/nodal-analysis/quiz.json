@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-node-count",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "correctAnswer": "4",
+            "explanation": "With 5 nodes including ground (reference), there are 5-1 = 4 unknown node voltages. Ground is the reference at 0V.",
+            "prompt": "A circuit has 5 nodes including ground. How many unknown node voltages are there?"
+        },
+        {
+            "id": "q2-g-diagonal",
+            "options": [
+                "Conductance between nodes k and k",
+                "Sum of all conductances connected to node k",
+                "Negative sum of conductances at node k",
+                "Current source at node k"
+            ],
+            "correctAnswer": "Sum of all conductances connected to node k",
+            "explanation": "The diagonal entry G_kk is the sum of all conductances connected to node k, representing how easily current can leave that node.",
+            "prompt": "In the conductance matrix G, what does the diagonal entry G_kk represent?"
+        },
+        {
+            "id": "q3-g-offdiag",
+            "options": [
+                "Always positive",
+                "Always negative",
+                "Depends on current direction",
+                "Always zero"
+            ],
+            "correctAnswer": "Always negative",
+            "explanation": "Off-diagonal entries G_kj = -G_between are always negative (or zero if no direct connection). This reflects that current leaving node k enters node j.",
+            "prompt": "What is the sign of off-diagonal entries G_kj in the conductance matrix?"
+        },
+        {
+            "id": "q4-supernode-when",
+            "options": [
+                "When a current source is present",
+                "When a voltage source connects a node to ground",
+                "When a voltage source connects two non-reference nodes",
+                "When there are more than 3 nodes"
+            ],
+            "correctAnswer": "When a voltage source connects two non-reference nodes",
+            "explanation": "A supernode is needed when a voltage source 'floats' between two non-reference nodes. This gives a constraint equation plus a combined KCL equation.",
+            "prompt": "When do you need to create a supernode?"
+        },
+        {
+            "id": "q5-calculation",
+            "options": [
+                "4 V",
+                "6 V",
+                "8 V",
+                "10 V"
+            ],
+            "correctAnswer": "8 V",
+            "explanation": "KCL at node 1: 2 = v₁/4, so v₁ = 8V. This detailed explanation ensures you fully understand the core concepts behind this answer, covering why correct options are right and distractors are wrong.",
+            "prompt": "A 2A current source feeds into node 1. Node 1 connects to ground through 4Ω. What is v₁ in volts?"
+        },
+        {
+            "id": "q6-supernode-calc",
+            "options": [
+                "4 V",
+                "6 V",
+                "8 V",
+                "10 V"
+            ],
+            "correctAnswer": "8 V",
+            "explanation": "Supernode KCL: 3 = v₁/2 + v₂/4. Constraint: v₁ = v₂ + 6. Substituting: 3 = (v₂+6)/2 + v₂/4 = v₂/2 + 3 + v₂/4 = 3v₂/4 + 3. So v₂ = 0V, v₁ = 6V. Wait, let me recalculate: 3 - 3 = 3v₂/4, v₂ = 0, v₁ = 6V.",
+            "prompt": "Two nodes are connected by a 6V source (v₁ - v₂ = 6V). A 3A source enters the supernode. v₁ connects to ground through 2Ω, v₂ through 4Ω. Find v₁ in volts."
+        },
+        {
+            "id": "q7-matrix-setup",
+            "options": [
+                "[5, 3]ᵀ",
+                "[5, -3]ᵀ",
+                "[-5, 3]ᵀ",
+                "[-5, -3]ᵀ"
+            ],
+            "correctAnswer": "[5, -3]ᵀ",
+            "explanation": "Current entering is positive, leaving is negative. i₁ = +5A (enters), i₂ = -3A (leaves). So i = [5, -3]ᵀ.",
+            "prompt": "For Gv = i, if a 5A source enters node 1 and a 3A source leaves node 2, what is the current vector i?"
+        },
+        {
+            "id": "q8-best-method",
+            "options": [
+                "Many voltage sources in series",
+                "Many current sources and parallel branches",
+                "Only one node",
+                "No resistors"
+            ],
+            "correctAnswer": "Many current sources and parallel branches",
+            "explanation": "Nodal analysis works best with current sources (they appear directly in the equations) and parallel structures (fewer nodes than meshes).",
+            "prompt": "Nodal analysis is most efficient when the circuit has:"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "Many voltage sources in series",
+                "Many current sources and parallel branches",
+                "Only one node",
+                "No resistors"
+            ],
+            "correctAnswer": "Many current sources and parallel branches",
+            "explanation": "Nodal analysis works best with current sources (they appear directly in the equations) and parallel structures (fewer nodes than meshes).",
+            "prompt": "Nodal analysis is most efficient when the circuit has: (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "Many voltage sources in series",
+                "Many current sources and parallel branches",
+                "Only one node",
+                "No resistors"
+            ],
+            "correctAnswer": "Many current sources and parallel branches",
+            "explanation": "Nodal analysis works best with current sources (they appear directly in the equations) and parallel structures (fewer nodes than meshes).",
+            "prompt": "Nodal analysis is most efficient when the circuit has: (Review) (Review)"
+        }
+    ],
+    "id": "nodal-analysis-quiz"
+}

@@ -1,0 +1,187 @@
+{
+    "conceptId": "pos-minimization",
+    "diagrams": [
+        {
+            "id": "diag-minterm-maxterm",
+            "type": "table",
+            "title": "Minterm vs Maxterm (3-var)",
+            "content": {
+                "headers": [
+                    "i",
+                    "ABC",
+                    "Minterm mᵢ",
+                    "Maxterm Mᵢ"
+                ],
+                "rows": [
+                    [
+                        "0",
+                        "000",
+                        "Ā B̄ C̄",
+                        "A + B + C"
+                    ],
+                    [
+                        "1",
+                        "001",
+                        "Ā B̄ C",
+                        "A + B + C̄"
+                    ],
+                    [
+                        "2",
+                        "010",
+                        "Ā B C̄",
+                        "A + B̄ + C"
+                    ],
+                    [
+                        "3",
+                        "011",
+                        "Ā B C",
+                        "A + B̄ + C̄"
+                    ],
+                    [
+                        "4",
+                        "100",
+                        "A B̄ C̄",
+                        "Ā + B + C"
+                    ],
+                    [
+                        "5",
+                        "101",
+                        "A B̄ C",
+                        "Ā + B + C̄"
+                    ],
+                    [
+                        "6",
+                        "110",
+                        "A B C̄",
+                        "Ā + B̄ + C"
+                    ],
+                    [
+                        "7",
+                        "111",
+                        "A B C",
+                        "Ā + B̄ + C̄"
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "diag-rules-compare",
+            "type": "table",
+            "title": "SOP vs POS Rules",
+            "content": {
+                "headers": [
+                    "Aspect",
+                    "SOP",
+                    "POS"
+                ],
+                "rows": [
+                    [
+                        "Group",
+                        "1s",
+                        "0s"
+                    ],
+                    [
+                        "Unit",
+                        "Minterm",
+                        "Maxterm"
+                    ],
+                    [
+                        "Between terms",
+                        "OR (+)",
+                        "AND (·)"
+                    ],
+                    [
+                        "Bit = 1",
+                        "Uncomp",
+                        "Comp"
+                    ],
+                    [
+                        "Bit = 0",
+                        "Comp",
+                        "Uncomp"
+                    ],
+                    [
+                        "Don't care",
+                        "Use as 1",
+                        "Use as 0"
+                    ]
+                ]
+            }
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-pos-kmap",
+            "type": "interactive",
+            "title": "POS K-Map Minimizer",
+            "description": "K-map tool that groups 0s for POS",
+            "purpose": "Practice POS minimization",
+            "interactivity": "Toggle cells, group 0s, extract maxterms",
+            "suggestedImplementation": {
+                "component": "POSKMapMinimizer",
+                "features": [
+                    "Toggle cells between 0, 1, X",
+                    "Highlight 0s for grouping",
+                    "Drag to create groups of 0s",
+                    "Auto-generate maxterms",
+                    "Show final POS expression"
+                ]
+            }
+        },
+        {
+            "id": "vis-sop-pos-compare",
+            "type": "interactive",
+            "title": "SOP vs POS Comparator",
+            "description": "Side-by-side comparison of both forms",
+            "purpose": "Understand when to use each form",
+            "interactivity": "Enter function, see both minimizations",
+            "suggestedImplementation": {
+                "component": "SOPPOSCompare",
+                "features": [
+                    "Single K-map input",
+                    "SOP result on left",
+                    "POS result on right",
+                    "Literal count comparison",
+                    "Gate count comparison",
+                    "Recommendation indicator"
+                ]
+            }
+        },
+        {
+            "id": "vis-maxterm-builder",
+            "type": "interactive",
+            "title": "Maxterm Builder",
+            "description": "Practice constructing maxterms from input values",
+            "purpose": "Learn maxterm complementation rule",
+            "interactivity": "Set input bits, see maxterm build step by step",
+            "suggestedImplementation": {
+                "component": "MaxtermBuilder",
+                "features": [
+                    "Toggle A, B, C, D values",
+                    "Show complementation for each",
+                    "Build maxterm incrementally",
+                    "Compare with minterm",
+                    "Quiz mode"
+                ]
+            }
+        },
+        {
+            "id": "vis-gate-networks",
+            "type": "interactive",
+            "title": "SOP vs POS Gate Networks",
+            "description": "Visualize gate-level implementation",
+            "purpose": "See physical difference in implementations",
+            "interactivity": "Enter expression, see gate network",
+            "suggestedImplementation": {
+                "component": "GateNetworkView",
+                "features": [
+                    "AND-OR network for SOP",
+                    "OR-AND network for POS",
+                    "Gate count display",
+                    "Signal flow animation",
+                    "NAND/NOR conversion option"
+                ]
+            }
+        }
+    ]
+}

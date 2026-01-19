@@ -1,0 +1,13 @@
+{
+    "id": "karnaugh-map-fundamentals",
+    "title": "Karnaugh Map Fundamentals",
+    "lesson": "lesson-03",
+    "order": 1,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

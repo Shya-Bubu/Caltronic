@@ -1,0 +1,109 @@
+{
+    "conceptId": "iterative-vs-direct-methods",
+    "diagrams": [
+        {
+            "id": "diag-method-comparison",
+            "type": "table",
+            "title": "Method Comparison Summary",
+            "content": {
+                "headers": [
+                    "Aspect",
+                    "Direct",
+                    "Iterative"
+                ],
+                "rows": [
+                    [
+                        "Answer",
+                        "Exact",
+                        "Approximate"
+                    ],
+                    [
+                        "Memory",
+                        "High",
+                        "Low"
+                    ],
+                    [
+                        "Time",
+                        "Predictable",
+                        "Variable"
+                    ],
+                    [
+                        "Multiple RHS",
+                        "Cheap",
+                        "Full cost each"
+                    ]
+                ]
+            }
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-iteration-animation",
+            "type": "interactive",
+            "title": "Iteration Convergence Visualizer",
+            "description": "Animated visualization of Jacobi/Gauss-Seidel/CG convergence",
+            "purpose": "Show how iterative methods approach the solution",
+            "interactivity": "Step through iterations, see solution path",
+            "suggestedImplementation": {
+                "component": "IterationVisualizer",
+                "features": [
+                    "2D plot showing solution trajectory",
+                    "Error norm vs iteration plot",
+                    "Compare multiple methods side-by-side",
+                    "Adjustable matrix parameters"
+                ]
+            }
+        },
+        {
+            "id": "vis-convergence-rate",
+            "type": "interactive",
+            "title": "Convergence Rate Comparison",
+            "description": "Compare convergence rates of different iterative methods",
+            "purpose": "Show how matrix properties affect convergence",
+            "interactivity": "Adjust condition number and see iteration counts",
+            "suggestedImplementation": {
+                "component": "ConvergenceRatePlot",
+                "features": [
+                    "Log plot of error vs iterations",
+                    "Slider for condition number",
+                    "Theoretical bound overlay",
+                    "Jacobi vs G-S vs CG comparison"
+                ]
+            }
+        },
+        {
+            "id": "vis-method-decision-tree",
+            "type": "interactive",
+            "title": "Method Selection Guide",
+            "description": "Interactive decision tree for choosing direct vs iterative",
+            "purpose": "Help students choose appropriate solver",
+            "interactivity": "Answer questions, get recommendation",
+            "suggestedImplementation": {
+                "component": "SolverDecisionTree",
+                "features": [
+                    "Input matrix size, sparsity, type",
+                    "Input number of RHS",
+                    "Get recommendation with explanation",
+                    "Show complexity estimates"
+                ]
+            }
+        },
+        {
+            "id": "vis-lu-vs-cg",
+            "type": "interactive",
+            "title": "LU vs CG Complexity Calculator",
+            "description": "Compare total operations for direct vs iterative",
+            "purpose": "Quantify when each method wins",
+            "interactivity": "Input parameters, see operation counts",
+            "suggestedImplementation": {
+                "component": "ComplexityComparator",
+                "features": [
+                    "Input n, nnz, fill-in, κ",
+                    "Calculate ops for LU and CG",
+                    "Show break-even analysis",
+                    "Include preconditioning effects"
+                ]
+            }
+        }
+    ]
+}

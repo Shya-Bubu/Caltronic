@@ -36,13 +36,7 @@
             "title": "Zener Diode",
             "description": "Forward diode + reverse breakdown. Vz is the breakdown voltage where reverse current flows."
         },
-        {
-            "id": "v6",
-            "type": "image",
-            "title": "Nonlinear Resistor Analysis (Lecture Notes)",
-            "src": "/course/circuit-analysis/lesson-01/images/page07_img03.png",
-            "caption": "From lecture: Multi-panel analysis showing v-i characteristic, voltage/current waveforms, and circuit schematic."
-        },
+
         {
             "id": "v7",
             "type": "d3-block-diagram",

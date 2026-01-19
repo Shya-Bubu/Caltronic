@@ -1,0 +1,139 @@
+{
+    "conceptId": "model-validation-and-verification",
+    "diagrams": [
+        {
+            "id": "diag-vv-comparison",
+            "type": "comparison-table",
+            "title": "Verification vs Validation",
+            "content": {
+                "columns": [
+                    "Aspect",
+                    "Verification",
+                    "Validation"
+                ],
+                "rows": [
+                    [
+                        "Question",
+                        "Solving equations right?",
+                        "Solving right equations?"
+                    ],
+                    [
+                        "Reference",
+                        "Exact solution",
+                        "Measurement"
+                    ],
+                    [
+                        "Finds",
+                        "Code bugs",
+                        "Missing physics"
+                    ],
+                    [
+                        "When",
+                        "Before validation",
+                        "After verification"
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "diag-validation-hierarchy",
+            "type": "pyramid",
+            "title": "Validation Evidence Hierarchy",
+            "content": [
+                "Experimental Measurement (Best)",
+                "Independent Validated Simulation",
+                "Analytical Solutions",
+                "Physical Intuition (Minimum)"
+            ]
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-convergence-study",
+            "type": "interactive",
+            "title": "Convergence Study Visualizer",
+            "description": "Interactive demonstration of solution convergence with grid refinement",
+            "purpose": "Show how numerical solutions improve with finer discretization",
+            "interactivity": "Adjust grid resolution and watch solution converge",
+            "suggestedImplementation": {
+                "component": "ConvergenceStudyDemo",
+                "features": [
+                    "Plot of solution vs grid size",
+                    "Error vs grid size (log-log)",
+                    "Richardson extrapolation estimate",
+                    "Order of accuracy calculation",
+                    "GCI error bands"
+                ]
+            }
+        },
+        {
+            "id": "vis-vv-flowchart",
+            "type": "diagram",
+            "title": "V&V Decision Flowchart",
+            "description": "Interactive flowchart for the verification and validation process",
+            "purpose": "Guide students through the V&V decision process",
+            "interactivity": "Click through decision points",
+            "suggestedImplementation": {
+                "component": "VVFlowchart",
+                "features": [
+                    "Step-by-step flowchart navigation",
+                    "Examples at each decision point",
+                    "Highlight current step",
+                    "Show common paths through flowchart"
+                ]
+            }
+        },
+        {
+            "id": "vis-uncertainty-propagation",
+            "type": "interactive",
+            "title": "Uncertainty Propagation Calculator",
+            "description": "Tool for calculating combined uncertainty from multiple sources",
+            "purpose": "Demonstrate how uncertainties combine",
+            "interactivity": "Input individual uncertainties and see combined result",
+            "suggestedImplementation": {
+                "component": "UncertaintyCalculator",
+                "features": [
+                    "Multiple input uncertainty fields",
+                    "Root-sum-square calculation",
+                    "Visual representation of uncertainty budgets",
+                    "Sensitivity analysis showing dominant contributors"
+                ]
+            }
+        },
+        {
+            "id": "vis-validation-comparison",
+            "type": "interactive",
+            "title": "Model vs Measurement Comparator",
+            "description": "Side-by-side comparison of simulation results and measurements",
+            "purpose": "Teach validation assessment techniques",
+            "interactivity": "Upload or input data, compute validation metrics",
+            "suggestedImplementation": {
+                "component": "ValidationComparator",
+                "features": [
+                    "Overlay plot of model and measurement",
+                    "Error metrics calculation (RMS, peak, relative)",
+                    "Uncertainty bands on both curves",
+                    "Pass/fail indicator with confidence level"
+                ]
+            }
+        },
+        {
+            "id": "vis-manufactured-solution",
+            "type": "interactive",
+            "title": "Manufactured Solutions Demo",
+            "description": "Demonstration of the method of manufactured solutions",
+            "purpose": "Show how to verify code without analytical solutions",
+            "interactivity": "Choose manufactured solution and see verification process",
+            "suggestedImplementation": {
+                "component": "ManufacturedSolutionDemo",
+                "features": [
+                    "Select from example PDEs",
+                    "Choose manufactured solution form",
+                    "Calculate required source term",
+                    "Compare numerical to manufactured solution",
+                    "Show convergence with refinement"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "conceptId": "mesh-analysis",
+    "diagrams": [
+        {
+            "id": "diag-mesh-procedure",
+            "type": "flowchart",
+            "title": "Mesh Analysis Procedure",
+            "content": "Check Planar → Count Meshes → Assign Currents → Handle Sources → Write KVL → Solve"
+        },
+        {
+            "id": "diag-supermesh",
+            "type": "static",
+            "title": "Supermesh Formation",
+            "content": "Two meshes sharing current source, with supermesh boundary shown"
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-mesh-identifier",
+            "type": "interactive",
+            "title": "Mesh Identifier",
+            "description": "Learn to identify meshes in a circuit",
+            "purpose": "Practice finding inner loops",
+            "interactivity": "Click to highlight meshes in sample circuits",
+            "suggestedImplementation": {
+                "component": "MeshIdentifier",
+                "features": [
+                    "Various circuit topologies",
+                    "Click regions to identify meshes",
+                    "Feedback on correct/incorrect",
+                    "Show mesh count"
+                ]
+            }
+        },
+        {
+            "id": "vis-mesh-equation-builder",
+            "type": "interactive",
+            "title": "Mesh Equation Builder",
+            "description": "Build KVL equations step by step",
+            "purpose": "Practice writing mesh equations",
+            "interactivity": "Trace around mesh, build equation term by term",
+            "suggestedImplementation": {
+                "component": "MeshEquationBuilder",
+                "features": [
+                    "Highlight current element in path",
+                    "Add voltage term to equation",
+                    "Show complete equation when loop closes",
+                    "Verify equation correctness"
+                ]
+            }
+        },
+        {
+            "id": "vis-supermesh",
+            "type": "interactive",
+            "title": "Supermesh Visualizer",
+            "description": "See how supermesh handles current sources",
+            "purpose": "Understand supermesh technique",
+            "interactivity": "Toggle supermesh boundary, see equations change",
+            "suggestedImplementation": {
+                "component": "SupermeshVisualizer",
+                "features": [
+                    "Circuit with shared current source",
+                    "Draw supermesh boundary",
+                    "Show constraint equation",
+                    "Show supermesh KVL equation"
+                ]
+            }
+        },
+        {
+            "id": "vis-mesh-vs-nodal",
+            "type": "interactive",
+            "title": "Mesh vs Nodal Comparison",
+            "description": "Compare equation count for both methods",
+            "purpose": "Learn when to use which method",
+            "interactivity": "Modify circuit, see equation count for each method",
+            "suggestedImplementation": {
+                "component": "MethodComparator",
+                "features": [
+                    "Sample circuits",
+                    "Show node count (N-1 nodal eqs)",
+                    "Show mesh count (M mesh eqs)",
+                    "Recommend best method"
+                ]
+            }
+        }
+    ]
+}

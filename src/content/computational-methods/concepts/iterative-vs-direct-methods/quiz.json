@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-direct-define",
+            "options": [
+                "It uses iteration to improve guesses",
+                "It computes the exact solution in finite steps",
+                "It always converges",
+                "It requires less memory"
+            ],
+            "correctAnswer": "It computes the exact solution in finite steps",
+            "explanation": "Direct methods (like LU factorization) compute the exact solution in a predetermined number of steps, without iteration.",
+            "prompt": "What characterizes a direct method?"
+        },
+        {
+            "id": "q2-jacobi-gs-diff",
+            "options": [
+                "Jacobi is faster",
+                "Gauss-Seidel uses updated values immediately",
+                "Jacobi works on any matrix",
+                "Gauss-Seidel uses more memory"
+            ],
+            "correctAnswer": "Gauss-Seidel uses updated values immediately",
+            "explanation": "Gauss-Seidel uses newly computed values within the same iteration (x_i^(k+1) uses x_j^(k+1) for j<i), while Jacobi uses only values from the previous iteration.",
+            "prompt": "What is the main difference between Jacobi and Gauss-Seidel?"
+        },
+        {
+            "id": "q3-convergence-condition",
+            "options": [
+                "For any non-singular matrix",
+                "For symmetric matrices",
+                "For strictly diagonally dominant matrices",
+                "For positive matrices"
+            ],
+            "correctAnswer": "For strictly diagonally dominant matrices",
+            "explanation": "Jacobi converges when the matrix is strictly diagonally dominant: |A_ii| > Σ|A_ij| for each row. This ensures the spectral radius of the iteration matrix is less than 1.",
+            "prompt": "When is Jacobi iteration guaranteed to converge?"
+        },
+        {
+            "id": "q4-cg-requirement",
+            "options": [
+                "Diagonally dominant",
+                "Sparse",
+                "Symmetric positive definite (SPD)",
+                "Upper triangular"
+            ],
+            "correctAnswer": "Symmetric positive definite (SPD)",
+            "explanation": "CG is specifically designed for SPD matrices. For non-symmetric or indefinite matrices, use GMRES or BiCGSTAB instead.",
+            "prompt": "Conjugate Gradient (CG) requires the matrix to be:"
+        },
+        {
+            "id": "q5-iteration-count",
+            "options": [
+                "33",
+                "50",
+                "66",
+                "100"
+            ],
+            "correctAnswer": "66",
+            "explanation": "Error ∝ ρ^k. Need ρ^k = 1/1000 = 10^-3. So k = log(10^-3)/log(0.9) = -3/log₁₀(0.9) ≈ -3/(-0.046) ≈ 66 iterations.",
+            "prompt": "If ρ(B) = 0.9, approximately how many iterations to reduce error by factor of 1000?"
+        },
+        {
+            "id": "q6-multi-rhs",
+            "options": [
+                "Iterative (CG) for each",
+                "Direct (LU) with factorization reuse",
+                "They are equally efficient",
+                "Depends only on matrix size"
+            ],
+            "correctAnswer": "Direct (LU) with factorization reuse",
+            "explanation": "Direct methods can reuse the LU factorization for multiple RHS. After the initial O(n³) or O(fill²) factorization, each solve is only O(n²) or O(fill). Iterative methods must do full work for each RHS.",
+            "prompt": "For solving with 50 different right-hand sides, which is typically more efficient?"
+        },
+        {
+            "id": "q7-preconditioning",
+            "options": [
+                "To make the matrix sparse",
+                "To reduce the condition number and speed convergence",
+                "To convert the matrix to symmetric form",
+                "To reduce memory usage"
+            ],
+            "correctAnswer": "To reduce the condition number and speed convergence",
+            "explanation": "Preconditioning transforms M^{-1}Ax = M^{-1}b where M ≈ A but easy to invert. This reduces the condition number κ(M^{-1}A) << κ(A), dramatically speeding convergence.",
+            "prompt": "What is the purpose of preconditioning in iterative methods?"
+        },
+        {
+            "id": "q8-lu-complexity",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(2^n)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Dense LU factorization requires O(n³) operations, specifically about (2/3)n³ multiplications.",
+            "prompt": "The complexity of dense LU factorization is:"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(2^n)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Dense LU factorization requires O(n³) operations, specifically about (2/3)n³ multiplications.",
+            "prompt": "The complexity of dense LU factorization is: (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(2^n)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Dense LU factorization requires O(n³) operations, specifically about (2/3)n³ multiplications.",
+            "prompt": "The complexity of dense LU factorization is: (Review) (Review)"
+        }
+    ],
+    "id": "iterative-vs-direct-methods-quiz"
+}

@@ -73,13 +73,6 @@
             "description": "v-i relationship seen at the terminals. Hides internal network, shows only port behavior."
         },
         {
-            "id": "v5",
-            "type": "image",
-            "title": "Duality Table (Lecture Notes)",
-            "src": "/course/circuit-analysis/lesson-01/images/page13_img01.jpeg",
-            "caption": "From lecture: Complete duality mapping — voltage↔current, R↔G, KVL↔KCL, series↔parallel."
-        },
-        {
             "id": "v6",
             "type": "d3-block-diagram",
             "title": "Parallel Connection",

@@ -1,0 +1,13 @@
+{
+    "id": "conservation-laws-and-balance-equations",
+    "title": "Conservation Laws and Balance Equations",
+    "lesson": "lesson-03",
+    "order": 2,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,123 @@
+{
+    "questions": [
+        {
+            "id": "am-q1",
+            "options": [
+                "They are exact representations",
+                "They only use basic arithmetic operations",
+                "They work for all functions",
+                "They require no computation"
+            ],
+            "correctAnswer": "They only use basic arithmetic operations",
+            "explanation": "Polynomials only require addition, subtraction, and multiplication—operations that computers handle extremely efficiently. This makes them ideal for approximating complex functions like sin, cos, exp, etc.",
+            "prompt": "What is the main advantage of polynomial approximations?"
+        },
+        {
+            "id": "am-q2",
+            "options": [
+                "The area under the curve",
+                "The tangent line at x = a",
+                "The curvature at x = a",
+                "The integral from 0 to a"
+            ],
+            "correctAnswer": "The tangent line at x = a",
+            "explanation": "The first-order Taylor term f(a) + f'(a)(x-a) is exactly the equation of the tangent line at x = a. This is the simplest linear approximation to the curve.",
+            "prompt": "In a Taylor series expansion around x = a, what does the first derivative term f'(a)(x-a) represent geometrically?"
+        },
+        {
+            "id": "am-q3",
+            "options": [
+                "Only even powers are used",
+                "The expansion is around x = 0",
+                "The function is periodic",
+                "Infinite terms are included"
+            ],
+            "correctAnswer": "The expansion is around x = 0",
+            "explanation": "A Maclaurin series is simply a Taylor series with the expansion point a = 0. This simplifies the formula since (x - a) becomes just x.",
+            "prompt": "The Maclaurin series is a special case of Taylor series where:"
+        },
+        {
+            "id": "am-q4",
+            "correctAnswer": "0.4794",
+            "explanation": "sin(0.5) ≈ 0.5 - (0.5)³/6 + (0.5)⁵/120 = 0.5 - 0.0208 + 0.00026 = 0.4794. The true value is 0.4794255..., so three terms give excellent accuracy for small x.",
+            "prompt": "Using the first three non-zero terms of the Maclaurin series for sin(x), approximate sin(0.5). The series is: sin(x) = x - x³/3! + x⁵/5! - ...",
+            "options": [
+                "0.4794",
+                "0.35955",
+                "0.2397",
+                "0.7191"
+            ]
+        },
+        {
+            "id": "am-q5",
+            "options": [
+                "The derivatives become infinite for |x| > 1",
+                "ln(0) is undefined, limiting the domain",
+                "The coefficients grow too large",
+                "It's a property of all logarithmic functions"
+            ],
+            "correctAnswer": "ln(0) is undefined, limiting the domain",
+            "explanation": "The series fails for x ≤ -1 because ln(1+x) is undefined at x = -1 (ln(0) = -∞). The convergence radius is limited by the nearest singularity to the expansion point.",
+            "prompt": "Why does the Taylor series for ln(1+x) only converge for -1 < x ≤ 1?"
+        },
+        {
+            "id": "am-q6",
+            "options": [
+                "M × (x-a)ⁿ",
+                "M × (x-a)ⁿ⁺¹ / (n+1)!",
+                "M × n!",
+                "M / (x-a)ⁿ"
+            ],
+            "correctAnswer": "M × (x-a)ⁿ⁺¹ / (n+1)!",
+            "explanation": "The Taylor remainder theorem states that the error after n terms is bounded by |f^(n+1)(ξ)| × |x-a|^(n+1) / (n+1)! for some ξ between a and x. This is the Lagrange form of the remainder.",
+            "prompt": "If you use n terms of a Taylor series and the (n+1)th derivative is bounded by M, the truncation error is bounded by:"
+        },
+        {
+            "id": "am-q7",
+            "options": [
+                "Maclaurin series with many terms",
+                "First-order Taylor approximation",
+                "Fourier series",
+                "Padé approximation"
+            ],
+            "correctAnswer": "First-order Taylor approximation",
+            "explanation": "Small-signal models are first-order Taylor approximations around the DC operating point. For a diode, i = I_Q + g_d(v - V_Q) is the tangent line to the exponential characteristic at the bias point.",
+            "prompt": "In the context of circuit simulation, small-signal analysis uses which approximation method?"
+        },
+        {
+            "id": "am-q8",
+            "correctAnswer": "5",
+            "explanation": "For x = 0.1: Term 1: 1, Term 2: 0.1, Term 3: 0.005, Term 4: 0.000167, Term 5: 4.17×10⁻⁶, Term 6: 8.3×10⁻⁸. After 5 terms, the remaining error is less than 10⁻⁶.",
+            "prompt": "For e^x, how many Maclaurin series terms are needed to approximate e^0.1 with error less than 10⁻⁶? (Hint: The nth term is 0.1ⁿ/n!)",
+            "options": [
+                "7.5",
+                "5",
+                "3.75",
+                "2.5"
+            ]
+        },
+        {
+            "id": "am-q9",
+            "correctAnswer": "False",
+            "explanation": "False. Taylor series are LOCAL approximations. They may not converge outside a certain radius, and some functions (like |x| at x=0) have no Taylor series at certain points because the derivative doesn't exist.",
+            "prompt": "Taylor series can exactly represent any continuous function over its entire domain.",
+            "options": [
+                "True",
+                "False"
+            ]
+        },
+        {
+            "id": "am-q10",
+            "options": [
+                "1 - x",
+                "1 - x²/2",
+                "1 + x²/2",
+                "1 - x - x²/2"
+            ],
+            "correctAnswer": "1 - x²/2",
+            "explanation": "The Maclaurin polynomial is f(0) + f'(0)x + f''(0)x²/2! = 1 + 0·x + (-1)x²/2 = 1 - x²/2. This is exactly the start of the cosine series!",
+            "prompt": "A function has f(0) = 1, f'(0) = 0, f''(0) = -1. What is its second-order Maclaurin polynomial?"
+        }
+    ],
+    "id": "approximation-methods-quiz"
+}

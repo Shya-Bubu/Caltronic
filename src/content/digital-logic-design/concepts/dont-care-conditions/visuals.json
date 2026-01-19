@@ -1,0 +1,142 @@
+{
+    "conceptId": "dont-care-conditions",
+    "diagrams": [
+        {
+            "id": "diag-bcd-codes",
+            "type": "table",
+            "title": "BCD Valid vs Invalid",
+            "content": {
+                "headers": [
+                    "Decimal",
+                    "ABCD",
+                    "Status"
+                ],
+                "rows": [
+                    [
+                        "0",
+                        "0000",
+                        "Valid"
+                    ],
+                    [
+                        "1",
+                        "0001",
+                        "Valid"
+                    ],
+                    [
+                        "...",
+                        "...",
+                        "..."
+                    ],
+                    [
+                        "9",
+                        "1001",
+                        "Valid"
+                    ],
+                    [
+                        "10",
+                        "1010",
+                        "Don't Care"
+                    ],
+                    [
+                        "11",
+                        "1011",
+                        "Don't Care"
+                    ],
+                    [
+                        "12",
+                        "1100",
+                        "Don't Care"
+                    ],
+                    [
+                        "13",
+                        "1101",
+                        "Don't Care"
+                    ],
+                    [
+                        "14",
+                        "1110",
+                        "Don't Care"
+                    ],
+                    [
+                        "15",
+                        "1111",
+                        "Don't Care"
+                    ]
+                ]
+            }
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-dc-kmap",
+            "type": "interactive",
+            "title": "K-Map with Don't Cares",
+            "description": "Interactive K-map supporting 0, 1, and X values",
+            "purpose": "Practice grouping with don't cares",
+            "interactivity": "Cycle through 0/1/X, create groups, see optimizations",
+            "suggestedImplementation": {
+                "component": "DontCareKMap",
+                "features": [
+                    "Click to cycle: 0 → 1 → X → 0",
+                    "Visual distinction for X cells (hatched/gray)",
+                    "Groups can include X's shown differently",
+                    "Compare with/without X usage",
+                    "Show gate count savings"
+                ]
+            }
+        },
+        {
+            "id": "vis-bcd-explorer",
+            "type": "interactive",
+            "title": "BCD Don't Care Explorer",
+            "description": "See don't cares in BCD context",
+            "purpose": "Understand why BCD has 6 don't cares",
+            "interactivity": "Select BCD function, see automatic X placement",
+            "suggestedImplementation": {
+                "component": "BCDExplorer",
+                "features": [
+                    "Show BCD digit 0-9 mapping",
+                    "Highlight invalid codes 10-15",
+                    "Pre-built BCD functions",
+                    "K-map auto-fills with X's"
+                ]
+            }
+        },
+        {
+            "id": "vis-realization-compare",
+            "type": "interactive",
+            "title": "Realization Comparator",
+            "description": "Compare different realizations of same incompletely specified function",
+            "purpose": "See how X assignments affect circuit complexity",
+            "interactivity": "Toggle X values, see resulting circuit",
+            "suggestedImplementation": {
+                "component": "RealizationCompare",
+                "features": [
+                    "Side-by-side K-maps",
+                    "Different X assignments",
+                    "Show resulting expressions",
+                    "Gate count comparison",
+                    "Highlight optimal choice"
+                ]
+            }
+        },
+        {
+            "id": "vis-seven-segment",
+            "type": "interactive",
+            "title": "Seven-Segment Designer",
+            "description": "Design decoder using don't cares",
+            "purpose": "Real-world application of don't cares",
+            "interactivity": "Select segment, see K-map, minimize",
+            "suggestedImplementation": {
+                "component": "SevenSegmentDesigner",
+                "features": [
+                    "7-segment display visual",
+                    "Click segment to see its function",
+                    "K-map for each segment",
+                    "Auto-minimize with don't cares",
+                    "Compare with fully specified"
+                ]
+            }
+        }
+    ]
+}

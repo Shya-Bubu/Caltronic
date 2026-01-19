@@ -1,0 +1,23 @@
+{
+    "id": "lesson-02",
+    "title": "Approximation, Discretization, and Linearization",
+    "description": "Fundamental techniques for converting continuous real-world problems into tractable computational form",
+    "concepts": [
+        "approximation-methods",
+        "discretization-techniques",
+        "linearization-fundamentals",
+        "monte-carlo-sampling"
+    ],
+    "estimatedTime": "3-4 hours",
+    "difficulty": "intermediate",
+    "prerequisites": ["lesson-01"],
+    "learningObjectives": [
+        "Understand why approximation is essential in computational engineering",
+        "Apply discretization to convert continuous problems to discrete form",
+        "Use linearization to simplify nonlinear systems around operating points",
+        "Implement Monte Carlo methods for probabilistic analysis"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "status": "complete"
+}

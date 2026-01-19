@@ -1,0 +1,13 @@
+{
+    "id": "complexity-of-circuit-analysis",
+    "title": "Complexity of Circuit Analysis",
+    "lesson": "lesson-04",
+    "order": 4,
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

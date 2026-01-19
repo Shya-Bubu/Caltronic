@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-gray-code",
+            "options": [
+                "00, 01, 10, 11",
+                "00, 01, 11, 10",
+                "00, 10, 01, 11",
+                "00, 11, 01, 10"
+            ],
+            "correctAnswer": "00, 01, 11, 10",
+            "explanation": "Gray code for 2 bits is 00, 01, 11, 10. Each consecutive pair differs by exactly one bit.",
+            "prompt": "What is the correct Gray code sequence for 2 bits?"
+        },
+        {
+            "id": "q2-purpose",
+            "options": [
+                "It's easier to memorize",
+                "Adjacent cells differ by exactly one variable",
+                "It makes the map smaller",
+                "It allows for more variables"
+            ],
+            "correctAnswer": "Adjacent cells differ by exactly one variable",
+            "explanation": "Gray code ensures adjacent cells differ by exactly one bit, which is necessary for the adjacency theorem to enable simplification.",
+            "prompt": "Why do K-maps use Gray code ordering?"
+        },
+        {
+            "id": "q3-adjacency",
+            "options": [
+                "No, they're too far apart",
+                "Yes, they differ by one variable (A)",
+                "Only if they contain the same value",
+                "Yes, but only for POS minimization"
+            ],
+            "correctAnswer": "Yes, they differ by one variable (A)",
+            "explanation": "Cells m0 and m8 ARE adjacent because they differ only in variable A (0000 vs 1000). K-maps wrap around, making top and bottom rows adjacent.",
+            "prompt": "In a 4-variable K-map, are cells m0 (0000) and m8 (1000) adjacent?"
+        },
+        {
+            "id": "q4-minterm-placement",
+            "options": [
+                "Row A=0, Column BC=01",
+                "Row A=1, Column BC=01",
+                "Row A=1, Column BC=11",
+                "Row A=0, Column BC=10"
+            ],
+            "correctAnswer": "Row A=1, Column BC=01",
+            "explanation": "m5 = 101 means A=1, BC=01. So it goes in row A=1, column BC=01.",
+            "prompt": "In a 3-variable K-map with rows=A and columns=BC, where does m5 (101) go?"
+        },
+        {
+            "id": "q5-group-sizes",
+            "options": [
+                "3 cells",
+                "5 cells",
+                "8 cells",
+                "6 cells"
+            ],
+            "correctAnswer": "8 cells",
+            "explanation": "K-map groups must contain 2^n cells: 1, 2, 4, 8, 16, etc. 8 is valid; 3, 5, and 6 are not.",
+            "prompt": "Which of these is a valid K-map group size?"
+        },
+        {
+            "id": "q6-wrap-around",
+            "options": [
+                "Corners are always special",
+                "The map wraps around both horizontally and vertically",
+                "They're all minterms",
+                "This is never valid"
+            ],
+            "correctAnswer": "The map wraps around both horizontally and vertically",
+            "explanation": "K-maps wrap around like a torus. The four corners are mutually adjacent through wrap-around and can form a valid group of 4.",
+            "prompt": "In a 4×4 K-map, the four corner cells can form a valid group because:"
+        },
+        {
+            "id": "q7-4var-map-size",
+            "options": [
+                "8 cells",
+                "12 cells",
+                "16 cells",
+                "32 cells"
+            ],
+            "correctAnswer": "16 cells",
+            "explanation": "A 4-variable K-map has 2^4 = 16 cells, typically arranged as 4×4.",
+            "prompt": "How many cells are in a 4-variable K-map?"
+        },
+        {
+            "id": "q8-neighbor-count",
+            "options": [
+                "2 cells",
+                "3 cells",
+                "4 cells",
+                "6 cells"
+            ],
+            "correctAnswer": "4 cells",
+            "explanation": "Every cell in a 4-variable K-map has exactly 4 neighbors (left, right, above, below—accounting for wrap-around). m7 is adjacent to m3, m5, m6, and m15.",
+            "prompt": "In a 4-variable K-map, how many cells are adjacent to cell m7?"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "2 cells",
+                "3 cells",
+                "4 cells",
+                "6 cells"
+            ],
+            "correctAnswer": "4 cells",
+            "explanation": "Every cell in a 4-variable K-map has exactly 4 neighbors (left, right, above, below—accounting for wrap-around). m7 is adjacent to m3, m5, m6, and m15.",
+            "prompt": "In a 4-variable K-map, how many cells are adjacent to cell m7? (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "2 cells",
+                "3 cells",
+                "4 cells",
+                "6 cells"
+            ],
+            "correctAnswer": "4 cells",
+            "explanation": "Every cell in a 4-variable K-map has exactly 4 neighbors (left, right, above, below—accounting for wrap-around). m7 is adjacent to m3, m5, m6, and m15.",
+            "prompt": "In a 4-variable K-map, how many cells are adjacent to cell m7? (Review) (Review)"
+        }
+    ],
+    "id": "karnaugh-map-fundamentals-quiz"
+}

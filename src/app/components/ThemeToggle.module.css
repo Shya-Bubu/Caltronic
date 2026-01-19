@@ -126,8 +126,8 @@
   }
 
   .dropdown {
-    right: auto;
-    left: 0;
+    right: 0;
+    left: auto;
     min-width: 140px;
   }
 }

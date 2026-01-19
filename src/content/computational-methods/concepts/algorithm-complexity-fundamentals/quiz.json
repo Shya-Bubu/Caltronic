@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-bigo-definition",
+            "options": [
+                "The algorithm always takes exactly n² operations",
+                "The algorithm's operations grow proportionally to n²",
+                "The algorithm is twice as slow as O(n)",
+                "The algorithm uses n² bytes of memory"
+            ],
+            "correctAnswer": "The algorithm's operations grow proportionally to n²",
+            "explanation": "Big-O describes growth rate. O(n²) means operations grow proportionally to n² (quadratically). It ignores constants and lower-order terms.",
+            "prompt": "What does O(n²) mean?"
+        },
+        {
+            "id": "q2-simplify",
+            "options": [
+                "O(5n³ + 100n² + n + 1000)",
+                "O(n³ + n² + n)",
+                "O(n³)",
+                "O(5n³)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "In Big-O, we keep only the dominant term (n³) and drop all constants. 5n³ + 100n² + n + 1000 = O(n³).",
+            "prompt": "Simplify: 5n³ + 100n² + n + 1000"
+        },
+        {
+            "id": "q3-nested-loops",
+            "options": [
+                "O(n)",
+                "O(n log n)",
+                "O(n²)",
+                "O(2n)"
+            ],
+            "correctAnswer": "O(n²)",
+            "explanation": "Two nested loops, each running n times: n × n = n² iterations. Complexity is O(n²).",
+            "prompt": "What is the complexity of this code?\nfor i = 1 to n:\n    for j = 1 to n:\n        print(i + j)"
+        },
+        {
+            "id": "q4-scaling",
+            "options": [
+                "10 seconds",
+                "50 seconds",
+                "100 seconds",
+                "1000 seconds"
+            ],
+            "correctAnswer": "100 seconds",
+            "explanation": "For O(n²), if n increases by 10×, time increases by 10² = 100×. So 1 second × 100 = 100 seconds.",
+            "prompt": "An O(n²) algorithm takes 1 second for n=100. How many seconds for n=1000?"
+        },
+        {
+            "id": "q5-comparison",
+            "options": [
+                "Algorithm A: 1000n operations",
+                "Algorithm B: n² operations",
+                "They are equally fast",
+                "It depends on the computer"
+            ],
+            "correctAnswer": "Algorithm A: 1000n operations",
+            "explanation": "For large n, O(n) always beats O(n²). The constant (1000) doesn't matter asymptotically. At n=1001, A is already faster: 1,001,000 < 1,002,001.",
+            "prompt": "Which is faster for LARGE n?"
+        },
+        {
+            "id": "q6-triangle-loop",
+            "options": [
+                "O(n)",
+                "O(n log n)",
+                "O(n²)",
+                "O(n³)"
+            ],
+            "correctAnswer": "O(n²)",
+            "explanation": "Inner loop runs 1 + 2 + 3 + ... + n = n(n+1)/2 total times. This is O(n²), even though it's \"triangular\" not \"square\".",
+            "prompt": "What is the complexity?\nfor i = 1 to n:\n    for j = 1 to i:\n        work()"
+        },
+        {
+            "id": "q7-sparse-vs-dense",
+            "options": [
+                "50×",
+                "100×",
+                "200×",
+                "500×"
+            ],
+            "correctAnswer": "200×",
+            "explanation": "Dense matvec: n² = 1,000,000 operations. Sparse matvec: nnz = 5,000 operations. Speedup: 1,000,000 / 5,000 = 200×.",
+            "prompt": "A 1000×1000 matrix has 5000 non-zeros. How many times faster is sparse matrix-vector multiply compared to dense?"
+        },
+        {
+            "id": "q8-lu-complexity",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(n⁴)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Dense LU factorization requires approximately (2/3)n³ operations, which is O(n³). This is why sparse methods are essential for large circuits.",
+            "prompt": "The standard dense LU factorization is:"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(n⁴)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Dense LU factorization requires approximately (2/3)n³ operations, which is O(n³). This is why sparse methods are essential for large circuits.",
+            "prompt": "The standard dense LU factorization is: (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(n⁴)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Dense LU factorization requires approximately (2/3)n³ operations, which is O(n³). This is why sparse methods are essential for large circuits.",
+            "prompt": "The standard dense LU factorization is: (Review) (Review)"
+        }
+    ],
+    "id": "algorithm-complexity-fundamentals-quiz"
+}

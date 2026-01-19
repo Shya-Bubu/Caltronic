@@ -1,0 +1,65 @@
+{
+    "id": "mesh-analysis-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "What is Mesh Analysis?",
+            "back": "A systematic method to solve PLANAR circuits by:\n1. Identifying all meshes (inner loops)\n2. Assigning mesh currents (usually clockwise)\n3. Writing KVL for each mesh\n4. Solving the system of equations",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "What is a Mesh?",
+            "back": "A mesh is a loop that contains NO OTHER LOOPS inside it.\n\nThink of it as the 'windows' when the circuit is drawn flat on paper.\n\nAlso called an 'inner loop' or 'independent loop'.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "KVL for a Mesh",
+            "back": "Sum of voltage drops around the mesh = 0\n\nFor resistor in one mesh only:\nV = i_mesh × R\n\nFor resistor shared by meshes:\nV = (i_this - i_other) × R",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "Resistance Matrix: Diagonal R_kk",
+            "back": "R_kk = Sum of ALL resistances in mesh k\n\nR_kk = Σ Rⱼ for all j in mesh k\n\n(Always positive)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "Resistance Matrix: Off-Diagonal R_kj",
+            "back": "R_kj = NEGATIVE of resistance shared between meshes k and j\n\nR_kj = -R_shared(k,j)\n\n(Always ≤ 0)\n\nNote: R is symmetric, R_kj = R_jk",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "When to Use Supermesh",
+            "back": "Use supermesh when a CURRENT SOURCE is SHARED between two meshes.\n\nSupermesh gives:\n1. Constraint: i₂ - i₁ = I_source\n2. Combined KVL: Go around both meshes, skip the current source",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Current Source in Outer Branch",
+            "back": "If current source I is in the OUTER branch of mesh k:\n\ni_k = I (directly known!)\n\nNo equation needed for this mesh.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Matrix Form: Ri = v",
+            "back": "Standard mesh equations:\n\nRi = v\n\nWhere:\n• R = M × M resistance matrix\n• i = mesh current vector\n• v = voltage source vector (+ for rise in CW direction)\n\nSolve: i = R⁻¹v",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Branch Current from Mesh Currents",
+            "back": "Exclusive branch (in mesh k only):\nI_branch = i_k\n\nShared branch (between k and j):\nI_branch = i_k - i_j\n\nDirection follows mesh k's direction.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "Mesh vs Nodal: When to Use Mesh",
+            "back": "Mesh analysis is best when:\n\n✓ Circuit has many voltage sources\n✓ Many series elements\n✓ Fewer meshes than (N-1) nodes\n✓ Need currents directly\n✓ Circuit is planar\n\n✗ Don't use if circuit is non-planar!",
+            "difficultyLevel": 1
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "nodal-analysis-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "What is Nodal Analysis?",
+            "back": "A systematic method to solve circuits by:\n1. Choosing a reference node (ground)\n2. Defining node voltages relative to ground\n3. Writing KCL at each non-reference node\n4. Solving the resulting system of equations",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "How many equations for N nodes?",
+            "back": "For a circuit with N nodes (including ground):\n\nNumber of equations = N - 1\n\nOne node is reference (ground, 0V), so N-1 unknown node voltages.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "KCL Equation Form at a Node",
+            "back": "At node k with voltage vₖ:\n\nΣ (currents leaving) = 0\n\nOr: Σ (vₖ - vⱼ)/Rₖⱼ = Σ Iₛₒᵤᵣcₑ,ᵢₙ\n\nCurrent from k to j: I = (vₖ - vⱼ)/R",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "Conductance Matrix: Diagonal Entry G_kk",
+            "back": "G_kk = Sum of ALL conductances connected to node k\n\nG_kk = Σ Gⱼ for all j connected to k\n\n(Always positive)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "Conductance Matrix: Off-Diagonal Entry G_kj",
+            "back": "G_kj = NEGATIVE of conductance between nodes k and j\n\nG_kj = -G_between(k,j)\n\n(Always negative or zero)\n\nNote: G is symmetric, so G_kj = G_jk",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "When to Use a Supernode",
+            "back": "Use a supernode when a voltage source connects two NON-REFERENCE nodes (floating voltage source).\n\nSupernode gives:\n1. Constraint: v₁ - v₂ = V_source\n2. Combined KCL: Treat both nodes as one for KCL",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "Voltage Source to Ground",
+            "back": "If voltage source V connects node k to ground:\n\nvₖ = V (known!)\n\nNo equation needed for this node—its voltage is fixed by the source.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Current Source Handling",
+            "back": "Current sources appear DIRECTLY in the KCL equations:\n\n• Source INTO node k: +I in current sum\n• Source OUT OF node k: -I in current sum\n\nCurrent sources are 'nodal-friendly'!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "Matrix Form: Gv = i",
+            "back": "Standard nodal equations:\n\nGv = i\n\nWhere:\n• G = (N-1) × (N-1) conductance matrix\n• v = node voltage vector\n• i = current source vector (+ for into node)\n\nSolve: v = G⁻¹i",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "When is Nodal Analysis Best?",
+            "back": "Nodal analysis is most efficient when:\n\n✓ Circuit has many current sources\n✓ Many parallel branches\n✓ Fewer nodes than meshes\n✓ You need node voltages\n\nLess ideal when:\n✗ Many voltage sources (need supernodes)\n✗ More nodes than meshes",
+            "difficultyLevel": 1
+        }
+    ]
+}

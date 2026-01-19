@@ -1,0 +1,23 @@
+{
+    "id": "lesson-03",
+    "title": "Mathematical Modeling for Engineers",
+    "description": "Building mathematical representations of physical systems for computational analysis",
+    "concepts": [
+        "what-is-mathematical-modeling",
+        "conservation-laws-and-balance-equations",
+        "constitutive-relations",
+        "model-validation-and-verification"
+    ],
+    "estimatedTime": "3-4 hours",
+    "difficulty": "intermediate",
+    "prerequisites": ["lesson-01", "lesson-02"],
+    "learningObjectives": [
+        "Understand the systematic process of building mathematical models",
+        "Apply conservation laws to derive governing equations",
+        "Select appropriate constitutive relations for system components",
+        "Validate models against physical measurements and expected behavior"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "status": "complete"
+}

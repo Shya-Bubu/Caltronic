@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-kcl-statement",
+            "options": [
+                "The sum of currents entering a node equals the sum leaving",
+                "Current flows from high voltage to low voltage",
+                "Current is always conserved in a closed loop",
+                "The product of voltage and current is constant"
+            ],
+            "correctAnswer": "The sum of currents entering a node equals the sum leaving",
+            "explanation": "KCL is a statement of charge conservation: at any node, the algebraic sum of currents must be zero because charge cannot accumulate at a point.",
+            "prompt": "Kirchhoff's Current Law states that:"
+        },
+        {
+            "id": "q2-kvl-basis",
+            "options": [
+                "Charge",
+                "Mass",
+                "Energy",
+                "Momentum"
+            ],
+            "correctAnswer": "Energy",
+            "explanation": "KVL states that voltage around any closed loop sums to zero. This is because voltage is potential energy per charge, and going around a closed loop must return you to the same potential (energy is conserved, no perpetual motion).",
+            "prompt": "KVL is based on conservation of:"
+        },
+        {
+            "id": "q3-node-currents",
+            "options": [
+                "4 mA",
+                "5 mA",
+                "6 mA",
+                "8 mA"
+            ],
+            "correctAnswer": "6 mA",
+            "explanation": "Sum of entering currents = 3 + (-2) + 5 = 6mA. For KCL: entering = leaving, so 6mA must leave.",
+            "prompt": "At a node, currents of 3mA, -2mA, and 5mA enter. What current must leave for KCL to be satisfied?"
+        },
+        {
+            "id": "q4-loop-voltage",
+            "options": [
+                "-8 V",
+                "-6 V",
+                "-4 V",
+                "6 V"
+            ],
+            "correctAnswer": "-6 V",
+            "explanation": "Sum must equal zero: 5 + 3 + (-2) + x = 0. Therefore x = -6V (a 6V drop).",
+            "prompt": "In a loop, you encounter voltage rises of +5V and +3V, and a drop of -2V. What additional voltage is needed to satisfy KVL?"
+        },
+        {
+            "id": "q5-conductance-matrix",
+            "options": [
+                "The conductance between node i and ground",
+                "The sum of all conductances connected to node i",
+                "The voltage at node i",
+                "The current entering node i"
+            ],
+            "correctAnswer": "The sum of all conductances connected to node i",
+            "explanation": "The diagonal entry G[i,i] is the sum of ALL conductances connected to node i, including connections to other nodes and to ground.",
+            "prompt": "In the nodal conductance matrix G, what does the diagonal entry G[i,i] represent?"
+        },
+        {
+            "id": "q6-off-diagonal",
+            "options": [
+                "The conductance between nodes i and j",
+                "The negative of the conductance between nodes i and j",
+                "Zero if nodes i and j are not directly connected",
+                "Both B and C"
+            ],
+            "correctAnswer": "Both B and C",
+            "explanation": "Off-diagonal entries are the NEGATIVE of the conductance between the nodes (with negative sign from KCL formulation), and zero if no direct connection exists.",
+            "prompt": "In the conductance matrix, the off-diagonal entry G[i,j] where i≠j is:"
+        },
+        {
+            "id": "q7-tellegen",
+            "options": [
+                "Σ(vi × ii) = 0 for all branches",
+                "Σvi = 0 around any loop",
+                "Σii = 0 at any node",
+                "Total energy stored equals total energy dissipated"
+            ],
+            "correctAnswer": "Σ(vi × ii) = 0 for all branches",
+            "explanation": "Tellegen's theorem states that the sum of instantaneous power (v×i) over all branches equals zero when using associated reference directions. It's a powerful generalization of conservation laws.",
+            "prompt": "Tellegen's theorem states that for any circuit:"
+        },
+        {
+            "id": "q8-kcl-fails",
+            "options": [
+                "The circuit has nonlinear components",
+                "Operating frequency causes wavelength comparable to circuit size",
+                "The circuit has multiple loops",
+                "Current sources are present"
+            ],
+            "correctAnswer": "Operating frequency causes wavelength comparable to circuit size",
+            "explanation": "KCL is a quasi-static approximation. At high frequencies where electromagnetic wave effects matter (dimensions comparable to wavelength), charge can effectively 'accumulate' due to displacement currents, and KCL breaks down.",
+            "prompt": "KCL may fail to hold when:"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "The circuit has nonlinear components",
+                "Operating frequency causes wavelength comparable to circuit size",
+                "The circuit has multiple loops",
+                "Current sources are present"
+            ],
+            "correctAnswer": "Operating frequency causes wavelength comparable to circuit size",
+            "explanation": "KCL is a quasi-static approximation. At high frequencies where electromagnetic wave effects matter (dimensions comparable to wavelength), charge can effectively 'accumulate' due to displacement currents, and KCL breaks down.",
+            "prompt": "KCL may fail to hold when: (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "The circuit has nonlinear components",
+                "Operating frequency causes wavelength comparable to circuit size",
+                "The circuit has multiple loops",
+                "Current sources are present"
+            ],
+            "correctAnswer": "Operating frequency causes wavelength comparable to circuit size",
+            "explanation": "KCL is a quasi-static approximation. At high frequencies where electromagnetic wave effects matter (dimensions comparable to wavelength), charge can effectively 'accumulate' due to displacement currents, and KCL breaks down.",
+            "prompt": "KCL may fail to hold when: (Review) (Review)"
+        }
+    ],
+    "id": "conservation-laws-and-balance-equations-quiz"
+}

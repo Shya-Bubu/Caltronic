@@ -1,0 +1,141 @@
+{
+    "conceptId": "constitutive-relations",
+    "diagrams": [
+        {
+            "id": "diag-component-summary",
+            "type": "comparison-table",
+            "title": "Passive Component Summary",
+            "content": {
+                "columns": [
+                    "Property",
+                    "Resistor",
+                    "Capacitor",
+                    "Inductor"
+                ],
+                "rows": [
+                    [
+                        "Symbol",
+                        "R",
+                        "C",
+                        "L"
+                    ],
+                    [
+                        "Relation",
+                        "v=iR",
+                        "i=Cdv/dt",
+                        "v=Ldi/dt"
+                    ],
+                    [
+                        "Impedance",
+                        "R",
+                        "1/jωC",
+                        "jωL"
+                    ],
+                    [
+                        "Energy",
+                        "Dissipated",
+                        "½Cv²",
+                        "½Li²"
+                    ],
+                    [
+                        "DC behavior",
+                        "Finite current",
+                        "Open circuit",
+                        "Short circuit"
+                    ]
+                ]
+            }
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-vi-characteristic-explorer",
+            "type": "interactive",
+            "title": "V-I Characteristic Explorer",
+            "description": "Interactive visualization of voltage-current relationships for different components",
+            "purpose": "Build intuition for how different components respond to voltage and current",
+            "interactivity": "Select component type, adjust parameters, see V-I curve",
+            "suggestedImplementation": {
+                "component": "VICharacteristicExplorer",
+                "features": [
+                    "Selectable component types (R, C, L, diode, MOSFET)",
+                    "Adjustable parameters (R value, Is, VT, etc.)",
+                    "Real-time V-I curve plotting",
+                    "Operating point marker with tangent line for small-signal",
+                    "DC load line overlay"
+                ]
+            }
+        },
+        {
+            "id": "vis-capacitor-inductor-behavior",
+            "type": "interactive",
+            "title": "Capacitor vs Inductor Response",
+            "description": "Side-by-side comparison of capacitor and inductor behavior to different waveforms",
+            "purpose": "Contrast how C and L respond to voltage/current changes",
+            "interactivity": "Apply different waveforms and see response",
+            "suggestedImplementation": {
+                "component": "CLComparisonSimulator",
+                "features": [
+                    "Split screen: capacitor | inductor",
+                    "Input waveform selector (step, sine, triangle, pulse)",
+                    "Time-domain response plots",
+                    "Energy storage animation",
+                    "Phase relationship visualization"
+                ]
+            }
+        },
+        {
+            "id": "vis-impedance-frequency-plot",
+            "type": "interactive",
+            "title": "Impedance vs Frequency Visualizer",
+            "description": "Bode-style plot showing how component impedance varies with frequency",
+            "purpose": "Understand frequency-dependent behavior of R, L, C",
+            "interactivity": "Adjust component values and see impedance magnitude/phase",
+            "suggestedImplementation": {
+                "component": "ImpedanceFrequencyPlot",
+                "features": [
+                    "Log-log magnitude plot",
+                    "Phase plot",
+                    "Multiple component overlay",
+                    "Resonance highlighting for LC combinations",
+                    "Interactive frequency marker"
+                ]
+            }
+        },
+        {
+            "id": "vis-linearization-visualizer",
+            "type": "interactive",
+            "title": "Diode Linearization Visualizer",
+            "description": "Shows how nonlinear diode is approximated by linear model",
+            "purpose": "Understand small-signal model derivation",
+            "interactivity": "Move operating point and see small-signal resistance change",
+            "suggestedImplementation": {
+                "component": "DiodeLinearizer",
+                "features": [
+                    "Exponential diode curve",
+                    "Draggable operating point",
+                    "Tangent line showing rd",
+                    "Valid range shading",
+                    "rd calculation display"
+                ]
+            }
+        },
+        {
+            "id": "vis-energy-storage-animation",
+            "type": "animation",
+            "title": "Energy Storage in C and L",
+            "description": "Animated visualization of energy storage mechanisms",
+            "purpose": "Build physical intuition for energy in electric/magnetic fields",
+            "interactivity": "Play/pause animation, adjust charge/current levels",
+            "suggestedImplementation": {
+                "component": "EnergyStorageAnimation",
+                "features": [
+                    "Capacitor: E-field lines between plates",
+                    "Inductor: B-field lines through coil",
+                    "Energy meter showing W = ½CV² or ½LI²",
+                    "Charge/current flow animation"
+                ]
+            }
+        }
+    ]
+}

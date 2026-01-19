@@ -1,0 +1,65 @@
+{
+    "id": "complexity-of-circuit-analysis-flashcards",
+    "cards": [
+        {
+            "id": "fc-1",
+            "front": "DC Analysis Complexity",
+            "back": "Linear: O(n · fill²)\nNonlinear: O(k · n · fill²)\n\nWhere:\n• n = nodes\n• fill = fill-in during factorization\n• k = Newton iterations (typically 5-20)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-2",
+            "front": "AC Analysis Complexity",
+            "back": "Single frequency: O(n · fill²)\nF frequencies: O(F · fill²) with pattern reuse\n\nKey: Same sparsity pattern at all frequencies\n→ Symbolic factorization done once",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-3",
+            "front": "Transient Analysis Complexity",
+            "back": "With LU reuse (constant dt, linear):\nO(n · fill²) + O(T · fill)\n\nWithout reuse:\nO(T · n · fill²)\n\nReuse gives huge savings for large T!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-4",
+            "front": "Newton-Raphson for Nonlinear DC",
+            "back": "Iteration: v^(k+1) = v^(k) - J^(-1) f(v^(k))\n\nPer iteration:\n• Evaluate f(v): O(m)\n• Build Jacobian J: O(m)\n• Factor J: O(n · fill²)\n• Solve: O(fill)\n\nConverges quadratically near solution",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-5",
+            "front": "When to Reuse Factorization",
+            "back": "Can reuse when matrix structure unchanged:\n\n✓ Multiple RHS (same A, different b)\n✓ AC sweep (same pattern, different ω)\n✓ Transient with constant dt (linear circuit)\n✓ Newton iterations (same sparsity pattern)\n\n✗ Changing topology\n✗ Variable time step",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-6",
+            "front": "Adaptive Time Stepping Benefit",
+            "back": "Instead of fixed small dt:\n• Large dt when signals change slowly\n• Small dt at fast transitions\n\nTypical savings: 10-100× fewer steps\n\nLTE-based control:\ndt_new = dt × (tol/LTE)^(1/(p+1))",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-7",
+            "front": "SPICE Time Distribution (Nonlinear Transient)",
+            "back": "Typical breakdown:\n• Model evaluation: 40-60%\n• Numeric factorization: 20-40%\n• Solve (fwd/back sub): 5-15%\n• Matrix loading: 5-10%\n• Other: 5-10%\n\nModel evaluation often dominates!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-8",
+            "front": "Scaling Rules of Thumb",
+            "back": "For well-optimized SPICE:\n• DC: ~O(n^1.5) to O(n^2)\n• AC per freq: ~O(n^1.5)\n• Transient per step: ~O(n^1.5)\n\nDue to sparse methods + good ordering",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-9",
+            "front": "When Simulation Is Fast",
+            "back": "✓ Small circuits (< 1000 nodes)\n✓ Linear circuits\n✓ Short transients\n✓ Good matrix ordering\n✓ Reusing factorization\n\nFor 1000-node linear circuit:\nDC < 1s, AC(100) < 10s, Trans(1000) < 1min",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fc-10",
+            "front": "When Simulation Is Slow",
+            "back": "✗ Large circuits (> 100k nodes)\n✗ Highly nonlinear (many Newton iters)\n✗ Long transients with fast dynamics\n✗ Poor sparsity/ordering\n✗ Variable time step (no reuse)\n\nFull chip (1M nodes): hours to days",
+            "difficultyLevel": 1
+        }
+    ]
+}

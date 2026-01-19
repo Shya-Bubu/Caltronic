@@ -1,0 +1,77 @@
+{
+    "id": "discretization-techniques-flashcards",
+    "cards": [
+        {
+            "id": "dt-f1",
+            "front": "Forward Difference Formula",
+            "back": "f'(x) ≈ [f(x+h) - f(x)] / h\n\nAccuracy: O(h) - first order\nUses: current point and one ahead",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f2",
+            "front": "Central Difference Formula (first derivative)",
+            "back": "f'(x) ≈ [f(x+h) - f(x-h)] / 2h\n\nAccuracy: O(h²) - second order\nBetter than forward/backward!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f3",
+            "front": "Central Difference Formula (second derivative)",
+            "back": "f''(x) ≈ [f(x+h) - 2f(x) + f(x-h)] / h²\n\nAccuracy: O(h²)\nStencil coefficients: +1, -2, +1",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f4",
+            "front": "Euler's Method Formula",
+            "back": "For dy/dt = f(t,y):\n\ny_{n+1} = y_n + h × f(t_n, y_n)\n\nUses current slope to step forward.\nFirst-order accurate, error O(h²) per step.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f5",
+            "front": "Nyquist Sampling Theorem",
+            "back": "To avoid aliasing:\n\nfs ≥ 2 × fmax\n\nSample at least twice the highest frequency.\nThis IS discretization of continuous signals!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f6",
+            "front": "What is aliasing?",
+            "back": "When high frequencies appear as low frequencies due to insufficient sampling rate.\n\nExample: Wagon wheels appearing to spin backward in movies.\n\nPrevention: Sample faster OR use anti-aliasing filter.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f7",
+            "front": "Euler Method Stability Condition",
+            "back": "For dy/dt = λy (λ < 0):\n\nh < 2/|λ|\n\nIf step too large → solution oscillates and diverges.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f8",
+            "front": "Discretization-Accuracy Tradeoff",
+            "back": "Smaller h (finer grid):\n✓ More accurate\n✗ More computation\n✗ More round-off error accumulation\n\nLarger h (coarser grid):\n✓ Faster\n✗ Less accurate",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f9",
+            "front": "Why is central difference better than forward?",
+            "back": "Central: errors from both sides partially CANCEL\n→ O(h²) accuracy\n\nForward: one-sided, no cancellation\n→ O(h) accuracy\n\nHalving h: Central improves 4×, Forward only 2×",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f10",
+            "front": "Common time-stepping methods (order of accuracy)",
+            "back": "1. Forward/Backward Euler: O(h)\n2. Trapezoidal: O(h²)\n3. Runge-Kutta 4 (RK4): O(h⁴)\n\nHigher order = fewer steps for same accuracy",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f11",
+            "front": "What is a stencil in finite differences?",
+            "back": "The pattern of neighboring points used in a finite difference formula.\n\nExample for f''(x):\n[+1] [-2] [+1]  ←  stencil\n x-h   x   x+h\n\nDivide by h²",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dt-f12",
+            "front": "SPICE transient analysis uses:",
+            "back": "• Time discretization (finite differences)\n• Adaptive step size (smaller h when voltage changes fast)\n• Newton-Raphson at each time step\n\nTradeoff: accuracy vs. simulation time",
+            "difficultyLevel": 1
+        }
+    ]
+}

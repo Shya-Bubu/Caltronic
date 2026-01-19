@@ -40,22 +40,24 @@ export default function VisualRenderer({
 
   // D3 Waveform (sine, square, step, impulse, etc.)
   if (type === 'd3-waveform') {
-    const waveType = ('waveType' in item && typeof item.waveType === 'string')
-      ? item.waveType as 'sine' | 'cosine' | 'square' | 'step' | 'impulse' | 'ramp' | 'triangle' | 'rect'
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const waveItem = item as any;
+    const waveType = (waveItem.waveType && typeof waveItem.waveType === 'string')
+      ? waveItem.waveType as 'sine' | 'cosine' | 'square' | 'step' | 'impulse' | 'ramp' | 'triangle' | 'rect'
       : 'sine';
-    const mode = ('mode' in item && item.mode === 'discrete') ? 'discrete' : 'continuous';
+    const mode = (waveItem.mode && waveItem.mode === 'discrete') ? 'discrete' : 'continuous';
 
     return (
-      <div style={{ marginBlock: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ marginBlock: '1rem', width: '100%', overflowX: 'auto' }}>
         <Waveform
           type={waveType}
           mode={mode}
           title={title}
-          width={500}
-          height={220}
+          width={600}
+          height={200}
         />
         {description && (
-          <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)', textAlign: 'center', maxWidth: 500 }}>
+          <div style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)', textAlign: 'center' }}>
             {description}
           </div>
         )}
@@ -171,7 +173,7 @@ export default function VisualRenderer({
     const connections = ('connections' in item && Array.isArray(item.connections)) ? item.connections : [];
 
     return (
-      <div style={{ marginBlock: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ marginBlock: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', overflowX: 'auto' }}>
         <D3BlockDiagram
           blocks={blocks}
           connections={connections}

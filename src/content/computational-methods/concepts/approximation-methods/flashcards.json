@@ -1,0 +1,77 @@
+{
+    "id": "approximation-methods-flashcards",
+    "cards": [
+        {
+            "id": "am-f1",
+            "front": "What is the Taylor series formula for f(x) around point a?",
+            "back": "f(x) = f(a) + f'(a)(x-a) + f''(a)(x-a)²/2! + f'''(a)(x-a)³/3! + ...\n\nEach term adds more derivative information about the curve at point a.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f2",
+            "front": "What is a Maclaurin series?",
+            "back": "A Maclaurin series is a Taylor series expanded around a = 0.\n\nf(x) = f(0) + f'(0)x + f''(0)x²/2! + ...",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f3",
+            "front": "Maclaurin series for eˣ",
+            "back": "eˣ = 1 + x + x²/2! + x³/3! + x⁴/4! + ...\n\nConverges for ALL x.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f4",
+            "front": "Maclaurin series for sin(x)",
+            "back": "sin(x) = x - x³/3! + x⁵/5! - x⁷/7! + ...\n\nOnly ODD powers, alternating signs.\nConverges for all x.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f5",
+            "front": "Maclaurin series for cos(x)",
+            "back": "cos(x) = 1 - x²/2! + x⁴/4! - x⁶/6! + ...\n\nOnly EVEN powers, alternating signs.\nConverges for all x.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f6",
+            "front": "Maclaurin series for ln(1+x)",
+            "back": "ln(1+x) = x - x²/2 + x³/3 - x⁴/4 + ...\n\nConverges only for -1 < x ≤ 1",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f7",
+            "front": "What is truncation error?",
+            "back": "The error introduced by stopping a series after finitely many terms.\n\nFor Taylor series: Error ≈ f^(n+1)(ξ)(x-a)^(n+1)/(n+1)!\n\nSmaller (x-a) and more terms → smaller error",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f8",
+            "front": "What is the radius of convergence?",
+            "back": "The distance from the expansion point within which the Taylor series converges.\n\nOutside this radius, the series may diverge to infinity.\n\nDetermined by nearest singularity to expansion point.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f9",
+            "front": "Why are polynomials preferred for computer calculations?",
+            "back": "Polynomials only require:\n• Addition\n• Subtraction  \n• Multiplication\n\nNo special functions, no division by variables, very fast on processors.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f10",
+            "front": "How does small-signal analysis relate to Taylor series?",
+            "back": "Small-signal models are FIRST-ORDER Taylor approximations around the DC operating point.\n\nExample: Diode i ≈ I_Q + g_d(v - V_Q)\n\nwhere g_d = dI/dV|_Q is the derivative at the operating point.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f11",
+            "front": "What determines how many Taylor terms you need?",
+            "back": "1. Required accuracy (error tolerance)\n2. Distance from expansion point |x - a|\n3. Behavior of higher derivatives\n\nRule: More terms = more accuracy but more computation.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "am-f12",
+            "front": "When does Taylor series fail?",
+            "back": "1. At points where derivatives don't exist (corners, discontinuities)\n2. Outside the radius of convergence\n3. For non-analytic functions\n\nExample: No Taylor series for |x| at x = 0",
+            "difficultyLevel": 1
+        }
+    ]
+}

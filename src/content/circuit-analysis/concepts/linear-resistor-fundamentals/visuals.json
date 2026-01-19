@@ -2,24 +2,6 @@
     "conceptId": "linear-resistor-fundamentals",
     "visuals": [
         {
-            "id": "v1",
-            "type": "image-gallery",
-            "title": "Water-Circuit Analogy",
-            "description": "Visual comparison showing water pressure, flow, and pipe resistance mapped to voltage, current, and electrical resistance",
-            "images": [
-                {
-                    "src": "/course/circuit-analysis/lesson-01/images/water_analogy.png",
-                    "alt": "Water flowing through pipes compared to current in circuits",
-                    "caption": "Water System: Pressure pushes water through narrow pipes"
-                },
-                {
-                    "src": "/course/circuit-analysis/lesson-01/images/circuit_analogy.png",
-                    "alt": "Electrical circuit with battery and resistor",
-                    "caption": "Electrical System: Voltage pushes current through resistors"
-                }
-            ]
-        },
-        {
             "id": "v2",
             "type": "d3-ohms-law-explorer",
             "title": "Interactive Ohm's Law Explorer",
@@ -52,15 +34,6 @@
                 "highlightSlope": true,
                 "slopeLabel": "R"
             }
-        },
-        {
-            "id": "v5",
-            "type": "image",
-            "title": "Linear Resistor Characteristics in Both Planes",
-            "description": "Comparison showing the same resistor plotted on v-i and i-v planes",
-            "src": "/course/circuit-analysis/lesson-01/images/page02_img01.png",
-            "alt": "Linear resistor characteristic on both v-i and i-v planes",
-            "caption": "From lecture notes: Both representations show the same linear relationship"
         },
         {
             "id": "v6",

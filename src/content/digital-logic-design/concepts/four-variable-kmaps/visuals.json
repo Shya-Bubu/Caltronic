@@ -1,0 +1,124 @@
+{
+    "conceptId": "four-variable-kmaps",
+    "diagrams": [
+        {
+            "id": "diag-4var-template",
+            "type": "kmap",
+            "title": "4-Variable Template",
+            "content": "         CD\n       00  01  11  10\n    ┌────┬────┬────┬────┐\n 00 │  0 │  1 │  3 │  2 │\n    ├────┼────┼────┼────┤\nAB 01│  4 │  5 │  7 │  6 │\n    ├────┼────┼────┼────┤\n 11 │ 12 │ 13 │ 15 │ 14 │\n    ├────┼────┼────┼────┤\n 10 │  8 │  9 │ 11 │ 10 │\n    └────┴────┴────┴────┘"
+        },
+        {
+            "id": "diag-group-sizes",
+            "type": "table",
+            "title": "Group Sizes",
+            "content": {
+                "headers": [
+                    "Size",
+                    "Shape",
+                    "Literals"
+                ],
+                "rows": [
+                    [
+                        "1",
+                        "Cell",
+                        "4"
+                    ],
+                    [
+                        "2",
+                        "1×2 or 2×1",
+                        "3"
+                    ],
+                    [
+                        "4",
+                        "2×2 or row or col",
+                        "2"
+                    ],
+                    [
+                        "8",
+                        "2×4 or 4×2",
+                        "1"
+                    ],
+                    [
+                        "16",
+                        "All",
+                        "0 (=1)"
+                    ]
+                ]
+            }
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-4var-grouper",
+            "type": "interactive",
+            "title": "4-Variable K-Map Grouper",
+            "description": "Full-featured 4×4 K-map grouping tool",
+            "purpose": "Practice finding optimal groupings",
+            "interactivity": "Toggle cells, draw groups, auto-verify",
+            "suggestedImplementation": {
+                "component": "FourVarGrouper",
+                "features": [
+                    "4×4 grid with proper labels",
+                    "Click to toggle cell values",
+                    "Drag to create rectangular groups",
+                    "Multiple colored groups",
+                    "Wrap-around visualization",
+                    "Auto-generate minimal expression",
+                    "Show prime implicants"
+                ]
+            }
+        },
+        {
+            "id": "vis-pattern-library",
+            "type": "reference",
+            "title": "Common K-Map Patterns",
+            "description": "Library of recognizable patterns and their terms",
+            "purpose": "Speed up pattern recognition",
+            "suggestedImplementation": {
+                "component": "PatternLibrary",
+                "features": [
+                    "Visual catalog of common groups",
+                    "Rows, columns, corners, squares",
+                    "Click to see term",
+                    "Filter by group size"
+                ]
+            }
+        },
+        {
+            "id": "vis-wrap-around-3d",
+            "type": "interactive",
+            "title": "Torus Visualization",
+            "description": "See the K-map as a 3D torus",
+            "purpose": "Understand wrap-around geometrically",
+            "interactivity": "Rotate 3D model, see adjacencies",
+            "suggestedImplementation": {
+                "component": "TorusView",
+                "features": [
+                    "3D torus with cells mapped",
+                    "Highlight selected cell and neighbors",
+                    "Animation showing wrap-around",
+                    "Toggle between 2D and 3D view"
+                ]
+            }
+        },
+        {
+            "id": "vis-step-by-step",
+            "type": "interactive",
+            "title": "Step-by-Step Minimization",
+            "description": "Guided walkthrough of K-map simplification",
+            "purpose": "Learn systematic approach",
+            "interactivity": "Step through each stage of minimization",
+            "suggestedImplementation": {
+                "component": "StepByStepMinimizer",
+                "features": [
+                    "Load function (minterm list)",
+                    "Step 1: Fill K-map",
+                    "Step 2: Find prime implicants",
+                    "Step 3: Identify essential PIs",
+                    "Step 4: Complete coverage",
+                    "Step 5: Final expression"
+                ]
+            }
+        }
+    ]
+}

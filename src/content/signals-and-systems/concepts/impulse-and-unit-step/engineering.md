@@ -13,6 +13,8 @@ When you close a switch in an RL circuit at t=0, the voltage source is suddenly 
 V(t) = V₀ · u(t)
 ```
 
+[[visual:v3]]
+
 The **current derivative** involves δ(t) because of the inductor's volt-ampere relationship:
 ```
 V_L = L di/dt

@@ -1,0 +1,120 @@
+{
+    "conceptId": "maximum-power-transfer",
+    "diagrams": [
+        {
+            "id": "diag-power-formula",
+            "type": "equation",
+            "title": "Key Formulas",
+            "content": "P_L = V_th² × R_L / (R_th + R_L)²\n\nAt R_L = R_th:\nP_max = V_th² / (4R_th)"
+        },
+        {
+            "id": "diag-efficiency-table",
+            "type": "table",
+            "title": "Efficiency vs Load",
+            "content": {
+                "headers": [
+                    "R_L / R_th",
+                    "Efficiency",
+                    "P_L / P_max"
+                ],
+                "rows": [
+                    [
+                        "0",
+                        "0%",
+                        "0%"
+                    ],
+                    [
+                        "0.5",
+                        "33%",
+                        "89%"
+                    ],
+                    [
+                        "1",
+                        "50%",
+                        "100%"
+                    ],
+                    [
+                        "2",
+                        "67%",
+                        "89%"
+                    ],
+                    [
+                        "∞",
+                        "100%",
+                        "0%"
+                    ]
+                ]
+            }
+        }
+    ],
+    "visuals": [
+        {
+            "id": "vis-power-curve",
+            "type": "interactive",
+            "title": "Power vs Load Resistance",
+            "description": "Visualize how power changes with load resistance",
+            "purpose": "See the maximum power point graphically",
+            "interactivity": "Drag slider to change R_L, watch power curve",
+            "suggestedImplementation": {
+                "component": "PowerCurve",
+                "features": [
+                    "Plot P_L vs R_L",
+                    "Mark maximum point at R_L = R_th",
+                    "Show current values of P, R_L, efficiency",
+                    "Highlight matched vs mismatched regions"
+                ]
+            }
+        },
+        {
+            "id": "vis-power-efficiency-tradeoff",
+            "type": "interactive",
+            "title": "Power vs Efficiency Trade-off",
+            "description": "See the competing objectives of power and efficiency",
+            "purpose": "Understand why we can't maximize both",
+            "interactivity": "Adjust R_L, see both power and efficiency change",
+            "suggestedImplementation": {
+                "component": "TradeoffVisualization",
+                "features": [
+                    "Dual-axis plot: power and efficiency vs R_L",
+                    "Highlight 50% efficiency at max power",
+                    "Show regions of high efficiency vs high power",
+                    "Application examples for each region"
+                ]
+            }
+        },
+        {
+            "id": "vis-circuit-simulator",
+            "type": "interactive",
+            "title": "Power Transfer Simulator",
+            "description": "Interactive circuit showing power flow",
+            "purpose": "Visualize power distribution between source and load",
+            "interactivity": "Change R_L, see power bars update",
+            "suggestedImplementation": {
+                "component": "PowerTransferSim",
+                "features": [
+                    "Animated circuit with source and load",
+                    "Power bars showing P_source and P_load",
+                    "Current and voltage displays",
+                    "Matching indicator"
+                ]
+            }
+        },
+        {
+            "id": "vis-matching-comparison",
+            "type": "interactive",
+            "title": "Matched vs Mismatched Systems",
+            "description": "Compare matched and mismatched scenarios",
+            "purpose": "Show importance of impedance matching",
+            "interactivity": "Toggle between matched and mismatched states",
+            "suggestedImplementation": {
+                "component": "MatchingComparison",
+                "features": [
+                    "Side-by-side matched/mismatched circuits",
+                    "Power delivery comparison",
+                    "Reflection visualization (for RF context)",
+                    "Efficiency comparison"
+                ]
+            }
+        }
+    ]
+}

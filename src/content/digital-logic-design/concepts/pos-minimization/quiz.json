@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-what-is-pos",
+            "options": [
+                "1s",
+                "0s",
+                "Don't cares",
+                "All cells"
+            ],
+            "correctAnswer": "0s",
+            "explanation": "POS minimization groups the 0s to form maxterms, which are then ANDed together.",
+            "prompt": "In POS (Product of Sums) minimization, what do we group?"
+        },
+        {
+            "id": "q2-maxterm-construction",
+            "options": [
+                "A + B + C",
+                "A + B̄ + C",
+                "Ā + B + C̄",
+                "Ā + B + C"
+            ],
+            "correctAnswer": "Ā + B + C̄",
+            "explanation": "For maxterm: 1→complemented, 0→uncomplemented. ABC=101: A=1→Ā, B=0→B, C=1→C̄. So M₅ = Ā + B + C̄.",
+            "prompt": "For input ABC = 101, what is maxterm M₅?"
+        },
+        {
+            "id": "q3-operation",
+            "options": [
+                "Added (OR)",
+                "Multiplied (AND)",
+                "XORed",
+                "Subtracted"
+            ],
+            "correctAnswer": "Multiplied (AND)",
+            "explanation": "POS = Product of Sums. Sums (maxterms) are multiplied (ANDed) together.",
+            "prompt": "How are maxterms combined in a POS expression?"
+        },
+        {
+            "id": "q4-dontcare-pos",
+            "options": [
+                "Always as 1",
+                "Always as 0",
+                "As 0 when it helps form larger groups of 0s",
+                "Ignore completely"
+            ],
+            "correctAnswer": "As 0 when it helps form larger groups of 0s",
+            "explanation": "In POS, we group 0s. Treating X as 0 (when helpful) allows larger groups, reducing literals.",
+            "prompt": "When minimizing POS with don't cares, how should X be treated?"
+        },
+        {
+            "id": "q5-notation",
+            "options": [
+                "Σm(...)",
+                "ΠM(...)",
+                "Σd(...)",
+                "Πm(...)"
+            ],
+            "correctAnswer": "ΠM(...)",
+            "explanation": "ΠM(...) means Product of Maxterms (POS). Σm(...) is Sum of Minterms (SOP).",
+            "prompt": "What notation represents a POS expression?"
+        },
+        {
+            "id": "q6-when-to-use",
+            "options": [
+                "When there are more 1s than 0s",
+                "When there are more 0s than 1s",
+                "When all outputs are 1",
+                "Always"
+            ],
+            "correctAnswer": "When there are more 1s than 0s",
+            "explanation": "POS groups 0s. When there are fewer 0s than 1s (more 1s), POS requires fewer groups.",
+            "prompt": "When is POS generally preferred over SOP?"
+        },
+        {
+            "id": "q7-group-extraction",
+            "options": [
+                "B + C̄",
+                "B̄ + C",
+                "B + C",
+                "B̄ + C̄"
+            ],
+            "correctAnswer": "B + C̄",
+            "explanation": "For maxterms from 0s: constant 0→uncomplemented, constant 1→complemented. B=0→B, C=1→C̄. Maxterm: B + C̄.",
+            "prompt": "A group of 0s has: A varies, B=0 constant, C=1 constant, D varies. What is the maxterm?"
+        },
+        {
+            "id": "q8-equivalence",
+            "options": [
+                "ΠM(0,1,2)",
+                "ΠM(3,4,5,6,7)",
+                "ΠM(5,6,7)",
+                "ΠM(2,3,4)"
+            ],
+            "correctAnswer": "ΠM(3,4,5,6,7)",
+            "explanation": "SOP lists the 1s; POS lists the 0s. If ON-set = {0,1,2}, then OFF-set = {3,4,5,6,7}.",
+            "prompt": "If F = Σm(0,1,2) for a 3-variable function, what is the equivalent POS?"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "ΠM(0,1,2)",
+                "ΠM(3,4,5,6,7)",
+                "ΠM(5,6,7)",
+                "ΠM(2,3,4)"
+            ],
+            "correctAnswer": "ΠM(3,4,5,6,7)",
+            "explanation": "SOP lists the 1s; POS lists the 0s. If ON-set = {0,1,2}, then OFF-set = {3,4,5,6,7}.",
+            "prompt": "If F = Σm(0,1,2) for a 3-variable function, what is the equivalent POS? (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "ΠM(0,1,2)",
+                "ΠM(3,4,5,6,7)",
+                "ΠM(5,6,7)",
+                "ΠM(2,3,4)"
+            ],
+            "correctAnswer": "ΠM(3,4,5,6,7)",
+            "explanation": "SOP lists the 1s; POS lists the 0s. If ON-set = {0,1,2}, then OFF-set = {3,4,5,6,7}.",
+            "prompt": "If F = Σm(0,1,2) for a 3-variable function, what is the equivalent POS? (Review) (Review)"
+        }
+    ],
+    "id": "pos-minimization-quiz"
+}

@@ -1,0 +1,125 @@
+{
+    "questions": [
+        {
+            "id": "q1-model-purpose",
+            "options": [
+                "To perfectly replicate every aspect of the physical system",
+                "To provide a simplified representation that captures essential behavior",
+                "To make systems more complex for academic study",
+                "To avoid the need for physical measurements"
+            ],
+            "correctAnswer": "To provide a simplified representation that captures essential behavior",
+            "explanation": "Mathematical models are deliberate simplifications that capture what's essential for answering specific questions. Perfect replication would be computationally impossible and unnecessary.",
+            "prompt": "What is the primary purpose of a mathematical model in engineering?"
+        },
+        {
+            "id": "q2-lumped-vs-distributed",
+            "options": [
+                "Lumped model - the line is short enough",
+                "Distributed model - wavelength effects are significant",
+                "Either model would work equally well",
+                "No model can represent this system"
+            ],
+            "correctAnswer": "Lumped model - the line is short enough",
+            "explanation": "Wavelength = c/(f×√εr) = 3×10⁸/(10⁸×2) = 1.5m. Line length (5cm) is much less than λ/10 (15cm), so lumped model is valid.",
+            "prompt": "A 5 cm transmission line is carrying a 100 MHz signal. The dielectric constant is εr = 4. Which model type is appropriate?"
+        },
+        {
+            "id": "q3-state-variables",
+            "options": [
+                "Resistors and voltage sources",
+                "All passive components",
+                "Energy storage elements (capacitors and inductors)",
+                "Only inductors"
+            ],
+            "correctAnswer": "Energy storage elements (capacitors and inductors)",
+            "explanation": "State variables represent energy stored in the system. Capacitors store energy in electric fields (v_C is a state), inductors store energy in magnetic fields (i_L is a state). Resistors dissipate energy without storage.",
+            "prompt": "In state-space modeling, state variables are associated with which elements?"
+        },
+        {
+            "id": "q4-linearization",
+            "options": [
+                "26 Ω",
+                "260 Ω",
+                "1 kΩ",
+                "2.6 kΩ"
+            ],
+            "correctAnswer": "26 Ω",
+            "explanation": "Small-signal resistance rd = VT/ID = 26mV/1mA = 26Ω. This comes from linearizing the diode equation i = Is×exp(v/VT).",
+            "prompt": "When linearizing a diode about its operating point (ID = 1mA, VT = 26mV), what is the small-signal resistance?"
+        },
+        {
+            "id": "q5-transfer-function",
+            "options": [
+                "Delay in the system",
+                "Direct feedthrough from input to output",
+                "Damping coefficient",
+                "Determinant of the system matrix"
+            ],
+            "correctAnswer": "Direct feedthrough from input to output",
+            "explanation": "The D matrix represents direct feedthrough - how the input directly affects the output without going through the system states. If D ≠ 0, the transfer function is improper (numerator degree can equal denominator degree).",
+            "prompt": "The transfer function H(s) = C(sI - A)⁻¹B + D relates to state-space representation. What does D represent?"
+        },
+        {
+            "id": "q6-model-assumptions",
+            "options": [
+                "Infinite open-loop gain",
+                "Zero input bias current",
+                "Finite bandwidth (GBW = 1MHz)",
+                "Zero output impedance"
+            ],
+            "correctAnswer": "Finite bandwidth (GBW = 1MHz)",
+            "explanation": "The IDEAL op-amp model assumes INFINITE bandwidth. Finite bandwidth is a characteristic of REAL op-amps that the ideal model ignores.",
+            "prompt": "Which is NOT a typical assumption of an ideal op-amp model?"
+        },
+        {
+            "id": "q7-verification-vs-validation",
+            "options": [
+                "They are the same thing",
+                "Verification checks math correctness; validation checks physical accuracy",
+                "Verification is done first; validation never needs to be done",
+                "Verification uses experiments; validation uses mathematics"
+            ],
+            "correctAnswer": "Verification checks math correctness; validation checks physical accuracy",
+            "explanation": "Verification asks 'Did we solve the equations correctly?' (math check). Validation asks 'Do the equations represent reality?' (physics check). Both are essential - a perfectly solved wrong model is useless.",
+            "prompt": "What is the difference between model verification and validation?"
+        },
+        {
+            "id": "q8-number-of-states",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "7"
+            ],
+            "correctAnswer": "5",
+            "explanation": "Number of states = number of independent energy storage elements = 3 capacitors + 2 inductors = 5. Resistors don't contribute states as they don't store energy.",
+            "prompt": "A circuit contains 3 capacitors, 2 inductors, and 5 resistors. Assuming no redundant energy storage elements, how many state variables are needed?"
+        },
+        {
+            "id": "q-extra-9",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "7"
+            ],
+            "correctAnswer": "5",
+            "explanation": "Number of states = number of independent energy storage elements = 3 capacitors + 2 inductors = 5. Resistors don't contribute states as they don't store energy.",
+            "prompt": "A circuit contains 3 capacitors, 2 inductors, and 5 resistors. Assuming no redundant energy storage elements, how many state variables are needed? (Review)"
+        },
+        {
+            "id": "q-extra-10",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "7"
+            ],
+            "correctAnswer": "5",
+            "explanation": "Number of states = number of independent energy storage elements = 3 capacitors + 2 inductors = 5. Resistors don't contribute states as they don't store energy.",
+            "prompt": "A circuit contains 3 capacitors, 2 inductors, and 5 resistors. Assuming no redundant energy storage elements, how many state variables are needed? (Review) (Review)"
+        }
+    ],
+    "id": "what-is-mathematical-modeling-quiz"
+}
