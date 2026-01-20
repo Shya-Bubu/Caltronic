@@ -132,17 +132,21 @@ export interface UseLectureFlowResult {
 export function useLectureFlow(params: UseLectureFlowParams): UseLectureFlowResult {
     const { lecture, concepts } = params;
 
-    // Validate input (development-time check)
+    // SOFT VALIDATION: Log warning but don't crash
+    // This can happen if some concepts failed to load
     if (concepts.length !== lecture.concepts.length) {
-        throw new Error(
-            `Concept count mismatch: lecture has ${lecture.concepts.length} concepts, ` +
-            `but ${concepts.length} were loaded. This indicates a loader error.`
+        console.warn(
+            `[useLectureFlow] Concept count mismatch: lecture "${lecture.id}" references ${lecture.concepts.length} concepts, ` +
+            `but only ${concepts.length} were loaded. Some concepts may have failed validation.`
         );
     }
 
+    // If zero concepts loaded, we need at least one to function
+    // But we should still allow the hook to work with what we have
     if (concepts.length === 0) {
-        throw new Error(
-            'Lecture has no concepts. This should be impossible (LectureContract requires ≥3).'
+        console.error(
+            `[useLectureFlow] No concepts loaded for lecture "${lecture.id}". ` +
+            `This will cause navigation issues.`
         );
     }
 

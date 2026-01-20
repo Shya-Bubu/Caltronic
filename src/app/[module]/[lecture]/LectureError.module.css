@@ -1,0 +1,87 @@
+.container {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.card {
+    max-width: 500px;
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.message {
+    margin: 1rem 0 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.suggestion {
+    margin: 0.75rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.details {
+    margin-top: 1.5rem;
+    text-align: left;
+    padding: 1rem;
+    background: var(--bg);
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.details summary {
+    cursor: pointer;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.details ul {
+    margin: 0.75rem 0 0;
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+}
+
+.details li {
+    margin: 0.25rem 0;
+    word-break: break-word;
+}
+
+.actions {
+    margin-top: 2rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+}
+
+.button:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}

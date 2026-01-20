@@ -1,0 +1,18 @@
+# Images Directory
+
+Place concept-specific images here.
+
+## Naming Convention
+- Use kebab-case: `diagram-name.png`
+- Include resolution suffix for different sizes: `diagram-name@2x.png`
+- Prefer SVG for diagrams, PNG for screenshots
+
+## Reference in Markdown
+```markdown
+![Alt text](./images/diagram-name.png)
+```
+
+## Supported Formats
+- `.svg` - Preferred for diagrams
+- `.png` - Screenshots, complex images
+- `.jpg` - Photos only

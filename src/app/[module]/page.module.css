@@ -162,6 +162,42 @@
   border-radius: var(--radius);
 }
 
+/* Unavailable lesson styling */
+.lectureCardUnavailable {
+  opacity: 0.6;
+  background: var(--surface);
+}
+
+.lectureCardUnavailable .lectureNumber {
+  color: var(--text-muted);
+}
+
+.unavailableBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: var(--border);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.disabled {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: not-allowed;
+}
+
 /* Mobile Layout for Lesson Card */
 @media (max-width: 600px) {
   .lectureCard {

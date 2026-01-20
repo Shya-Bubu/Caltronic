@@ -6,6 +6,30 @@ This directory stores all learning content for the CalTronic V2 system.
 **CRITICAL**: This system enforces CONCEPT-BASED learning architecture.
 Single-file lectures are **FORBIDDEN** and will be rejected by validators.
 
+## System Hardening (v2.0)
+
+This content system has been hardened with the following guarantees:
+
+### 1. Graceful Degradation
+- Missing or invalid content shows helpful error messages
+- The app NEVER crashes with 500 errors due to content issues
+- Partial content is handled gracefully
+
+### 2. Contract Enforcement
+- All content is validated against strict TypeScript contracts
+- Content that doesn't meet requirements is rejected at load time
+- Minimum requirements: 3 concepts per lesson, 10 quiz questions, 10 flashcards
+
+### 3. Single Source of Truth
+- `src/app/data/modules.ts` defines what the UI displays
+- Content validation runs against the filesystem
+- `npm run validate-content` verifies everything matches
+
+### 4. Canonical Template
+- `_lesson-template/` contains the authoritative structure
+- Copy this folder when creating new lessons
+- All files in template are REQUIRED for valid lessons
+
 ## Enforcement Philosophy
 - Lectures are **containers** for concepts, not content holders
 - Concepts are the **atomic unit** of learning

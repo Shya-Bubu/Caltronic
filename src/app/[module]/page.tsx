@@ -4,11 +4,19 @@ import { resolve } from 'path';
 
 import { modules } from '@/app/data/modules';
 import LectureProgress from '@/app/components/LectureProgress';
-import { loadLecture } from '@/core/loaders/loadLecture';
+import { safeLoadLecture, lessonDirectoryExists } from '@/core/loaders';
 import styles from './page.module.css';
 
 interface ModuleIndexProps {
   params: Promise<{ module: string }>;
+}
+
+interface LectureCardData {
+  link: { id: string; title: string; path: string };
+  lectureId: string;
+  conceptCount: number;
+  available: boolean;
+  error?: string;
 }
 
 export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
@@ -20,15 +28,42 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
 
   const contentRoot = resolve(process.cwd(), 'src', 'content');
 
-  const lectureCards = await Promise.all(
+  // Safe loading with graceful fallbacks
+  const lectureCards: LectureCardData[] = await Promise.all(
     mod.lectures.map(async (lecture) => {
       const lectureSlug = lecture.path.split('/').filter(Boolean).at(1) ?? lecture.id;
       const lectureDir = resolve(contentRoot, slug, 'lessons', lectureSlug);
-      const meta = await loadLecture(lectureDir);
+      
+      // Check if directory exists first
+      if (!lessonDirectoryExists(contentRoot, slug, lectureSlug)) {
+        return {
+          link: lecture,
+          lectureId: lecture.id,
+          conceptCount: 0,
+          available: false,
+          error: 'Content not yet created',
+        };
+      }
+      
+      // Try to load the lecture
+      const result = await safeLoadLecture(lectureDir);
+      
+      if (result.success && result.data) {
+        return {
+          link: lecture,
+          lectureId: result.data.id,
+          conceptCount: result.data.concepts.length,
+          available: true,
+        };
+      }
+      
+      // Fallback for invalid/incomplete content
       return {
         link: lecture,
-        lectureId: meta.id,
-        conceptCount: meta.concepts.length,
+        lectureId: lecture.id,
+        conceptCount: 0,
+        available: false,
+        error: result.error || 'Content unavailable',
       };
     })
   );
@@ -63,7 +98,10 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
               const lessonNum = card.link.id.match(/\d+/)?.[0] || '00';
 
               return (
-                <article key={card.link.id} className={styles.lectureCard}>
+                <article 
+                  key={card.link.id} 
+                  className={`${styles.lectureCard} ${!card.available ? styles.lectureCardUnavailable : ''}`}
+                >
                   <div className={styles.lectureNumber}>
                     {lessonNum}
                   </div>
@@ -71,16 +109,26 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
                     <div className={styles.lectureKicker}>Lesson {lessonNum}</div>
                     <div className={styles.lectureTitle}>{card.link.title}</div>
                     <div className={styles.lectureMeta}>
-                      {card.conceptCount} concepts
+                      {card.available 
+                        ? `${card.conceptCount} concepts`
+                        : card.error || 'Content not available'}
                     </div>
                   </div>
                   <div className={styles.lectureProgress}>
-                    <LectureProgress lectureId={card.lectureId} conceptCount={card.conceptCount} />
+                    {card.available ? (
+                      <LectureProgress lectureId={card.lectureId} conceptCount={card.conceptCount} />
+                    ) : (
+                      <span className={styles.unavailableBadge}>Coming Soon</span>
+                    )}
                   </div>
                   <div className={styles.lectureActions}>
-                    <Link href={card.link.path} className={styles.primary}>
-                      Open
-                    </Link>
+                    {card.available ? (
+                      <Link href={card.link.path} className={styles.primary}>
+                        Open
+                      </Link>
+                    ) : (
+                      <span className={styles.disabled}>Not Available</span>
+                    )}
                   </div>
                 </article>
               );

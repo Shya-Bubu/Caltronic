@@ -1,12 +1,48 @@
-# CalTronic V2 Content Updates
-# Format: MODULE_SLUG | WEEK_NUMBER | STATUS
+# CalTronic V2 Content Status
 # 
-# STATUS options: planned, in-progress, complete
-# Update this file when you add new content
+# This file is AUTO-GENERATED and provides a snapshot of content status.
+# DO NOT EDIT MANUALLY - run `npm run validate-content` to update.
+#
+# The single source of truth for module/lesson definitions is:
+# - src/app/data/modules.ts (what the app displays)
+# - src/content/[module]/ (actual content files)
+#
+# To add new content:
+# 1. Copy _lesson-template folder to src/content/[module]/lessons/
+# 2. Create concepts in src/content/[module]/concepts/
+# 3. Update src/app/data/modules.ts with the new lesson
+# 4. Run `npm run validate-content` to verify
 
-circuit-analysis | 0 | planned
-signals-and-systems | 2 | in-progress
-digital-logic-design | 0 | planned
-analog-electronics | 0 | planned
-design-and-manufacturing | 0 | planned
-computational-methods | 0 | planned
+# STATUS KEY:
+# ✅ = Complete and validated
+# ⚠️ = Partial (some concepts missing)
+# ❌ = Not started or broken
+
+# CIRCUIT ANALYSIS (circuit-analysis)
+✅ lesson-01: Two-Terminal Resistors (11 concepts)
+✅ lesson-02: General Resistive Circuit Analysis (6 concepts)
+
+# SIGNALS AND SYSTEMS (signals-and-systems)
+✅ lesson-01: Introduction to Signals and Systems (5 concepts)
+✅ lesson-02: Impulse Function and System Properties (3 concepts)
+✅ lesson-03: Convolution and LTI System Response (3 concepts)
+✅ lesson-04: Fourier Series Part I (4 concepts)
+
+# DIGITAL LOGIC DESIGN (digital-logic-design)
+✅ lesson-01: Processing of Logical Information (5 concepts)
+✅ lesson-03: Karnaugh Maps and Systematic Minimization (5 concepts)
+✅ lesson-04: Special Logic Circuits (4 concepts)
+
+# COMPUTATIONAL METHODS (computational-methods)
+✅ lesson-01: Nuts and Bolts of Computational Methods (4 concepts)
+✅ lesson-02: Approximation, Discretization, and Linearization (4 concepts)
+✅ lesson-03: Mathematical Modeling for Engineers (4 concepts)
+✅ lesson-04: Complexity Analysis (4 concepts)
+
+# ANALOG ELECTRONICS (analog-electronics)
+❌ No lessons created yet
+
+# DESIGN AND MANUFACTURING (design-and-manufacturing)
+❌ No lessons created yet
+
+# Last updated: 2026-01-20

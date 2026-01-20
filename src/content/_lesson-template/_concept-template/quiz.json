@@ -1,0 +1,125 @@
+{
+    "id": "concept-id-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Question 1 text here?",
+            "options": [
+                "Option A - correct answer",
+                "Option B - plausible wrong answer",
+                "Option C - common misconception",
+                "Option D - clearly wrong but educational"
+            ],
+            "correctAnswer": "Option A - correct answer",
+            "explanation": "Option A is correct because [detailed explanation of why this is right]. Option B is incorrect because [explain the flaw]. Option C represents a common misconception where students think [explain the misconception and why it's wrong]. Option D is wrong because [explain]."
+        },
+        {
+            "id": "q2",
+            "prompt": "Question 2 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option B",
+            "explanation": "Option B is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q3",
+            "prompt": "Question 3 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option C",
+            "explanation": "Option C is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q4",
+            "prompt": "Question 4 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option A",
+            "explanation": "Option A is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q5",
+            "prompt": "Question 5 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option D",
+            "explanation": "Option D is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q6",
+            "prompt": "Question 6 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option A",
+            "explanation": "Option A is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q7",
+            "prompt": "Question 7 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option B",
+            "explanation": "Option B is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q8",
+            "prompt": "Question 8 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option C",
+            "explanation": "Option C is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q9",
+            "prompt": "Question 9 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option A",
+            "explanation": "Option A is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        },
+        {
+            "id": "q10",
+            "prompt": "Question 10 text here?",
+            "options": [
+                "Option A",
+                "Option B",
+                "Option C",
+                "Option D"
+            ],
+            "correctAnswer": "Option D",
+            "explanation": "Option D is correct because [detailed explanation at least 50 characters long that covers why correct answer is right and why each wrong answer is wrong]."
+        }
+    ]
+}

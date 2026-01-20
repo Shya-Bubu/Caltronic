@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate-content": "npx ts-node --transpile-only scripts/validate-content.ts",
+    "generate-manifest": "npx ts-node --transpile-only scripts/generate-manifest.ts",
+    "prebuild": "npm run validate-content"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",

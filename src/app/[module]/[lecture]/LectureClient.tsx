@@ -395,11 +395,13 @@ export default function LectureClient({
     concepts,
     overviewMarkdown,
     synthesisMarkdown,
+    failedConcepts = [],
 }: {
     lecture: LectureContract;
     concepts: LoadedConcept[];
     overviewMarkdown: string;
     synthesisMarkdown: string;
+    failedConcepts?: Array<{ id: string; error: string }>;
 }) {
     const flow = useLectureFlow({ lecture, concepts });
     const [mode, setMode] = useState<LectureMode>('overview');

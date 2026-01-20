@@ -28,6 +28,19 @@ export { loadLecture, LectureLoadError } from './loadLecture';
 // Composite loader (depends on quiz and flashcard loaders)
 export { loadConcept, ConceptLoadError, type LoadedConcept } from './loadConcept';
 
+// Safe loaders (graceful fallbacks for missing/invalid content)
+export {
+    safeLoadLecture,
+    safeLoadConcept,
+    safeLoadConcepts,
+    safeReadMarkdown,
+    lessonDirectoryExists,
+    conceptDirectoryExists,
+    getMissingConcepts,
+    PLACEHOLDER_CONTENT,
+    type SafeLoadResult,
+} from './safeLoaders';
+
 /**
  * LOADING WORKFLOW:
  * 
