@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-convolution-properties",
+    "conceptId": "convolution-properties",
+    "title": "Convolution Properties Flashcards",
+    "cards": [
+        {
+            "id": "cp-fc1",
+            "difficultyLevel": 1,
+            "front": "Commutativity of convolution",
+            "back": "x*h = h*x\n\nOrder doesn't matter. Can flip either signal in graphical convolution."
+        },
+        {
+            "id": "cp-fc2",
+            "difficultyLevel": 2,
+            "front": "Associativity of convolution",
+            "back": "(x*h₁)*h₂ = x*(h₁*h₂)\n\nCan pre-compute cascade impulse responses, then convolve once with input."
+        },
+        {
+            "id": "cp-fc3",
+            "difficultyLevel": 2,
+            "front": "Distributivity of convolution",
+            "back": "x*(h₁+h₂) = x*h₁ + x*h₂\n\nRepresents parallel systems. Analyze paths separately, add outputs."
+        },
+        {
+            "id": "cp-fc4",
+            "difficultyLevel": 2,
+            "front": "Shift property x*δ(t-T)",
+            "back": "x(t)*δ(t-T) = x(t-T)\n\nShifted impulse delays the signal. Essential for understanding time delays."
+        },
+        {
+            "id": "cp-fc5",
+            "difficultyLevel": 3,
+            "front": "Differentiation property",
+            "back": "d/dt[x*h] = (dx/dt)*h = x*(dh/dt)\n\nCan differentiate either signal. Choose whichever is easier."
+        },
+        {
+            "id": "cp-fc6",
+            "difficultyLevel": 2,
+            "front": "Scaling property",
+            "back": "(Kx)*h = K(x*h) = x*(Kh)\n\nConvolution is linear. Scaling input or impulse response scales output."
+        },
+        {
+            "id": "cp-fc7",
+            "difficultyLevel": 3,
+            "front": "Inverse system concept",
+            "back": "If h₁*h₂ = δ, then h₂ is inverse of h₁. Cascading them gives identity. Used for equalization."
+        },
+        {
+            "id": "cp-fc8",
+            "difficultyLevel": 2,
+            "front": "Width (duration) property",
+            "back": "width(x*h) = width(x) + width(h)\n\nDurations add in convolution. Output is wider than either input."
+        },
+        {
+            "id": "cp-fc9",
+            "difficultyLevel": 2,
+            "front": "rect*rect result",
+            "back": "Triangle function\n\nSelf-convolution of rectangle gives triangular pulse. Overlap increases then decreases."
+        },
+        {
+            "id": "cp-fc10",
+            "difficultyLevel": 3,
+            "front": "Time-scaling property",
+            "back": "x(at)*h(at) = (1/|a|)y(at)\n\nScaling both signals scales result with 1/|a| factor."
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "conceptId": "convolution-fundamentals",
+    "visuals": [
+        {
+            "id": "convolution-definition",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Convolution: Input × Impulse Response = Output",
+            "description": "y(t) = x(t) * h(t) - the fundamental LTI equation",
+            "blocks": [
+                {
+                    "id": "input",
+                    "label": "x(t)\nInput",
+                    "x": 20,
+                    "y": 50,
+                    "type": "input",
+                    "width": 70
+                },
+                {
+                    "id": "conv",
+                    "label": "* CONVOLUTION",
+                    "x": 120,
+                    "y": 40,
+                    "width": 120,
+                    "height": 60
+                },
+                {
+                    "id": "h",
+                    "label": "h(t)\nImpulse\nResponse",
+                    "x": 120,
+                    "y": 120,
+                    "width": 90,
+                    "height": 60
+                },
+                {
+                    "id": "output",
+                    "label": "y(t)\nOutput",
+                    "x": 280,
+                    "y": 50,
+                    "type": "output",
+                    "width": 70
+                }
+            ],
+            "connections": [
+                {
+                    "from": "input",
+                    "to": "conv"
+                },
+                {
+                    "from": "h",
+                    "to": "conv"
+                },
+                {
+                    "from": "conv",
+                    "to": "output"
+                }
+            ]
+        },
+        {
+            "id": "signal-as-impulses",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Any Signal = Sum of Weighted Shifted Impulses",
+            "description": "x(t) as integral of x(τ)δ(t-τ) - basis of convolution",
+            "waveType": "impulse-decomposition",
+            "mode": "animation"
+        },
+        {
+            "id": "discrete-convolution",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Discrete Convolution: Sum Instead of Integral",
+            "description": "y[n] = Σ x[k]h[n-k]",
+            "waveType": "stem",
+            "mode": "discrete"
+        },
+        {
+            "id": "graphical-convolution-steps",
+            "visualType": "simulation",
+            "type": "d3-simulation",
+            "simulationType": "graphical-convolution",
+            "placement": "intuition",
+            "title": "Interactive Graphical Convolution",
+            "description": "Flip, shift, multiply, integrate - see it in action"
+        },
+        {
+            "id": "convolution-example",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "Example: Step × Exponential Convolution",
+            "description": "u(t) * e^(-t)u(t) = (1-e^(-t))u(t)",
+            "waveType": "step-exponential",
+            "mode": "result"
+        }
+    ]
+}

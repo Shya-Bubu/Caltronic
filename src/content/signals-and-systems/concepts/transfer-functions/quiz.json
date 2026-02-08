@@ -1,0 +1,128 @@
+{
+    "id": "quiz-transfer-functions",
+    "conceptId": "transfer-functions",
+    "title": "Transfer Functions Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "tf-q1",
+            "prompt": "The transfer function H(s) relates:",
+            "options": [
+                "Input to output in s-domain",
+                "Poles to zeros",
+                "Time to frequency",
+                "Initial to final values"
+            ],
+            "correctAnswer": "Input to output in s-domain",
+            "explanation": "H(s) = Y(s)/X(s) is the ratio of output to input Laplace transforms (with zero ICs). It completely characterizes an LTI system. All system properties can be derived from H(s)."
+        },
+        {
+            "id": "tf-q2",
+            "prompt": "For a system y''+3y'+2y = x, H(s) is:",
+            "options": [
+                "s²+3s+2",
+                "1/(s²+3s+2)",
+                "(s²+3s+2)/s",
+                "s/(s²+3s+2)"
+            ],
+            "correctAnswer": "1/(s²+3s+2)",
+            "explanation": "Taking Laplace: (s²+3s+2)Y(s) = X(s). Thus H(s) = Y/X = 1/(s²+3s+2). The denominator is the characteristic polynomial. Poles at s=-1,-2 (both in LHP, so stable)."
+        },
+        {
+            "id": "tf-q3",
+            "prompt": "Poles of H(s) are roots of the:",
+            "options": [
+                "Numerator",
+                "Denominator",
+                "Both",
+                "Neither"
+            ],
+            "correctAnswer": "Denominator",
+            "explanation": "Poles are where H(s)→∞, i.e., denominator = 0. They determine stability, transient behavior, and natural frequencies. All poles in LHP means stable. Poles are the most important feature of H(s)."
+        },
+        {
+            "id": "tf-q4",
+            "prompt": "Zeros of H(s) are roots of the:",
+            "options": [
+                "Numerator",
+                "Denominator",
+                "Both",
+                "Neither"
+            ],
+            "correctAnswer": "Numerator",
+            "explanation": "Zeros are where H(s)=0, i.e., numerator = 0. At these frequencies, output is zero regardless of input. Zeros shape the frequency response but don't directly affect stability."
+        },
+        {
+            "id": "tf-q5",
+            "prompt": "A first-order system has how many poles?",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "Depends on zeros"
+            ],
+            "correctAnswer": "1",
+            "explanation": "Order = highest power of s in denominator = number of poles. First-order has one pole, giving exponential response. Second-order (2 poles) can have oscillation. Order indicates system complexity."
+        },
+        {
+            "id": "tf-q6",
+            "prompt": "H(s) = 1/(s+5) has a pole at:",
+            "options": [
+                "s = 5",
+                "s = -5",
+                "s = 0",
+                "s = j5"
+            ],
+            "correctAnswer": "s = -5",
+            "explanation": "Setting denominator s+5=0 gives pole at s=-5. In the LHP, so stable. Time constant τ = 1/5 = 0.2s. Impulse response h(t) = e^(-5t)u(t), which decays with that time constant."
+        },
+        {
+            "id": "tf-q7",
+            "prompt": "For cascade H₁(s) and H₂(s), overall H(s) is:",
+            "options": [
+                "H₁+H₂",
+                "H₁·H₂",
+                "H₁/H₂",
+                "H₁-H₂"
+            ],
+            "correctAnswer": "H₁·H₂",
+            "explanation": "Cascading systems multiplies their transfer functions: H = H₁·H₂. In time domain, this means convolving impulse responses. Multiplication is much easier than convolution."
+        },
+        {
+            "id": "tf-q8",
+            "prompt": "The DC gain of H(s) is:",
+            "options": [
+                "H(0)",
+                "H(∞)",
+                "|H(jω)|",
+                "H(s=1)"
+            ],
+            "correctAnswer": "H(0)",
+            "explanation": "DC gain = H(0) = output/input for DC (constant) input. At s=0 (ω=0), we're evaluating the transfer function at zero frequency. Important for steady-state analysis."
+        },
+        {
+            "id": "tf-q9",
+            "prompt": "To find frequency response from H(s), substitute:",
+            "options": [
+                "s = jω",
+                "s = σ",
+                "s = 1",
+                "s = t"
+            ],
+            "correctAnswer": "s = jω",
+            "explanation": "H(jω) = H(s)|ₛ₌ⱼω is the frequency response. Setting s = jω restricts to the imaginary axis. This works because Fourier transform is Laplace on jω-axis. H(jω) gives magnitude and phase vs frequency."
+        },
+        {
+            "id": "tf-q10",
+            "prompt": "A system is stable if all poles have:",
+            "options": [
+                "Re(s) > 0",
+                "Re(s) < 0",
+                "Re(s) = 0",
+                "Im(s) = 0"
+            ],
+            "correctAnswer": "Re(s) < 0",
+            "explanation": "All poles must be in the left half-plane (LHP) for BIBO stability. Re(s) < 0 means negative real parts. Poles on or right of jω-axis cause unbounded or sustained responses."
+        }
+    ]
+}

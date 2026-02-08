@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-laplace-properties",
+    "conceptId": "laplace-properties",
+    "title": "Laplace Transform Properties Flashcards",
+    "cards": [
+        {
+            "id": "lp-fc1",
+            "difficultyLevel": 1,
+            "front": "Time shift property",
+            "back": "L{f(t-T)u(t-T)} = e^(-sT)F(s)\n\nDelay by T = multiply by e^(-sT)"
+        },
+        {
+            "id": "lp-fc2",
+            "difficultyLevel": 2,
+            "front": "Frequency shift property",
+            "back": "L{e^(at)f(t)} = F(s-a)\n\nMultiply by exponential = shift in s"
+        },
+        {
+            "id": "lp-fc3",
+            "difficultyLevel": 2,
+            "front": "Differentiation property",
+            "back": "L{df/dt} = sF(s) - f(0-)\n\nDifferentiate in t = multiply by s (minus IC)"
+        },
+        {
+            "id": "lp-fc4",
+            "difficultyLevel": 2,
+            "front": "Second derivative property",
+            "back": "L{d²f/dt²} = s²F(s) - sf(0-) - f'(0-)\n\nTwo derivatives = s² (with both ICs)"
+        },
+        {
+            "id": "lp-fc5",
+            "difficultyLevel": 2,
+            "front": "Integration property",
+            "back": "L{∫f dt} = F(s)/s\n\nIntegrate in t = divide by s"
+        },
+        {
+            "id": "lp-fc6",
+            "difficultyLevel": 2,
+            "front": "Convolution property",
+            "back": "L{f*g} = F(s)·G(s)\n\nConvolution in time = multiplication in s"
+        },
+        {
+            "id": "lp-fc7",
+            "difficultyLevel": 2,
+            "front": "Initial value theorem",
+            "back": "f(0+) = lim(s→∞) sF(s)\n\nFind initial value from F(s)"
+        },
+        {
+            "id": "lp-fc8",
+            "difficultyLevel": 2,
+            "front": "Final value theorem",
+            "back": "f(∞) = lim(s→0) sF(s)\n\nFind steady-state (if stable)"
+        },
+        {
+            "id": "lp-fc9",
+            "difficultyLevel": 3,
+            "front": "Multiplication by t property",
+            "back": "L{t·f(t)} = -dF(s)/ds\n\nMultiply by t = negative s-differentiate"
+        },
+        {
+            "id": "lp-fc10",
+            "difficultyLevel": 2,
+            "front": "When does final value theorem fail?",
+            "back": "When poles of sF(s) are in RHP or repeated on jω-axis. System must be stable for finite final value."
+        }
+    ]
+}

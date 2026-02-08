@@ -1,0 +1,137 @@
+{
+    "id": "quiz-delta-functions-and-impulse",
+    "conceptId": "delta-functions-and-impulse",
+    "title": "Delta Functions and Unit Impulse Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "delta-q1",
+            "prompt": "What is the value of ∫δ(t)dt from -∞ to +∞?",
+            "options": [
+                "0",
+                "1",
+                "∞",
+                "Undefined"
+            ],
+            "correctAnswer": "1",
+            "explanation": "By definition, the unit impulse has unit area: the integral of δ(t) over all time equals 1. This is one of the defining properties of the Dirac delta function. The delta function is zero everywhere except at t=0, but its integral is exactly 1.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "delta-q2",
+            "prompt": "Evaluate: ∫cos(πt)·δ(t-0.5)dt from -∞ to +∞",
+            "options": [
+                "0",
+                "1",
+                "-1",
+                "0.5"
+            ],
+            "correctAnswer": "0",
+            "explanation": "Using the sifting property, we substitute t = 0.5 into cos(πt): cos(π·0.5) = cos(π/2) = 0. The impulse 'picks out' the value of the function at t = 0.5. This is the most useful property of the delta function in signal processing.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "delta-q3",
+            "prompt": "What is the discrete-time unit impulse δ[n] at n = 0?",
+            "options": [
+                "0",
+                "1",
+                "∞",
+                "Undefined"
+            ],
+            "correctAnswer": "1",
+            "explanation": "Unlike the continuous Dirac delta, the discrete-time impulse δ[n] is simply 1 at n=0 and 0 everywhere else. It's a regular sequence, not a distribution. This makes it much easier to work with mathematically than the continuous delta function.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "delta-q4",
+            "prompt": "What is δ(2t) equal to?",
+            "options": [
+                "δ(t)",
+                "2δ(t)",
+                "0.5δ(t)",
+                "δ(t)/2"
+            ],
+            "correctAnswer": "0.5δ(t)",
+            "explanation": "The scaling property states δ(at) = (1/|a|)δ(t). Here a=2, so δ(2t) = (1/2)δ(t) = 0.5δ(t). Time compression makes the impulse 'shorter' but compensates by halving its strength to maintain unit area.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "delta-q5",
+            "prompt": "The derivative of the unit step u(t) is:",
+            "options": [
+                "u(t-1)",
+                "δ(t)",
+                "t·u(t)",
+                "1"
+            ],
+            "correctAnswer": "δ(t)",
+            "explanation": "The unit step has a discontinuous jump at t=0. Its derivative is the unit impulse δ(t), which captures this 'instantaneous' transition from 0 to 1. Conversely, integrating δ(t) gives u(t). This relationship is fundamental in signals and systems.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "delta-q6",
+            "prompt": "What is f(t)·δ(t-a) equal to?",
+            "options": [
+                "f(t)·δ(t)",
+                "f(a)·δ(t-a)",
+                "f(a)·δ(t)",
+                "0"
+            ],
+            "correctAnswer": "f(a)·δ(t-a)",
+            "explanation": "When multiplying a function by a shifted delta, the function is evaluated at the location of the impulse. So f(t)·δ(t-a) = f(a)·δ(t-a). The function value is 'frozen' at t=a. This is the basis of the sifting property.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "delta-q7",
+            "prompt": "What is the integral ∫t²·δ(t-3)dt from -∞ to +∞?",
+            "options": [
+                "0",
+                "3",
+                "9",
+                "27"
+            ],
+            "correctAnswer": "9",
+            "explanation": "Using the sifting property, the integral equals t² evaluated at t=3, which is 3² = 9. The delta function 'sifts out' the value of the function at the location of the impulse. This is perhaps the most important property for problem-solving.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "delta-q8",
+            "prompt": "What is δ(-t) equal to?",
+            "options": [
+                "δ(t)",
+                "-δ(t)",
+                "0",
+                "Undefined"
+            ],
+            "correctAnswer": "δ(t)",
+            "explanation": "The delta function is even: δ(-t) = δ(t). This is because the delta is only nonzero at t=0, and reflecting about zero leaves it unchanged. This symmetry property is often useful when simplifying expressions involving delta functions.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "delta-q9",
+            "prompt": "What is the Laplace transform of δ(t)?",
+            "options": [
+                "0",
+                "1",
+                "s",
+                "1/s"
+            ],
+            "correctAnswer": "1",
+            "explanation": "The Laplace transform of δ(t) is L{δ(t)} = ∫δ(t)e^(-st)dt = e^(-s·0) = 1. The impulse function has a flat frequency spectrum, containing all frequencies equally. This makes it perfect for testing system responses.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "delta-q10",
+            "prompt": "If x(t)*δ(t-T) = ?, what is the result?",
+            "options": [
+                "x(t)",
+                "x(t-T)",
+                "x(T)",
+                "δ(t-T)"
+            ],
+            "correctAnswer": "x(t-T)",
+            "explanation": "Convolving any signal with a shifted impulse δ(t-T) simply delays the signal by T. This is because the impulse acts as an identity element for convolution at t=0, and shifting it to t=T shifts the entire convolved output. This property is fundamental to understanding LTI systems."
+        }
+    ]
+}

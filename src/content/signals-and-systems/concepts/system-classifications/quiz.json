@@ -1,0 +1,128 @@
+{
+    "id": "quiz-system-classifications",
+    "conceptId": "system-classifications",
+    "title": "System Classifications Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "sc-q1",
+            "prompt": "A system y(t) = x(t-1) is:",
+            "options": [
+                "Causal",
+                "Non-causal",
+                "Memoryless",
+                "Anti-causal"
+            ],
+            "correctAnswer": "Causal",
+            "explanation": "The output depends on past input x(t-1), which occurred before the current time t. Since it doesn't depend on future inputs, it's causal. Causal systems can be implemented in real-time because they only need past/present data."
+        },
+        {
+            "id": "sc-q2",
+            "prompt": "A memoryless system is characterized by:",
+            "options": [
+                "Output depends on current input only",
+                "Output depends on past inputs",
+                "Output depends on future inputs",
+                "Output is always zero"
+            ],
+            "correctAnswer": "Output depends on current input only",
+            "explanation": "Memoryless systems have output y(t) depending only on x(t). They have no 'memory' of past values. Examples include resistors (v=iR) and ideal amplifiers (y=Kx). They cannot perform integration or differentiation."
+        },
+        {
+            "id": "sc-q3",
+            "prompt": "For y(t) = x(t+2), the system is:",
+            "options": [
+                "Causal",
+                "Non-causal",
+                "Time-invariant",
+                "Linear"
+            ],
+            "correctAnswer": "Non-causal",
+            "explanation": "The output at time t depends on input at time t+2, which is in the future. This is non-causal and cannot be implemented in real-time. Non-causal systems are used in offline processing where all data is available."
+        },
+        {
+            "id": "sc-q4",
+            "prompt": "To test for time-invariance, we check if:",
+            "options": [
+                "Shifting input shifts output by same amount",
+                "Scaling input scales output",
+                "System is linear",
+                "System is causal"
+            ],
+            "correctAnswer": "Shifting input shifts output by same amount",
+            "explanation": "A time-invariant system satisfies: if x(t)→y(t), then x(t-T)→y(t-T) for any T. The system behavior doesn't change over time. This property is essential for LTI system analysis using convolution."
+        },
+        {
+            "id": "sc-q5",
+            "prompt": "System y(t) = t·x(t) is:",
+            "options": [
+                "Time-invariant",
+                "Time-variant",
+                "Linear but time-variant",
+                "Both B and C"
+            ],
+            "correctAnswer": "Both B and C",
+            "explanation": "The multiplication by t makes the system behavior change with time (time-variant). However, it's still linear because scaling x scales y, and superposition holds. Many real systems are linear but time-variant, like a fading communication channel."
+        },
+        {
+            "id": "sc-q6",
+            "prompt": "A system is BIBO stable if:",
+            "options": [
+                "Bounded input gives bounded output",
+                "All inputs give zero output",
+                "System is linear",
+                "System is causal"
+            ],
+            "correctAnswer": "Bounded input gives bounded output",
+            "explanation": "BIBO (Bounded-Input Bounded-Output) stability means |x(t)| < M implies |y(t)| < N for some finite M and N. This is the most practical stability definition: the system won't 'blow up' for reasonable inputs."
+        },
+        {
+            "id": "sc-q7",
+            "prompt": "For LTI systems, superposition means:",
+            "options": [
+                "a·x₁ + b·x₂ → a·y₁ + b·y₂",
+                "x₁·x₂ → y₁·y₂",
+                "x₁ + x₂ → y₁·y₂",
+                "None of above"
+            ],
+            "correctAnswer": "a·x₁ + b·x₂ → a·y₁ + b·y₂",
+            "explanation": "Superposition combines additivity (x₁+x₂→y₁+y₂) and homogeneity (ax→ay). If x₁→y₁ and x₂→y₂, then any linear combination a·x₁+b·x₂ gives a·y₁+b·y₂. This is the defining property of linear systems."
+        },
+        {
+            "id": "sc-q8",
+            "prompt": "System y(t) = x²(t) is:",
+            "options": [
+                "Linear",
+                "Nonlinear",
+                "Time-variant",
+                "Unstable"
+            ],
+            "correctAnswer": "Nonlinear",
+            "explanation": "Squaring violates homogeneity: if input is 2x(t), output is 4x²(t), not 2x²(t). The output scales by the square of the input scaling factor. Nonlinear systems don't obey superposition and can't use convolution analysis."
+        },
+        {
+            "id": "sc-q9",
+            "prompt": "An ideal delay y(t) = x(t-T) with T>0 is:",
+            "options": [
+                "Causal, linear, time-invariant",
+                "Non-causal",
+                "Nonlinear",
+                "Time-variant"
+            ],
+            "correctAnswer": "Causal, linear, time-invariant",
+            "explanation": "Delay by T>0 means output uses past input (causal). It's linear (superposition holds) and time-invariant (shifting input shifts output equally). An ideal delay line is an example of a perfect LTI system."
+        },
+        {
+            "id": "sc-q10",
+            "prompt": "If initial conditions affect output, the system is:",
+            "options": [
+                "Linear",
+                "Nonlinear",
+                "Not strictly an LTI system response",
+                "Always unstable"
+            ],
+            "correctAnswer": "Not strictly an LTI system response",
+            "explanation": "LTI system analysis assumes zero initial conditions (relaxed system). Non-zero ICs contribute an additional 'zero-input response' that must be handled separately. The total response is the sum of zero-state and zero-input responses."
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-frequency-response",
+    "conceptId": "frequency-response",
+    "title": "Frequency Response Flashcards",
+    "cards": [
+        {
+            "id": "fr-fc1",
+            "difficultyLevel": 1,
+            "front": "What is H(ω)?",
+            "back": "Frequency response = F{h(t)}\n\nFourier transform of impulse response. Describes how system affects each frequency."
+        },
+        {
+            "id": "fr-fc2",
+            "difficultyLevel": 1,
+            "front": "Output in frequency domain",
+            "back": "Y(ω) = X(ω)·H(ω)\n\nInput spectrum multiplied by frequency response."
+        },
+        {
+            "id": "fr-fc3",
+            "difficultyLevel": 1,
+            "front": "Magnitude response |H(ω)|",
+            "back": "Gain at each frequency.\n|H|>1: amplification\n|H|<1: attenuation"
+        },
+        {
+            "id": "fr-fc4",
+            "difficultyLevel": 1,
+            "front": "Phase response ∠H(ω)",
+            "back": "Phase shift at each frequency.\nLinear phase = constant delay.\nNonlinear = dispersion."
+        },
+        {
+            "id": "fr-fc5",
+            "difficultyLevel": 2,
+            "front": "Low-pass filter characteristic",
+            "back": "|H|≈1 for low ω\n|H|→0 for high ω\nPasses low frequencies, blocks high."
+        },
+        {
+            "id": "fr-fc6",
+            "difficultyLevel": 2,
+            "front": "High-pass filter characteristic",
+            "back": "|H|→0 for low ω\n|H|≈1 for high ω\nBlocks DC and low frequencies."
+        },
+        {
+            "id": "fr-fc7",
+            "difficultyLevel": 2,
+            "front": "Cutoff frequency ωc",
+            "back": "Where |H| = 1/√2 ≈ 0.707\n-3dB point. Power halved. Boundary of passband."
+        },
+        {
+            "id": "fr-fc8",
+            "difficultyLevel": 2,
+            "front": "Bandwidth definition",
+            "back": "Range where |H| > 1/√2\nFor lowpass: BW = ωc\nFor bandpass: BW = ω₂ - ω₁"
+        },
+        {
+            "id": "fr-fc9",
+            "difficultyLevel": 2,
+            "front": "Band-pass filter passes",
+            "back": "Frequencies in range [ω₁, ω₂]\nBlocks below ω₁ and above ω₂. Radio tuning."
+        },
+        {
+            "id": "fr-fc10",
+            "difficultyLevel": 3,
+            "front": "Group delay τg",
+            "back": "τg = -dφ/dω\n\nDelay of signal envelope. Constant τg = no dispersion."
+        }
+    ]
+}

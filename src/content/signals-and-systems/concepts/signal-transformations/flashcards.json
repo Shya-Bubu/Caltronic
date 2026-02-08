@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-signal-transformations",
+    "conceptId": "signal-transformations",
+    "title": "Signal Transformations Flashcards",
+    "cards": [
+        {
+            "id": "st-fc1",
+            "difficultyLevel": 1,
+            "front": "What does x(t-3) represent?",
+            "back": "Right shift (delay) by 3 units. The signal starts 3 time units later. Subtracting from t delays the signal."
+        },
+        {
+            "id": "st-fc2",
+            "difficultyLevel": 1,
+            "front": "What does x(t+2) represent?",
+            "back": "Left shift (advance) by 2 units. The signal starts 2 time units earlier. Adding to t advances the signal."
+        },
+        {
+            "id": "st-fc3",
+            "difficultyLevel": 2,
+            "front": "What does x(2t) do?",
+            "back": "Compresses the signal horizontally by factor 2. Events happen twice as fast. Multiply t by a>1 to compress."
+        },
+        {
+            "id": "st-fc4",
+            "difficultyLevel": 2,
+            "front": "What does x(t/2) do?",
+            "back": "Stretches the signal horizontally by factor 2. Events happen twice as slow. Multiply t by a<1 to stretch."
+        },
+        {
+            "id": "st-fc5",
+            "difficultyLevel": 2,
+            "front": "What does x(-t) do?",
+            "back": "Time reversal. Reflects the signal about t=0. Past becomes future. The signal plays backwards."
+        },
+        {
+            "id": "st-fc6",
+            "difficultyLevel": 2,
+            "front": "What does -x(t) do?",
+            "back": "Amplitude inversion. Reflects about the t-axis. Positive values become negative. Not to be confused with x(-t)."
+        },
+        {
+            "id": "st-fc7",
+            "difficultyLevel": 3,
+            "front": "Order of operations for x(2t-4)?",
+            "back": "Rewrite as x(2(t-2)). First scale by 2 (compress), then shift by 2 (not 4!). Shift value is divided by scale factor."
+        },
+        {
+            "id": "st-fc8",
+            "difficultyLevel": 2,
+            "front": "Even signal definition",
+            "back": "x(t) = x(-t)\nSymmetric about t=0. Examples: cos(t), t², constants. Mirror image across vertical axis."
+        },
+        {
+            "id": "st-fc9",
+            "difficultyLevel": 2,
+            "front": "Odd signal definition",
+            "back": "x(t) = -x(-t)\nAnti-symmetric about origin. Examples: sin(t), t³, t. x(0) must equal 0."
+        },
+        {
+            "id": "st-fc10",
+            "difficultyLevel": 3,
+            "front": "Even-odd decomposition",
+            "back": "Any signal x(t) = xₑ(t) + xₒ(t)\nxₑ = [x(t)+x(-t)]/2\nxₒ = [x(t)-x(-t)]/2"
+        }
+    ]
+}

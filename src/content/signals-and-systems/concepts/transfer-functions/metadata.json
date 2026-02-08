@@ -1,0 +1,33 @@
+{
+    "$schema":  "concept-metadata-v3",
+    "id":  "transfer-functions",
+    "title":  "Transfer Functions",
+    "lesson":  "lesson-06",
+    "order":  2,
+    "continuationContext":  {
+                                "previousConcept":  "laplace-transform-basics",
+                                "establishedBy":  "Laplace transform and s-domain analysis",
+                                "addressingGap":  "How do we represent systems in the s-domain?"
+                            },
+    "difficultyProgression":  {
+                                  "intuition":  {
+                                                    "startsAt":  160,
+                                                    "endsAt":  175
+                                                },
+                                  "engineering":  {
+                                                      "startsAt":  175,
+                                                      "endsAt":  190
+                                                  },
+                                  "mathematics":  {
+                                                      "startsAt":  190,
+                                                      "endsAt":  205
+                                                  }
+                              },
+    "examPath":  "exam.md",
+    "visualsPath":  "visuals.json",
+    "quizPath":  "quiz.json",
+    "flashcardsPath":  "flashcards.json",
+    "intuitionPath":  "intuition.md",
+    "engineeringPath":  "engineering.md",
+    "mathematicsPath":  "mathematics.md"
+}

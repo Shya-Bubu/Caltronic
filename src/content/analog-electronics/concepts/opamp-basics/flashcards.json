@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-opamp-basics",
+    "conceptId": "opamp-basics",
+    "title": "Op-Amp Fundamentals Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What does op-amp stand for?",
+            "back": "Operational Amplifier\n\nNamed because it can perform mathematical operations (addition, subtraction, integration, differentiation) on signals.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "741 Op-Amp: Which pin is the output?",
+            "back": "Pin 6\n\nPin 2: Inverting input (-)\nPin 3: Non-inverting input (+)\nPin 4: V- (-15V)\nPin 7: V+ (+15V)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What are the two golden rules for ideal op-amp analysis?",
+            "back": "1. No current into inputs: I+ = I- = 0\n2. Virtual short: V+ = V- (with negative feedback)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the 'virtual short' rule?",
+            "back": "With negative feedback, V+ = V-\n\nThe inputs are at the same voltage but NOT physically connected. The op-amp adjusts its output to make this happen.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why is there no current into op-amp inputs?",
+            "back": "Very high input impedance (megaohms)\n\nBy Ohm's law: I = V/R, high R means very small I.\nWe approximate this as zero for analysis.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is op-amp saturation?",
+            "back": "When output reaches supply voltage limits and can't go higher.\n\nFor ±15V supply, output saturates at approximately ±14V.\nCauses clipping/distortion of waveforms.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What is open-loop gain of a 741 op-amp?",
+            "back": "Approximately 200,000 (100 dB)\n\nThis enormous gain is why the virtual short approximation works.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why do op-amp circuits use negative feedback?",
+            "back": "To control the gain!\n\nOpen-loop: Gain = 200,000 (saturates immediately)\nClosed-loop: Gain is controlled by external resistors (e.g., 10, 100).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Gain-Bandwidth Product formula?",
+            "back": "Gain × Bandwidth = GBP (constant)\n\n741 has GBP = 1MHz\nIf Gain = 100, Bandwidth = 10kHz\nIf Gain = 10, Bandwidth = 100kHz",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Op-amp analysis procedure (4 steps)?",
+            "back": "1. Write KCL at inverting node\n2. Write KCL at non-inverting node\n3. Set V+ = V- (virtual short)\n4. Solve for gain (Vo/Vi)",
+            "difficultyLevel": 3
+        }
+    ]
+}

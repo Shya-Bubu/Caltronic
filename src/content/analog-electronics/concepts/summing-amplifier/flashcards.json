@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-summing-amplifier",
+    "conceptId": "summing-amplifier",
+    "title": "Summing Amplifier Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Summing amplifier output formula?",
+            "back": "Vo = -(Rf/R1)V1 - (Rf/R2)V2 - ...\n\nOr: Vo = -(A1V1 + A2V2 + ...)\nwhere An = Rf/Rn",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Which op-amp configuration is the summing amp based on?",
+            "back": "Inverting amplifier\n\nMultiple inputs to inverting terminal, each through its own resistor, sharing common Rf.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Activity 4 component values and gains?",
+            "back": "R1 = 1.2kΩ, R2 = 18kΩ, Rf = 39kΩ\n\nA1 = 39k/1.2k = 32.5\nA2 = 39k/18k = 2.17",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "How to make a unity-gain summing amplifier?",
+            "back": "Make all resistors equal: R1 = R2 = ... = Rf\n\nThen Vo = -(V1 + V2 + ...)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why does summing amp invert the output?",
+            "back": "Inputs connect to INVERTING terminal.\n\nSame reason as basic inverting amp - it's built on that topology.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "How to design Rf and Rn for specific gains?",
+            "back": "For gain An on input Vn:\nRn = Rf/An\n\nChoose Rf first, then calculate each Rn.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is an averaging amplifier?",
+            "back": "Summing amp with Rf = R/n\n(where n = number of inputs)\n\nVo = -(V1 + V2 + ... + Vn)/n",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Practical applications of summing amplifiers?",
+            "back": "1. Audio mixers (combine channels)\n2. Digital-to-Analog Converters (DACs)\n3. Weighted voting systems\n4. Signal processing",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Can summing amp mix AC and DC signals?",
+            "back": "Yes! Each component is scaled by its gain.\n\nResult: AC waveform offset by scaled DC level.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "How to verify individual gains A1 and A2?",
+            "back": "Ground one input, measure gain with other:\n• A1: Ground V2, measure Vo/V1\n• A2: Ground V1, measure Vo/V2",
+            "difficultyLevel": 3
+        }
+    ]
+}

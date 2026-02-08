@@ -1,0 +1,138 @@
+{
+    "id": "quiz-signal-operations",
+    "conceptId": "signal-operations",
+    "title": "Signal Operations Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "If x(t) is a signal, what does x(t-3) represent?",
+            "options": [
+                "Shift left by 3",
+                "Shift right by 3",
+                "Scale by 3",
+                "Compress by 3"
+            ],
+            "correctAnswer": "Shift right by 3",
+            "explanation": "x(t-t0) with positive t0 shifts the signal RIGHT by t0 units. So x(t-3) delays the signal by 3 time units.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q2",
+            "prompt": "What does x(2t) do to a signal?",
+            "options": [
+                "Expands it by 2",
+                "Compresses it by 2",
+                "Shifts it by 2",
+                "Amplifies it by 2"
+            ],
+            "correctAnswer": "Compresses it by 2",
+            "explanation": "For x(at) with |a|>1, the signal is compressed (squeezed) by factor a. x(2t) compresses the signal by 2.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q3",
+            "prompt": "x(-t) performs which operation?",
+            "options": [
+                "Time scaling",
+                "Time reversal",
+                "Time shifting",
+                "Amplitude scaling"
+            ],
+            "correctAnswer": "Time reversal",
+            "explanation": "x(-t) mirrors the signal about the y-axis, which is called time reversal or reflection.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q4",
+            "prompt": "For y(t) = x(2t-4), find the shift amount after factoring.",
+            "options": [
+                "4 units right",
+                "4 units left",
+                "2 units right",
+                "2 units left"
+            ],
+            "correctAnswer": "2 units right",
+            "explanation": "Rewrite as x(2(t-2)). First scale by 2, then shift right by 2. The effective shift is 2 units right.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q5",
+            "prompt": "What does 3x(t) represent?",
+            "options": [
+                "Time scaling by 3",
+                "Amplification by 3",
+                "Time shift by 3",
+                "Compression by 3"
+            ],
+            "correctAnswer": "Amplification by 3",
+            "explanation": "Multiplying a signal by a constant scales its amplitude. 3x(t) amplifies the signal by a factor of 3.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q6",
+            "prompt": "If x(t) has duration T, what is the duration of x(t/2)?",
+            "options": [
+                "T/2",
+                "2T",
+                "T",
+                "4T"
+            ],
+            "correctAnswer": "2T",
+            "explanation": "x(at) with |a|<1 expands the signal. x(t/2) = x(0.5t) expands by factor 2, so duration becomes 2T.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q7",
+            "prompt": "For x(t) defined on [0,2], where is x(3-2t) defined?",
+            "options": [
+                "[0.5, 1.5]",
+                "[0, 2]",
+                "[1, 3]",
+                "[-1, 1]"
+            ],
+            "correctAnswer": "[0.5, 1.5]",
+            "explanation": "Set 0 ≤ 3-2t ≤ 2. Solving: 1 ≤ 2t ≤ 3, so 0.5 ≤ t ≤ 1.5. The signal is defined on [0.5, 1.5].",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q8",
+            "prompt": "What is x(t)+x(-t)?",
+            "options": [
+                "Always zero",
+                "Twice the even component",
+                "Twice the odd component",
+                "The original signal"
+            ],
+            "correctAnswer": "Twice the even component",
+            "explanation": "From decomposition: x_e(t) = [x(t)+x(-t)]/2. Therefore x(t)+x(-t) = 2x_e(t), twice the even component.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q9",
+            "prompt": "What is x(t)-x(-t)?",
+            "options": [
+                "Always zero",
+                "Twice the even component",
+                "Twice the odd component",
+                "The original signal"
+            ],
+            "correctAnswer": "Twice the odd component",
+            "explanation": "From decomposition: x_o(t) = [x(t)-x(-t)]/2. Therefore x(t)-x(-t) = 2x_o(t), twice the odd component.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q10",
+            "prompt": "If x(t) = u(t) (unit step), what is x(1-t)?",
+            "options": [
+                "u(1-t), step at t=1 going left",
+                "u(t-1), step at t=1 going right",
+                "u(-t-1)",
+                "u(t+1)"
+            ],
+            "correctAnswer": "u(1-t), step at t=1 going left",
+            "explanation": "x(1-t) = u(1-t). This is 1 when 1-t≥0, i.e., t≤1. It's a reversed step that equals 1 for t≤1 and 0 for t>1.",
+            "difficulty": "hard"
+        }
+    ]
+}

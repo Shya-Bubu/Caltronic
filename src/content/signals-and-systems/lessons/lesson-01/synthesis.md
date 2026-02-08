@@ -1,56 +1,59 @@
-# Lesson 01 Summary
+# Lesson 01 Synthesis: Signal Fundamentals and Classifications
 
-> **Key Takeaways** from Introduction to Signals and Systems
+## What You've Learned
+
+### The 3 Concepts - Summary
+
+| Concept | Key Topics | Key Insight |
+|---------|-----------|-------------|
+| **Signal Fundamentals** | CT/DT, Energy/Power, Even/Odd, Periodic | Signals are classified by their properties |
+| **Signal Operations** | Time shift, scale, reversal | Manipulating signals mathematically |
+| **System Basics** | Memory, Causality, Linearity, TI | Systems transform signals with specific properties |
+
+## Key Formulas (Memorize These!)
+
+### Signal Classifications
+| Classification | Continuous | Discrete |
+|----------------|------------|----------|
+| **Energy** | $E = \int |x(t)|^2 dt$ | $E = \sum |x[n]|^2$ |
+| **Power** | $P = \lim_{T\to\infty}\frac{1}{2T}\int_{-T}^{T}|x(t)|^2 dt$ | Similar limit |
+| **Sinusoid Power** | $P = A^2/2$ | Same |
+
+### Signal Operations
+| Operation | Formula | Effect |
+|-----------|---------|--------|
+| Time Shift | $x(t-t_0)$ | Delay by $t_0$ (right) |
+| Time Scale | $x(at)$ | Compress if $|a|>1$ |
+| Time Reversal | $x(-t)$ | Mirror about y-axis |
+
+### System Properties
+- **Linear**: $T\{ax_1 + bx_2\} = aT\{x_1\} + bT\{x_2\}$
+- **Time-Invariant**: Shift input → Shift output
+- **Causal**: No dependence on future inputs
+- **BIBO Stable**: Bounded input → Bounded output
+
+## Euler's Formula (Critical!)
+
+$$e^{j\theta} = \cos\theta + j\sin\theta$$
+
+From this:
+- $\cos\theta = \frac{e^{j\theta} + e^{-j\theta}}{2}$
+- $\sin\theta = \frac{e^{j\theta} - e^{-j\theta}}{2j}$
+
+## Common Exam Traps
+
+1. **x(t-2) shifts RIGHT, not left** - The minus is counter-intuitive
+2. **Sinusoids are POWER signals** - They have infinite energy but finite power
+3. **y = x + 3 is NONLINEAR** - Constants break the zero-input test
+4. **Combined operations**: For x(at+b), factor out a first
+
+## Connections to Future Topics
+
+- **Convolution**: Uses LTI system properties
+- **Fourier Analysis**: Uses Euler's formula extensively  
+- **Laplace Transform**: Builds on exponential signals
+- **Frequency Response**: Depends on sinusoidal steady-state
 
 ---
 
-## The Big Picture
-
-You've now learned the **vocabulary** of signals and systems. Everything that follows in this course — Fourier transforms, convolution, Laplace — builds on these foundations.
-
----
-
-## Core Concepts Covered
-
-### 1. Signals and Systems
-- A **signal** is a physical quantity that varies with time (or space)
-- A **system** transforms input signals into output signals
-- They're inseparable: no signals without systems observing them
-
-### 2. Signal Classifications
-
-| Classification | Types | Key Difference |
-|----------------|-------|----------------|
-| **Time** | Continuous / Discrete | Defined for all t vs only integer n |
-| **Predictability** | Deterministic / Random | Exact value vs probability distribution |
-| **Energy** | Energy / Power | Finite total energy vs finite average power |
-
-### 3. Mathematical Notation
-- Continuous: $x(t)$ — parentheses mean continuous
-- Discrete: $x[n]$ — brackets mean discrete
-- This notation is **universal** in all EE literature
-
-### 4. Energy and Power
-$$E = \int_{-\infty}^{\infty} |x(t)|^2 \, dt$$
-$$P = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 \, dt$$
-
----
-
-## What's Next
-
-In the next lesson, we'll explore **signal operations** — how to shift, scale, and transform signals. This leads directly to convolution, which is the heart of LTI system analysis.
-
----
-
-## Quick Self-Check
-
-Before moving on, make sure you can:
-
-- [ ] Define signal and system in one sentence each
-- [ ] Distinguish continuous vs discrete signals from a graph
-- [ ] Explain why a sinusoid is a power signal, not an energy signal
-- [ ] Sketch a triangular pulse from its piecewise equation
-
----
-
-> **Well done.** You've completed the first step in mastering signals and systems.
+*You now have the foundation to understand signals, systems, and their interactions!*

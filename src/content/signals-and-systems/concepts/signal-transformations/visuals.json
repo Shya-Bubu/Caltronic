@@ -1,0 +1,118 @@
+{
+    "conceptId": "signal-transformations",
+    "visuals": [
+        {
+            "id": "three-operations-overview",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Three Fundamental Signal Operations",
+            "description": "Shifting, scaling, and reversal - building blocks of all transformations",
+            "blocks": [
+                {
+                    "id": "shift",
+                    "label": "⏩ Time Shift\nx(t - t₀)",
+                    "x": 20,
+                    "y": 30,
+                    "width": 120,
+                    "height": 60
+                },
+                {
+                    "id": "scale",
+                    "label": "🔍 Time Scale\nx(at)",
+                    "x": 160,
+                    "y": 30,
+                    "width": 120,
+                    "height": 60
+                },
+                {
+                    "id": "reverse",
+                    "label": "🔄 Reversal\nx(-t)",
+                    "x": 300,
+                    "y": 30,
+                    "width": 120,
+                    "height": 60
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "time-shift-delay",
+            "visualType": "simulation",
+            "type": "d3-simulation",
+            "simulationType": "time-shift-demo",
+            "placement": "intuition",
+            "title": "Time Shifting: Drag to Shift Signal",
+            "description": "x(t-t₀) shifts RIGHT for positive t₀"
+        },
+        {
+            "id": "time-shift-advance",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Left Shift: x(t + t₀) Advances the Signal",
+            "description": "Adding inside the argument shifts left",
+            "waveType": "pulse",
+            "mode": "shift-left"
+        },
+        {
+            "id": "time-compression",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Time Compression: x(2t) Runs Twice as Fast",
+            "description": "Signal becomes narrower, events happen faster",
+            "waveType": "pulse",
+            "mode": "compressed"
+        },
+        {
+            "id": "time-expansion",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Time Expansion: x(0.5t) Runs at Half Speed",
+            "description": "Signal becomes wider, events take longer",
+            "waveType": "pulse",
+            "mode": "expanded"
+        },
+        {
+            "id": "time-reversal",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Time Reversal: x(-t) Flips Signal",
+            "description": "Mirror image about t = 0",
+            "waveType": "asymmetric",
+            "mode": "reversal"
+        },
+        {
+            "id": "combined-transformations",
+            "visualType": "simulation",
+            "type": "d3-simulation",
+            "simulationType": "combined-transform-demo",
+            "placement": "engineering",
+            "title": "Combined Transformations: x(at + b)",
+            "description": "Adjust a and b to see combined effect"
+        },
+        {
+            "id": "discrete-transformations",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Discrete-Time Transformations",
+            "description": "Shifting, decimation, and reversal for sequences",
+            "waveType": "stem",
+            "mode": "discrete"
+        },
+        {
+            "id": "pulse-shift-example",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "Rectangular Pulse Transformation Example",
+            "description": "Original vs shifted pulse showing position change",
+            "waveType": "rectangular",
+            "mode": "dual-comparison"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "$schema":  "concept-metadata-v3",
+    "id":  "laplace-transform-basics",
+    "title":  "Laplace Transform Basics",
+    "lesson":  "lesson-06",
+    "order":  1,
+    "continuationContext":  {
+                                "previousConcept":  "frequency-response",
+                                "establishedBy":  "Fourier transform and frequency response",
+                                "addressingGap":  "How do we analyze systems with transient and unstable components?"
+                            },
+    "difficultyProgression":  {
+                                  "intuition":  {
+                                                    "startsAt":  155,
+                                                    "endsAt":  170
+                                                },
+                                  "engineering":  {
+                                                      "startsAt":  170,
+                                                      "endsAt":  185
+                                                  },
+                                  "mathematics":  {
+                                                      "startsAt":  185,
+                                                      "endsAt":  200
+                                                  }
+                              },
+    "examPath":  "exam.md",
+    "visualsPath":  "visuals.json",
+    "quizPath":  "quiz.json",
+    "flashcardsPath":  "flashcards.json",
+    "intuitionPath":  "intuition.md",
+    "engineeringPath":  "engineering.md",
+    "mathematicsPath":  "mathematics.md"
+}

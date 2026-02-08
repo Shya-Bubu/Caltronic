@@ -1,38 +1,19 @@
-# Lesson 03 Synthesis: The Power of Convolution
+# Lesson 03 Synthesis
 
-## Key Insights
+## Key Takeaways
 
-### 1. The Impulse Response Defines Everything
+**Convolution**: The output of any LTI system equals the convolution of input with impulse response:
+$$y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$$
 
-For any LTI system, if you know h[n] (the impulse response), you can compute the output for ANY input x[n].
+**Graphical Interpretation**: Flip h, slide it across x, multiply and integrate at each position.
 
-$$y[n] = x[n] * h[n] = \sum_{k=-\infty}^{\infty} x[k] \cdot h[n-k]$$
+**Properties that simplify calculations**:
+- Commutative: $x * h = h * x$
+- Associative: $(x * h_1) * h_2 = x * (h_1 * h_2)$
+- Distributive: $x * (h_1 + h_2) = x * h_1 + x * h_2$
 
-### 2. Why This Works
+**Impulse as identity**: $x(t) * \delta(t) = x(t)$
 
-The proof relies on three properties:
-1. **Impulse decomposition**: Any signal = sum of scaled, shifted impulses
-2. **Time invariance**: Shifted input → shifted output
-3. **Linearity**: Scaled inputs → scaled outputs, summed inputs → summed outputs
+## Looking Ahead
 
-### 3. Graphical Convolution
-
-To compute y[n₀]:
-1. **Flip** h[k] to get h[-k]
-2. **Shift** to get h[n₀ - k]
-3. **Multiply** x[k] · h[n₀ - k] point by point
-4. **Sum** all the products
-
-### 4. Convolution Properties
-
-| Property | Formula |
-|----------|---------|
-| Commutative | x * h = h * x |
-| Associative | (x * h₁) * h₂ = x * (h₁ * h₂) |
-| Distributive | x * (h₁ + h₂) = x*h₁ + x*h₂ |
-
-## What's Next
-
-- Continuous-time convolution (integral form)
-- Convolution in the frequency domain (multiplication!)
-- BIBO stability from impulse response
+With convolution mastered, we're ready for **frequency domain analysis**. Fourier series and transforms will show that convolution in time becomes MULTIPLICATION in frequency—dramatically simplifying many calculations.

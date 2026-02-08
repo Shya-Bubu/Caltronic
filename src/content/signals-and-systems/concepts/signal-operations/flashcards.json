@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-signal-operations",
+    "conceptId": "signal-operations",
+    "title": "Signal Operations Flashcards",
+    "cards": [
+        {
+            "id": "so-fc1",
+            "difficultyLevel": 1,
+            "front": "Time shifting formula",
+            "back": "y(t) = x(t - t₀)\nPositive t₀: shifts RIGHT (delay)\nNegative t₀: shifts LEFT (advance)"
+        },
+        {
+            "id": "so-fc2",
+            "difficultyLevel": 1,
+            "front": "Time scaling formula",
+            "back": "y(t) = x(at)\n|a| > 1: compresses\n|a| < 1: expands\na < 0: also reverses"
+        },
+        {
+            "id": "so-fc3",
+            "difficultyLevel": 1,
+            "front": "Time reversal",
+            "back": "y(t) = x(-t)\nFlips signal about the y-axis"
+        },
+        {
+            "id": "so-fc4",
+            "difficultyLevel": 2,
+            "front": "Combined operations rule",
+            "back": "For x(at + b):\n1. Rewrite as x(a(t + b/a))\n2. Scale by a, then shift by b/a\nOR: Shift by b, then scale by a"
+        },
+        {
+            "id": "so-fc5",
+            "difficultyLevel": 2,
+            "front": "Amplitude operations",
+            "back": "Ax(t): Scale amplitude by A\n|A|>1: Amplify\n|A|<1: Attenuate\nA<0: Invert"
+        },
+        {
+            "id": "so-fc6",
+            "difficultyLevel": 2,
+            "front": "x(t) + x(-t) equals?",
+            "back": "2·x_e(t) = twice the even component"
+        },
+        {
+            "id": "so-fc7",
+            "difficultyLevel": 2,
+            "front": "x(t) - x(-t) equals?",
+            "back": "2·x_o(t) = twice the odd component"
+        },
+        {
+            "id": "so-fc8",
+            "difficultyLevel": 3,
+            "front": "How does x(at+b) affect domain?",
+            "back": "Original domain [t₁, t₂] becomes:\n[(t₁-b)/a, (t₂-b)/a]\nAfter sorting for correct order"
+        },
+        {
+            "id": "so-fc9",
+            "difficultyLevel": 1,
+            "front": "Signal addition",
+            "back": "y(t) = x₁(t) + x₂(t)\nPoint-by-point sum"
+        },
+        {
+            "id": "so-fc10",
+            "difficultyLevel": 1,
+            "front": "Signal multiplication",
+            "back": "y(t) = x₁(t) · x₂(t)\nPoint-by-point product\nUsed in modulation and windowing"
+        }
+    ]
+}

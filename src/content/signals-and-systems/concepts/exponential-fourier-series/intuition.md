@@ -1,102 +1,92 @@
-# Exponential Fourier Series Representation
+# Exponential Fourier Series
 
-## The Big Idea
+> **Why This Matters**: Computing Fourier coefficients is the practical skill that turns theory into application. Master the coefficient formula and you can analyze any periodic signal.
 
-Any periodic signal can be written as a sum of complex exponentials at integer multiples of the fundamental frequency:
+---
 
-$$x(t) = \sum_{k=-\infty}^{\infty} X_k e^{jk\omega_0 t}$$
+## The Analysis Equation
 
-Each term $X_k e^{jk\omega_0 t}$ represents a **harmonic component** spinning at frequency $k\omega_0$.
+Given a periodic signal $x(t)$ with period $T$, the Fourier coefficients are:
 
-[[visual:v1]]
+$$c_k = \frac{1}{T}\int_T x(t) e^{-jk\omega_0 t} dt$$
 
-## Euler's Formula: The Key
+[[visual:analysis-equation]]
 
-[[visual:v2]]
+where:
+- $\omega_0 = 2\pi/T$ is the fundamental frequency
+- The integral is over any complete period
+- $k$ ranges from $-\infty$ to $\infty$
 
-Euler's formula connects sinusoids to complex exponentials:
+---
 
-$$e^{j\theta} = \cos\theta + j\sin\theta$$
+## Computing Coefficients: Step by Step
 
-From this, we derive:
-- $\cos\theta = \frac{e^{j\theta} + e^{-j\theta}}{2}$
-- $\sin\theta = \frac{e^{j\theta} - e^{-j\theta}}{2j}$
+### Example: Rectangular Pulse Train
 
-## Converting Sin/Cos to Exponentials
+[[visual:pulse-train-example]]
 
-**Example:** Convert $x(t) = 4\sin(5t)$
+Let $x(t)$ be a periodic rectangular pulse train with:
+- Period $T$
+- Pulse width $\tau$
+- Amplitude $A$
 
-Using the sine formula:
-$$4\sin(5t) = 4 \cdot \frac{e^{j5t} - e^{-j5t}}{2j} = \frac{4}{2j}e^{j5t} - \frac{4}{2j}e^{-j5t}$$
+**Step 1**: Identify period and limits of integration
 
-Simplify $\frac{1}{j} = -j = e^{-j\pi/2}$:
-$$= 2e^{-j\pi/2}e^{j5t} - 2e^{-j\pi/2}e^{-j5t}$$
+**Step 2**: Substitute into the formula:
+$$c_k = \frac{1}{T}\int_{-\tau/2}^{\tau/2} A e^{-jk\omega_0 t} dt$$
 
-So the Fourier coefficients are:
-- $X_1 = 2e^{-j\pi/2}$ (at frequency 5 rad/s)
-- $X_{-1} = -2e^{-j\pi/2} = 2e^{j\pi/2}$ (at frequency -5 rad/s)
+**Step 3**: Evaluate the integral:
+$$c_k = \frac{A}{T} \cdot \frac{e^{jk\omega_0\tau/2} - e^{-jk\omega_0\tau/2}}{jk\omega_0}$$
 
-## What Are the Xk Coefficients?
+**Step 4**: Simplify using $\sin\theta = \frac{e^{j\theta} - e^{-j\theta}}{2j}$:
+$$c_k = \frac{A\tau}{T} \cdot \frac{\sin(k\omega_0\tau/2)}{k\omega_0\tau/2} = \frac{A\tau}{T} \text{sinc}\left(\frac{k\omega_0\tau}{2\pi}\right)$$
 
-[[visual:v3]]
+---
 
-The **Fourier series coefficients** $X_k$ are complex numbers:
-$$X_k = |X_k| e^{j\angle X_k}$$
+## The Sinc Function
 
-- **Magnitude** $|X_k|$: How much of the kth harmonic is present
-- **Phase** $\angle X_k$: The starting angle of that harmonic
+The **sinc function** appears constantly in Fourier analysis:
 
-## The DC Component (k = 0)
+$$\text{sinc}(x) = \frac{\sin(\pi x)}{\pi x}$$
 
-[[visual:v8]]
+[[visual:sinc-function]]
 
-When k = 0:
-$$X_0 e^{j \cdot 0 \cdot \omega_0 t} = X_0 \cdot 1 = X_0$$
+Properties:
+- $\text{sinc}(0) = 1$
+- $\text{sinc}(n) = 0$ for nonzero integers $n$
+- Decays as $1/x$ for large $|x|$
 
-This is simply a constant—the **average value** of the signal.
+---
 
-## Magnitude and Phase Spectra
+## Key Coefficient Formulas
 
-[[visual:v4]]
+| Signal | $c_k$ |
+|--------|-------|
+| Square wave | $\frac{2}{jk\pi}$ for odd $k$, 0 for even |
+| Triangle wave | $\frac{-4}{k^2\pi^2}$ for odd $k$, 0 for even |
+| Pulse train | $\frac{A\tau}{T}\text{sinc}(k\tau/T)$ |
+| Sawtooth | $\frac{j}{k\pi}(-1)^{k+1}$ |
 
-From the Fourier coefficients, we can plot:
+---
 
-1. **Magnitude Spectrum:** $|X_k|$ vs k
-   - Shows amplitude at each harmonic
-   - Always symmetric for real signals: $|X_{-k}| = |X_k|$
+## Symmetry Properties
 
-2. **Phase Spectrum:** $\angle X_k$ vs k
-   - Shows phase angle at each harmonic
-   - Antisymmetric for real signals: $\angle X_{-k} = -\angle X_k$
+[[visual:symmetry-properties]]
 
-## Why Complex Exponentials?
+| Signal Property | Coefficient Property |
+|-----------------|---------------------|
+| Real signal | $c_{-k} = c_k^*$ |
+| Even signal | $c_k$ real |
+| Odd signal | $c_k$ purely imaginary |
+| Half-wave symmetric | Only odd harmonics |
 
-[[visual:v6]]
+---
 
-Using $e^{jk\omega_0 t}$ instead of sin/cos has advantages:
-1. **Simpler algebra:** Products become additions of exponents
-2. **Unified representation:** Both positive and negative frequencies
-3. **Eigenfunction property:** $e^{jk\omega_0 t}$ passes through LTI systems unchanged in form
-4. **Connection to transforms:** Directly extends to Fourier Transform
+## Summary
 
-## Worked Example
+| Formula | Expression |
+|---------|------------|
+| Synthesis | $x(t) = \sum c_k e^{jk\omega_0 t}$ |
+| Analysis | $c_k = \frac{1}{T}\int_T x(t)e^{-jk\omega_0 t}dt$ |
+| DC component | $c_0 = \frac{1}{T}\int_T x(t)dt$ |
 
-[[visual:v5]]
-
-**Signal:** $x(t) = 11 + 4\sin(5t) + \frac{4}{3}\sin(15t)$
-
-**Step 1:** Identify components
-- DC: 11
-- 5 rad/s component: $4\sin(5t)$
-- 15 rad/s component: $\frac{4}{3}\sin(15t)$
-
-**Step 2:** Convert each sine
-$$4\sin(5t) = 2e^{-j\pi/2}e^{j5t} + 2e^{j\pi/2}e^{-j5t}$$
-$$\frac{4}{3}\sin(15t) = \frac{2}{3}e^{-j\pi/2}e^{j15t} + \frac{2}{3}e^{j\pi/2}e^{-j15t}$$
-
-**Step 3:** Identify coefficients
-- $X_0 = 11$
-- $X_1 = 2e^{-j\pi/2}$, $X_{-1} = 2e^{j\pi/2}$
-- $X_3 = \frac{2}{3}e^{-j\pi/2}$, $X_{-3} = \frac{2}{3}e^{j\pi/2}$
-
-Note: k = 1 corresponds to $\omega_0 = 5$ rad/s (fundamental), k = 3 to $3\omega_0 = 15$ rad/s.

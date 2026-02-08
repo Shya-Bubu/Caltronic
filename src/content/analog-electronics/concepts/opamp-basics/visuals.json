@@ -1,0 +1,245 @@
+{
+    "conceptId": "opamp-basics",
+    "visuals": [
+        {
+            "id": "diag-intuition-01",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Op-Amp Symbol and Terminals",
+            "description": "The op-amp has two inputs (+ and −), one output, and power supply connections (not shown).",
+            "blocks": [
+                {
+                    "id": "Vplus",
+                    "label": "V+",
+                    "x": 30,
+                    "y": 30,
+                    "type": "input"
+                },
+                {
+                    "id": "Vminus",
+                    "label": "V−",
+                    "x": 30,
+                    "y": 90,
+                    "type": "input"
+                },
+                {
+                    "id": "opamp",
+                    "label": "Op-Amp",
+                    "x": 130,
+                    "y": 40,
+                    "width": 100,
+                    "height": 70
+                },
+                {
+                    "id": "Vout",
+                    "label": "Vo",
+                    "x": 290,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "Vplus",
+                    "to": "opamp",
+                    "label": "+"
+                },
+                {
+                    "from": "Vminus",
+                    "to": "opamp",
+                    "label": "−"
+                },
+                {
+                    "from": "opamp",
+                    "to": "Vout"
+                }
+            ]
+        },
+        {
+            "id": "sim-intuition-01",
+            "visualType": "simulation",
+            "type": "d3-simulation",
+            "simulationType": "ohms-law",
+            "placement": "intuition",
+            "title": "Golden Rule Explorer",
+            "description": "See how the virtual short (V+ = V−) works when feedback is applied."
+        },
+        {
+            "id": "diag-intuition-02",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Saturation Effect",
+            "description": "When output exceeds ±14V, it clips — this is saturation.",
+            "waveType": "square",
+            "mode": "continuous"
+        },
+        {
+            "id": "diag-engineering-01",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "engineering",
+            "title": "741 Op-Amp Pinout",
+            "description": "8-pin DIP package: Pin 2 (−), Pin 3 (+), Pin 4 (V−), Pin 6 (Output), Pin 7 (V+).",
+            "blocks": [
+                {
+                    "id": "p1",
+                    "label": "NC",
+                    "x": 20,
+                    "y": 20,
+                    "width": 50
+                },
+                {
+                    "id": "p2",
+                    "label": "− (inv)",
+                    "x": 20,
+                    "y": 50,
+                    "width": 50
+                },
+                {
+                    "id": "p3",
+                    "label": "+ (non-inv)",
+                    "x": 20,
+                    "y": 80,
+                    "width": 80
+                },
+                {
+                    "id": "p4",
+                    "label": "V− (−15V)",
+                    "x": 20,
+                    "y": 110,
+                    "width": 80
+                },
+                {
+                    "id": "chip",
+                    "label": "741",
+                    "x": 140,
+                    "y": 50,
+                    "width": 60,
+                    "height": 80
+                },
+                {
+                    "id": "p8",
+                    "label": "NC",
+                    "x": 240,
+                    "y": 20,
+                    "width": 50
+                },
+                {
+                    "id": "p7",
+                    "label": "V+ (+15V)",
+                    "x": 240,
+                    "y": 50,
+                    "width": 80
+                },
+                {
+                    "id": "p6",
+                    "label": "Output",
+                    "x": 240,
+                    "y": 80,
+                    "width": 60
+                },
+                {
+                    "id": "p5",
+                    "label": "NC",
+                    "x": 240,
+                    "y": 110,
+                    "width": 50
+                }
+            ],
+            "connections": [
+                {
+                    "from": "p2",
+                    "to": "chip"
+                },
+                {
+                    "from": "p3",
+                    "to": "chip"
+                },
+                {
+                    "from": "p4",
+                    "to": "chip"
+                },
+                {
+                    "from": "chip",
+                    "to": "p6"
+                },
+                {
+                    "from": "chip",
+                    "to": "p7"
+                }
+            ]
+        },
+        {
+            "id": "diag-mathematics-01",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "mathematics",
+            "title": "Negative Feedback System",
+            "description": "Output is fed back to the inverting input, creating stable operation.",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "Vi",
+                    "x": 20,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "sum",
+                    "label": "Σ",
+                    "x": 90,
+                    "y": 40,
+                    "width": 40,
+                    "height": 40
+                },
+                {
+                    "id": "A",
+                    "label": "A (∞)",
+                    "x": 160,
+                    "y": 40,
+                    "width": 70
+                },
+                {
+                    "id": "out",
+                    "label": "Vo",
+                    "x": 290,
+                    "y": 50,
+                    "type": "output"
+                },
+                {
+                    "id": "beta",
+                    "label": "β",
+                    "x": 180,
+                    "y": 120,
+                    "width": 50
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "sum"
+                },
+                {
+                    "from": "sum",
+                    "to": "A"
+                },
+                {
+                    "from": "A",
+                    "to": "out"
+                },
+                {
+                    "from": "out",
+                    "to": "beta",
+                    "label": "feedback"
+                },
+                {
+                    "from": "beta",
+                    "to": "sum",
+                    "label": "−"
+                }
+            ]
+        }
+    ]
+}

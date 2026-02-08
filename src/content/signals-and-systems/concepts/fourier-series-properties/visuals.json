@@ -2,42 +2,45 @@
     "conceptId": "fourier-series-properties",
     "visuals": [
         {
-            "id": "v1",
+            "id": "time-shift-property",
+            "visualType": "simulation",
+            "type": "d3-simulation",
+            "simulationType": "phase-shift-demo",
+            "placement": "intuition",
+            "title": "Time Shift: Phase Changes, Magnitude Unchanged",
+            "description": "Delay signal and see coefficients gain linear phase"
+        },
+        {
+            "id": "linearity-property",
+            "visualType": "diagram",
             "type": "d3-block-diagram",
-            "title": "Linearity Property",
-            "description": "αx(t) + βy(t) → αXk + βYk. Just scale and add the coefficients!",
+            "placement": "intuition",
+            "title": "Linearity: Scale and Add in Both Domains",
+            "description": "ax(t) + by(t) ↔ acₖˣ + bcₖʸ",
             "blocks": [
                 {
                     "id": "x",
-                    "label": "αXk",
-                    "x": 30,
-                    "y": 30,
-                    "width": 60,
-                    "type": "input"
+                    "label": "x(t)↔cₖˣ",
+                    "x": 20,
+                    "y": 20,
+                    "width": 100,
+                    "height": 40
                 },
                 {
                     "id": "y",
-                    "label": "βYk",
-                    "x": 30,
+                    "label": "y(t)↔cₖʸ",
+                    "x": 20,
                     "y": 80,
-                    "width": 60,
-                    "type": "input"
+                    "width": 100,
+                    "height": 40
                 },
                 {
                     "id": "sum",
-                    "label": "+",
-                    "x": 130,
-                    "y": 55,
-                    "width": 40,
-                    "type": "sum"
-                },
-                {
-                    "id": "out",
-                    "label": "αXk+βYk",
-                    "x": 210,
-                    "y": 55,
-                    "width": 90,
-                    "type": "output"
+                    "label": "ax+by↔acₖˣ+bcₖʸ",
+                    "x": 160,
+                    "y": 50,
+                    "width": 150,
+                    "height": 50
                 }
             ],
             "connections": [
@@ -48,252 +51,28 @@
                 {
                     "from": "y",
                     "to": "sum"
-                },
-                {
-                    "from": "sum",
-                    "to": "out"
                 }
-            ],
-            "placement": "intuition"
+            ]
         },
         {
-            "id": "v2",
+            "id": "differentiation-property",
+            "visualType": "diagram",
             "type": "d3-waveform",
-            "title": "Original Signal x(t)",
-            "waveType": "sine",
-            "mode": "continuous",
-            "description": "Our starting signal with Fourier coefficients Xk.",
-            "placement": "intuition"
+            "placement": "engineering",
+            "title": "Differentiation Amplifies High Frequencies",
+            "description": "d/dt ↔ multiply by jkω₀",
+            "waveType": "spectrum-comparison",
+            "mode": "before-after"
         },
         {
-            "id": "v3",
+            "id": "parseval-theorem",
+            "visualType": "diagram",
             "type": "d3-waveform",
-            "title": "Time-Shifted x(t - t₀)",
-            "waveType": "cosine",
-            "mode": "continuous",
-            "description": "Same shape, just delayed. Magnitude unchanged, only phase shifts!",
-            "placement": "intuition"
-        },
-        {
-            "id": "sim1",
-            "type": "d3-time-shift",
-            "title": "🎮 Time Shift Property Demo",
-            "description": "Drag the slider to shift the signal and watch the phase spectrum change!",
-            "placement": "engineering"
-        },
-        {
-            "id": "v4",
-            "type": "d3-block-diagram",
-            "title": "Time Shift → Phase Shift",
-            "description": "Delay t₀ in time → Multiply Xk by e^(-jkω₀t₀). Phase changes, magnitude same.",
-            "blocks": [
-                {
-                    "id": "time",
-                    "label": "Time\\nDelay t₀",
-                    "x": 30,
-                    "y": 50,
-                    "width": 80,
-                    "type": "input"
-                },
-                {
-                    "id": "transform",
-                    "label": "Xk × e^(-jkω₀t₀)",
-                    "x": 150,
-                    "y": 45,
-                    "width": 130,
-                    "type": "process"
-                },
-                {
-                    "id": "phase",
-                    "label": "Phase\\nShift",
-                    "x": 320,
-                    "y": 50,
-                    "width": 80,
-                    "type": "output"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "time",
-                    "to": "transform"
-                },
-                {
-                    "from": "transform",
-                    "to": "phase"
-                }
-            ],
-            "placement": "engineering"
-        },
-        {
-            "id": "v5",
-            "type": "d3-block-diagram",
-            "title": "Higher k = More Phase Change",
-            "description": "Same delay affects k=3 three times more than k=1.",
-            "blocks": [
-                {
-                    "id": "k1",
-                    "label": "k=1\\nSmall Δφ",
-                    "x": 30,
-                    "y": 50,
-                    "width": 80,
-                    "type": "process"
-                },
-                {
-                    "id": "k2",
-                    "label": "k=2\\nMedium Δφ",
-                    "x": 140,
-                    "y": 50,
-                    "width": 90,
-                    "type": "process"
-                },
-                {
-                    "id": "k3",
-                    "label": "k=3\\nLarge Δφ",
-                    "x": 260,
-                    "y": 50,
-                    "width": 80,
-                    "type": "process"
-                }
-            ],
-            "connections": [],
-            "placement": "engineering"
-        },
-        {
-            "id": "v6",
-            "type": "d3-block-diagram",
-            "title": "Time Scaling Duality",
-            "description": "Compress in time ↔ Expand in frequency. Fundamental truth!",
-            "blocks": [
-                {
-                    "id": "compress",
-                    "label": "Compress\\nin Time",
-                    "x": 30,
-                    "y": 40,
-                    "width": 90,
-                    "type": "input"
-                },
-                {
-                    "id": "expand",
-                    "label": "Expand\\nin Freq",
-                    "x": 170,
-                    "y": 40,
-                    "width": 90,
-                    "type": "output"
-                },
-                {
-                    "id": "exp2",
-                    "label": "Expand\\nin Time",
-                    "x": 30,
-                    "y": 100,
-                    "width": 90,
-                    "type": "input"
-                },
-                {
-                    "id": "comp2",
-                    "label": "Compress\\nin Freq",
-                    "x": 170,
-                    "y": 100,
-                    "width": 90,
-                    "type": "output"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "compress",
-                    "to": "expand"
-                },
-                {
-                    "from": "exp2",
-                    "to": "comp2"
-                }
-            ],
-            "placement": "mathematics"
-        },
-        {
-            "id": "v7",
-            "type": "d3-block-diagram",
-            "title": "Conjugate Symmetry (Real Signals)",
-            "description": "For real x(t): X₋k = Xk*. Magnitude even, phase odd.",
-            "blocks": [
-                {
-                    "id": "neg",
-                    "label": "X₋k",
-                    "x": 30,
-                    "y": 50,
-                    "width": 60,
-                    "type": "input"
-                },
-                {
-                    "id": "eq",
-                    "label": "=",
-                    "x": 120,
-                    "y": 55,
-                    "width": 30,
-                    "type": "sum"
-                },
-                {
-                    "id": "pos",
-                    "label": "Xk*",
-                    "x": 180,
-                    "y": 50,
-                    "width": 60,
-                    "type": "output"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "neg",
-                    "to": "eq"
-                },
-                {
-                    "from": "eq",
-                    "to": "pos"
-                }
-            ],
-            "placement": "mathematics"
-        },
-        {
-            "id": "v8",
-            "type": "d3-block-diagram",
-            "title": "Time Reversal",
-            "description": "x(-t) → X₋k. Flip in time = swap positive/negative frequencies.",
-            "blocks": [
-                {
-                    "id": "orig",
-                    "label": "x(t)\\n→ Xk",
-                    "x": 30,
-                    "y": 50,
-                    "width": 70,
-                    "type": "input"
-                },
-                {
-                    "id": "flip",
-                    "label": "Flip\\nt → -t",
-                    "x": 140,
-                    "y": 45,
-                    "width": 70,
-                    "type": "process"
-                },
-                {
-                    "id": "rev",
-                    "label": "x(-t)\\n→ X₋k",
-                    "x": 250,
-                    "y": 50,
-                    "width": 70,
-                    "type": "output"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "orig",
-                    "to": "flip"
-                },
-                {
-                    "from": "flip",
-                    "to": "rev"
-                }
-            ],
-            "placement": "exam"
+            "placement": "mathematics",
+            "title": "Parseval: Power Conservation",
+            "description": "Time-domain power = sum of frequency-domain powers",
+            "waveType": "power-spectrum",
+            "mode": "bar"
         }
     ]
 }

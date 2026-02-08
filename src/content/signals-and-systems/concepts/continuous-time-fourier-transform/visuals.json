@@ -1,0 +1,139 @@
+{
+    "conceptId": "continuous-time-fourier-transform",
+    "visuals": [
+        {
+            "id": "series-to-transform",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "From Series to Transform: T → ∞",
+            "description": "As period increases, discrete harmonics become continuous spectrum",
+            "waveType": "spectrum-evolution",
+            "mode": "animation"
+        },
+        {
+            "id": "transform-pair",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Forward and Inverse Fourier Transform",
+            "description": "Time ↔ Frequency domain conversion",
+            "blocks": [
+                {
+                    "id": "time",
+                    "label": "x(t)\nTime Domain",
+                    "x": 20,
+                    "y": 50,
+                    "type": "input",
+                    "width": 100
+                },
+                {
+                    "id": "forward",
+                    "label": "Forward FT\n∫·e^(-jωt)",
+                    "x": 150,
+                    "y": 25,
+                    "width": 100,
+                    "height": 50
+                },
+                {
+                    "id": "inverse",
+                    "label": "Inverse FT\n(1/2π)∫·e^(jωt)",
+                    "x": 150,
+                    "y": 85,
+                    "width": 100,
+                    "height": 50
+                },
+                {
+                    "id": "freq",
+                    "label": "X(ω)\nFreq Domain",
+                    "x": 280,
+                    "y": 50,
+                    "type": "output",
+                    "width": 100
+                }
+            ],
+            "connections": [
+                {
+                    "from": "time",
+                    "to": "forward"
+                },
+                {
+                    "from": "forward",
+                    "to": "freq"
+                },
+                {
+                    "from": "freq",
+                    "to": "inverse"
+                },
+                {
+                    "from": "inverse",
+                    "to": "time"
+                }
+            ]
+        },
+        {
+            "id": "transform-pairs-table",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "Essential Transform Pairs",
+            "description": "Key signal-spectrum relationships",
+            "waveType": "dual-domain",
+            "mode": "pairs"
+        },
+        {
+            "id": "magnitude-phase-spectrum",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Magnitude and Phase Spectra",
+            "description": "|X(ω)| shows amplitude, ∠X(ω) shows phase",
+            "waveType": "spectrum",
+            "mode": "mag-phase"
+        },
+        {
+            "id": "convolution-theorem",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Convolution Theorem: * ↔ ·",
+            "description": "Convolution in time = multiplication in frequency",
+            "blocks": [
+                {
+                    "id": "conv",
+                    "label": "x * h\nTime Domain",
+                    "x": 20,
+                    "y": 50,
+                    "width": 100,
+                    "height": 50
+                },
+                {
+                    "id": "arrow",
+                    "label": "FT\n⟷",
+                    "x": 150,
+                    "y": 50,
+                    "width": 50,
+                    "height": 50
+                },
+                {
+                    "id": "mult",
+                    "label": "X · H\nFreq Domain",
+                    "x": 230,
+                    "y": 50,
+                    "width": 100,
+                    "height": 50
+                }
+            ],
+            "connections": [
+                {
+                    "from": "conv",
+                    "to": "arrow"
+                },
+                {
+                    "from": "arrow",
+                    "to": "mult"
+                }
+            ]
+        }
+    ]
+}

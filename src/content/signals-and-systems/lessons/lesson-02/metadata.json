@@ -1,24 +1,30 @@
 {
+    "$schema": "lesson-metadata-v3",
     "id": "lesson-02",
-    "title": "Impulse Function and System Properties",
-    "description": "Understanding the impulse function, system classification, and fundamental system interconnection patterns",
-    "concepts": [
-        "impulse-and-unit-step",
-        "system-classification-modeling",
-        "system-interconnections-feedback"
+    "title": "Impulse Functions and Systems",
+    "continuity": {
+        "priorKnowledge": [
+            "Signal fundamentals and classifications",
+            "Basic calculus and derivatives",
+            "Integration techniques"
+        ],
+        "startsAtLevel": "beginner",
+        "assumedConcepts": [
+            "signal-fundamentals",
+            "signal-operations",
+            "system-basics"
+        ]
+    },
+    "weeksCovered": [
+        2
     ],
-    "estimatedTime": "3-4 hours",
-    "difficulty": "intermediate",
-    "prerequisites": [
-        "lesson-01"
-    ],
-    "learningObjectives": [
-        "Master the impulse (delta) function and its properties",
-        "Understand continuous vs discrete time systems",
-        "Model systems using differential and difference equations",
-        "Analyze series, parallel, and feedback system configurations"
-    ],
+    "description": "Understanding delta functions, unit impulse, system classifications (memory, causality, time-invariance, linearity), and signal transformations in time domain.",
+    "status": "complete",
     "overviewPath": "overview.md",
     "synthesisPath": "synthesis.md",
-    "status": "complete"
+    "concepts": [
+        "delta-functions-and-impulse",
+        "system-classifications",
+        "signal-transformations"
+    ]
 }

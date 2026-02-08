@@ -1,0 +1,22 @@
+{
+    "id": "laplace-properties",
+    "title": "Laplace Transform Properties",
+    "topic": "signals-and-systems",
+    "prerequisites": [
+        "laplace-transform-basics"
+    ],
+    "learningObjectives": [
+        "Apply time-shifting and frequency-shifting properties",
+        "Use differentiation and integration properties for solving ODEs",
+        "Understand the convolution theorem in s-domain",
+        "Apply initial and final value theorems"
+    ],
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "status": "complete"
+}

@@ -1,102 +1,77 @@
 # Fourier Series Properties
 
-## Why Properties Matter
+> **Why This Matters**: These properties let you transform known Fourier series into new ones without recomputing integrals. Master them and you can solve problems in seconds that would otherwise take pages of calculation.
 
-Instead of computing integrals from scratch every time, we can use **properties** to quickly find Fourier coefficients of related signals.
+---
 
-If you know Xk for x(t), properties tell you the coefficients for:
-- αx(t) + βy(t) — scaled and added signals
-- x(t - t₀) — time-shifted signals
-- x(-t) — time-reversed signals
-- x(αt) — time-scaled signals
+## Time Shifting Property
 
-## Property 1: Linearity
+If $x(t) \leftrightarrow c_k$, then:
 
-[[visual:v1]]
+$$x(t - t_0) \leftrightarrow c_k e^{-jk\omega_0 t_0}$$
 
-$$\text{If } x(t) \leftrightarrow X_k \text{ and } y(t) \leftrightarrow Y_k$$
-$$\text{Then } \alpha x(t) + \beta y(t) \leftrightarrow \alpha X_k + \beta Y_k$$
+[[visual:time-shift-property]]
 
-**Key Requirement:** Both x(t) and y(t) must have the **same fundamental frequency** ω₀!
+**Interpretation**: Time delay adds a linear phase shift. Amplitude spectrum unchanged!
 
-If they have different ω₀, the harmonics don't align and can't be simply added.
+---
 
-> **Example:** If x(t) has X₁ = 3 and y(t) has Y₁ = 2 (same ω₀), then 2x(t) + y(t) has coefficient 2(3) + 2 = 8 at k = 1.
+## Time Scaling Property
 
-## Property 2: Time Shifting
+If $x(t)$ has period $T$, then $x(at)$ has period $T/|a|$.
 
-[[visual:v2]]
+The NEW fundamental frequency is $|a|\omega_0$, but coefficients stay the same:
+$$x(at) \leftrightarrow c_k \text{ (with new } \omega_0' = |a|\omega_0\text{)}$$
 
-[[visual:v3]]
+---
 
-$$\text{If } x(t) \leftrightarrow X_k$$
-$$\text{Then } x(t - t_0) \leftrightarrow X_k \cdot e^{-jk\omega_0 t_0}$$
+## Linearity
 
-**What this means:**
-- **Magnitude unchanged:** |Xk| stays the same
-- **Phase shifted:** ∠Xk changes by -kω₀t₀
+$$ax(t) + by(t) \leftrightarrow ac_k^{(x)} + bc_k^{(y)}$$
 
-[[visual:v4]]
+[[visual:linearity-property]]
 
-[[visual:v5]]
+Fourier series is a linear operation!
 
-Higher harmonics experience larger phase shifts for the same time delay!
+---
 
-> **Intuition:** Shifting in time is like rotating each frequency component. Higher frequencies rotate more for the same time shift.
+## Differentiation Property
 
-## Property 3: Time Reversal
+$$\frac{dx}{dt} \leftrightarrow jk\omega_0 c_k$$
 
-[[visual:v8]]
+[[visual:differentiation-property]]
 
-$$\text{If } x(t) \leftrightarrow X_k$$
-$$\text{Then } x(-t) \leftrightarrow X_{-k}$$
+**Effect**: Differentiation amplifies high frequencies (factor of $k$) and adds 90° phase shift.
 
-Reversing time swaps positive and negative frequency coefficients.
+---
 
-For the magnitude spectrum (which is even for real signals), time reversal has no visible effect!
+## Integration Property
 
-## Property 4: Time Scaling
+$$\int x(t) dt \leftrightarrow \frac{c_k}{jk\omega_0} \text{ (for } k \neq 0\text{)}$$
 
-[[visual:v6]]
+**Effect**: Integration attenuates high frequencies and shifts phase by -90°.
 
-$$\text{If } x(t) \leftrightarrow X_k \text{ with fundamental } \omega_0$$
-$$\text{Then } x(\alpha t) \leftrightarrow X_k \text{ with fundamental } \alpha\omega_0$$
+---
 
-**Key insight:** Compressing in time → expanding in frequency, and vice versa.
+## Parseval's Theorem
 
-| Time Domain | Frequency Domain |
-|------------|------------------|
-| Compress (α > 1) | Expand (wider gaps between harmonics) |
-| Expand (α < 1) | Compress (narrower gaps) |
+The average power of a signal equals the sum of powers in each harmonic:
 
-## Property 5: Conjugate Symmetry (Real Signals)
+$$\frac{1}{T}\int_T |x(t)|^2 dt = \sum_{k=-\infty}^{\infty} |c_k|^2$$
 
-[[visual:v7]]
+[[visual:parseval-theorem]]
 
-For real-valued x(t):
-$$X_{-k} = X_k^*$$
+**Practical use**: Calculate power in frequency domain!
 
-This means:
-- **Magnitude is even:** |X₋k| = |Xk|
-- **Phase is odd:** ∠X₋k = -∠Xk
-
-This is why spectrum analyzers often show only positive frequencies—negative frequencies are redundant!
+---
 
 ## Summary Table
 
-| Time Domain | Fourier Coefficients |
-|-------------|---------------------|
-| αx(t) + βy(t) | αXk + βYk (same ω₀) |
-| x(t - t₀) | Xk·e^(-jkω₀t₀) |
-| x(-t) | X₋k |
-| x(αt) | Xk, new ω₀ = αω₀ |
-| x(t) real | X₋k = Xk* |
+| Property | Time Domain | Frequency Domain |
+|----------|-------------|------------------|
+| Linearity | $ax + by$ | $ac_k^x + bc_k^y$ |
+| Time Shift | $x(t-t_0)$ | $c_k e^{-jk\omega_0 t_0}$ |
+| Differentiate | $dx/dt$ | $jk\omega_0 c_k$ |
+| Integrate | $\int x dt$ | $c_k/(jk\omega_0)$ |
+| Parseval | Avg power | $\sum|c_k|^2$ |
 
-## Using Properties in Practice
-
-**Problem:** Find coefficients for y(t) = x(t - 2), given Xk.
-
-**Solution:**
-$$Y_k = X_k \cdot e^{-jk\omega_0 \cdot 2} = X_k \cdot e^{-j2k\omega_0}$$
-
-No need to re-integrate! Just multiply each Xk by the phase factor.

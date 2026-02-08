@@ -1,65 +1,67 @@
 {
-    "id": "fourier-series-properties-flashcards",
+    "id": "flashcards-fourier-series-properties",
+    "conceptId": "fourier-series-properties",
+    "title": "Fourier Series Properties Flashcards",
     "cards": [
         {
-            "id": "f1",
-            "front": "Linearity property",
-            "back": "αx(t) + βy(t) ↔ αXk + βYk (same ω₀ required)",
-            "difficultyLevel": 2
+            "id": "fsp-fc1",
+            "difficultyLevel": 2,
+            "front": "Time shift property",
+            "back": "x(t-t₀) ↔ cₖe^(-jkω₀t₀)\n\nTime delay adds linear phase. Magnitude unchanged."
         },
         {
-            "id": "f2",
-            "front": "Time shifting property",
-            "back": "x(t - t₀) ↔ Xk·e^(-jkω₀t₀)",
-            "difficultyLevel": 2
+            "id": "fsp-fc2",
+            "difficultyLevel": 2,
+            "front": "Differentiation property",
+            "back": "dx/dt ↔ jkω₀cₖ\n\nMultiply by jkω₀. High frequencies amplified. 90° phase shift."
         },
         {
-            "id": "f3",
-            "front": "Time reversal property",
-            "back": "x(-t) ↔ X₋k",
-            "difficultyLevel": 2
+            "id": "fsp-fc3",
+            "difficultyLevel": 2,
+            "front": "Integration property (k≠0)",
+            "back": "∫x dt ↔ cₖ/(jkω₀)\n\nDivide by jkω₀. High frequencies attenuated. -90° phase shift."
         },
         {
-            "id": "f4",
-            "front": "Time scaling property",
-            "back": "x(αt) ↔ Xk with new ω₀' = αω₀",
-            "difficultyLevel": 3
+            "id": "fsp-fc4",
+            "difficultyLevel": 2,
+            "front": "Parseval's theorem for FS",
+            "back": "(1/T)∫|x(t)|²dt = Σ|cₖ|²\n\nAverage power = sum of harmonic powers."
         },
         {
-            "id": "f5",
-            "front": "Conjugate symmetry for real signals",
-            "back": "X₋k = Xk* → |X₋k| = |Xk|, ∠X₋k = -∠Xk",
-            "difficultyLevel": 3
+            "id": "fsp-fc5",
+            "difficultyLevel": 2,
+            "front": "Linearity: ax+by",
+            "back": "cₖ^(ax+by) = a·cₖˣ + b·cₖʸ\n\nScaling and addition pass through."
         },
         {
-            "id": "f6",
-            "front": "Effect of time shift on magnitude",
-            "back": "Unchanged (|Yk| = |Xk|)",
-            "difficultyLevel": 2
+            "id": "fsp-fc6",
+            "difficultyLevel": 3,
+            "front": "Time scaling x(at)",
+            "back": "Fundamental changes to |a|ω₀. Compression in time = expansion in frequency."
         },
         {
-            "id": "f7",
-            "front": "Effect of time shift on phase",
-            "back": "Linear shift: ∠Yk = ∠Xk - kω₀t₀",
-            "difficultyLevel": 2
+            "id": "fsp-fc7",
+            "difficultyLevel": 3,
+            "front": "Convolution property",
+            "back": "x*y ↔ T·cₖˣ·cₖʸ\n\nTime convolution = frequency multiplication (times T)."
         },
         {
-            "id": "f8",
-            "front": "Time-frequency duality for scaling",
-            "back": "Compress in time → Expand in frequency (and vice versa)",
-            "difficultyLevel": 3
+            "id": "fsp-fc8",
+            "difficultyLevel": 3,
+            "front": "Multiplication property",
+            "back": "x·y ↔ cₖˣ * cₖʸ\n\nTime multiplication = discrete convolution of coefficients."
         },
         {
-            "id": "f9",
-            "front": "Why does phase shift depend on k?",
-            "back": "Higher frequencies complete more cycles in time t₀, so more phase change",
-            "difficultyLevel": 3
+            "id": "fsp-fc9",
+            "difficultyLevel": 2,
+            "front": "DC after differentiation",
+            "back": "Zero! c₀' = jk0ω₀c₀ = 0. Derivative of constant is zero."
         },
         {
-            "id": "f10",
-            "front": "When can we add Fourier coefficients?",
-            "back": "Only when signals have the same fundamental frequency ω₀",
-            "difficultyLevel": 2
+            "id": "fsp-fc10",
+            "difficultyLevel": 2,
+            "front": "Time reversal x(-t)",
+            "back": "x(-t) ↔ c₋ₖ\n\nReverse sequence of coefficients."
         }
     ]
 }

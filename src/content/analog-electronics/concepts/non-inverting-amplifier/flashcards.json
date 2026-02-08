@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-non-inverting-amplifier",
+    "conceptId": "non-inverting-amplifier",
+    "title": "Non-Inverting Amplifier Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Non-inverting amplifier gain formula?",
+            "back": "Av = 1 + R2/R1\n\nNote the '+1' — gain is always ≥ 1.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Which input receives signal in non-inverting amp?",
+            "back": "Non-inverting input (+)\n\nThe inverting input (-) connects to the feedback network (R1, R2).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Input impedance of non-inverting amplifier?",
+            "back": "Very high (approaching ∞)\n\nSignal connects directly to op-amp's high-impedance input. No current flows.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is a unity-gain buffer / voltage follower?",
+            "back": "Non-inverting amp with Av = 1\n\nR2 = 0 (short), R1 = any value or open\nUsed for impedance matching.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Activity 2 component values and expected gain?",
+            "back": "R1 = 2.2kΩ, R2 = 39kΩ\nAv = 1 + 39k/2.2k = 18.73\n\nNote: 1 more than inverting with same resistors!",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Phase relationship in non-inverting amplifier?",
+            "back": "In-phase (0° shift)\n\nOutput follows input polarity:\nPositive input → positive output\n(Unlike inverting which is 180° shifted)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Why is minimum gain of non-inverting amp = 1?",
+            "back": "Av = 1 + R2/R1\n\nSmallest R2/R1 ratio is 0 (when R2 = 0)\nSo Av,min = 1 + 0 = 1",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "How to derive non-inverting gain?",
+            "back": "1. V+ = Vi (signal at non-inverting input)\n2. V- = Vo × R1/(R1+R2) (voltage divider)\n3. V- = V+ (virtual short)\n4. Solve: Vi = Vo × R1/(R1+R2)\n5. Vo/Vi = 1 + R2/R1",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Inverting vs Non-Inverting: Gain comparison for same R1, R2?",
+            "back": "Inverting: |Av| = R2/R1\nNon-inverting: Av = 1 + R2/R1\n\nNon-inverting is exactly 1 larger.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "When to use non-inverting instead of inverting?",
+            "back": "Use non-inverting when:\n• High input impedance needed\n• No phase inversion acceptable\n• Gain must be ≥ 1\n• Buffering high-impedance sources",
+            "difficultyLevel": 3
+        }
+    ]
+}

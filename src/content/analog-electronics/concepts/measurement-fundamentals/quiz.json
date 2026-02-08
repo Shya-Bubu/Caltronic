@@ -1,0 +1,138 @@
+{
+    "id": "quiz-measurement-fundamentals",
+    "conceptId": "measurement-fundamentals",
+    "title": "Measurement Fundamentals Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A DMM specification of ±(0.5% + 2 digits) means:",
+            "options": [
+                "Error is always 0.5%",
+                "Error is 0.5% of full scale plus 2 digit counts",
+                "Error is 0.5% of reading plus 2 digit counts in the last digit",
+                "Error is 2.5%"
+            ],
+            "correctAnswer": "Error is 0.5% of reading plus 2 digit counts in the last digit",
+            "explanation": "The '% of reading' component scales with the measured value. The 'digits' component is fixed uncertainty in the least significant digit. Both combine to give total uncertainty.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q2",
+            "prompt": "Which type of error causes measurements to be consistently high or low?",
+            "options": [
+                "Random error",
+                "Systematic error",
+                "Parallax error",
+                "Quantization error"
+            ],
+            "correctAnswer": "Systematic error",
+            "explanation": "Systematic errors produce consistent bias (always too high or too low). Random errors scatter around the true value without consistent direction. Parallax is a type of systematic error in analog meters.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q3",
+            "prompt": "If you take 25 measurements instead of 5, the standard error of the mean will:",
+            "options": [
+                "Decrease by factor of 5",
+                "Decrease by factor of √5 ≈ 2.2",
+                "Stay the same",
+                "Increase by factor of 5"
+            ],
+            "correctAnswer": "Decrease by factor of √5 ≈ 2.2",
+            "explanation": "Standard error = s/√n. Going from n=5 to n=25 means √n increases from √5 to √25 = 5. Ratio = 5/√5 = √5 ≈ 2.2. More measurements help, but with diminishing returns.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q4",
+            "prompt": "For z = x × y, how do uncertainties combine?",
+            "options": [
+                "Add absolute uncertainties: Δz = Δx + Δy",
+                "Add relative uncertainties in quadrature: δz = √(δx² + δy²)",
+                "Multiply uncertainties: Δz = Δx × Δy",
+                "Take the larger uncertainty: Δz = max(Δx, Δy)"
+            ],
+            "correctAnswer": "Add relative uncertainties in quadrature: δz = √(δx² + δy²)",
+            "explanation": "For multiplication and division, relative (%) uncertainties combine in quadrature. Convert to relative uncertainty, apply the formula, then convert back to absolute if needed.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q5",
+            "prompt": "Why must you disconnect power before measuring resistance with a DMM?",
+            "options": [
+                "The DMM cannot measure resistance in powered circuits",
+                "External voltage interferes with the DMM's internal measurement voltage",
+                "It's not actually necessary; this is a myth",
+                "To prevent electric shock"
+            ],
+            "correctAnswer": "External voltage interferes with the DMM's internal measurement voltage",
+            "explanation": "The DMM measures R by applying a small known current and measuring voltage. External circuit voltage overwhelms this measurement, giving false readings. The DMM may also be damaged by unexpected voltage.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q6",
+            "prompt": "An oscilloscope shows a sine wave spanning 6 divisions vertically at 2V/div. What is Vpp?",
+            "options": [
+                "3V",
+                "6V",
+                "12V",
+                "24V"
+            ],
+            "correctAnswer": "12V",
+            "explanation": "Vpp = (number of divisions) × (V/div) = 6 × 2V = 12V peak-to-peak. This is the total swing from negative peak to positive peak.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q7",
+            "prompt": "A 10× oscilloscope probe is used, but the scope channel is set to expect 1×. Readings will be:",
+            "options": [
+                "Correct",
+                "10× too high",
+                "10× too low",
+                "Randomly varying"
+            ],
+            "correctAnswer": "10× too low",
+            "explanation": "A 10× probe divides the signal by 10 before showing it. If the scope doesn't know this, it displays the divided value without compensation. A 10V signal shows as 1V — 10× too low.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q8",
+            "prompt": "V = 5.00V ± 0.05V, I = 2.50mA ± 0.05mA. Which measurement has higher relative uncertainty?",
+            "options": [
+                "Voltage (δV = 1%)",
+                "Current (δI = 2%)",
+                "They're equal",
+                "Cannot determine"
+            ],
+            "correctAnswer": "Current (δI = 2%)",
+            "explanation": "δV = 0.05/5.00 = 1.0%. δI = 0.05/2.50 = 2.0%. Current has twice the relative uncertainty and will dominate when calculating R = V/I uncertainty.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q9",
+            "prompt": "For z = x³, what is the relative uncertainty δz in terms of δx?",
+            "options": [
+                "δz = δx",
+                "δz = 3δx",
+                "δz = δx³",
+                "δz = δx/3"
+            ],
+            "correctAnswer": "δz = 3δx",
+            "explanation": "For z = xⁿ, the rule is δz = |n|·δx. With n = 3, we get δz = 3·δx. The exponent multiplies the relative uncertainty — powers amplify uncertainty significantly.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q10",
+            "prompt": "What is 'loading error' when using a voltmeter?",
+            "options": [
+                "The meter is overloaded and gives OL reading",
+                "The meter draws current from the circuit, reducing the measured voltage",
+                "The meter's battery is low, causing inaccurate readings",
+                "The leads are too long, causing resistance"
+            ],
+            "correctAnswer": "The meter draws current from the circuit, reducing the measured voltage",
+            "explanation": "An ideal voltmeter has infinite resistance and draws zero current. Real voltmeters (especially analog ones) draw small current, creating voltage drop elsewhere in circuit and reducing measured voltage. High-impedance DMMs (10MΩ+) minimize this.",
+            "difficulty": "hard"
+        }
+    ]
+}

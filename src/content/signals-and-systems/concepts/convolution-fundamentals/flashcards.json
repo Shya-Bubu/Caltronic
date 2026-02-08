@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-convolution-fundamentals",
+    "conceptId": "convolution-fundamentals",
+    "title": "Convolution Fundamentals Flashcards",
+    "cards": [
+        {
+            "id": "cf-fc1",
+            "difficultyLevel": 1,
+            "front": "Convolution integral formula",
+            "back": "y(t) = x(t)*h(t) = ∫x(τ)h(t-τ)dτ\n\nIntegrate product of input x and flipped-shifted impulse response h."
+        },
+        {
+            "id": "cf-fc2",
+            "difficultyLevel": 1,
+            "front": "What is x(t)*δ(t)?",
+            "back": "x(t)\n\nDelta is the identity element for convolution. Convolving anything with δ(t) returns the original unchanged."
+        },
+        {
+            "id": "cf-fc3",
+            "difficultyLevel": 2,
+            "front": "What is x(t)*δ(t-T)?",
+            "back": "x(t-T)\n\nConvolving with shifted impulse delays signal by T. The impulse acts as a delay line."
+        },
+        {
+            "id": "cf-fc4",
+            "difficultyLevel": 2,
+            "front": "Graphical convolution steps",
+            "back": "1. Flip one signal (h(τ)→h(-τ))\n2. Shift the flipped signal by t\n3. Multiply overlapping portions\n4. Integrate for each t"
+        },
+        {
+            "id": "cf-fc5",
+            "difficultyLevel": 2,
+            "front": "Is convolution commutative?",
+            "back": "Yes! x*h = h*x\n\nWe can flip either signal in graphical convolution. Order doesn't matter."
+        },
+        {
+            "id": "cf-fc6",
+            "difficultyLevel": 2,
+            "front": "Is convolution associative?",
+            "back": "Yes! (x*h₁)*h₂ = x*(h₁*h₂)\n\nCan combine cascade impulse responses first, then convolve once with input."
+        },
+        {
+            "id": "cf-fc7",
+            "difficultyLevel": 2,
+            "front": "Is convolution distributive?",
+            "back": "Yes! x*(h₁+h₂) = x*h₁ + x*h₂\n\nRepresents parallel systems: analyze each path separately, then add outputs."
+        },
+        {
+            "id": "cf-fc8",
+            "difficultyLevel": 2,
+            "front": "Duration of x*h",
+            "back": "Duration = dur(x) + dur(h)\n\nDurations add. A 3-second signal convolved with 2-second impulse response gives 5-second output."
+        },
+        {
+            "id": "cf-fc9",
+            "difficultyLevel": 2,
+            "front": "Why does convolution characterize LTI systems?",
+            "back": "Any input x(t) can be decomposed into scaled, shifted impulses. LTI system responds to each with scaled, shifted h(t). Convolution sums these responses."
+        },
+        {
+            "id": "cf-fc10",
+            "difficultyLevel": 3,
+            "front": "Discrete convolution formula",
+            "back": "y[n] = Σx[k]h[n-k]\n\nSum over k from -∞ to +∞. At each n, sum products of x[k] and shifted h[n-k]."
+        }
+    ]
+}

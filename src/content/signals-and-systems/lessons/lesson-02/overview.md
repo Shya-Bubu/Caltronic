@@ -1,45 +1,17 @@
-# Lesson 02: Impulse Function and System Properties
+# Impulse Functions and Systems
 
-> **Central Theme**: The impulse function is engineering's way of modeling instantaneous events, and understanding system classification is fundamental to all signal processing and control applications.
+In this lesson, we explore the mathematical foundations that bridge signals and systems. The **unit impulse** (delta function) is one of the most important signals in systems analysis—it allows us to completely characterize any linear time-invariant (LTI) system through its impulse response.
+
+We'll also classify systems based on key properties like **memory**, **causality**, **time-invariance**, and **linearity**. These classifications determine how we can analyze and design systems in practice.
 
 ## What You'll Learn
 
-This lesson bridges theoretical mathematics with practical engineering. You'll master one of the most important functions in signals and systems—the impulse function—and learn how to classify and model real-world systems.
-
-### Core Concepts
-
-1. **Impulse & Unit Step Functions**  
-   The delta function is a "controlled infinity"—it lets us mathematically model instantaneous spikes and discontinuities that occur in real systems.
-
-2. **System Classification & Modeling**  
-   Learn to distinguish continuous vs discrete systems and represent them using differential or difference equations.
-
-3. **System Interconnections & Feedback**  
-   Understand how systems connect in series, parallel, and feedback configurations—the foundation of control theory.
+1. **Delta Functions and Unit Impulse**: Understanding the mathematical definition, properties, and physical interpretation of impulse functions
+2. **System Classifications**: Categorizing systems by their structural and behavioral properties
+3. **Signal Transformations**: Mastering time-domain operations like shifting, scaling, and reflection
 
 ## Why This Matters
 
-Every module you'll take from here forward depends on this foundation:
-- **Automatic Control** (5th sem): Feedback systems
-- **Digital Signal Processing** (5th sem): Discrete-time systems  
-- **Communication Systems** (6th sem): System modeling
-- **Power Systems** (7th sem): Differential equations
+The impulse function is the "DNA" of a system—knowing how a system responds to an impulse tells us how it responds to ANY input. This fundamental principle underlies everything from filter design to image processing to communication systems.
 
-The impulse function specifically lets you:
-- Analyze system responses to sudden inputs
-- Model discontinuities mathematically
-- Understand the relationship between differentiation and integration
-
-## Prerequisites
-
-- Lesson 01: Signal and system foundations
-- Basic calculus (derivatives and integrals)
-- Understanding of continuous vs discrete signals
-
-## Estimated Time
-
-**3-4 hours** to complete all concepts with practice problems
-
----
-
-Ready to dive in? Start with **Concept 1: Impulse and Unit Step Functions**.
+System classifications help us choose the right mathematical tools. For example, knowing a system is LTI allows us to use powerful techniques like convolution and frequency analysis.

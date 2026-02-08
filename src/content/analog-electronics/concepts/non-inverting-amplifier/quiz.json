@@ -1,0 +1,138 @@
+{
+    "id": "quiz-non-inverting-amplifier",
+    "conceptId": "non-inverting-amplifier",
+    "title": "Non-Inverting Amplifier Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the gain formula for a non-inverting amplifier?",
+            "options": [
+                "Av = -R2/R1",
+                "Av = R2/R1",
+                "Av = 1 + R2/R1",
+                "Av = 1 - R2/R1"
+            ],
+            "correctAnswer": "Av = 1 + R2/R1",
+            "explanation": "The non-inverting amplifier gain is Av = 1 + R2/R1. The '+1' term is crucial and distinguishes it from the inverting amplifier formula.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q2",
+            "prompt": "In a non-inverting amplifier, which input terminal receives the signal?",
+            "options": [
+                "Inverting (-)",
+                "Non-inverting (+)",
+                "Both terminals equally",
+                "The output"
+            ],
+            "correctAnswer": "Non-inverting (+)",
+            "explanation": "The input signal is applied directly to the non-inverting (+) terminal. The inverting terminal is connected to the feedback network.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q3",
+            "prompt": "For R1 = 2.2kΩ and R2 = 39kΩ, what is the non-inverting gain?",
+            "options": [
+                "17.73",
+                "18.73",
+                "-17.73",
+                "-18.73"
+            ],
+            "correctAnswer": "18.73",
+            "explanation": "Av = 1 + R2/R1 = 1 + 39k/2.2k = 1 + 17.73 = 18.73. Positive value (no inversion), and note it's 1 more than the inverting amp with same resistors.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q4",
+            "prompt": "What is the minimum possible gain of a non-inverting amplifier?",
+            "options": [
+                "0",
+                "0.5",
+                "1",
+                "-1"
+            ],
+            "correctAnswer": "1",
+            "explanation": "Av = 1 + R2/R1. Since R2/R1 ≥ 0, the minimum gain is 1 (when R2 = 0). This is the unity-gain buffer configuration.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the input impedance of a non-inverting amplifier?",
+            "options": [
+                "R1",
+                "R2",
+                "R1 + R2",
+                "Very high (approaching infinity)"
+            ],
+            "correctAnswer": "Very high (approaching infinity)",
+            "explanation": "The input connects directly to the op-amp's high-impedance non-inverting input. No current flows in, making Zin extremely high (megaohms).",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q6",
+            "prompt": "A voltage follower (unity-gain buffer) has what value of R2?",
+            "options": [
+                "Very large (open circuit)",
+                "Very small (short circuit)",
+                "Equal to R1",
+                "Twice R1"
+            ],
+            "correctAnswer": "Very small (short circuit)",
+            "explanation": "For unity gain: Av = 1 + 0/R1 = 1. R2 = 0 (short from output to inverting input directly). R1 can be open or any value.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q7",
+            "prompt": "Compared to an inverting amp with same R1 and R2, the non-inverting amp gain is:",
+            "options": [
+                "Smaller by 1",
+                "The same magnitude",
+                "Larger by 1",
+                "Double"
+            ],
+            "correctAnswer": "Larger by 1",
+            "explanation": "Inverting: |Av| = R2/R1. Non-inverting: Av = 1 + R2/R1. The non-inverting is always 1 larger in magnitude.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q8",
+            "prompt": "What is the phase relationship between input and output in a non-inverting amp?",
+            "options": [
+                "In-phase (0°)",
+                "180° out of phase",
+                "90° phase shift",
+                "Variable with frequency"
+            ],
+            "correctAnswer": "In-phase (0°)",
+            "explanation": "The non-inverting amplifier produces an output that is in-phase (0° phase shift) with the input. Unlike the inverting amp, it does NOT invert the signal.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q9",
+            "prompt": "Why is the non-inverting amplifier preferred when connecting to high-impedance sources?",
+            "options": [
+                "Higher gain available",
+                "Lower power consumption",
+                "Very high input impedance doesn't load the source",
+                "Output is more stable"
+            ],
+            "correctAnswer": "Very high input impedance doesn't load the source",
+            "explanation": "High-impedance sources can't deliver much current. The non-inverting amp's very high Zin means it draws almost no current, preserving the source signal.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q10",
+            "prompt": "Design a non-inverting amp with gain = 11. If R1 = 1kΩ, what is R2?",
+            "options": [
+                "10kΩ",
+                "11kΩ",
+                "12kΩ",
+                "100kΩ"
+            ],
+            "correctAnswer": "10kΩ",
+            "explanation": "Av = 1 + R2/R1. So 11 = 1 + R2/1kΩ, meaning R2/1kΩ = 10, therefore R2 = 10kΩ. Always subtract 1 before calculating R2/R1!",
+            "difficulty": "hard"
+        }
+    ]
+}

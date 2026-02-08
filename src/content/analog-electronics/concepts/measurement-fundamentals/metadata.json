@@ -1,0 +1,29 @@
+{
+    "$schema": "concept-metadata-v3",
+    "id": "measurement-fundamentals",
+    "title": "Measurement Fundamentals",
+    "lesson": "lesson-01",
+    "order": 3,
+    "continuationContext": {
+        "previousConcept": "voltage-current-characteristics",
+        "establishedBy": "Understanding of V-I curves and basic measurement procedures",
+        "addressingGap": "How do we ensure accurate measurements and interpret instrument limitations?"
+    },
+    "difficultyProgression": {
+        "startsAt": 110,
+        "endsAt": 125
+    },
+    "visualRequirements": {
+        "intuitionDiagrams": 2,
+        "engineeringDiagrams": 2,
+        "mathematicsDiagrams": 2,
+        "simulations": 1
+    },
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

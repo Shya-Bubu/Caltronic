@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-integrator-differentiator",
+    "conceptId": "integrator-differentiator",
+    "title": "Integrator & Differentiator Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Integrator: Where is the capacitor?",
+            "back": "In the FEEDBACK path (output to inverting input).\n\nOpposite of differentiator!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Differentiator: Where is the capacitor?",
+            "back": "At the INPUT (between signal and inverting terminal).\n\nOpposite of integrator!",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Integrator output for square wave input?",
+            "back": "Triangle wave\n\n∫(constant) = ramp\nAlternating +/- constants → alternating ramps",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Differentiator output for triangle wave input?",
+            "back": "Square wave\n\nd(ramp)/dt = constant\nAlternating +/- slopes → alternating constants",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Integrator transfer function?",
+            "back": "H(s) = -1/(sRC)\n\n|H| = 1/(ωRC) → gain DECREASES with frequency\nPhase: -90° (output lags)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Differentiator transfer function?",
+            "back": "H(s) = -sRC\n\n|H| = ωRC → gain INCREASES with frequency\nPhase: -90° (output leads)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is the DC drift problem in integrators?",
+            "back": "DC input → ∫DC dt → ramp → SATURATION!\n\nEven tiny DC offset causes capacitor to charge continuously.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "How to fix DC drift in integrator?",
+            "back": "Add resistor R in PARALLEL with feedback C.\n\nDC gain = R/Rs (finite, not infinite)\nBecomes Active Low-Pass Filter.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is the HF noise problem in differentiators?",
+            "back": "Gain = ωRC → ∞ at high frequencies!\n\nHigh-frequency noise gets massively amplified.\nCircuit becomes unstable.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "How to fix HF noise in differentiator?",
+            "back": "Add resistor R1 in SERIES with input C.\n\nHF gain → R/R1 (limited, not infinite)\nBecomes Active High-Pass Filter.",
+            "difficultyLevel": 3
+        }
+    ]
+}

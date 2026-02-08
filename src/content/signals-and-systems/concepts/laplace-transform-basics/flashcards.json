@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-laplace-transform-basics",
+    "conceptId": "laplace-transform-basics",
+    "title": "Laplace Transform Flashcards",
+    "cards": [
+        {
+            "id": "lt-fc1",
+            "difficultyLevel": 1,
+            "front": "Laplace transform definition",
+            "back": "X(s) = ∫x(t)e^(-st)dt\n\ns = σ + jω (complex). Generalizes Fourier transform."
+        },
+        {
+            "id": "lt-fc2",
+            "difficultyLevel": 1,
+            "front": "L{δ(t)} = ?",
+            "back": "1\n\nSame as Fourier. Impulse transforms to constant."
+        },
+        {
+            "id": "lt-fc3",
+            "difficultyLevel": 1,
+            "front": "L{u(t)} = ?",
+            "back": "1/s, Re(s) > 0\n\nStep function. Pole at s=0."
+        },
+        {
+            "id": "lt-fc4",
+            "difficultyLevel": 2,
+            "front": "L{e^(-at)u(t)} = ?",
+            "back": "1/(s+a), Re(s) > -a\n\nPole at s = -a. Fundamental transform pair."
+        },
+        {
+            "id": "lt-fc5",
+            "difficultyLevel": 2,
+            "front": "ROC for causal signal",
+            "back": "Right of rightmost pole.\n\nExtends to +∞. Must include jω-axis for stability."
+        },
+        {
+            "id": "lt-fc6",
+            "difficultyLevel": 2,
+            "front": "Differentiation property",
+            "back": "L{dx/dt} = sX(s) - x(0⁻)\n\nMultiply by s, subtract initial condition."
+        },
+        {
+            "id": "lt-fc7",
+            "difficultyLevel": 2,
+            "front": "Integration property",
+            "back": "L{∫x dt} = X(s)/s\n\nDivide by s (zero ICs)."
+        },
+        {
+            "id": "lt-fc8",
+            "difficultyLevel": 2,
+            "front": "Final value theorem",
+            "back": "lim x(t) as t→∞ = lim sX(s) as s→0\n\nFind steady-state without inverse transform."
+        },
+        {
+            "id": "lt-fc9",
+            "difficultyLevel": 2,
+            "front": "Initial value theorem",
+            "back": "x(0⁺) = lim sX(s) as s→∞\n\nFind initial value from s-domain."
+        },
+        {
+            "id": "lt-fc10",
+            "difficultyLevel": 2,
+            "front": "What is s = jω?",
+            "back": "Laplace variable on imaginary axis.\nH(jω) = frequency response.\nLaplace reduces to Fourier when σ=0."
+        }
+    ]
+}

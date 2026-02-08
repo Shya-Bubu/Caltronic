@@ -1,0 +1,138 @@
+{
+    "id": "quiz-integrator-differentiator",
+    "conceptId": "integrator-differentiator",
+    "title": "Integrator & Differentiator Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In an integrator, where is the capacitor placed?",
+            "options": [
+                "At the input",
+                "In the feedback path",
+                "In parallel with power supply",
+                "At the output"
+            ],
+            "correctAnswer": "In the feedback path",
+            "explanation": "In an integrator, the capacitor is in the FEEDBACK path (from output to inverting input). In a differentiator, it's the opposite - capacitor is at the input.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q2",
+            "prompt": "What is the output of an integrator when given a square wave input?",
+            "options": [
+                "Sine wave",
+                "Square wave",
+                "Triangle wave",
+                "Ramp"
+            ],
+            "correctAnswer": "Triangle wave",
+            "explanation": "Integrating a constant gives a ramp. A square wave alternates between +V and -V (constants), so the output alternates between up-ramps and down-ramps, creating a triangle wave.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q3",
+            "prompt": "The transfer function of an ideal integrator is:",
+            "options": [
+                "H(s) = sRC",
+                "H(s) = -sRC",
+                "H(s) = -1/(sRC)",
+                "H(s) = 1/(sRC)"
+            ],
+            "correctAnswer": "H(s) = -1/(sRC)",
+            "explanation": "H(s) = -Zf/Zin = -(1/sC)/R = -1/(sRC). The 's' in the denominator indicates integration.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q4",
+            "prompt": "What happens to an integrator's output with a DC input?",
+            "options": [
+                "Stays at zero",
+                "Ramps to saturation",
+                "Oscillates",
+                "Inverts the DC"
+            ],
+            "correctAnswer": "Ramps to saturation",
+            "explanation": "∫DC dt = DC × t → a ramp that increases forever. Eventually hits ±14V saturation. This is the 'DC drift problem' that requires modification.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q5",
+            "prompt": "How is the DC drift problem in an integrator solved?",
+            "options": [
+                "Add capacitor in parallel with input",
+                "Add resistor in parallel with feedback C",
+                "Increase op-amp supply voltage",
+                "Use a smaller capacitor"
+            ],
+            "correctAnswer": "Add resistor in parallel with feedback C",
+            "explanation": "Adding R in parallel with C limits the DC gain to R/Rs (finite) instead of infinity. This prevents saturation from DC offset.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q6",
+            "prompt": "In a differentiator, where is the capacitor placed?",
+            "options": [
+                "At the input",
+                "In the feedback path",
+                "Between power rails",
+                "At the output"
+            ],
+            "correctAnswer": "At the input",
+            "explanation": "In a differentiator, the capacitor is at the INPUT (between signal and inverting terminal). This is opposite to the integrator.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the output of a differentiator when given a triangle wave input?",
+            "options": [
+                "Triangle wave",
+                "Square wave",
+                "Sine wave",
+                "DC"
+            ],
+            "correctAnswer": "Square wave",
+            "explanation": "A triangle wave has constant positive or negative slopes. The derivative of a constant slope is a constant. Alternating slopes → alternating constants = square wave.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q8",
+            "prompt": "The magnitude response of an ideal differentiator is:",
+            "options": [
+                "|H| = 1/(ωRC) - decreases with frequency",
+                "|H| = ωRC - increases with frequency",
+                "|H| = constant",
+                "|H| = (ωRC)²"
+            ],
+            "correctAnswer": "|H| = ωRC - increases with frequency",
+            "explanation": "For differentiator, |H(jω)| = ωRC. Gain is proportional to frequency. This causes high-frequency noise amplification - a major problem!",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q9",
+            "prompt": "How is the high-frequency noise problem in a differentiator solved?",
+            "options": [
+                "Add capacitor in feedback",
+                "Add resistor in series with input C",
+                "Use higher supply voltage",
+                "Use larger feedback resistor"
+            ],
+            "correctAnswer": "Add resistor in series with input C",
+            "explanation": "Adding R1 in series with C limits the high-frequency gain to R/R1 (finite). This creates a modified differentiator acting as an active high-pass filter.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q10",
+            "prompt": "Comparing integrator and differentiator as filters:",
+            "options": [
+                "Both are low-pass",
+                "Both are high-pass",
+                "Integrator is LPF, Differentiator is HPF",
+                "Integrator is HPF, Differentiator is LPF"
+            ],
+            "correctAnswer": "Integrator is LPF, Differentiator is HPF",
+            "explanation": "Integrator's gain decreases with frequency (low-pass). Differentiator's gain increases with frequency (high-pass). After modification, they become first-order active filters.",
+            "difficulty": "hard"
+        }
+    ]
+}

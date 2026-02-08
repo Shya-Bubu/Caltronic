@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-system-basics",
+    "conceptId": "system-basics",
+    "title": "System Basics Flashcards",
+    "cards": [
+        {
+            "id": "sb-fc1",
+            "difficultyLevel": 1,
+            "front": "What is a system?",
+            "back": "A mathematical model describing the relationship between input x(t) and output y(t).\ny(t) = T{x(t)}"
+        },
+        {
+            "id": "sb-fc2",
+            "difficultyLevel": 1,
+            "front": "Memoryless system definition",
+            "back": "Output at time t depends ONLY on input at time t.\nExample: y(t) = 2x(t)"
+        },
+        {
+            "id": "sb-fc3",
+            "difficultyLevel": 1,
+            "front": "Causal system definition",
+            "back": "Output at t depends only on input at t or earlier (past).\nNo dependence on future inputs."
+        },
+        {
+            "id": "sb-fc4",
+            "difficultyLevel": 2,
+            "front": "Linearity conditions",
+            "back": "Additivity: T{x₁+x₂} = T{x₁}+T{x₂}\nHomogeneity: T{ax} = aT{x}\nCombined (Superposition): T{ax₁+bx₂} = aT{x₁}+bT{x₂}"
+        },
+        {
+            "id": "sb-fc5",
+            "difficultyLevel": 2,
+            "front": "Time-invariance definition",
+            "back": "If y(t) = T{x(t)}, then\ny(t-t₀) = T{x(t-t₀)}\nShifting input shifts output by same amount."
+        },
+        {
+            "id": "sb-fc6",
+            "difficultyLevel": 2,
+            "front": "BIBO Stability",
+            "back": "Bounded Input → Bounded Output\n|x(t)| ≤ Mₓ ⇒ |y(t)| ≤ Mᵧ\nfor all time t"
+        },
+        {
+            "id": "sb-fc7",
+            "difficultyLevel": 2,
+            "front": "What makes y=x² nonlinear?",
+            "back": "Homogeneity fails:\nT{2x} = (2x)² = 4x²\nbut 2T{x} = 2x²\n4x² ≠ 2x²"
+        },
+        {
+            "id": "sb-fc8",
+            "difficultyLevel": 2,
+            "front": "What makes y=x+3 nonlinear?",
+            "back": "Zero input test fails:\nT{0} = 0 + 3 = 3 ≠ 0\nLinear systems must give zero output for zero input."
+        },
+        {
+            "id": "sb-fc9",
+            "difficultyLevel": 2,
+            "front": "What is an LTI system?",
+            "back": "Linear Time-Invariant system.\nHas BOTH linearity and time-invariance.\nCharacterized by impulse response h(t)."
+        },
+        {
+            "id": "sb-fc10",
+            "difficultyLevel": 3,
+            "front": "Why are LTI systems important?",
+            "back": "1. Completely characterized by impulse response h(t)\n2. Output = convolution of input with h(t)\n3. Frequency response analysis possible\n4. Most analysis tools designed for LTI"
+        }
+    ]
+}

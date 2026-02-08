@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-stability-analysis",
+    "conceptId": "stability-analysis",
+    "title": "Stability Analysis Flashcards",
+    "cards": [
+        {
+            "id": "stab-fc1",
+            "difficultyLevel": 1,
+            "front": "BIBO stability condition for poles",
+            "back": "All poles in Left Half-Plane.\n\nRe(s) < 0 for all poles. No poles on or right of jω-axis."
+        },
+        {
+            "id": "stab-fc2",
+            "difficultyLevel": 2,
+            "front": "RHP pole means...",
+            "back": "UNSTABLE!\n\nGrowing exponential e^(σt) with σ>0. Bounded inputs cause unbounded outputs."
+        },
+        {
+            "id": "stab-fc3",
+            "difficultyLevel": 2,
+            "front": "LHP pole gives...",
+            "back": "Stable (decaying response).\n\ne^(σt) with σ<0 decays to zero. Transients die out."
+        },
+        {
+            "id": "stab-fc4",
+            "difficultyLevel": 2,
+            "front": "Simple pole on jω-axis means...",
+            "back": "Marginally stable.\n\nSustained oscillation. Bounded but doesn't decay. Resonance possible."
+        },
+        {
+            "id": "stab-fc5",
+            "difficultyLevel": 2,
+            "front": "Repeated pole on jω-axis means...",
+            "back": "UNSTABLE!\n\nGives t·sin(ωt) terms. Factor t grows unbounded."
+        },
+        {
+            "id": "stab-fc6",
+            "difficultyLevel": 2,
+            "front": "Pole at s = -2+3j behavior",
+            "back": "Decaying oscillation.\n\nRe=-2<0: stable/decaying. Im=3: oscillates at 3 rad/s."
+        },
+        {
+            "id": "stab-fc7",
+            "difficultyLevel": 2,
+            "front": "Stability from h(t)",
+            "back": "∫|h(t)|dt < ∞\n\nAbsolutely integrable impulse response = BIBO stable."
+        },
+        {
+            "id": "stab-fc8",
+            "difficultyLevel": 3,
+            "front": "Routh-Hurwitz criterion",
+            "back": "Build table from characteristic polynomial.\nCount sign changes in first column = RHP poles.\nNo sign changes = stable."
+        },
+        {
+            "id": "stab-fc9",
+            "difficultyLevel": 2,
+            "front": "Pole at s = 0 (simple)",
+            "back": "Marginally stable.\n\nGives u(t) term—constant that never decays. Example: integrator."
+        },
+        {
+            "id": "stab-fc10",
+            "difficultyLevel": 2,
+            "front": "Double pole at s = 0",
+            "back": "UNSTABLE!\n\nGives t·u(t) term—ramp growing forever."
+        }
+    ]
+}

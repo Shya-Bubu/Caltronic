@@ -1,0 +1,128 @@
+{
+    "id": "quiz-lti-impulse-response",
+    "conceptId": "lti-impulse-response",
+    "title": "LTI Impulse Response Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "lti-q1",
+            "prompt": "The impulse response h(t) is the output when input is:",
+            "options": [
+                "Unit step",
+                "Unit impulse",
+                "Unit ramp",
+                "Sinusoid"
+            ],
+            "correctAnswer": "Unit impulse",
+            "explanation": "The impulse response h(t) is defined as the output when the input is δ(t), the unit impulse. Since δ(t) contains all frequencies equally, h(t) reveals how the system responds across the frequency spectrum."
+        },
+        {
+            "id": "lti-q2",
+            "prompt": "An LTI system is causal if h(t) = 0 for:",
+            "options": [
+                "t > 0",
+                "t < 0",
+                "t = 0",
+                "All t"
+            ],
+            "correctAnswer": "t < 0",
+            "explanation": "A causal system cannot respond before an input is applied. Since the impulse occurs at t=0, the response must be zero for t<0. If h(t)≠0 for some t<0, the system is non-causal and cannot be implemented in real-time."
+        },
+        {
+            "id": "lti-q3",
+            "prompt": "An LTI system is BIBO stable if:",
+            "options": [
+                "h(t) is bounded",
+                "∫|h(t)|dt < ∞",
+                "h(t) → 0 as t → ∞",
+                "h(0) = 1"
+            ],
+            "correctAnswer": "∫|h(t)|dt < ∞",
+            "explanation": "BIBO stability requires the impulse response to be absolutely integrable. If the total 'area' of |h(t)| is finite, bounded inputs produce bounded outputs. This is necessary and sufficient for BIBO stability."
+        },
+        {
+            "id": "lti-q4",
+            "prompt": "For h(t) = e^(-2t)u(t), the system is:",
+            "options": [
+                "Causal and stable",
+                "Non-causal and stable",
+                "Causal and unstable",
+                "Non-causal and unstable"
+            ],
+            "correctAnswer": "Causal and stable",
+            "explanation": "h(t)=0 for t<0 (causal). The integral ∫|e^(-2t)|dt from 0 to ∞ = 1/2 < ∞ (stable). Decaying exponentials are the hallmark of stable causal systems. Faster decay means more stable."
+        },
+        {
+            "id": "lti-q5",
+            "prompt": "For h(t) = e^(2t)u(t), the system is:",
+            "options": [
+                "Stable",
+                "Unstable",
+                "Marginally stable",
+                "Causal only"
+            ],
+            "correctAnswer": "Unstable",
+            "explanation": "Although causal, h(t) grows without bound. The integral ∫|e^(2t)|dt from 0 to ∞ = ∞. Growing exponentials indicate unstable systems. Any bounded input will eventually produce unbounded output."
+        },
+        {
+            "id": "lti-q6",
+            "prompt": "Cascade of systems with h₁(t) and h₂(t) has overall h(t) =:",
+            "options": [
+                "h₁(t) + h₂(t)",
+                "h₁(t) * h₂(t)",
+                "h₁(t) · h₂(t)",
+                "h₁(t) / h₂(t)"
+            ],
+            "correctAnswer": "h₁(t) * h₂(t)",
+            "explanation": "Cascading LTI systems means convolving their impulse responses. If system 1 has h₁ and system 2 has h₂, the overall impulse response is h₁*h₂. In the frequency domain, this becomes simple multiplication."
+        },
+        {
+            "id": "lti-q7",
+            "prompt": "Parallel systems with h₁(t) and h₂(t) have overall h(t) =:",
+            "options": [
+                "h₁(t) + h₂(t)",
+                "h₁(t) * h₂(t)",
+                "h₁(t) · h₂(t)",
+                "max(h₁, h₂)"
+            ],
+            "correctAnswer": "h₁(t) + h₂(t)",
+            "explanation": "Parallel systems add their outputs, so their impulse responses add. If input goes to both systems and outputs combine, overall impulse response is h₁(t) + h₂(t). Very intuitive compared to cascade."
+        },
+        {
+            "id": "lti-q8",
+            "prompt": "If h(t) = δ(t), the system is:",
+            "options": [
+                "Integrator",
+                "Differentiator",
+                "Identity (wire)",
+                "Delay"
+            ],
+            "correctAnswer": "Identity (wire)",
+            "explanation": "When h(t) = δ(t), output y(t) = x(t)*δ(t) = x(t). The system passes input unchanged. This is called the identity system—conceptually just a wire connecting input to output with no processing."
+        },
+        {
+            "id": "lti-q9",
+            "prompt": "For an integrator, h(t) =:",
+            "options": [
+                "δ(t)",
+                "u(t)",
+                "ramp(t)",
+                "sin(t)"
+            ],
+            "correctAnswer": "u(t)",
+            "explanation": "An integrator outputs ∫x(τ)dτ from -∞ to t. The impulse response is u(t), the unit step. Convolving with step means integrating: x*u = ∫x(τ)dτ. The step function accumulates' all past values."
+        },
+        {
+            "id": "lti-q10",
+            "prompt": "h(t) = cos(t)u(t) indicates the system is:",
+            "options": [
+                "Stable",
+                "Unstable",
+                "Marginally stable",
+                "Non-causal"
+            ],
+            "correctAnswer": "Marginally stable",
+            "explanation": "Cosine oscillates between ±1 forever. The integral ∫|cos(t)|dt is infinite (barely), so not BIBO stable. But the impulse response doesn't grow, so it's marginally stable. Certain bounded inputs could cause resonance."
+        }
+    ]
+}

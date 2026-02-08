@@ -1,125 +1,128 @@
 {
-    "id": "exponential-fourier-series-quiz",
+    "id": "quiz-exponential-fourier-series",
+    "conceptId": "exponential-fourier-series",
+    "title": "Exponential Fourier Series Quiz",
+    "passingScore": 70,
     "questions": [
         {
-            "id": "q1",
-            "prompt": "What is Euler's formula?",
+            "id": "efs-q1",
+            "prompt": "The Fourier coefficient formula is cₖ =:",
             "options": [
-                "e^(jθ) = cos(θ) + j·sin(θ)",
-                "e^(jθ) = cos(θ) - j·sin(θ)",
-                "e^(jθ) = sin(θ) + j·cos(θ)",
-                "e^(jθ) = 1 + jθ"
+                "∫x(t)dt",
+                "(1/T)∫x(t)e^(-jkω₀t)dt",
+                "∫x(t)e^(jkω₀t)dt",
+                "x(kT)"
             ],
-            "correctAnswer": "e^(jθ) = cos(θ) + j·sin(θ)",
-            "explanation": "Euler's formula states e^(jθ) = cos(θ) + j·sin(θ). The imaginary part is +j·sin(θ), not negative. This is the fundamental relationship connecting exponentials to trigonometric functions."
+            "correctAnswer": "(1/T)∫x(t)e^(-jkω₀t)dt",
+            "explanation": "The analysis equation cₖ = (1/T)∫x(t)e^(-jkω₀t)dt extracts the k-th harmonic coefficient. The 1/T factor normalizes by period. Integration is over any complete period. Note the negative sign in the exponent."
         },
         {
-            "id": "q2",
-            "prompt": "Express sin(θ) using complex exponentials:",
+            "id": "efs-q2",
+            "prompt": "c₀ equals:",
             "options": [
-                "(e^(jθ) + e^(-jθ))/2",
-                "(e^(jθ) - e^(-jθ))/2j",
-                "e^(jθ) - e^(-jθ)",
-                "(e^(jθ) - e^(-jθ))/j"
+                "x(0)",
+                "(1/T)∫x(t)dt",
+                "∫|x(t)|²dt",
+                "0 always"
             ],
-            "correctAnswer": "(e^(jθ) - e^(-jθ))/2j",
-            "explanation": "sin(θ) = (e^(jθ) - e^(-jθ))/(2j). The cosine formula uses addition and divides by 2. The 2j in the denominator is crucial—without the 2, you'd get twice the actual value."
+            "correctAnswer": "(1/T)∫x(t)dt",
+            "explanation": "For k=0, the exponential e^0 = 1, so c₀ = (1/T)∫x(t)dt. This is just the average value of x(t) over one period. It's the DC component, representing any constant offset in the signal."
         },
         {
-            "id": "q3",
-            "prompt": "What does X₀ represent in the Fourier series?",
+            "id": "efs-q3",
+            "prompt": "The sinc function sinc(0) equals:",
             "options": [
-                "The fundamental frequency",
-                "The DC (average) component",
-                "The phase angle",
-                "The period"
-            ],
-            "correctAnswer": "The DC (average) component",
-            "explanation": "X₀ is the coefficient for k=0, which corresponds to e^(j·0·ω₀t) = 1, a constant. Thus X₀ is the DC or average value of the signal over one period."
-        },
-        {
-            "id": "q4",
-            "prompt": "For x(t) = 5cos(10t), what is X₁?",
-            "options": [
-                "5",
-                "2.5",
-                "10",
-                "5e^(j10t)"
-            ],
-            "correctAnswer": "2.5",
-            "explanation": "Using cos(θ) = (e^(jθ) + e^(-jθ))/2: 5cos(10t) = (5/2)e^(j10t) + (5/2)e^(-j10t). So X₁ = 5/2 = 2.5 (real, with zero phase)."
-        },
-        {
-            "id": "q5",
-            "prompt": "What is 1/j equal to?",
-            "options": [
-                "j",
-                "-j",
+                "0",
                 "1",
-                "-1"
+                "∞",
+                "Undefined"
             ],
-            "correctAnswer": "-j",
-            "explanation": "To find 1/j, multiply top and bottom by j: 1/j = j/(j·j) = j/(-1) = -j. This is equivalent to e^(-jπ/2)."
+            "correctAnswer": "1",
+            "explanation": "By definition or L'Hopital's rule, sinc(x) = sin(πx)/(πx) approaches 1 as x→0. This is crucial because many Fourier transforms involve sinc, and knowing its value at origin helps sketch spectra."
         },
         {
-            "id": "q6",
-            "prompt": "How many non-zero Fourier coefficients does x(t) = 3 + 2sin(5t) have?",
+            "id": "efs-q4",
+            "prompt": "For an odd signal, Fourier coefficients cₖ are:",
+            "options": [
+                "Real",
+                "Purely imaginary",
+                "Zero",
+                "Complex with |cₖ|=1"
+            ],
+            "correctAnswer": "Purely imaginary",
+            "explanation": "Odd symmetry x(-t) = -x(t) forces coefficients to be purely imaginary. This follows from the integral property: odd function times e^(-jkω₀t) over symmetric limits yields imaginary result only."
+        },
+        {
+            "id": "efs-q5",
+            "prompt": "For an even signal, Fourier coefficients cₖ are:",
+            "options": [
+                "Real",
+                "Purely imaginary",
+                "Zero",
+                "Magnitude 1"
+            ],
+            "correctAnswer": "Real",
+            "explanation": "Even symmetry x(-t) = x(t) forces coefficients to be real. The imaginary parts cancel when integrating an even function times e^(-jkω₀t) over a symmetric interval. Phase is 0 or π."
+        },
+        {
+            "id": "efs-q6",
+            "prompt": "A rectangular pulse train has cₖ envelope shaped like:",
+            "options": [
+                "Rectangle",
+                "Triangle",
+                "Sinc function",
+                "Exponential"
+            ],
+            "correctAnswer": "Sinc function",
+            "explanation": "Pulse train coefficients follow cₖ = (Aτ/T)·sinc(kτ/T). The sinc envelope determines how coefficients decay with k. Narrower pulses have wider sinc envelope, meaning more high-frequency content."
+        },
+        {
+            "id": "efs-q7",
+            "prompt": "For a square wave with 50% duty cycle, c₂ =:",
+            "options": [
+                "Maximum",
+                "Zero",
+                "Equals c₁",
+                "Undefined"
+            ],
+            "correctAnswer": "Zero",
+            "explanation": "A 50% duty cycle square wave has zero coefficients at even harmonics. The symmetric structure causes cancellation. Only odd harmonics survive: c₁, c₃, c₅, etc. This is characteristic of half-wave symmetry."
+        },
+        {
+            "id": "efs-q8",
+            "prompt": "sinc(n) for nonzero integer n equals:",
             "options": [
                 "1",
-                "2",
-                "3",
-                "Infinite"
+                "n",
+                "0",
+                "1/n"
             ],
-            "correctAnswer": "3",
-            "explanation": "There are 3 non-zero coefficients: X₀ = 3 (DC), X₁ and X₋₁ (from the sine term). The sine produces two exponentials at ±ω₀."
+            "correctAnswer": "0",
+            "explanation": "sinc(n) = sin(nπ)/(nπ) = 0 for all nonzero integers n because sin(nπ) = 0. The sinc function has zeros at all nonzero integers. Only at n=0 does sinc(n) = 1."
         },
         {
-            "id": "q7",
-            "prompt": "In the magnitude spectrum, what does the height of each stem represent?",
+            "id": "efs-q9",
+            "prompt": "If x(t) has no DC component, then:",
             "options": [
-                "Frequency",
-                "Phase angle",
-                "Amplitude of that harmonic",
-                "Period"
+                "c₀ = 1",
+                "c₀ = 0",
+                "c₁ = 0",
+                "All cₖ = 0"
             ],
-            "correctAnswer": "Amplitude of that harmonic",
-            "explanation": "The magnitude spectrum plots |Xk| vs k. The height at each k shows how much of the kth harmonic is present—its amplitude contribution to the signal."
+            "correctAnswer": "c₀ = 0",
+            "explanation": "No DC means average value is zero, so c₀ = (1/T)∫x(t)dt = 0. The signal oscillates equally above and below zero. Examples: pure sinusoids, balanced AC signals."
         },
         {
-            "id": "q8",
-            "prompt": "For a real-valued signal, what is the relationship between X₋k and Xk?",
+            "id": "efs-q10",
+            "prompt": "The synthesis equation reconstructs x(t) using:",
             "options": [
-                "X₋k = Xk",
-                "X₋k = -Xk",
-                "X₋k = Xk*",
-                "No relationship"
+                "x(t) = Σcₖe^(jkω₀t)",
+                "x(t) = Σcₖe^(-jkω₀t)",
+                "x(t) = Σcₖcos(kω₀t)",
+                "x(t) = c₀ only"
             ],
-            "correctAnswer": "X₋k = Xk*",
-            "explanation": "For real signals, X₋k = Xk* (complex conjugate). This means |X₋k| = |Xk| (symmetric magnitude) and ∠X₋k = -∠Xk (antisymmetric phase)."
-        },
-        {
-            "id": "q9",
-            "prompt": "If X₁ = 2e^(-jπ/2), what is the magnitude and phase?",
-            "options": [
-                "|X₁| = 2, ∠X₁ = π/2",
-                "|X₁| = 2, ∠X₁ = -π/2",
-                "|X₁| = 2π, ∠X₁ = -1/2",
-                "|X₁| = 1, ∠X₁ = -π"
-            ],
-            "correctAnswer": "|X₁| = 2, ∠X₁ = -π/2",
-            "explanation": "For X = A·e^(jφ), the magnitude is A and the phase is φ. Here A = 2 and φ = -π/2 (or -90°)."
-        },
-        {
-            "id": "q10",
-            "prompt": "The Fourier series represents x(t) as a sum of:",
-            "options": [
-                "Polynomials",
-                "Complex exponentials",
-                "Step functions",
-                "Impulses"
-            ],
-            "correctAnswer": "Complex exponentials",
-            "explanation": "The exponential Fourier series writes x(t) = Σ Xk·e^(jkω₀t), a sum of complex exponentials at harmonic frequencies. This is different from polynomial or impulse representations."
+            "correctAnswer": "x(t) = Σcₖe^(jkω₀t)",
+            "explanation": "The synthesis equation x(t) = Σcₖe^(jkω₀t) adds up all harmonic components. Each cₖe^(jkω₀t) is a rotating phasor at frequency kω₀. The sum recreates the original periodic signal."
         }
     ]
 }

@@ -1,25 +1,29 @@
 {
+    "$schema": "lesson-metadata-v3",
     "id": "lesson-04",
     "title": "Fourier Series Part I",
-    "description": "Introduction to frequency domain analysis through Fourier Series representation of periodic signals",
-    "concepts": [
-        "periodic-signals-and-frequency",
-        "exponential-fourier-series",
-        "computing-fourier-coefficients",
-        "fourier-series-properties"
+    "continuity": {
+        "priorKnowledge": [
+            "Convolution and LTI systems",
+            "Complex exponentials",
+            "Periodic signals"
+        ],
+        "startsAtLevel": "intermediate",
+        "assumedConcepts": [
+            "convolution-fundamentals",
+            "lti-impulse-response"
+        ]
+    },
+    "weeksCovered": [
+        4
     ],
-    "estimatedTime": "3-4 hours",
-    "difficulty": "intermediate",
-    "prerequisites": [
-        "lesson-03"
-    ],
-    "learningObjectives": [
-        "Define periodic signals and their fundamental parameters (T₀, f₀, ω₀)",
-        "Express signals using exponential Fourier Series",
-        "Compute Fourier coefficients using the analysis equation",
-        "Apply Fourier Series properties to simplify calculations"
-    ],
+    "description": "Introduction to Fourier series representation of periodic signals. Learn exponential Fourier series, compute coefficients, and understand frequency domain representation.",
+    "status": "complete",
     "overviewPath": "overview.md",
     "synthesisPath": "synthesis.md",
-    "status": "complete"
+    "concepts": [
+        "fourier-series-introduction",
+        "exponential-fourier-series",
+        "fourier-series-properties"
+    ]
 }

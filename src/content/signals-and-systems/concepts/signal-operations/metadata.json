@@ -1,0 +1,33 @@
+{
+    "$schema": "concept-metadata-v3",
+    "id": "signal-operations",
+    "title": "Signal Operations and Transformations",
+    "lesson": "lesson-01",
+    "order": 2,
+    "continuationContext": {
+        "previousConcept": "signal-fundamentals",
+        "establishedBy": "Signal classification from fundamentals",
+        "addressingGap": "How do we manipulate signals mathematically?"
+    },
+    "difficultyProgression": {
+        "intuition": {
+            "startsAt": "A-Level",
+            "endsAt": 105
+        },
+        "engineering": {
+            "startsAt": 105,
+            "endsAt": 115
+        },
+        "mathematics": {
+            "startsAt": 115,
+            "endsAt": 130
+        }
+    },
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

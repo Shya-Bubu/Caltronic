@@ -1,0 +1,23 @@
+{
+    "id": "system-response-analysis",
+    "title": "System Response Analysis",
+    "topic": "signals-and-systems",
+    "prerequisites": [
+        "stability-analysis",
+        "pole-zero-analysis"
+    ],
+    "learningObjectives": [
+        "Analyze transient and steady-state response",
+        "Calculate rise time, settling time, and overshoot",
+        "Understand the relationship between poles and time response",
+        "Design systems for specific response characteristics"
+    ],
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "status": "complete"
+}

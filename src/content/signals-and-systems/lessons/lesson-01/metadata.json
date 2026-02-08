@@ -1,19 +1,26 @@
 {
+    "$schema": "lesson-metadata-v3",
     "id": "lesson-01",
-    "title": "Introduction to Signals and Systems",
+    "title": "Signal Fundamentals and Classifications",
+    "continuity": {
+        "priorKnowledge": [
+            "Basic calculus (integration, derivatives)",
+            "Complex numbers and Euler's formula",
+            "Trigonometry fundamentals"
+        ],
+        "startsAtLevel": "beginner",
+        "assumedConcepts": []
+    },
     "weeksCovered": [
-        1,
-        2
+        1
     ],
+    "description": "Understanding signals, systems, and their fundamental classifications including CT/DT, energy/power, even/odd, and periodic signals.",
+    "status": "complete",
     "overviewPath": "overview.md",
     "synthesisPath": "synthesis.md",
     "concepts": [
-        "signal-and-system-foundations",
-        "signal-classification-by-time",
-        "deterministic-vs-random-signals",
-        "energy-and-power-signals",
-        "signal-sketching-basics"
-    ],
-    "description": "Foundational vocabulary of signals and systems, classification schemes, and basic signal analysis.",
-    "status": "complete"
+        "signal-fundamentals",
+        "signal-operations",
+        "system-basics"
+    ]
 }

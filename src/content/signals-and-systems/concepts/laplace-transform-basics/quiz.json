@@ -1,0 +1,128 @@
+{
+    "id": "quiz-laplace-transform-basics",
+    "conceptId": "laplace-transform-basics",
+    "title": "Laplace Transform Basics Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "lt-q1",
+            "prompt": "The Laplace transform is defined as X(s) =:",
+            "options": [
+                "∫x(t)e^(-st)dt",
+                "∫x(t)e^(st)dt",
+                "∫x(t)dt",
+                "x(t)·s"
+            ],
+            "correctAnswer": "∫x(t)e^(-st)dt",
+            "explanation": "The bilateral Laplace transform is X(s) = ∫x(t)e^(-st)dt from -∞ to +∞. For causal signals, the lower limit is 0. The variable s = σ+jω is complex, generalizing the Fourier transform."
+        },
+        {
+            "id": "lt-q2",
+            "prompt": "The Laplace transform of δ(t) is:",
+            "options": [
+                "0",
+                "1",
+                "s",
+                "1/s"
+            ],
+            "correctAnswer": "1",
+            "explanation": "L{δ(t)} = ∫δ(t)e^(-st)dt = e^0 = 1. Same as Fourier transform. The impulse function transforms to a constant in both domains. Useful for finding system transfer functions."
+        },
+        {
+            "id": "lt-q3",
+            "prompt": "The Laplace transform of u(t) is:",
+            "options": [
+                "1",
+                "s",
+                "1/s",
+                "e^s"
+            ],
+            "correctAnswer": "1/s",
+            "explanation": "L{u(t)} = ∫e^(-st)dt from 0 to ∞ = 1/s for Re(s)>0. The step function transforms to 1/s, which has a pole at s=0. This is a fundamental transform pair used constantly."
+        },
+        {
+            "id": "lt-q4",
+            "prompt": "L{e^(-at)u(t)} for a>0 equals:",
+            "options": [
+                "1/(s+a)",
+                "1/(s-a)",
+                "s+a",
+                "a/s"
+            ],
+            "correctAnswer": "1/(s+a)",
+            "explanation": "L{e^(-at)u(t)} = ∫e^(-at)e^(-st)dt = ∫e^(-(s+a)t)dt = 1/(s+a) for Re(s)>-a. The pole is at s=-a. Faster decay (larger a) moves the pole further left."
+        },
+        {
+            "id": "lt-q5",
+            "prompt": "The ROC for a causal signal is:",
+            "options": [
+                "Left half-plane",
+                "Right of rightmost pole",
+                "Entire s-plane",
+                "Left of leftmost pole"
+            ],
+            "correctAnswer": "Right of rightmost pole",
+            "explanation": "For causal (right-sided) signals, the ROC extends from the rightmost pole to +∞. For stability, this ROC must include the jω-axis. The ROC uniquely specifies causality."
+        },
+        {
+            "id": "lt-q6",
+            "prompt": "Poles of H(s) = 1/(s+2)(s+3) are at:",
+            "options": [
+                "s = 2, 3",
+                "s = -2, -3",
+                "s = 0",
+                "s = ±j2, ±j3"
+            ],
+            "correctAnswer": "s = -2, -3",
+            "explanation": "Poles are roots of the denominator: s+2=0 gives s=-2, s+3=0 gives s=-3. Both poles are in LHP (left half-plane), indicating a stable system if causal."
+        },
+        {
+            "id": "lt-q7",
+            "prompt": "L{dx/dt} equals:",
+            "options": [
+                "sX(s)",
+                "sX(s) - x(0⁻)",
+                "X(s)/s",
+                "dX/ds"
+            ],
+            "correctAnswer": "sX(s) - x(0⁻)",
+            "explanation": "Differentiation: L{dx/dt} = sX(s) - x(0⁻). Multiplication by s plus initial condition. This converts differential equations to algebraic equations, the main power of Laplace transforms."
+        },
+        {
+            "id": "lt-q8",
+            "prompt": "L{∫x(τ)dτ} (0 to t) equals:",
+            "options": [
+                "sX(s)",
+                "X(s)/s",
+                "∫X(s)ds",
+                "X(s)-X(0)"
+            ],
+            "correctAnswer": "X(s)/s",
+            "explanation": "Integration in time = division by s: L{∫x(τ)dτ} = X(s)/s (assuming zero initial conditions). Integration adds a pole at s=0. Lowpass filtering effect."
+        },
+        {
+            "id": "lt-q9",
+            "prompt": "The final value theorem states lim x(t) as t→∞ equals:",
+            "options": [
+                "lim sX(s) as s→0",
+                "X(0)",
+                "lim X(s) as s→∞",
+                "X(∞)"
+            ],
+            "correctAnswer": "lim sX(s) as s→0",
+            "explanation": "Final value theorem: lim x(t) = lim sX(s) as s→0, if this limit exists (stable system). Lets us find steady-state without inverse transforming. Very useful for control analysis."
+        },
+        {
+            "id": "lt-q10",
+            "prompt": "The initial value theorem states x(0⁺) equals:",
+            "options": [
+                "lim sX(s) as s→∞",
+                "X(0)",
+                "lim X(s) as s→0",
+                "sX(0)"
+            ],
+            "correctAnswer": "lim sX(s) as s→∞",
+            "explanation": "Initial value theorem: x(0⁺) = lim sX(s) as s→∞. Finds initial value without inverse transforming. The dual of the final value theorem. Useful for checking solutions."
+        }
+    ]
+}

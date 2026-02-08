@@ -1,0 +1,138 @@
+{
+    "id": "quiz-system-basics",
+    "conceptId": "system-basics",
+    "title": "System Basics Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A memoryless system's output at time t depends on:",
+            "options": [
+                "Only input at time t",
+                "Inputs at t and t-1",
+                "All past inputs",
+                "Future inputs"
+            ],
+            "correctAnswer": "Only input at time t",
+            "explanation": "A memoryless system has output at time t that depends ONLY on the input at that same time t. No past or future values influence the current output.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q2",
+            "prompt": "Which system is non-causal?",
+            "options": [
+                "y(t) = x(t-1)",
+                "y(t) = x(t)",
+                "y(t) = x(t+1)",
+                "y(t) = 2x(t)"
+            ],
+            "correctAnswer": "y(t) = x(t+1)",
+            "explanation": "x(t+1) means the output at time t depends on the input at t+1 (the future). This makes the system non-causal.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q3",
+            "prompt": "For a linear system, if T{x₁}=y₁ and T{x₂}=y₂, then T{x₁+x₂}=?",
+            "options": [
+                "y₁·y₂",
+                "y₁+y₂",
+                "y₁-y₂",
+                "(y₁+y₂)/2"
+            ],
+            "correctAnswer": "y₁+y₂",
+            "explanation": "Linearity requires additivity: T{x₁+x₂} = T{x₁} + T{x₂} = y₁ + y₂. This is the superposition principle.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q4",
+            "prompt": "y(t) = x²(t) is:",
+            "options": [
+                "Linear",
+                "Nonlinear",
+                "Time-varying",
+                "Non-causal"
+            ],
+            "correctAnswer": "Nonlinear",
+            "explanation": "Squaring violates homogeneity: T{2x} = (2x)² = 4x² ≠ 2·x². Since 4x² ≠ 2x², the system is nonlinear.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q5",
+            "prompt": "y(t) = t·x(t) is:",
+            "options": [
+                "Time-invariant",
+                "Time-varying",
+                "Non-causal",
+                "Unstable"
+            ],
+            "correctAnswer": "Time-varying",
+            "explanation": "The coefficient t changes with time, so the system's behavior changes over time. This makes it time-varying.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q6",
+            "prompt": "A BIBO stable system means:",
+            "options": [
+                "Bounded input always produces bounded output",
+                "Unbounded input produces bounded output",
+                "System has no memory",
+                "System is linear"
+            ],
+            "correctAnswer": "Bounded input always produces bounded output",
+            "explanation": "BIBO = Bounded Input, Bounded Output. If every bounded input produces a bounded output, the system is BIBO stable.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q7",
+            "prompt": "y(t) = x(t) + 3 is:",
+            "options": [
+                "Linear",
+                "Nonlinear",
+                "Time-varying",
+                "Non-causal"
+            ],
+            "correctAnswer": "Nonlinear",
+            "explanation": "Adding a constant violates additivity: T{0} = 3 ≠ 0. For a linear system, zero input must give zero output.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q8",
+            "prompt": "Which property does an LTI system have?",
+            "options": [
+                "Only linearity",
+                "Only time-invariance",
+                "Both linearity and time-invariance",
+                "Neither"
+            ],
+            "correctAnswer": "Both linearity and time-invariance",
+            "explanation": "LTI = Linear Time-Invariant. By definition, an LTI system possesses BOTH linearity AND time-invariance.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q9",
+            "prompt": "y(t) = ∫₋∞^t x(τ)dτ is:",
+            "options": [
+                "Memoryless",
+                "Has memory",
+                "Non-causal",
+                "Time-varying"
+            ],
+            "correctAnswer": "Has memory",
+            "explanation": "Integration from -∞ to t means the output depends on ALL past values of the input. This gives the system memory.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q10",
+            "prompt": "y(t) = |x(t)| is:",
+            "options": [
+                "Linear and causal",
+                "Nonlinear and causal",
+                "Linear and non-causal",
+                "Nonlinear and non-causal"
+            ],
+            "correctAnswer": "Nonlinear and causal",
+            "explanation": "Absolute value violates homogeneity: T{-x} = |-x| = |x| ≠ -|x|. So it's nonlinear. But output only depends on current input, so it's causal.",
+            "difficulty": "medium"
+        }
+    ]
+}

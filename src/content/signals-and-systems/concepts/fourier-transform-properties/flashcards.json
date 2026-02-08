@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-fourier-transform-properties",
+    "conceptId": "fourier-transform-properties",
+    "title": "Fourier Transform Properties Flashcards",
+    "cards": [
+        {
+            "id": "ftp-fc1",
+            "difficultyLevel": 1,
+            "front": "Linearity property",
+            "back": "F{ax+by} = aX + bY\n\nScaling and addition pass through unchanged."
+        },
+        {
+            "id": "ftp-fc2",
+            "difficultyLevel": 2,
+            "front": "Time reversal property",
+            "back": "F{x(-t)} = X(-ω)\n\nReversing time reverses the spectrum."
+        },
+        {
+            "id": "ftp-fc3",
+            "difficultyLevel": 2,
+            "front": "Time scaling property",
+            "back": "F{x(at)} = (1/|a|)X(ω/a)\n\nCompress time → expand frequency. Uncertainty principle."
+        },
+        {
+            "id": "ftp-fc4",
+            "difficultyLevel": 3,
+            "front": "Duality property",
+            "back": "If F{x(t)} = X(ω), then F{X(t)} = 2πx(-ω)\n\nSwap roles of t and ω."
+        },
+        {
+            "id": "ftp-fc5",
+            "difficultyLevel": 2,
+            "front": "Real-even signal spectrum",
+            "back": "Real and even.\n\nNo imaginary part. Symmetric about ω=0."
+        },
+        {
+            "id": "ftp-fc6",
+            "difficultyLevel": 2,
+            "front": "Real-odd signal spectrum",
+            "back": "Purely imaginary and odd.\n\nNo real part. Anti-symmetric."
+        },
+        {
+            "id": "ftp-fc7",
+            "difficultyLevel": 3,
+            "front": "Multiplication theorem",
+            "back": "F{x·y} = (1/2π)X*Y\n\nTime multiplication = frequency convolution."
+        },
+        {
+            "id": "ftp-fc8",
+            "difficultyLevel": 2,
+            "front": "X(0) = ?",
+            "back": "∫x(t)dt\n\nDC value = area under signal. Signal area."
+        },
+        {
+            "id": "ftp-fc9",
+            "difficultyLevel": 2,
+            "front": "x(0) = ?",
+            "back": "(1/2π)∫X(ω)dω\n\nFrom inverse transform at t=0."
+        },
+        {
+            "id": "ftp-fc10",
+            "difficultyLevel": 2,
+            "front": "Integration property",
+            "back": "F{∫x} = X(ω)/(jω) + πX(0)δ(ω)\n\nDivide by jω, handle DC separately."
+        }
+    ]
+}

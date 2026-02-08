@@ -1,0 +1,246 @@
+{
+    "conceptId": "integrator-differentiator",
+    "visuals": [
+        {
+            "id": "diag-intuition-01",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Integrator Circuit",
+            "description": "Capacitor in feedback path. Output = integral of input.",
+            "blocks": [
+                {
+                    "id": "Vi",
+                    "label": "Vi",
+                    "x": 10,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "Rs",
+                    "label": "Rs (39kΩ)",
+                    "x": 80,
+                    "y": 40,
+                    "width": 90
+                },
+                {
+                    "id": "opamp",
+                    "label": "Op-Amp",
+                    "x": 220,
+                    "y": 40,
+                    "width": 80,
+                    "height": 60
+                },
+                {
+                    "id": "C",
+                    "label": "C (1µF)",
+                    "x": 220,
+                    "y": 130,
+                    "width": 80
+                },
+                {
+                    "id": "Vo",
+                    "label": "Vo",
+                    "x": 360,
+                    "y": 60,
+                    "type": "output"
+                },
+                {
+                    "id": "gnd",
+                    "label": "GND",
+                    "x": 220,
+                    "y": 0,
+                    "type": "input"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "Vi",
+                    "to": "Rs"
+                },
+                {
+                    "from": "Rs",
+                    "to": "opamp",
+                    "label": "−"
+                },
+                {
+                    "from": "gnd",
+                    "to": "opamp",
+                    "label": "+"
+                },
+                {
+                    "from": "opamp",
+                    "to": "Vo"
+                },
+                {
+                    "from": "opamp",
+                    "to": "C",
+                    "label": "C feedback"
+                },
+                {
+                    "from": "C",
+                    "to": "Rs"
+                }
+            ]
+        },
+        {
+            "id": "diag-intuition-02",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Differentiator Circuit",
+            "description": "Capacitor at input. Output = derivative of input.",
+            "blocks": [
+                {
+                    "id": "Vi",
+                    "label": "Vi",
+                    "x": 10,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "C",
+                    "label": "C (0.047µF)",
+                    "x": 80,
+                    "y": 40,
+                    "width": 100
+                },
+                {
+                    "id": "opamp",
+                    "label": "Op-Amp",
+                    "x": 230,
+                    "y": 40,
+                    "width": 80,
+                    "height": 60
+                },
+                {
+                    "id": "R",
+                    "label": "R (10kΩ)",
+                    "x": 230,
+                    "y": 130,
+                    "width": 80
+                },
+                {
+                    "id": "Vo",
+                    "label": "Vo",
+                    "x": 370,
+                    "y": 60,
+                    "type": "output"
+                },
+                {
+                    "id": "gnd",
+                    "label": "GND",
+                    "x": 230,
+                    "y": 0,
+                    "type": "input"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "Vi",
+                    "to": "C"
+                },
+                {
+                    "from": "C",
+                    "to": "opamp",
+                    "label": "−"
+                },
+                {
+                    "from": "gnd",
+                    "to": "opamp",
+                    "label": "+"
+                },
+                {
+                    "from": "opamp",
+                    "to": "Vo"
+                },
+                {
+                    "from": "opamp",
+                    "to": "R",
+                    "label": "R feedback"
+                },
+                {
+                    "from": "R",
+                    "to": "C"
+                }
+            ]
+        },
+        {
+            "id": "sim-intuition-01",
+            "visualType": "simulation",
+            "type": "d3-simulation",
+            "simulationType": "signal-generator",
+            "placement": "intuition",
+            "title": "Waveform Transformation Demo",
+            "description": "See how square → triangle (integrator) and triangle → square (differentiator)."
+        },
+        {
+            "id": "diag-engineering-01",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "Square to Triangle (Integrator)",
+            "description": "Integrating a constant gives a ramp. Alternating constants → triangle wave.",
+            "waveType": "triangle",
+            "mode": "continuous"
+        },
+        {
+            "id": "diag-engineering-02",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "Triangle to Square (Differentiator)",
+            "description": "Derivative of ramp = constant. Alternating ramps → square wave.",
+            "waveType": "square",
+            "mode": "continuous"
+        },
+        {
+            "id": "diag-mathematics-01",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "mathematics",
+            "title": "Transfer Functions",
+            "description": "Integrator: H(s) = −1/(sRC). Differentiator: H(s) = −sRC.",
+            "blocks": [
+                {
+                    "id": "int_tf",
+                    "label": "Integrator: H(s) = −1/(sRC)",
+                    "x": 50,
+                    "y": 30,
+                    "width": 220
+                },
+                {
+                    "id": "diff_tf",
+                    "label": "Differentiator: H(s) = −sRC",
+                    "x": 50,
+                    "y": 90,
+                    "width": 220
+                },
+                {
+                    "id": "lpf",
+                    "label": "Integrator = Low-Pass Filter",
+                    "x": 50,
+                    "y": 150,
+                    "width": 220
+                },
+                {
+                    "id": "hpf",
+                    "label": "Differentiator = High-Pass Filter",
+                    "x": 50,
+                    "y": 190,
+                    "width": 220
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "sim-mathematics-01",
+            "visualType": "simulation",
+            "type": "d3-simulation",
+            "simulationType": "frequency-period",
+            "placement": "mathematics",
+            "title": "Frequency Response Explorer",
+            "description": "See how gain changes with frequency for integrators and differentiators."
+        }
+    ]
+}

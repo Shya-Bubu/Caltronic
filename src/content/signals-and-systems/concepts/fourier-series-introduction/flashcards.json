@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-fourier-series-introduction",
+    "conceptId": "fourier-series-introduction",
+    "title": "Fourier Series Introduction Flashcards",
+    "cards": [
+        {
+            "id": "fs-fc1",
+            "difficultyLevel": 1,
+            "front": "What is a Fourier series?",
+            "back": "Representation of periodic signals as sum of harmonically related sinusoids: x(t) = Σcₖe^(jkω₀t). Decomposes into frequency components."
+        },
+        {
+            "id": "fs-fc2",
+            "difficultyLevel": 1,
+            "front": "Fundamental frequency ω₀",
+            "back": "ω₀ = 2π/T = 2πf₀\n\nWhere T is the period. All harmonics are multiples: kω₀."
+        },
+        {
+            "id": "fs-fc3",
+            "difficultyLevel": 2,
+            "front": "What is a harmonic?",
+            "back": "Frequency component at integer multiple of fundamental: kω₀. First harmonic = fundamental. k=0 is DC, k=2 is second harmonic."
+        },
+        {
+            "id": "fs-fc4",
+            "difficultyLevel": 2,
+            "front": "What does c₀ represent?",
+            "back": "DC component = average value: c₀ = (1/T)∫x(t)dt. The zero-frequency component. Constant offset."
+        },
+        {
+            "id": "fs-fc5",
+            "difficultyLevel": 2,
+            "front": "Square wave harmonics",
+            "back": "Only odd harmonics (1, 3, 5, ...) due to half-wave symmetry. Amplitudes decay as 1/k."
+        },
+        {
+            "id": "fs-fc6",
+            "difficultyLevel": 2,
+            "front": "Symmetry for real signals",
+            "back": "cₖ = c₋ₖ* (conjugate symmetric)\n|cₖ| = |c₋ₖ| (even magnitude)\n∠cₖ = -∠c₋ₖ (odd phase)"
+        },
+        {
+            "id": "fs-fc7",
+            "difficultyLevel": 2,
+            "front": "Why are sinusoids eigenfunctions of LTI?",
+            "back": "Sinusoid in, sinusoid out at same frequency. Only amplitude and phase change. LTI cannot create new frequencies."
+        },
+        {
+            "id": "fs-fc8",
+            "difficultyLevel": 2,
+            "front": "Periodic signal spectrum type",
+            "back": "Discrete (line) spectrum. Energy only at harmonic frequencies kω₀, shown as sticks in frequency plot."
+        },
+        {
+            "id": "fs-fc9",
+            "difficultyLevel": 2,
+            "front": "Half-wave symmetry effect",
+            "back": "x(t) = -x(t+T/2) means only odd harmonics. Even harmonics are zero. Square, triangle waves have this."
+        },
+        {
+            "id": "fs-fc10",
+            "difficultyLevel": 3,
+            "front": "Dirichlet conditions",
+            "back": "x(t) bounded, finite discontinuities, finite extrema per period. Most practical signals satisfy. Series converges to function (or midpoint at jumps)."
+        }
+    ]
+}

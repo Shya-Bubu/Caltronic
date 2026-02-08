@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-delta-functions-and-impulse",
+    "conceptId": "delta-functions-and-impulse",
+    "title": "Delta Functions and Unit Impulse Flashcards",
+    "cards": [
+        {
+            "id": "df-fc1",
+            "difficultyLevel": 1,
+            "front": "What is the Dirac delta function δ(t)?",
+            "back": "An idealized impulse: zero everywhere except at t=0, infinite at t=0, with unit area. It's not a function in the classical sense but a 'distribution' or 'generalized function'."
+        },
+        {
+            "id": "df-fc2",
+            "difficultyLevel": 1,
+            "front": "What is ∫δ(t)dt from -∞ to +∞?",
+            "back": "1 (unit area). This is the defining property of the delta function. Despite being zero everywhere but one point, its integral equals exactly 1."
+        },
+        {
+            "id": "df-fc3",
+            "difficultyLevel": 2,
+            "front": "Sifting property formula",
+            "back": "∫f(t)δ(t-t₀)dt = f(t₀)\n\nThe delta 'sifts out' the function value at t=t₀. This is the most useful property for problem-solving."
+        },
+        {
+            "id": "df-fc4",
+            "difficultyLevel": 2,
+            "front": "What is δ(at)?",
+            "back": "δ(at) = (1/|a|)δ(t)\n\nScaling property. Time compression compensates by scaling amplitude. For δ(2t), we get (1/2)δ(t)."
+        },
+        {
+            "id": "df-fc5",
+            "difficultyLevel": 2,
+            "front": "Relationship between δ(t) and u(t)",
+            "back": "δ(t) = du(t)/dt\nu(t) = ∫δ(τ)dτ from -∞ to t\n\nDelta is derivative of step; step is integral of delta."
+        },
+        {
+            "id": "df-fc6",
+            "difficultyLevel": 1,
+            "front": "What is the discrete-time impulse δ[n] at n=0?",
+            "back": "δ[0] = 1\n\nUnlike the continuous delta, the discrete impulse is simply 1 at n=0 and 0 elsewhere. A regular sequence, not a distribution."
+        },
+        {
+            "id": "df-fc7",
+            "difficultyLevel": 2,
+            "front": "Why is δ(t) important for LTI systems?",
+            "back": "The impulse response h(t) = response to δ(t) completely characterizes an LTI system. Once we know h(t), we can find output for ANY input using convolution."
+        },
+        {
+            "id": "df-fc8",
+            "difficultyLevel": 2,
+            "front": "What is x(t)*δ(t-T)?",
+            "back": "x(t-T)\n\nConvolving with a shifted impulse delays the signal by T. The impulse acts as a delay element."
+        },
+        {
+            "id": "df-fc9",
+            "difficultyLevel": 3,
+            "front": "What is δ(-t)?",
+            "back": "δ(-t) = δ(t)\n\nThe delta function is even. Reflecting about t=0 leaves it unchanged since it's only nonzero at the origin."
+        },
+        {
+            "id": "df-fc10",
+            "difficultyLevel": 2,
+            "front": "Laplace/Fourier transform of δ(t)",
+            "back": "L{δ(t)} = 1\nF{δ(t)} = 1\n\nThe impulse has a flat spectrum—contains all frequencies equally. Perfect for testing system frequency response."
+        }
+    ]
+}

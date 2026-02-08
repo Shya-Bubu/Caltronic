@@ -1,0 +1,33 @@
+{
+    "$schema": "concept-metadata-v3",
+    "id": "integrator-differentiator",
+    "title": "Integrator & Differentiator",
+    "lesson": "lab-01",
+    "order": 6,
+    "continuationContext": {
+        "previousConcept": "summing-amplifier",
+        "establishedBy": "Inverting amplifier with reactive components",
+        "addressingGap": "How do op-amps perform mathematical calculus operations?"
+    },
+    "difficultyProgression": {
+        "intuition": {
+            "startsAt": "A-Level",
+            "endsAt": 105
+        },
+        "engineering": {
+            "startsAt": 105,
+            "endsAt": 115
+        },
+        "mathematics": {
+            "startsAt": 115,
+            "endsAt": 130
+        }
+    },
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

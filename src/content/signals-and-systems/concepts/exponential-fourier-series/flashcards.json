@@ -1,65 +1,67 @@
 {
-    "id": "exponential-fourier-series-flashcards",
+    "id": "flashcards-exponential-fourier-series",
+    "conceptId": "exponential-fourier-series",
+    "title": "Exponential Fourier Series Flashcards",
     "cards": [
         {
-            "id": "f1",
-            "front": "Euler's formula",
-            "back": "e^(jθ) = cos(θ) + j·sin(θ)",
-            "difficultyLevel": 1
+            "id": "efs-fc1",
+            "difficultyLevel": 2,
+            "front": "Analysis equation (finding cₖ)",
+            "back": "cₖ = (1/T)∫x(t)e^(-jkω₀t)dt\n\nIntegrate over one period. Note the negative sign."
         },
         {
-            "id": "f2",
-            "front": "Express cos(θ) using e^(jθ)",
-            "back": "cos(θ) = (e^(jθ) + e^(-jθ))/2",
-            "difficultyLevel": 2
+            "id": "efs-fc2",
+            "difficultyLevel": 1,
+            "front": "Synthesis equation (reconstructing x)",
+            "back": "x(t) = Σcₖe^(jkω₀t)\n\nSum from k=-∞ to +∞. Each term is a rotating phasor."
         },
         {
-            "id": "f3",
-            "front": "Express sin(θ) using e^(jθ)",
-            "back": "sin(θ) = (e^(jθ) - e^(-jθ))/(2j)",
-            "difficultyLevel": 2
+            "id": "efs-fc3",
+            "difficultyLevel": 2,
+            "front": "c₀ formula simplified",
+            "back": "c₀ = (1/T)∫x(t)dt\n\nAverage value. The e^0 = 1 term."
         },
         {
-            "id": "f4",
-            "front": "Fourier Series synthesis equation",
-            "back": "x(t) = Σ Xk·e^(jkω₀t) for k from -∞ to +∞",
-            "difficultyLevel": 2
+            "id": "efs-fc4",
+            "difficultyLevel": 2,
+            "front": "Even signal: coefficients are",
+            "back": "Real! No imaginary part. Phase is 0 or π only."
         },
         {
-            "id": "f5",
-            "front": "What is X₀?",
-            "back": "The DC component (average value of signal)",
-            "difficultyLevel": 1
+            "id": "efs-fc5",
+            "difficultyLevel": 2,
+            "front": "Odd signal: coefficients are",
+            "back": "Purely imaginary! No real part."
         },
         {
-            "id": "f6",
-            "front": "What is 1/j?",
-            "back": "-j (or e^(-jπ/2))",
-            "difficultyLevel": 2
+            "id": "efs-fc6",
+            "difficultyLevel": 2,
+            "front": "Pulse train envelope shape",
+            "back": "sinc function: cₖ ∝ sinc(kτ/T)\nNarrower pulses = wider sinc = more high frequency content."
         },
         {
-            "id": "f7",
-            "front": "Conjugate symmetry for real signals",
-            "back": "X₋k = Xk* (magnitudes equal, phases opposite)",
-            "difficultyLevel": 3
+            "id": "efs-fc7",
+            "difficultyLevel": 2,
+            "front": "sinc(0) = ?",
+            "back": "1\n\nBy L'Hopital or definition. sinc(n) = 0 for nonzero integers n."
         },
         {
-            "id": "f8",
-            "front": "Convert A·cos(ωt) to Fourier coefficients",
-            "back": "X₁ = A/2, X₋₁ = A/2",
-            "difficultyLevel": 2
+            "id": "efs-fc8",
+            "difficultyLevel": 3,
+            "front": "50% duty cycle square wave c₂",
+            "back": "Zero! 50% duty = half-wave symmetry = only odd harmonics. Even harmonics vanish."
         },
         {
-            "id": "f9",
-            "front": "What does magnitude spectrum show?",
-            "back": "|Xk| vs k — amplitude at each harmonic",
-            "difficultyLevel": 2
+            "id": "efs-fc9",
+            "difficultyLevel": 2,
+            "front": "No DC component means...",
+            "back": "c₀ = 0. Signal average is zero. Oscillates equally above and below zero."
         },
         {
-            "id": "f10",
-            "front": "Why use complex exponentials instead of sin/cos?",
-            "back": "Simpler algebra, unified representation, eigenfunction property",
-            "difficultyLevel": 3
+            "id": "efs-fc10",
+            "difficultyLevel": 3,
+            "front": "Power in frequency domain",
+            "back": "Parseval: (1/T)∫|x|²dt = Σ|cₖ|²\nTotal power = sum of harmonic powers."
         }
     ]
 }

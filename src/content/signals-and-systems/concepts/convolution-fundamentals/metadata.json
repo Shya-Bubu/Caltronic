@@ -1,0 +1,33 @@
+{
+    "$schema":  "concept-metadata-v3",
+    "id":  "convolution-fundamentals",
+    "title":  "Convolution Fundamentals",
+    "lesson":  "lesson-03",
+    "order":  1,
+    "continuationContext":  {
+                                "previousConcept":  "signal-transformations",
+                                "establishedBy":  "Signal transformations and impulse functions",
+                                "addressingGap":  "How do we compute the output of an LTI system for any input?"
+                            },
+    "difficultyProgression":  {
+                                  "intuition":  {
+                                                    "startsAt":  110,
+                                                    "endsAt":  125
+                                                },
+                                  "engineering":  {
+                                                      "startsAt":  125,
+                                                      "endsAt":  140
+                                                  },
+                                  "mathematics":  {
+                                                      "startsAt":  140,
+                                                      "endsAt":  155
+                                                  }
+                              },
+    "examPath":  "exam.md",
+    "visualsPath":  "visuals.json",
+    "quizPath":  "quiz.json",
+    "flashcardsPath":  "flashcards.json",
+    "intuitionPath":  "intuition.md",
+    "engineeringPath":  "engineering.md",
+    "mathematicsPath":  "mathematics.md"
+}

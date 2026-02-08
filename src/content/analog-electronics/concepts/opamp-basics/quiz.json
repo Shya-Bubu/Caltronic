@@ -1,0 +1,138 @@
+{
+    "id": "quiz-opamp-basics",
+    "conceptId": "opamp-basics",
+    "title": "Op-Amp Fundamentals Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What does 'op-amp' stand for?",
+            "options": [
+                "Optical amplifier",
+                "Operational amplifier",
+                "Output amplifier",
+                "Oscillating amplifier"
+            ],
+            "correctAnswer": "Operational amplifier",
+            "explanation": "Op-amp is short for operational amplifier, named because it can perform mathematical operations like addition, subtraction, integration, and differentiation on signals.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q2",
+            "prompt": "On the 741 op-amp, which pin is the output?",
+            "options": [
+                "Pin 2",
+                "Pin 3",
+                "Pin 6",
+                "Pin 7"
+            ],
+            "correctAnswer": "Pin 6",
+            "explanation": "Pin 6 is the output of the 741 op-amp. Pin 2 is inverting input, Pin 3 is non-inverting input, Pin 7 is V+, and Pin 4 is V-.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the 'virtual short' rule in op-amp analysis?",
+            "options": [
+                "Output equals input",
+                "V+ = V- when negative feedback is present",
+                "The op-amp inputs are physically shorted",
+                "Current flows between inputs"
+            ],
+            "correctAnswer": "V+ = V- when negative feedback is present",
+            "explanation": "The virtual short rule states that with negative feedback, the voltage at the inverting and non-inverting terminals are equal. They are NOT physically connected - hence 'virtual'.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q4",
+            "prompt": "Why does essentially no current flow into op-amp input terminals?",
+            "options": [
+                "They are grounded",
+                "Very high input impedance",
+                "They are connected together",
+                "The chip is damaged"
+            ],
+            "correctAnswer": "Very high input impedance",
+            "explanation": "Op-amps have very high input impedance (megaohms). According to Ohm's law, high impedance means extremely small current. We approximate this as zero for analysis.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q5",
+            "prompt": "What happens to an op-amp without negative feedback when a small positive voltage is at V+ and V- is grounded?",
+            "options": [
+                "Output is zero",
+                "Output saturates to positive supply",
+                "Output oscillates",
+                "Chip is damaged"
+            ],
+            "correctAnswer": "Output saturates to positive supply",
+            "explanation": "Without feedback, the open-loop gain (200,000) amplifies even tiny differences. A positive V+ causes Vo = 200,000 × (V+ - 0), which immediately hits the positive saturation limit (~+14V).",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q6",
+            "prompt": "For a 741 op-amp powered by ±15V, what is the approximate maximum positive output voltage?",
+            "options": [
+                "15V",
+                "14V",
+                "12V",
+                "10V"
+            ],
+            "correctAnswer": "14V",
+            "explanation": "The output cannot reach the supply rails exactly. Due to internal transistor drops, the maximum output is about 1-2V less than the supply, so approximately ±13V to ±14V.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the open-loop gain of a typical op-amp?",
+            "options": [
+                "10",
+                "100",
+                "10,000",
+                "100,000 or more"
+            ],
+            "correctAnswer": "100,000 or more",
+            "explanation": "Typical op-amps have open-loop gains of 100,000 to 1,000,000 (100dB to 120dB). This enormous gain is what makes the virtual short approximation valid.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q8",
+            "prompt": "What is the purpose of negative feedback in op-amp circuits?",
+            "options": [
+                "Increase the gain",
+                "Control the gain and prevent saturation",
+                "Invert the output",
+                "Increase input impedance"
+            ],
+            "correctAnswer": "Control the gain and prevent saturation",
+            "explanation": "Negative feedback 'tames' the op-amp's enormous open-loop gain into a controlled, predictable closed-loop gain. Without it, the op-amp saturates at the supply rails.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q9",
+            "prompt": "Which power supply pins must be connected on a 741 op-amp?",
+            "options": [
+                "Only Pin 7 (V+)",
+                "Only Pin 4 (V-)",
+                "Both Pin 7 (V+) and Pin 4 (V-)",
+                "Pins 1 and 5"
+            ],
+            "correctAnswer": "Both Pin 7 (V+) and Pin 4 (V-)",
+            "explanation": "The 741 requires dual supply: +15V to Pin 7 and -15V to Pin 4. Forgetting either supply is a common mistake that results in no output or incorrect operation.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q10",
+            "prompt": "The gain-bandwidth product of a 741 is 1MHz. If the circuit gain is set to 100, what is the approximate bandwidth?",
+            "options": [
+                "1 MHz",
+                "100 kHz",
+                "10 kHz",
+                "1 kHz"
+            ],
+            "correctAnswer": "10 kHz",
+            "explanation": "Gain × Bandwidth = GBP. So Bandwidth = GBP/Gain = 1,000,000/100 = 10,000 Hz = 10 kHz. Higher gain means lower bandwidth - there's always a tradeoff!",
+            "difficulty": "hard"
+        }
+    ]
+}

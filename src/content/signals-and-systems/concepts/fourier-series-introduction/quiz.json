@@ -1,0 +1,128 @@
+{
+    "id": "quiz-fourier-series-introduction",
+    "conceptId": "fourier-series-introduction",
+    "title": "Fourier Series Introduction Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "fs-q1",
+            "prompt": "The fundamental frequency ω₀ for a signal with period T is:",
+            "options": [
+                "T",
+                "1/T",
+                "2π/T",
+                "T/2π"
+            ],
+            "correctAnswer": "2π/T",
+            "explanation": "The fundamental angular frequency is ω₀ = 2π/T rad/s. In Hz, it would be f₀ = 1/T. All other harmonics are integer multiples of this frequency: 2ω₀, 3ω₀, 4ω₀, etc."
+        },
+        {
+            "id": "fs-q2",
+            "prompt": "A square wave contains which harmonics?",
+            "options": [
+                "All harmonics",
+                "Only even harmonics",
+                "Only odd harmonics",
+                "No harmonics"
+            ],
+            "correctAnswer": "Only odd harmonics",
+            "explanation": "Due to half-wave symmetry, a square wave has only odd harmonics: 1st, 3rd, 5th, etc. The coefficients decrease as 1/k, so higher harmonics contribute less. This creates the characteristic 'ringing' at transitions."
+        },
+        {
+            "id": "fs-q3",
+            "prompt": "c₀ in the Fourier series represents:",
+            "options": [
+                "Fundamental",
+                "DC component",
+                "Second harmonic",
+                "Highest frequency"
+            ],
+            "correctAnswer": "DC component",
+            "explanation": "c₀ is the average value (DC) of the signal over one period: c₀ = (1/T)∫x(t)dt. It's the 0th 'harmonic'—a constant offset. For signals symmetric about zero, c₀ = 0."
+        },
+        {
+            "id": "fs-q4",
+            "prompt": "Sinusoids are eigenfunctions of LTI systems because:",
+            "options": [
+                "They're periodic",
+                "Input frequency = output frequency",
+                "They decay exponentially",
+                "They're continuous"
+            ],
+            "correctAnswer": "Input frequency = output frequency",
+            "explanation": "When a sinusoid e^(jωt) goes through an LTI system, output is H(ω)·e^(jωt)—same frequency, just scaled. The system cannot create new frequencies. This is why Fourier analysis is so powerful for LTI systems."
+        },
+        {
+            "id": "fs-q5",
+            "prompt": "For a real-valued signal, the coefficients satisfy:",
+            "options": [
+                "cₖ = c₋ₖ",
+                "cₖ = -c₋ₖ",
+                "cₖ = c₋ₖ*",
+                "cₖ = 0"
+            ],
+            "correctAnswer": "cₖ = c₋ₖ*",
+            "explanation": "Real signals have conjugate symmetric coefficients: c₋ₖ = cₖ*. This ensures that when positive and negative exponentials combine, imaginary parts cancel and the result is real. Magnitude spectrum is even: |cₖ| = |c₋ₖ|."
+        },
+        {
+            "id": "fs-q6",
+            "prompt": "The magnitude |cₖ| represents:",
+            "options": [
+                "Phase of k-th harmonic",
+                "Amplitude of k-th harmonic",
+                "Frequency of k-th harmonic",
+                "Energy of k-th harmonic"
+            ],
+            "correctAnswer": "Amplitude of k-th harmonic",
+            "explanation": "The magnitude |cₖ| gives the amplitude (strength) of the k-th harmonic. The angle ∠cₖ gives its phase. Together they fully describe how much of each frequency is present and when it peaks."
+        },
+        {
+            "id": "fs-q7",
+            "prompt": "A signal with half-wave symmetry x(t) = -x(t+T/2) has:",
+            "options": [
+                "All harmonics",
+                "Only even harmonics",
+                "Only odd harmonics",
+                "No harmonics"
+            ],
+            "correctAnswer": "Only odd harmonics",
+            "explanation": "Half-wave symmetry means the signal is its own negative after half a period. This forces even harmonics to zero. Square waves and triangle waves have this symmetry, which is why they contain only odd harmonics."
+        },
+        {
+            "id": "fs-q8",
+            "prompt": "The Fourier series converges to x(t) if x(t) satisfies:",
+            "options": [
+                "Laplace conditions",
+                "Dirichlet conditions",
+                "Nyquist conditions",
+                "Shannon conditions"
+            ],
+            "correctAnswer": "Dirichlet conditions",
+            "explanation": "Dirichlet conditions: x(t) is bounded, has finite discontinuities and extrema per period. Most practical signals satisfy these. At discontinuities, the series converges to the midpoint of the jump."
+        },
+        {
+            "id": "fs-q9",
+            "prompt": "The exponential Fourier series formula is:",
+            "options": [
+                "x(t) = Σcₖe^(jkω₀t)",
+                "x(t) = Σcₖcos(kω₀t)",
+                "x(t) = Σcₖsin(kω₀t)",
+                "x(t) = Σcₖ/k"
+            ],
+            "correctAnswer": "x(t) = Σcₖe^(jkω₀t)",
+            "explanation": "The exponential form x(t) = Σcₖe^(jkω₀t) uses complex exponentials at harmonic frequencies. The sum is from k = -∞ to +∞. This compact form is preferred for analysis because it leads to simpler derivations."
+        },
+        {
+            "id": "fs-q10",
+            "prompt": "For a periodic signal, the spectrum is:",
+            "options": [
+                "Continuous",
+                "Discrete (line spectrum)",
+                "Constant",
+                "Zero"
+            ],
+            "correctAnswer": "Discrete (line spectrum)",
+            "explanation": "Periodic signals have discrete spectra—energy only at harmonic frequencies kω₀. Plotted as a 'line spectrum' with sticks at k = ...-2,-1,0,1,2... This contrasts with aperiodic signals which have continuous spectra."
+        }
+    ]
+}

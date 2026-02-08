@@ -1,0 +1,557 @@
+{
+    "conceptId": "system-basics",
+    "visuals": [
+        {
+            "id": "system-input-output",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "System as Transformer: Input → Output",
+            "description": "Basic system model showing signal transformation",
+            "blocks": [
+                {
+                    "id": "input",
+                    "label": "Input\nx(t)",
+                    "x": 30,
+                    "y": 50,
+                    "type": "input",
+                    "width": 70
+                },
+                {
+                    "id": "system",
+                    "label": "SYSTEM\nT{·}",
+                    "x": 140,
+                    "y": 35,
+                    "width": 100,
+                    "height": 70
+                },
+                {
+                    "id": "output",
+                    "label": "Output\ny(t)",
+                    "x": 280,
+                    "y": 50,
+                    "type": "output",
+                    "width": 70
+                }
+            ],
+            "connections": [
+                {
+                    "from": "input",
+                    "to": "system"
+                },
+                {
+                    "from": "system",
+                    "to": "output"
+                }
+            ]
+        },
+        {
+            "id": "system-properties-tree",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Six System Properties",
+            "description": "Memory, Causality, Stability, Linearity, Time-Invariance, Invertibility",
+            "blocks": [
+                {
+                    "id": "mem",
+                    "label": "Memory?",
+                    "x": 30,
+                    "y": 20,
+                    "width": 80,
+                    "height": 35
+                },
+                {
+                    "id": "caus",
+                    "label": "Causal?",
+                    "x": 130,
+                    "y": 20,
+                    "width": 80,
+                    "height": 35
+                },
+                {
+                    "id": "stab",
+                    "label": "Stable?",
+                    "x": 230,
+                    "y": 20,
+                    "width": 80,
+                    "height": 35
+                },
+                {
+                    "id": "lin",
+                    "label": "Linear?",
+                    "x": 30,
+                    "y": 75,
+                    "width": 80,
+                    "height": 35
+                },
+                {
+                    "id": "ti",
+                    "label": "TI?",
+                    "x": 130,
+                    "y": 75,
+                    "width": 80,
+                    "height": 35
+                },
+                {
+                    "id": "inv",
+                    "label": "Invertible?",
+                    "x": 230,
+                    "y": 75,
+                    "width": 80,
+                    "height": 35
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "bibo-stability",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "BIBO Stability: Bounded In → Bounded Out",
+            "description": "Stable system keeps output bounded; unstable grows unbounded",
+            "waveType": "stability-comparison",
+            "mode": "dual"
+        },
+        {
+            "id": "linearity-superposition",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "engineering",
+            "title": "Linearity: Superposition Principle",
+            "description": "T{ax₁ + bx₂} = aT{x₁} + bT{x₂}",
+            "blocks": [
+                {
+                    "id": "in1",
+                    "label": "x₁",
+                    "x": 30,
+                    "y": 30,
+                    "width": 50,
+                    "height": 35
+                },
+                {
+                    "id": "in2",
+                    "label": "x₂",
+                    "x": 30,
+                    "y": 85,
+                    "width": 50,
+                    "height": 35
+                },
+                {
+                    "id": "sum",
+                    "label": "ax₁+bx₂",
+                    "x": 120,
+                    "y": 50,
+                    "width": 70,
+                    "height": 40
+                },
+                {
+                    "id": "sys",
+                    "label": "T{·}",
+                    "x": 230,
+                    "y": 45,
+                    "width": 60,
+                    "height": 50
+                },
+                {
+                    "id": "out",
+                    "label": "ay₁+by₂",
+                    "x": 330,
+                    "y": 50,
+                    "width": 70,
+                    "height": 40
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in1",
+                    "to": "sum"
+                },
+                {
+                    "from": "in2",
+                    "to": "sum"
+                },
+                {
+                    "from": "sum",
+                    "to": "sys"
+                },
+                {
+                    "from": "sys",
+                    "to": "out"
+                }
+            ]
+        },
+        {
+            "id": "time-invariance-test",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "engineering",
+            "title": "Time-Invariance Test: Two Paths",
+            "description": "Does shifting input = shifting output?",
+            "blocks": [
+                {
+                    "id": "x",
+                    "label": "x(t)",
+                    "x": 30,
+                    "y": 30,
+                    "width": 60,
+                    "height": 35
+                },
+                {
+                    "id": "shift1",
+                    "label": "Shift\nt-t₀",
+                    "x": 120,
+                    "y": 20,
+                    "width": 60,
+                    "height": 30
+                },
+                {
+                    "id": "sys1",
+                    "label": "T{·}",
+                    "x": 210,
+                    "y": 15,
+                    "width": 50,
+                    "height": 40
+                },
+                {
+                    "id": "y1",
+                    "label": "y₂(t)",
+                    "x": 290,
+                    "y": 20,
+                    "width": 60,
+                    "height": 30
+                },
+                {
+                    "id": "sys2",
+                    "label": "T{·}",
+                    "x": 120,
+                    "y": 70,
+                    "width": 50,
+                    "height": 40
+                },
+                {
+                    "id": "shift2",
+                    "label": "Shift\nt-t₀",
+                    "x": 200,
+                    "y": 75,
+                    "width": 60,
+                    "height": 30
+                },
+                {
+                    "id": "y2",
+                    "label": "y(t-t₀)",
+                    "x": 290,
+                    "y": 75,
+                    "width": 70,
+                    "height": 30
+                },
+                {
+                    "id": "compare",
+                    "label": "Compare\ny₂=y(t-t₀)?",
+                    "x": 390,
+                    "y": 45,
+                    "width": 80,
+                    "height": 40
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x",
+                    "to": "shift1",
+                    "label": "Path A"
+                },
+                {
+                    "from": "shift1",
+                    "to": "sys1"
+                },
+                {
+                    "from": "sys1",
+                    "to": "y1"
+                },
+                {
+                    "from": "x",
+                    "to": "sys2",
+                    "label": "Path B"
+                },
+                {
+                    "from": "sys2",
+                    "to": "shift2"
+                },
+                {
+                    "from": "shift2",
+                    "to": "y2"
+                },
+                {
+                    "from": "y1",
+                    "to": "compare"
+                },
+                {
+                    "from": "y2",
+                    "to": "compare"
+                }
+            ]
+        },
+        {
+            "id": "lti-system-block",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "mathematics",
+            "title": "LTI System: The Holy Grail",
+            "description": "Linear + Time-Invariant → characterized by h(t)",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "x(t)",
+                    "x": 40,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "lti",
+                    "label": "LTI\nh(t)",
+                    "x": 150,
+                    "y": 35,
+                    "width": 80,
+                    "height": 70
+                },
+                {
+                    "id": "out",
+                    "label": "y(t)=x*h",
+                    "x": 270,
+                    "y": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "lti"
+                },
+                {
+                    "from": "lti",
+                    "to": "out",
+                    "label": "Convolution"
+                }
+            ]
+        },
+        {
+            "id": "cascade-connection",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "mathematics",
+            "title": "Cascade Connection: Output of T₁ feeds into T₂",
+            "description": "Overall: h(t) = h₁(t) * h₂(t)",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "x(t)",
+                    "x": 30,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "sys1",
+                    "label": "T₁\nh₁(t)",
+                    "x": 120,
+                    "y": 40,
+                    "width": 70,
+                    "height": 60
+                },
+                {
+                    "id": "mid",
+                    "label": "w(t)",
+                    "x": 220,
+                    "y": 50,
+                    "width": 60
+                },
+                {
+                    "id": "sys2",
+                    "label": "T₂\nh₂(t)",
+                    "x": 310,
+                    "y": 40,
+                    "width": 70,
+                    "height": 60
+                },
+                {
+                    "id": "out",
+                    "label": "y(t)",
+                    "x": 410,
+                    "y": 50,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "sys1"
+                },
+                {
+                    "from": "sys1",
+                    "to": "mid"
+                },
+                {
+                    "from": "mid",
+                    "to": "sys2"
+                },
+                {
+                    "from": "sys2",
+                    "to": "out"
+                }
+            ]
+        },
+        {
+            "id": "parallel-connection",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "mathematics",
+            "title": "Parallel Connection: Same Input, Add Outputs",
+            "description": "Overall: h(t) = h₁(t) + h₂(t)",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "x(t)",
+                    "x": 30,
+                    "y": 60,
+                    "type": "input"
+                },
+                {
+                    "id": "split",
+                    "label": "·",
+                    "x": 100,
+                    "y": 60,
+                    "width": 20,
+                    "height": 20
+                },
+                {
+                    "id": "sys1",
+                    "label": "T₁\nh₁(t)",
+                    "x": 170,
+                    "y": 20,
+                    "width": 70,
+                    "height": 50
+                },
+                {
+                    "id": "sys2",
+                    "label": "T₂\nh₂(t)",
+                    "x": 170,
+                    "y": 90,
+                    "width": 70,
+                    "height": 50
+                },
+                {
+                    "id": "sum",
+                    "label": "+",
+                    "x": 280,
+                    "y": 55,
+                    "width": 40,
+                    "height": 40
+                },
+                {
+                    "id": "out",
+                    "label": "y(t)",
+                    "x": 360,
+                    "y": 60,
+                    "type": "output"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "split"
+                },
+                {
+                    "from": "split",
+                    "to": "sys1"
+                },
+                {
+                    "from": "split",
+                    "to": "sys2"
+                },
+                {
+                    "from": "sys1",
+                    "to": "sum"
+                },
+                {
+                    "from": "sys2",
+                    "to": "sum"
+                },
+                {
+                    "from": "sum",
+                    "to": "out"
+                }
+            ]
+        },
+        {
+            "id": "feedback-connection",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "mathematics",
+            "title": "Feedback Connection: Output Returns to Input",
+            "description": "Negative feedback for stability and control",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "x(t)",
+                    "x": 30,
+                    "y": 50,
+                    "type": "input"
+                },
+                {
+                    "id": "sum",
+                    "label": "+/-",
+                    "x": 100,
+                    "y": 45,
+                    "width": 40,
+                    "height": 40
+                },
+                {
+                    "id": "fwd",
+                    "label": "G",
+                    "x": 170,
+                    "y": 40,
+                    "width": 60,
+                    "height": 50
+                },
+                {
+                    "id": "out",
+                    "label": "y(t)",
+                    "x": 270,
+                    "y": 50,
+                    "type": "output"
+                },
+                {
+                    "id": "fb",
+                    "label": "H",
+                    "x": 170,
+                    "y": 110,
+                    "width": 60,
+                    "height": 40
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "sum"
+                },
+                {
+                    "from": "sum",
+                    "to": "fwd"
+                },
+                {
+                    "from": "fwd",
+                    "to": "out"
+                },
+                {
+                    "from": "out",
+                    "to": "fb"
+                },
+                {
+                    "from": "fb",
+                    "to": "sum",
+                    "label": "−"
+                }
+            ]
+        }
+    ]
+}

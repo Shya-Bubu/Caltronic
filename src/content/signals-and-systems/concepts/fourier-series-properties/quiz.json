@@ -1,125 +1,128 @@
 {
-    "id": "fourier-series-properties-quiz",
+    "id": "quiz-fourier-series-properties",
+    "conceptId": "fourier-series-properties",
+    "title": "Fourier Series Properties Quiz",
+    "passingScore": 70,
     "questions": [
         {
-            "id": "q1",
-            "prompt": "For time shifting x(t - t₀), what happens to |Xk|?",
+            "id": "fsp-q1",
+            "prompt": "Time shifting x(t) by t₀ affects coefficients by:",
             "options": [
-                "Increases",
-                "Decreases",
-                "Unchanged",
-                "Depends on k"
+                "Adding t₀",
+                "Multiplying by e^(-jkω₀t₀)",
+                "No change",
+                "Multiplying by t₀"
             ],
-            "correctAnswer": "Unchanged",
-            "explanation": "Time shifting only affects phase, not magnitude. The new coefficient is Xk·e^(-jkω₀t₀), which has |e^(-jkω₀t₀)| = 1, so |Yk| = |Xk|."
+            "correctAnswer": "Multiplying by e^(-jkω₀t₀)",
+            "explanation": "Time shift property: x(t-t₀) has coefficients cₖe^(-jkω₀t₀). Only phase changes—magnitude |cₖ| remains same. This shows time delay equals linear phase shift in frequency domain."
         },
         {
-            "id": "q2",
-            "prompt": "What is the Fourier coefficient of x(-t) at k=3 if x(t) has X₃ = 2j?",
+            "id": "fsp-q2",
+            "prompt": "Differentiation d/dt in time domain corresponds to:",
             "options": [
-                "2j",
-                "-2j",
-                "X₋₃ depends on the signal",
-                "Cannot determine"
+                "Divide by jkω₀",
+                "Multiply by jkω₀",
+                "Add jkω₀",
+                "No change"
             ],
-            "correctAnswer": "X₋₃ depends on the signal",
-            "explanation": "Time reversal gives Y₃ = X₋₃. We're told X₃ = 2j, but we need X₋₃ for x(t) to find the coefficient for x(-t) at k=3. Unless given X₋₃, we cannot determine it."
+            "correctAnswer": "Multiply by jkω₀",
+            "explanation": "Differentiation property: if x↔cₖ, then dx/dt↔jkω₀cₖ. Each harmonic is multiplied by jkω₀. This amplifies high frequencies and adds 90° phase shift. Useful for analyzing derivative relationships."
         },
         {
-            "id": "q3",
-            "prompt": "For linearity to apply to αx(t) + βy(t), what condition is required?",
+            "id": "fsp-q3",
+            "prompt": "Integration in time domain corresponds to:",
             "options": [
-                "Signals must be real",
-                "Same amplitude",
-                "Same fundamental frequency ω₀",
-                "Same phase"
+                "Multiply by jkω₀",
+                "Divide by jkω₀ (k≠0)",
+                "Add jkω₀",
+                "Subtract jkω₀"
             ],
-            "correctAnswer": "Same fundamental frequency ω₀",
-            "explanation": "Linearity requires both signals to share the same ω₀. Otherwise, harmonics don't align and coefficients can't be simply added."
+            "correctAnswer": "Divide by jkω₀ (k≠0)",
+            "explanation": "Integration property: ∫x dt has coefficients cₖ/(jkω₀) for k≠0. Division attenuates high frequencies and shifts phase by -90°. The k=0 case needs special handling (adds to DC)."
         },
         {
-            "id": "q4",
-            "prompt": "If x(t) → Xk with ω₀ = 10, what is the fundamental of x(2t)?",
+            "id": "fsp-q4",
+            "prompt": "Parseval's theorem relates:",
             "options": [
-                "5 rad/s",
-                "10 rad/s",
-                "20 rad/s",
-                "40 rad/s"
+                "Energy and frequency",
+                "Power in time domain to power in frequency domain",
+                "Phase and amplitude",
+                "Real and imaginary parts"
             ],
-            "correctAnswer": "20 rad/s",
-            "explanation": "Time scaling by α changes ω₀ to αω₀. With α = 2 and original ω₀ = 10, new fundamental is 2 × 10 = 20 rad/s."
+            "correctAnswer": "Power in time domain to power in frequency domain",
+            "explanation": "Parseval: (1/T)∫|x(t)|²dt = Σ|cₖ|². Average power equals sum of harmonic powers. Energy is conserved between domains. This lets us calculate power without time integration."
         },
         {
-            "id": "q5",
-            "prompt": "For real x(t), if X₅ = 3 + 2j, what is X₋₅?",
+            "id": "fsp-q5",
+            "prompt": "If x(t) is scaled by 2, coefficients become:",
             "options": [
-                "3 + 2j",
-                "3 - 2j",
-                "-3 - 2j",
-                "-3 + 2j"
+                "cₖ",
+                "2cₖ",
+                "cₖ/2",
+                "c₂ₖ"
             ],
-            "correctAnswer": "3 - 2j",
-            "explanation": "Conjugate symmetry for real signals: X₋k = Xk*. So X₋₅ = (3 + 2j)* = 3 - 2j."
+            "correctAnswer": "2cₖ",
+            "explanation": "Linearity: 2x(t)↔2cₖ. Scaling the signal scales all coefficients equally. The harmonic structure (relative magnitudes) stays the same, just the overall amplitude changes."
         },
         {
-            "id": "q6",
-            "prompt": "The phase shift due to time delay t₀ is:",
+            "id": "fsp-q6",
+            "prompt": "For x(t)+y(t), the coefficients are:",
             "options": [
-                "-ω₀t₀ for all k",
-                "-kω₀t₀ (varies with k)",
-                "t₀ (constant)",
-                "kω₀/t₀"
+                "cₖ^x · cₖ^y",
+                "cₖ^x + cₖ^y",
+                "cₖ^x - cₖ^y",
+                "(cₖ^x + cₖ^y)/2"
             ],
-            "correctAnswer": "-kω₀t₀ (varies with k)",
-            "explanation": "The phase change is -kω₀t₀, meaning higher harmonics (larger k) experience larger phase shifts for the same time delay."
+            "correctAnswer": "cₖ^x + cₖ^y",
+            "explanation": "Linearity: adding signals adds their coefficients. x+y↔cₖˣ+cₖʸ. This is superposition: each frequency component adds independently. Foundation for analyzing composite signals."
         },
         {
-            "id": "q7",
-            "prompt": "Compressing a signal in time (α > 1) causes the frequency spectrum to:",
+            "id": "fsp-q7",
+            "prompt": "Time scaling x(at) changes the fundamental frequency to:",
             "options": [
-                "Compress",
-                "Expand",
-                "Shift right",
-                "Stay the same"
+                "ω₀",
+                "aω₀",
+                "ω₀/a",
+                "|a|ω₀"
             ],
-            "correctAnswer": "Expand",
-            "explanation": "Time-frequency duality: compressing in time expands in frequency. The new ω₀ = αω₀ > ω₀, so harmonic spacing increases."
+            "correctAnswer": "|a|ω₀",
+            "explanation": "Time scaling: if x(t) has period T, then x(at) has period T/|a|. Fundamental frequency becomes ω₀' = |a|ω₀. Compressing time expands frequency and vice versa."
         },
         {
-            "id": "q8",
-            "prompt": "If X₀ = 5 for x(t), what is the DC component of 3x(t) - x(t-1)?",
+            "id": "fsp-q8",
+            "prompt": "Convolution x(t)*p(t) in time corresponds to _____ of coefficients:",
             "options": [
-                "15",
-                "10",
-                "5",
-                "0"
+                "Convolution",
+                "Multiplication",
+                "Addition",
+                "Division"
             ],
-            "correctAnswer": "10",
-            "explanation": "DC: 3X₀ - X₀·e^(-j·0·ω₀·1) = 3(5) - 5(1) = 15 - 5 = 10. At k=0, the phase factor e^0 = 1."
+            "correctAnswer": "Multiplication",
+            "explanation": "Convolution property: if x*y, coefficients multiply: cₖ^(x*y) = T·cₖˣ·cₖʸ. This is analogous to the convolution theorem for Fourier transforms. Time convolution = frequency multiplication."
         },
         {
-            "id": "q9",
-            "prompt": "What does conjugate symmetry tell us about the magnitude spectrum?",
+            "id": "fsp-q9",
+            "prompt": "Multiplication x(t)·y(t) in time corresponds to _____ of coefficients:",
             "options": [
-                "It's always constant",
-                "It's even: |X₋k| = |Xk|",
-                "It's odd: |X₋k| = -|Xk|",
-                "It has no symmetry"
+                "Multiplication",
+                "Convolution",
+                "Addition",
+                "Nothing simple"
             ],
-            "correctAnswer": "It's even: |X₋k| = |Xk|",
-            "explanation": "For real signals, X₋k = Xk*, so |X₋k| = |Xk*| = |Xk|. The magnitude spectrum is symmetric about k=0."
+            "correctAnswer": "Convolution",
+            "explanation": "Multiplication in time = convolution of coefficients: cₖ^(xy) = cₖˣ*cₖʸ (discrete convolution). This is the dual of the convolution property. Used in analyzing modulated signals."
         },
         {
-            "id": "q10",
-            "prompt": "Time reversal x(-t) swaps Xk with:",
+            "id": "fsp-q10",
+            "prompt": "The DC component c₀ after differentiation is:",
             "options": [
-                "X₋k",
-                "Xk*",
-                "-Xk",
-                "X₁/k"
+                "Same",
+                "Zero",
+                "Doubled",
+                "jω₀c₀"
             ],
-            "correctAnswer": "X₋k",
-            "explanation": "Time reversal: x(-t) ↔ X₋k. The kth coefficient of x(-t) is the -kth coefficient of x(t)."
+            "correctAnswer": "Zero",
+            "explanation": "Differentiation multiplies by jkω₀. For k=0: j·0·ω₀·c₀ = 0. The DC component vanishes after differentiation, which makes sense: derivative of a constant is zero."
         }
     ]
 }

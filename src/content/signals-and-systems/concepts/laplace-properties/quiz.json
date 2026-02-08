@@ -1,0 +1,128 @@
+{
+    "id": "quiz-laplace-properties",
+    "conceptId": "laplace-properties",
+    "title": "Laplace Transform Properties Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "lp-q1",
+            "prompt": "Time shifting x(t-T)u(t-T) becomes:",
+            "options": [
+                "X(s-T)",
+                "e^(-sT)X(s)",
+                "TX(s)",
+                "X(s)/T"
+            ],
+            "correctAnswer": "e^(-sT)X(s)",
+            "explanation": "Time delay by T multiplies the transform by e^(-sT). This exponential factor represents the phase shift that occurs when a signal is delayed. The magnitude |e^(-sT)| = 1, so only phase changes."
+        },
+        {
+            "id": "lp-q2",
+            "prompt": "Frequency shift e^(at)x(t) becomes:",
+            "options": [
+                "X(s+a)",
+                "X(s-a)",
+                "aX(s)",
+                "e^(as)X(s)"
+            ],
+            "correctAnswer": "X(s-a)",
+            "explanation": "Multiplying by e^(at) in time shifts the transform by a to the right: X(s) → X(s-a). All poles and zeros shift right by a. This is dual to time shifting."
+        },
+        {
+            "id": "lp-q3",
+            "prompt": "L{dx/dt} with x(0-)=3 equals:",
+            "options": [
+                "sX(s)",
+                "sX(s)-3",
+                "X(s)/s",
+                "X(s)+3"
+            ],
+            "correctAnswer": "sX(s)-3",
+            "explanation": "Differentiation multiplies by s and subtracts the initial condition: L{x'} = sX(s) - x(0-) = sX(s) - 3. The initial condition accounts for any energy stored before t=0."
+        },
+        {
+            "id": "lp-q4",
+            "prompt": "L{∫x(τ)dτ from 0 to t} equals:",
+            "options": [
+                "sX(s)",
+                "X(s)/s",
+                "X(s)-X(0)",
+                "∫X(s)ds"
+            ],
+            "correctAnswer": "X(s)/s",
+            "explanation": "Integration divides by s: L{∫x dt} = X(s)/s. This adds a pole at s=0. Integration is the inverse operation of differentiation, so division vs multiplication by s."
+        },
+        {
+            "id": "lp-q5",
+            "prompt": "Convolution x(t)*h(t) in s-domain becomes:",
+            "options": [
+                "X(s)*H(s)",
+                "X(s)+H(s)",
+                "X(s)·H(s)",
+                "X(s)/H(s)"
+            ],
+            "correctAnswer": "X(s)·H(s)",
+            "explanation": "Convolution in time = multiplication in s-domain. This is the convolution theorem and why transfer functions are so useful: Y(s) = H(s)X(s). Simple multiplication instead of integration."
+        },
+        {
+            "id": "lp-q6",
+            "prompt": "Initial value x(0+) from X(s) is:",
+            "options": [
+                "lim s→0 of sX(s)",
+                "lim s→∞ of sX(s)",
+                "X(0)",
+                "lim s→∞ of X(s)"
+            ],
+            "correctAnswer": "lim s→∞ of sX(s)",
+            "explanation": "Initial value theorem: x(0+) = lim(s→∞) of sX(s). This extracts the initial jump by looking at high-frequency (short-time) behavior. Works for all proper rational X(s)."
+        },
+        {
+            "id": "lp-q7",
+            "prompt": "Final value theorem requires:",
+            "options": [
+                "X(s) proper",
+                "All poles in LHP or at origin",
+                "No poles",
+                "X(0)=0"
+            ],
+            "correctAnswer": "All poles in LHP or at origin",
+            "explanation": "Final value theorem only works if the limit exists. sX(s) must have all poles in LHP (except possibly at s=0). RHP poles mean the system is unstable and has no finite final value."
+        },
+        {
+            "id": "lp-q8",
+            "prompt": "L{t·x(t)} equals:",
+            "options": [
+                "-dX(s)/ds",
+                "X(s)/s",
+                "sX(s)",
+                "X(s-1)"
+            ],
+            "correctAnswer": "-dX(s)/ds",
+            "explanation": "Multiplication by t corresponds to negative differentiation with respect to s: L{tx(t)} = -dX(s)/ds. This is useful for finding transforms of t·e^(-at), t·sin(ωt), etc."
+        },
+        {
+            "id": "lp-q9",
+            "prompt": "For L{e^(-2t)cos(3t)u(t)}, use:",
+            "options": [
+                "Time shift only",
+                "Frequency shift: s→s+2",
+                "Integration",
+                "Convolution"
+            ],
+            "correctAnswer": "Frequency shift: s→s+2",
+            "explanation": "Start with L{cos(3t)u(t)} = s/(s²+9). The e^(-2t) factor shifts s→s+2: X(s) = (s+2)/((s+2)²+9). Frequency shift handles exponential multipliers."
+        },
+        {
+            "id": "lp-q10",
+            "prompt": "L{d²x/dt²} with x(0-)=1, x'(0-)=2 is:",
+            "options": [
+                "s²X(s)",
+                "s²X(s)-s-2",
+                "s²X(s)-s·1-2",
+                "X(s)/s²"
+            ],
+            "correctAnswer": "s²X(s)-s·1-2",
+            "explanation": "Second derivative: L{x''} = s²X(s) - s·x(0-) - x'(0-) = s²X(s) - s - 2. Initial position contributes s-factor, initial velocity adds directly."
+        }
+    ]
+}

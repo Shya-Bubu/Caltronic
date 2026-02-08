@@ -1,0 +1,33 @@
+{
+    "$schema":  "concept-metadata-v3",
+    "id":  "convolution-properties",
+    "title":  "Convolution Properties",
+    "lesson":  "lesson-03",
+    "order":  3,
+    "continuationContext":  {
+                                "previousConcept":  "lti-impulse-response",
+                                "establishedBy":  "Convolution operation and impulse response",
+                                "addressingGap":  "What algebraic properties make convolution calculations easier?"
+                            },
+    "difficultyProgression":  {
+                                  "intuition":  {
+                                                    "startsAt":  120,
+                                                    "endsAt":  135
+                                                },
+                                  "engineering":  {
+                                                      "startsAt":  135,
+                                                      "endsAt":  150
+                                                  },
+                                  "mathematics":  {
+                                                      "startsAt":  150,
+                                                      "endsAt":  165
+                                                  }
+                              },
+    "examPath":  "exam.md",
+    "visualsPath":  "visuals.json",
+    "quizPath":  "quiz.json",
+    "flashcardsPath":  "flashcards.json",
+    "intuitionPath":  "intuition.md",
+    "engineeringPath":  "engineering.md",
+    "mathematicsPath":  "mathematics.md"
+}

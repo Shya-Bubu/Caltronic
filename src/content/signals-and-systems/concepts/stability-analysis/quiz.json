@@ -1,0 +1,128 @@
+{
+    "id": "quiz-stability-analysis",
+    "conceptId": "stability-analysis",
+    "title": "Stability Analysis Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "stab-q1",
+            "prompt": "BIBO stability requires all poles in:",
+            "options": [
+                "Right half-plane",
+                "Left half-plane",
+                "On jω-axis",
+                "Anywhere"
+            ],
+            "correctAnswer": "Left half-plane",
+            "explanation": "For BIBO (Bounded-Input Bounded-Output) stability of causal systems, ALL poles must have Re(s) < 0. Poles in LHP give decaying exponentials. Any pole with Re(s) ≥ 0 causes instability."
+        },
+        {
+            "id": "stab-q2",
+            "prompt": "H(s) = 1/(s-3) is:",
+            "options": [
+                "Stable",
+                "Unstable",
+                "Marginally stable",
+                "Cannot determine"
+            ],
+            "correctAnswer": "Unstable",
+            "explanation": "Pole at s = +3 is in the right half-plane (Re(s) = 3 > 0). This gives h(t) = e^(3t)u(t), which grows without bound. The system is unstable—bounded inputs produce unbounded outputs."
+        },
+        {
+            "id": "stab-q3",
+            "prompt": "H(s) = 1/(s²+4) is:",
+            "options": [
+                "Stable",
+                "Unstable",
+                "Marginally stable",
+                "Non-causal"
+            ],
+            "correctAnswer": "Marginally stable",
+            "explanation": "Poles at s = ±2j are on the jω-axis (Re(s) = 0). Simple poles on jω-axis give sustained oscillation. h(t) = 0.5sin(2t)u(t)—bounded but doesn't decay. Some bounded inputs cause resonance."
+        },
+        {
+            "id": "stab-q4",
+            "prompt": "A pole at s = -2+3j indicates:",
+            "options": [
+                "Growing oscillation",
+                "Decaying oscillation",
+                "Pure oscillation",
+                "Exponential decay"
+            ],
+            "correctAnswer": "Decaying oscillation",
+            "explanation": "Complex pole at s = -2+3j: Re(s) = -2 < 0 (stable, decaying), Im(s) = 3 (oscillation at ω = 3 rad/s). The response is e^(-2t)cos(3t+φ)—oscillation that dies out. Common in underdamped systems."
+        },
+        {
+            "id": "stab-q5",
+            "prompt": "For h(t) = e^(-t)u(t), the system is:",
+            "options": [
+                "Unstable",
+                "Marginally stable",
+                "BIBO stable",
+                "Cannot determine"
+            ],
+            "correctAnswer": "BIBO stable",
+            "explanation": "h(t) = e^(-t)u(t) gives ∫|h(t)|dt = ∫e^(-t)dt = 1 < ∞. Absolutely integrable means BIBO stable. Pole at s = -1 is in LHP. Any decaying exponential indicates stability."
+        },
+        {
+            "id": "stab-q6",
+            "prompt": "Repeated poles on jω-axis cause:",
+            "options": [
+                "Stability",
+                "Marginal stability",
+                "Instability",
+                "Cannot determine"
+            ],
+            "correctAnswer": "Instability",
+            "explanation": "Repeated poles on jω-axis give terms like t·sin(ωt). The factor t grows without bound, causing instability. Only SIMPLE poles on jω-axis give marginal stability. Repeated jω poles are unstable."
+        },
+        {
+            "id": "stab-q7",
+            "prompt": "The Routh-Hurwitz criterion checks stability by:",
+            "options": [
+                "Finding all poles",
+                "Counting sign changes",
+                "Computing eigenvalues",
+                "Testing with impulse"
+            ],
+            "correctAnswer": "Counting sign changes",
+            "explanation": "Routh-Hurwitz builds a table from characteristic polynomial coefficients. Sign changes in the first column = number of RHP poles. No sign changes = all poles in LHP = stable. Works without finding actual poles."
+        },
+        {
+            "id": "stab-q8",
+            "prompt": "A system with H(s) = s/(s²+2s+5) is:",
+            "options": [
+                "Stable",
+                "Unstable",
+                "Marginally stable",
+                "Depends on input"
+            ],
+            "correctAnswer": "Stable",
+            "explanation": "Denominator s²+2s+5 has roots s = -1±2j. Both poles have Re(s) = -1 < 0, so in LHP. The system is stable. The zero at s=0 doesn't affect stability—only poles matter for stability."
+        },
+        {
+            "id": "stab-q9",
+            "prompt": "For stability, the impulse response must:",
+            "options": [
+                "Be zero",
+                "Be bounded",
+                "Be absolutely integrable",
+                "Oscillate"
+            ],
+            "correctAnswer": "Be absolutely integrable",
+            "explanation": "BIBO stability ⟺ ∫|h(t)|dt < ∞. The impulse response must be absolutely integrable. This is stronger than just bounded—h(t) must decay fast enough that its total 'area' is finite."
+        },
+        {
+            "id": "stab-q10",
+            "prompt": "If one pole is at s = 0, the system is:",
+            "options": [
+                "Stable",
+                "Unstable",
+                "Marginally stable (if simple pole)",
+                "Cannot determine"
+            ],
+            "correctAnswer": "Marginally stable (if simple pole)",
+            "explanation": "Simple pole at origin gives h(t) containing u(t)—a constant that never decays. Bounded but doesn't go to zero. System is marginally stable. Example: pure integrator. A double pole at origin would be unstable."
+        }
+    ]
+}

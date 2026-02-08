@@ -1,32 +1,19 @@
-# Lesson 03: Convolution and LTI System Response
+# Convolution and LTI Systems
 
-> This lesson introduces the most powerful tool in signals and systems: **convolution**. You'll learn how knowing just the impulse response lets you predict the output for ANY input.
+Convolution is THE mathematical operation that defines how LTI systems transform signals. If you know a system's impulse response $h(t)$, convolution tells you the output for ANY input.
 
 ## What You'll Learn
 
-1. **Impulse train decomposition** — How any signal can be written as a sum of shifted impulses
-2. **LTI system response** — How linearity and time invariance determine system behavior
-3. **The convolution sum** — The mathematical formula that computes any LTI output
-4. **Graphical convolution** — The "flip, shift, multiply, sum" procedure
+1. **Convolution Fundamentals**: The integral/sum that connects input, impulse response, and output
+2. **LTI Impulse Response**: How systems are completely characterized by their response to an impulse
+3. **Convolution Properties**: Commutativity, associativity, distributivity, and their practical implications
 
 ## Why This Matters
 
-Convolution is the **foundation** of:
-- Digital filter design
-- Image processing
-- Audio processing
-- Communication systems
-- Machine learning (CNNs!)
+Convolution appears EVERYWHERE in engineering:
+- Audio effects (reverb, echo)
+- Image filtering (blur, edge detection)
+- Communication systems (matched filtering)
+- Neural networks (convolutional layers)
 
-Once you master convolution, you can analyze ANY linear system.
-
-## Prerequisites
-
-Make sure you understand:
-- Impulse and step functions (Lesson 02)
-- LTI system properties (Lesson 02)
-- Signal classification (Lesson 01)
-
----
-
-*Let's begin with how impulse response defines a system completely.*
+Master convolution, and you unlock the analysis of virtually any LTI system.

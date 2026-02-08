@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-voltage-current-characteristics",
+    "conceptId": "voltage-current-characteristics",
+    "title": "Voltage-Current Characteristics Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What does the slope of a V-I curve (V on y-axis, I on x-axis) represent?",
+            "back": "Resistance (R)\n\nSlope = ΔV/ΔI = R\n\nSteeper slope = higher resistance",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "How should an ammeter and voltmeter be connected to measure V-I characteristics?",
+            "back": "Ammeter: IN SERIES with the component\nVoltmeter: IN PARALLEL with the component\n\nAmmeter measures current through; voltmeter measures voltage across.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What happens if you connect an ammeter in parallel with a component?",
+            "back": "SHORT CIRCUIT!\n\nAmmeters have near-zero resistance. Parallel connection creates a low-resistance path, causing:\n• Excessive current\n• Blown fuse (if lucky)\n• Damaged ammeter (if unlucky)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What characteristics indicate an ohmic component?",
+            "back": "Three criteria:\n1. V-I curve is a straight line\n2. Line passes through the origin (0,0)\n3. Slope (R) is constant at all measurement points\n\nNon-ohmic components fail one or more of these.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What does R² (coefficient of determination) tell you about V-I data?",
+            "back": "R² measures how well a linear model fits the data.\n\n• R² ≈ 1.00: Excellent fit, clearly ohmic\n• R² > 0.99: Good fit, likely ohmic\n• R² < 0.95: Poor fit, possibly non-ohmic\n\nR² = 1 - (unexplained variation / total variation)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What is the least squares formula for resistance from V-I data?",
+            "back": "R̂ = ΣVI / ΣI²\n\nThis minimizes Σ(V - RI)², the sum of squared errors between measured V and predicted V = RI.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f7",
+            "front": "What is 'loading error' in electrical measurements?",
+            "back": "Error caused by the measurement instrument affecting the circuit:\n\n• Voltmeter draws current → reduces actual voltage\n• Ammeter has resistance → drops voltage\n\nUse high-impedance voltmeters and low-resistance ammeters to minimize loading.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why do we sweep voltage and measure current (not vice versa) when characterizing resistors?",
+            "back": "Practical reasons:\n\n1. Voltage sources are easier to control precisely\n2. Power supplies are naturally voltage sources\n3. Current is the dependent variable (I = V/R)\n4. Easier to set safe voltage limits\n\nFor some devices (current sources), I is controlled and V is measured.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "If slope of V vs I is R, what is the slope of I vs V?",
+            "back": "Conductance (G) = 1/R\n\nG is measured in Siemens (S), formerly called 'mhos' (Ω⁻¹).\n\nI-V graphs show conductance as slope; V-I graphs show resistance.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "How can you tell from a V-I curve that a component is a diode rather than a resistor?",
+            "back": "Diode V-I characteristics show:\n\n1. Exponential shape (not linear)\n2. Threshold voltage (~0.7V for Si)\n3. Very low current below threshold\n4. Rapid current increase above threshold\n\nResistor: straight line through origin.",
+            "difficultyLevel": 4
+        }
+    ]
+}

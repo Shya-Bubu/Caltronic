@@ -1,0 +1,33 @@
+{
+    "$schema":  "concept-metadata-v3",
+    "id":  "continuous-time-fourier-transform",
+    "title":  "Continuous-Time Fourier Transform",
+    "lesson":  "lesson-05",
+    "order":  1,
+    "continuationContext":  {
+                                "previousConcept":  "fourier-series-properties",
+                                "establishedBy":  "Fourier series for periodic signals",
+                                "addressingGap":  "How do we analyze non-periodic signals in frequency domain?"
+                            },
+    "difficultyProgression":  {
+                                  "intuition":  {
+                                                    "startsAt":  140,
+                                                    "endsAt":  155
+                                                },
+                                  "engineering":  {
+                                                      "startsAt":  155,
+                                                      "endsAt":  170
+                                                  },
+                                  "mathematics":  {
+                                                      "startsAt":  170,
+                                                      "endsAt":  185
+                                                  }
+                              },
+    "examPath":  "exam.md",
+    "visualsPath":  "visuals.json",
+    "quizPath":  "quiz.json",
+    "flashcardsPath":  "flashcards.json",
+    "intuitionPath":  "intuition.md",
+    "engineeringPath":  "engineering.md",
+    "mathematicsPath":  "mathematics.md"
+}

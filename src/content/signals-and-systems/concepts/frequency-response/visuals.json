@@ -1,0 +1,79 @@
+{
+    "conceptId": "frequency-response",
+    "visuals": [
+        {
+            "id": "frequency-response-definition",
+            "visualType": "diagram",
+            "type": "d3-block-diagram",
+            "placement": "intuition",
+            "title": "Frequency Response: How System Treats Each ω",
+            "description": "H(ω) = Fourier transform of h(t)",
+            "blocks": [
+                {
+                    "id": "h",
+                    "label": "h(t)\nImpulse Response",
+                    "x": 20,
+                    "y": 50,
+                    "type": "input",
+                    "width": 110
+                },
+                {
+                    "id": "ft",
+                    "label": "Fourier\nTransform",
+                    "x": 160,
+                    "y": 40,
+                    "width": 90,
+                    "height": 60
+                },
+                {
+                    "id": "H",
+                    "label": "H(ω)\nFreq Response",
+                    "x": 280,
+                    "y": 50,
+                    "type": "output",
+                    "width": 110
+                }
+            ],
+            "connections": [
+                {
+                    "from": "h",
+                    "to": "ft"
+                },
+                {
+                    "from": "ft",
+                    "to": "H"
+                }
+            ]
+        },
+        {
+            "id": "sinusoidal-io",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "intuition",
+            "title": "Sinusoid In → Sinusoid Out (Scaled, Shifted)",
+            "description": "Frequency unchanged, amplitude and phase modified",
+            "waveType": "sinusoid",
+            "mode": "io-comparison"
+        },
+        {
+            "id": "bode-plot",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "Magnitude and Phase Response (Bode Plot)",
+            "description": "|H(ω)| and ∠H(ω) vs frequency",
+            "waveType": "bode",
+            "mode": "dual"
+        },
+        {
+            "id": "ideal-filters",
+            "visualType": "diagram",
+            "type": "d3-waveform",
+            "placement": "engineering",
+            "title": "Ideal Filter Frequency Responses",
+            "description": "Lowpass, highpass, bandpass, bandstop",
+            "waveType": "filter-comparison",
+            "mode": "quad"
+        }
+    ]
+}

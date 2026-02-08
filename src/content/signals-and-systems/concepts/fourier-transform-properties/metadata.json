@@ -1,0 +1,33 @@
+{
+    "$schema":  "concept-metadata-v3",
+    "id":  "fourier-transform-properties",
+    "title":  "Fourier Transform Properties",
+    "lesson":  "lesson-05",
+    "order":  2,
+    "continuationContext":  {
+                                "previousConcept":  "continuous-time-fourier-transform",
+                                "establishedBy":  "CTFT definition and basic pairs",
+                                "addressingGap":  "What properties simplify Fourier transform calculations?"
+                            },
+    "difficultyProgression":  {
+                                  "intuition":  {
+                                                    "startsAt":  145,
+                                                    "endsAt":  160
+                                                },
+                                  "engineering":  {
+                                                      "startsAt":  160,
+                                                      "endsAt":  175
+                                                  },
+                                  "mathematics":  {
+                                                      "startsAt":  175,
+                                                      "endsAt":  190
+                                                  }
+                              },
+    "examPath":  "exam.md",
+    "visualsPath":  "visuals.json",
+    "quizPath":  "quiz.json",
+    "flashcardsPath":  "flashcards.json",
+    "intuitionPath":  "intuition.md",
+    "engineeringPath":  "engineering.md",
+    "mathematicsPath":  "mathematics.md"
+}
