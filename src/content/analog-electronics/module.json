@@ -1,0 +1,9 @@
+{
+    "id": "analog-electronics",
+    "title": "Analog Electronics",
+    "description": "Operational amplifiers and analog circuit design fundamentals",
+    "prerequisites": [],
+    "lessons": [
+        "lab-01"
+    ]
+}
