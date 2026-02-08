@@ -18,7 +18,7 @@ import { existsSync, readFileSync, statSync, readdirSync } from 'fs';
 import { resolve, join } from 'path';
 
 // Import modules configuration
-import { modules } from '../src/app/data/modules';
+import { modules } from '../src/app/data/modules.ts';
 
 interface ValidationError {
     severity: 'error' | 'warning';
