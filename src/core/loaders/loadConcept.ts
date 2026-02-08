@@ -46,10 +46,15 @@ export interface LoadedConcept extends ConceptContract {
         mathematics: string;    // Loaded from mathematicsPath
         exam: string;           // Loaded from examPath
         summary?: string;       // Optional summary.md (concept closure)
+        content?: string;       // Optional unified content.md (replaces intuition/engineering/mathematics)
         visuals: unknown;       // Loaded from visualsPath (JSON, structure not yet defined)
         quiz: QuizContract;     // Loaded and validated via loadQuiz
         flashcards: FlashcardContract; // Loaded and validated via loadFlashcards
     };
+    /**
+     * Whether this concept uses unified content.md (true) or separate tab files (false)
+     */
+    hasUnifiedContent: boolean;
 }
 
 /**
@@ -113,11 +118,24 @@ export async function loadConcept(conceptPath: string): Promise<LoadedConcept> {
         };
 
         try {
+            // Check if unified content.md exists (preferred new format)
+            let unifiedContent: string | undefined;
+            let hasUnifiedContent = false;
+            const contentPath = resolve(basePath, 'content.md');
+
+            try {
+                unifiedContent = await readFile(contentPath, 'utf-8');
+                hasUnifiedContent = true;
+            } catch {
+                // content.md doesn't exist, will use separate files
+                unifiedContent = undefined;
+            }
+
             // Load markdown layers (no parsing, just raw strings)
             const [intuition, engineering, mathematics, exam, visualsContent] = await Promise.all([
-                readFile(resolvePath(concept.intuitionPath), 'utf-8'),
-                readFile(resolvePath(concept.engineeringPath), 'utf-8'),
-                readFile(resolvePath(concept.mathematicsPath), 'utf-8'),
+                hasUnifiedContent ? Promise.resolve('') : readFile(resolvePath(concept.intuitionPath), 'utf-8'),
+                hasUnifiedContent ? Promise.resolve('') : readFile(resolvePath(concept.engineeringPath), 'utf-8'),
+                hasUnifiedContent ? Promise.resolve('') : readFile(resolvePath(concept.mathematicsPath), 'utf-8'),
                 readFile(resolvePath(concept.examPath), 'utf-8'),
                 readFile(resolvePath(concept.visualsPath), 'utf-8'),
             ]);
@@ -152,12 +170,14 @@ export async function loadConcept(conceptPath: string): Promise<LoadedConcept> {
             // Step 5: Return fully assembled concept
             return {
                 ...concept,
+                hasUnifiedContent,
                 layers: {
                     intuition,
                     engineering,
                     mathematics,
                     exam,
                     summary,
+                    content: unifiedContent,
                     visuals,
                     quiz,
                     flashcards,

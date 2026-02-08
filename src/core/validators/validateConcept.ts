@@ -95,6 +95,55 @@ function validateLayerFileExistsAndNonEmpty(
 }
 
 /**
+ * Checks visual requirements for a concept (NON-FATAL)
+ * 
+ * NOTE: These are NON-BLOCKING recommendations.
+ * A concept with fewer visuals or no simulations will still load.
+ * This prevents breaking existing working content.
+ * 
+ * @param visualsPath - Absolute path to visuals.json
+ * @param conceptId - Concept ID for warning context
+ */
+function checkVisualRequirements(
+    visualsPath: string,
+    conceptId: string
+): void {
+    try {
+        const content = readFileSync(visualsPath, 'utf-8');
+        const visualsData = JSON.parse(content);
+
+        // Check visuals array exists
+        if (!visualsData.visuals || !Array.isArray(visualsData.visuals)) {
+            console.warn(`[ConceptValidator] ${conceptId}: visuals.json should have a "visuals" array`);
+            return;
+        }
+
+        const visuals = visualsData.visuals;
+
+        // RECOMMENDATION: At least 6 visuals (non-blocking)
+        if (visuals.length < 6) {
+            console.warn(
+                `[ConceptValidator] ${conceptId}: Recommends 6+ visuals, found ${visuals.length}`
+            );
+        }
+
+        // RECOMMENDATION: At least 1 simulation (non-blocking)
+        const simulations = visuals.filter(
+            (v: { type?: string }) => v.type === 'd3-simulation'
+        );
+        if (simulations.length < 1) {
+            console.warn(
+                `[ConceptValidator] ${conceptId}: Recommends 1+ simulation, found ${simulations.length}`
+            );
+        }
+
+    } catch {
+        // JSON parse error - still not fatal, just log it
+        console.warn(`[ConceptValidator] ${conceptId}: Could not parse visuals.json for recommendations check`);
+    }
+}
+
+/**
  * Validates concept metadata and all 7 required layer files
  * 
  * VALIDATION STEPS:
@@ -188,6 +237,10 @@ export function validateConcept(
 
         validateLayerFileExistsAndNonEmpty(fullPath, layerName, conceptId);
     });
+
+    // VISUAL REQUIREMENTS CHECK (NON-FATAL - logs warnings only)
+    const visualsFullPath = resolveFullPath(conceptObj.visualsPath as string);
+    checkVisualRequirements(visualsFullPath, conceptId);
 
     // All validations passed - concept conforms to contract
     // All 7 layers exist and are non-empty

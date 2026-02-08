@@ -27,18 +27,7 @@ export const modules: Module[] = [
     category: "Core Theory",
     accent: "#4f8cff",
     updatedToWeek: 6,
-    lectures: [
-      {
-        id: "lesson-01",
-        title: "Two-Terminal Resistors",
-        path: "/circuit-analysis/lesson-01",
-      },
-      {
-        id: "lesson-02",
-        title: "General Resistive Circuit Analysis",
-        path: "/circuit-analysis/lesson-02",
-      },
-    ],
+    lectures: [],
   },
   {
     id: "EE2020",
@@ -57,7 +46,7 @@ export const modules: Module[] = [
       },
       {
         id: "lesson-02",
-        title: "Impulse Function and System Properties",
+        title: "Impulse Function and System Fundamentals",
         path: "/signals-and-systems/lesson-02",
       },
       {
@@ -67,8 +56,23 @@ export const modules: Module[] = [
       },
       {
         id: "lesson-04",
-        title: "Fourier Series Part I",
+        title: "Fourier Series and Frequency Analysis",
         path: "/signals-and-systems/lesson-04",
+      },
+      {
+        id: "lesson-05",
+        title: "Continuous-Time Fourier Transform",
+        path: "/signals-and-systems/lesson-05",
+      },
+      {
+        id: "lesson-06",
+        title: "Laplace Transform Basics",
+        path: "/signals-and-systems/lesson-06",
+      },
+      {
+        id: "lesson-07",
+        title: "Stability and Pole-Zero Analysis",
+        path: "/signals-and-systems/lesson-07",
       },
     ],
   },
@@ -81,23 +85,7 @@ export const modules: Module[] = [
     category: "Foundational",
     accent: "#2fbf8f",
     updatedToWeek: 6,
-    lectures: [
-      {
-        id: "lesson-01",
-        title: "Processing of Logical Information",
-        path: "/digital-logic-design/lesson-01",
-      },
-      {
-        id: "lesson-03",
-        title: "Karnaugh Maps and Systematic Minimization",
-        path: "/digital-logic-design/lesson-03",
-      },
-      {
-        id: "lesson-04",
-        title: "Special Logic Circuits",
-        path: "/digital-logic-design/lesson-04",
-      },
-    ],
+    lectures: [],
   },
   {
     id: "EE2040",
@@ -107,8 +95,14 @@ export const modules: Module[] = [
     description: "Analog device behavior, amplifiers, and practical circuit intuition.",
     category: "Core Theory",
     accent: "#f0a03a",
-    updatedToWeek: 0,
-    lectures: [],
+    updatedToWeek: 1,
+    lectures: [
+      {
+        id: "lab-01",
+        title: "Lab 01: Op-Amp Applications",
+        path: "/analog-electronics/lab-01",
+      },
+    ],
   },
   {
     id: "EE2050",
@@ -130,27 +124,6 @@ export const modules: Module[] = [
     category: "Computational",
     accent: "#62c6ff",
     updatedToWeek: 6,
-    lectures: [
-      {
-        id: "lesson-01",
-        title: "Nuts and Bolts of Computational Methods",
-        path: "/computational-methods/lesson-01",
-      },
-      {
-        id: "lesson-02",
-        title: "Approximation, Discretization, and Linearization",
-        path: "/computational-methods/lesson-02",
-      },
-      {
-        id: "lesson-03",
-        title: "Mathematical Modeling for Engineers",
-        path: "/computational-methods/lesson-03",
-      },
-      {
-        id: "lesson-04",
-        title: "Complexity Analysis",
-        path: "/computational-methods/lesson-04",
-      },
-    ],
+    lectures: [],
   },
 ];

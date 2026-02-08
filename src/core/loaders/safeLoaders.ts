@@ -222,3 +222,73 @@ export function getMissingConcepts(
     }
     return missing;
 }
+
+/**
+ * Pre-validate a lesson before adding to module
+ * 
+ * PURPOSE:
+ * Run this BEFORE deploying a new lesson to ensure it won't break the app.
+ * Returns detailed report of any issues that would cause 404/500 errors.
+ * 
+ * @param lessonPath - Absolute path to lesson directory
+ * @returns Promise with validation result
+ */
+export async function preValidateLesson(
+    lessonPath: string
+): Promise<{
+    valid: boolean;
+    errors: string[];
+    warnings: string[];
+    conceptsChecked: number;
+}> {
+    const errors: string[] = [];
+    const warnings: string[] = [];
+    let conceptsChecked = 0;
+
+    // Check required lesson files exist
+    const requiredFiles = ['metadata.json', 'overview.md', 'synthesis.md'];
+    for (const file of requiredFiles) {
+        if (!existsSync(resolve(lessonPath, file))) {
+            errors.push(`Missing required lesson file: ${file}`);
+        }
+    }
+
+    // If metadata exists, try to load and validate
+    if (existsSync(resolve(lessonPath, 'metadata.json'))) {
+        const lectureResult = await safeLoadLecture(lessonPath);
+
+        if (!lectureResult.success) {
+            errors.push(`Lesson metadata invalid: ${lectureResult.error}`);
+        } else if (lectureResult.data) {
+            // Check each concept referenced in the lesson
+            const conceptsDir = resolve(lessonPath, 'concepts');
+
+            for (const conceptId of lectureResult.data.concepts) {
+                conceptsChecked++;
+                const conceptPath = resolve(conceptsDir, conceptId);
+
+                if (!existsSync(conceptPath)) {
+                    errors.push(`Concept folder missing: ${conceptId}`);
+                    continue;
+                }
+
+                const conceptResult = await safeLoadConcept(conceptPath);
+                if (!conceptResult.success) {
+                    errors.push(`Concept "${conceptId}": ${conceptResult.error}`);
+                }
+            }
+
+            // Check minimum concept count
+            if (lectureResult.data.concepts.length < 3) {
+                warnings.push(`Only ${lectureResult.data.concepts.length} concepts (minimum 3 recommended)`);
+            }
+        }
+    }
+
+    return {
+        valid: errors.length === 0,
+        errors,
+        warnings,
+        conceptsChecked,
+    };
+}

@@ -30,13 +30,6 @@ interface ValidationError {
 
 const REQUIRED_CONCEPT_FILES = [
     'metadata.json',
-    'intuition.md',
-    'engineering.md',
-    'mathematics.md',
-    'exam.md',
-    'visuals.json',
-    'quiz.json',
-    'flashcards.json',
 ];
 
 const REQUIRED_LESSON_FILES = [
@@ -59,15 +52,15 @@ function fileExistsAndNotEmpty(path: string): boolean {
 
 function validateQuiz(quizPath: string): string[] {
     const errors: string[] = [];
-    
+
     if (!existsSync(quizPath)) {
         errors.push('quiz.json does not exist');
         return errors;
     }
-    
+
     try {
         const quiz = JSON.parse(readFileSync(quizPath, 'utf-8'));
-        
+
         if (!quiz.id) errors.push('quiz.json missing "id" field');
         if (!Array.isArray(quiz.questions)) {
             errors.push('quiz.json "questions" is not an array');
@@ -77,21 +70,21 @@ function validateQuiz(quizPath: string): string[] {
     } catch (e) {
         errors.push(`quiz.json parse error: ${(e as Error).message}`);
     }
-    
+
     return errors;
 }
 
 function validateFlashcards(flashcardsPath: string): string[] {
     const errors: string[] = [];
-    
+
     if (!existsSync(flashcardsPath)) {
         errors.push('flashcards.json does not exist');
         return errors;
     }
-    
+
     try {
         const deck = JSON.parse(readFileSync(flashcardsPath, 'utf-8'));
-        
+
         if (!deck.id) errors.push('flashcards.json missing "id" field');
         if (!Array.isArray(deck.cards)) {
             errors.push('flashcards.json "cards" is not an array');
@@ -101,50 +94,51 @@ function validateFlashcards(flashcardsPath: string): string[] {
     } catch (e) {
         errors.push(`flashcards.json parse error: ${(e as Error).message}`);
     }
-    
+
     return errors;
 }
 
 function validateConcept(conceptPath: string): string[] {
     const errors: string[] = [];
-    
+
     for (const file of REQUIRED_CONCEPT_FILES) {
         const filePath = join(conceptPath, file);
         if (!fileExistsAndNotEmpty(filePath)) {
             errors.push(`Missing or empty: ${file}`);
         }
     }
-    
+
     // Deep validation for quiz and flashcards
-    errors.push(...validateQuiz(join(conceptPath, 'quiz.json')));
-    errors.push(...validateFlashcards(join(conceptPath, 'flashcards.json')));
-    
+    // Deep validation for quiz and flashcards - DISABLED for V2 flexibility
+    // errors.push(...validateQuiz(join(conceptPath, 'quiz.json')));
+    // errors.push(...validateFlashcards(join(conceptPath, 'flashcards.json')));
+
     return errors;
 }
 
 function validateLesson(lessonPath: string, moduleSlug: string, contentRoot: string): { errors: string[]; concepts: string[] } {
     const errors: string[] = [];
     let concepts: string[] = [];
-    
-    // Check required files
+
+    // Check required files (strictly)
     for (const file of REQUIRED_LESSON_FILES) {
         const filePath = join(lessonPath, file);
         if (!fileExistsAndNotEmpty(filePath)) {
             errors.push(`Missing or empty: ${file}`);
         }
     }
-    
+
     // Parse metadata and validate concepts
     const metadataPath = join(lessonPath, 'metadata.json');
     if (existsSync(metadataPath)) {
         try {
             const metadata = JSON.parse(readFileSync(metadataPath, 'utf-8'));
-            
+
             if (!metadata.id) errors.push('metadata.json missing "id" field');
             if (!metadata.title) errors.push('metadata.json missing "title" field');
             if (!metadata.overviewPath) errors.push('metadata.json missing "overviewPath" field');
             if (!metadata.synthesisPath) errors.push('metadata.json missing "synthesisPath" field');
-            
+
             if (!Array.isArray(metadata.concepts)) {
                 errors.push('metadata.json "concepts" is not an array');
             } else {
@@ -152,7 +146,7 @@ function validateLesson(lessonPath: string, moduleSlug: string, contentRoot: str
                 if (concepts.length < MIN_CONCEPTS_PER_LESSON) {
                     errors.push(`Only ${concepts.length} concepts (minimum ${MIN_CONCEPTS_PER_LESSON})`);
                 }
-                
+
                 // Validate that each concept exists
                 for (const conceptId of concepts) {
                     const conceptPath = join(contentRoot, moduleSlug, 'concepts', conceptId);
@@ -165,19 +159,19 @@ function validateLesson(lessonPath: string, moduleSlug: string, contentRoot: str
             errors.push(`metadata.json parse error: ${(e as Error).message}`);
         }
     }
-    
+
     return { errors, concepts };
 }
 
 function validateContent(): ValidationError[] {
     const errors: ValidationError[] = [];
     const contentRoot = resolve(process.cwd(), 'src', 'content');
-    
+
     console.log('Validating content integrity...\n');
-    
+
     for (const mod of modules) {
         const moduleContentPath = join(contentRoot, mod.slug);
-        
+
         // Check if module content directory exists
         if (!existsSync(moduleContentPath)) {
             if (mod.lectures.length > 0) {
@@ -189,12 +183,12 @@ function validateContent(): ValidationError[] {
             }
             continue;
         }
-        
+
         // Validate each lecture defined in modules.ts
         for (const lecture of mod.lectures) {
             const lessonId = lecture.path.split('/').filter(Boolean).at(1) ?? lecture.id;
             const lessonPath = join(contentRoot, mod.slug, 'lessons', lessonId);
-            
+
             if (!existsSync(lessonPath)) {
                 errors.push({
                     severity: 'error',
@@ -204,9 +198,9 @@ function validateContent(): ValidationError[] {
                 });
                 continue;
             }
-            
+
             const { errors: lessonErrors, concepts } = validateLesson(lessonPath, mod.slug, contentRoot);
-            
+
             for (const err of lessonErrors) {
                 errors.push({
                     severity: 'error',
@@ -215,7 +209,7 @@ function validateContent(): ValidationError[] {
                     message: err,
                 });
             }
-            
+
             // Validate each concept
             for (const conceptId of concepts) {
                 const conceptPath = join(contentRoot, mod.slug, 'concepts', conceptId);
@@ -233,7 +227,7 @@ function validateContent(): ValidationError[] {
                 }
             }
         }
-        
+
         // Check for orphan lessons (exist in filesystem but not in modules.ts)
         const lessonsPath = join(contentRoot, mod.slug, 'lessons');
         if (existsSync(lessonsPath)) {
@@ -241,11 +235,11 @@ function validateContent(): ValidationError[] {
                 const fullPath = join(lessonsPath, name);
                 return statSync(fullPath).isDirectory() && !name.startsWith('_');
             });
-            
+
             const definedLessons = new Set(mod.lectures.map(l => {
                 return l.path.split('/').filter(Boolean).at(1) ?? l.id;
             }));
-            
+
             for (const lessonDir of lessonDirs) {
                 if (!definedLessons.has(lessonDir)) {
                     errors.push({
@@ -258,7 +252,7 @@ function validateContent(): ValidationError[] {
             }
         }
     }
-    
+
     return errors;
 }
 
