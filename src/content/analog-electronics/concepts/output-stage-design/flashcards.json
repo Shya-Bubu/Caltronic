@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-output-stage",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "KVL equation for Stage 2?",
+            "back": "VCC = ICQ(R4 + R5) + VCEQ. Used to find R4 once R5, VCEQ, and ICQ are known.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "What is R5 in this design and why 220Ω?",
+            "back": "R5 is PNP emitter resistor. 220Ω chosen so ICQ (25mA) >> IL_peak (3.5mA), giving stiff output that doesn't shift when load is connected.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Calculated R4 = 140Ω. What E12 value?",
+            "back": "150Ω (closest E12). This makes ICQ = (15-6)/370 = 24.3mA instead of 25mA — acceptable.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Power dissipation formula and Q2 result?",
+            "back": "P = VCEQ × ICQ = 6V × 24.3mA = 146mW. Maximum is 500mW — safe.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "What is VB2 and why does it matter?",
+            "back": "VB2 ≈ 10.7V = VC1. It is the voltage that Stage 1's collector must provide to bias Q2 correctly through direct coupling.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "AC load resistance for Stage 2?",
+            "back": "R_AC = R5∥RL = 220×1000/(220+1000) = 180.3Ω. Co shorts at AC frequency, putting R5 in parallel with RL.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Available AC voltage swing from Q-point?",
+            "back": "±ICQ × R_AC = ±24.3mA × 180Ω = ±4.4V. Required: ±3.5V. Headroom: 0.9V.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "IBQ2 with ICQ=24.3mA and hFE=120?",
+            "back": "IBQ2 = ICQ/hFE = 24.3/120 = 0.2mA = 200μA. This must be supplied by Stage 1.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "What does 'stiff output' mean?",
+            "back": "The DC operating conditions barely change when the load is connected. Achieved when R5 << RL (or ICQ >> IL_peak).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "What are the final Stage 2 resistor values?",
+            "back": "R4 = 150Ω, R5 = 220Ω (both E12). Total: R4+R5 = 370Ω. DC load line slope = -1/370.",
+            "difficultyLevel": 1
+        }
+    ]
+}

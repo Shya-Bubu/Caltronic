@@ -1,0 +1,125 @@
+{
+    "id": "quiz-qpoint-design",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "For a 7Vpp output swing, the peak voltage Vp is:",
+            "options": [
+                "7V",
+                "3.5V",
+                "14V",
+                "1.75V"
+            ],
+            "correctAnswer": "3.5V",
+            "explanation": "Vp = Vpp/2 = 7/2 = 3.5V. This is the maximum voltage the output swings from the Q-point in either direction."
+        },
+        {
+            "id": "q2",
+            "prompt": "The safe range for VCEQ (after all margins) is:",
+            "options": [
+                "0V to 15V",
+                "3.5V to 11.5V",
+                "4.5V to 7.5V",
+                "6V to 9V"
+            ],
+            "correctAnswer": "4.5V to 7.5V",
+            "explanation": "Lower bound: Vp + 1V margin = 4.5V. Upper bound before AC: VCC - Vp - 1V = 10.5V. After 3V AC margin: 10.5 - 3 = 7.5V. Full safe range: 4.5V to 7.5V."
+        },
+        {
+            "id": "q3",
+            "prompt": "Why is the AC load line steeper than the DC load line?",
+            "options": [
+                "Because the capacitors add extra resistance at AC frequencies",
+                "Because R5∥RL < R4+R5, making the AC load resistance smaller",
+                "Because the transistor gain increases at higher frequencies",
+                "Because VCC is reduced by AC signals"
+            ],
+            "correctAnswer": "Because R5∥RL < R4+R5, making the AC load resistance smaller",
+            "explanation": "The DC load line has slope -1/(R4+R5) while the AC load line has slope -1/(R5∥RL). Since R5∥RL is smaller (the parallel combination and the coupling capacitor shorts R4), the AC slope magnitude is larger — meaning a steeper line."
+        },
+        {
+            "id": "q4",
+            "prompt": "The minimum ICQ is determined by:",
+            "options": [
+                "The maximum power dissipation of the transistor",
+                "The peak AC current: Vp/(R5∥RL)",
+                "The base-emitter voltage VBE",
+                "The hfe of the transistor"
+            ],
+            "correctAnswer": "The peak AC current: Vp/(R5∥RL)",
+            "explanation": "ICQ must be at least Vp/(R5∥RL) so that during the negative half-cycle, the collector current doesn't go to zero (cutoff). With Vp=3.5V and R5∥RL=180Ω, the minimum is 19.4mA."
+        },
+        {
+            "id": "q5",
+            "prompt": "Why does the professor choose VCEQ = 6V?",
+            "options": [
+                "It is the only valid value",
+                "It is the midpoint of the safe range (4.5V to 7.5V)",
+                "Because VCC/2 = 7.5V is too high",
+                "Because 6V maximises the transistor power"
+            ],
+            "correctAnswer": "It is the midpoint of the safe range (4.5V to 7.5V)",
+            "explanation": "The midpoint of 4.5V-7.5V is 6V. This gives equal margin for clipping on both sides. However, any value in the range is valid — it is a design choice, not a fixed answer."
+        },
+        {
+            "id": "q6",
+            "prompt": "What happens if the Q-point is set at VCEQ = 12V with a 7Vpp swing requirement?",
+            "options": [
+                "The output clips symmetrically",
+                "Cutoff clipping occurs — the output cannot swing above 12+3.5=15.5V because VCC=15V",
+                "Saturation clipping occurs",
+                "The gain doubles"
+            ],
+            "correctAnswer": "Cutoff clipping occurs — the output cannot swing above 12+3.5=15.5V because VCC=15V",
+            "explanation": "With VCEQ=12V, the positive swing would need to reach 15.5V, but VCC limits the output to about 14V. The top of the sine wave gets clipped flat. This is cutoff clipping."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why do we add a 1V margin for VCEsat instead of using VCEsat directly?",
+            "options": [
+                "VCEsat is always exactly 1V",
+                "To account for manufacturing tolerances and ensure the transistor stays in the active region even with component variation",
+                "Because the formula requires an integer",
+                "Because 0.2V is too precise to measure"
+            ],
+            "correctAnswer": "To account for manufacturing tolerances and ensure the transistor stays in the active region even with component variation",
+            "explanation": "VCEsat ≈ 0.2V but real transistors vary. Adding a 1V margin ensures that even with 5% resistor tolerances and transistor variation, the Q-point stays safely above saturation."
+        },
+        {
+            "id": "q8",
+            "prompt": "The ICQ1 for Stage 1 is set to 2.5mA. How is this value determined?",
+            "options": [
+                "From the gain equation directly",
+                "By choosing ICQ2/ICQ1 ≈ 10 (design choice: second stage current is 10× first stage)",
+                "From the maximum power dissipation limit",
+                "It is fixed by the bias resistors"
+            ],
+            "correctAnswer": "By choosing ICQ2/ICQ1 ≈ 10 (design choice: second stage current is 10× first stage)",
+            "explanation": "The professor chooses ICQ1 = ICQ2/10 = 25/10 = 2.5mA. This ensures that the first stage's collector current is large enough relative to the second stage's base current to ignore the loading effect. The ratio 10-20× is a design choice."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why does the professor start the design from the output stage rather than the input?",
+            "options": [
+                "Because the output stage is simpler",
+                "Because the output specifications (Vpp, RL) provide the tightest constraints, making them the logical starting point",
+                "Because the input doesn't have any specifications",
+                "Because the input stage has no resistors"
+            ],
+            "correctAnswer": "Because the output specifications (Vpp, RL) provide the tightest constraints, making them the logical starting point",
+            "explanation": "The output specs (7Vpp across 1kΩ load with VCC=15V) directly constrain VCEQ and ICQ. Starting from these constraints and working backwards ensures you don't guess the Q-point. The input has more freedom."
+        },
+        {
+            "id": "q10",
+            "prompt": "If R5 = 220Ω and RL = 1kΩ, what is R5∥RL?",
+            "options": [
+                "1220Ω",
+                "220Ω",
+                "180.3Ω",
+                "110Ω"
+            ],
+            "correctAnswer": "180.3Ω",
+            "explanation": "R5∥RL = (220 × 1000) / (220 + 1000) = 220000/1220 = 180.3Ω. This is the AC load resistance that determines the AC load line slope and the minimum ICQ."
+        }
+    ]
+}

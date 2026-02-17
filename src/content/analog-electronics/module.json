@@ -4,6 +4,8 @@
     "description": "Operational amplifiers and analog circuit design fundamentals",
     "prerequisites": [],
     "lessons": [
-        "lab-01"
+        "lesson-01",
+        "lab-01",
+        "lab-02"
     ]
 }

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-qpoint-design",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "For 7Vpp output, what is the peak voltage Vp?",
+            "back": "Vp = Vpp/2 = 3.5V. The output swings ±3.5V from the Q-point.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Safe VCEQ range for this design?",
+            "back": "4.5V to 7.5V. Lower: Vp + 1V margin = 4.5V. Upper: VCC - Vp - 1V - 3V(AC) = 7.5V.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Why is the AC load line steeper than the DC load line?",
+            "back": "AC load = R5∥RL = 180Ω. DC load = R4+R5 = 370Ω. Smaller AC load → steeper slope (-1/R_ac).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "Minimum ICQ formula?",
+            "back": "ICQ ≥ Vp/(R5∥RL) = 3.5/180 = 19.4mA. Round up to 25mA for safety.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is cutoff clipping?",
+            "back": "When VCE tries to exceed VCC, the transistor turns off and the output waveform flatlines at the top.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f6",
+            "front": "What is saturation clipping?",
+            "back": "When VCE drops below VCEsat, the transistor saturates and the output waveform flatlines at the bottom.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f7",
+            "front": "Why design from output to input?",
+            "back": "Output specs (Vpp, RL) are tightest constraints. They determine Q-point → resistor values → bias network sequentially.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "What is the DC load line equation for Stage 2?",
+            "back": "VCE = VCC - IC(R4 + R5) = 15 - IC(370). Slope = -1/370, VCE-intercept = 15V, IC-intercept = 40.5mA.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why add 3V margin for AC load line on the upper side?",
+            "back": "AC line is steeper → at cutoff, VCE cannot reach VCC. 3V accounts for the slope difference. This is a design choice, not fixed.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What ratio is used for ICQ2/ICQ1?",
+            "back": "Professor uses 10:1 (ICQ2 = 25mA, ICQ1 = 2.5mA). Ensures IC1 >> IB2 so base current loading is negligible.",
+            "difficultyLevel": 2
+        }
+    ]
+}

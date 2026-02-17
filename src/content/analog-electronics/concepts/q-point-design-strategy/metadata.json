@@ -1,0 +1,11 @@
+{
+    "id": "q-point-design-strategy",
+    "title": "Q-Point Design Strategy",
+    "slug": "q-point-design-strategy",
+    "estimatedMinutes": 12,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

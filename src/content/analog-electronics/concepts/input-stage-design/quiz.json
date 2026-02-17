@@ -1,0 +1,125 @@
+{
+    "id": "quiz-input-stage",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "R1 + R2 for Stage 1 is determined by:",
+            "options": [
+                "The gain equation",
+                "KVL: R1+R2 = (VCC - VCEQ1) / ICQ1",
+                "The voltage divider formula",
+                "The h-parameter model"
+            ],
+            "correctAnswer": "KVL: R1+R2 = (VCC - VCEQ1) / ICQ1",
+            "explanation": "KVL around the collector-emitter loop: VCC = ICQ1(R1+R2) + VCEQ1. Rearranging: R1+R2 = (VCC-VCEQ1)/ICQ1 = (15-6)/2.5mA = 3.6kΩ."
+        },
+        {
+            "id": "q2",
+            "prompt": "The professor chooses R1 = R2 = 1.8kΩ. What is the actual ICQ1?",
+            "options": [
+                "2.43 mA",
+                "2.5 mA",
+                "3.0 mA",
+                "1.8 mA"
+            ],
+            "correctAnswer": "2.5 mA",
+            "explanation": "ICQ1 = (VCC - VCEQ1)/(R1+R2) = (15-6)/3600 = 9/3600 = 2.5mA. With R1=R2=1.8kΩ, the total is 3.6kΩ, giving exactly 2.5mA."
+        },
+        {
+            "id": "q3",
+            "prompt": "The voltage divider condition for VB1 = 5V with VCC = 15V requires:",
+            "options": [
+                "Ra = Rb",
+                "Ra = 2Rb",
+                "Ra = 3Rb",
+                "Rb = 3Ra"
+            ],
+            "correctAnswer": "Ra = 2Rb",
+            "explanation": "VB1 = Rb/(Ra+Rb) × VCC → 5 = Rb/(Ra+Rb) × 15 → Rb/(Ra+Rb) = 1/3 → Ra+Rb = 3Rb → Ra = 2Rb."
+        },
+        {
+            "id": "q4",
+            "prompt": "The stiffness condition for the voltage divider requires:",
+            "options": [
+                "Ra + Rb < 100Ω",
+                "Divider current >> IBQ1 (Ra + Rb ≤ 75kΩ)",
+                "Ra = Rb exactly",
+                "The divider must draw zero current"
+            ],
+            "correctAnswer": "Divider current >> IBQ1 (Ra + Rb ≤ 75kΩ)",
+            "explanation": "For the divider to maintain VB1 regardless of base current loading, Idiv = VCC/(Ra+Rb) must be >> IBQ1 = 20.8μA. With 10× criterion: Ra+Rb ≤ 15V/208μA ≈ 75kΩ."
+        },
+        {
+            "id": "q5",
+            "prompt": "With Ra = 33kΩ and Rb = 15kΩ, the actual VB1 is:",
+            "options": [
+                "5.00V",
+                "4.69V",
+                "6.25V",
+                "3.33V"
+            ],
+            "correctAnswer": "4.69V",
+            "explanation": "VB1 = Rb/(Ra+Rb) × VCC = 15/(33+15) × 15 = 15/48 × 15 = 4.69V. This is slightly below the 5V target but within acceptable tolerance."
+        },
+        {
+            "id": "q6",
+            "prompt": "Why does the professor recommend R3 = 68Ω over 82Ω?",
+            "options": [
+                "68Ω is cheaper",
+                "To provide gain headroom — the actual gain is lower than the simplified formula predicts due to hie2 loading",
+                "Because 68 is an E12 value and 82 is not",
+                "To increase the input impedance"
+            ],
+            "correctAnswer": "To provide gain headroom — the actual gain is lower than the simplified formula predicts due to hie2 loading",
+            "explanation": "The simplified Av = hfe2×R5/R3 ignores hie2 loading. With R3=82Ω, theoretical Av=590, but actual Av≈510. With R3=68Ω, theoretical Av=711, and after loading, actual Av≈608 — much closer to the target 600."
+        },
+        {
+            "id": "q7",
+            "prompt": "The ICQ2/ICQ1 ratio in this design is approximately:",
+            "options": [
+                "1:1",
+                "5:1",
+                "10:1",
+                "100:1"
+            ],
+            "correctAnswer": "10:1",
+            "explanation": "ICQ2 = 25mA, ICQ1 = 2.5mA → ratio = 10:1. This ensures IC1 >> IB2 (the base current demand of Q2), so the loading effect of Q2 on Q1 is negligible."
+        },
+        {
+            "id": "q8",
+            "prompt": "After choosing all E12 values, the actual voltage gain is about 590. Is this acceptable?",
+            "options": [
+                "No — it must be exactly 600",
+                "Yes — with 5% tolerance resistors, 590 is within the acceptable range (570-630)",
+                "No — the error is too large for any practical application",
+                "Yes — but only if the temperature is exactly 25°C"
+            ],
+            "correctAnswer": "Yes — with 5% tolerance resistors, 590 is within the acceptable range (570-630)",
+            "explanation": "5% of 600 is ±30, so the acceptable range is 570-630. A gain of 590 is a 1.7% error — well within tolerance. Real circuits always deviate from ideal calculations."
+        },
+        {
+            "id": "q9",
+            "prompt": "IBQ1 for this design is approximately:",
+            "options": [
+                "200μA",
+                "20.8μA",
+                "2.5mA",
+                "120μA"
+            ],
+            "correctAnswer": "20.8μA",
+            "explanation": "IBQ1 = ICQ1/hFE = 2.5mA/120 = 20.8μA. This is the base current that flows through the voltage divider network, and determines the stiffness requirement."
+        },
+        {
+            "id": "q10",
+            "prompt": "The complete set of resistors for this amplifier design is:",
+            "options": [
+                "Ra=33kΩ, Rb=15kΩ, R1=R2=1.8kΩ, R3=82Ω, R4=150Ω, R5=220Ω",
+                "Ra=15kΩ, Rb=33kΩ, R1=R2=3.3kΩ, R3=100Ω, R4=220Ω, R5=150Ω",
+                "Ra=10kΩ, Rb=20kΩ, R1=R2=1kΩ, R3=47Ω, R4=100Ω, R5=470Ω",
+                "All resistors are 1kΩ"
+            ],
+            "correctAnswer": "Ra=33kΩ, Rb=15kΩ, R1=R2=1.8kΩ, R3=82Ω, R4=150Ω, R5=220Ω",
+            "explanation": "These are the final E12 values chosen through the systematic design process: Ra/Rb for biasing, R1/R2 for Stage 1 DC, R3 for gain, R4/R5 for Stage 2."
+        }
+    ]
+}

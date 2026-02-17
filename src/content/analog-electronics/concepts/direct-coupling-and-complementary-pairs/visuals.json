@@ -1,0 +1,642 @@
+{
+  "visuals": [
+    {
+      "type": "plotly",
+      "title": "Two-Stage Amplifier Block Diagram",
+      "description": "Signal path: Input → Stage 1 (NPN BC549) → Direct coupling (no capacitor) → Stage 2 (PNP BC556) → Output to RL.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "markers+text",
+          "text": [
+            "Vin",
+            "Stage 1\n(NPN)",
+            "Direct\nCoupling",
+            "Stage 2\n(PNP)",
+            "Vout"
+          ],
+          "textposition": "top center",
+          "marker": {
+            "size": 30,
+            "color": [
+              "#64748b",
+              "#22d3ee",
+              "#f59e0b",
+              "#a78bfa",
+              "#64748b"
+            ],
+            "symbol": [
+              "diamond",
+              "square",
+              "circle",
+              "square",
+              "diamond"
+            ]
+          },
+          "name": "Signal Path",
+          "hoverinfo": "text"
+        },
+        {
+          "x": [
+            0,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3,
+            4
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "lines",
+          "line": {
+            "color": "#64748b",
+            "width": 2,
+            "dash": "solid"
+          },
+          "showlegend": false,
+          "hoverinfo": "none"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "visible": false,
+          "range": [
+            -0.5,
+            4.5
+          ]
+        },
+        "yaxis": {
+          "visible": false,
+          "range": [
+            -1,
+            1.5
+          ]
+        },
+        "showlegend": false,
+        "annotations": [
+          {
+            "x": 0.5,
+            "y": -0.3,
+            "text": "→",
+            "showarrow": false,
+            "font": {
+              "size": 20,
+              "color": "#64748b"
+            }
+          },
+          {
+            "x": 1.5,
+            "y": -0.3,
+            "text": "→",
+            "showarrow": false,
+            "font": {
+              "size": 20,
+              "color": "#f59e0b"
+            }
+          },
+          {
+            "x": 2.5,
+            "y": -0.3,
+            "text": "→",
+            "showarrow": false,
+            "font": {
+              "size": 20,
+              "color": "#64748b"
+            }
+          },
+          {
+            "x": 3.5,
+            "y": -0.3,
+            "text": "→",
+            "showarrow": false,
+            "font": {
+              "size": 20,
+              "color": "#64748b"
+            }
+          },
+          {
+            "x": 1.5,
+            "y": -0.6,
+            "text": "No capacitor between stages",
+            "showarrow": false,
+            "font": {
+              "size": 12,
+              "color": "#f59e0b"
+            }
+          }
+        ]
+      },
+      "height": 250,
+      "id": "two-stage-block-diagram"
+    },
+    {
+      "id": "coupling-comparison-schematic",
+      "type": "plotly",
+      "title": "Capacitor Coupling vs Direct Coupling — Frequency Response",
+      "description": "Capacitor coupling creates a high-pass response (gain drops at low frequencies). Direct coupling maintains gain down to DC.",
+      "traces": [
+        {
+          "x": [
+            1,
+            5,
+            10,
+            50,
+            100,
+            500,
+            1000,
+            5000,
+            10000,
+            50000,
+            100000
+          ],
+          "y": [
+            2,
+            15,
+            35,
+            52,
+            55,
+            56,
+            56,
+            56,
+            55,
+            50,
+            40
+          ],
+          "name": "Capacitor Coupled",
+          "mode": "lines",
+          "line": {
+            "color": "#f472b6",
+            "width": 2,
+            "dash": "dash"
+          }
+        },
+        {
+          "x": [
+            1,
+            5,
+            10,
+            50,
+            100,
+            500,
+            1000,
+            5000,
+            10000,
+            50000,
+            100000
+          ],
+          "y": [
+            56,
+            56,
+            56,
+            56,
+            56,
+            56,
+            56,
+            56,
+            55,
+            50,
+            40
+          ],
+          "name": "Direct Coupled",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Frequency (Hz)",
+          "type": "log"
+        },
+        "yaxis": {
+          "title": "Gain (dB)"
+        },
+        "showlegend": true
+      },
+      "height": 380
+    },
+    {
+      "id": "full-two-stage-circuit",
+      "type": "plotly",
+      "title": "Complete Two-Stage Amplifier — All 7 Resistors",
+      "description": "The full circuit has 7 resistors: Ra/Rb (bias divider), R1 (Stage 1 collector), R2+R3 (Stage 1 emitter), R4 (Stage 2 collector), R5 (Stage 2 emitter). Plus RL at the output.",
+      "traces": [
+        {
+          "x": [
+            "Ra\n(33kΩ)",
+            "Rb\n(15kΩ)",
+            "R1\n(1.8kΩ)",
+            "R2\n(1.8kΩ)",
+            "R3\n(82Ω)",
+            "R4\n(150Ω)",
+            "R5\n(220Ω)",
+            "RL\n(1kΩ)"
+          ],
+          "y": [
+            33000,
+            15000,
+            1800,
+            1800,
+            82,
+            150,
+            220,
+            1000
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#f59e0b",
+              "#f59e0b",
+              "#22d3ee",
+              "#22d3ee",
+              "#22d3ee",
+              "#a78bfa",
+              "#a78bfa",
+              "#64748b"
+            ]
+          },
+          "name": "Resistance (Ω)",
+          "text": [
+            "Bias\nDivider",
+            "Bias\nDivider",
+            "Stage 1\nCollector",
+            "Stage 1\nEmitter",
+            "Gain\nSetting",
+            "Stage 2\nCollector",
+            "Stage 2\nEmitter",
+            "External\nLoad"
+          ],
+          "textposition": "outside"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Component"
+        },
+        "yaxis": {
+          "title": "Resistance (Ω)",
+          "type": "log"
+        },
+        "showlegend": false
+      },
+      "height": 400
+    },
+    {
+      "id": "npn-pnp-bias-flow",
+      "type": "plotly",
+      "title": "DC Voltage Distribution Through Both Stages",
+      "description": "The voltage at each node shows how the NPN collector voltage becomes the PNP base voltage through direct coupling.",
+      "traces": [
+        {
+          "x": [
+            "VCC",
+            "VB1",
+            "VE1",
+            "VC1=VB2",
+            "VE2",
+            "VC2"
+          ],
+          "y": [
+            15,
+            4.69,
+            4.03,
+            7,
+            11.7,
+            6
+          ],
+          "name": "DC Voltages",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 10,
+            "color": "#22d3ee"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Circuit Node"
+        },
+        "yaxis": {
+          "title": "Voltage (V)",
+          "range": [
+            0,
+            16
+          ]
+        },
+        "showlegend": false
+      },
+      "height": 380
+    },
+    {
+      "id": "thermal-drift-comparison",
+      "type": "plotly",
+      "title": "Thermal Drift: NPN-NPN vs NPN-PNP",
+      "description": "With complementary NPN-PNP, the Q-point shift with temperature is much smaller because the drifts partially cancel.",
+      "traces": [
+        {
+          "x": [
+            25,
+            35,
+            45,
+            55,
+            65,
+            75,
+            85
+          ],
+          "y": [
+            6,
+            5.2,
+            4.3,
+            3.5,
+            2.6,
+            1.8,
+            0.9
+          ],
+          "name": "NPN-NPN (cumulative drift)",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#ef4444",
+            "width": 2
+          },
+          "marker": {
+            "size": 6
+          }
+        },
+        {
+          "x": [
+            25,
+            35,
+            45,
+            55,
+            65,
+            75,
+            85
+          ],
+          "y": [
+            6,
+            5.8,
+            5.6,
+            5.4,
+            5.2,
+            5,
+            4.8
+          ],
+          "name": "NPN-PNP (compensated)",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#22c55e",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 6
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Temperature (°C)"
+        },
+        "yaxis": {
+          "title": "VCEQ2 (V)"
+        },
+        "showlegend": true
+      },
+      "height": 380
+    },
+    {
+      "id": "falstad-two-stage-amplifier",
+      "type": "falstad-sim",
+      "title": "Interactive: Two-Stage Direct-Coupled Amplifier",
+      "description": "A complete NPN-PNP direct-coupled amplifier. Apply a small AC input and observe the amplified output. Try changing resistor values to see the effect on gain and bias.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 96 368 96 176 0 1 1000 0.01 0 0 0.5\nr 96 176 192 176 0 33000\nr 192 176 192 368 0 15000\nw 192 176 256 176 0\nt 256 176 304 176 0 1 -4.03 0.66 100\nr 304 80 304 128 0 1800\nr 304 224 304 368 0 1800\nw 304 128 304 176 0\nw 304 176 304 224 0\nw 304 80 464 80 0\nt 400 128 464 128 0 -1 -11.03 -0.66 100\nr 464 80 464 32 0 150\nr 464 176 464 368 0 220\nw 304 128 400 128 0\nv 304 32 304 80 0 0 40 15 0 0 0.5\nw 304 32 464 32 0\nw 96 368 464 368 0\ng 272 368 272 400 0 0\nr 528 176 528 368 0 1000\nw 464 176 528 176 0\nw 528 368 464 368 0\no 12 32 0 4098 5 0.0125 0 2 12 3\n",
+      "height": 500
+    },
+    {
+      "id": "bias-chain-flowchart",
+      "type": "plotly",
+      "title": "Bias Dependency Chain",
+      "description": "In direct coupling, each quantity depends on the one before it. Changing Ra/Rb cascades through the entire circuit.",
+      "traces": [
+        {
+          "x": [
+            "Ra/Rb",
+            "VB1",
+            "IC1",
+            "VC1=VB2",
+            "IC2",
+            "VCEQ2"
+          ],
+          "y": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "name": "Dependency chain",
+          "mode": "lines+markers+text",
+          "text": [
+            "Choose",
+            "4.69V",
+            "2.22mA",
+            "7V",
+            "25mA",
+            "6V"
+          ],
+          "textposition": "top center",
+          "line": {
+            "color": "#a78bfa",
+            "width": 2
+          },
+          "marker": {
+            "size": 12,
+            "color": "#a78bfa"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Design Variable"
+        },
+        "yaxis": {
+          "title": "Design Step",
+          "visible": false
+        },
+        "showlegend": false
+      },
+      "height": 340
+    },
+    {
+      "id": "e12-values-table",
+      "type": "plotly",
+      "title": "E12 Standard Resistor Values (One Decade)",
+      "description": "The 12 standard values in each decade. Your design must use these values only.",
+      "traces": [
+        {
+          "x": [
+            1,
+            1.2,
+            1.5,
+            1.8,
+            2.2,
+            2.7,
+            3.3,
+            3.9,
+            4.7,
+            5.6,
+            6.8,
+            8.2
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "name": "E12 Values",
+          "mode": "markers+text",
+          "text": [
+            "1.0",
+            "1.2",
+            "1.5",
+            "1.8",
+            "2.2",
+            "2.7",
+            "3.3",
+            "3.9",
+            "4.7",
+            "5.6",
+            "6.8",
+            "8.2"
+          ],
+          "textposition": "top center",
+          "marker": {
+            "size": 14,
+            "color": "#22d3ee"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Multiplier",
+          "range": [
+            0.5,
+            9
+          ]
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false
+      },
+      "height": 280
+    },
+    {
+      "id": "hfe-spread-histogram",
+      "type": "plotly",
+      "title": "Manufacturing Spread of hfe (BC549)",
+      "description": "Real transistors have a range of hfe values. Group A: 110-220, Group B: 200-450, Group C: 420-800. Your design must tolerate this variation.",
+      "traces": [
+        {
+          "x": [
+            110,
+            130,
+            150,
+            170,
+            190,
+            210,
+            220
+          ],
+          "y": [
+            2,
+            5,
+            12,
+            20,
+            15,
+            8,
+            3
+          ],
+          "name": "Group A",
+          "type": "bar",
+          "marker": {
+            "color": "#22d3ee"
+          }
+        },
+        {
+          "x": [
+            200,
+            250,
+            300,
+            330,
+            370,
+            400,
+            450
+          ],
+          "y": [
+            3,
+            8,
+            18,
+            22,
+            14,
+            6,
+            2
+          ],
+          "name": "Group B",
+          "type": "bar",
+          "marker": {
+            "color": "#a78bfa"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "hfe Value"
+        },
+        "yaxis": {
+          "title": "Relative Frequency"
+        },
+        "showlegend": true,
+        "barmode": "group"
+      },
+      "height": 360
+    }
+  ]
+}

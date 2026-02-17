@@ -1,0 +1,137 @@
+{
+    "id": "quiz-direct-coupling",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What does 'direct coupling' mean in a multi-stage amplifier?",
+            "options": [
+                "The stages are connected using a transformer",
+                "The collector of one stage is connected directly to the base of the next without a coupling capacitor",
+                "Both transistors share the same base terminal",
+                "The stages are connected using an operational amplifier"
+            ],
+            "correctAnswer": "The collector of one stage is connected directly to the base of the next without a coupling capacitor",
+            "explanation": "Direct coupling means no capacitor between stages — the DC collector voltage of Stage 1 serves directly as the base bias voltage of Stage 2. This eliminates low-frequency rolloff caused by coupling capacitors."
+        },
+        {
+            "id": "q2",
+            "prompt": "Which transistor combination is used in this lab's two-stage amplifier?",
+            "options": [
+                "Two NPN transistors (BC549 + BC549)",
+                "Two PNP transistors (BC556 + BC556)",
+                "NPN first stage (BC549) + PNP second stage (BC556)",
+                "PNP first stage (BC556) + NPN second stage (BC549)"
+            ],
+            "correctAnswer": "NPN first stage (BC549) + PNP second stage (BC556)",
+            "explanation": "The first stage uses an NPN BC549 and the second stage uses a PNP BC556. This complementary arrangement provides thermal stability because the temperature drifts of the two transistor types partially cancel each other."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the primary frequency response advantage of direct coupling over capacitor coupling?",
+            "options": [
+                "Higher gain at high frequencies",
+                "Gain is maintained down to DC (no low-frequency cutoff)",
+                "Better noise performance above 1 MHz",
+                "Wider bandwidth at radio frequencies"
+            ],
+            "correctAnswer": "Gain is maintained down to DC (no low-frequency cutoff)",
+            "explanation": "A coupling capacitor acts as a high-pass filter — at low frequencies, its impedance (1/ωC) becomes large and reduces gain. Direct coupling eliminates this effect, maintaining gain all the way down to DC."
+        },
+        {
+            "id": "q4",
+            "prompt": "Why does the NPN-PNP combination provide better thermal stability than NPN-NPN?",
+            "options": [
+                "PNP transistors are immune to temperature changes",
+                "The temperature drifts of NPN and PNP partially cancel each other",
+                "NPN-PNP uses less power, generating less heat",
+                "PNP transistors have higher thermal resistance cases"
+            ],
+            "correctAnswer": "The temperature drifts of NPN and PNP partially cancel each other",
+            "explanation": "When temperature rises, IC1 increases and VC1 decreases. Since VC1 = VB2 (direct coupling), this lower VB2 causes IC2 in the PNP to decrease. The opposing directions create inherent negative feedback that partially cancels the drift."
+        },
+        {
+            "id": "q5",
+            "prompt": "In the direct-coupled amplifier, VB2 (base voltage of Q2) is equal to:",
+            "options": [
+                "VCC",
+                "VBE2",
+                "VC1 (collector voltage of Q1)",
+                "VCC - VBE1"
+            ],
+            "correctAnswer": "VC1 (collector voltage of Q1)",
+            "explanation": "This is the key relationship in direct coupling. The collector of Q1 connects directly to the base of Q2, so VC1 = VB2. Any change in IC1 (through R1) changes VC1, which directly changes the bias of Q2."
+        },
+        {
+            "id": "q6",
+            "prompt": "The E12 resistor series provides how many values per decade?",
+            "options": [
+                "6 values",
+                "10 values",
+                "12 values",
+                "24 values"
+            ],
+            "correctAnswer": "12 values",
+            "explanation": "E12 provides 12 standard values per decade: 1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2. Each can be multiplied by powers of 10 (e.g., 220Ω, 2.2kΩ, 22kΩ are all E12 values)."
+        },
+        {
+            "id": "q7",
+            "prompt": "If your calculation gives R = 140Ω, what E12 value should you select?",
+            "options": [
+                "120Ω",
+                "150Ω",
+                "140Ω (custom order)",
+                "100Ω"
+            ],
+            "correctAnswer": "150Ω",
+            "explanation": "150Ω is the nearest E12 value to 140Ω (E12 values: ...120, 150, 180...). Custom values are not available in standard resistor kits. 120Ω would also work but introduces more error. The designer chooses based on which direction of error is more acceptable."
+        },
+        {
+            "id": "q8",
+            "prompt": "The h-parameter hoe = 18μS for the BC549 corresponds to an output resistance of approximately:",
+            "options": [
+                "18 kΩ",
+                "56 kΩ",
+                "180 kΩ",
+                "1.8 MΩ"
+            ],
+            "correctAnswer": "56 kΩ",
+            "explanation": "hoe is the output admittance in siemens. The output resistance is 1/hoe = 1/(18 × 10⁻⁶) ≈ 55,600Ω ≈ 56 kΩ. Since this is much larger than typical collector/emitter resistors (1-5 kΩ), we can often ignore hoe in our analysis."
+        },
+        {
+            "id": "q9",
+            "prompt": "How many separate bias circuits are needed for the two-stage direct-coupled amplifier?",
+            "options": [
+                "Two — one for each stage",
+                "One — the Ra/Rb divider biases both stages",
+                "Three — one for each stage plus the interstage",
+                "None — it is self-biasing"
+            ],
+            "correctAnswer": "One — the Ra/Rb divider biases both stages",
+            "explanation": "This is the elegance of direct coupling: a single voltage divider (Ra, Rb) at the input sets VB1, which determines IC1, which determines VC1 = VB2, which determines IC2. One bias network controls everything."
+        },
+        {
+            "id": "q10",
+            "prompt": "When engineers make the approximation 'the effect of the larger parallel resistor can be ignored if it is 10× the smaller one,' this is called:",
+            "options": [
+                "Thevenin's theorem",
+                "The 10× rule of thumb",
+                "Superposition principle",
+                "Norton's equivalent"
+            ],
+            "correctAnswer": "The 10× rule of thumb",
+            "explanation": "When two resistors are in parallel and one is 10× larger, the parallel combination is within 10% of the smaller resistor. Engineers accept this error to simplify analysis. For example, if R1 = 10kΩ and R2 = 100kΩ, then R1 ∥ R2 ≈ 9.1kΩ ≈ R1."
+        },
+        {
+            "id": "q11",
+            "prompt": "What is the maximum continuous power dissipation of the BC549 transistor?",
+            "options": [
+                "250 mW",
+                "500 mW",
+                "1 W",
+                "2 W"
+            ],
+            "correctAnswer": "500 mW",
+            "explanation": "From the datasheet, the maximum power dissipation at Ta = 25°C is 500 mW. This is calculated as P = VCE × IC, and the designer must ensure the operating point stays below this limit at all times."
+        }
+    ]
+}

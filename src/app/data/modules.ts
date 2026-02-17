@@ -26,8 +26,19 @@ export const modules: Module[] = [
     description: "Core circuit laws, analysis techniques, and engineering problem solving.",
     category: "Core Theory",
     accent: "#4f8cff",
-    updatedToWeek: 6,
-    lectures: [],
+    updatedToWeek: 10,
+    lectures: [
+      {
+        id: "lesson-01",
+        title: "Two-Terminal Resistors",
+        path: "/circuit-analysis/lesson-01",
+      },
+      {
+        id: "lesson-02",
+        title: "General Resistive Circuit Analysis",
+        path: "/circuit-analysis/lesson-02",
+      },
+    ],
   },
   {
     id: "EE2020",
@@ -37,44 +48,8 @@ export const modules: Module[] = [
     description: "Signals, systems, and the mathematical language of engineering change over time.",
     category: "Core Theory",
     accent: "#6b62ff",
-    updatedToWeek: 4,
-    lectures: [
-      {
-        id: "lesson-01",
-        title: "Introduction to Signals and Systems",
-        path: "/signals-and-systems/lesson-01",
-      },
-      {
-        id: "lesson-02",
-        title: "Impulse Function and System Fundamentals",
-        path: "/signals-and-systems/lesson-02",
-      },
-      {
-        id: "lesson-03",
-        title: "Convolution and LTI System Response",
-        path: "/signals-and-systems/lesson-03",
-      },
-      {
-        id: "lesson-04",
-        title: "Fourier Series and Frequency Analysis",
-        path: "/signals-and-systems/lesson-04",
-      },
-      {
-        id: "lesson-05",
-        title: "Continuous-Time Fourier Transform",
-        path: "/signals-and-systems/lesson-05",
-      },
-      {
-        id: "lesson-06",
-        title: "Laplace Transform Basics",
-        path: "/signals-and-systems/lesson-06",
-      },
-      {
-        id: "lesson-07",
-        title: "Stability and Pole-Zero Analysis",
-        path: "/signals-and-systems/lesson-07",
-      },
-    ],
+    updatedToWeek: 7,
+    lectures: [],
   },
   {
     id: "EE2030",
@@ -84,7 +59,7 @@ export const modules: Module[] = [
     description: "Boolean reasoning, combinational/sequential design, and synthesis fundamentals.",
     category: "Foundational",
     accent: "#2fbf8f",
-    updatedToWeek: 6,
+    updatedToWeek: 0,
     lectures: [],
   },
   {
@@ -95,12 +70,12 @@ export const modules: Module[] = [
     description: "Analog device behavior, amplifiers, and practical circuit intuition.",
     category: "Core Theory",
     accent: "#f0a03a",
-    updatedToWeek: 1,
+    updatedToWeek: 2,
     lectures: [
       {
-        id: "lab-01",
-        title: "Lab 01: Op-Amp Applications",
-        path: "/analog-electronics/lab-01",
+        id: "lab-02",
+        title: "Two Stage Direct Coupled Amplifier Design",
+        path: "/analog-electronics/lab-02",
       },
     ],
   },
@@ -123,7 +98,7 @@ export const modules: Module[] = [
     description: "Numerical methods and computation as an engineering tool.",
     category: "Computational",
     accent: "#62c6ff",
-    updatedToWeek: 6,
+    updatedToWeek: 0,
     lectures: [],
   },
 ];

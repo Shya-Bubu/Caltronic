@@ -1,0 +1,125 @@
+{
+    "id": "quiz-spice-verification",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A voltage gain of 600 corresponds to how many decibels?",
+            "options": [
+                "600 dB",
+                "55.6 dB",
+                "27.8 dB",
+                "120 dB"
+            ],
+            "correctAnswer": "55.6 dB",
+            "explanation": "Av(dB) = 20 × log10(600) = 20 × 2.778 = 55.6 dB. Always convert to dB when working with Bode plots."
+        },
+        {
+            "id": "q2",
+            "prompt": "The -3dB bandwidth is defined as the frequency range where:",
+            "options": [
+                "Gain drops to zero",
+                "Gain drops to 50% of midband (half power point, or 0.707 of voltage gain)",
+                "Phase reaches 180°",
+                "The output becomes distorted"
+            ],
+            "correctAnswer": "Gain drops to 50% of midband (half power point, or 0.707 of voltage gain)",
+            "explanation": "-3dB means the power is halved, which corresponds to voltage gain dropping to 1/√2 = 0.707 of the midband value. For this amplifier: 600 × 0.707 = 424.2."
+        },
+        {
+            "id": "q3",
+            "prompt": "The first step before running AC analysis in LTspice should be:",
+            "options": [
+                "Generate the Bode plot",
+                "Verify the DC operating point",
+                "Add a load resistor",
+                "Change the transistor model"
+            ],
+            "correctAnswer": "Verify the DC operating point",
+            "explanation": "If the DC bias is wrong, all AC analysis is meaningless. Check that node voltages match your calculations before proceeding with transient or frequency analysis."
+        },
+        {
+            "id": "q4",
+            "prompt": "If the output sine wave has a flat bottom but a clean top, this indicates:",
+            "options": [
+                "Cutoff clipping — Q-point too low",
+                "Saturation clipping — Q-point too high, transistor enters saturation on negative swing",
+                "Capacitor coupling is insufficient",
+                "The load is too heavy"
+            ],
+            "correctAnswer": "Saturation clipping — Q-point too high, transistor enters saturation on negative swing",
+            "explanation": "A flat bottom means VCE tried to go below VCE,sat. This is saturation clipping. The Q-point needs to be shifted higher (increase VCEQ) or the output swing needs to be reduced."
+        },
+        {
+            "id": "q5",
+            "prompt": "The minimum capacitor value for Cin at 1kHz with Zin ≈ 8kΩ (using 10× rule) is:",
+            "options": [
+                "0.02 μF",
+                "0.2 μF",
+                "2 μF",
+                "20 μF"
+            ],
+            "correctAnswer": "0.2 μF",
+            "explanation": "For Xc ≤ Zin/10: C ≥ 10/(2π × 1000 × 8000) = 10/50265 = 0.0002F = 0.2μF. We choose larger (2.2μF) for safety."
+        },
+        {
+            "id": "q6",
+            "prompt": "What happens when the bypass capacitor CE is too small?",
+            "options": [
+                "The gain increases dramatically",
+                "R2 is not effectively shorted at AC, reducing the gain",
+                "The DC operating point shifts",
+                "The transistor burns out"
+            ],
+            "correctAnswer": "R2 is not effectively shorted at AC, reducing the gain",
+            "explanation": "CE is meant to bypass R2 at AC frequencies. If CE is too small, its impedance is significant and R2 adds emitter degeneration, reducing the gain. The midband gain becomes Av = hfe2×R5/(R2+R3) instead of hfe2×R5/R3."
+        },
+        {
+            "id": "q7",
+            "prompt": "The phase of the output in the midband region is approximately:",
+            "options": [
+                "0°",
+                "90°",
+                "180°",
+                "270°"
+            ],
+            "correctAnswer": "180°",
+            "explanation": "The two-stage NPN-PNP cascade with the specific circuit topology produces a phase inversion of 180° in the midband. The output is inverted relative to the input."
+        },
+        {
+            "id": "q8",
+            "prompt": "If the professor changes Ra from 33kΩ to 18kΩ, what happens?",
+            "options": [
+                "The gain doubles",
+                "VB1 increases, shifting the Q-point and causing clipping/saturation",
+                "Nothing changes — Ra doesn't affect the AC gain",
+                "The bandwidth increases"
+            ],
+            "correctAnswer": "VB1 increases, shifting the Q-point and causing clipping/saturation",
+            "explanation": "Lower Ra means VB1 = Rb/(Ra+Rb) × VCC increases. This shifts IC1 up, changes VB2, and pushes Q2's operating point towards saturation. The professor demonstrated this causing severe clipping."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why do simulation results differ from hand calculations?",
+            "options": [
+                "LTspice has bugs",
+                "SPICE uses detailed transistor models (Ebers-Moll/Gummel-Poon) while hand calculations use simplified h-parameter models",
+                "The computer rounds incorrectly",
+                "Because we forgot to include the load"
+            ],
+            "correctAnswer": "SPICE uses detailed transistor models (Ebers-Moll/Gummel-Poon) while hand calculations use simplified h-parameter models",
+            "explanation": "SPICE uses the full nonlinear transistor model including all parasitic effects, temperature dependencies, and charge storage. Our h-parameter model is a linearised approximation valid only near the Q-point. Differences of 5-15% are normal."
+        },
+        {
+            "id": "q10",
+            "prompt": "With 5% tolerance resistors, the expected range of gain for a 600 target is:",
+            "options": [
+                "Exactly 600",
+                "595 to 605",
+                "570 to 630",
+                "300 to 900"
+            ],
+            "correctAnswer": "570 to 630",
+            "explanation": "5% of 600 = ±30, so the range is 570 to 630. This assumes all resistors vary independently within their tolerance bands. In practice, the variation might be somewhat less due to statistical averaging."
+        }
+    ]
+}

@@ -1,0 +1,541 @@
+{
+    "visuals": [
+        {
+            "id": "ltspice-workflow-diagram",
+            "type": "plotly",
+            "title": "LTspice Verification Workflow",
+            "description": "The systematic approach: build circuit → check DC → run transient → generate Bode plot → iterate.",
+            "traces": [
+                {
+                    "x": [
+                        "Build\nCircuit",
+                        "Check\nDC Point",
+                        "Run\nTransient",
+                        "Bode\nPlot",
+                        "Tweak &\nIterate"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "name": "Steps",
+                    "mode": "lines+markers+text",
+                    "text": [
+                        "Step 1",
+                        "Step 2",
+                        "Step 3",
+                        "Step 4",
+                        "Step 5"
+                    ],
+                    "textposition": "top center",
+                    "marker": {
+                        "size": 16,
+                        "color": [
+                            "#22d3ee",
+                            "#a78bfa",
+                            "#22c55e",
+                            "#f59e0b",
+                            "#ef4444"
+                        ]
+                    },
+                    "line": {
+                        "color": "#64748b",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Sequence",
+                    "visible": false
+                },
+                "showlegend": false
+            },
+            "height": 300
+        },
+        {
+            "id": "falstad-complete-design",
+            "type": "falstad-sim",
+            "title": "Interactive: Complete Designed Amplifier",
+            "description": "The full two-stage amplifier with all designed values. Apply 1kHz AC and observe the amplified output. Compare input and output amplitudes to verify the gain.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 96 368 96 176 0 1 1000 0.006 0 0 0.5\nr 96 176 192 176 0 33000\nr 192 176 192 368 0 15000\nw 192 176 256 176 0\nt 256 176 304 176 0 1 -4.03 0.66 100\nr 304 80 304 128 0 1800\nr 304 224 304 288 0 1800\nr 352 288 352 368 0 82\nw 304 288 352 288 0\nw 352 368 304 368 0\nw 304 128 304 176 0\nw 304 80 464 80 0\nt 400 128 464 128 0 -1 -11.03 -0.66 100\nr 464 80 464 32 0 150\nr 464 176 464 368 0 220\nw 304 128 400 128 0\nv 304 32 304 80 0 0 40 15 0 0 0.5\nw 304 32 464 32 0\nw 96 368 464 368 0\ng 272 368 272 400 0 0\nr 528 176 528 368 0 1000\nw 464 176 528 176 0\nw 528 368 464 368 0\no 12 32 0 4098 5 0.0125 0 2 12 3\n",
+            "height": 500
+        },
+        {
+            "id": "capacitor-selection-chart",
+            "type": "plotly",
+            "title": "Capacitor Impedance vs Frequency",
+            "description": "At 1kHz, a 4.7μF capacitor has Xc ≈ 34Ω — much smaller than surrounding resistors. A 0.1μF capacitor would have Xc = 1.6kΩ — too high.",
+            "traces": [
+                {
+                    "x": [
+                        10,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000,
+                        10000,
+                        50000
+                    ],
+                    "y": [
+                        3386,
+                        677,
+                        339,
+                        67.7,
+                        33.9,
+                        6.8,
+                        3.4,
+                        0.68
+                    ],
+                    "name": "4.7μF",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        10,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000,
+                        10000,
+                        50000
+                    ],
+                    "y": [
+                        72343,
+                        14469,
+                        7234,
+                        1447,
+                        723,
+                        145,
+                        72,
+                        14.5
+                    ],
+                    "name": "0.22μF",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        10,
+                        50000
+                    ],
+                    "y": [
+                        220,
+                        220
+                    ],
+                    "name": "R5 = 220Ω",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 1.5,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Frequency (Hz)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "|Xc| (Ω)",
+                    "type": "log"
+                },
+                "showlegend": true
+            },
+            "height": 400
+        },
+        {
+            "id": "dc-operating-point-table",
+            "type": "plotly",
+            "title": "DC Operating Point — Calculated vs Typical Simulation",
+            "description": "DC voltages at key nodes. Simulation values may differ slightly from hand calculations due to transistor model differences.",
+            "traces": [
+                {
+                    "x": [
+                        "VB1",
+                        "VC1=VB2",
+                        "VE2",
+                        "VC2"
+                    ],
+                    "y": [
+                        4.69,
+                        7.0,
+                        14.3,
+                        6.0
+                    ],
+                    "name": "Calculated",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#22d3ee"
+                    }
+                },
+                {
+                    "x": [
+                        "VB1",
+                        "VC1=VB2",
+                        "VE2",
+                        "VC2"
+                    ],
+                    "y": [
+                        4.5,
+                        7.5,
+                        14.1,
+                        5.8
+                    ],
+                    "name": "Typical Simulation",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#a78bfa"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Node"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)"
+                },
+                "barmode": "group",
+                "showlegend": true
+            },
+            "height": 360
+        },
+        {
+            "id": "transient-output-plot",
+            "type": "plotly",
+            "title": "Transient Output — Clean vs Clipped",
+            "description": "A properly biased amplifier produces a clean sine wave. A poorly biased one clips at the top (cutoff) or bottom (saturation).",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.125,
+                        0.25,
+                        0.375,
+                        0.5,
+                        0.625,
+                        0.75,
+                        0.875,
+                        1,
+                        1.125,
+                        1.25,
+                        1.375,
+                        1.5,
+                        1.625,
+                        1.75,
+                        1.875,
+                        2
+                    ],
+                    "y": [
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6
+                    ],
+                    "name": "Clean output (good design)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.125,
+                        0.2,
+                        0.3,
+                        0.375,
+                        0.5,
+                        0.625,
+                        0.7,
+                        0.8,
+                        0.875,
+                        1.0
+                    ],
+                    "y": [
+                        6,
+                        9.5,
+                        10.5,
+                        10.5,
+                        9.5,
+                        6,
+                        2.5,
+                        0.8,
+                        0.8,
+                        2.5,
+                        6
+                    ],
+                    "name": "Clipped output (bad bias)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "Output Voltage (V)"
+                },
+                "showlegend": true
+            },
+            "height": 400
+        },
+        {
+            "id": "bode-gain-plot",
+            "type": "plotly",
+            "title": "Bode Plot — Gain vs Frequency",
+            "description": "The gain is flat in the midband (~55.6 dB = gain of 600). Below fL and above fH, the gain rolls off at -20 dB/decade.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000,
+                        10000,
+                        50000,
+                        100000,
+                        500000,
+                        1000000
+                    ],
+                    "y": [
+                        20,
+                        35,
+                        42,
+                        48,
+                        53,
+                        55,
+                        55.5,
+                        55.6,
+                        55.6,
+                        55.6,
+                        55,
+                        52,
+                        40,
+                        30
+                    ],
+                    "name": "|Av| (dB)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        1000000
+                    ],
+                    "y": [
+                        52.6,
+                        52.6
+                    ],
+                    "name": "-3dB line (52.6 dB)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 1.5,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Frequency (Hz)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Gain (dB)"
+                },
+                "showlegend": true
+            },
+            "height": 400
+        },
+        {
+            "id": "bode-phase-plot",
+            "type": "plotly",
+            "title": "Bode Plot — Phase vs Frequency",
+            "description": "Midband phase ≈ 180° (inverting). Below fL, phase tends towards 90°. Above fH, phase tends towards 270°.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000,
+                        10000,
+                        50000,
+                        100000,
+                        500000,
+                        1000000
+                    ],
+                    "y": [
+                        90,
+                        110,
+                        130,
+                        150,
+                        165,
+                        175,
+                        179,
+                        180,
+                        180,
+                        179,
+                        175,
+                        200,
+                        230,
+                        270
+                    ],
+                    "name": "Phase (°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        1000000
+                    ],
+                    "y": [
+                        180,
+                        180
+                    ],
+                    "name": "180° reference",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#64748b",
+                        "width": 1,
+                        "dash": "dot"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Frequency (Hz)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Phase (degrees)"
+                },
+                "showlegend": true
+            },
+            "height": 400
+        },
+        {
+            "id": "falstad-tweaking-demo",
+            "type": "falstad-sim",
+            "title": "Interactive: Tweak Resistors and Observe",
+            "description": "Try changing R3 (gain), Ra (bias), or the capacitor values. See how each change affects the output waveform. This is exactly what the professor demonstrated in the lecture.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 96 368 96 176 0 1 1000 0.006 0 0 0.5\nr 96 176 192 176 0 33000\nr 192 176 192 368 0 15000\nw 192 176 256 176 0\nt 256 176 304 176 0 1 -4.03 0.66 100\nr 304 80 304 128 0 1800\nr 304 224 304 288 0 1800\nr 352 288 352 368 0 68\nw 304 288 352 288 0\nw 352 368 304 368 0\nw 304 128 304 176 0\nw 304 80 464 80 0\nt 400 128 464 128 0 -1 -11.03 -0.66 100\nr 464 80 464 32 0 150\nr 464 176 464 368 0 220\nw 304 128 400 128 0\nv 304 32 304 80 0 0 40 15 0 0 0.5\nw 304 32 464 32 0\nw 96 368 464 368 0\ng 272 368 272 400 0 0\nr 528 176 528 368 0 1000\nw 464 176 528 176 0\nw 528 368 464 368 0\no 12 32 0 4098 5 0.0125 0 2 12 3\n",
+            "height": 500
+        },
+        {
+            "id": "tolerance-band-plot",
+            "type": "plotly",
+            "title": "Gain Range with 5% Resistor Tolerance",
+            "description": "With 5% tolerance on all resistors, the gain ranges from about 570 to 630. The design must work across this entire range.",
+            "traces": [
+                {
+                    "x": [
+                        570,
+                        580,
+                        590,
+                        600,
+                        610,
+                        620,
+                        630
+                    ],
+                    "y": [
+                        2,
+                        8,
+                        18,
+                        25,
+                        18,
+                        8,
+                        2
+                    ],
+                    "name": "Probability Distribution",
+                    "mode": "lines",
+                    "fill": "tozeroy",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 2
+                    },
+                    "fillcolor": "rgba(34,211,238,0.2)"
+                },
+                {
+                    "x": [
+                        600
+                    ],
+                    "y": [
+                        25
+                    ],
+                    "name": "Nominal (600)",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 12,
+                        "color": "#f59e0b",
+                        "symbol": "diamond"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage Gain |Av|"
+                },
+                "yaxis": {
+                    "title": "Relative Probability"
+                },
+                "showlegend": true
+            },
+            "height": 360
+        }
+    ]
+}

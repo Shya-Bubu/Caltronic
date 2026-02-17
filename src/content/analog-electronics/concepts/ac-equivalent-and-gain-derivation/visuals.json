@@ -1,0 +1,544 @@
+{
+  "visuals": [
+    {
+      "type": "plotly",
+      "title": "Full Circuit → AC Equivalent Transformation",
+      "description": "Strip away DC sources (short VCC), open coupling capacitors, replace transistors with h-parameter model.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "markers+text",
+          "text": [
+            "Full\nCircuit",
+            "Short VCC\nShort Caps",
+            "Replace BJTs\nwith h-params",
+            "AC\nEquivalent"
+          ],
+          "textposition": "top center",
+          "marker": {
+            "size": 28,
+            "color": [
+              "#ef4444",
+              "#f59e0b",
+              "#a78bfa",
+              "#22c55e"
+            ],
+            "symbol": "square"
+          },
+          "name": "Steps",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "visible": false,
+          "range": [
+            -0.5,
+            3.5
+          ]
+        },
+        "yaxis": {
+          "visible": false,
+          "range": [
+            -1,
+            1.5
+          ]
+        },
+        "showlegend": false,
+        "annotations": [
+          {
+            "x": 0.5,
+            "y": -0.25,
+            "text": "→",
+            "showarrow": false,
+            "font": {
+              "size": 22,
+              "color": "#64748b"
+            }
+          },
+          {
+            "x": 1.5,
+            "y": -0.25,
+            "text": "→",
+            "showarrow": false,
+            "font": {
+              "size": 22,
+              "color": "#64748b"
+            }
+          },
+          {
+            "x": 2.5,
+            "y": -0.25,
+            "text": "→",
+            "showarrow": false,
+            "font": {
+              "size": 22,
+              "color": "#64748b"
+            }
+          },
+          {
+            "x": 0,
+            "y": -0.6,
+            "text": "7 resistors + 2 BJTs",
+            "showarrow": false,
+            "font": {
+              "size": 11,
+              "color": "#94a3b8"
+            }
+          },
+          {
+            "x": 3,
+            "y": -0.6,
+            "text": "hie + hfe·ib sources",
+            "showarrow": false,
+            "font": {
+              "size": 11,
+              "color": "#94a3b8"
+            }
+          }
+        ]
+      },
+      "height": 250,
+      "id": "full-to-ac-transformation"
+    },
+    {
+      "type": "plotly",
+      "title": "H-Parameter Small-Signal Model (Simplified)",
+      "description": "Each BJT is replaced by hie (input resistance) and a dependent current source hfe·ib. hre ≈ 0 and 1/hoe >> RL are ignored.",
+      "traces": [
+        {
+          "x": [
+            "hie\n(input R)",
+            "hfe·ib\n(current source)",
+            "hre\n(reverse)",
+            "1/hoe\n(output R)"
+          ],
+          "y": [
+            1,
+            1,
+            0.1,
+            0.1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#22d3ee",
+              "#a78bfa",
+              "#ef4444",
+              "#ef4444"
+            ]
+          },
+          "name": "Significance",
+          "text": [
+            "2.7kΩ / 1.6kΩ",
+            "220×ib",
+            "≈ 0\n(ignored)",
+            "56kΩ >> RL\n(ignored)"
+          ],
+          "textposition": "outside"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "H-Parameter"
+        },
+        "yaxis": {
+          "title": "Relative Importance",
+          "visible": false
+        },
+        "showlegend": false,
+        "annotations": [
+          {
+            "x": 0.5,
+            "y": 1.15,
+            "text": "← KEPT in simplified model →",
+            "showarrow": false,
+            "font": {
+              "size": 12,
+              "color": "#22c55e"
+            }
+          },
+          {
+            "x": 2.5,
+            "y": 0.3,
+            "text": "← DROPPED (too small) →",
+            "showarrow": false,
+            "font": {
+              "size": 12,
+              "color": "#ef4444"
+            }
+          }
+        ]
+      },
+      "height": 350,
+      "id": "h-parameter-model-schematic"
+    },
+    {
+      "type": "plotly",
+      "title": "Simplified AC Equivalent — Two Stages",
+      "description": "Stage 1: ib1 → hfe1·ib1 through R1∥hie2. Stage 2: ib2 → hfe2·ib2 through R5∥RL. Overall gain: Av ≈ hfe2·R5/R3.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "markers+text",
+          "text": [
+            "vin\n(Ra∥Rb∥hie1)",
+            "ib1",
+            "hfe1·ib1\n(R1∥hie2)",
+            "ib2",
+            "hfe2·ib2\n(R5∥RL)",
+            "vout"
+          ],
+          "textposition": "top center",
+          "marker": {
+            "size": 22,
+            "color": [
+              "#64748b",
+              "#22d3ee",
+              "#22d3ee",
+              "#a78bfa",
+              "#a78bfa",
+              "#22c55e"
+            ],
+            "symbol": [
+              "diamond",
+              "circle",
+              "circle",
+              "circle",
+              "circle",
+              "diamond"
+            ]
+          },
+          "name": "Signal Path",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "visible": false,
+          "range": [
+            -0.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "visible": false,
+          "range": [
+            -1.2,
+            1.5
+          ]
+        },
+        "showlegend": false,
+        "annotations": [
+          {
+            "x": 1,
+            "y": -0.5,
+            "text": "Stage 1 (NPN)",
+            "showarrow": false,
+            "font": {
+              "size": 13,
+              "color": "#22d3ee"
+            }
+          },
+          {
+            "x": 4,
+            "y": -0.5,
+            "text": "Stage 2 (PNP)",
+            "showarrow": false,
+            "font": {
+              "size": 13,
+              "color": "#a78bfa"
+            }
+          },
+          {
+            "x": 2.5,
+            "y": -0.9,
+            "text": "Av = hfe2 × R5 / R3",
+            "showarrow": false,
+            "font": {
+              "size": 14,
+              "color": "#f59e0b"
+            }
+          }
+        ]
+      },
+      "height": 280,
+      "id": "simplified-ac-equivalent"
+    },
+    {
+      "id": "approximation-waterfall",
+      "type": "plotly",
+      "title": "Approximation Validity — Ratio Check",
+      "description": "Each approximation requires the ratio to be ≥10. Green = valid, red = invalid.",
+      "traces": [
+        {
+          "x": [
+            "R2/R3\n(1800/82)",
+            "1/(hoe·R5)\n(56k/220)",
+            "R1/hie2\n(1800/1600)"
+          ],
+          "y": [
+            21.9,
+            254.5,
+            1.125
+          ],
+          "name": "Actual Ratio",
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#22c55e",
+              "#22c55e",
+              "#ef4444"
+            ]
+          }
+        },
+        {
+          "x": [
+            "R2/R3\n(1800/82)",
+            "1/(hoe·R5)\n(56k/220)",
+            "R1/hie2\n(1800/1600)"
+          ],
+          "y": [
+            10,
+            10,
+            10
+          ],
+          "name": "10× Threshold",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2,
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Approximation"
+        },
+        "yaxis": {
+          "title": "Ratio",
+          "type": "log"
+        },
+        "showlegend": true
+      },
+      "height": 400
+    },
+    {
+      "id": "ten-x-rule-chart",
+      "type": "plotly",
+      "title": "Parallel Resistance Error vs Ratio",
+      "description": "When R2 = k × R1, the parallel combination R1∥R2 deviates from R1 by 1/(1+k). At k=10, error is ~9%.",
+      "traces": [
+        {
+          "x": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            10,
+            15,
+            20,
+            50,
+            100
+          ],
+          "y": [
+            50,
+            33.3,
+            25,
+            16.7,
+            12.5,
+            9.1,
+            6.3,
+            4.8,
+            2,
+            1
+          ],
+          "name": "% Error",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2
+          },
+          "marker": {
+            "size": 7
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Ratio R2/R1",
+          "type": "log"
+        },
+        "yaxis": {
+          "title": "Error when ignoring R2 (%)"
+        },
+        "shapes": [
+          {
+            "type": "line",
+            "x0": 10,
+            "x1": 10,
+            "y0": 0,
+            "y1": 50,
+            "line": {
+              "color": "#f59e0b",
+              "dash": "dash"
+            }
+          }
+        ],
+        "showlegend": false
+      },
+      "height": 360
+    },
+    {
+      "id": "gain-vs-r3-plot",
+      "type": "plotly",
+      "title": "Voltage Gain vs R3 (with hfe2 = 220, R5 = 220Ω)",
+      "description": "The gain is inversely proportional to R3. Smaller R3 gives higher gain but less stability.",
+      "traces": [
+        {
+          "x": [
+            33,
+            39,
+            47,
+            56,
+            68,
+            82,
+            100,
+            120,
+            150,
+            180,
+            220
+          ],
+          "y": [
+            1466.7,
+            1241,
+            1029.8,
+            864.3,
+            711.8,
+            590.2,
+            484,
+            403.3,
+            322.7,
+            268.9,
+            220
+          ],
+          "name": "Av = hfe2 × R5 / R3",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#a78bfa",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 7
+          }
+        },
+        {
+          "x": [
+            33,
+            220
+          ],
+          "y": [
+            600,
+            600
+          ],
+          "name": "Target Av = 600",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2,
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "R3 (Ω) — E12 values"
+        },
+        "yaxis": {
+          "title": "Voltage Gain |Av|"
+        },
+        "showlegend": true
+      },
+      "height": 380
+    },
+    {
+      "id": "input-impedance-breakdown",
+      "type": "plotly",
+      "title": "Input Impedance Components",
+      "description": "The total Zin is the parallel combination of Ra, Rb, and the transistor input impedance. The smallest component dominates.",
+      "traces": [
+        {
+          "x": [
+            "Ra (22kΩ)",
+            "Rb (47kΩ)",
+            "hie1+(1+hfe)R3\n(20.8kΩ)",
+            "Zin (parallel)"
+          ],
+          "y": [
+            22,
+            47,
+            20.8,
+            8.3
+          ],
+          "name": "Impedance (kΩ)",
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#22d3ee",
+              "#22d3ee",
+              "#a78bfa",
+              "#22c55e"
+            ]
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Component"
+        },
+        "yaxis": {
+          "title": "Impedance (kΩ)"
+        },
+        "showlegend": false
+      },
+      "height": 360
+    },
+    {
+      "id": "falstad-ac-analysis",
+      "type": "falstad-sim",
+      "title": "Interactive: Observe AC Gain",
+      "description": "Apply a 1kHz, 10mV sine wave and measure the output amplitude. The ratio vo/vin gives you the voltage gain. Try changing R3 (emitter resistance of Q1) to see how gain changes.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 96 368 96 176 0 1 1000 0.005 0 0 0.5\nr 96 176 192 176 0 33000\nr 192 176 192 368 0 15000\nw 192 176 256 176 0\nt 256 176 304 176 0 1 -4.03 0.66 100\nr 304 80 304 128 0 1800\nr 304 224 304 288 0 82\nw 304 128 304 176 0\nw 304 288 304 368 0\nw 304 80 464 80 0\nt 400 128 464 128 0 -1 -11.03 -0.66 100\nr 464 80 464 32 0 150\nr 464 176 464 368 0 220\nw 304 128 400 128 0\nv 304 32 304 80 0 0 40 15 0 0 0.5\nw 304 32 464 32 0\nw 96 368 464 368 0\ng 272 368 272 400 0 0\nr 528 176 528 368 0 1000\nw 464 176 528 176 0\nw 528 368 464 368 0\no 12 32 0 4098 5 0.0125 0 2 12 3\n",
+      "height": 500
+    }
+  ]
+}

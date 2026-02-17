@@ -1,0 +1,71 @@
+{
+    "id": "flashcards-direct-coupling",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What does 'direct coupling' mean in a multi-stage amplifier?",
+            "back": "No coupling capacitor between stages — the DC collector voltage of one stage directly biases the base of the next stage.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What transistor types are used in this lab's two-stage amplifier, and why?",
+            "back": "Q1 = BC549 (NPN), Q2 = BC556 (PNP). The complementary pair provides thermal stability because temperature drifts partially cancel.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is the key bias relationship in the direct-coupled amplifier?",
+            "back": "VC1 = VB2 — the collector voltage of Q1 equals the base voltage of Q2.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "Why does direct coupling maintain gain at low frequencies?",
+            "back": "No coupling capacitor to create a high-pass filter — gain is flat down to DC.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What are the 12 values in the E12 resistor series (per decade)?",
+            "back": "1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "How does temperature increase affect IC in an NPN transistor?",
+            "back": "IC increases due to: (1) ICBO roughly doubles per 10°C, and (2) VBE decreases ~2mV/°C, both increasing IC.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "How do NPN-PNP complementary pairs achieve thermal stability?",
+            "back": "Temperature rise → IC1↑ → VC1↓ → VB2↓ → IC2↓ for the PNP. The opposing drift provides inherent negative feedback.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f8",
+            "front": "What is hoe for the BC549, and what does it represent physically?",
+            "back": "hoe = 18μS = 1/56kΩ. It's the output admittance — the reciprocal of the output resistance of the transistor in common-emitter configuration.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "When can you safely ignore a parallel resistor in circuit analysis?",
+            "back": "When it is ≥10× the other (the '10× rule'). The parallel combination will be within ~10% of the smaller value.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "How many bias circuits does the direct-coupled two-stage amplifier need?",
+            "back": "Just one — the Ra/Rb voltage divider sets VB1, which cascades through the entire circuit to set both Q-points.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f11",
+            "front": "What is the maximum power dissipation for both BC549 and BC556?",
+            "back": "500 mW at Ta = 25°C. The operating point must satisfy VCE × IC < 500 mW.",
+            "difficultyLevel": 3
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "ac-equivalent-and-gain-derivation",
+    "title": "AC Equivalent Circuit and Gain Derivation",
+    "slug": "ac-equivalent-and-gain-derivation",
+    "estimatedMinutes": 12,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

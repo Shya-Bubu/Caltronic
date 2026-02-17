@@ -1,0 +1,11 @@
+{
+    "id": "input-stage-design",
+    "title": "Input Stage Design (Stage 1)",
+    "slug": "input-stage-design",
+    "estimatedMinutes": 12,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

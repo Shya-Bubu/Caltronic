@@ -1,0 +1,444 @@
+{
+  "visuals": [
+    {
+      "type": "plotly",
+      "title": "Output Stage (Stage 2) — PNP Configuration",
+      "description": "Q2 (BC556 PNP): R4 at collector, R5 at emitter (towards VCC). Output taken from collector through Co to RL.",
+      "traces": [
+        {
+          "x": [
+            "VCC\n(15V)",
+            "R5\n(220Ω)",
+            "Q2\n(PNP)",
+            "R4\n(150Ω)",
+            "GND"
+          ],
+          "y": [
+            15,
+            14.3,
+            8.65,
+            6,
+            0
+          ],
+          "mode": "lines+markers+text",
+          "text": [
+            "15V",
+            "VE2=14.3V",
+            "VCE=6V",
+            "VC2=6V",
+            "0V"
+          ],
+          "textposition": "middle right",
+          "marker": {
+            "size": 12,
+            "color": [
+              "#22c55e",
+              "#a78bfa",
+              "#f59e0b",
+              "#22d3ee",
+              "#64748b"
+            ]
+          },
+          "line": {
+            "color": "#64748b",
+            "width": 2
+          },
+          "name": "Voltage Drop"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Component"
+        },
+        "yaxis": {
+          "title": "Voltage (V)",
+          "range": [
+            -1,
+            16
+          ]
+        },
+        "showlegend": false,
+        "annotations": [
+          {
+            "x": 2,
+            "y": 12,
+            "text": "ICQ2 = 24.3 mA flows ↓",
+            "showarrow": false,
+            "font": {
+              "size": 12,
+              "color": "#f59e0b"
+            }
+          },
+          {
+            "x": 3.5,
+            "y": 3,
+            "text": "Output to RL=1kΩ",
+            "showarrow": false,
+            "font": {
+              "size": 11,
+              "color": "#94a3b8"
+            }
+          }
+        ]
+      },
+      "height": 380,
+      "id": "output-stage-schematic"
+    },
+    {
+      "id": "r5-selection-tradeoff",
+      "type": "plotly",
+      "title": "R5 Trade-off: Output Impedance vs Stiffness Ratio",
+      "description": "Lower R5 gives stiffer output (higher ICQ/IL ratio) but lower gain and higher power. The design balances these.",
+      "traces": [
+        {
+          "x": [
+            100,
+            150,
+            220,
+            330,
+            470,
+            680,
+            1000
+          ],
+          "y": [
+            25.7,
+            17.1,
+            11.4,
+            7.1,
+            5,
+            3.3,
+            2
+          ],
+          "name": "Stiffness (ICQ/IL_peak)",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#22c55e",
+            "width": 2
+          },
+          "marker": {
+            "size": 7
+          }
+        },
+        {
+          "x": [
+            100,
+            150,
+            220,
+            330,
+            470,
+            680,
+            1000
+          ],
+          "y": [
+            100,
+            150,
+            220,
+            330,
+            470,
+            680,
+            1000
+          ],
+          "name": "Zout (Ω)",
+          "mode": "lines+markers",
+          "yaxis": "y2",
+          "line": {
+            "color": "#ef4444",
+            "width": 2,
+            "dash": "dash"
+          },
+          "marker": {
+            "size": 7
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "R5 (Ω)"
+        },
+        "yaxis": {
+          "title": "Stiffness Ratio"
+        },
+        "yaxis2": {
+          "title": "Zout (Ω)",
+          "overlaying": "y",
+          "side": "right"
+        },
+        "showlegend": true
+      },
+      "height": 380
+    },
+    {
+      "id": "r4-kvl-calculation",
+      "type": "plotly",
+      "title": "R4 Calculation from KVL",
+      "description": "KVL: VCC = ICQ(R4+R5) + VCEQ. With VCC=15V, VCEQ=6V, R5=220Ω: R4 = 140Ω → pick 150Ω (E12).",
+      "traces": [
+        {
+          "x": [
+            "VCC",
+            "VCEQ",
+            "ICQ×R5",
+            "ICQ×R4"
+          ],
+          "y": [
+            15,
+            6,
+            5.35,
+            3.65
+          ],
+          "name": "Voltage drops",
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#22d3ee",
+              "#a78bfa",
+              "#22c55e",
+              "#f59e0b"
+            ]
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Component"
+        },
+        "yaxis": {
+          "title": "Voltage (V)"
+        },
+        "showlegend": false
+      },
+      "height": 360
+    },
+    {
+      "id": "stage2-voltage-map",
+      "type": "plotly",
+      "title": "Stage 2 DC Voltage Distribution",
+      "description": "Voltage at each node of the output stage. VB2 = 10.7V is what Stage 1 must provide.",
+      "traces": [
+        {
+          "x": [
+            "VCC",
+            "VE2\n(emitter)",
+            "VB2\n(base)",
+            "VC2\n(collector)",
+            "GND"
+          ],
+          "y": [
+            15,
+            14.34,
+            10.7,
+            6,
+            0
+          ],
+          "name": "Node Voltages",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 10
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Node"
+        },
+        "yaxis": {
+          "title": "Voltage (V)",
+          "range": [
+            0,
+            16
+          ]
+        },
+        "showlegend": false
+      },
+      "height": 360
+    },
+    {
+      "id": "power-dissipation-check",
+      "type": "plotly",
+      "title": "Power Dissipation Check",
+      "description": "Both transistors must stay under the 500mW limit. Q2 at 146mW and Q1 at 15mW — both well within limits.",
+      "traces": [
+        {
+          "x": [
+            "Q1 (NPN)",
+            "Q2 (PNP)",
+            "Rating"
+          ],
+          "y": [
+            15,
+            146,
+            500
+          ],
+          "name": "Power (mW)",
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#22c55e",
+              "#22c55e",
+              "#ef4444"
+            ]
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Transistor"
+        },
+        "yaxis": {
+          "title": "Power Dissipation (mW)"
+        },
+        "showlegend": false
+      },
+      "height": 340
+    },
+    {
+      "id": "falstad-output-stage",
+      "type": "falstad-sim",
+      "title": "Interactive: Output Stage with Load",
+      "description": "The PNP output stage with R4=150Ω, R5=220Ω, and RL=1kΩ. Apply a signal at the base and observe the output across RL. Try changing R5 to see the effect on gain and swing.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 96 288 96 176 0 1 1000 0.1 0 0 0.5\nv 96 32 96 80 0 0 40 15 0 0 0.5\nt 144 176 192 176 0 -1 -11 -0.66 100\nr 192 80 192 128 0 150\nr 192 224 192 288 0 220\nw 192 128 192 176 0\nw 96 80 192 80 0\nw 96 288 192 288 0\ng 144 288 144 320 0 0\nr 256 224 256 288 0 1000\nw 192 224 256 224 0\nw 256 288 192 288 0\no 4 32 0 4098 5 0.025 0 2 4 3\n",
+      "height": 450
+    },
+    {
+      "id": "ac-swing-verification",
+      "type": "plotly",
+      "title": "AC Load Line Swing Verification",
+      "description": "The Q-point at (6V, 24.3mA) allows ±4.4V on the AC load line. Required swing: ±3.5V — within limits.",
+      "traces": [
+        {
+          "x": [
+            1.6,
+            6,
+            10.4
+          ],
+          "y": [
+            48.7,
+            24.3,
+            0
+          ],
+          "name": "AC Load Line",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 8
+          }
+        },
+        {
+          "x": [
+            2.5,
+            6,
+            9.5
+          ],
+          "y": [
+            43.7,
+            24.3,
+            4.9
+          ],
+          "name": "Required ±3.5V swing",
+          "mode": "markers",
+          "marker": {
+            "size": 12,
+            "color": "#f59e0b",
+            "symbol": "triangle-up"
+          }
+        },
+        {
+          "x": [
+            6
+          ],
+          "y": [
+            24.3
+          ],
+          "name": "Q-point",
+          "mode": "markers",
+          "marker": {
+            "size": 14,
+            "color": "#ef4444",
+            "symbol": "diamond"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "VCE (V)",
+          "range": [
+            0,
+            16
+          ]
+        },
+        "yaxis": {
+          "title": "IC (mA)"
+        },
+        "showlegend": true
+      },
+      "height": 400
+    },
+    {
+      "id": "e12-nearest-values",
+      "type": "plotly",
+      "title": "E12 Nearest Value Selection for R4",
+      "description": "Calculated R4 = 140Ω. Nearest E12 values: 120Ω and 150Ω. Professor picks 150Ω.",
+      "traces": [
+        {
+          "x": [
+            100,
+            120,
+            140,
+            150,
+            180
+          ],
+          "y": [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "name": "E12 values",
+          "mode": "markers+text",
+          "text": [
+            "100Ω",
+            "120Ω\n(E12)",
+            "140Ω\n(calculated)",
+            "150Ω\n(E12, chosen)",
+            "180Ω"
+          ],
+          "textposition": "top center",
+          "marker": {
+            "size": [
+              10,
+              14,
+              10,
+              16,
+              10
+            ],
+            "color": [
+              "#64748b",
+              "#22d3ee",
+              "#ef4444",
+              "#22c55e",
+              "#64748b"
+            ]
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Resistance (Ω)"
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false
+      },
+      "height": 280
+    }
+  ]
+}

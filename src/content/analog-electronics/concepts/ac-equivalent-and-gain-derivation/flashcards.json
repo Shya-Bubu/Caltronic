@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-ac-equivalent",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "How do you treat DC voltage sources in the AC small-signal equivalent?",
+            "back": "Replace them with short circuits (VCC → ground). DC sources have zero AC impedance.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What are the four h-parameters and their physical meaning?",
+            "back": "hie = input impedance, hfe = forward current gain, hre = reverse voltage ratio (≈0), hoe = output admittance (≈0).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Simplified voltage gain formula for this two-stage amplifier?",
+            "back": "Av = hfe2 × R5 / R3. R3 is the gain-setting resistor — smaller R3 → higher gain.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the 10× rule for circuit approximations?",
+            "back": "If one parallel component is ≥10× larger than another, the larger one can be ignored. Error ≤ 10%.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why does the R1 >> hie2 approximation fail in this circuit?",
+            "back": "R1 = 1.8kΩ, hie2 = 1.6kΩ → ratio is only 1.1 (need ≥10). hie2 significantly loads Stage 1, reducing actual gain.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Output impedance of this amplifier?",
+            "back": "Zout ≈ R5 = 220Ω (since 1/hoe = 56kΩ >> R5). The PNP emitter resistor dominates.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Input impedance formula?",
+            "back": "Zin = Ra ∥ Rb ∥ [hie1 + (1+hfe1)·R3]. All three are in parallel; smallest dominates.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "With hfe2 = 220, R5 = 220Ω, and Av = 600, what is R3?",
+            "back": "R3 = 220 × 220 / 600 = 80.7Ω → pick 82Ω (E12). Or 68Ω to compensate for hie2 loading.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why are coupling capacitors treated as short circuits in AC analysis?",
+            "back": "At signal frequency (1kHz), Xc = 1/(2πfC) is much smaller than surrounding resistors. They pass AC signals freely.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f10",
+            "front": "What does 'simplified h-parameter model' mean?",
+            "back": "Only hie (input R) and hfe·ib (dependent current source) are kept. hre (≈0) and hoe (≈0) are ignored.",
+            "difficultyLevel": 2
+        }
+    ]
+}

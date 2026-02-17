@@ -1,0 +1,21 @@
+{
+    "id": "lab-02",
+    "title": "Two Stage Direct Coupled Amplifier Design",
+    "slug": "lab-02",
+    "description": "Design a two-stage NPN-PNP direct-coupled amplifier to meet gain, swing, and load specifications using the h-parameter model and systematic DC/AC design flow.",
+    "prerequisites": [
+        "lesson-01"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "direct-coupling-and-complementary-pairs",
+        "ac-equivalent-and-gain-derivation",
+        "q-point-design-strategy",
+        "output-stage-design",
+        "input-stage-design",
+        "spice-verification-and-tweaking"
+    ],
+    "lectureWeek": 5,
+    "estimatedMinutes": 150
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-ac-equivalent",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "When drawing the AC small-signal equivalent circuit, DC voltage sources become:",
+            "options": [
+                "Open circuits",
+                "Short circuits",
+                "Current sources",
+                "Resistors equal to their internal resistance"
+            ],
+            "correctAnswer": "Short circuits",
+            "explanation": "A DC voltage source has zero AC impedance (it maintains a constant voltage regardless of current changes). In the small-signal model, VCC is shorted to ground because its AC voltage is zero — only the signal matters."
+        },
+        {
+            "id": "q2",
+            "prompt": "Which h-parameter represents the input impedance of the transistor in the common-emitter model?",
+            "options": [
+                "hfe",
+                "hie",
+                "hre",
+                "hoe"
+            ],
+            "correctAnswer": "hie",
+            "explanation": "hie is the input impedance (base-emitter resistance) measured at the transistor input with the output short-circuited for AC. For BC549, hie ≈ 2.7 kΩ and for BC556, hie ≈ 1.6 kΩ."
+        },
+        {
+            "id": "q3",
+            "prompt": "The simplified voltage gain formula for this two-stage amplifier is:",
+            "options": [
+                "Av = hfe1 × R1 / R5",
+                "Av = hfe2 × R5 / R3",
+                "Av = (hfe1 × hfe2) / (R1 × R5)",
+                "Av = R5 / (hie1 × R3)"
+            ],
+            "correctAnswer": "Av = hfe2 × R5 / R3",
+            "explanation": "The simplified gain Av = hfe2 × R5 / R3 is derived by assuming R2 >> R3, ignoring hoe, and simplifying the interstage coupling. R3 is the gain-setting resistor — smaller R3 gives higher gain."
+        },
+        {
+            "id": "q4",
+            "prompt": "For Av = 600, hfe2 = 220, and R5 = 220Ω, what value of R3 is needed?",
+            "options": [
+                "68 Ω",
+                "80.7 Ω (pick 82Ω from E12)",
+                "100 Ω",
+                "47 Ω"
+            ],
+            "correctAnswer": "80.7 Ω (pick 82Ω from E12)",
+            "explanation": "R3 = hfe2 × R5 / Av = 220 × 220 / 600 = 80.67 Ω. The nearest E12 value is 82 Ω. Choosing 68Ω would give Av ≈ 712, providing headroom for the loading effect of hie2."
+        },
+        {
+            "id": "q5",
+            "prompt": "Why can we NOT ignore hie2 when calculating the actual gain?",
+            "options": [
+                "Because hie2 (1.6kΩ) is comparable to R1 (1.8kΩ) — the ratio is only 1.1",
+                "Because hie2 is always dominant in any circuit",
+                "Because hie2 changes with temperature dramatically",
+                "Because hie2 is negative for PNP transistors"
+            ],
+            "correctAnswer": "Because hie2 (1.6kΩ) is comparable to R1 (1.8kΩ) — the ratio is only 1.1",
+            "explanation": "The 10× rule requires R1/hie2 ≥ 10 for the approximation to be valid. Since R1/hie2 = 1800/1600 = 1.125, this ratio is far below 10, so hie2 significantly loads stage 1 and reduces the actual gain below the simplified formula."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the output impedance of the amplifier approximately equal to?",
+            "options": [
+                "R1",
+                "R3",
+                "R5 (220Ω)",
+                "hie2"
+            ],
+            "correctAnswer": "R5 (220Ω)",
+            "explanation": "Looking back from the output, Zout = R5 ∥ (1/hoe2) ≈ R5 since 1/hoe2 = 56kΩ >> R5 = 220Ω. The output impedance is dominated by R5, the emitter resistor of the PNP stage."
+        },
+        {
+            "id": "q7",
+            "prompt": "In the AC equivalent, coupling capacitors are treated as:",
+            "options": [
+                "Open circuits",
+                "Short circuits",
+                "Frequency-dependent impedances",
+                "Replaced by their DC charge"
+            ],
+            "correctAnswer": "Short circuits",
+            "explanation": "At the signal frequency (typically 1 kHz), the capacitor impedance 1/(2πfC) is designed to be much smaller than surrounding resistors. They pass AC signals freely and are treated as short circuits in the small-signal model."
+        },
+        {
+            "id": "q8",
+            "prompt": "The input impedance of the amplifier is determined by:",
+            "options": [
+                "hie1 alone",
+                "Ra ∥ Rb ∥ [hie1 + (1+hfe1)R3]",
+                "Ra + Rb + hie1",
+                "R3 / hfe1"
+            ],
+            "correctAnswer": "Ra ∥ Rb ∥ [hie1 + (1+hfe1)R3]",
+            "explanation": "The voltage divider (Ra, Rb) and the transistor input impedance [hie1 + (1+hfe1)R3] are all in parallel from the signal source's perspective. The smallest component dominates the parallel combination."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why does the professor recommend choosing R3 = 68Ω instead of 82Ω?",
+            "options": [
+                "68Ω is a more common value in the lab",
+                "To compensate for gain loss due to hie2 loading — 68Ω gives Av ≈ 712 instead of 590",
+                "To reduce power consumption",
+                "68Ω is more thermally stable"
+            ],
+            "correctAnswer": "To compensate for gain loss due to hie2 loading — 68Ω gives Av ≈ 712 instead of 590",
+            "explanation": "The simplified formula gives Av = 590 with R3 = 82Ω, but the actual gain is lower due to hie2 loading. Choosing R3 = 68Ω sets a theoretical Av ≈ 712, providing headroom so the actual gain (after losses) is closer to the target of 600."
+        },
+        {
+            "id": "q10",
+            "prompt": "hoe = 18μS for the BC549. Why can we ignore it in this design?",
+            "options": [
+                "Because it makes the math easier",
+                "Because 1/hoe = 56kΩ, which is over 250× larger than R5 = 220Ω — well above the 10× threshold",
+                "Because hoe only matters at very high frequencies",
+                "Because hoe cancels out between the two stages"
+            ],
+            "correctAnswer": "Because 1/hoe = 56kΩ, which is over 250× larger than R5 = 220Ω — well above the 10× threshold",
+            "explanation": "The 10× rule: if one parallel resistor is 10× larger than the other, the parallel combination is within 10% of the smaller. Since 1/hoe ≈ 56kΩ >> R5 = 220Ω (ratio 254), the output conductance hoe has negligible effect."
+        }
+    ]
+}

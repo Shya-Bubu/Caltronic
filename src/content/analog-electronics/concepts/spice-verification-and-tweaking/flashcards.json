@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-spice-verification",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Convert voltage gain 600 to dB?",
+            "back": "Av(dB) = 20 × log10(600) = 55.6 dB.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the -3dB point?",
+            "back": "Where gain drops to 0.707 of midband voltage gain (half power). Defines bandwidth: BW = fH - fL.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "First step in LTspice verification?",
+            "back": "Check DC operating point — verify node voltages match calculations. If DC is wrong, AC is meaningless.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "How to select coupling capacitor value?",
+            "back": "Xc << R at operating frequency. C > 10/(2πfR). For Cin at 1kHz with Zin=8kΩ: C > 0.2μF → choose 2.2μF.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Flat bottom on output waveform means?",
+            "back": "Saturation clipping — VCE dropped below VCEsat. Q-point may be too high or swing too large.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Flat top on output waveform means?",
+            "back": "Cutoff clipping — VCE tried to exceed VCC region. Q-point may be too low.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What does the bypass capacitor CE do?",
+            "back": "Shorts R2 at AC frequencies, increasing gain. Without it, R2 adds emitter degeneration and reduces gain.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why do SPICE results differ from hand calculations?",
+            "back": "SPICE uses full nonlinear models (Gummel-Poon). Our h-parameter model is a simplified linearisation. 5-15% difference is normal.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Expected midband phase for this amplifier?",
+            "back": "≈ 180° (inverting amplifier). Phase shifts away from 180° at frequencies near fL and fH.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Design iteration rule of thumb?",
+            "back": "Change ONE component at a time. Observe effect. Understand why. Then iterate. Never change multiple things simultaneously.",
+            "difficultyLevel": 1
+        }
+    ]
+}

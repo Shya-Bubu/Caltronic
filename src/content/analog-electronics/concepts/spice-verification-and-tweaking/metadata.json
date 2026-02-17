@@ -1,0 +1,11 @@
+{
+    "id": "spice-verification-and-tweaking",
+    "title": "SPICE Verification and Design Iteration",
+    "slug": "spice-verification-and-tweaking",
+    "estimatedMinutes": 10,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

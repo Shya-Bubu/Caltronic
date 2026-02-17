@@ -1,0 +1,125 @@
+{
+    "id": "quiz-output-stage",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Why is R5 chosen to be much smaller than RL?",
+            "options": [
+                "To maximise voltage gain",
+                "So that connecting RL doesn't significantly change the DC operating point (stiff output)",
+                "To reduce power consumption",
+                "Because E12 only has small values"
+            ],
+            "correctAnswer": "So that connecting RL doesn't significantly change the DC operating point (stiff output)",
+            "explanation": "When R5 << RL, the current through R5 is much larger than the load current. Connecting RL draws only a small additional current, so the Q-point barely changes. This is the 'stiff output' design principle."
+        },
+        {
+            "id": "q2",
+            "prompt": "The KVL equation for Stage 2's collector-emitter loop is:",
+            "options": [
+                "VCC = VCEQ + ICQ × R5",
+                "VCC = ICQ × (R4 + R5) + VCEQ",
+                "VCC = ICQ × R4 + VBE",
+                "VCC = VCEQ × (R4 + R5)"
+            ],
+            "correctAnswer": "VCC = ICQ × (R4 + R5) + VCEQ",
+            "explanation": "KVL around the collector-emitter loop: VCC - ICQ×R4 - VCEQ - ICQ×R5 = 0, which gives VCC = ICQ(R4+R5) + VCEQ. This is used to find R4 once R5, VCEQ, and ICQ are known."
+        },
+        {
+            "id": "q3",
+            "prompt": "With VCC=15V, VCEQ=6V, ICQ=25mA, and R5=220Ω, what is R4?",
+            "options": [
+                "100Ω",
+                "140Ω (pick 150Ω from E12)",
+                "220Ω",
+                "360Ω"
+            ],
+            "correctAnswer": "140Ω (pick 150Ω from E12)",
+            "explanation": "R4+R5 = (VCC-VCEQ)/ICQ = (15-6)/0.025 = 360Ω. R4 = 360 - 220 = 140Ω. Nearest E12: 150Ω."
+        },
+        {
+            "id": "q4",
+            "prompt": "The power dissipation of Q2 with VCEQ=6V and ICQ=24.3mA is:",
+            "options": [
+                "24.3 mW",
+                "90 mW",
+                "146 mW",
+                "365 mW"
+            ],
+            "correctAnswer": "146 mW",
+            "explanation": "P = VCEQ × ICQ = 6 × 0.0243 = 0.146W = 146mW. This is well within the 500mW maximum rating."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is VB2 (the voltage Stage 1 must provide)?",
+            "options": [
+                "6V",
+                "15V",
+                "About 10.7V",
+                "0V"
+            ],
+            "correctAnswer": "About 10.7V",
+            "explanation": "VB2 = VCC - ICQ×R4 - VBE2 = 15 - 0.0243×150 - 0.66 ≈ 10.7V. This is the collector voltage of Q1 that directly biases Q2's base through the direct coupling."
+        },
+        {
+            "id": "q6",
+            "prompt": "The AC load resistance for Stage 2 is:",
+            "options": [
+                "R4 + R5 = 370Ω",
+                "R5 = 220Ω",
+                "R5 ∥ RL = 180.3Ω",
+                "RL = 1kΩ"
+            ],
+            "correctAnswer": "R5 ∥ RL = 180.3Ω",
+            "explanation": "In AC analysis, the coupling capacitor Co shorts, putting R5 in parallel with RL. R_AC = R5∥RL = 220×1000/(220+1000) = 180.3Ω."
+        },
+        {
+            "id": "q7",
+            "prompt": "On the AC load line, the maximum upward voltage swing from the Q-point is:",
+            "options": [
+                "3.5V",
+                "4.4V",
+                "9V",
+                "15V"
+            ],
+            "correctAnswer": "4.4V",
+            "explanation": "Max upward swing = ICQ × R_AC = 24.3mA × 180.3Ω = 4.4V. Since the required swing is only 3.5V, we have 0.9V of headroom."
+        },
+        {
+            "id": "q8",
+            "prompt": "If you chose R5 = 1kΩ instead of 220Ω, what would change?",
+            "options": [
+                "Nothing significant",
+                "Output impedance increases to 1kΩ, ICQ decreases, and the gain is reduced",
+                "The amplifier would oscillate",
+                "The transistor would immediately saturate"
+            ],
+            "correctAnswer": "Output impedance increases to 1kΩ, ICQ decreases, and the gain is reduced",
+            "explanation": "With R5 = 1kΩ, Zout ≈ R5 = 1kΩ (high), the AC load R5∥RL = 500Ω (larger), and ICQ decreases. The gain Av = hfe2×R5/R3 increases but the voltage divider effect with RL reduces voltage delivered to the load."
+        },
+        {
+            "id": "q9",
+            "prompt": "IBQ2 with ICQ = 24.3mA and hFE = 120 is:",
+            "options": [
+                "200μA",
+                "24.3μA",
+                "2.43mA",
+                "120μA"
+            ],
+            "correctAnswer": "200μA",
+            "explanation": "IBQ2 = ICQ/hFE = 24.3mA/120 = 0.2025mA ≈ 200μA. This base current must be supplied by Stage 1's collector circuit."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why is it important to verify the AC load line swing, not just the DC load line?",
+            "options": [
+                "The DC load line is always wrong",
+                "The signal actually swings along the AC load line, which is steeper, so it clips sooner",
+                "The AC load line has more capacitance",
+                "The DC load line doesn't exist for PNP transistors"
+            ],
+            "correctAnswer": "The signal actually swings along the AC load line, which is steeper, so it clips sooner",
+            "explanation": "The AC signal sees R5∥RL (180Ω) not R4+R5 (370Ω). The steeper AC load line means for the same ICQ, the voltage swing is more limited. You must verify the swing on the AC load line to ensure no clipping."
+        }
+    ]
+}

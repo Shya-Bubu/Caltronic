@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-input-stage",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "How to find R1 + R2?",
+            "back": "KVL: R1+R2 = (VCC - VCEQ1)/ICQ1 = (15-6)/2.5mA = 3.6kΩ. Professor picks R1=R2=1.8kΩ.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "How to find R3?",
+            "back": "R3 = hfe2×R5/Av = 220×220/600 = 80.7Ω → 82Ω (E12). Or 68Ω for gain headroom.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Voltage divider ratio for VB1 = 5V, VCC = 15V?",
+            "back": "Rb/(Ra+Rb) = VB1/VCC = 5/15 = 1/3, so Ra = 2Rb. Professor: Ra=33kΩ, Rb=15kΩ.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Stiffness condition for the voltage divider?",
+            "back": "Idivider >> IBQ1. With 10× rule: Ra+Rb ≤ VCC/(10×IBQ1) = 15/(10×20.8μA) = 75kΩ.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Why choose ICQ2/ICQ1 = 10?",
+            "back": "So IC1 >> IB2 (Q2's base current). This means Q2's base doesn't load Q1's collector significantly.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "IBQ1 for this design?",
+            "back": "IBQ1 = ICQ1/hFE = 2.5mA/120 = 20.8μA. This determines the voltage divider stiffness requirement.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "After E12 rounding, actual Av ≈ 590. Is this OK?",
+            "back": "Yes! With 5% tolerance resistors, acceptable range is 570-630. Error is only 1.7%.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f8",
+            "front": "Complete resistor list for this amplifier?",
+            "back": "Ra=33kΩ, Rb=15kΩ, R1=R2=1.8kΩ, R3=82Ω, R4=150Ω, R5=220Ω (all E12).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What voltage must Stage 1's collector provide?",
+            "back": "VC1 = VB2 ≈ 10.7V. This is the direct coupling link — it biases Q2's base.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Why does R3 = 68Ω give a better actual gain than R3 = 82Ω?",
+            "back": "The simplified formula ignores hie2 loading (~15% loss). R3=68Ω → theoretical 711 → actual ~608 ≈ 600. R3=82Ω → theoretical 590 → actual ~510.",
+            "difficultyLevel": 4
+        }
+    ]
+}

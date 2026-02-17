@@ -1,0 +1,11 @@
+{
+    "id": "output-stage-design",
+    "title": "Output Stage Design (Stage 2)",
+    "slug": "output-stage-design",
+    "estimatedMinutes": 10,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

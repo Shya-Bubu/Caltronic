@@ -1,0 +1,11 @@
+{
+    "id": "direct-coupling-and-complementary-pairs",
+    "title": "Direct Coupling and Complementary NPN-PNP Pairs",
+    "slug": "direct-coupling-and-complementary-pairs",
+    "estimatedMinutes": 12,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

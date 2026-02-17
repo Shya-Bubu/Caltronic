@@ -1,0 +1,531 @@
+{
+    "visuals": [
+        {
+            "id": "vpp-swing-illustration",
+            "type": "plotly",
+            "title": "Output Voltage Swing (7Vpp)",
+            "description": "The output must swing ±3.5V around the Q-point. This sine wave shows a properly biased amplifier with Vpp = 7V.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2,
+                        2.25,
+                        2.5,
+                        2.75,
+                        3
+                    ],
+                    "y": [
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6
+                    ],
+                    "name": "Output Voltage",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        3
+                    ],
+                    "y": [
+                        6,
+                        6
+                    ],
+                    "name": "Q-point (6V)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)",
+                    "range": [
+                        0,
+                        15
+                    ]
+                },
+                "showlegend": true
+            },
+            "height": 380
+        },
+        {
+            "id": "clipping-distortion-plot",
+            "type": "plotly",
+            "title": "Clipping Distortion — Q-Point Too High or Too Low",
+            "description": "Left: Q-point too high causes cutoff clipping. Right: Q-point too low causes saturation clipping. Center: properly biased.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.4,
+                        0.5,
+                        0.6,
+                        0.75,
+                        1,
+                        1.25,
+                        1.4,
+                        1.5
+                    ],
+                    "y": [
+                        12,
+                        15,
+                        15,
+                        15,
+                        15,
+                        12,
+                        8.5,
+                        12,
+                        15,
+                        15
+                    ],
+                    "name": "Q too high (cutoff clip)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        0.85,
+                        1.0,
+                        1.15,
+                        1.25,
+                        1.5
+                    ],
+                    "y": [
+                        3,
+                        6.5,
+                        3,
+                        0.2,
+                        0.2,
+                        0.2,
+                        0.2,
+                        3,
+                        6.5
+                    ],
+                    "name": "Q too low (sat clip)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f97316",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5
+                    ],
+                    "y": [
+                        6,
+                        9.5,
+                        6,
+                        2.5,
+                        6,
+                        9.5,
+                        6
+                    ],
+                    "name": "Properly biased",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "Output Voltage (V)",
+                    "range": [
+                        -1,
+                        16
+                    ]
+                },
+                "showlegend": true
+            },
+            "height": 400
+        },
+        {
+            "id": "safe-zone-diagram",
+            "type": "plotly",
+            "title": "VCEQ Safe Zone (Before AC Load Line Adjustment)",
+            "description": "The safe zone for VCEQ is between 4.5V and 10.5V after adding margins for VCEsat and cutoff.",
+            "traces": [
+                {
+                    "x": [
+                        "VCEsat + margin",
+                        "Safe zone",
+                        "VCC - Vp - margin"
+                    ],
+                    "y": [
+                        4.5,
+                        7.5,
+                        10.5
+                    ],
+                    "name": "Boundaries",
+                    "mode": "markers+text",
+                    "text": [
+                        "4.5V (min)",
+                        "7.5V (center)",
+                        "10.5V (max)"
+                    ],
+                    "textposition": "top center",
+                    "marker": {
+                        "size": 14,
+                        "color": [
+                            "#ef4444",
+                            "#22c55e",
+                            "#ef4444"
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "VCEQ (V)",
+                    "range": [
+                        0,
+                        16
+                    ]
+                },
+                "shapes": [
+                    {
+                        "type": "rect",
+                        "x0": -0.5,
+                        "x1": 2.5,
+                        "y0": 4.5,
+                        "y1": 10.5,
+                        "fillcolor": "rgba(34,211,238,0.15)",
+                        "line": {
+                            "width": 0
+                        }
+                    }
+                ],
+                "showlegend": false
+            },
+            "height": 360
+        },
+        {
+            "id": "dc-ac-loadline-comparison",
+            "type": "plotly",
+            "title": "DC Load Line vs AC Load Line",
+            "description": "The AC load line is steeper because the AC load (R5∥RL) is smaller than the DC load (R4+R5). The signal swings along the AC load line.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        6,
+                        15
+                    ],
+                    "y": [
+                        40.5,
+                        24.3,
+                        0
+                    ],
+                    "name": "DC Load Line (slope = -1/(R4+R5))",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#64748b",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        6,
+                        10.5
+                    ],
+                    "y": [
+                        58.3,
+                        25,
+                        0
+                    ],
+                    "name": "AC Load Line (slope = -1/(R5∥RL))",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        6
+                    ],
+                    "y": [
+                        25
+                    ],
+                    "name": "Q-point",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#f59e0b",
+                        "symbol": "diamond"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)",
+                    "range": [
+                        0,
+                        16
+                    ]
+                },
+                "yaxis": {
+                    "title": "IC (mA)",
+                    "range": [
+                        0,
+                        65
+                    ]
+                },
+                "showlegend": true
+            },
+            "height": 400
+        },
+        {
+            "id": "qpoint-safe-range",
+            "type": "plotly",
+            "title": "Final Safe VCEQ Range (After AC Load Line Adjustment)",
+            "description": "After accounting for the steeper AC load line, the upper limit drops from 10.5V to 7.5V. The safe range is 4.5V to 7.5V.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        4.5,
+                        6,
+                        7.5,
+                        15
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    "name": "Safe zone",
+                    "fill": "tozeroy",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 0
+                    },
+                    "fillcolor": "rgba(34,197,94,0.3)"
+                },
+                {
+                    "x": [
+                        6
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "name": "Chosen: 6V",
+                    "mode": "markers+text",
+                    "text": [
+                        "VCEQ = 6V"
+                    ],
+                    "textposition": "top center",
+                    "marker": {
+                        "size": 16,
+                        "color": "#f59e0b",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)",
+                    "range": [
+                        0,
+                        16
+                    ]
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": true
+            },
+            "height": 300
+        },
+        {
+            "id": "icq-minimum-calculation",
+            "type": "plotly",
+            "title": "ICQ Minimum Constraint",
+            "description": "The peak AC current through the AC load is Vp/(R5∥RL) = 19.4mA. ICQ must exceed this to avoid cutoff.",
+            "traces": [
+                {
+                    "x": [
+                        "IL peak\n(Vp/RL)",
+                        "IR5 peak\n(Vp/R5)",
+                        "Total peak\n(Vp/(R5∥RL))",
+                        "ICQ chosen"
+                    ],
+                    "y": [
+                        3.5,
+                        15.9,
+                        19.4,
+                        25
+                    ],
+                    "name": "Current (mA)",
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#22d3ee",
+                            "#22d3ee",
+                            "#ef4444",
+                            "#22c55e"
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Current (mA)"
+                },
+                "showlegend": false
+            },
+            "height": 360
+        },
+        {
+            "id": "falstad-qpoint-demo",
+            "type": "falstad-sim",
+            "title": "Interactive: Q-Point and Output Swing",
+            "description": "Observe the output waveform. Try changing the VCC value or resistor values to see how the Q-point shifts and when clipping occurs.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 96 368 96 176 0 1 1000 0.012 0 0 0.5\nr 96 176 192 176 0 33000\nr 192 176 192 368 0 15000\nw 192 176 256 176 0\nt 256 176 304 176 0 1 -4.03 0.66 100\nr 304 80 304 128 0 1800\nr 304 224 304 288 0 82\nw 304 128 304 176 0\nw 304 288 304 368 0\nw 304 80 464 80 0\nt 400 128 464 128 0 -1 -11.03 -0.66 100\nr 464 80 464 32 0 150\nr 464 176 464 368 0 220\nw 304 128 400 128 0\nv 304 32 304 80 0 0 40 15 0 0 0.5\nw 304 32 464 32 0\nw 96 368 464 368 0\ng 272 368 272 400 0 0\nr 528 176 528 368 0 1000\nw 464 176 528 176 0\nw 528 368 464 368 0\no 12 32 0 4098 5 0.0125 0 2 12 3\n",
+            "height": 500
+        },
+        {
+            "id": "qpoint-on-characteristic",
+            "type": "plotly",
+            "title": "Q-Point on Output Characteristics",
+            "description": "The Q-point sits on the intersection of the DC load line and the IC vs VCE curve for the chosen base current.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        3,
+                        6,
+                        9,
+                        12,
+                        15
+                    ],
+                    "y": [
+                        40.5,
+                        32.4,
+                        24.3,
+                        16.2,
+                        8.1,
+                        0
+                    ],
+                    "name": "DC Load Line",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#64748b",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0.2,
+                        0.5,
+                        1,
+                        3,
+                        6,
+                        9,
+                        12,
+                        15
+                    ],
+                    "y": [
+                        5,
+                        18,
+                        23,
+                        24,
+                        24.5,
+                        25,
+                        25.2,
+                        25.5
+                    ],
+                    "name": "IC curve (IBQ = 200μA)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        6
+                    ],
+                    "y": [
+                        24.3
+                    ],
+                    "name": "Q-point",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#f59e0b",
+                        "symbol": "diamond"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                },
+                "showlegend": true
+            },
+            "height": 400
+        }
+    ]
+}
