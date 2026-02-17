@@ -1,0 +1,65 @@
+{
+  "id": "open-short-circuits-duality-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "Define an open circuit in terms of its v-i relationship.",
+      "back": "An open circuit has i = 0 for all v. No current flows regardless of the voltage applied. Its v-i characteristic is the entire v-axis on the v-i plane.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "Define a short circuit in terms of its v-i relationship.",
+      "back": "A short circuit has v = 0 for all i. No voltage exists across it regardless of the current flowing. Its v-i characteristic is the entire i-axis on the v-i plane.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What are the resistance and conductance of an open circuit?",
+      "back": "R = infinity (limiting sense), G = 0. The conductance is zero because i/v = 0/v = 0 for all nonzero v.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "What are the resistance and conductance of a short circuit?",
+      "back": "R = 0, G = infinity (limiting sense). The resistance is zero because v/i = 0/i = 0 for all nonzero i.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "State the five main dual pairs in circuit theory.",
+      "back": "v <-> i, R <-> G, series <-> parallel, KVL <-> KCL, open circuit <-> short circuit (and voltage source <-> current source).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "How do you geometrically find the dual of a v-i characteristic?",
+      "back": "Reflect the v-i characteristic about the 45-degree line (the line i = v). This swaps the roles of v and i, producing the dual element's characteristic.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "Why does duality 'halve your work'?",
+      "back": "If you solve a circuit and derive a result, the dual circuit's result is obtained by replacing every quantity with its dual. No re-derivation is needed.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is the dual of the series resistance formula R_total = R1 + R2?",
+      "back": "The dual is the parallel conductance formula: G_total = G1 + G2. Replace R with G and series with parallel.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "How much power does an open circuit absorb? A short circuit?",
+      "back": "Both absorb zero power. For an open circuit, p = vi = v * 0 = 0. For a short circuit, p = vi = 0 * i = 0.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f10",
+      "front": "When does the duality principle NOT apply in its simple form?",
+      "back": "When the circuit is non-planar (cannot be drawn on a flat surface without crossing wires). For planar circuits, duality always applies.",
+      "difficultyLevel": 3
+    }
+  ]
+}

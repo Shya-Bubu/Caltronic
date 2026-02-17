@@ -1,65 +1,65 @@
 {
-    "id": "power-and-passivity-cards",
-    "cards": [
-        {
-            "id": "pc1",
-            "front": "Define Electric Power",
-            "back": "Rate of energy transfer. P = dE/dt",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "pc2",
-            "front": "Unit of Power",
-            "back": "Watt (W) = 1 Joule/second",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "pc3",
-            "front": "Passive Sign Convention",
-            "back": "Current enters positive terminal → P = VI means absorbed power.",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "pc4",
-            "front": "Absorbed Power",
-            "back": "Energy consumed by element (P > 0).",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "pc5",
-            "front": "Delivered Power",
-            "back": "Energy supplied by element (P < 0).",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "pc6",
-            "front": "Law of Conservation of Power",
-            "back": "Sum of power in a closed circuit is ZERO.",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "pc7",
-            "front": "Active Element",
-            "back": "Capable of generating energy (e.g., Battery, Op-Amp).",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "pc8",
-            "front": "Passive Element",
-            "back": "Consumes energy (e.g., Resistor, Bulb).",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "pc9",
-            "front": "Instantaneous Power",
-            "back": "p(t) = v(t) * i(t)",
-            "difficultyLevel": 3
-        },
-        {
-            "id": "pc10",
-            "front": "Power in Resistor",
-            "back": "Always positive (absorbs). P = I^2R >= 0.",
-            "difficultyLevel": 2
-        }
-    ]
+  "id": "power-and-passivity-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "Write the three equivalent forms of power for a linear resistor.",
+      "back": "p(t) = v(t) * i(t) = R * [i(t)]^2 = G * [v(t)]^2, where G = 1/R.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "Define a passive resistor using the v-i plane.",
+      "back": "A resistor is passive if its entire v-i characteristic lies in the closed first and third quadrants, meaning p = vi >= 0 at every operating point.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "Define an active resistor.",
+      "back": "A resistor is active if it is not passive: its v-i characteristic enters the second or fourth quadrant, meaning there exist operating points where p = vi < 0 (the device delivers energy).",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "Describe the quadrant test for passivity.",
+      "back": "Plot the v-i characteristic. If the curve stays entirely in quadrants I and III (including the axes), the device is passive. If any part enters quadrant II or IV, it is active.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "For a linear resistor, what determines passivity?",
+      "back": "The sign of R. If R > 0, the resistor is passive (p = Ri^2 >= 0 always). If R < 0, it is active (p = Ri^2 <= 0 always, delivering energy).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "In which two quadrants is p = vi negative?",
+      "back": "Quadrant II (v < 0, i > 0) and quadrant IV (v > 0, i < 0). In both, voltage and current have opposite signs, so their product is negative.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "Give a physical example of a device with negative resistance.",
+      "back": "A tunnel diode exhibits a region of negative differential resistance where increasing voltage causes decreasing current. Certain op-amp feedback circuits can also create effective negative resistance.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Can a nonlinear resistor be passive?",
+      "back": "Yes. Passivity depends on the v-i characteristic staying in quadrants I and III, not on linearity. Example: a diode with i = Is(e^(v/VT) - 1) is nonlinear and passive.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What does negative power (p < 0) mean physically?",
+      "back": "The element is delivering energy to the rest of the circuit rather than absorbing it. The element acts as a source, not a sink, of energy.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f10",
+      "front": "Calculate: R = 1 kohm, i = 5 mA. What are v and p?",
+      "back": "v = Ri = 1000 * 0.005 = 5 V. p = vi = 5 * 0.005 = 25 mW. Since p > 0, the resistor absorbs 25 mW (passive).",
+      "difficultyLevel": 3
+    }
+  ]
 }

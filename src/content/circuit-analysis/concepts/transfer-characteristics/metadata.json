@@ -1,0 +1,11 @@
+{
+  "id": "transfer-characteristics",
+  "title": "Transfer Characteristics",
+  "slug": "transfer-characteristics",
+  "estimatedMinutes": 10,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

@@ -61,6 +61,14 @@ function isObject(value: unknown): value is Record<string, unknown> {
 }
 
 export function parseVisualRoot(value: unknown): VisualRoot | null {
+  // Support BOTH formats:
+  //   1. { "visuals": [...] }  (object wrapper — canonical format)
+  //   2. [...]                 (bare array — shorthand)
+  if (Array.isArray(value)) {
+    // Bare array → wrap as { visuals: value }
+    return parseVisualRoot({ visuals: value });
+  }
+
   if (!isObject(value)) return null;
 
   const visualsRaw = value.visuals;

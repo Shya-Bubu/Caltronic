@@ -1,125 +1,125 @@
 {
-    "id": "quiz-power-and-passivity",
-    "questions": [
-        {
-            "id": "pq1",
-            "prompt": "What is the fundamental definition of electric power?",
-            "options": [
-                "P = V/I",
-                "P = VI",
-                "P = I/V",
-                "P = V+I"
-            ],
-            "correctAnswer": "P = VI",
-            "explanation": "The formula P = VI corresponds to the definition of electric power as the rate at which electrical energy is transferred or converted into other forms."
-        },
-        {
-            "id": "pq2",
-            "prompt": "Which of the following is true about a passive component?",
-            "options": [
-                "It can generate net energy",
-                "It can only consume or store energy",
-                "It always has negative power",
-                "It is a source of electromotive force"
-            ],
-            "correctAnswer": "It can only consume or store energy",
-            "explanation": "Passive components, such as resistors, capacitors, and inductors, are defined by their inability to generate net energy; they can only consume or store it."
-        },
-        {
-            "id": "pq3",
-            "prompt": "Which component is considered an 'active' element?",
-            "options": [
-                "Resistor",
-                "Capacitor",
-                "Voltage Source",
-                "Inductor"
-            ],
-            "correctAnswer": "Voltage Source",
-            "explanation": "Active components like voltage sources and transistors are capable of introducing net energy into a circuit, distinguishing them from passive components."
-        },
-        {
-            "id": "pq4",
-            "prompt": "Under the passive sign convention, if current enters the positive terminal, power is:",
-            "options": [
-                "Negative (Supplied)",
-                "Zero",
-                "Positive (Absorbed)",
-                "Undefined"
-            ],
-            "correctAnswer": "Positive (Absorbed)",
-            "explanation": "According to the passive sign convention, power is positive when current enters the positive voltage terminal, indicating the element is absorbing power."
-        },
-        {
-            "id": "pq5",
-            "prompt": "If calculation yields a negative power value (P < 0) for an element, what does it mean?",
-            "options": [
-                "The element is absorbing power",
-                "The element is broken",
-                "The element is supplying power",
-                "The calculation must be wrong"
-            ],
-            "correctAnswer": "The element is supplying power",
-            "explanation": "If the calculated power is negative (P < 0), it implies that the actual direction of energy flow is leaving the component, meaning it is supplying power."
-        },
-        {
-            "id": "pq6",
-            "prompt": "Can a resistor ever supply average power to a circuit?",
-            "options": [
-                "Yes, in AC circuits",
-                "No, it always absorbs power",
-                "Yes, if connected backwards",
-                "Only at high frequencies"
-            ],
-            "correctAnswer": "No, it always absorbs power",
-            "explanation": "Resistors are inherently passive devices that dissipate electrical energy as heat, so the power absorbed by a resistor is always a positive value."
-        },
-        {
-            "id": "pq7",
-            "prompt": "Which is a valid alternative formula for power in a resistor?",
-            "options": [
-                "P = I²R",
-                "P = V²/I",
-                "P = IR",
-                "P = V/R"
-            ],
-            "correctAnswer": "P = I²R",
-            "explanation": "To modify the formula P = VI for a resistor using Ohm's Law (V = IR), replace V to get P = (IR)I = I²R, or replace I to get P = V(V/R) = V²/R."
-        },
-        {
-            "id": "pq8",
-            "prompt": "How is energy related to power?",
-            "options": [
-                "Energy is the derivative of Power",
-                "Energy is Power divided by Time",
-                "Energy is the integral of Power over time",
-                "They are the same thing"
-            ],
-            "correctAnswer": "Energy is the integral of Power over time",
-            "explanation": "Energy is the accumulation of power over time, calculated by integrating the power function P(t) with respect to time over the desired interval."
-        },
-        {
-            "id": "pq9",
-            "prompt": "In a complete circuit, the algebraic sum of power for all elements must be:",
-            "options": [
-                "Positive",
-                "Negative",
-                "Zero",
-                "Infinite"
-            ],
-            "correctAnswer": "Zero",
-            "explanation": "Conservation of power states that in any isolated circuit, the total power generated by active elements must exactly equal the total power consumed by passive elements."
-        },
-        {
-            "id": "pq10",
-            "prompt": "A 100W bulb runs for 1 hour. How much energy is consumed?",
-            "options": [
-                "100 J",
-                "360 kJ",
-                "60 J",
-                "1000 J"
-            ],
-            "correctAnswer": "360 kJ",
-            "explanation": "A 100W light bulb left on for 1 hour consumes energy equal to Power × Time. 100 W × 3600 s = 360,000 Joules, or 0.1 kWh."
-        }
-    ]
+  "id": "power-and-passivity-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A 500-ohm resistor carries 20 mA. What power does it absorb?",
+      "options": [
+        "A) 10 mW",
+        "B) 200 mW",
+        "C) 0.2 W",
+        "D) 5 W"
+      ],
+      "correctAnswer": "B) 200 mW",
+      "explanation": "p = R * i^2 = 500 * (0.02)^2 = 500 * 0.0004 = 0.2 W = 200 mW."
+    },
+    {
+      "id": "q2",
+      "prompt": "A resistor has R = -50 ohm. When i = 0.1 A, the power absorbed is:",
+      "options": [
+        "A) +0.5 W",
+        "B) -0.5 W",
+        "C) +5 W",
+        "D) -5 W"
+      ],
+      "correctAnswer": "B) -0.5 W",
+      "explanation": "p = R * i^2 = (-50)(0.1)^2 = (-50)(0.01) = -0.5 W. The negative sign means it delivers 0.5 W."
+    },
+    {
+      "id": "q3",
+      "prompt": "A device's v-i characteristic lies entirely in the first and third quadrants. The device is:",
+      "options": [
+        "A) Active",
+        "B) Passive",
+        "C) Linear",
+        "D) Nonlinear"
+      ],
+      "correctAnswer": "B) Passive",
+      "explanation": "A characteristic in the closed first and third quadrants means p = vi >= 0 at every operating point, which is the definition of a passive device."
+    },
+    {
+      "id": "q4",
+      "prompt": "In which quadrant(s) of the v-i plane is p = vi negative?",
+      "options": [
+        "A) I and III",
+        "B) II and IV",
+        "C) I and IV",
+        "D) II and III"
+      ],
+      "correctAnswer": "B) II and IV",
+      "explanation": "In quadrant II: v < 0, i > 0, so vi < 0. In quadrant IV: v > 0, i < 0, so vi < 0. These are the active regions."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which of these three power formulas is INCORRECT for a linear resistor?",
+      "options": [
+        "A) p = vi",
+        "B) p = Ri^2",
+        "C) p = Gv^2",
+        "D) p = Rv^2"
+      ],
+      "correctAnswer": "D) p = Rv^2",
+      "explanation": "p = Rv^2 is incorrect. The correct forms are p = vi, p = Ri^2, and p = Gv^2 (= v^2/R)."
+    },
+    {
+      "id": "q6",
+      "prompt": "A linear resistor with R > 0 can deliver energy to the circuit.",
+      "options": [
+        "A) True, if the current is large enough",
+        "B) True, if the voltage is negative",
+        "C) False, it always absorbs energy",
+        "D) False, but only for DC circuits"
+      ],
+      "correctAnswer": "C) False, it always absorbs energy",
+      "explanation": "With R > 0, p = Ri^2 >= 0 always. The resistor always absorbs energy (or absorbs zero when i = 0). It can never deliver energy."
+    },
+    {
+      "id": "q7",
+      "prompt": "A nonlinear resistor has the characteristic i = v^3. Is it passive?",
+      "options": [
+        "A) Yes, because the curve stays in quadrants I and III",
+        "B) No, because it is nonlinear",
+        "C) No, because it enters quadrant II",
+        "D) Cannot be determined without more information"
+      ],
+      "correctAnswer": "A) Yes, because the curve stays in quadrants I and III",
+      "explanation": "For i = v^3: when v > 0, i > 0 (quadrant I). When v < 0, i < 0 (quadrant III). The curve stays in I and III, so p = vi >= 0 everywhere. The device is passive."
+    },
+    {
+      "id": "q8",
+      "prompt": "A tunnel diode has a region where increasing v causes decreasing i. This region is called:",
+      "options": [
+        "A) Forward bias region",
+        "B) Breakdown region",
+        "C) Negative differential resistance region",
+        "D) Passive region"
+      ],
+      "correctAnswer": "C) Negative differential resistance region",
+      "explanation": "When di/dv < 0 (increasing voltage causes decreasing current), the device exhibits negative differential resistance. This is a hallmark of certain active devices like tunnel diodes."
+    },
+    {
+      "id": "q9",
+      "prompt": "Power absorbed by a 2 kohm resistor with 10V across it is:",
+      "options": [
+        "A) 5 mW",
+        "B) 50 mW",
+        "C) 20 mW",
+        "D) 200 mW"
+      ],
+      "correctAnswer": "B) 50 mW",
+      "explanation": "p = Gv^2 = (1/R)v^2 = (1/2000)(10)^2 = 100/2000 = 0.05 W = 50 mW."
+    },
+    {
+      "id": "q10",
+      "prompt": "An element has v = 3V and i = -2A under the associated reference direction. It is:",
+      "options": [
+        "A) Absorbing 6W",
+        "B) Delivering 6W",
+        "C) Absorbing 1W",
+        "D) Neither absorbing nor delivering"
+      ],
+      "correctAnswer": "B) Delivering 6W",
+      "explanation": "p = vi = (3)(-2) = -6 W. Since p < 0, the element delivers 6W to the rest of the circuit (operating in quadrant IV: v > 0, i < 0)."
+    }
+  ]
 }

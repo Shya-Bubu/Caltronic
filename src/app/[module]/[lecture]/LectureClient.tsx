@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import type { LectureContract } from '@/core/contracts/LectureContract';
 import { useLectureFlow, type UseLectureFlowResult } from '@/core/flow';
 import type { LoadedConcept } from '@/core/loaders';
@@ -11,6 +11,7 @@ import QuizView from './components/QuizView';
 import FlashcardView from './components/FlashcardView';
 import Tabs, { type TabItem } from './components/Tabs';
 import SimulationEmbed from './components/SimulationEmbed';
+import MobileNav from './components/MobileNav';
 import styles from './LectureClient.module.css';
 
 type ViewKey =
@@ -31,7 +32,16 @@ const VIEW_TABS: ReadonlyArray<TabItem<ViewKey>> = [
     { key: 'flashcards', label: 'Flashcards' },
 ] as const;
 
+// Tabs for unified content (no separate Intuition/Engineering/Mathematics)
+const UNIFIED_VIEW_TABS: ReadonlyArray<TabItem<ViewKey>> = [
+    { key: 'intuition', label: 'Content' }, // 'intuition' key maps to unified content
+    { key: 'exam', label: 'Exam' },
+    { key: 'flashcards', label: 'Flashcards' },
+    { key: 'quiz', label: 'Quiz' },
+] as const;
+
 const VIEW_ORDER: ReadonlyArray<ViewKey> = VIEW_TABS.map((t) => t.key);
+const UNIFIED_VIEW_ORDER: ReadonlyArray<ViewKey> = UNIFIED_VIEW_TABS.map((t) => t.key);
 
 function LectureEdgeScreen({
     title,
@@ -263,6 +273,13 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
 
     const layerMarkdown = useMemo((): string => {
         if (!concept) return '';
+        // Use unified content if available
+        if (concept.hasUnifiedContent && concept.layers.content) {
+            if (activeView === 'intuition') return concept.layers.content;
+            if (activeView === 'exam') return concept.layers.exam;
+            return '';
+        }
+        // Legacy tab-based content
         if (activeView === 'intuition') return concept.layers.intuition;
         if (activeView === 'engineering') return concept.layers.engineering;
         if (activeView === 'mathematics') return concept.layers.mathematics;
@@ -276,27 +293,29 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
     if (!concept) return null;
 
     const isComplete = flow.isConceptComplete(concept.id);
-    const activeIndex = VIEW_ORDER.indexOf(activeView);
+    // Use correct view order based on content type
+    const viewOrder = concept.hasUnifiedContent ? UNIFIED_VIEW_ORDER : VIEW_ORDER;
+    const activeIndex = viewOrder.indexOf(activeView);
 
     // Navigation logic
     const isFirstSection = activeView === 'intuition';
-    const isLastSection = activeView === 'flashcards';
+    const isLastSection = activeView === 'quiz';
     const canGoPrevLayer = activeIndex > 0;
-    const canGoNextLayer = activeIndex >= 0 && activeIndex < VIEW_ORDER.length - 1;
+    const canGoNextLayer = activeIndex >= 0 && activeIndex < viewOrder.length - 1;
     const canGoPrevConcept = flow.canGoPrevious;
     const canGoNextConcept = flow.canGoNext;
 
-    // Previous button: go to prev section, or prev concept's flashcards if on intuition
+    // Previous button: go to prev section, or prev concept's quiz if on intuition
     const handlePrevious = () => {
         if (isFirstSection) {
             // Go to previous concept (will start at intuition, but that's the reset behavior)
             if (flow.goPrevious()) {
-                // After going to prev concept, jump to flashcards (last section)
-                setActiveView('flashcards');
+                // After going to prev concept, jump to quiz (last section)
+                setActiveView('quiz');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         } else {
-            handleViewChange(VIEW_ORDER[activeIndex - 1]!);
+            handleViewChange(viewOrder[activeIndex - 1]!);
         }
     };
 
@@ -318,7 +337,7 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
                 }, 50);
             }
         } else {
-            handleViewChange(VIEW_ORDER[activeIndex + 1]!);
+            handleViewChange(viewOrder[activeIndex + 1]!);
         }
     };
 
@@ -341,23 +360,24 @@ function ConceptViewer({ flow }: { flow: UseLectureFlowResult }) {
                 </div>
 
                 <div className={styles.viewerControls}>
-                    <Tabs items={VIEW_TABS} activeKey={activeView} onChange={handleViewChange} />
+                    <Tabs
+                        items={concept.hasUnifiedContent ? UNIFIED_VIEW_TABS : VIEW_TABS}
+                        activeKey={activeView}
+                        onChange={handleViewChange}
+                    />
                 </div>
             </header>
 
-            <div className={styles.contentShell}>
+            <div key={concept.id} className={styles.contentShell}>
                 <article className={styles.content}>
                     {activeView === 'quiz' ? (
-                        <QuizView quiz={concept.layers.quiz} />
+                        <QuizView key={concept.id} quiz={concept.layers.quiz} />
                     ) : activeView === 'flashcards' ? (
-                        <FlashcardView deck={concept.layers.flashcards} />
+                        <FlashcardView key={concept.id} deck={concept.layers.flashcards} />
                     ) : (
                         <>
-                            {/* Show simulation at top of Intuition view */}
-                            {activeView === 'intuition' && simulationId && (
-                                <SimulationEmbed simulationId={simulationId} />
-                            )}
-                            <MarkdownView markdown={layerMarkdown} visuals={concept.layers.visuals} />
+                            {/* Simulations now rendered inline via [[visual:id]] markers in markdown */}
+                            <MarkdownView key={`${concept.id}-${activeView}`} markdown={layerMarkdown} visuals={concept.layers.visuals} />
                         </>
                     )}
                 </article>
@@ -461,13 +481,70 @@ export default function LectureClient({
         // No enforced progression: completion updates are informational only.
     }, [flow.isLectureComplete]);
 
+    // Mobile navigation handlers
+    const handleMobileNav = useCallback((direction: 'prev' | 'next') => {
+        if (mode === 'overview') {
+            if (direction === 'next') {
+                setMode('concepts');
+                flow.goToIndex(0);
+            }
+            // Can't go prev from overview
+        } else if (mode === 'concepts') {
+            if (direction === 'prev') {
+                if (flow.currentIndex > 0) {
+                    flow.goPrevious();
+                } else {
+                    setMode('overview');
+                }
+            } else {
+                if (flow.currentIndex < concepts.length - 1) {
+                    flow.goNext();
+                } else {
+                    setMode('synthesis');
+                }
+            }
+        } else if (mode === 'synthesis') {
+            if (direction === 'prev') {
+                setMode('concepts');
+                flow.goToIndex(concepts.length - 1);
+            } else {
+                setMode('resources');
+            }
+        } else if (mode === 'resources') {
+            if (direction === 'prev') {
+                setMode('synthesis');
+            }
+            // Can't go next from resources
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [mode, flow, concepts.length, setMode]);
+
+    // Determine mobile nav button states
+    const canMobileGoPrev = mode !== 'overview';
+    const canMobileGoNext = mode !== 'resources';
+
     return (
         <main className={styles.page}>
+            {/* Persistent Progress Bar */}
+            <div className={styles.progressStrip}>
+                <div
+                    className={styles.progressStripFill}
+                    style={{ width: `${concepts.length > 0 ? (Array.from(flow.completionStatus.values()).filter(Boolean).length / concepts.length) * 100 : 0}%` }}
+                />
+            </div>
+
             <header className={styles.topbar}>
                 <div className={styles.topbarInner}>
-                    <h1 className={styles.lectureTitle}>{lecture.title}</h1>
-                    <div className={styles.lectureMeta}>
-                        {concepts.length} concepts • {Array.from(flow.completionStatus.values()).filter(Boolean).length} explored
+                    <div className={styles.topbarMain}>
+                        <h1 className={styles.lectureTitle}>{lecture.title}</h1>
+                        <div className={styles.progressBadge}>
+                            <span className={styles.progressBadgeCount}>
+                                {Array.from(flow.completionStatus.values()).filter(Boolean).length}
+                            </span>
+                            <span className={styles.progressBadgeSep}>/</span>
+                            <span className={styles.progressBadgeTotal}>{concepts.length}</span>
+                            <span className={styles.progressBadgeLabel}>Concepts</span>
+                        </div>
                     </div>
                     <div className={styles.lessonMap}>
                         {concepts.map((concept, i) => (
@@ -519,13 +596,19 @@ export default function LectureClient({
                                 <Button
                                     variant="primary"
                                     onClick={() => {
-                                        try {
-                                            localStorage.setItem(`caltronic:lesson:${lecture.id}:complete:v1`, 'true');
-                                            alert(`${lecture.title} marked complete!`);
-                                        } catch { /* ignore */ }
+                                        // Mark ALL concepts as complete in the flow
+                                        for (const concept of concepts) {
+                                            if (!flow.isConceptComplete(concept.id)) {
+                                                flow.markConceptComplete(concept.id);
+                                            }
+                                        }
                                     }}
+                                    style={flow.isLectureComplete ? {
+                                        opacity: 0.7,
+                                        pointerEvents: 'none' as const,
+                                    } : undefined}
                                 >
-                                    Mark {lecture.title} Complete
+                                    {flow.isLectureComplete ? '✓ Lesson Completed' : `Mark ${lecture.title} Complete`}
                                 </Button>
                             </>
                         }
@@ -553,6 +636,18 @@ export default function LectureClient({
                     <ConceptViewer flow={flow} />
                 )}
             </div>
+
+            {/* Mobile Navigation Bar */}
+            <MobileNav
+                concepts={concepts}
+                flow={flow}
+                mode={mode}
+                setMode={setMode}
+                onPrevious={() => handleMobileNav('prev')}
+                onNext={() => handleMobileNav('next')}
+                canGoPrev={canMobileGoPrev}
+                canGoNext={canMobileGoNext}
+            />
         </main>
     );
 }

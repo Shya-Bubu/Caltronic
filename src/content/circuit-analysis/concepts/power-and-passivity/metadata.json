@@ -1,13 +1,11 @@
 {
-    "id": "power-and-passivity",
-    "title": "Power, Passive & Active Resistors",
-    "lesson": "lesson-01",
-    "order": 2,
-    "intuitionPath": "intuition.md",
-    "engineeringPath": "engineering.md",
-    "mathematicsPath": "mathematics.md",
-    "examPath": "exam.md",
-    "visualsPath": "visuals.json",
-    "quizPath": "quiz.json",
-    "flashcardsPath": "flashcards.json"
+  "id": "power-and-passivity",
+  "title": "Power and Passivity",
+  "slug": "power-and-passivity",
+  "estimatedMinutes": 10,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
 }

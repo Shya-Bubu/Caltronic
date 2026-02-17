@@ -1,304 +1,506 @@
 {
-    "conceptId": "dc-operating-points",
-    "visuals": [
+  "visuals": [
+    {
+      "id": "dc-concept",
+      "type": "circuit-schematic",
+      "title": "DC Analysis: One-Port Meets One-Port",
+      "description": "Any DC circuit reduces to two one-ports (sub-circuits A and B) connected at their shared terminals. The operating point is where their v-i curves intersect — this is the voltage and current the circuit actually settles to.",
+      "width": 480,
+      "height": 220,
+      "elements": [
         {
-            "id": "v1",
-            "type": "d3-iv-curve",
-            "title": "Load Line Construction",
-            "description": "Battery (Vs, Rs) driving a nonlinear element. Load line: v = Vs - i·Rs. Q-point is the intersection.",
-            "curves": [
-                {
-                    "label": "Nonlinear Element",
-                    "type": "diode",
-                    "color": "#ef4444"
-                },
-                {
-                    "label": "Load Line",
-                    "type": "real-voltage-source",
-                    "voltage": 10,
-                    "internalResistance": 100,
-                    "color": "#3b82f6",
-                    "dashed": true
-                }
-            ],
-            "annotations": [
-                {
-                    "point": {
-                        "v": 0.7,
-                        "i": 0.093
-                    },
-                    "text": "Q-point"
-                }
-            ]
+          "component": "text",
+          "x": 120,
+          "y": 50,
+          "text": "Sub-circuit A",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#3b82f6"
         },
         {
-            "id": "v2",
-            "type": "d3-iv-curve",
-            "title": "Multiple Load Lines",
-            "description": "Changing source voltage or resistance changes the load line slope/intercept, moving the Q-point.",
-            "curves": [
-                {
-                    "label": "Diode",
-                    "type": "diode",
-                    "color": "#ef4444"
-                },
-                {
-                    "label": "Vs=5V, Rs=100Ω",
-                    "type": "real-voltage-source",
-                    "voltage": 5,
-                    "internalResistance": 100,
-                    "color": "#3b82f6",
-                    "dashed": true
-                },
-                {
-                    "label": "Vs=10V, Rs=100Ω",
-                    "type": "real-voltage-source",
-                    "voltage": 10,
-                    "internalResistance": 100,
-                    "color": "#10b981",
-                    "dashed": true
-                }
-            ]
+          "component": "text",
+          "x": 120,
+          "y": 110,
+          "text": "f₁(v,i) = 0",
+          "fontSize": 12,
+          "fontStyle": "italic",
+          "color": "#3b82f6"
         },
         {
-            "id": "v3",
-            "type": "d3-block-diagram",
-            "title": "DC Operating Point Circuit",
-            "description": "Source with internal resistance Rs connected to nonlinear load. Q-point determines steady-state voltage and current.",
-            "blocks": [
-                {
-                    "id": "vs",
-                    "label": "Vs",
-                    "x": 20,
-                    "y": 60,
-                    "type": "input"
-                },
-                {
-                    "id": "rs",
-                    "label": "Rs",
-                    "x": 100,
-                    "y": 50,
-                    "width": 60,
-                    "type": "process"
-                },
-                {
-                    "id": "load",
-                    "label": "Nonlinear\\nLoad",
-                    "x": 200,
-                    "y": 40,
-                    "width": 90,
-                    "type": "process"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "vs",
-                    "to": "rs"
-                },
-                {
-                    "from": "rs",
-                    "to": "load",
-                    "label": "Q-point"
-                }
-            ]
+          "component": "text",
+          "x": 360,
+          "y": 50,
+          "text": "Sub-circuit B",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#ef4444"
         },
         {
-            "id": "v4",
-            "type": "d3-iv-curve",
-            "title": "Graphical Solution Method",
-            "description": "Step 1: Plot element characteristic. Step 2: Draw load line. Step 3: Find intersection = Q-point.",
-            "curves": [
-                {
-                    "label": "Element",
-                    "type": "pn-junction",
-                    "color": "#8b5cf6"
-                },
-                {
-                    "label": "Load Line",
-                    "type": "real-voltage-source",
-                    "voltage": 10,
-                    "internalResistance": 50,
-                    "color": "#f59e0b",
-                    "dashed": true
-                }
-            ]
+          "component": "text",
+          "x": 360,
+          "y": 110,
+          "text": "f₂(v,i) = 0",
+          "fontSize": 12,
+          "fontStyle": "italic",
+          "color": "#ef4444"
         },
         {
-            "id": "v5",
-            "type": "d3-iv-curve",
-            "title": "Q-Point Stability",
-            "description": "Small changes in element characteristic (due to temperature, aging) cause small Q-point shifts if load line slope is appropriate.",
-            "curves": [
-                {
-                    "label": "Nominal Diode",
-                    "type": "pn-junction",
-                    "color": "#3b82f6"
-                },
-                {
-                    "label": "Load Line",
-                    "type": "real-voltage-source",
-                    "voltage": 10,
-                    "internalResistance": 100,
-                    "color": "#ef4444",
-                    "dashed": true
-                }
-            ]
+          "component": "wire",
+          "x1": 200,
+          "y1": 80,
+          "x2": 280,
+          "y2": 80
         },
         {
-            "id": "v6",
-            "type": "d3-block-diagram",
-            "title": "Thevenin Equivalent Source",
-            "description": "Any linear circuit with sources and resistors can be replaced by Vth and Rth for load line analysis.",
-            "blocks": [
-                {
-                    "id": "vth",
-                    "label": "Vth",
-                    "x": 30,
-                    "y": 60,
-                    "type": "input"
-                },
-                {
-                    "id": "rth",
-                    "label": "Rth",
-                    "x": 120,
-                    "y": 50,
-                    "width": 60,
-                    "type": "process"
-                },
-                {
-                    "id": "load",
-                    "label": "Load",
-                    "x": 220,
-                    "y": 50,
-                    "width": 60,
-                    "type": "process"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "vth",
-                    "to": "rth"
-                },
-                {
-                    "from": "rth",
-                    "to": "load"
-                }
-            ]
+          "component": "wire",
+          "x1": 200,
+          "y1": 140,
+          "x2": 280,
+          "y2": 140
         },
         {
-            "id": "v7",
-            "type": "d3-iv-curve",
-            "title": "Current Source Load Line",
-            "description": "Current source (Is, Gs) gives horizontal load line: i = Is - v·Gs. Different from voltage source!",
-            "curves": [
-                {
-                    "label": "Element",
-                    "type": "linear-resistor",
-                    "resistance": 100,
-                    "color": "#3b82f6"
-                },
-                {
-                    "label": "Current Source Load Line",
-                    "type": "current-source",
-                    "current": 0.1,
-                    "color": "#10b981",
-                    "dashed": true
-                }
-            ]
+          "component": "current-arrow",
+          "x": 240,
+          "y": 60,
+          "label": "i"
         },
         {
-            "id": "v8",
-            "type": "d3-iv-curve",
-            "title": "No Solution Case",
-            "description": "If load line and element characteristic don't intersect, no DC operating point exists!",
-            "curves": [
-                {
-                    "label": "Element (shifted)",
-                    "type": "diode",
-                    "color": "#ef4444"
-                },
-                {
-                    "label": "Load Line (no intersection)",
-                    "type": "linear-resistor",
-                    "resistance": 10,
-                    "color": "#f59e0b",
-                    "dashed": true
-                }
-            ]
+          "component": "text",
+          "x": 240,
+          "y": 165,
+          "text": "Same v, same i",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "var(--accent)"
         },
         {
-            "id": "v9",
-            "type": "d3-iv-curve",
-            "title": "Multiple Solutions Case",
-            "description": "Tunnel diode or other elements with negative resistance regions can have multiple Q-points. Need stability analysis!",
-            "curves": [
-                {
-                    "label": "Tunnel Diode",
-                    "type": "tunnel",
-                    "color": "#8b5cf6"
-                },
-                {
-                    "label": "Load Line",
-                    "type": "real-voltage-source",
-                    "voltage": 0.5,
-                    "internalResistance": 50,
-                    "color": "#3b82f6",
-                    "dashed": true
-                }
-            ]
-        },
-        {
-            "id": "v10",
-            "type": "d3-block-diagram",
-            "title": "Biasing Network Example",
-            "description": "Resistor divider + series resistor creates appropriate Q-point for diode or transistor.",
-            "blocks": [
-                {
-                    "id": "vcc",
-                    "label": "Vcc",
-                    "x": 20,
-                    "y": 40,
-                    "type": "input"
-                },
-                {
-                    "id": "r1",
-                    "label": "R1",
-                    "x": 100,
-                    "y": 30,
-                    "width": 50,
-                    "type": "process"
-                },
-                {
-                    "id": "r2",
-                    "label": "R2",
-                    "x": 100,
-                    "y": 80,
-                    "width": 50,
-                    "type": "process"
-                },
-                {
-                    "id": "diode",
-                    "label": "Diode",
-                    "x": 200,
-                    "y": 50,
-                    "width": 60,
-                    "type": "process"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "vcc",
-                    "to": "r1"
-                },
-                {
-                    "from": "r1",
-                    "to": "r2"
-                },
-                {
-                    "from": "r1",
-                    "to": "diode"
-                }
-            ]
+          "component": "text",
+          "x": 240,
+          "y": 200,
+          "text": "OP = intersection of both v-i curves",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#22c55e"
         }
-    ]
+      ]
+    },
+    {
+      "id": "back-to-back",
+      "type": "plotly",
+      "title": "Graphical Load-Line Method",
+      "description": "Plot both curves on the same v-i plane. The load line (from Thévenin equivalent of sub-circuit A) is a straight line. The nonlinear curve (sub-circuit B, e.g., a diode) is a curve. Their intersection is the DC operating point (Q-point).",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0.0005,
+            0.004,
+            0.012,
+            0.03,
+            0.06,
+            0.12
+          ],
+          "name": "Diode i-v curve",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "y": [
+            0.1,
+            0.08,
+            0.06,
+            0.04,
+            0.02,
+            0
+          ],
+          "name": "Load line (Vth=1V, Rth=10Ω)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0.68
+          ],
+          "y": [
+            0.032
+          ],
+          "name": "Q-point",
+          "mode": "markers",
+          "marker": {
+            "color": "#22c55e",
+            "size": 12,
+            "symbol": "circle"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -0.1,
+            1.2
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.01,
+            0.14
+          ]
+        },
+        "annotations": [
+          {
+            "x": 0.68,
+            "y": 0.038,
+            "text": "Operating Point (Q)",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": 40,
+            "ay": -25,
+            "font": {
+              "size": 12,
+              "color": "#22c55e"
+            }
+          }
+        ]
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 400
+    },
+    {
+      "id": "load-line-sim",
+      "type": "v3-load-line",
+      "title": "Interactive Load-Line Simulator",
+      "description": "Adjust the supply voltage and resistance to see how the load line shifts and the operating point moves along the diode curve."
+    },
+    {
+      "id": "op-point-plot",
+      "type": "plotly",
+      "title": "Unique, Multiple, and No Operating Points",
+      "description": "Left: a monotonic curve guarantees exactly ONE intersection (unique OP). Centre: an N-shaped curve (tunnel diode) can have THREE intersections (bistability!). Right: non-intersecting curves mean no valid OP (inconsistent circuit).",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.3,
+            0.5,
+            0.65,
+            0.7,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0.001,
+            0.012,
+            0.03,
+            0.12
+          ],
+          "name": "Unique: diode + load line",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0.1,
+            0.15,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.65
+          ],
+          "y": [
+            0,
+            0.04,
+            0.05,
+            0.045,
+            0.022,
+            0.012,
+            0.018,
+            0.06
+          ],
+          "name": "Multiple: tunnel diode",
+          "mode": "lines",
+          "line": {
+            "color": "#8b5cf6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0.2,
+            0.4,
+            0.6
+          ],
+          "y": [
+            0.08,
+            0.06,
+            0.04,
+            0.02
+          ],
+          "name": "Load line (shared)",
+          "mode": "lines",
+          "line": {
+            "color": "#94a3b8",
+            "width": 2,
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "newton-raphson-steps",
+      "type": "plotly",
+      "title": "Newton-Raphson Iteration for Finding the Operating Point",
+      "description": "When graphical methods aren't precise enough, Newton-Raphson iterates: start with a guess x₀, draw the tangent line, follow it to the x-axis → that's x₁. Repeat. Each step squares the number of correct digits (quadratic convergence).",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.2,
+            1.4
+          ],
+          "y": [
+            1,
+            0.7,
+            0.38,
+            0.12,
+            -0.05,
+            -0.15,
+            -0.18,
+            -0.12
+          ],
+          "name": "f(x) = 0 curve",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0.5
+          ],
+          "y": [
+            1,
+            -0.5
+          ],
+          "name": "Tangent at x₀ = 0",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 1.5,
+            "dash": "dash"
+          }
+        },
+        {
+          "x": [
+            0.33,
+            0.9
+          ],
+          "y": [
+            0.5,
+            -0.35
+          ],
+          "name": "Tangent at x₁",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 1.5,
+            "dash": "dash"
+          }
+        },
+        {
+          "x": [
+            0,
+            0.33,
+            0.72
+          ],
+          "y": [
+            0,
+            0,
+            0
+          ],
+          "name": "x₀ → x₁ → x₂",
+          "mode": "markers+text",
+          "marker": {
+            "color": "#22c55e",
+            "size": 8
+          },
+          "text": [
+            "x₀",
+            "x₁",
+            "x₂"
+          ],
+          "textposition": "top center"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "x"
+        },
+        "yaxis": {
+          "title": "f(x)"
+        }
+      },
+      "centeredAxes": true,
+      "width": 500,
+      "height": 380
+    },
+    {
+      "id": "diode-circuit-sim",
+      "type": "v3-diode-circuit",
+      "title": "Interactive Diode Circuit Simulator",
+      "description": "Adjust the supply voltage and load resistor to see how the operating point moves. The simulator shows both the circuit and the v-i plane simultaneously."
+    },
+    {
+      "id": "falstad-diode-bias",
+      "type": "falstad-sim",
+      "title": "Interactive: Diode Biased by Resistor",
+      "description": "A diode in series with a 1k resistor and 5V supply. The operating point is where the diode curve meets the load line.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 0 40 5 0 0 0.5\nr 160 96 352 96 0 1000\nd 352 96 352 288 2 default\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
+      "height": 450
+    },
+    {
+      "id": "stable-vs-unstable-op-point",
+      "type": "plotly",
+      "title": "Stable vs Unstable Operating Points",
+      "description": "A tunnel-diode load-line can intersect the device curve in three points. Points A and C are stable, B is unstable.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.1,
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8,
+            1
+          ],
+          "y": [
+            0,
+            8,
+            10,
+            4,
+            2,
+            4,
+            8,
+            15
+          ],
+          "name": "Tunnel Diode",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            1
+          ],
+          "y": [
+            12,
+            0
+          ],
+          "name": "Load Line",
+          "mode": "lines",
+          "line": {
+            "color": "#f472b6",
+            "width": 2,
+            "dash": "dot"
+          }
+        },
+        {
+          "x": [
+            0.08,
+            0.38,
+            0.78
+          ],
+          "y": [
+            9,
+            3.5,
+            8.5
+          ],
+          "name": "Op Points",
+          "mode": "markers+text",
+          "text": [
+            "A (stable)",
+            "B (unstable)",
+            "C (stable)"
+          ],
+          "textposition": "top center",
+          "marker": {
+            "size": 10,
+            "color": [
+              "#22c55e",
+              "#ef4444",
+              "#22c55e"
+            ]
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage (V)"
+        },
+        "yaxis": {
+          "title": "Current (mA)"
+        },
+        "showlegend": true
+      },
+      "centeredAxes": false,
+      "height": 380
+    }
+  ]
 }

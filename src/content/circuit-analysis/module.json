@@ -1,0 +1,12 @@
+{
+    "id": "circuit-analysis",
+    "title": "Circuit Analysis",
+    "description": "Core circuit laws, analysis techniques, and engineering problem solving",
+    "prerequisites": [],
+    "lessons": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04"
+    ]
+}

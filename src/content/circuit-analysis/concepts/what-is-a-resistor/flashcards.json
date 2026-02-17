@@ -1,0 +1,65 @@
+{
+  "id": "what-is-a-resistor-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What is the circuit theory definition of a two-terminal resistor?",
+      "back": "Any two-terminal element whose voltage v and current i satisfy a relationship f(v, i) = 0.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "Write the set notation for the v-i characteristic of a resistor.",
+      "back": "R = {(v, i) : f(v, i) = 0} — the set of all (v, i) pairs that satisfy the device's voltage-current relationship.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "How does the circuit theory definition of 'resistor' differ from the physics definition?",
+      "back": "Physics: a resistor obeys Ohm's law (v = Ri). Circuit theory: a resistor is any two-terminal element with any v-i relationship, including nonlinear devices, diodes, and sources.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "On the v-i plane, which variable is the horizontal axis?",
+      "back": "Voltage (v) is the horizontal axis (abscissa), and current (i) is the vertical axis (ordinate). The first variable in 'v-i' is always the horizontal.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "Is a DC voltage source a 'resistor' in circuit theory? Why?",
+      "back": "Yes. A DC voltage source has the characteristic v = Vs for all i, which satisfies f(v, i) = v - Vs = 0. It is a two-terminal element with a defined v-i relationship.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "What is the difference between a time-invariant and a time-varying resistor?",
+      "back": "Time-invariant: v-i relationship does not change with time (e.g., v = Ri, R constant). Time-varying: v-i relationship changes with time (e.g., v(t) = R(t) i(t) where R changes).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "Why is the v-i characteristic called the 'fundamental description' of a two-terminal resistor?",
+      "back": "Because it completely specifies the device's electrical behaviour — if you know all (v, i) pairs that satisfy f(v, i) = 0, you know everything about how the device will behave in any circuit.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Give three examples of devices that are 'resistors' in circuit theory but not in the physics sense.",
+      "back": "Ideal diode, PN-junction diode, DC voltage source, DC current source, tunnel diode, open circuit, short circuit — all have two terminals and a v-i relationship.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What does 'two-terminal' mean?",
+      "back": "The device has exactly two connection points (terminals) — one where current enters and one where current leaves. Examples: resistor leads, diode anode/cathode, battery +/-.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What is the practical advantage of the broad circuit theory definition of 'resistor'?",
+      "back": "All analysis techniques (series/parallel rules, graphical analysis, load-line method, PWL approximation) work for any two-terminal resistor, not just linear ones. One set of tools covers all devices.",
+      "difficultyLevel": 4
+    }
+  ]
+}

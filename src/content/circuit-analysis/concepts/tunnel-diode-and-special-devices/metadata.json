@@ -1,0 +1,11 @@
+{
+  "id": "tunnel-diode-and-special-devices",
+  "title": "Tunnel Diode and Special Two-Terminal Devices",
+  "slug": "tunnel-diode-and-special-devices",
+  "estimatedMinutes": 10,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

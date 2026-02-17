@@ -25,7 +25,7 @@
 
 .sep {
   margin: 0 0.35rem;
-  color: var(--text-faint);
+  color: var(--text-muted);
 }
 
 .link {
@@ -33,11 +33,12 @@
   text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 500;
 }
 
 .link:hover {
   color: var(--text);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .current {

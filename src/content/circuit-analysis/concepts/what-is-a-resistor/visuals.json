@@ -1,0 +1,644 @@
+{
+  "visuals": [
+    {
+      "id": "all-devices-vi",
+      "type": "plotly",
+      "title": "V-I Characteristics of Different Two-Terminal Resistors",
+      "description": "Every device shown here is a 'resistor' in circuit theory — they all satisfy f(v,i) = 0. Notice how different each curve looks, yet they're all the same type of element.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.04,
+            -0.03,
+            -0.02,
+            -0.01,
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "Linear R = 100Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "Open Circuit (i = 0)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            -0.5,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7,
+            0.75
+          ],
+          "y": [
+            -0.000001,
+            -0.000001,
+            -0.000001,
+            -0.000001,
+            -0.000001,
+            -0.000001,
+            0,
+            0.0001,
+            0.002,
+            0.008,
+            0.015,
+            0.03,
+            0.06
+          ],
+          "name": "PN-Junction Diode",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "y": [
+            -0.06,
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04,
+            0.06
+          ],
+          "name": "V Source (Vs = 3V)",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.07,
+            0.07
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 560,
+      "height": 420
+    },
+    {
+      "id": "linear-resistor-vi",
+      "type": "plotly",
+      "title": "Linear Resistor: V-I Characteristic (R = 100Ω)",
+      "description": "A perfect straight line through the origin. The slope on the v-i plane is G = 1/R = 0.01 S. Every point on this line satisfies v = 100·i.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.04,
+            -0.03,
+            -0.02,
+            -0.01,
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "R = 100Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.06,
+            0.06
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 480,
+      "height": 360
+    },
+    {
+      "id": "oc-sc-comparison",
+      "type": "plotly",
+      "title": "Open Circuit vs Short Circuit on the V-I Plane",
+      "description": "The open circuit (green) lies on the v-axis: current is always zero. The short circuit (purple) lies on the i-axis: voltage is always zero. These are the two extreme 'resistors.'",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "Open Circuit (R → ∞)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "y": [
+            -0.06,
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04,
+            0.06
+          ],
+          "name": "Short Circuit (R → 0)",
+          "mode": "lines",
+          "line": {
+            "color": "#a855f7",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.05,
+            0,
+            0.05
+          ],
+          "name": "Linear R = 100Ω (ref)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 1.5,
+            "dash": "dot"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.07,
+            0.07
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "two-terminal-element",
+      "type": "circuit-schematic",
+      "title": "Generic Two-Terminal Resistor (Circuit Theory Definition)",
+      "description": "Any device with two terminals whose voltage and current satisfy f(v,i) = 0 is a resistor. Current i enters the + terminal, voltage v is measured across.",
+      "width": 420,
+      "height": 200,
+      "elements": [
+        {
+          "component": "wire",
+          "x1": 50,
+          "y1": 100,
+          "x2": 130,
+          "y2": 100
+        },
+        {
+          "component": "wire",
+          "x1": 290,
+          "y1": 100,
+          "x2": 370,
+          "y2": 100
+        },
+        {
+          "component": "text",
+          "x": 210,
+          "y": 105,
+          "text": "f(v, i) = 0",
+          "fontSize": 13,
+          "color": "var(--accent)"
+        },
+        {
+          "component": "text",
+          "x": 37,
+          "y": 105,
+          "text": "+",
+          "fontSize": 14,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 383,
+          "y": 105,
+          "text": "−",
+          "fontSize": 14,
+          "color": "#ef4444"
+        },
+        {
+          "component": "current-arrow",
+          "x": 90,
+          "y": 75,
+          "label": "i"
+        },
+        {
+          "component": "voltage-mark",
+          "x": 210,
+          "y": 140,
+          "rotation": 90,
+          "label": "v"
+        }
+      ]
+    },
+    {
+      "id": "device-symbols-comparison",
+      "type": "circuit-schematic",
+      "title": "Different Devices — All \"Resistors\" in Circuit Theory",
+      "description": "A linear resistor, a PN-junction diode, and a DC voltage source — three very different devices, but all are two-terminal resistors with v-i relationships.",
+      "width": 520,
+      "height": 200,
+      "elements": [
+        {
+          "component": "resistor",
+          "x": 90,
+          "y": 90,
+          "label": "R",
+          "value": "100Ω"
+        },
+        {
+          "component": "wire",
+          "x1": 30,
+          "y1": 90,
+          "x2": 60,
+          "y2": 90
+        },
+        {
+          "component": "wire",
+          "x1": 120,
+          "y1": 90,
+          "x2": 150,
+          "y2": 90
+        },
+        {
+          "component": "text",
+          "x": 90,
+          "y": 145,
+          "text": "v = Ri",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#3b82f6"
+        },
+        {
+          "component": "diode",
+          "x": 260,
+          "y": 90,
+          "label": "D"
+        },
+        {
+          "component": "wire",
+          "x1": 200,
+          "y1": 90,
+          "x2": 230,
+          "y2": 90
+        },
+        {
+          "component": "wire",
+          "x1": 290,
+          "y1": 90,
+          "x2": 320,
+          "y2": 90
+        },
+        {
+          "component": "text",
+          "x": 260,
+          "y": 145,
+          "text": "i = Is(e^(v/Vt)−1)",
+          "fontSize": 9,
+          "fontStyle": "italic",
+          "color": "#ef4444"
+        },
+        {
+          "component": "voltage-source",
+          "x": 430,
+          "y": 90,
+          "label": "Vs",
+          "value": "3V"
+        },
+        {
+          "component": "wire",
+          "x1": 370,
+          "y1": 90,
+          "x2": 400,
+          "y2": 90
+        },
+        {
+          "component": "wire",
+          "x1": 460,
+          "y1": 90,
+          "x2": 490,
+          "y2": 90
+        },
+        {
+          "component": "text",
+          "x": 430,
+          "y": 145,
+          "text": "v = Vs (const)",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "falstad-simple-resistor",
+      "type": "falstad-sim",
+      "title": "Interactive: A Simple Resistor Circuit",
+      "description": "A 1kΩ resistor connected to a 5V DC source. Try right-clicking the resistor to change its value — watch how the current changes. This is Ohm's law in action: i = V/R.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 5 0 0 0.5\nr 160 96 352 96 0 1000\nw 352 96 352 288 0\nw 352 288 160 288 0\ng 256 288 256 320 0 0\nx 230 80 0 0 0 12 R=1k\no 1 64 0 4099 5 0.05 0 2 1 3\n",
+      "height": 450
+    },
+    {
+      "id": "ohms-law-explorer",
+      "type": "v3-ohms-law",
+      "title": "Interactive Ohm's Law Explorer",
+      "description": "Drag the sliders to change voltage and resistance. Watch the current update in real time on both the circuit and the v-i plot."
+    },
+    {
+      "id": "resistor-family-sweep",
+      "type": "plotly",
+      "title": "The Resistor Family: From Short Circuit to Open Circuit",
+      "description": "As R increases from 0 to ∞, the v-i line rotates from the i-axis (short circuit) to the v-axis (open circuit). Every linear resistor is a member of this family — the only difference is the slope.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0,
+            0
+          ],
+          "y": [
+            -0.06,
+            0,
+            0.06
+          ],
+          "name": "R = 0 (Short Circuit)",
+          "mode": "lines",
+          "line": {
+            "color": "#a855f7",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.05,
+            0,
+            0.05
+          ],
+          "name": "R = 100Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.01,
+            0,
+            0.01
+          ],
+          "name": "R = 500Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.005,
+            0,
+            0.005
+          ],
+          "name": "R = 1kΩ",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.001,
+            0,
+            0.001
+          ],
+          "name": "R = 5kΩ",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            -3,
+            0,
+            3,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "R → ∞ (Open Circuit)",
+          "mode": "lines",
+          "line": {
+            "color": "#6b7280",
+            "width": 3,
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.07,
+            0.07
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 400
+    }
+  ]
+}

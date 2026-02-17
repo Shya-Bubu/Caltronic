@@ -1,0 +1,11 @@
+{
+  "id": "what-is-a-resistor",
+  "title": "What Is a Resistor in Circuit Theory?",
+  "slug": "what-is-a-resistor",
+  "estimatedMinutes": 8,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

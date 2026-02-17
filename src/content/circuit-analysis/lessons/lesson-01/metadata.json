@@ -1,26 +1,25 @@
 {
-    "id": "lesson-01",
-    "title": "Two-Terminal Resistors",
-    "weeksCovered": [
-        1,
-        2,
-        3
-    ],
-    "overviewPath": "overview.md",
-    "synthesisPath": "synthesis.md",
-    "concepts": [
-        "linear-resistor-fundamentals",
-        "vi-characteristics-duality",
-        "open-short-circuits",
-        "power-and-passivity",
-        "ideal-diode-characteristics",
-        "nonlinear-resistor-properties",
-        "series-parallel-connections",
-        "piecewise-linear-analysis",
-        "time-varying-resistors",
-        "independent-sources",
-        "dc-operating-points"
-    ],
-    "description": "Comprehensive study of two-terminal resistors: linear, nonlinear, time-varying, series/parallel connections, sources, and DC analysis. Covers 24 pages of lecture material for a 3-week module.",
-    "status": "complete"
+  "id": "lesson-01",
+  "title": "Two-Terminal Resistors",
+  "slug": "lesson-01",
+  "description": "A comprehensive introduction to two-terminal resistors: from linear Ohm's law devices to nonlinear diodes, series/parallel connections, piecewise-linear models, and DC operating point analysis.",
+  "prerequisites": [],
+  "overviewPath": "overview.md",
+  "synthesisPath": "synthesis.md",
+  "concepts": [
+    "what-is-a-resistor",
+    "linear-resistors-ohms-law",
+    "open-short-circuits-duality",
+    "power-and-passivity",
+    "ideal-diode",
+    "pn-junction-diode",
+    "tunnel-diode-and-special-devices",
+    "series-connected-resistors",
+    "parallel-connections-and-duality",
+    "pwl-approximation",
+    "dc-operating-points",
+    "transfer-characteristics"
+  ],
+  "lectureWeek": 1,
+  "estimatedMinutes": 120
 }

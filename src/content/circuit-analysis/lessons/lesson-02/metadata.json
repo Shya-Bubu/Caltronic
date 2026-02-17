@@ -1,17 +1,31 @@
 {
+    "$schema": "lesson-metadata-v3",
     "id": "lesson-02",
     "title": "General Resistive Circuit Analysis",
-    "weeksCovered": [4, 5],
+    "continuity": {
+        "priorKnowledge": [
+            "Two-terminal resistor v-i characteristics (Section 1)",
+            "KCL and KVL fundamentals",
+            "Matrix algebra (multiplication, inversion, determinants)",
+            "Basic calculus (partial derivatives)"
+        ],
+        "startsAtLevel": "intermediate",
+        "assumedConcepts": [
+            "linear-resistors",
+            "nonlinear-resistors"
+        ]
+    },
+    "weeksCovered": [
+        3,
+        4
+    ],
+    "description": "Systematic methods for analyzing multi-node resistive circuits: nodal analysis with the node-admittance matrix, tableau analysis for arbitrary circuit elements including dependent sources, and Newton-Raphson iteration for nonlinear circuits with discrete equivalent circuit interpretation.",
+    "status": "complete",
     "overviewPath": "overview.md",
     "synthesisPath": "synthesis.md",
     "concepts": [
-        "kirchhoffs-laws",
         "nodal-analysis",
-        "mesh-analysis",
-        "superposition-principle",
-        "thevenin-norton-equivalents",
-        "maximum-power-transfer"
-    ],
-    "description": "Systematic methods for analyzing resistive circuits: Kirchhoff's Laws as foundation, nodal and mesh analysis as systematic approaches, superposition for multi-source circuits, Thévenin/Norton equivalents for simplification, and maximum power transfer for design optimization.",
-    "status": "complete"
+        "tableau-analysis",
+        "newton-raphson-circuits"
+    ]
 }

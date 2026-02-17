@@ -1,0 +1,125 @@
+{
+  "id": "pwl-approximation-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The main purpose of PWL approximation is to:",
+      "options": [
+        "A) Make nonlinear curves more accurate",
+        "B) Replace nonlinear curves with straight-line segments so linear analysis applies within each segment",
+        "C) Convert AC circuits to DC",
+        "D) Eliminate all nonlinear elements from a circuit"
+      ],
+      "correctAnswer": "B) Replace nonlinear curves with straight-line segments so linear analysis applies within each segment",
+      "explanation": "PWL approximation replaces smooth nonlinear curves with connected straight-line segments. Within each segment, the element behaves linearly, enabling standard linear circuit analysis."
+    },
+    {
+      "id": "q2",
+      "prompt": "A concave resistor has the characteristic: i = 0 for v <= E, and i = G(v - E) for v > E. This is a:",
+      "options": [
+        "A) Current-controlled PWL element",
+        "B) Voltage-controlled PWL element",
+        "C) Linear resistor",
+        "D) Bilateral element"
+      ],
+      "correctAnswer": "B) Voltage-controlled PWL element",
+      "explanation": "The concave resistor gives a unique current for each voltage (single-valued i-hat(v)), making it voltage-controlled. It has two segments with a breakpoint at v = E."
+    },
+    {
+      "id": "q3",
+      "prompt": "The dual of the concave resistor is:",
+      "options": [
+        "A) Another concave resistor",
+        "B) The convex resistor",
+        "C) A linear conductor",
+        "D) An ideal diode"
+      ],
+      "correctAnswer": "B) The convex resistor",
+      "explanation": "The convex resistor (v = 0 for i <= J, v = R(i-J) for i > J) is the exact dual of the concave resistor, with voltage and current roles swapped."
+    },
+    {
+      "id": "q4",
+      "prompt": "Any voltage-controlled PWL characteristic can be built from:",
+      "options": [
+        "A) Convex resistors in series",
+        "B) A current source + linear conductance + concave resistors in parallel",
+        "C) Ideal diodes only",
+        "D) Voltage sources in series"
+      ],
+      "correctAnswer": "B) A current source + linear conductance + concave resistors in parallel",
+      "explanation": "The decomposition theorem states that any voltage-controlled PWL curve equals I0 + G0*v + sum of concave resistor contributions, which is a parallel combination of a current source, linear conductance, and concave resistors."
+    },
+    {
+      "id": "q5",
+      "prompt": "A PWL curve has three segments with slopes 0.2 S, 0.8 S, and 2.3 S. The incremental slope changes G1 and G2 are:",
+      "options": [
+        "A) G1 = 0.8, G2 = 2.3",
+        "B) G1 = 0.6, G2 = 1.5",
+        "C) G1 = 1.0, G2 = 3.1",
+        "D) G1 = 0.2, G2 = 0.8"
+      ],
+      "correctAnswer": "B) G1 = 0.6, G2 = 1.5",
+      "explanation": "G1 = 0.8 - 0.2 = 0.6 (slope change at first breakpoint). G2 = 2.3 - 0.8 = 1.5 (slope change at second breakpoint). These are incremental changes, not absolute slopes."
+    },
+    {
+      "id": "q6",
+      "prompt": "In region analysis, after solving the linear circuit for an assumed region, you must:",
+      "options": [
+        "A) Immediately accept the answer",
+        "B) Verify that the solution falls within the assumed region's bounds",
+        "C) Solve for all regions simultaneously",
+        "D) Check that the power is positive"
+      ],
+      "correctAnswer": "B) Verify that the solution falls within the assumed region's bounds",
+      "explanation": "Consistency checking is essential. If the solution (e.g., a diode voltage) falls outside the assumed region, the assumption was wrong and you must try a different region."
+    },
+    {
+      "id": "q7",
+      "prompt": "The standard 2-segment PWL model of a PN-junction diode has:",
+      "options": [
+        "A) i = 0 for all v",
+        "B) i = 0 for v < V_gamma, and i = Gd(v - V_gamma) for v >= V_gamma",
+        "C) v = 0 for i < 0, and v = Rd*i for i >= 0",
+        "D) i = Is * e^(v/VT) everywhere"
+      ],
+      "correctAnswer": "B) i = 0 for v < V_gamma, and i = Gd(v - V_gamma) for v >= V_gamma",
+      "explanation": "The standard 2-segment model replaces the exponential with: off (zero current below V_gamma ~ 0.7V) and on (linear with conductance Gd above V_gamma). This is a single concave resistor."
+    },
+    {
+      "id": "q8",
+      "prompt": "For current-controlled PWL characteristics, the synthesis uses:",
+      "options": [
+        "A) Concave resistors in parallel",
+        "B) Voltage sources in parallel",
+        "C) Convex resistors in series (plus voltage source and linear resistance)",
+        "D) Only ideal diodes"
+      ],
+      "correctAnswer": "C) Convex resistors in series (plus voltage source and linear resistance)",
+      "explanation": "By duality: voltage-controlled PWL uses concave in parallel, so current-controlled PWL uses convex resistors in series, plus a voltage source V0 and linear resistance R0."
+    },
+    {
+      "id": "q9",
+      "prompt": "A circuit has two PWL diodes, each with 2 segments (on/off). How many region combinations must be checked at most?",
+      "options": [
+        "A) 2",
+        "B) 3",
+        "C) 4",
+        "D) 8"
+      ],
+      "correctAnswer": "C) 4",
+      "explanation": "Each diode has 2 states (on or off). With 2 diodes: 2 x 2 = 4 possible combinations. In practice, many can be eliminated quickly, but the maximum is 4."
+    },
+    {
+      "id": "q10",
+      "prompt": "If a PWL characteristic has a segment where the slope decreases compared to the previous segment, the corresponding Gk is:",
+      "options": [
+        "A) Positive",
+        "B) Zero",
+        "C) Negative",
+        "D) Undefined"
+      ],
+      "correctAnswer": "C) Negative",
+      "explanation": "Gk = (slope of next segment) - (slope of current segment). If the slope decreases, the difference is negative. This occurs in models with negative resistance regions, such as a PWL tunnel diode model."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "linear-resistors-ohms-law",
+  "title": "Linear Resistors and Ohm's Law",
+  "slug": "linear-resistors-ohms-law",
+  "estimatedMinutes": 10,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

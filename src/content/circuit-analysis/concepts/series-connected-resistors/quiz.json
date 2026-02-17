@@ -1,0 +1,125 @@
+{
+  "id": "series-connected-resistors-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In a series connection of two resistors, KCL forces:",
+      "options": [
+        "A) The voltages to be equal: v = v1 = v2",
+        "B) The currents to be equal: i = i1 = i2",
+        "C) The powers to be equal: p1 = p2",
+        "D) The resistances to add: R = R1 + R2 always"
+      ],
+      "correctAnswer": "B) The currents to be equal: i = i1 = i2",
+      "explanation": "In a series connection, the same current flows through both elements. KCL at the intermediate node gives i = i1 = i2."
+    },
+    {
+      "id": "q2",
+      "prompt": "In a series connection, KVL gives:",
+      "options": [
+        "A) i = i1 + i2",
+        "B) v = v1 * v2",
+        "C) v = v1 + v2",
+        "D) v = max(v1, v2)"
+      ],
+      "correctAnswer": "C) v = v1 + v2",
+      "explanation": "KVL around the loop containing both series elements and the port gives v = v1 + v2. The port voltage is the sum of the individual voltages."
+    },
+    {
+      "id": "q3",
+      "prompt": "Two current-controlled resistors with v1 = v-hat1(i) and v2 = v-hat2(i) are connected in series. The result is:",
+      "options": [
+        "A) Voltage-controlled with i = i-hat1(v) + i-hat2(v)",
+        "B) Current-controlled with v = v-hat1(i) + v-hat2(i)",
+        "C) Neither voltage-controlled nor current-controlled",
+        "D) Current-controlled with v = v-hat1(i) * v-hat2(i)"
+      ],
+      "correctAnswer": "B) Current-controlled with v = v-hat1(i) + v-hat2(i)",
+      "explanation": "Since i = i1 = i2 (series), we substitute into KVL: v = v-hat1(i) + v-hat2(i). This is a single-valued function of i, so the result is current-controlled."
+    },
+    {
+      "id": "q4",
+      "prompt": "Graphical series addition means, at each current value:",
+      "options": [
+        "A) Multiply the voltages from each curve",
+        "B) Add the voltages from each curve (horizontal stacking)",
+        "C) Add the currents from each curve (vertical stacking)",
+        "D) Take the average of the voltages"
+      ],
+      "correctAnswer": "B) Add the voltages from each curve (horizontal stacking)",
+      "explanation": "Series addition adds voltages at equal current. In the v-i plane (v horizontal, i vertical), this corresponds to horizontal stacking: at each height (current), add the horizontal positions (voltages)."
+    },
+    {
+      "id": "q5",
+      "prompt": "A linear resistor R1 = 4 ohm is in series with a nonlinear resistor v2 = 3i + 2i^3. The combined v at i = 1A is:",
+      "options": [
+        "A) 5 V",
+        "B) 7 V",
+        "C) 9 V",
+        "D) 12 V"
+      ],
+      "correctAnswer": "C) 9 V",
+      "explanation": "v1 = R1*i = 4(1) = 4V. v2 = 3(1) + 2(1)^3 = 5V. v = v1 + v2 = 4 + 5 = 9V."
+    },
+    {
+      "id": "q6",
+      "prompt": "If one resistor in a series pair has reversed terminals, the voltage contribution of that element becomes:",
+      "options": [
+        "A) v-hat1(i)",
+        "B) -v-hat1(i)",
+        "C) v-hat1(-i)",
+        "D) -v-hat1(-i)"
+      ],
+      "correctAnswer": "D) -v-hat1(-i)",
+      "explanation": "Reversing terminals negates both v and i for that element. If the original contribution is v-hat1(i), the reversed contribution is -v-hat1(-i)."
+    },
+    {
+      "id": "q7",
+      "prompt": "For a bilateral resistor with reversed terminals, the contribution -v-hat(-i) simplifies to:",
+      "options": [
+        "A) -v-hat(i)",
+        "B) v-hat(i)",
+        "C) 0",
+        "D) 2*v-hat(i)"
+      ],
+      "correctAnswer": "B) v-hat(i)",
+      "explanation": "A bilateral resistor satisfies v-hat(-i) = -v-hat(i). So -v-hat(-i) = -(-v-hat(i)) = v-hat(i). The reversal has no effect."
+    },
+    {
+      "id": "q8",
+      "prompt": "A voltage-controlled resistor (i = i-hat(v1)) is in series with a current-controlled resistor (v2 = v-hat2(i)). The combined characteristic is best expressed as:",
+      "options": [
+        "A) A single closed-form voltage-controlled equation",
+        "B) A single closed-form current-controlled equation",
+        "C) A parametric representation using i as parameter",
+        "D) It cannot be determined"
+      ],
+      "correctAnswer": "C) A parametric representation using i as parameter",
+      "explanation": "Since one is voltage-controlled and the other is current-controlled, clean addition is not possible. Using i as the parameter: v1 is found from i = i-hat1(v1), v2 = v-hat2(i), and v = v1 + v2."
+    },
+    {
+      "id": "q9",
+      "prompt": "For two linear resistors R1 and R2 in series, the series addition gives:",
+      "options": [
+        "A) R_eq = R1 * R2 / (R1 + R2)",
+        "B) R_eq = R1 + R2",
+        "C) G_eq = G1 + G2",
+        "D) R_eq = min(R1, R2)"
+      ],
+      "correctAnswer": "B) R_eq = R1 + R2",
+      "explanation": "v = R1*i + R2*i = (R1 + R2)*i, so R_eq = R1 + R2. Conductances do not add in series; resistances do."
+    },
+    {
+      "id": "q10",
+      "prompt": "The driving-point characteristic of a one-port is:",
+      "options": [
+        "A) The impedance at a single frequency",
+        "B) The v-i relationship seen at the two terminals of the combination",
+        "C) The power delivered to the port",
+        "D) The Thevenin equivalent resistance"
+      ],
+      "correctAnswer": "B) The v-i relationship seen at the two terminals of the combination",
+      "explanation": "The driving-point characteristic is the complete v-i relationship at the port terminals. It describes how the combination behaves as a single two-terminal element."
+    }
+  ]
+}

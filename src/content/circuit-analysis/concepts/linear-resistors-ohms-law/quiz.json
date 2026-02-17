@@ -1,0 +1,125 @@
+{
+  "id": "linear-resistors-ohms-law-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A 200-ohm resistor has 4V across it. What is the current?",
+      "options": [
+        "A) 800 mA",
+        "B) 20 mA",
+        "C) 50 mA",
+        "D) 0.5 mA"
+      ],
+      "correctAnswer": "B) 20 mA",
+      "explanation": "i = v/R = 4/200 = 0.02A = 20mA — This is the correct answer based on the circuit theory principles discussed in this concept."
+    },
+    {
+      "id": "q2",
+      "prompt": "On the v-i plane, the slope of a linear resistor's characteristic equals:",
+      "options": [
+        "A) R",
+        "B) 1/R (= G)",
+        "C) R^2",
+        "D) sqrt(R)"
+      ],
+      "correctAnswer": "B) 1/R (= G)",
+      "explanation": "On the v-i plane (v horizontal, i vertical), slope = di/dv = G = 1/R"
+    },
+    {
+      "id": "q3",
+      "prompt": "If a resistor's resistance doubles, its v-i curve on the v-i plane becomes:",
+      "options": [
+        "A) Steeper",
+        "B) Shallower",
+        "C) Unchanged",
+        "D) A curve instead of a line"
+      ],
+      "correctAnswer": "B) Shallower",
+      "explanation": "Doubling R halves G = 1/R. Since the slope on the v-i plane is G, the line becomes shallower."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the conductance of a 500-ohm resistor?",
+      "options": [
+        "A) 500 S",
+        "B) 2 mS",
+        "C) 0.5 S",
+        "D) 0.002 S"
+      ],
+      "correctAnswer": "B) 2 mS",
+      "explanation": "G = 1/R = 1/500 = 0.002 S = 2 mS — This is the correct answer based on the circuit theory principles discussed in this concept."
+    },
+    {
+      "id": "q5",
+      "prompt": "A linear resistor's v-i characteristic is symmetric about the origin. This property is called:",
+      "options": [
+        "A) Linearity",
+        "B) Passivity",
+        "C) Bilaterality",
+        "D) Time-invariance"
+      ],
+      "correctAnswer": "C) Bilaterality",
+      "explanation": "A bilateral device has f(v,i) = f(-v,-i), meaning the curve is symmetric about the origin."
+    },
+    {
+      "id": "q6",
+      "prompt": "In the associated reference direction, current enters the terminal marked:",
+      "options": [
+        "A) Negative",
+        "B) Ground",
+        "C) Positive",
+        "D) Neutral"
+      ],
+      "correctAnswer": "C) Positive",
+      "explanation": "In the associated reference direction (passive sign convention), current flows into the positive terminal."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which property distinguishes a resistor from a capacitor?",
+      "options": [
+        "A) Linearity",
+        "B) Being memoryless",
+        "C) Having two terminals",
+        "D) Obeying KVL"
+      ],
+      "correctAnswer": "B) Being memoryless",
+      "explanation": "A resistor is memoryless: its current depends only on the voltage at that instant. A capacitor's current depends on dv/dt (rate of change), giving it memory."
+    },
+    {
+      "id": "q8",
+      "prompt": "Two resistors R1=100 ohm and R2=200 ohm are in series. The total conductance is:",
+      "options": [
+        "A) 300 S",
+        "B) 1/300 S",
+        "C) 3.33 mS",
+        "D) 10 mS"
+      ],
+      "correctAnswer": "C) 3.33 mS",
+      "explanation": "In series, R_total = R1 + R2 = 300 ohm, so G_total = 1/300 S = 3.33 mS"
+    },
+    {
+      "id": "q9",
+      "prompt": "On the i-v plane (current horizontal, voltage vertical), the slope of a 50-ohm resistor is:",
+      "options": [
+        "A) 0.02",
+        "B) 50",
+        "C) 1/50",
+        "D) 2500"
+      ],
+      "correctAnswer": "B) 50",
+      "explanation": "On the i-v plane, slope = dv/di = R = 50 — This is the correct answer based on the circuit theory principles discussed in this concept."
+    },
+    {
+      "id": "q10",
+      "prompt": "A physical carbon resistor is best modeled as:",
+      "options": [
+        "A) A nonlinear time-varying resistor",
+        "B) A linear time-invariant passive resistor",
+        "C) A voltage-controlled nonlinear resistor",
+        "D) An active bilateral resistor"
+      ],
+      "correctAnswer": "B) A linear time-invariant passive resistor",
+      "explanation": "Physical carbon/metallic resistors obey Ohm's law (linear), have constant R (time-invariant), and absorb power (passive) over their normal operating range."
+    }
+  ]
+}

@@ -27,9 +27,9 @@ export class ConceptValidationError extends Error {
 }
 
 /**
- * The 7 mandatory layer paths that MUST exist for every concept
+ * The 7 mandatory layer paths for CLASSIC mode (separate tab files)
  */
-const REQUIRED_LAYERS = [
+const CLASSIC_REQUIRED_LAYERS = [
     'intuitionPath',
     'engineeringPath',
     'mathematicsPath',
@@ -40,12 +40,24 @@ const REQUIRED_LAYERS = [
 ] as const;
 
 /**
+ * Required layer paths for UNIFIED content mode (content.md replaces 3 teaching tabs)
+ */
+const UNIFIED_REQUIRED_LAYERS = [
+    'contentPath',
+    'examPath',
+    'visualsPath',
+    'quizPath',
+    'flashcardsPath',
+] as const;
+
+/**
  * Human-readable names for error messages
  */
-const LAYER_NAMES: Record<typeof REQUIRED_LAYERS[number], string> = {
+const LAYER_NAMES: Record<string, string> = {
     intuitionPath: 'Intuition layer',
     engineeringPath: 'Engineering layer',
     mathematicsPath: 'Mathematics layer',
+    contentPath: 'Unified content',
     examPath: 'Exam strategy layer',
     visualsPath: 'Visuals',
     quizPath: 'Quiz',
@@ -70,7 +82,7 @@ function validateLayerFileExistsAndNonEmpty(
         throw new ConceptValidationError(
             conceptId,
             `${layerName} file MUST exist but was not found at: ${filePath}\n` +
-            `All 7 concept layers are REQUIRED (no optionals). This concept is incomplete.`
+            `This concept is incomplete.`
         );
     }
 
@@ -144,13 +156,13 @@ function checkVisualRequirements(
 }
 
 /**
- * Validates concept metadata and all 7 required layer files
+ * Validates concept metadata and required layer files
  * 
- * VALIDATION STEPS:
- * 1. Check metadata structure conformance to ConceptContract
- * 2. Ensure ALL 7 layer path fields are present and non-empty strings
- * 3. Ensure ALL 7 referenced files exist
- * 4. Ensure ALL 7 files are non-empty
+ * Supports TWO modes:
+ * - CLASSIC: All 7 layer files (intuition, engineering, mathematics, exam, visuals, quiz, flashcards)
+ * - UNIFIED: contentPath replaces intuition+engineering+mathematics → requires contentPath + exam + visuals + quiz + flashcards
+ * 
+ * Mode is auto-detected: if contentPath is present, unified mode is used.
  * 
  * @param concept - Concept metadata object
  * @param basePath - Base path for resolving relative paths (optional)
@@ -188,14 +200,18 @@ export function validateConcept(
         );
     }
 
-    // Validate: ALL 7 layer path fields are present and are non-empty strings
-    REQUIRED_LAYERS.forEach(layerField => {
+    // Detect mode: unified (contentPath present) or classic (7 separate files)
+    const isUnifiedMode = typeof conceptObj.contentPath === 'string' && conceptObj.contentPath.trim().length > 0;
+    const requiredLayers = isUnifiedMode ? UNIFIED_REQUIRED_LAYERS : CLASSIC_REQUIRED_LAYERS;
+
+    // Validate: required layer path fields are present and non-empty strings
+    requiredLayers.forEach(layerField => {
         const layerValue = conceptObj[layerField];
 
         if (layerValue === undefined) {
             throw new ConceptValidationError(
                 conceptId,
-                `Missing REQUIRED field "${layerField}". All 7 concept layers are mandatory (no optionals).`
+                `Missing REQUIRED field "${layerField}". ${isUnifiedMode ? 'Unified content' : 'All 7 concept layers are'} mandatory.`
             );
         }
 
@@ -208,7 +224,8 @@ export function validateConcept(
     });
 
     // Validate: forbidden fields check (prevent inline content antipattern)
-    const forbiddenFields = ['content', 'body', 'markdown', 'layers'];
+    // Note: 'content' is NOT forbidden when used as contentPath (a file path reference)
+    const forbiddenFields = ['body', 'markdown', 'layers'];
     forbiddenFields.forEach(field => {
         if (field in conceptObj) {
             throw new ConceptValidationError(
@@ -229,11 +246,11 @@ export function validateConcept(
         return path;
     };
 
-    // Validate each of the 7 required layer files
-    REQUIRED_LAYERS.forEach(layerField => {
+    // Validate each required layer file exists and is non-empty
+    requiredLayers.forEach(layerField => {
         const layerPath = conceptObj[layerField] as string;
         const fullPath = resolveFullPath(layerPath);
-        const layerName = LAYER_NAMES[layerField];
+        const layerName = LAYER_NAMES[layerField] || layerField;
 
         validateLayerFileExistsAndNonEmpty(fullPath, layerName, conceptId);
     });
@@ -243,7 +260,6 @@ export function validateConcept(
     checkVisualRequirements(visualsFullPath, conceptId);
 
     // All validations passed - concept conforms to contract
-    // All 7 layers exist and are non-empty
 }
 
 /**

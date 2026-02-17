@@ -1,149 +1,61 @@
-# Synthesis: General Resistive Circuit Analysis
+# Section 2 Synthesis: General Resistive Circuit Analysis
 
-## The Complete Analysis Toolkit
+## The Big Picture
 
-You now have a comprehensive toolkit for analyzing any linear resistive circuit:
+Section 2 gave you three increasingly powerful tools for analyzing resistive circuits. Each tool builds on the previous one, and together they handle any resistive circuit — linear or nonlinear, with any combination of elements.
 
-| Method | Best For | Output |
-|--------|----------|--------|
-| **KVL/KCL directly** | Simple circuits (2-3 elements) | Immediate results |
-| **Nodal Analysis** | Current sources, parallel elements | Node voltages |
-| **Mesh Analysis** | Voltage sources, series elements | Mesh currents |
-| **Superposition** | Understanding source contributions | Component responses |
-| **Thévenin/Norton** | Simplifying for load analysis | Equivalent circuits |
+## Method Comparison
 
----
+| Feature | Nodal Analysis | Tableau Analysis | Newton-Raphson |
+|---------|---------------|------------------|----------------|
+| **Matrix size** | $(n-1) \times (n-1)$ | $(2b+n-1) \times (2b+n-1)$ | Same as underlying method |
+| **Voltage sources** | Requires supernode | Natural | Natural |
+| **Dependent sources** | Limited | Natural | Natural |
+| **Nonlinear elements** | Cannot solve | Cannot solve directly | Iterative solution |
+| **Computation** | Small, fast | Large, systematic | Repeated linear solves |
 
-## Method Selection Guide
+## Key Formulas
 
-```
-Is the circuit simple (≤3 unknowns)?
-    → Yes: Use KVL/KCL directly
-    → No: Continue...
+### Nodal Analysis
+$$\mathbf{Y}_n \cdot \mathbf{e} = \mathbf{i}_s(t)$$
 
-Are you interested in a specific load?
-    → Yes: Use Thévenin/Norton equivalent
-    → No: Continue...
+- Diagonal: $Y_{kk} = \sum (\text{conductances at node } k)$
+- Off-diagonal: $Y_{kj} = -(\text{conductance between nodes } k \text{ and } j)$
+- Incidence matrix: $\mathbf{Y}_n = \mathbf{A} \mathbf{Y}_b \mathbf{A}^\top$
 
-Does the circuit have more current sources or parallel structures?
-    → Yes: Use Nodal Analysis
-    → No: Continue...
+### Tableau Analysis
+$$\begin{bmatrix} \mathbf{0} & \mathbf{A} & \mathbf{0} \\ \mathbf{I} & \mathbf{0} & -\mathbf{A}^\top \\ \text{branch} & \text{equations} & \end{bmatrix} \begin{bmatrix} \mathbf{v}_b \\ \mathbf{i}_b \\ \mathbf{e} \end{bmatrix} = \begin{bmatrix} \mathbf{0} \\ \mathbf{0} \\ \mathbf{u} \end{bmatrix}$$
 
-Does the circuit have more voltage sources or series structures?
-    → Yes: Use Mesh Analysis
-    → No: Use whichever gives fewer equations
-```
+### Newton-Raphson
+$$\mathbf{x}^{(j+1)} = \mathbf{x}^{(j)} - \mathbf{J}^{-1}(\mathbf{x}^{(j)}) \cdot \mathbf{f}(\mathbf{x}^{(j)})$$
 
----
+Jacobian: $J_{ij} = \dfrac{\partial f_i}{\partial x_j}$
 
-## Key Relationships
+Convergence: terminate when $\|\mathbf{f}(\mathbf{x}^{(j)})\| < \varepsilon$
 
-### The Foundation
-$$\sum I_{in} = \sum I_{out} \quad \text{(KCL)}$$
-$$\sum V_{loop} = 0 \quad \text{(KVL)}$$
+## Critical Exam Skills
 
-### Systematic Methods
-**Nodal**: Apply KCL, express currents via Ohm's Law → System of voltage equations
+1. **Forming $\mathbf{Y}_n$ by inspection**: Practice on 3-4 node circuits until it takes under 30 seconds. Diagonal = sum of connected conductances. Off-diagonal = negative of shared conductance.
 
-**Mesh**: Apply KVL, express voltages via Ohm's Law → System of current equations
+2. **Incidence matrix**: Label branches with consistent direction. $a_{ij} = +1$ if branch $j$ leaves node $i$, $-1$ if enters.
 
-### Equivalence Transformations
-$$V_{Th} = V_{oc} \quad \text{(open-circuit voltage)}$$
-$$R_{Th} = R_{Norton} = \frac{V_{oc}}{I_{sc}}$$
-$$I_{Norton} = \frac{V_{Th}}{R_{Th}}$$
+3. **Tableau construction**: Write KCL block (using $\mathbf{A}$), KVL block (using $\mathbf{A}^\top$), and branch equations block. For dependent sources, cross-reference the controlling variable.
 
-### Optimal Loading
-$$P_{max} = \frac{V_{Th}^2}{4R_{Th}} \quad \text{when } R_L = R_{Th}$$
+4. **Newton-Raphson iteration**: Show ALL steps:
+   - Evaluate $\mathbf{f}(\mathbf{x}^{(j)})$
+   - Compute $\mathbf{J}(\mathbf{x}^{(j)})$
+   - Solve $\mathbf{J} \cdot \Delta\mathbf{x} = -\mathbf{f}$ (or compute $\mathbf{J}^{-1}$)
+   - Update: $\mathbf{x}^{(j+1)} = \mathbf{x}^{(j)} + \Delta\mathbf{x}$
 
----
+5. **Discrete equivalent circuit**: At iteration $j$, the nonlinear element becomes a linear resistor $R^{(j)}$ in series with a voltage source $E^{(j)}$, computed from the current iterate.
 
-## Connections Between Concepts
+## Common Pitfalls
 
-### Nodal → Thévenin
-- Find open-circuit voltage using nodal analysis
-- Calculate Thévenin resistance by zeroing sources
-
-### Mesh → Norton
-- Find short-circuit current using mesh analysis
-- Calculate Norton resistance by zeroing sources
-
-### Superposition → Insight
-- Understand how each source contributes
-- Useful for sensitivity analysis
-
-### Thévenin → Maximum Power
-- Once you have Thévenin equivalent, power analysis is trivial
-- R_L = R_Th gives maximum power transfer
-
----
-
-## The Grand Unified View
-
-Every linear resistive circuit with sources can be viewed as:
-
-1. **A network of constraints** (KVL, KCL, Ohm's Law)
-2. **A set of node voltages** (nodal viewpoint)
-3. **A set of mesh currents** (mesh viewpoint)
-4. **A superposition of simpler problems** (superposition)
-5. **A simple two-terminal equivalent** (Thévenin/Norton)
-
-All viewpoints describe the same physical reality!
-
----
-
-## Practical Engineering Wisdom
-
-### When Precision Matters
-Use systematic methods (nodal/mesh) with matrix solutions:
-- Fewer human errors
-- Easily computerized
-- Scalable to large circuits
-
-### When Understanding Matters
-Use Thévenin equivalents and superposition:
-- See how sources interact
-- Understand loading effects
-- Design for maximum power
-
-### When Speed Matters
-Develop intuition through practice:
-- Recognize series/parallel by sight
-- Estimate answers before calculating
-- Know when simplification helps
-
----
+- **Reference node omission**: The reference node is NOT included in $\mathbf{Y}_n$ — it has $(n-1)$ rows and columns for $n$ nodes
+- **Sign errors in incidence matrix**: Be consistent with branch directions. Once chosen, the same direction applies to $\mathbf{A}$, KVL, and branch equations
+- **Forgetting to update the Jacobian**: At each iteration, $\mathbf{J}$ must be recomputed using $\mathbf{x}^{(j)}$, not the initial guess
+- **Singular tableau matrix**: If $\det(\mathbf{T}) = 0$, the circuit has no unique solution. This can happen with contradictory sources or floating subcircuits
 
 ## Looking Ahead
 
-These resistive analysis techniques extend to:
-
-| Future Topic | Connection |
-|--------------|------------|
-| **AC Analysis** | Same methods, but with complex impedances |
-| **Transient Analysis** | Thévenin equivalents of RC/RL circuits |
-| **Op-Amp Circuits** | Nodal analysis with dependent sources |
-| **Power Systems** | Mesh analysis of power grids |
-| **SPICE Simulation** | Computer implementation of nodal analysis |
-
----
-
-## Master Checklist
-
-Before moving on, ensure you can:
-
-- [ ] Write KVL and KCL equations for any circuit
-- [ ] Set up and solve nodal analysis (including supernodes)
-- [ ] Set up and solve mesh analysis (including supermeshes)
-- [ ] Apply superposition with multiple sources
-- [ ] Find Thévenin and Norton equivalents
-- [ ] Calculate maximum power transfer conditions
-- [ ] Choose the best method for a given circuit
-- [ ] Verify answers using power balance
-
----
-
-## Summary
-
-> "Give me Kirchhoff's Laws and a method to solve linear equations, and I can analyze any resistive circuit in the universe."
-
-The tools in this lesson are your foundation for all circuit analysis to come. Master them thoroughly—they will serve you throughout your engineering career!
+Section 3 introduces **energy-storage elements** — capacitors and inductors — that turn algebraic circuit equations into **differential equations**. The resistive analysis methods from this section become tools for finding Thévenin equivalents, initial conditions, and steady-state values within dynamic circuits.

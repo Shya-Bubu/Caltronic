@@ -1,0 +1,558 @@
+{
+  "visuals": [
+    {
+      "id": "oc-sc-on-vi-plane",
+      "type": "plotly",
+      "title": "Open Circuit vs Short Circuit on the V-I Plane",
+      "description": "The open circuit (green) lies on the v-axis: i = 0 always. The short circuit (purple) lies on the i-axis: v = 0 always. These are the two extreme resistors — boundary members of the same family.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "Open Circuit (R = ∞, G = 0)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "y": [
+            -0.06,
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04,
+            0.06
+          ],
+          "name": "Short Circuit (R = 0, G = ∞)",
+          "mode": "lines",
+          "line": {
+            "color": "#a855f7",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.07,
+            0.07
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "resistance-spectrum",
+      "type": "plotly",
+      "title": "The Resistance Spectrum: From Short Circuit to Open Circuit",
+      "description": "As R increases from 0 to ∞, the v-i line rotates counterclockwise from the i-axis (short circuit) to the v-axis (open circuit). Every linear resistor lives somewhere on this spectrum.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "y": [
+            -0.08,
+            -0.04,
+            0,
+            0.04,
+            0.08
+          ],
+          "name": "R = 0 (Short Circuit)",
+          "mode": "lines",
+          "line": {
+            "color": "#a855f7",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "y": [
+            -0.08,
+            -0.04,
+            0,
+            0.04,
+            0.08
+          ],
+          "name": "R = 25Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            -2.5,
+            0,
+            2.5,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.025,
+            0,
+            0.025,
+            0.05
+          ],
+          "name": "R = 100Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            -2.5,
+            0,
+            2.5,
+            5
+          ],
+          "y": [
+            -0.01,
+            -0.005,
+            0,
+            0.005,
+            0.01
+          ],
+          "name": "R = 500Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            -2.5,
+            0,
+            2.5,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "name": "R = ∞ (Open Circuit)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.09,
+            0.09
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 560,
+      "height": 440
+    },
+    {
+      "id": "duality-reflection",
+      "type": "plotly",
+      "title": "Duality as Reflection About the 45° Line",
+      "description": "The dashed orange line is i = v (the 45° line). Reflecting the R = 50Ω curve (blue) about this line gives a curve with slope R (instead of G) — the dual element. Open circuit (green, on v-axis) reflects to short circuit (purple, on i-axis).",
+      "traces": [
+        {
+          "x": [
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            -0.08,
+            -0.06,
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04,
+            0.06,
+            0.08
+          ],
+          "name": "R = 50Ω (slope G = 0.02)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -0.08,
+            0,
+            0.08
+          ],
+          "y": [
+            -0.08,
+            0,
+            0.08
+          ],
+          "name": "45° line (i = v)",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 1.5,
+            "dash": "dash"
+          }
+        },
+        {
+          "x": [
+            -4,
+            0,
+            4
+          ],
+          "y": [
+            0,
+            0,
+            0
+          ],
+          "name": "Open Circuit",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            0,
+            0,
+            0
+          ],
+          "y": [
+            -0.08,
+            0,
+            0.08
+          ],
+          "name": "Short Circuit (dual of OC)",
+          "mode": "lines",
+          "line": {
+            "color": "#a855f7",
+            "width": 2
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -4.5,
+            4.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.09,
+            0.09
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 420
+    },
+    {
+      "id": "open-circuit-diagram",
+      "type": "circuit-schematic",
+      "title": "Open Circuit: Physical Representation",
+      "description": "An open circuit is a gap in the wire — no current can flow (i = 0), but voltage can exist across the terminals. R → ∞.",
+      "width": 360,
+      "height": 160,
+      "elements": [
+        {
+          "component": "wire",
+          "x1": 40,
+          "y1": 80,
+          "x2": 130,
+          "y2": 80
+        },
+        {
+          "component": "wire",
+          "x1": 230,
+          "y1": 80,
+          "x2": 320,
+          "y2": 80
+        },
+        {
+          "component": "junction",
+          "x": 40,
+          "y": 80
+        },
+        {
+          "component": "junction",
+          "x": 320,
+          "y": 80
+        },
+        {
+          "component": "text",
+          "x": 180,
+          "y": 75,
+          "text": "gap",
+          "fontSize": 11,
+          "fontStyle": "italic",
+          "color": "#ef4444"
+        },
+        {
+          "component": "current-arrow",
+          "x": 85,
+          "y": 55,
+          "label": "i = 0"
+        },
+        {
+          "component": "voltage-mark",
+          "x": 180,
+          "y": 110,
+          "rotation": 90,
+          "label": "v = any"
+        },
+        {
+          "component": "text",
+          "x": 40,
+          "y": 68,
+          "text": "+",
+          "fontSize": 12,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 320,
+          "y": 68,
+          "text": "−",
+          "fontSize": 12,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "short-circuit-diagram",
+      "type": "circuit-schematic",
+      "title": "Short Circuit: Physical Representation",
+      "description": "A short circuit is a direct wire connection — current can flow freely (i = any), but the voltage is always zero. R = 0.",
+      "width": 360,
+      "height": 160,
+      "elements": [
+        {
+          "component": "wire",
+          "x1": 40,
+          "y1": 80,
+          "x2": 320,
+          "y2": 80
+        },
+        {
+          "component": "junction",
+          "x": 40,
+          "y": 80
+        },
+        {
+          "component": "junction",
+          "x": 320,
+          "y": 80
+        },
+        {
+          "component": "current-arrow",
+          "x": 180,
+          "y": 55,
+          "label": "i = any"
+        },
+        {
+          "component": "voltage-mark",
+          "x": 180,
+          "y": 110,
+          "rotation": 90,
+          "label": "v = 0"
+        },
+        {
+          "component": "text",
+          "x": 40,
+          "y": 68,
+          "text": "+",
+          "fontSize": 12,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 320,
+          "y": 68,
+          "text": "−",
+          "fontSize": 12,
+          "color": "#ef4444"
+        },
+        {
+          "component": "text",
+          "x": 180,
+          "y": 95,
+          "text": "R = 0 (ideal wire)",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#a855f7"
+        }
+      ]
+    },
+    {
+      "id": "falstad-oc-sc-switch",
+      "type": "falstad-sim",
+      "title": "Interactive: Open Circuit vs Short Circuit",
+      "description": "A voltage source with a switch and a load resistor. Click the switch to toggle between open circuit (no current flows) and closed circuit (current flows). Watch the current animation appear/disappear.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 5 0 0 0.5\ns 160 96 304 96 0 1 false\nr 304 96 304 288 0 1000\nw 160 288 304 288 0\ng 240 288 240 320 0 0\nx 200 80 0 0 0 12 Switch\nx 320 192 0 0 0 12 R=1k\no 2 64 0 4099 5 0.05 0 2 1 3\n",
+      "height": 450
+    },
+    {
+      "id": "interactive-r-sweep",
+      "type": "v3-ohms-law",
+      "title": "Interactive: Sweep R from Short to Open Circuit",
+      "description": "Drag the resistance slider from R = 0 (short circuit) to very high values approaching an open circuit. Watch the v-i line rotate and the current drop. This is the continuous transition between the two extremes."
+    },
+    {
+      "id": "oc-sc-property-bars",
+      "type": "plotly",
+      "title": "Property Comparison: Open Circuit, Resistor, Short Circuit",
+      "description": "A bar chart comparing key properties across the three cases. Both open and short circuits absorb zero power. Only the finite resistor dissipates energy.",
+      "traces": [
+        {
+          "x": [
+            "Open Circuit",
+            "R = 100Ω",
+            "Short Circuit"
+          ],
+          "y": [
+            0,
+            0.05,
+            1000
+          ],
+          "name": "Current (A, at 5V)",
+          "type": "bar",
+          "marker": {
+            "color": "#3b82f6"
+          }
+        },
+        {
+          "x": [
+            "Open Circuit",
+            "R = 100Ω",
+            "Short Circuit"
+          ],
+          "y": [
+            5,
+            5,
+            0
+          ],
+          "name": "Voltage (V)",
+          "type": "bar",
+          "marker": {
+            "color": "#22c55e"
+          }
+        },
+        {
+          "x": [
+            "Open Circuit",
+            "R = 100Ω",
+            "Short Circuit"
+          ],
+          "y": [
+            0,
+            0.25,
+            0
+          ],
+          "name": "Power (W)",
+          "type": "bar",
+          "marker": {
+            "color": "#f59e0b"
+          }
+        }
+      ],
+      "layout": {
+        "barmode": "group",
+        "yaxis": {
+          "title": "Value"
+        }
+      },
+      "width": 560,
+      "height": 380
+    }
+  ]
+}

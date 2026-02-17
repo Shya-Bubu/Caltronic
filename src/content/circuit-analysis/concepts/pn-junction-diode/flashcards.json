@@ -1,0 +1,65 @@
+{
+  "id": "pn-junction-diode-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "Write the Shockley diode equation.",
+      "back": "i = Is * (e^(v/VT) - 1), where Is is the reverse saturation current and VT = kT/q is the thermal voltage.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What is the thermal voltage VT and its value at room temperature?",
+      "back": "VT = kT/q, where k is Boltzmann's constant, T is temperature in kelvin, and q is the elementary charge. At T = 300K, VT is approximately 26 mV.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is the reverse saturation current Is?",
+      "back": "Is is the small current that flows in reverse bias when e^(v/VT) approaches 0, giving i = -Is. For silicon, Is is typically 10^-12 to 10^-15 A (picoamps). It doubles roughly every 10K temperature increase.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "State the '60 mV per decade' rule for diodes at room temperature.",
+      "back": "Increasing the forward voltage by approximately 60 mV multiplies the current by 10 (one decade). This follows from VT * ln(10) = 26 mV * 2.303 = 59.6 mV.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "For two operating points on the same diode, express the voltage difference in terms of the current ratio.",
+      "back": "v2 - v1 = VT * ln(i2 / i1). The Is cancels. For example, a 10x current increase corresponds to about 60 mV voltage increase at room temperature.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "In forward bias (v > 4VT), what simplification can you make to the diode equation?",
+      "back": "Drop the -1 term: i is approximately Is * e^(v/VT). This is valid when e^(v/VT) >> 1, i.e., when v is more than about 100 mV.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "How does increasing temperature affect the diode's v-i curve?",
+      "back": "The curve shifts left: more current flows at the same voltage. This is because Is increases strongly with temperature (roughly doubling per 10K), dominating the smaller increase in VT.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "How does the PN-junction diode differ from the ideal diode?",
+      "back": "The PN-junction has a smooth exponential curve (vs. sharp corner), a gradual turn-on near 0.6-0.7V (vs. 0V), and nonzero reverse current of -Is (vs. exactly 0). The ideal diode is the VT -> 0 limit.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "Why is the PN-junction diode called a 'voltage-controlled nonlinear resistor'?",
+      "back": "Voltage-controlled: i = f(v) is single-valued. Nonlinear: the exponential is not a straight line. Resistor: memoryless (no time derivatives or integrals in the equation).",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "Calculate: diode with Is = 10^-12 A at 300K. What voltage gives i = 1 mA?",
+      "back": "v = VT * ln(i/Is + 1) = 0.026 * ln(10^-3 / 10^-12 + 1) = 0.026 * ln(10^9) = 0.026 * 20.72 = 0.539 V, approximately 0.54 V.",
+      "difficultyLevel": 3
+    }
+  ]
+}

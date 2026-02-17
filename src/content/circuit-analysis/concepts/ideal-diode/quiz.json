@@ -1,0 +1,125 @@
+{
+  "id": "ideal-diode-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The v-i characteristic of an ideal diode consists of:",
+      "options": [
+        "A) A straight line through the origin",
+        "B) An exponential curve",
+        "C) The negative v-axis and the positive i-axis",
+        "D) The positive v-axis and the negative i-axis"
+      ],
+      "correctAnswer": "C) The negative v-axis and the positive i-axis",
+      "explanation": "The ideal diode has i = 0 for v < 0 (negative v-axis) and v = 0 for i > 0 (positive i-axis). These two segments meet at the origin."
+    },
+    {
+      "id": "q2",
+      "prompt": "When an ideal diode is forward conducting, it behaves as:",
+      "options": [
+        "A) An open circuit",
+        "B) A short circuit",
+        "C) A 0.7V voltage source",
+        "D) A linear resistor"
+      ],
+      "correctAnswer": "B) A short circuit",
+      "explanation": "In forward conduction, v = 0 and current flows freely. This is exactly the behaviour of a short circuit."
+    },
+    {
+      "id": "q3",
+      "prompt": "When an ideal diode is reverse biased, it behaves as:",
+      "options": [
+        "A) A short circuit",
+        "B) A 0.7V voltage source",
+        "C) An open circuit",
+        "D) A negative resistor"
+      ],
+      "correctAnswer": "C) An open circuit",
+      "explanation": "In reverse bias, i = 0 regardless of the (negative) voltage. This is exactly the behaviour of an open circuit."
+    },
+    {
+      "id": "q4",
+      "prompt": "A 10V source is in series with a 2 kohm resistor and an ideal diode (forward direction). The current is:",
+      "options": [
+        "A) 0 mA",
+        "B) 5 mA",
+        "C) 10 mA",
+        "D) 14.3 mA"
+      ],
+      "correctAnswer": "B) 5 mA",
+      "explanation": "Assuming forward conduction: diode = short circuit. i = V/R = 10/2000 = 5 mA. Check: i = 5 mA > 0, consistent. Answer is 5 mA."
+    },
+    {
+      "id": "q5",
+      "prompt": "A -3V source is in series with a 1 kohm resistor and an ideal diode (forward direction). The current is:",
+      "options": [
+        "A) 3 mA",
+        "B) -3 mA",
+        "C) 0 mA",
+        "D) Cannot be determined"
+      ],
+      "correctAnswer": "C) 0 mA",
+      "explanation": "Try forward conduction: i = -3/1000 = -3 mA < 0. Inconsistent. Try reverse bias: i = 0, v_diode = -3V < 0. Consistent. So i = 0 mA."
+    },
+    {
+      "id": "q6",
+      "prompt": "The first step in analysing an ideal diode circuit is:",
+      "options": [
+        "A) Write KVL equations with the diode equation",
+        "B) Assume a state (conducting or blocking) for each diode",
+        "C) Calculate the power dissipated in the diode",
+        "D) Apply superposition"
+      ],
+      "correctAnswer": "B) Assume a state (conducting or blocking) for each diode",
+      "explanation": "The assume-and-check method begins by assuming each diode is either forward conducting (short) or reverse biased (open), then solving the resulting linear circuit and checking consistency."
+    },
+    {
+      "id": "q7",
+      "prompt": "You assumed a diode is forward conducting and found i = -2 mA through it. What should you conclude?",
+      "options": [
+        "A) The assumption is correct; current is -2 mA",
+        "B) The assumption is wrong; try reverse biased instead",
+        "C) The diode is in breakdown",
+        "D) The circuit has no valid solution"
+      ],
+      "correctAnswer": "B) The assumption is wrong; try reverse biased instead",
+      "explanation": "Forward conduction requires i >= 0. Finding i = -2 mA < 0 means the forward-conducting assumption is inconsistent. You must try reverse biased."
+    },
+    {
+      "id": "q8",
+      "prompt": "How much power does an ideal diode absorb?",
+      "options": [
+        "A) p = 0.7 * i",
+        "B) Zero in both modes",
+        "C) Positive when forward biased",
+        "D) Depends on the circuit"
+      ],
+      "correctAnswer": "B) Zero in both modes",
+      "explanation": "In reverse bias, i = 0 so p = vi = 0. In forward conduction, v = 0 so p = vi = 0. The ideal diode absorbs zero power in both modes."
+    },
+    {
+      "id": "q9",
+      "prompt": "A circuit has two ideal diodes in parallel with opposite polarities, connected to a 5V source through a resistor. How many diodes conduct?",
+      "options": [
+        "A) Both conduct",
+        "B) Neither conducts",
+        "C) Exactly one conducts",
+        "D) Cannot be determined without the resistor value"
+      ],
+      "correctAnswer": "C) Exactly one conducts",
+      "explanation": "With opposite polarities, one diode is forward biased and one is reverse biased for a given source polarity. The forward-biased one conducts (short circuit), forcing v = 0 across both. The other sees v = 0, which is consistent with reverse bias. So exactly one conducts."
+    },
+    {
+      "id": "q10",
+      "prompt": "The ideal diode model differs from the A-Level diode model primarily because:",
+      "options": [
+        "A) It has no forward voltage drop",
+        "B) It cannot conduct current",
+        "C) It has infinite reverse leakage",
+        "D) It is a linear device"
+      ],
+      "correctAnswer": "A) It has no forward voltage drop",
+      "explanation": "The ideal diode sets the turn-on voltage to zero (no 0.7V drop). It captures the switching behaviour (block vs conduct) without modelling the gradual turn-on of a real semiconductor diode."
+    }
+  ]
+}

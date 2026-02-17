@@ -1,0 +1,65 @@
+{
+  "id": "ideal-diode-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "Define the ideal diode using its v-i characteristic.",
+      "back": "Two modes: (1) reverse biased: v <= 0, i = 0 (open circuit), (2) forward conducting: v = 0, i >= 0 (short circuit). The characteristic is the negative v-axis joined to the positive i-axis.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "Write the ideal diode characteristic in set notation.",
+      "back": "R_ID = {(v, i) : v <= 0, i = 0} union {(v, i) : v = 0, i >= 0}. This is two rays meeting at the origin on the v-i plane.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What does an ideal diode become in each of its two modes?",
+      "back": "Reverse biased: open circuit (i = 0, any v <= 0). Forward conducting: short circuit (v = 0, any i >= 0). It switches between the two extreme resistors.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "Describe the assume-and-check method for ideal diode circuits.",
+      "back": "Step 1: Assume each diode is conducting (short) or blocking (open). Step 2: Solve the linear circuit. Step 3: Check consistency (conducting: i >= 0; blocking: v <= 0). Step 4: If inconsistent, revise assumptions.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "When checking consistency for a diode assumed forward conducting, what must be true?",
+      "back": "The current through the diode must satisfy i >= 0. If i < 0, the assumption is wrong and you must try reverse biased instead.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "When checking consistency for a diode assumed reverse biased, what must be true?",
+      "back": "The voltage across the diode must satisfy v <= 0. If v > 0, the assumption is wrong and you must try forward conducting instead.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "How does the ideal diode differ from the A-Level silicon diode model?",
+      "back": "The ideal diode has zero forward voltage drop (no 0.7V turn-on voltage), an infinitely sharp transition, and zero reverse leakage current. It is a simpler model that captures only the switching behaviour.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Is the ideal diode passive or active?",
+      "back": "Passive. In reverse bias, p = vi = v * 0 = 0. In forward conduction, p = vi = 0 * i = 0. Power is zero everywhere, so p >= 0 always.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "Name three applications where the ideal diode model is used.",
+      "back": "Half-wave and full-wave rectifiers, clipper circuits (limiting signal amplitude), and clamper circuits (shifting DC level). Also used in diode logic gates.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "With n ideal diodes in a circuit, what is the maximum number of state combinations to check?",
+      "back": "2^n combinations (each diode is either conducting or blocking). In practice, physical reasoning eliminates most combinations quickly.",
+      "difficultyLevel": 3
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+  "visuals": [
+    {
+      "id": "pwl-concept",
+      "type": "plotly",
+      "title": "Piecewise-Linear Approximation Concept",
+      "description": "A smooth nonlinear curve (the actual diode characteristic) is approximated by connected straight-line segments. Each segment is a simple linear equation. The more segments you use, the closer the approximation — like building a curve from LEGO bricks.",
+      "traces": [
+        {
+          "x": [
+            -1,
+            -0.5,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0.0005,
+            0.004,
+            0.012,
+            0.03,
+            0.06,
+            0.12
+          ],
+          "name": "Actual diode (smooth)",
+          "mode": "lines",
+          "line": {
+            "color": "#94a3b8",
+            "width": 2,
+            "dash": "dot"
+          }
+        },
+        {
+          "x": [
+            -1,
+            0,
+            0.6,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.12
+          ],
+          "name": "2-segment PWL",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#f59e0b",
+            "width": 3
+          },
+          "marker": {
+            "size": 6
+          }
+        },
+        {
+          "x": [
+            -1,
+            0,
+            0.55,
+            0.65,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.012,
+            0.12
+          ],
+          "name": "3-segment PWL",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#22c55e",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        },
+        "annotations": [
+          {
+            "x": 0.6,
+            "y": 0,
+            "text": "Breakpoint (Vγ)",
+            "showarrow": true,
+            "arrowhead": 2,
+            "font": {
+              "size": 10,
+              "color": "#f59e0b"
+            }
+          }
+        ]
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "concave-convex",
+      "type": "plotly",
+      "title": "Concave vs Convex PWL Elements",
+      "description": "A concave PWL element has segments with decreasing slope (conductance rolls off). A convex element has segments with increasing slope (conductance increases). These two types are the building blocks for any PWL curve via decomposition.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0.05,
+            0.08,
+            0.09,
+            0.095,
+            0.098
+          ],
+          "name": "Concave (slope ↓)",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 5
+          }
+        },
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0.002,
+            0.008,
+            0.02,
+            0.05,
+            0.1
+          ],
+          "name": "Convex (slope ↑)",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        }
+      },
+      "centeredAxes": true,
+      "width": 480,
+      "height": 360
+    },
+    {
+      "id": "decomposition-example",
+      "type": "plotly",
+      "title": "PWL Decomposition into Parallel Concave Elements",
+      "description": "Any convex PWL curve can be decomposed into a parallel combination of simpler concave elements (each a two-segment 'hockey stick'). This is a powerful technique because parallel combination = vertical addition of currents.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5,
+            3
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.005,
+            0.01,
+            0.015,
+            0.02
+          ],
+          "name": "Element 1 (breakpoint 1V)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5,
+            3
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0.01,
+            0.02,
+            0.03
+          ],
+          "name": "Element 2 (breakpoint 1.5V)",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5,
+            3
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.005,
+            0.02,
+            0.035,
+            0.05
+          ],
+          "name": "Sum (parallel combination)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "pwl-explorer",
+      "type": "v3-pwl-explorer",
+      "title": "Interactive PWL Approximation Explorer",
+      "description": "Drag the breakpoints to see how the piecewise-linear approximation changes. Add more segments for higher accuracy."
+    },
+    {
+      "id": "pwl-diode-models",
+      "type": "plotly",
+      "title": "PWL Diode Models: 2-Segment vs 3-Segment",
+      "description": "2-segment model: OFF below Vγ, ON with slope 1/rf above. 3-segment model adds a reverse-bias leakage segment. More segments = more accuracy = more algebraic complexity. Engineers choose the minimum segments needed for the problem.",
+      "traces": [
+        {
+          "x": [
+            -2,
+            -1,
+            0,
+            0.6,
+            0.8,
+            1.2,
+            2
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0.02,
+            0.06,
+            0.14
+          ],
+          "name": "2-segment (Vγ=0.6V, rf=10Ω)",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 5
+          }
+        },
+        {
+          "x": [
+            -2,
+            -1,
+            0,
+            0.5,
+            0.65,
+            0.8,
+            1.2,
+            2
+          ],
+          "y": [
+            -0.001,
+            -0.001,
+            0,
+            0,
+            0.003,
+            0.015,
+            0.055,
+            0.135
+          ],
+          "name": "3-segment (with leakage)",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#8b5cf6",
+            "width": 2.5
+          },
+          "marker": {
+            "size": 5
+          }
+        },
+        {
+          "x": [
+            -2,
+            -1,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8,
+            1.2,
+            2
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0.0005,
+            0.004,
+            0.012,
+            0.03,
+            0.06,
+            0.12,
+            0.5,
+            2.5
+          ],
+          "name": "Actual diode (reference)",
+          "mode": "lines",
+          "line": {
+            "color": "#94a3b8",
+            "width": 1.5,
+            "dash": "dot"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -2.5,
+            2.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.01,
+            0.2
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "region-analysis-flowchart",
+      "type": "circuit-schematic",
+      "title": "PWL Region Analysis Flowchart",
+      "description": "For each PWL segment: (1) Assume the operating region, (2) Replace the PWL element with its linear equivalent for that region, (3) Solve the linear circuit, (4) Verify the solution falls within the assumed region. If not, try the adjacent region.",
+      "width": 500,
+      "height": 240,
+      "elements": [
+        {
+          "component": "text",
+          "x": 250,
+          "y": 20,
+          "text": "PWL Region Analysis",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "var(--accent)"
+        },
+        {
+          "component": "text",
+          "x": 120,
+          "y": 60,
+          "text": "① Pick region k",
+          "fontSize": 12,
+          "color": "#3b82f6"
+        },
+        {
+          "component": "text",
+          "x": 120,
+          "y": 85,
+          "text": "(e.g., v > Vγ)",
+          "fontSize": 10,
+          "color": "#94a3b8"
+        },
+        {
+          "component": "text",
+          "x": 350,
+          "y": 60,
+          "text": "② Replace with",
+          "fontSize": 12,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 350,
+          "y": 85,
+          "text": "linear model for region k",
+          "fontSize": 10,
+          "color": "#94a3b8"
+        },
+        {
+          "component": "text",
+          "x": 120,
+          "y": 140,
+          "text": "③ Solve linear circuit",
+          "fontSize": 12,
+          "color": "#f59e0b"
+        },
+        {
+          "component": "text",
+          "x": 350,
+          "y": 140,
+          "text": "④ Check: v ∈ region k?",
+          "fontSize": 12,
+          "color": "#ef4444"
+        },
+        {
+          "component": "text",
+          "x": 350,
+          "y": 170,
+          "text": "Yes → Done",
+          "fontSize": 10,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 350,
+          "y": 195,
+          "text": "No → Try region k±1",
+          "fontSize": 10,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "falstad-pwl-diode",
+      "type": "falstad-sim",
+      "title": "Interactive: PWL Diode Model in Action",
+      "description": "A diode with piecewise-linear approximation: 0.7V turn-on voltage plus a series resistance.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 1 40 5 0 0 0.5\nd 160 96 352 96 2 default\nr 352 96 352 288 0 1000\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
+      "height": 450
+    },
+    {
+      "id": "segment-accuracy-comparison",
+      "type": "plotly",
+      "title": "PWL Accuracy: 2 vs 4 vs 8 Segments",
+      "description": "More segments give a better approximation of the exponential curve. Two segments give rough accuracy; eight segments are nearly indistinguishable from the true curve.",
+      "traces": [
+        {
+          "x": [
+            -1,
+            -0.5,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.001,
+            0.05,
+            0.5,
+            2,
+            8,
+            30,
+            100
+          ],
+          "name": "True exponential",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -1,
+            0,
+            0.6,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            80
+          ],
+          "name": "2-segment PWL",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#f472b6",
+            "width": 2,
+            "dash": "dash"
+          },
+          "marker": {
+            "size": 6
+          }
+        },
+        {
+          "x": [
+            -1,
+            0,
+            0.3,
+            0.5,
+            0.65,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.05,
+            2,
+            80
+          ],
+          "name": "4-segment PWL",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#a78bfa",
+            "width": 2,
+            "dash": "dot"
+          },
+          "marker": {
+            "size": 5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage (V)"
+        },
+        "yaxis": {
+          "title": "Current (mA)",
+          "type": "log",
+          "range": [
+            -3,
+            2
+          ]
+        },
+        "showlegend": true
+      },
+      "height": 380
+    }
+  ]
+}

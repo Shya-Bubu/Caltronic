@@ -1,0 +1,66 @@
+{
+    "id": "flashcards-tableau-analysis",
+    "conceptId": "tableau-analysis",
+    "cards": [
+        {
+            "id": "ta-fc1",
+            "front": "What three sets of unknowns does tableau analysis use?",
+            "back": "Branch voltages v_b (b unknowns), branch currents i_b (b unknowns), and node voltages e (n−1 unknowns). Total: 2b + n − 1 unknowns.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ta-fc2",
+            "front": "Write the KCL matrix equation used in tableau analysis.",
+            "back": "A · i_b = 0, where A is the (n−1) × b reduced incidence matrix and i_b is the branch current vector. This gives n−1 equations.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ta-fc3",
+            "front": "Write the KVL matrix equation used in tableau analysis.",
+            "back": "v_b − Aᵀ · e = 0, where v_b is the branch voltage vector, Aᵀ is the transpose of the incidence matrix, and e is the node voltage vector. This gives b equations.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ta-fc4",
+            "front": "What is the block structure of the tableau matrix T?",
+            "back": "T = [ 0, A, 0 ; I_b, 0, −Aᵀ ; M_v, M_i, 0 ]. Row 1 = KCL, Row 2 = KVL, Row 3 = branch constitutive equations.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ta-fc5",
+            "front": "How does tableau analysis handle an ideal voltage source V_s?",
+            "back": "The branch constitutive equation is simply v_k = V_s. The branch current i_k is not specified by the source — it becomes a free unknown determined by the rest of the system through KCL and KVL.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ta-fc6",
+            "front": "Name three circuit elements that nodal analysis cannot handle directly but tableau analysis can.",
+            "back": "1. Ideal voltage sources (no explicit i = f(v) relation). 2. Ideal transformers (coupled branches). 3. Current-controlled sources (CCVS, CCCS) where the controlling variable is a branch current.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ta-fc7",
+            "front": "When does the linear tableau system T·x = u have a unique solution?",
+            "back": "If and only if the tableau matrix T is nonsingular, i.e., det(T) ≠ 0. A singular T indicates an inconsistent or underdetermined circuit.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ta-fc8",
+            "front": "In a nonlinear circuit, which parts of the tableau system become nonlinear?",
+            "back": "Only the branch constitutive equations f_k(v_k, i_k) = 0 can be nonlinear. KCL (A·i_b = 0) and KVL (v_b − Aᵀ·e = 0) are always linear because they are topological (graph-based) laws.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ta-fc9",
+            "front": "What method is used to solve the nonlinear tableau system F(x) = 0?",
+            "back": "Newton-Raphson iteration: linearise around guess x^(k) by solving J(x^(k))·Δx = −F(x^(k)), then update x^(k+1) = x^(k) + Δx. J is the Jacobian of F. This is the core algorithm in SPICE.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ta-fc10",
+            "front": "What is the main trade-off of tableau analysis versus nodal analysis?",
+            "back": "Tableau is more general (handles all element types systematically) but produces a much larger system: 2b + n − 1 unknowns vs n − 1 for nodal. Modified Nodal Analysis (MNA) combines the advantages of both.",
+            "difficultyLevel": 2
+        }
+    ]
+}

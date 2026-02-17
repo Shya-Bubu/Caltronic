@@ -1,0 +1,138 @@
+{
+    "id": "quiz-REPLACE-concept-id",
+    "conceptId": "REPLACE-concept-id",
+    "title": "REPLACE: Concept Title Quiz",
+    "passingScore": 70,
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "REPLACE: Question 1 text",
+            "options": [
+                "REPLACE: Option A",
+                "REPLACE: Option B",
+                "REPLACE: Option C",
+                "REPLACE: Option D"
+            ],
+            "correctAnswer": "REPLACE: Option B",
+            "explanation": "REPLACE: Detailed explanation (>50 chars) of why the correct answer is right and why others are wrong. This teaches even when wrong.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q2",
+            "prompt": "REPLACE: Question 2 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "A",
+            "explanation": "REPLACE: Explanation for question 2 that helps students understand the concept better.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q3",
+            "prompt": "REPLACE: Question 3 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "C",
+            "explanation": "REPLACE: Explanation for question 3.",
+            "difficulty": "easy"
+        },
+        {
+            "id": "q4",
+            "prompt": "REPLACE: Question 4 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "D",
+            "explanation": "REPLACE: Explanation for question 4.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q5",
+            "prompt": "REPLACE: Question 5 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "B",
+            "explanation": "REPLACE: Explanation for question 5.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q6",
+            "prompt": "REPLACE: Question 6 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "A",
+            "explanation": "REPLACE: Explanation for question 6.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q7",
+            "prompt": "REPLACE: Question 7 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "C",
+            "explanation": "REPLACE: Explanation for question 7.",
+            "difficulty": "medium"
+        },
+        {
+            "id": "q8",
+            "prompt": "REPLACE: Question 8 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "B",
+            "explanation": "REPLACE: Explanation for question 8.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q9",
+            "prompt": "REPLACE: Question 9 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "D",
+            "explanation": "REPLACE: Explanation for question 9.",
+            "difficulty": "hard"
+        },
+        {
+            "id": "q10",
+            "prompt": "REPLACE: Question 10 text",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "correctAnswer": "A",
+            "explanation": "REPLACE: Explanation for question 10.",
+            "difficulty": "hard"
+        }
+    ]
+}

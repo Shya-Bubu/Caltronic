@@ -134,6 +134,11 @@ export default function HomePage() {
               {/* Spotlight overlay */}
               <div className={styles.spotlight} />
 
+              {/* Full card clickable link */}
+              <Link className={styles.cardLink} href={moduleHref} aria-label={`Open ${module.title}`}>
+                <span className="sr-only">Open {module.title}</span>
+              </Link>
+
               <div className={styles.cardContent}>
                 {module.category && (
                   <div className={styles.category}>{module.category}</div>
@@ -162,12 +167,12 @@ export default function HomePage() {
                   <span className={styles.progressText}>{safeProgress}%</span>
                 </div>
 
-                <Link className={styles.link} href={moduleHref}>
+                <div className={styles.link}>
                   <span>Open module</span>
                   <svg className={styles.linkIcon} width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </Link>
+                </div>
               </div>
             </motion.article>
           );

@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-REPLACE-concept-id",
+    "conceptId": "REPLACE-concept-id",
+    "title": "REPLACE: Concept Title Flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "REPLACE: Definition question",
+            "back": "REPLACE: Answer with key insight",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "REPLACE: Key formula question",
+            "back": "REPLACE: Formula with explanation",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "REPLACE: Terminology question",
+            "back": "REPLACE: Definition and context",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "REPLACE: Application question",
+            "back": "REPLACE: When and how to use this",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "REPLACE: Comparison question",
+            "back": "REPLACE: Key differences explained",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "REPLACE: Symbol/notation question",
+            "back": "REPLACE: Symbol meaning and usage",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "REPLACE: Edge case question",
+            "back": "REPLACE: Behavior in special situations",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "REPLACE: Derivation step question",
+            "back": "REPLACE: Key step justification",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "REPLACE: Advanced application question",
+            "back": "REPLACE: Advanced insight",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "REPLACE: Integration question",
+            "back": "REPLACE: How this connects to other concepts",
+            "difficultyLevel": 5
+        }
+    ]
+}

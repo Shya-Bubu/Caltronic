@@ -1,0 +1,125 @@
+{
+  "id": "transfer-characteristics-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A transfer characteristic describes:",
+      "options": [
+        "A) The v-i relationship at a single port",
+        "B) The relationship between input at one port and output at a different port",
+        "C) The power dissipated in a resistor",
+        "D) The frequency response of the circuit"
+      ],
+      "correctAnswer": "B) The relationship between input at one port and output at a different port",
+      "explanation": "A transfer characteristic relates the output variable (at one port) to the input variable (at a different port). The word 'transfer' means the signal moves from the input port to the output port."
+    },
+    {
+      "id": "q2",
+      "prompt": "A driving-point characteristic differs from a transfer characteristic because:",
+      "options": [
+        "A) It involves AC signals only",
+        "B) The input and response are measured at the same port",
+        "C) It only applies to linear circuits",
+        "D) It is always a straight line"
+      ],
+      "correctAnswer": "B) The input and response are measured at the same port",
+      "explanation": "In a driving-point characteristic, both the excitation (input) and the response (output) are at the same port. In a transfer characteristic, they are at different ports."
+    },
+    {
+      "id": "q3",
+      "prompt": "For two current-controlled resistors in series with input vi across both and output vo across R2, KCL gives:",
+      "options": [
+        "A) v1 = v2",
+        "B) i1 + i2 = 0",
+        "C) i = i1 = i2",
+        "D) i1 = -i2"
+      ],
+      "correctAnswer": "C) i = i1 = i2",
+      "explanation": "In a series connection, a single current flows through both elements. KCL at the intermediate node forces i = i1 = i2."
+    },
+    {
+      "id": "q4",
+      "prompt": "With vi = v-hat1(i) + v-hat2(i) and vo = v-hat2(i), the transfer characteristic vo(vi) is obtained by:",
+      "options": [
+        "A) Adding the two functions",
+        "B) Multiplying the two functions",
+        "C) Eliminating i from the two equations",
+        "D) Differentiating vi with respect to vo"
+      ],
+      "correctAnswer": "C) Eliminating i from the two equations",
+      "explanation": "Both vi and vo are expressed in terms of the parameter i. To get vo as a function of vi, you must eliminate i: invert vi = f(i) to get i = f^{-1}(vi), then substitute into vo = h(i)."
+    },
+    {
+      "id": "q5",
+      "prompt": "When analytic elimination of i is not feasible, the recommended approach is:",
+      "options": [
+        "A) Assume i = 0",
+        "B) Use the parametric method: compute (vi, vo) for many values of i",
+        "C) Set v1 = v2",
+        "D) Ignore the nonlinear element"
+      ],
+      "correctAnswer": "B) Use the parametric method: compute (vi, vo) for many values of i",
+      "explanation": "The parametric method avoids the need to invert f(i). Choose values of i, compute vi and vo for each, and plot the resulting (vi, vo) points."
+    },
+    {
+      "id": "q6",
+      "prompt": "In a series circuit with a PN-junction diode (R1) and linear resistor R2, for vi well above the diode turn-on voltage, vo is approximately:",
+      "options": [
+        "A) vo = 0",
+        "B) vo = vi",
+        "C) vo = vi - V_gamma",
+        "D) vo = V_gamma"
+      ],
+      "correctAnswer": "C) vo = vi - V_gamma",
+      "explanation": "Once the diode is fully on, its voltage is approximately pinned at V_gamma. KVL gives vo = vi - v1, and since v1 is roughly V_gamma, we get vo approximately equal to vi - V_gamma."
+    },
+    {
+      "id": "q7",
+      "prompt": "For vi below the diode turn-on voltage in the same circuit, vo is approximately:",
+      "options": [
+        "A) vo = vi",
+        "B) vo = vi - V_gamma",
+        "C) vo = 0",
+        "D) vo = V_gamma"
+      ],
+      "correctAnswer": "C) vo = 0",
+      "explanation": "Below turn-on, the diode conducts negligible current. Since i is approximately 0, vo = R2 * i is approximately 0 as well."
+    },
+    {
+      "id": "q8",
+      "prompt": "For a linear voltage divider with R1 and R2, the transfer characteristic is:",
+      "options": [
+        "A) vo = (R1 + R2) * vi",
+        "B) vo = R1 / (R1 + R2) * vi",
+        "C) vo = R2 / (R1 + R2) * vi",
+        "D) vo = R2 * R1 * vi"
+      ],
+      "correctAnswer": "C) vo = R2 / (R1 + R2) * vi",
+      "explanation": "For a resistive voltage divider, i = vi/(R1 + R2), so vo = R2 * i = R2/(R1 + R2) * vi. This is a straight line through the origin with slope less than 1."
+    },
+    {
+      "id": "q9",
+      "prompt": "The slope of the transfer characteristic at a given operating point represents:",
+      "options": [
+        "A) The resistance of the circuit",
+        "B) The power gain",
+        "C) The voltage gain (dvo/dvi)",
+        "D) The current through the load"
+      ],
+      "correctAnswer": "C) The voltage gain (dvo/dvi)",
+      "explanation": "The slope dvo/dvi at any point on the transfer characteristic curve is the incremental (small-signal) voltage gain at that operating point."
+    },
+    {
+      "id": "q10",
+      "prompt": "A nonlinear transfer characteristic (varying slope) implies that the circuit:",
+      "options": [
+        "A) Cannot operate at DC",
+        "B) Processes small and large signals identically",
+        "C) Processes small and large signals differently, enabling functions like rectification",
+        "D) Has no operating point"
+      ],
+      "correctAnswer": "C) Processes small and large signals differently, enabling functions like rectification",
+      "explanation": "Varying slope means the gain depends on the signal level. This is what allows nonlinear circuits to perform rectification, limiting, and other functions that are impossible with constant-slope (linear) circuits."
+    }
+  ]
+}

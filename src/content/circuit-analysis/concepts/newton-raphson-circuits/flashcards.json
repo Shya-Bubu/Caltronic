@@ -1,0 +1,67 @@
+{
+    "id": "flashcards-newton-raphson-circuits",
+    "conceptId": "newton-raphson-circuits",
+    "title": "Newton-Raphson Method for Nonlinear Circuits Flashcards",
+    "cards": [
+        {
+            "id": "nrc-fc1",
+            "front": "State the multi-variable Newton-Raphson update formula.",
+            "back": "x^(j+1) = x^(j) − J⁻¹(x^(j))·f(x^(j)), where J is the Jacobian matrix with entries J_ij = ∂f_i/∂x_j. In practice, we solve J·Δx = −f for Δx rather than computing J⁻¹ explicitly.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "nrc-fc2",
+            "front": "What is the Jacobian matrix J(x) and what are its entries?",
+            "back": "The Jacobian is a p×p matrix for a system of p equations f(x) = 0 in p unknowns. Its entries are J_ij = ∂f_i/∂x_j — the partial derivative of the i-th equation with respect to the j-th unknown. It generalises the scalar derivative f'(x).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "nrc-fc3",
+            "front": "In a circuit's Jacobian, which entries are constant and which change per iteration?",
+            "back": "Entries from KCL rows (incidence matrix A), KVL rows (Aᵀ), and linear branch equations are constant. Only entries from nonlinear branch constitutive relations change — they involve derivatives of the nonlinear characteristics evaluated at the current iterate.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "nrc-fc4",
+            "front": "What is the convergence criterion for Newton-Raphson?",
+            "back": "Stop when ||f(x^(j))|| < ε for a small positive tolerance ε (e.g., 10⁻⁶). Common norms: infinity norm max_i |f_i| or 2-norm √(Σf_i²). This ensures all circuit equations are satisfied to within ε.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "nrc-fc5",
+            "front": "What convergence rate does Newton-Raphson exhibit near a simple root?",
+            "back": "Quadratic convergence — the number of correct significant digits approximately doubles each iteration, provided the Jacobian is nonsingular at the solution and the initial guess is sufficiently close. This is why circuit problems typically need only 3–6 iterations.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "nrc-fc6",
+            "front": "For a current-controlled nonlinear resistor v = v̂(i), write R^(j) and E^(j) for the discrete equivalent.",
+            "back": "R^(j) = v̂'(i^(j)) = dv̂/di evaluated at i^(j). E^(j) = v̂(i^(j)) − R^(j)·i^(j). The nonlinear element is replaced by a linear resistor R^(j) in series with a voltage source E^(j) — a Thévenin equivalent.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "nrc-fc7",
+            "front": "For a voltage-controlled nonlinear resistor i = î(v), write G^(j) and I^(j) for the discrete equivalent.",
+            "back": "G^(j) = î'(v^(j)) = dî/dv evaluated at v^(j). I^(j) = î(v^(j)) − G^(j)·v^(j). The nonlinear element is replaced by a conductance G^(j) in parallel with a current source I^(j) — a Norton equivalent.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "nrc-fc8",
+            "front": "What is the key insight of the Newton-Raphson discrete equivalent circuit?",
+            "back": "Each Newton-Raphson iteration transforms a nonlinear resistive circuit into a LINEAR circuit with the same topology. Nonlinear elements are replaced by their linearised Thévenin or Norton equivalents, and any linear analysis technique can be used to solve the resulting circuit.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "nrc-fc9",
+            "front": "For v = 4i³, compute R^(j) and E^(j) at i^(j) = 1 A.",
+            "back": "R^(j) = dv/di = 12i² → 12(1)² = 12 Ω. E^(j) = v̂(1) − R^(j)·1 = 4(1)³ − 12(1) = 4 − 12 = −8 V. The equivalent is a 12 Ω resistor in series with a −8 V source.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "nrc-fc10",
+            "front": "In the slide example (v₃ = 4i₃³, 8 A source), what are x⁽⁰⁾, x⁽¹⁾, x⁽²⁾?",
+            "back": "x⁽⁰⁾ = [6, 2]ᵀ (initial guess), x⁽¹⁾ = [6.4, 1.6]ᵀ (after 1 iteration), x⁽²⁾ = [6.5095, 1.4905]ᵀ (after 2 iterations). The residual shrinks rapidly, demonstrating quadratic convergence.",
+            "difficultyLevel": 4
+        }
+    ]
+}

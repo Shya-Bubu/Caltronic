@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeRaw from 'rehype-raw';
 
 import styles from './MarkdownView.module.css';
 import remarkInlineVisuals from './remarkInlineVisuals';
@@ -47,7 +48,7 @@ export default function MarkdownView({
     <div className={styles.markdown}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath, remarkInlineVisuals]}
-        rehypePlugins={[rehypeKatex]}
+        rehypePlugins={[rehypeRaw, rehypeKatex]}
         components={components as never}
       >
         {markdown}

@@ -1,87 +1,393 @@
 {
-    "conceptId": "nodal-analysis",
-    "diagrams": [
+  "visuals": [
+    {
+      "id": "nodal-analysis-sample-circuit",
+      "conceptId": "nodal-analysis",
+      "title": "3-Node Resistive Circuit with Current Sources",
+      "type": "circuit-diagram",
+      "description": "A circuit with three non-reference nodes (1, 2, 3) and a ground node (0). Six resistive branches connect the nodes: G₁ (node 1–0), G₂ (node 2–0), G₃ (node 3–0), G₄ (node 1–2), G₅ (node 2–3), and G₆ (node 1–3). Independent current sources iₛ₁, iₛ₂, iₛ₃ inject current at each non-reference node. Node voltages e₁, e₂, e₃ are labeled with respect to ground.",
+      "context": "Used in the worked example (Section 2.1) to demonstrate the node analysis procedure and formulation by inspection.",
+      "suggestedFormat": "svg",
+      "elements": [
         {
-            "id": "diag-nodal-procedure",
-            "type": "flowchart",
-            "title": "Nodal Analysis Procedure",
-            "content": "Identify Nodes → Choose Ground → Label Voltages → Write KCL → Solve → Verify"
+          "type": "node",
+          "label": "1",
+          "annotation": "e₁"
         },
         {
-            "id": "diag-supernode",
-            "type": "static",
-            "title": "Supernode Formation",
-            "content": "Diagram showing two nodes connected by voltage source enclosed in supernode boundary"
+          "type": "node",
+          "label": "2",
+          "annotation": "e₂"
+        },
+        {
+          "type": "node",
+          "label": "3",
+          "annotation": "e₃"
+        },
+        {
+          "type": "node",
+          "label": "0",
+          "annotation": "GND (reference)"
+        },
+        {
+          "type": "resistor",
+          "from": "1",
+          "to": "0",
+          "label": "G₁ = 2 S"
+        },
+        {
+          "type": "resistor",
+          "from": "2",
+          "to": "0",
+          "label": "G₂ = 3 S"
+        },
+        {
+          "type": "resistor",
+          "from": "3",
+          "to": "0",
+          "label": "G₃ = 1 S"
+        },
+        {
+          "type": "resistor",
+          "from": "1",
+          "to": "2",
+          "label": "G₄ = 4 S"
+        },
+        {
+          "type": "resistor",
+          "from": "2",
+          "to": "3",
+          "label": "G₅ = 2 S"
+        },
+        {
+          "type": "resistor",
+          "from": "1",
+          "to": "3",
+          "label": "G₆ = 1 S"
+        },
+        {
+          "type": "current-source",
+          "into": "1",
+          "label": "iₛ₁ = 10 A"
+        },
+        {
+          "type": "current-source",
+          "into": "2",
+          "label": "iₛ₂ = −5 A"
+        },
+        {
+          "type": "current-source",
+          "into": "3",
+          "label": "iₛ₃ = 3 A"
         }
-    ],
-    "visuals": [
+      ]
+    },
+    {
+      "id": "yn-matrix-structure",
+      "conceptId": "nodal-analysis",
+      "title": "Structure of the Node-Admittance Matrix Yₙ",
+      "type": "annotated-matrix",
+      "description": "A visual representation of the 3×3 node-admittance matrix with color-coded regions. Diagonal entries (highlighted in blue) show the sum of all conductances connected to each node. Off-diagonal entries (highlighted in red) show the negative of the conductance between the two corresponding nodes. Arrows or annotations indicate the symmetry property Yₖⱼ = Yⱼₖ.",
+      "context": "Illustrates the formulation-by-inspection rules in Section 3.1.",
+      "suggestedFormat": "svg",
+      "elements": [
         {
-            "id": "vis-nodal-builder",
-            "type": "interactive",
-            "title": "Nodal Equation Builder",
-            "description": "Build nodal equations step by step",
-            "purpose": "Practice systematic nodal analysis setup",
-            "interactivity": "Click nodes to write KCL, see equations build",
-            "suggestedImplementation": {
-                "component": "NodalEquationBuilder",
-                "features": [
-                    "Simple circuit with 2-3 nodes",
-                    "Click node to highlight connected elements",
-                    "Show current expressions",
-                    "Build KCL equation visually"
-                ]
-            }
+          "type": "matrix-cell",
+          "row": 1,
+          "col": 1,
+          "value": "G₁+G₄+G₆ = 7",
+          "highlight": "diagonal"
         },
         {
-            "id": "vis-supernode",
-            "type": "interactive",
-            "title": "Supernode Visualizer",
-            "description": "See how supernodes work for floating voltage sources",
-            "purpose": "Understand supernode technique",
-            "interactivity": "Toggle supernode boundary, see equation changes",
-            "suggestedImplementation": {
-                "component": "SupernodeVisualizer",
-                "features": [
-                    "Circuit with floating voltage source",
-                    "Draw supernode boundary",
-                    "Show constraint equation",
-                    "Show combined KCL equation"
-                ]
-            }
+          "type": "matrix-cell",
+          "row": 1,
+          "col": 2,
+          "value": "−G₄ = −4",
+          "highlight": "off-diagonal"
         },
         {
-            "id": "vis-g-matrix",
-            "type": "interactive",
-            "title": "Conductance Matrix Builder",
-            "description": "Build G matrix by inspection",
-            "purpose": "Learn matrix method for nodal analysis",
-            "interactivity": "Add elements to circuit, see G matrix update",
-            "suggestedImplementation": {
-                "component": "GMatrixBuilder",
-                "features": [
-                    "Empty circuit canvas",
-                    "Add resistors between nodes",
-                    "Watch G matrix update in real-time",
-                    "Highlight matrix entry being computed"
-                ]
-            }
+          "type": "matrix-cell",
+          "row": 1,
+          "col": 3,
+          "value": "−G₆ = −1",
+          "highlight": "off-diagonal"
         },
         {
-            "id": "vis-nodal-solver",
-            "type": "interactive",
-            "title": "Complete Nodal Solver",
-            "description": "Enter circuit, solve for all voltages",
-            "purpose": "Practice complete nodal analysis workflow",
-            "interactivity": "Build circuit, see solution and verification",
-            "suggestedImplementation": {
-                "component": "NodalSolver",
-                "features": [
-                    "Circuit input (values and topology)",
-                    "Step-through solution",
-                    "Show all node voltages",
-                    "Power balance verification"
-                ]
-            }
+          "type": "matrix-cell",
+          "row": 2,
+          "col": 1,
+          "value": "−G₄ = −4",
+          "highlight": "off-diagonal"
+        },
+        {
+          "type": "matrix-cell",
+          "row": 2,
+          "col": 2,
+          "value": "G₂+G₄+G₅ = 9",
+          "highlight": "diagonal"
+        },
+        {
+          "type": "matrix-cell",
+          "row": 2,
+          "col": 3,
+          "value": "−G₅ = −2",
+          "highlight": "off-diagonal"
+        },
+        {
+          "type": "matrix-cell",
+          "row": 3,
+          "col": 1,
+          "value": "−G₆ = −1",
+          "highlight": "off-diagonal"
+        },
+        {
+          "type": "matrix-cell",
+          "row": 3,
+          "col": 2,
+          "value": "−G₅ = −2",
+          "highlight": "off-diagonal"
+        },
+        {
+          "type": "matrix-cell",
+          "row": 3,
+          "col": 3,
+          "value": "G₃+G₅+G₆ = 4",
+          "highlight": "diagonal"
+        },
+        {
+          "type": "annotation",
+          "text": "Symmetric: Yₖⱼ = Yⱼₖ"
         }
-    ]
+      ]
+    },
+    {
+      "id": "incidence-matrix-mapping",
+      "conceptId": "nodal-analysis",
+      "title": "Reduced Incidence Matrix — Mapping Branches to Nodes",
+      "type": "graph-with-matrix",
+      "description": "Side-by-side display: on the left, the circuit graph with directed branches (arrows showing chosen orientation) and labeled nodes (1, 2, 3, 0=GND). On the right, the corresponding 3×6 reduced incidence matrix A, with +1, −1, 0 entries color-coded. Lines connect each branch in the graph to its column in the matrix, showing how the graph topology encodes into A.",
+      "context": "Section 5.1 constructs this matrix step by step.",
+      "suggestedFormat": "svg",
+      "elements": [
+        {
+          "type": "graph-node",
+          "id": "0",
+          "label": "0 (GND)"
+        },
+        {
+          "type": "graph-node",
+          "id": "1",
+          "label": "1"
+        },
+        {
+          "type": "graph-node",
+          "id": "2",
+          "label": "2"
+        },
+        {
+          "type": "graph-node",
+          "id": "3",
+          "label": "3"
+        },
+        {
+          "type": "directed-edge",
+          "from": "1",
+          "to": "0",
+          "label": "b1"
+        },
+        {
+          "type": "directed-edge",
+          "from": "2",
+          "to": "0",
+          "label": "b2"
+        },
+        {
+          "type": "directed-edge",
+          "from": "3",
+          "to": "0",
+          "label": "b3"
+        },
+        {
+          "type": "directed-edge",
+          "from": "1",
+          "to": "2",
+          "label": "b4"
+        },
+        {
+          "type": "directed-edge",
+          "from": "2",
+          "to": "3",
+          "label": "b5"
+        },
+        {
+          "type": "directed-edge",
+          "from": "1",
+          "to": "3",
+          "label": "b6"
+        },
+        {
+          "type": "matrix",
+          "label": "A",
+          "rows": 3,
+          "cols": 6
+        }
+      ]
+    },
+    {
+      "id": "kcl-at-node",
+      "conceptId": "nodal-analysis",
+      "title": "KCL at a Single Node — Current Balance",
+      "type": "node-detail-diagram",
+      "description": "A close-up view of node 1 in the example circuit. All branch currents leaving node 1 are drawn as arrows: G₁·e₁ (to ground), G₄(e₁−e₂) (to node 2), G₆(e₁−e₃) (to node 3). The injected source current iₛ₁ enters node 1. An equation bubble shows: sum of leaving currents = injected current, illustrating KCL applied at node 1.",
+      "context": "Reinforces the KCL step in the node analysis procedure (Section 2).",
+      "suggestedFormat": "svg",
+      "elements": [
+        {
+          "type": "central-node",
+          "label": "node 1",
+          "voltage": "e₁"
+        },
+        {
+          "type": "current-arrow",
+          "direction": "out",
+          "to": "GND",
+          "expression": "G₁·e₁"
+        },
+        {
+          "type": "current-arrow",
+          "direction": "out",
+          "to": "node 2",
+          "expression": "G₄(e₁−e₂)"
+        },
+        {
+          "type": "current-arrow",
+          "direction": "out",
+          "to": "node 3",
+          "expression": "G₆(e₁−e₃)"
+        },
+        {
+          "type": "current-arrow",
+          "direction": "in",
+          "from": "source",
+          "expression": "iₛ₁"
+        },
+        {
+          "type": "equation",
+          "text": "G₁e₁ + G₄(e₁−e₂) + G₆(e₁−e₃) = iₛ₁"
+        }
+      ]
+    },
+    {
+      "id": "yn-derivation-flow",
+      "conceptId": "nodal-analysis",
+      "title": "Derivation Flow: Yₙ = A · Y_b · Aᵀ",
+      "type": "flowchart",
+      "description": "A flowchart showing the logical chain: (1) Element relations: i_b = Y_b · v_b, (2) KVL: v_b = Aᵀ · e, (3) Substitute: i_b = Y_b · Aᵀ · e, (4) KCL: A · i_b = iₛ, (5) Combine: A · Y_b · Aᵀ · e = iₛ, (6) Therefore: Yₙ = A · Y_b · Aᵀ. Each step is a box with an arrow to the next, and the matrix dimensions are annotated (n×b, b×b, b×(n), etc.).",
+      "context": "Section 6 derives this central identity.",
+      "suggestedFormat": "svg",
+      "elements": [
+        {
+          "type": "box",
+          "step": 1,
+          "label": "Element relations",
+          "equation": "i_b = Y_b · v_b",
+          "dimensions": "(b×1) = (b×b)·(b×1)"
+        },
+        {
+          "type": "box",
+          "step": 2,
+          "label": "KVL",
+          "equation": "v_b = Aᵀ · e",
+          "dimensions": "(b×1) = (b×n)·(n×1)"
+        },
+        {
+          "type": "box",
+          "step": 3,
+          "label": "Substitute",
+          "equation": "i_b = Y_b · Aᵀ · e",
+          "dimensions": "(b×1) = (b×b)·(b×n)·(n×1)"
+        },
+        {
+          "type": "box",
+          "step": 4,
+          "label": "KCL with sources",
+          "equation": "A · i_b = iₛ",
+          "dimensions": "(n×1) = (n×b)·(b×1)"
+        },
+        {
+          "type": "box",
+          "step": 5,
+          "label": "Combine",
+          "equation": "A · Y_b · Aᵀ · e = iₛ"
+        },
+        {
+          "type": "box",
+          "step": 6,
+          "label": "Result",
+          "equation": "Yₙ = A · Y_b · Aᵀ",
+          "highlight": true
+        }
+      ]
+    },
+    {
+      "id": "kcl-kvl-matrix-form",
+      "conceptId": "nodal-analysis",
+      "title": "KCL and KVL as Matrix Equations",
+      "type": "split-diagram",
+      "description": "A two-panel visual. Left panel: shows KCL in matrix form A·i_b = 0, with the incidence matrix A multiplying the branch current vector, and an annotation that each row sums currents at one node. Right panel: shows KVL in matrix form v_b = Aᵀ·e, with Aᵀ multiplying the node voltage vector, and an annotation that each branch voltage is a difference of node voltages.",
+      "context": "Section 5.2 presents these dual matrix identities.",
+      "suggestedFormat": "svg",
+      "elements": [
+        {
+          "type": "panel",
+          "side": "left",
+          "title": "KCL",
+          "equation": "A · i_b = 0",
+          "annotation": "Each row: sum of currents at node i = 0"
+        },
+        {
+          "type": "panel",
+          "side": "right",
+          "title": "KVL",
+          "equation": "v_b = Aᵀ · e",
+          "annotation": "Each entry: vₖ = eᵢ − eⱼ (branch endpoints)"
+        }
+      ]
+    },
+    {
+      "id": "nonlinear-extension",
+      "conceptId": "nodal-analysis",
+      "title": "Nonlinear Extension of Nodal Analysis",
+      "type": "comparison-diagram",
+      "description": "A side-by-side comparison. Left: Linear case — straight-line v-i curves for resistors, the matrix equation Yₙ·e = iₛ, and a single unique intersection point. Right: Nonlinear case — curved v-i characteristic (e.g., tunnel diode), the nonlinear equation f(e) = A·î(Aᵀe) − iₛ = 0, and multiple possible intersection points illustrating non-uniqueness.",
+      "context": "Section 7 extends nodal analysis to nonlinear circuits.",
+      "suggestedFormat": "svg",
+      "elements": [
+        {
+          "type": "panel",
+          "side": "left",
+          "title": "Linear",
+          "curve": "straight line",
+          "equation": "Yₙ·e = iₛ",
+          "solutions": "unique"
+        },
+        {
+          "type": "panel",
+          "side": "right",
+          "title": "Nonlinear",
+          "curve": "N-shaped (tunnel diode)",
+          "equation": "f(e) = A·î(Aᵀe) − iₛ = 0",
+          "solutions": "possibly multiple"
+        }
+      ]
+    },
+    {
+      "id": "falstad-two-node-circuit",
+      "type": "falstad-sim",
+      "title": "Interactive: Two-Node Resistor Network",
+      "description": "Two voltage sources and three resistors forming a two-node network. Apply KCL at each node to find node voltages.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 96 288 96 96 0 0 40 10 0 0 0.5\nv 416 288 416 96 0 0 40 5 0 0 0.5\nr 96 96 256 96 0 1000\nr 256 96 416 96 0 2000\nr 256 96 256 288 0 3000\nw 96 288 256 288 0\nw 256 288 416 288 0\ng 256 288 256 320 0 0",
+      "height": 450
+    }
+  ]
 }

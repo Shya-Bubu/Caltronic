@@ -1,77 +1,65 @@
 {
-    "id": "dc-operating-points-flashcards",
-    "cards": [
-        {
-            "id": "f1",
-            "front": "DC operating point definition",
-            "back": "Steady-state solution of a circuit with DC sources.\nWhere device characteristic meets load line.",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "f2",
-            "front": "Load line equation",
-            "back": "For source Eb and resistor Rb:\ni = (Eb - v)/Rb\nLine from (Eb, 0) to (0, Eb/Rb).",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "f3",
-            "front": "Linear passive circuit solution",
-            "back": "Always has a unique DC operating point.\nNo ambiguity in solution.",
-            "difficultyLevel": 1
-        },
-        {
-            "id": "f4",
-            "front": "Nonlinear circuit solutions",
-            "back": "May have:\n• Unique solution\n• Multiple solutions\n• No solution",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "f5",
-            "front": "Graphical method steps",
-            "back": "1. Draw device v-i curve\n2. Draw load line\n3. Find intersection(s)\n4. Each intersection is an operating point",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "f6",
-            "front": "Newton-Raphson formula",
-            "back": "xn = xn-1 - f(xn-1)/f'(xn-1)\nIterative root finding.",
-            "difficultyLevel": 3
-        },
-        {
-            "id": "f7",
-            "front": "When to use Newton-Raphson",
-            "back": "When analytical solution is impractical.\nNonlinear circuits with complex equations.",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "f8",
-            "front": "Transfer characteristic",
-            "back": "vo = f(vi)\nRelates output to input at different ports.\nNot a driving-point characteristic.",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "f9",
-            "front": "Back-to-back connection equations",
-            "back": "KCL: ia = -ib (currents oppose)\nKVL: va = vb (voltages equal)",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "f10",
-            "front": "Stability of operating point",
-            "back": "Generally stable if device and load have opposing slopes at intersection.",
-            "difficultyLevel": 3
-        },
-        {
-            "id": "f11",
-            "front": "No solution means",
-            "back": "Load line and device curve don't intersect.\nCircuit cannot operate with given sources.",
-            "difficultyLevel": 2
-        },
-        {
-            "id": "f12",
-            "front": "Multiple solutions mean",
-            "back": "Multiple valid operating points.\nCircuit behavior depends on initial conditions.",
-            "difficultyLevel": 3
-        }
-    ]
+  "id": "dc-operating-points-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What is a DC operating point?",
+      "back": "The (v, i) pair at which the circuit operates when all sources are DC. It is the simultaneous solution of KCL, KVL, and all element constitutive relations. Also called the quiescent point (Q-point).",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "For a circuit with only linear passive resistors and one DC source, how many operating points exist?",
+      "back": "Exactly one. The system of equations is linear, and a linear system with a unique source has a unique solution.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What are the three possible outcomes for a nonlinear circuit's operating-point analysis?",
+      "back": "Unique solution (one operating point), multiple solutions (bistability or multistability), or no solution (incompatible device and load characteristics).",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "State the KVL and KCL constraints for the back-to-back one-port model.",
+      "back": "KVL: va = vb (both sub-circuits see the same voltage). KCL: ia = -ib (current leaving one enters the other). Operating points are the intersections of the two v-i curves.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is a load line?",
+      "back": "The v-i characteristic of the source-plus-linear-resistor sub-circuit: i = (Eb - v)/Rb. It is a straight line with voltage intercept at v = Eb and current intercept at i = Eb/Rb.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "How do you find operating points using the load-line method?",
+      "back": "Plot the device curve i = g(v) and the load line i = (Eb - v)/Rb on the same v-i plane. Every intersection is a DC operating point.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "In the example i = 4v^2 with Eb = 2V and Rb = 1/4 ohm, what are the operating points?",
+      "back": "Solving 4v^2 = 8 - 4v gives v^2 + v - 2 = 0. Solutions: v = 1V (i = 4A) and v = -2V (i = 16A). Two operating points.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "State the Newton-Raphson iteration formula.",
+      "back": "x_{n+1} = x_n - f(x_n)/f'(x_n). At each step, approximate f by its tangent line at x_n and find the root of the tangent.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What determines which operating point Newton-Raphson converges to?",
+      "back": "The choice of initial guess. Different starting points may lead to different roots. A graphical sketch helps choose an initial guess near the desired root.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "Why must mathematical operating-point solutions be checked against the device model's valid domain?",
+      "back": "A solution that lies outside the range where the device model is valid (e.g., negative voltage for a device defined only for v >= 0) is a mathematical artefact, not a physical operating point.",
+      "difficultyLevel": 4
+    }
+  ]
 }

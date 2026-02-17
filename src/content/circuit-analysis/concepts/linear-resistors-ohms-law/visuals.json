@@ -1,0 +1,526 @@
+{
+  "visuals": [
+    {
+      "id": "multi-r-comparison",
+      "type": "plotly",
+      "title": "V-I Characteristics: Different Resistance Values",
+      "description": "As R increases, the slope G = 1/R decreases and the line gets flatter. At R → ∞, the line becomes the v-axis (open circuit). At R → 0, it becomes the i-axis (short circuit).",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            -0.1,
+            -0.06,
+            -0.02,
+            0,
+            0.02,
+            0.06,
+            0.1
+          ],
+          "name": "R = 50Ω (G = 20 mS)",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.03,
+            -0.01,
+            0,
+            0.01,
+            0.03,
+            0.05
+          ],
+          "name": "R = 100Ω (G = 10 mS)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            -0.025,
+            -0.015,
+            -0.005,
+            0,
+            0.005,
+            0.015,
+            0.025
+          ],
+          "name": "R = 200Ω (G = 5 mS)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            -0.005,
+            -0.003,
+            -0.001,
+            0,
+            0.001,
+            0.003,
+            0.005
+          ],
+          "name": "R = 1kΩ (G = 1 mS)",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.12,
+            0.12
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 560,
+      "height": 420
+    },
+    {
+      "id": "vi-vs-iv-plane",
+      "type": "plotly",
+      "title": "V-I Plane: R = 100Ω (slope = G = 0.01 S)",
+      "description": "On the v-i plane, the slope is G = 1/R. Larger R → flatter line. Remember: slope = rise/run = Δi/Δv = G, NOT R!",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.03,
+            -0.01,
+            0,
+            0.01,
+            0.03,
+            0.05
+          ],
+          "name": "R = 100Ω → slope = G = 0.01",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.06,
+            0.06
+          ]
+        },
+        "annotations": [
+          {
+            "x": 4,
+            "y": 0.04,
+            "text": "slope = G = 1/R",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": 40,
+            "ay": -30,
+            "font": {
+              "color": "#94a3b8",
+              "size": 12
+            }
+          }
+        ]
+      },
+      "centeredAxes": true,
+      "width": 480,
+      "height": 360
+    },
+    {
+      "id": "numerical-points",
+      "type": "plotly",
+      "title": "R = 100Ω: Verified Data Points",
+      "description": "Each point lies on the line v = 100·i. At v = 5V, i = 50mA. At v = -3V, i = -30mA. The negative values simply mean reversed direction — the resistor is bilateral.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.04,
+            -0.03,
+            -0.02,
+            -0.01,
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "R = 100Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            5,
+            -3,
+            0,
+            1
+          ],
+          "y": [
+            0.05,
+            -0.03,
+            0,
+            0.01
+          ],
+          "name": "Key points",
+          "mode": "markers",
+          "marker": {
+            "color": "#ef4444",
+            "size": 10,
+            "symbol": "circle"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.06,
+            0.06
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 480,
+      "height": 360
+    },
+    {
+      "id": "associated-reference-direction",
+      "type": "circuit-schematic",
+      "title": "The Associated Reference Direction",
+      "description": "Current i enters the + terminal and exits the − terminal. This is the 'associated reference direction' — it defines positive power as p = vi (absorbed). Always label circuits this way.",
+      "width": 400,
+      "height": 180,
+      "elements": [
+        {
+          "component": "wire",
+          "x1": 50,
+          "y1": 90,
+          "x2": 140,
+          "y2": 90
+        },
+        {
+          "component": "resistor",
+          "x": 200,
+          "y": 90,
+          "label": "R"
+        },
+        {
+          "component": "wire",
+          "x1": 260,
+          "y1": 90,
+          "x2": 350,
+          "y2": 90
+        },
+        {
+          "component": "current-arrow",
+          "x": 95,
+          "y": 65,
+          "label": "i"
+        },
+        {
+          "component": "voltage-mark",
+          "x": 200,
+          "y": 130,
+          "rotation": 90,
+          "label": "v"
+        },
+        {
+          "component": "text",
+          "x": 50,
+          "y": 80,
+          "text": "+",
+          "fontSize": 13,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 350,
+          "y": 80,
+          "text": "−",
+          "fontSize": 13,
+          "color": "#ef4444"
+        },
+        {
+          "component": "junction",
+          "x": 50,
+          "y": 90
+        },
+        {
+          "component": "junction",
+          "x": 350,
+          "y": 90
+        }
+      ]
+    },
+    {
+      "id": "vs-plus-r-circuit",
+      "type": "circuit-schematic",
+      "title": "Simple Circuit: Voltage Source + Resistor",
+      "description": "A voltage source Vs drives current i through resistor R. By Ohm's law: i = Vs/R. The resistor voltage equals Vs, absorbing power p = Vs²/R.",
+      "width": 340,
+      "height": 280,
+      "elements": [
+        {
+          "component": "voltage-source",
+          "x": 60,
+          "y": 140,
+          "rotation": 90,
+          "label": "Vs",
+          "value": "5V"
+        },
+        {
+          "component": "resistor",
+          "x": 280,
+          "y": 140,
+          "rotation": 90,
+          "label": "R",
+          "value": "100Ω"
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 110,
+          "x2": 60,
+          "y2": 60
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 60,
+          "x2": 280,
+          "y2": 60
+        },
+        {
+          "component": "wire",
+          "x1": 280,
+          "y1": 110,
+          "x2": 280,
+          "y2": 60
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 170,
+          "x2": 60,
+          "y2": 230
+        },
+        {
+          "component": "wire",
+          "x1": 280,
+          "y1": 170,
+          "x2": 280,
+          "y2": 230
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 230,
+          "x2": 280,
+          "y2": 230
+        },
+        {
+          "component": "ground",
+          "x": 170,
+          "y": 230
+        },
+        {
+          "component": "current-arrow",
+          "x": 170,
+          "y": 45,
+          "label": "i = 50mA"
+        }
+      ]
+    },
+    {
+      "id": "ohms-law-explorer",
+      "type": "ohms-law-sim",
+      "title": "Interactive: Ohm's Law Explorer",
+      "description": "Drag the sliders to change voltage and resistance. Watch how the current and V-I curve respond in real time."
+    },
+    {
+      "id": "falstad-voltage-divider",
+      "type": "falstad-sim",
+      "title": "Interactive: Voltage Divider — Ohm's Law at Work",
+      "description": "Two equal 10kΩ resistors in series with a 10V source. Notice the voltage splits 5V across each. Try changing R2 — what happens to the voltage split? Right-click a resistor to edit.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 10 0 0 0.5\nr 160 96 352 96 0 10000\nr 352 96 352 288 0 10000\nw 160 288 352 288 0\ng 256 288 256 320 0 0\nx 220 80 0 0 0 12 R1=10k\nx 368 192 0 0 0 12 R2=10k\no 1 64 0 4099 10 0.05 0 2 1 3\n",
+      "height": 450
+    },
+    {
+      "id": "interactive-vi-slope",
+      "type": "plotly",
+      "title": "How Resistance Changes the V-I Slope",
+      "description": "Steep slope means small R (high conductance), shallow slope means large R (low conductance). The slope on the v-i plane is G = 1/R.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.05,
+            0,
+            0.05
+          ],
+          "name": "R = 100Ω (steep)",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.005,
+            0,
+            0.005
+          ],
+          "name": "R = 1kΩ",
+          "mode": "lines",
+          "line": {
+            "color": "#a78bfa",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.0005,
+            0,
+            0.0005
+          ],
+          "name": "R = 10kΩ (shallow)",
+          "mode": "lines",
+          "line": {
+            "color": "#f472b6",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "zeroline": true
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "zeroline": true
+        },
+        "showlegend": true,
+        "legend": {
+          "x": 0.02,
+          "y": 0.98
+        }
+      },
+      "centeredAxes": true,
+      "height": 380
+    }
+  ]
+}

@@ -1,112 +1,25 @@
-﻿# Exam Preparation: DC Operating Points
+## Exam Focus: DC Analysis and Operating Points
 
-> Question patterns for load line analysis and operating point determination.
+### Common Question Patterns
 
----
+1. **Load-line construction**: Given a DC source $E_b$, a linear resistor $R_b$, and a nonlinear device characteristic $i = g(v)$, draw the load line and identify the operating point(s). The load line always passes through $(E_b, 0)$ on the voltage axis and $(0, E_b/R_b)$ on the current axis.
+2. **Algebraic operating-point calculation**: Set the device equation equal to the load-line equation and solve the resulting nonlinear algebraic equation (often a quadratic). Identify all solutions and check which lie within the physical domain of the device.
+3. **Graphical identification of multiple solutions**: Given two $v$-$i$ curves, count and label all intersections. State whether the circuit has a unique operating point, multiple operating points, or no operating point.
+4. **Newton-Raphson iteration**: Given $f(v) = 0$ and an initial guess $v_0$, compute two or three Newton-Raphson iterates using $v_{n+1} = v_n - f(v_n)/f'(v_n)$. Show each step explicitly: evaluate $f$, evaluate $f'$, compute the ratio, update the guess.
+5. **Back-to-back one-port analysis**: Partition a given circuit into two sub-circuits, state the KVL and KCL constraints ($v_a = v_b$, $i_a = -i_b$), and set up the operating-point equation.
 
-## Common Question Types
+### Common Mistakes
 
-### Type 1: Load Line Construction
-**Given:** $V_{supply}$, $R_{load}$  
-**Strategy:** 
-- v-intercept: $(V_{supply}, 0)$
-- i-intercept: $(0, V_{supply}/R_{load})$
-- Draw straight line connecting them
+- **Incorrect load-line intercepts**: The voltage intercept is $v = E_b$ (not $E_b/R_b$), and the current intercept is $i = E_b/R_b$ (not $E_b$). Swapping these produces a line with the wrong slope and wrong operating points.
+- **Sign errors in the quadratic formula**: When rearranging the operating-point equation into standard form $av^2 + bv + c = 0$, students frequently drop a minus sign. Always verify your equation by substituting one of the solutions back into both the device equation and the load-line equation.
+- **Forgetting to check the domain**: A mathematical solution to the operating-point equation may lie outside the region where the device model is valid. For example, if the device characteristic is $i = 4v^2$ and is only defined for $v \geq 0$, a negative-voltage solution is not physically realisable.
+- **Incorrect Newton-Raphson derivative**: The derivative $f'(x)$ must be computed correctly. For $f(v) = 4v^2 + 4v - 8$, the derivative is $f'(v) = 8v + 4$, not $8v$ or $4v + 4$. An incorrect derivative produces incorrect iterates.
+- **Poor initial guess for Newton-Raphson**: Starting far from any root can cause divergence or convergence to an unexpected root. A quick sketch of the load line and device curve should always inform your choice of starting point.
 
-**Lecture key (Page 20):** $i = (V_s - v)/R_L$
+### Exam Tips
 
-### Type 2: Graphical Q-point Finding
-**Given:** Device curve + load line  
-**Strategy:** Mark intersection(s), read $(V_Q, I_Q)$  
-
-**Watch for:** Multiple intersections → multiple operating points!
-
-### Type 3: Analytical Q-point Solution
-**Given:** Device equation + circuit equation  
-**Strategy:** Set equal, solve algebraically (or use Newton-Raphson if nonlinear)
-
----
-
-## Solution Strategies
-
-### Graphical Method (Step-by-Step)
-
-**Step 1:** Plot device characteristic on v-i or i-v plane  
-**Step 2:** Plot load line using intercepts  
-**Step 3:** Mark intersection point(s)  
-**Step 4:** Read coordinates → that's your Q-point  
-**Step 5:** Verify: substitute $(V_Q, I_Q)$ into both equations
-
-**Exam pro tip:** Use a ruler for load line! Sloppy graphs → wrong Q-point
-
-### Analytical Method
-
-**Setup equations:**
-- Device: $i = f(v)$ or $v = g(i)$
-- Load line: $i = (E - v)/R$
-
-**Substitute and solve:**
-$$f(v) = \frac{E - v}{R}$$
-
-Rearrange to standard form, then solve (quadratic formula, iterative, etc.)
-
-### Multiple Operating Points
-
-From lecture Page 20:
-- **Unique:** Typical for monotonic device curves
-- **Multiple:** N-shaped (tunnel diode) or S-shaped curves
-- **None:** Load line doesn't intersect characteristic
-
----
-
-## Time Management
-
-**DC operating point questions: 6-12 minutes each**
-
-- Load line plot: 2-3 min
-- Graphical Q-point: 2-3 min
-- Analytical solution: 5-8 min
-- Stability check (multiple Q): +2-3 min
-
----
-
-## Common Errors
-
-1. **Intercept mistakes:** v-intercept is NOT $V/R$, it's just $V$ (where $i=0$)!
-2. **Wrong plane:** Check if question uses i-v or v-i plane
-3. **Sign errors:** KVL: $V_s = v_R + v_{device}$ → $i = (V_s - v)/R$
-4. **Multiple Q-points:** Don't stop at first intersection if curve is non-monotonic
-5. **Units:** Always convert mA ↔ A, kΩ ↔ Ω before calculating
-
----
-
-## Formula Summary
-
-**Memorize:**
-- Load line: $i = \frac{V_s - v}{R}$ (slope $-1/R$)
-- Intercepts: $(V_s, 0)$ and $(0, V_s/R)$
-- Q-point: Intersection of device curve and load line
-- Stability: Middle Q of 3 solutions is usually unstable
-
----
-
-## Practice Problem Pattern
-
-**Expected question:** "A diode with $i = 10^{-14}(e^{v/0.026} - 1)$ A is in series with $V_s = 5V$ and $R = 1k\Omega$. Find the operating point."
-
-**Solution (Graphical):**
-1. Load line: intercepts $(5V, 0)$ and $(0, 5mA)$
-2. Plot diode exponential curve
-3. Intersection ≈ $(0.7V, 4.3mA)$ (visual approximation)
-
-**Solution (Analytical approximation):**
-Assume forward bias → $i \approx I_s e^{v/V_T}$
-
-From load line: $i = (5 - v)/1000$
-
-$$10^{-14} e^{v/0.026} = \frac{5 - v}{1000}$$
-
-**Newton-Raphson from $v_0 = 0.6V$:**
-- Iteration 1: $v_1 \approx 0.68V$
-- Iteration 2: $v_2 \approx 0.695V$
-- **Converged:** $V_Q \approx 0.7V$, $I_Q = (5-0.7)/1000 = 4.3mA$ ✓
+- Begin every load-line problem by writing down the two equations explicitly: the device characteristic and the load line. Set them equal and simplify before attempting to solve.
+- When a quadratic arises, compute the discriminant $\Delta = b^2 - 4ac$ first. If $\Delta < 0$, there are no real solutions (no operating point). If $\Delta = 0$, there is exactly one (tangent intersection). If $\Delta > 0$, there are two.
+- For Newton-Raphson problems, present your work in a table with columns: $n$, $v_n$, $f(v_n)$, $f'(v_n)$, $v_{n+1}$. This format is clean, easy to grade, and reduces arithmetic errors.
+- Always sketch the load line and device curve, even if the problem does not explicitly ask for a sketch. The sketch confirms whether your algebraic solutions are reasonable and catches gross errors.
+- If asked "how many operating points?", the answer is always the number of intersections between the device curve and the load line. State this clearly and relate it to the discriminant or graphical evidence.

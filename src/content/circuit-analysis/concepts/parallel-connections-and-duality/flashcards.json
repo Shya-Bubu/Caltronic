@@ -1,0 +1,65 @@
+{
+  "id": "parallel-connections-and-duality-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "In a parallel connection, what does KVL force?",
+      "back": "All branch voltages equal the port voltage: v = v1 = v2. Every element in parallel sees the same voltage.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "In a parallel connection, what does KCL give?",
+      "back": "The port current equals the sum of all branch currents: i = i1 + i2.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "State the parallel addition rule for voltage-controlled resistors.",
+      "back": "If i1 = i-hat1(v) and i2 = i-hat2(v), the parallel combination gives i = i-hat1(v) + i-hat2(v). The result is also voltage-controlled.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "Describe graphical parallel addition geometrically.",
+      "back": "At each voltage value, add the currents from each curve. In the v-i plane, this is vertical stacking: the combined curve sits above either individual curve at every voltage level.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "State four key dual pairs in circuit theory.",
+      "back": "Voltage <-> Current. KVL <-> KCL. Resistance <-> Conductance. Series <-> Parallel. (Also: voltage source <-> current source, open circuit <-> short circuit, mesh <-> node.)",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "What is the dual of 'series connection of current-controlled resistors is current-controlled'?",
+      "back": "Parallel connection of voltage-controlled resistors is voltage-controlled. (Swap series<->parallel and current-controlled<->voltage-controlled.)",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "What is the dual of inductance L?",
+      "back": "Capacitance C. In the duality transformation, inductance and capacitance are swapped.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is the dual of a Thevenin equivalent?",
+      "back": "A Norton equivalent. Thevenin (voltage source + series resistance) is dual to Norton (current source + parallel conductance).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "For two linear resistors in parallel, what is the equivalent resistance?",
+      "back": "R_eq = R1*R2/(R1+R2), or equivalently G_eq = G1+G2. Conductances add in parallel, just as resistances add in series.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f10",
+      "front": "What is the dual of an open circuit?",
+      "back": "A short circuit. An open circuit has i = 0 for all v; its dual (a short circuit) has v = 0 for all i.",
+      "difficultyLevel": 3
+    }
+  ]
+}

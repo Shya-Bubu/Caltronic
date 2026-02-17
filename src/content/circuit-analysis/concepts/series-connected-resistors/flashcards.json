@@ -1,0 +1,65 @@
+{
+  "id": "series-connected-resistors-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "In a series connection, what does KCL force?",
+      "back": "All branch currents equal the port current: i = i1 = i2. The same current flows through every element in series.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "In a series connection, what does KVL give?",
+      "back": "The port voltage equals the sum of all branch voltages: v = v1 + v2. The voltages add.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "State the series addition rule for current-controlled resistors.",
+      "back": "If v1 = v-hat1(i) and v2 = v-hat2(i), the series combination gives v = v-hat1(i) + v-hat2(i). The result is also current-controlled.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "Describe graphical series addition geometrically.",
+      "back": "At each current value, add the voltages from each curve. In the v-i plane (v horizontal, i vertical), this is horizontal stacking: the combined curve is wider than either individual curve at every current level.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is the driving-point characteristic of a one-port?",
+      "back": "The v-i relationship seen at the two external terminals of a combination of elements. It describes how the entire combination behaves as a single two-terminal device.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "When is a parametric representation needed for series connection?",
+      "back": "When the series elements have mixed controllability (e.g., one voltage-controlled, one current-controlled). Use the common current i as the parameter and compute each voltage separately, then add.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "If a resistor's terminals are reversed in series, its voltage contribution becomes:",
+      "back": "-v-hat(-i) instead of v-hat(i). Reversing terminals negates both the voltage and current of that element.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Why does reversing a bilateral resistor's terminals have no effect?",
+      "back": "A bilateral resistor satisfies v-hat(-i) = -v-hat(i). So -v-hat(-i) = -(-v-hat(i)) = v-hat(i). The sign changes cancel, and the contribution is unchanged.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "For two linear resistors R1 and R2 in series, the series rule gives:",
+      "back": "v = R1*i + R2*i = (R1 + R2)*i. The equivalent resistance is R_eq = R1 + R2. This is the familiar series resistance formula.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f10",
+      "front": "What is the key requirement for clean (non-parametric) series addition?",
+      "back": "Both elements must be current-controlled (v-hat(i) single-valued). Then the voltages can be directly added as functions of i, and the result is guaranteed to be current-controlled.",
+      "difficultyLevel": 4
+    }
+  ]
+}

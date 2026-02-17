@@ -1,0 +1,616 @@
+{
+  "visuals": [
+    {
+      "id": "one-port-concept",
+      "type": "circuit-schematic",
+      "title": "Two Resistors in Series (KCL Constraint: Same Current)",
+      "description": "Two resistors R₁ and R₂ share a common node, carrying the same current i. The total voltage is the SUM of individual voltages: v = v₁ + v₂. This is the defining characteristic of a series connection.",
+      "width": 480,
+      "height": 180,
+      "elements": [
+        {
+          "component": "wire",
+          "x1": 40,
+          "y1": 90,
+          "x2": 100,
+          "y2": 90
+        },
+        {
+          "component": "resistor",
+          "x": 130,
+          "y": 90,
+          "label": "R₁"
+        },
+        {
+          "component": "wire",
+          "x1": 160,
+          "y1": 90,
+          "x2": 240,
+          "y2": 90
+        },
+        {
+          "component": "resistor",
+          "x": 270,
+          "y": 90,
+          "label": "R₂"
+        },
+        {
+          "component": "wire",
+          "x1": 300,
+          "y1": 90,
+          "x2": 440,
+          "y2": 90
+        },
+        {
+          "component": "current-arrow",
+          "x": 70,
+          "y": 65,
+          "label": "i"
+        },
+        {
+          "component": "text",
+          "x": 130,
+          "y": 50,
+          "text": "v₁",
+          "fontSize": 12,
+          "fontStyle": "italic",
+          "color": "#3b82f6"
+        },
+        {
+          "component": "text",
+          "x": 270,
+          "y": 50,
+          "text": "v₂",
+          "fontSize": 12,
+          "fontStyle": "italic",
+          "color": "#ef4444"
+        },
+        {
+          "component": "text",
+          "x": 240,
+          "y": 145,
+          "text": "v = v₁ + v₂ (KVL)",
+          "fontSize": 11,
+          "fontStyle": "italic",
+          "color": "var(--accent)"
+        },
+        {
+          "component": "text",
+          "x": 40,
+          "y": 105,
+          "text": "+",
+          "fontSize": 14,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 440,
+          "y": 105,
+          "text": "−",
+          "fontSize": 14,
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "series-circuit-setup",
+      "type": "plotly",
+      "title": "Graphical Addition of V-I Curves (Horizontal Stacking)",
+      "description": "For series elements, we ADD VOLTAGES at the same current: v(i) = v₁(i) + v₂(i). Graphically, we pick a current i on the vertical axis, read v₁ and v₂ from each curve, then add them horizontally.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "R₁ (100Ω)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "R₂ (200Ω)",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "Series: R₁ + R₂ (300Ω)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "series-addition",
+      "type": "plotly",
+      "title": "Series Connection: Diode + Linear Resistor",
+      "description": "Adding a diode (nonlinear) in series with a resistor (linear). The graphical method works identically: at each current i, add the diode's voltage to the resistor's voltage. The combined curve shifts right by the diode's turn-on voltage.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7,
+            0.75,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0.0005,
+            0.004,
+            0.012,
+            0.03,
+            0.06,
+            0.12
+          ],
+          "name": "Diode",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "R = 100Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            0,
+            0.7,
+            1.7,
+            2.7,
+            3.7,
+            4.7,
+            5.7
+          ],
+          "y": [
+            0,
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "Series (D + R)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        },
+        "annotations": [
+          {
+            "x": 0.7,
+            "y": 0.001,
+            "text": "Shifted by Vγ",
+            "showarrow": true,
+            "arrowhead": 2,
+            "font": {
+              "size": 10,
+              "color": "#f59e0b"
+            }
+          }
+        ]
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 380
+    },
+    {
+      "id": "horizontal-stacking",
+      "type": "circuit-schematic",
+      "title": "KCL and KVL Constraints in Series",
+      "description": "KCL says: same current flows through both elements (i₁ = i₂ = i). KVL says: voltages add up (v = v₁ + v₂). These two laws DEFINE the series connection.",
+      "width": 500,
+      "height": 200,
+      "elements": [
+        {
+          "component": "wire",
+          "x1": 40,
+          "y1": 100,
+          "x2": 120,
+          "y2": 100
+        },
+        {
+          "component": "resistor",
+          "x": 150,
+          "y": 100,
+          "label": "R₁"
+        },
+        {
+          "component": "wire",
+          "x1": 180,
+          "y1": 100,
+          "x2": 260,
+          "y2": 100
+        },
+        {
+          "component": "resistor",
+          "x": 290,
+          "y": 100,
+          "label": "R₂"
+        },
+        {
+          "component": "wire",
+          "x1": 320,
+          "y1": 100,
+          "x2": 460,
+          "y2": 100
+        },
+        {
+          "component": "current-arrow",
+          "x": 80,
+          "y": 75,
+          "label": "i"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 30,
+          "text": "KCL: i₁ = i₂ = i",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "color": "#3b82f6"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 155,
+          "text": "KVL: v = v₁ + v₂",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "color": "#ef4444"
+        }
+      ]
+    },
+    {
+      "id": "three-resistors-series",
+      "type": "plotly",
+      "title": "Three Resistors in Series: Cumulative Horizontal Addition",
+      "description": "The graphical method extends to any number of series elements. Each additional resistor shifts the combined curve further to the right. For N linear resistors, the series resistance is simply R₁ + R₂ + ... + Rₙ.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04
+          ],
+          "name": "R₁ = 100Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04
+          ],
+          "name": "R₁ + R₂ = 300Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            0,
+            4,
+            8,
+            12,
+            16
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04
+          ],
+          "name": "R₁ + R₂ + R₃ = 700Ω",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        }
+      },
+      "centeredAxes": true,
+      "width": 500,
+      "height": 360
+    },
+    {
+      "id": "worked-example-series",
+      "type": "circuit-schematic",
+      "title": "Worked Example: Diode + Two Resistors in Series",
+      "description": "DC source Eb drives current through R₁, R₂, and a diode D. Analyse using assume-and-check combined with series-addition rules.",
+      "width": 520,
+      "height": 220,
+      "elements": [
+        {
+          "component": "voltage-source",
+          "x": 60,
+          "y": 110,
+          "label": "Eb",
+          "value": "10V"
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 70,
+          "x2": 140,
+          "y2": 70
+        },
+        {
+          "component": "resistor",
+          "x": 160,
+          "y": 70,
+          "label": "R₁",
+          "value": "1kΩ"
+        },
+        {
+          "component": "wire",
+          "x1": 190,
+          "y1": 70,
+          "x2": 250,
+          "y2": 70
+        },
+        {
+          "component": "resistor",
+          "x": 280,
+          "y": 70,
+          "label": "R₂",
+          "value": "2kΩ"
+        },
+        {
+          "component": "wire",
+          "x1": 310,
+          "y1": 70,
+          "x2": 370,
+          "y2": 70
+        },
+        {
+          "component": "diode",
+          "x": 400,
+          "y": 70,
+          "label": "D"
+        },
+        {
+          "component": "wire",
+          "x1": 430,
+          "y1": 70,
+          "x2": 460,
+          "y2": 70
+        },
+        {
+          "component": "wire",
+          "x1": 460,
+          "y1": 70,
+          "x2": 460,
+          "y2": 150
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 150,
+          "x2": 460,
+          "y2": 150
+        },
+        {
+          "component": "current-arrow",
+          "x": 110,
+          "y": 45,
+          "label": "i"
+        }
+      ]
+    },
+    {
+      "id": "falstad-voltage-divider-series",
+      "type": "falstad-sim",
+      "title": "Interactive: Series Resistors as Voltage Divider",
+      "description": "Two resistors in series divide the supply voltage proportionally. The current is the same through both.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 0 40 12 0 0 0.5\nr 160 96 352 96 0 2000\nr 352 96 352 288 0 4000\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
+      "height": 450
+    },
+    {
+      "id": "series-equivalent-comparison",
+      "type": "plotly",
+      "title": "Series Combination: R_eq = R1 + R2",
+      "description": "V-I lines for R1=2k, R2=4k, and R_eq=6k. Series always increases total resistance.",
+      "traces": [
+        {
+          "x": [
+            -6,
+            0,
+            6
+          ],
+          "y": [
+            -0.003,
+            0,
+            0.003
+          ],
+          "name": "R1=2k",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -6,
+            0,
+            6
+          ],
+          "y": [
+            -0.0015,
+            0,
+            0.0015
+          ],
+          "name": "R2=4k",
+          "mode": "lines",
+          "line": {
+            "color": "#a78bfa",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -6,
+            0,
+            6
+          ],
+          "y": [
+            -0.001,
+            0,
+            0.001
+          ],
+          "name": "Req=6k",
+          "mode": "lines",
+          "line": {
+            "color": "#f472b6",
+            "width": 3,
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage (V)"
+        },
+        "yaxis": {
+          "title": "Current (A)"
+        },
+        "showlegend": true
+      },
+      "centeredAxes": true,
+      "height": 380
+    }
+  ]
+}

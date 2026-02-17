@@ -1,0 +1,65 @@
+{
+  "id": "linear-resistors-ohms-law-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "State Ohm's law in both resistance and conductance form.",
+      "back": "v = Ri (resistance form) and i = Gv (conductance form), where G = 1/R.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "On the v-i plane, what is the slope of a linear resistor's characteristic?",
+      "back": "Slope = G = 1/R (conductance in siemens). Larger R means shallower slope.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "On the i-v plane, what is the slope of a linear resistor's characteristic?",
+      "back": "Slope = R (resistance in ohms). Larger R means steeper slope.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "What is the unit of conductance?",
+      "back": "Siemens (S). G = 1/R. A 100-ohm resistor has conductance G = 0.01 S = 10 mS.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is the associated reference direction?",
+      "back": "Current flows into the terminal marked positive. Under this convention, v = Ri holds directly and p = vi gives absorbed power.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "What does 'bilateral' mean for a resistor?",
+      "back": "f(v, i) = f(-v, -i) for all (v, i) on the characteristic. The v-i curve is symmetric about the origin. A linear resistor is always bilateral.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "What does 'memoryless' mean for a resistor?",
+      "back": "The current at time t depends only on the voltage at time t, not on past values. i(t) = Gv(t) with no derivatives or integrals involved.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "When is the linear resistor model inadequate for a physical resistor?",
+      "back": "At excessive voltages/currents (breakdown), at very high frequencies (parasitic capacitance/inductance), or when temperature effects matter significantly.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "For parallel resistors, which quantity adds directly?",
+      "back": "Conductances add: G_total = G1 + G2 + ... (This is dual to series resistors where R_total = R1 + R2.)",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f10",
+      "front": "Calculate: R = 1 kohm, v = 12V. What is i and P?",
+      "back": "i = v/R = 12/1000 = 12 mA. P = vi = 12 x 0.012 = 144 mW.",
+      "difficultyLevel": 3
+    }
+  ]
+}

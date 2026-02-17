@@ -1,0 +1,127 @@
+{
+    "id": "tableau-analysis-quiz",
+    "conceptId": "tableau-analysis",
+    "title": "Tableau Analysis Quiz",
+    "questions": [
+        {
+            "id": "ta-q1",
+            "prompt": "A circuit has b = 5 branches and n = 4 nodes (one datum). How many unknowns does the tableau system have?",
+            "options": [
+                "10",
+                "13",
+                "14",
+                "9"
+            ],
+            "correctAnswer": "13",
+            "explanation": "The tableau unknown vector x = [v_b; i_b; e] has 2b + (n−1) = 2(5) + 3 = 13 unknowns."
+        },
+        {
+            "id": "ta-q2",
+            "prompt": "Which equation set in the tableau formulation uses the reduced incidence matrix A directly?",
+            "options": [
+                "Branch constitutive equations",
+                "KVL equations",
+                "KCL equations",
+                "Nonlinear constraint equations"
+            ],
+            "correctAnswer": "KCL equations",
+            "explanation": "KCL is written as A · i_b = 0, directly using the reduced incidence matrix A."
+        },
+        {
+            "id": "ta-q3",
+            "prompt": "In the tableau matrix T, what appears in the block position corresponding to KVL equations and node voltage unknowns (e)?",
+            "options": [
+                "The identity matrix I_b",
+                "The incidence matrix A",
+                "−Aᵀ (negative transpose of incidence matrix)",
+                "A zero matrix"
+            ],
+            "correctAnswer": "−Aᵀ (negative transpose of incidence matrix)",
+            "explanation": "The KVL row of the tableau matrix is [I_b | 0 | −Aᵀ], so the block multiplying the node voltages e is −Aᵀ."
+        },
+        {
+            "id": "ta-q4",
+            "prompt": "How does tableau analysis handle an ideal voltage source V_s in branch k?",
+            "options": [
+                "It adds a super-node equation",
+                "It replaces the branch with a short circuit",
+                "It writes v_k = V_s as the branch constitutive equation, leaving i_k as a free unknown",
+                "It converts the source to a Norton equivalent first"
+            ],
+            "correctAnswer": "It writes v_k = V_s as the branch constitutive equation, leaving i_k as a free unknown",
+            "explanation": "Tableau analysis simply writes v_k = V_s as the branch equation. The current i_k is determined by the rest of the system through KCL/KVL — no special tricks are needed."
+        },
+        {
+            "id": "ta-q5",
+            "prompt": "For a CCCS with gain β controlling branch j, which row entries in the M_v and M_i sub-matrices are nonzero?",
+            "options": [
+                "M_v has a 1 on the diagonal; M_i is all zeros",
+                "M_v is all zeros for this row; M_i has 1 on the diagonal and −β in column j",
+                "M_v has −β in column j; M_i has 1 on the diagonal",
+                "Both M_v and M_i have entries in column j"
+            ],
+            "correctAnswer": "M_v is all zeros for this row; M_i has 1 on the diagonal and −β in column j",
+            "explanation": "A CCCS branch equation is i_k − β·i_j = 0. This involves only currents, so M_v row is all zeros, and the M_i row has +1 at column k (diagonal) and −β at column j."
+        },
+        {
+            "id": "ta-q6",
+            "prompt": "When is the tableau system T·x = u guaranteed to have a unique solution?",
+            "options": [
+                "When the circuit has more nodes than branches",
+                "When all elements are resistors",
+                "When det(T) ≠ 0 (T is nonsingular)",
+                "When the circuit contains no dependent sources"
+            ],
+            "correctAnswer": "When det(T) ≠ 0 (T is nonsingular)",
+            "explanation": "The linear tableau system has a unique solution if and only if the tableau matrix T is nonsingular, i.e., det(T) ≠ 0."
+        },
+        {
+            "id": "ta-q7",
+            "prompt": "In a nonlinear tableau system F(x) = 0, which equation sets remain linear?",
+            "options": [
+                "All three sets become nonlinear",
+                "Only the branch constitutive equations remain linear",
+                "KCL and KVL remain linear; only branch equations may be nonlinear",
+                "Only KCL remains linear"
+            ],
+            "correctAnswer": "KCL and KVL remain linear; only branch equations may be nonlinear",
+            "explanation": "KCL (A·i_b = 0) and KVL (v_b − Aᵀ·e = 0) are topological equations that depend only on the graph structure, not element physics. They are always linear. Only branch constitutive equations can be nonlinear."
+        },
+        {
+            "id": "ta-q8",
+            "prompt": "What iterative method is commonly used to solve the nonlinear tableau system F(x) = 0?",
+            "options": [
+                "Gauss-Seidel iteration",
+                "Bisection method",
+                "Newton-Raphson iteration",
+                "Successive over-relaxation (SOR)"
+            ],
+            "correctAnswer": "Newton-Raphson iteration",
+            "explanation": "Newton-Raphson iteration linearises the system around the current guess using the Jacobian J(x), solving J·Δx = −F(x) at each step. This is the standard approach used in SPICE."
+        },
+        {
+            "id": "ta-q9",
+            "prompt": "What is one key disadvantage of tableau analysis compared to nodal analysis?",
+            "options": [
+                "It cannot handle current sources",
+                "The system size is larger: (2b + n − 1) vs (n − 1)",
+                "It requires nonlinear solvers even for linear circuits",
+                "It cannot accommodate resistive elements"
+            ],
+            "correctAnswer": "The system size is larger: (2b + n − 1) vs (n − 1)",
+            "explanation": "The tableau system has 2b + n − 1 unknowns, while nodal analysis has only n − 1 unknowns. For large circuits, this size difference is significant, which is why Modified Nodal Analysis (MNA) is preferred in practice."
+        },
+        {
+            "id": "ta-q10",
+            "prompt": "An ideal transformer with turns ratio n coupling branches p and s contributes how many constitutive equations to the tableau system?",
+            "options": [
+                "One: v_p − n·v_s = 0",
+                "Two: v_p − n·v_s = 0 and n·i_p + i_s = 0",
+                "Three: one each for voltage, current, and power",
+                "None — it is handled purely by KCL/KVL"
+            ],
+            "correctAnswer": "Two: v_p − n·v_s = 0 and n·i_p + i_s = 0",
+            "explanation": "An ideal transformer contributes two coupled branch constitutive equations: the voltage relation v_p = n·v_s and the current relation n·i_p + i_s = 0. Both are needed to fully specify the transformer behaviour."
+        }
+    ]
+}

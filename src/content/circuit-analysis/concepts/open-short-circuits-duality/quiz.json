@@ -1,0 +1,125 @@
+{
+  "id": "open-short-circuits-duality-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the v-i characteristic of an open circuit on the v-i plane?",
+      "options": [
+        "A) The entire i-axis",
+        "B) The entire v-axis",
+        "C) A line through the origin with slope G",
+        "D) A single point at the origin"
+      ],
+      "correctAnswer": "B) The entire v-axis",
+      "explanation": "An open circuit has i = 0 for all v. On the v-i plane (v horizontal, i vertical), every point with i = 0 lies on the v-axis."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the resistance of a short circuit?",
+      "options": [
+        "A) Infinity",
+        "B) Undefined",
+        "C) Zero",
+        "D) One ohm"
+      ],
+      "correctAnswer": "C) Zero",
+      "explanation": "A short circuit has v = 0 for all i, so R = v/i = 0/i = 0 for any nonzero current."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the conductance of an open circuit?",
+      "options": [
+        "A) Infinity",
+        "B) Undefined",
+        "C) One siemens",
+        "D) Zero"
+      ],
+      "correctAnswer": "D) Zero",
+      "explanation": "An open circuit has i = 0 for all v, so G = i/v = 0/v = 0 for any nonzero voltage."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which quantity is the dual of resistance R?",
+      "options": [
+        "A) Voltage v",
+        "B) Current i",
+        "C) Conductance G",
+        "D) Power p"
+      ],
+      "correctAnswer": "C) Conductance G",
+      "explanation": "Under the duality principle, R and G are dual quantities. Swapping R with G (and v with i, series with parallel) gives the dual circuit."
+    },
+    {
+      "id": "q5",
+      "prompt": "The dual of a series connection is:",
+      "options": [
+        "A) Another series connection",
+        "B) A parallel connection",
+        "C) An open circuit",
+        "D) A short circuit"
+      ],
+      "correctAnswer": "B) A parallel connection",
+      "explanation": "Under duality, series and parallel are dual topologies. Every series connection in the original circuit becomes a parallel connection in the dual circuit."
+    },
+    {
+      "id": "q6",
+      "prompt": "How much power does an ideal short circuit absorb?",
+      "options": [
+        "A) Infinite power",
+        "B) It depends on the current",
+        "C) Zero",
+        "D) It depends on the circuit"
+      ],
+      "correctAnswer": "C) Zero",
+      "explanation": "For a short circuit, v = 0, so p = v * i = 0 * i = 0 regardless of the current. No power is absorbed."
+    },
+    {
+      "id": "q7",
+      "prompt": "On the v-i plane, reflecting the v-axis about the line i = v gives:",
+      "options": [
+        "A) The v-axis again",
+        "B) The i-axis",
+        "C) A line with slope 1",
+        "D) A line with slope -1"
+      ],
+      "correctAnswer": "B) The i-axis",
+      "explanation": "Reflecting the v-axis (the open circuit characteristic) about the 45-degree line i = v swaps the roles of v and i, producing the i-axis (the short circuit characteristic)."
+    },
+    {
+      "id": "q8",
+      "prompt": "The voltage divider gives v_out = v_in * R2/(R1 + R2). Using duality, what is the current divider formula?",
+      "options": [
+        "A) i_out = i_in * R2/(R1 + R2)",
+        "B) i_out = i_in * G2/(G1 + G2)",
+        "C) i_out = i_in * G1/(R1 + R2)",
+        "D) i_out = v_in * G2/(G1 + G2)"
+      ],
+      "correctAnswer": "B) i_out = i_in * G2/(G1 + G2)",
+      "explanation": "Applying duality: replace v with i, and R with G. The voltage divider v_out = v_in * R2/(R1+R2) becomes i_out = i_in * G2/(G1+G2)."
+    },
+    {
+      "id": "q9",
+      "prompt": "Which statement about duality is FALSE?",
+      "options": [
+        "A) The dual of KVL is KCL",
+        "B) Duality applies to any circuit, planar or non-planar",
+        "C) The dual of an open circuit is a short circuit",
+        "D) Duality swaps v and i simultaneously"
+      ],
+      "correctAnswer": "B) Duality applies to any circuit, planar or non-planar",
+      "explanation": "The simple duality construction requires the circuit to be planar (drawable on a flat surface without crossing wires). It does not extend to non-planar circuits in its standard form."
+    },
+    {
+      "id": "q10",
+      "prompt": "A linear resistor has conductance G = 0.05 S. Its dual element has conductance:",
+      "options": [
+        "A) 0.05 S",
+        "B) 20 S",
+        "C) 0.05 ohm",
+        "D) The dual element has resistance 0.05 ohm"
+      ],
+      "correctAnswer": "B) 20 S",
+      "explanation": "Under duality, G and R swap roles. A resistor with conductance G has a dual with resistance G (numerically). So the dual has R = 0.05 ohm, which means G_dual = 1/0.05 = 20 S."
+    }
+  ]
+}

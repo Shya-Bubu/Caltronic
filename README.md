@@ -8,6 +8,11 @@ A next-generation academic learning system designed specifically for Electrical 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
+> ### 🤖 For AI Agents
+> **Before making any changes**, read the complete systems reference:
+> - **[systems.md](systems.md)** — Complete architecture, contracts, components, and rules
+> - **[../AGENT.md](../AGENT.md)** — Quick-start instructions for AI agents
+
 ---
 
 ## 🎯 Vision

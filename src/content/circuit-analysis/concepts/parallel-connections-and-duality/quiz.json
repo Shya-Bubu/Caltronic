@@ -1,0 +1,125 @@
+{
+  "id": "parallel-connections-and-duality-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In a parallel connection of two resistors, KVL forces:",
+      "options": [
+        "A) The currents to be equal: i = i1 = i2",
+        "B) The voltages to be equal: v = v1 = v2",
+        "C) The resistances to be equal: R1 = R2",
+        "D) The powers to be equal: p1 = p2"
+      ],
+      "correctAnswer": "B) The voltages to be equal: v = v1 = v2",
+      "explanation": "In a parallel connection, both elements share the same pair of nodes, so KVL forces v = v1 = v2."
+    },
+    {
+      "id": "q2",
+      "prompt": "In a parallel connection, KCL gives:",
+      "options": [
+        "A) v = v1 + v2",
+        "B) i = i1 * i2",
+        "C) i = i1 + i2",
+        "D) i = max(i1, i2)"
+      ],
+      "correctAnswer": "C) i = i1 + i2",
+      "explanation": "KCL at the common node gives i = i1 + i2. The port current is the sum of the individual branch currents."
+    },
+    {
+      "id": "q3",
+      "prompt": "Two voltage-controlled resistors in parallel yield a result that is:",
+      "options": [
+        "A) Current-controlled",
+        "B) Voltage-controlled",
+        "C) Neither",
+        "D) Depends on the specific functions"
+      ],
+      "correctAnswer": "B) Voltage-controlled",
+      "explanation": "Since v = v1 = v2 by KVL, i = i-hat1(v) + i-hat2(v) is a single-valued function of v. The result is voltage-controlled."
+    },
+    {
+      "id": "q4",
+      "prompt": "Graphical parallel addition means, at each voltage value:",
+      "options": [
+        "A) Add the voltages from each curve",
+        "B) Multiply the currents from each curve",
+        "C) Add the currents from each curve (vertical stacking)",
+        "D) Take the minimum of the currents"
+      ],
+      "correctAnswer": "C) Add the currents from each curve (vertical stacking)",
+      "explanation": "Parallel addition adds currents at equal voltage. In the v-i plane, this is vertical stacking: at each horizontal position (voltage), add the heights (currents)."
+    },
+    {
+      "id": "q5",
+      "prompt": "The dual of 'resistance R' is:",
+      "options": [
+        "A) Resistance 1/R",
+        "B) Conductance G",
+        "C) Inductance L",
+        "D) Capacitance C"
+      ],
+      "correctAnswer": "B) Conductance G",
+      "explanation": "In the duality table, resistance R is dual to conductance G. The linear Ohm's law v = Ri becomes the dual i = Gv."
+    },
+    {
+      "id": "q6",
+      "prompt": "The dual of a voltage source is:",
+      "options": [
+        "A) A larger voltage source",
+        "B) A resistor",
+        "C) A current source",
+        "D) An open circuit"
+      ],
+      "correctAnswer": "C) A current source",
+      "explanation": "In the duality transformation, voltage sources become current sources, and vice versa."
+    },
+    {
+      "id": "q7",
+      "prompt": "The dual of an open circuit is:",
+      "options": [
+        "A) Another open circuit",
+        "B) A short circuit",
+        "C) A 1-ohm resistor",
+        "D) A current source"
+      ],
+      "correctAnswer": "B) A short circuit",
+      "explanation": "An open circuit (i = 0 for all v) is dual to a short circuit (v = 0 for all i). The roles of zero current and zero voltage are swapped."
+    },
+    {
+      "id": "q8",
+      "prompt": "The dual of 'series connection of current-controlled resistors is current-controlled' is:",
+      "options": [
+        "A) Series connection of voltage-controlled resistors is voltage-controlled",
+        "B) Parallel connection of voltage-controlled resistors is voltage-controlled",
+        "C) Parallel connection of current-controlled resistors is current-controlled",
+        "D) Series connection is always better than parallel"
+      ],
+      "correctAnswer": "B) Parallel connection of voltage-controlled resistors is voltage-controlled",
+      "explanation": "Apply the duality substitutions: series -> parallel, current-controlled -> voltage-controlled. The dual statement is: parallel connection of voltage-controlled resistors is voltage-controlled."
+    },
+    {
+      "id": "q9",
+      "prompt": "Two linear resistors R1 = 6 ohm and R2 = 3 ohm in parallel give R_eq =:",
+      "options": [
+        "A) 9 ohm",
+        "B) 2 ohm",
+        "C) 3 ohm",
+        "D) 1.5 ohm"
+      ],
+      "correctAnswer": "B) 2 ohm",
+      "explanation": "1/R_eq = 1/R1 + 1/R2 = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2. So R_eq = 2 ohm."
+    },
+    {
+      "id": "q10",
+      "prompt": "The dual of 'mesh analysis' is:",
+      "options": [
+        "A) Thevenin analysis",
+        "B) Norton analysis",
+        "C) Nodal analysis",
+        "D) Superposition"
+      ],
+      "correctAnswer": "C) Nodal analysis",
+      "explanation": "Mesh and node are dual concepts. Mesh analysis (using KVL around loops with mesh currents) is dual to nodal analysis (using KCL at nodes with node voltages)."
+    }
+  ]
+}

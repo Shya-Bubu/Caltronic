@@ -1,0 +1,11 @@
+{
+  "id": "ideal-diode",
+  "title": "The Ideal Diode",
+  "slug": "ideal-diode",
+  "estimatedMinutes": 10,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

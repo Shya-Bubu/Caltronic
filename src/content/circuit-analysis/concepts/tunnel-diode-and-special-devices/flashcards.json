@@ -1,0 +1,65 @@
+{
+  "id": "tunnel-diode-and-special-devices-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What does it mean for a nonlinear resistor to be voltage-controlled?",
+      "back": "Its characteristic can be written as i = i-hat(v), where i-hat is single-valued. For every voltage v, there is exactly one current i. Geometrically, every vertical line crosses the v-i curve at most once.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What does it mean for a nonlinear resistor to be current-controlled?",
+      "back": "Its characteristic can be written as v = v-hat(i), where v-hat is single-valued. For every current i, there is exactly one voltage v. Geometrically, every horizontal line crosses the v-i curve at most once.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "Describe the tunnel diode's v-i characteristic and its controllability classification.",
+      "back": "The tunnel diode has an N-shaped curve: rising to a peak (Vp, Ip), falling through a negative differential resistance region to a valley (Vv, Iv), then rising again. It is current-controlled (v-hat(i) single-valued) but NOT voltage-controlled (vertical lines in the NDR region cross at three points).",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "Describe the glow tube's v-i characteristic and its controllability classification.",
+      "back": "The glow tube has an S-shaped (fold-back) curve. It is voltage-controlled (i-hat(v) single-valued) but NOT current-controlled (horizontal lines in the fold-back region cross at multiple points). It is the dual of the tunnel diode.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is a bilateral nonlinear resistor?",
+      "back": "A resistor whose characteristic satisfies f(v,i) = f(-v,-i). The v-i curve is symmetric about the origin (180-degree rotational symmetry). Example: i = av + bv^3. A PN-junction diode is NOT bilateral.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "What harmonics does a quadratic nonlinearity i = av + bv^2 produce from a sinusoidal input?",
+      "back": "DC component (bV0^2/2), fundamental (w), and second harmonic (2w). The quadratic term produces sin^2(wt) = (1 - cos(2wt))/2, which contains DC and the second harmonic.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "What harmonics does a bilateral (odd-symmetric) nonlinear resistor produce?",
+      "back": "Only odd harmonics (w, 3w, 5w, ...). No even harmonics and no DC. This is because the Taylor expansion contains only odd powers, and odd powers of sin(wt) produce only odd harmonics.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is the peak point of a tunnel diode?",
+      "back": "The local maximum (Vp, Ip) on the N-shaped v-i curve, beyond which current decreases with increasing voltage (entering the negative differential resistance region).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What is the valley point of a tunnel diode?",
+      "back": "The local minimum (Vv, Iv) on the N-shaped v-i curve, below which lies the negative differential resistance region and above which the current rises again with increasing voltage.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "Can a nonlinear resistor be neither voltage-controlled nor current-controlled?",
+      "back": "Yes. If the v-i curve is multi-valued in both directions (fails both the vertical and horizontal line tests), the device is neither. Such a curve requires the fully implicit form f(v,i) = 0 for its description.",
+      "difficultyLevel": 4
+    }
+  ]
+}

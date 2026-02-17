@@ -1,48 +1,43 @@
 # CalTronic V2 Content Status
-# 
-# This file is AUTO-GENERATED and provides a snapshot of content status.
-# DO NOT EDIT MANUALLY - run `npm run validate-content` to update.
 #
-# The single source of truth for module/lesson definitions is:
-# - src/app/data/modules.ts (what the app displays)
-# - src/content/[module]/ (actual content files)
+# Verified against filesystem: 2025-07-25
+# This file is MANUALLY maintained. Do NOT claim content that doesn't exist.
 #
-# To add new content:
-# 1. Copy _lesson-template folder to src/content/[module]/lessons/
-# 2. Create concepts in src/content/[module]/concepts/
-# 3. Update src/app/data/modules.ts with the new lesson
-# 4. Run `npm run validate-content` to verify
-
 # STATUS KEY:
-# ✅ = Complete and validated
-# ⚠️ = Partial (some concepts missing)
-# ❌ = Not started or broken
-
-# CIRCUIT ANALYSIS (circuit-analysis)
-✅ lesson-01: Two-Terminal Resistors (11 concepts)
-✅ lesson-02: General Resistive Circuit Analysis (6 concepts)
+# ✅ = Lesson dir exists, metadata.json present, concepts assigned
+# ⚠️ = Partially complete (orphan concepts or missing pieces)
+# ❌ = No lessons or concepts on disk
 
 # SIGNALS AND SYSTEMS (signals-and-systems)
-✅ lesson-01: Introduction to Signals and Systems (5 concepts)
-✅ lesson-02: Impulse Function and System Properties (3 concepts)
-✅ lesson-03: Convolution and LTI System Response (3 concepts)
-✅ lesson-04: Fourier Series Part I (4 concepts)
+# module.json: yes | Lessons: 7 | Concepts: 21
+✅ lesson-01: Signal Fundamentals and Classifications (3 concepts)
+✅ lesson-02: Impulse Functions and Systems (3 concepts)
+✅ lesson-03: Convolution and LTI Systems (3 concepts)
+✅ lesson-04: Fourier Series Part I (3 concepts)
+✅ lesson-05: Continuous-Time Fourier Transform (3 concepts)
+✅ lesson-06: Laplace Transform Basics (3 concepts)
+✅ lesson-07: Stability and Pole-Zero Analysis (3 concepts)
 
-# DIGITAL LOGIC DESIGN (digital-logic-design)
-✅ lesson-01: Processing of Logical Information (5 concepts)
-✅ lesson-03: Karnaugh Maps and Systematic Minimization (5 concepts)
-✅ lesson-04: Special Logic Circuits (4 concepts)
-
-# COMPUTATIONAL METHODS (computational-methods)
-✅ lesson-01: Nuts and Bolts of Computational Methods (4 concepts)
-✅ lesson-02: Approximation, Discretization, and Linearization (4 concepts)
-✅ lesson-03: Mathematical Modeling for Engineers (4 concepts)
-✅ lesson-04: Complexity Analysis (4 concepts)
+# CIRCUIT ANALYSIS (circuit-analysis)
+# module.json: NO | Lessons: 1 | Concepts: 3
+✅ lesson-01: Two-Terminal Resistors (3 concepts)
 
 # ANALOG ELECTRONICS (analog-electronics)
-❌ No lessons created yet
+# module.json: yes | Lessons: 1 | Concepts: 9 (6 assigned, 3 orphans)
+✅ lab-01: Op-Amp Applications (6 concepts)
+⚠️ 3 orphan concepts (measurement-fundamentals, two-terminal-resistors,
+   voltage-current-characteristics) reference non-existent lesson-01
+
+# DIGITAL LOGIC DESIGN (digital-logic-design)
+# module.json: NO | Lessons: 0 | Concepts: 0
+❌ No lessons or concepts on disk
+
+# COMPUTATIONAL METHODS (computational-methods)
+# module.json: NO | Lessons: 0 | Concepts: 0
+❌ No lessons or concepts on disk
 
 # DESIGN AND MANUFACTURING (design-and-manufacturing)
-❌ No lessons created yet
+# No content directory structure
+❌ No lessons or concepts on disk
 
-# Last updated: 2026-01-20
+# Last verified: 2025-07-25

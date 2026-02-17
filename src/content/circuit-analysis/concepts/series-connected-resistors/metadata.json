@@ -1,0 +1,11 @@
+{
+  "id": "series-connected-resistors",
+  "title": "Series-Connected Resistors",
+  "slug": "series-connected-resistors",
+  "estimatedMinutes": 10,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

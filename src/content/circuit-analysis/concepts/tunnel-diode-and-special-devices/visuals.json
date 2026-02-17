@@ -1,0 +1,646 @@
+{
+  "visuals": [
+    {
+      "id": "tunnel-diode-vi",
+      "type": "plotly",
+      "title": "Tunnel Diode V-I Characteristic (Negative Resistance Region)",
+      "description": "The tunnel diode's distinctive N-shaped curve. Current rises to a peak Ip, DECREASES through a negative-resistance region, then rises again into the normal diode region. This 'valley' enables oscillators and bistable switches.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.35,
+            0.4,
+            0.45,
+            0.5,
+            0.55,
+            0.6,
+            0.65,
+            0.7,
+            0.75
+          ],
+          "y": [
+            0,
+            0.015,
+            0.04,
+            0.05,
+            0.045,
+            0.035,
+            0.022,
+            0.015,
+            0.012,
+            0.013,
+            0.018,
+            0.028,
+            0.04,
+            0.055,
+            0.075,
+            0.1
+          ],
+          "name": "Tunnel Diode",
+          "mode": "lines",
+          "line": {
+            "color": "#8b5cf6",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -0.05,
+            0.85
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.005,
+            0.12
+          ]
+        },
+        "annotations": [
+          {
+            "x": 0.15,
+            "y": 0.05,
+            "text": "Peak (Ip, Vp)",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": 40,
+            "ay": -30,
+            "font": {
+              "size": 11,
+              "color": "#22c55e"
+            }
+          },
+          {
+            "x": 0.4,
+            "y": 0.012,
+            "text": "Valley (Iv, Vv)",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": 40,
+            "ay": 30,
+            "font": {
+              "size": 11,
+              "color": "#ef4444"
+            }
+          },
+          {
+            "x": 0.28,
+            "y": 0.03,
+            "text": "Negative R",
+            "showarrow": false,
+            "font": {
+              "size": 10,
+              "color": "#f59e0b"
+            }
+          }
+        ]
+      },
+      "centeredAxes": true,
+      "width": 500,
+      "height": 380
+    },
+    {
+      "id": "vc-cc-line-tests",
+      "type": "plotly",
+      "title": "Positive vs Negative Resistance Regions",
+      "description": "In a positive-resistance region, slope di/dv > 0 (increasing voltage → increasing current). In a negative-resistance region, slope di/dv < 0 — this is what makes the tunnel diode special.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "Positive R: ΔV ↑ → ΔI ↑",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0.06,
+            0.05,
+            0.04,
+            0.03,
+            0.02,
+            0.01
+          ],
+          "name": "Negative R: ΔV ↑ → ΔI ↓",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        }
+      },
+      "width": 460,
+      "height": 340
+    },
+    {
+      "id": "glow-tube-vi",
+      "type": "plotly",
+      "title": "Zener Diode V-I Characteristic",
+      "description": "The Zener diode has a very sharp breakdown in reverse bias at a precise voltage VZ. This makes it ideal for voltage regulation — the voltage stays nearly constant regardless of current changes.",
+      "traces": [
+        {
+          "x": [
+            -5.5,
+            -5.3,
+            -5.2,
+            -5.1,
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7
+          ],
+          "y": [
+            -0.1,
+            -0.06,
+            -0.04,
+            -0.02,
+            -0.005,
+            -0.001,
+            -0.001,
+            -0.001,
+            -0.001,
+            0,
+            0,
+            0.0005,
+            0.004,
+            0.012,
+            0.03
+          ],
+          "name": "Zener (VZ = 5.1V)",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -6.5,
+            1
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.12,
+            0.04
+          ]
+        },
+        "annotations": [
+          {
+            "x": -5.1,
+            "y": -0.01,
+            "text": "VZ = −5.1V",
+            "showarrow": true,
+            "arrowhead": 2,
+            "font": {
+              "size": 11,
+              "color": "#f59e0b"
+            }
+          }
+        ]
+      },
+      "centeredAxes": true,
+      "width": 500,
+      "height": 380
+    },
+    {
+      "id": "vc-cc-summary-table",
+      "type": "plotly",
+      "title": "Family of Diode V-I Characteristics",
+      "description": "Comparing ideal, PN-junction, tunnel, and Zener diodes on one plot reveals how the same two-terminal device concept produces wildly different behaviours — each useful for a different application.",
+      "traces": [
+        {
+          "x": [
+            -2,
+            -1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.02,
+            0.05,
+            0.1
+          ],
+          "name": "Ideal",
+          "mode": "lines",
+          "line": {
+            "color": "#94a3b8",
+            "width": 2,
+            "dash": "dot"
+          }
+        },
+        {
+          "x": [
+            -2,
+            -1,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7,
+            0.75
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0.0005,
+            0.004,
+            0.012,
+            0.03,
+            0.06
+          ],
+          "name": "PN-Junction",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.35,
+            0.4,
+            0.5,
+            0.6,
+            0.7
+          ],
+          "y": [
+            0,
+            0.015,
+            0.04,
+            0.05,
+            0.045,
+            0.035,
+            0.022,
+            0.015,
+            0.012,
+            0.018,
+            0.04,
+            0.075
+          ],
+          "name": "Tunnel",
+          "mode": "lines",
+          "line": {
+            "color": "#8b5cf6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5.3,
+            -5.2,
+            -5.1,
+            -5,
+            -4,
+            -2,
+            0,
+            0.5,
+            0.65,
+            0.7
+          ],
+          "y": [
+            -0.06,
+            -0.04,
+            -0.02,
+            -0.005,
+            -0.001,
+            -0.001,
+            0,
+            0.0005,
+            0.012,
+            0.03
+          ],
+          "name": "Zener",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -6,
+            1
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.08,
+            0.12
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 560,
+      "height": 400
+    },
+    {
+      "id": "bilateral-symmetry",
+      "type": "circuit-schematic",
+      "title": "Tunnel Diode Oscillator Circuit",
+      "description": "A tunnel diode biased in its negative resistance region can generate oscillations. The DC source sets the bias point, the inductor and capacitor form a resonant tank.",
+      "width": 440,
+      "height": 220,
+      "elements": [
+        {
+          "component": "voltage-source",
+          "x": 60,
+          "y": 110,
+          "label": "Vbias"
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 70,
+          "x2": 160,
+          "y2": 70
+        },
+        {
+          "component": "resistor",
+          "x": 160,
+          "y": 70,
+          "label": "Rb"
+        },
+        {
+          "component": "wire",
+          "x1": 190,
+          "y1": 70,
+          "x2": 280,
+          "y2": 70
+        },
+        {
+          "component": "diode",
+          "x": 280,
+          "y": 110,
+          "label": "TD"
+        },
+        {
+          "component": "wire",
+          "x1": 280,
+          "y1": 70,
+          "x2": 280,
+          "y2": 80
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 150,
+          "x2": 280,
+          "y2": 150
+        },
+        {
+          "component": "inductor",
+          "x": 360,
+          "y": 110,
+          "label": "L"
+        },
+        {
+          "component": "wire",
+          "x1": 360,
+          "y1": 70,
+          "x2": 280,
+          "y2": 70
+        },
+        {
+          "component": "wire",
+          "x1": 360,
+          "y1": 150,
+          "x2": 280,
+          "y2": 150
+        }
+      ]
+    },
+    {
+      "id": "harmonic-generation",
+      "type": "plotly",
+      "title": "Monotonic vs Non-Monotonic V-I Characteristics",
+      "description": "A PN-junction diode is monotonic (i always increases with v in forward bias). A tunnel diode is NON-monotonic — it has a local maximum and minimum, creating the negative resistance region between them.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.7,
+            0.8
+          ],
+          "y": [
+            0,
+            0,
+            0.001,
+            0.008,
+            0.03,
+            0.08
+          ],
+          "name": "PN (monotonic: di/dv > 0)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0.1,
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.4,
+            0.5,
+            0.6,
+            0.7
+          ],
+          "y": [
+            0,
+            0.04,
+            0.05,
+            0.045,
+            0.035,
+            0.022,
+            0.012,
+            0.018,
+            0.04,
+            0.075
+          ],
+          "name": "Tunnel (non-monotonic)",
+          "mode": "lines",
+          "line": {
+            "color": "#8b5cf6",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)"
+        },
+        "yaxis": {
+          "title": "Current i (A)"
+        }
+      },
+      "centeredAxes": true,
+      "width": 480,
+      "height": 360
+    },
+    {
+      "id": "falstad-tunnel-diode",
+      "type": "falstad-sim",
+      "title": "Interactive: Tunnel Diode Circuit",
+      "description": "A tunnel diode has a negative differential resistance region. In this circuit, the NDR can create interesting behaviour.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 0 40 0.5 0 0 0.5\nr 160 96 352 96 0 100\nd 352 96 352 288 2 default\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
+      "height": 450
+    },
+    {
+      "id": "ndr-region-highlighted",
+      "type": "plotly",
+      "title": "Negative Differential Resistance Region",
+      "description": "The tunnel diode V-I curve has three regions: normal, NDR (current decreases as voltage increases), and normal again.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.05,
+            0.1,
+            0.15,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.6,
+            0.7,
+            0.8
+          ],
+          "y": [
+            0,
+            5,
+            10,
+            8,
+            4,
+            2,
+            3,
+            5,
+            8,
+            12,
+            18
+          ],
+          "name": "Tunnel Diode",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0.1,
+            0.15,
+            0.2,
+            0.3,
+            0.4
+          ],
+          "y": [
+            10,
+            8,
+            4,
+            2,
+            3
+          ],
+          "name": "NDR Region",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 4
+          },
+          "fill": "tozeroy",
+          "fillcolor": "rgba(239,68,68,0.15)"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage (V)"
+        },
+        "yaxis": {
+          "title": "Current (mA)"
+        },
+        "showlegend": true
+      },
+      "height": 380
+    }
+  ]
+}

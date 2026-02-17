@@ -1,125 +1,127 @@
 {
+    "id": "nodal-analysis-quiz",
+    "conceptId": "nodal-analysis",
+    "title": "Nodal Analysis Quiz",
     "questions": [
         {
-            "id": "q1-node-count",
+            "id": "na-q1",
+            "prompt": "A circuit has 4 non-reference nodes and 7 branches (all resistors and current sources). How many node voltage unknowns does nodal analysis require?",
             "options": [
-                "3",
+                "7",
                 "4",
-                "5",
-                "6"
+                "14",
+                "8"
             ],
             "correctAnswer": "4",
-            "explanation": "With 5 nodes including ground (reference), there are 5-1 = 4 unknown node voltages. Ground is the reference at 0V.",
-            "prompt": "A circuit has 5 nodes including ground. How many unknown node voltages are there?"
+            "explanation": "Nodal analysis defines one voltage variable per non-reference node. With 4 non-reference nodes, there are 4 unknowns (e₁, e₂, e₃, e₄), regardless of the number of branches."
         },
         {
-            "id": "q2-g-diagonal",
+            "id": "na-q2",
+            "prompt": "For a 2-node circuit (plus ground), node 1 has conductances G₁ = 3 S (to ground) and G₃ = 2 S (to node 2). Node 2 has G₂ = 4 S (to ground) and G₃ = 2 S (to node 1). What is the diagonal entry Y₁₁ of the node-admittance matrix?",
             "options": [
-                "Conductance between nodes k and k",
-                "Sum of all conductances connected to node k",
-                "Negative sum of conductances at node k",
-                "Current source at node k"
+                "3 S",
+                "5 S",
+                "9 S",
+                "7 S"
             ],
-            "correctAnswer": "Sum of all conductances connected to node k",
-            "explanation": "The diagonal entry G_kk is the sum of all conductances connected to node k, representing how easily current can leave that node.",
-            "prompt": "In the conductance matrix G, what does the diagonal entry G_kk represent?"
+            "correctAnswer": "5 S",
+            "explanation": "Y₁₁ = sum of all conductances connected to node 1 = G₁ + G₃ = 3 + 2 = 5 S."
         },
         {
-            "id": "q3-g-offdiag",
+            "id": "na-q3",
+            "prompt": "Using the same circuit as Q2, what is the off-diagonal entry Y₁₂?",
             "options": [
-                "Always positive",
-                "Always negative",
-                "Depends on current direction",
-                "Always zero"
+                "2 S",
+                "−2 S",
+                "0 S",
+                "−4 S"
             ],
-            "correctAnswer": "Always negative",
-            "explanation": "Off-diagonal entries G_kj = -G_between are always negative (or zero if no direct connection). This reflects that current leaving node k enters node j.",
-            "prompt": "What is the sign of off-diagonal entries G_kj in the conductance matrix?"
+            "correctAnswer": "−2 S",
+            "explanation": "Y₁₂ = −(conductance between nodes 1 and 2) = −G₃ = −2 S."
         },
         {
-            "id": "q4-supernode-when",
+            "id": "na-q4",
+            "prompt": "For the 2-node circuit from Q2 with current sources iₛ₁ = 6 A into node 1 and iₛ₂ = 2 A into node 2, what is det(Yₙ)?",
             "options": [
-                "When a current source is present",
-                "When a voltage source connects a node to ground",
-                "When a voltage source connects two non-reference nodes",
-                "When there are more than 3 nodes"
+                "30",
+                "16",
+                "26",
+                "20"
             ],
-            "correctAnswer": "When a voltage source connects two non-reference nodes",
-            "explanation": "A supernode is needed when a voltage source 'floats' between two non-reference nodes. This gives a constraint equation plus a combined KCL equation.",
-            "prompt": "When do you need to create a supernode?"
+            "correctAnswer": "26",
+            "explanation": "Yₙ = [[5, −2], [−2, 6]]. det(Yₙ) = 5×6 − (−2)(−2) = 30 − 4 = 26."
         },
         {
-            "id": "q5-calculation",
+            "id": "na-q5",
+            "prompt": "Continuing from Q4 (Yₙ = [[5, −2], [−2, 6]], iₛ = [6, 2]ᵀ), what is the node voltage e₁?",
             "options": [
-                "4 V",
-                "6 V",
-                "8 V",
-                "10 V"
+                "40/26 ≈ 1.538 V",
+                "36/26 ≈ 1.385 V",
+                "48/26 ≈ 1.846 V",
+                "22/26 ≈ 0.846 V"
             ],
-            "correctAnswer": "8 V",
-            "explanation": "KCL at node 1: 2 = v₁/4, so v₁ = 8V. This detailed explanation ensures you fully understand the core concepts behind this answer, covering why correct options are right and distractors are wrong.",
-            "prompt": "A 2A current source feeds into node 1. Node 1 connects to ground through 4Ω. What is v₁ in volts?"
+            "correctAnswer": "40/26 ≈ 1.538 V",
+            "explanation": "By Cramer's rule: e₁ = det([[6,−2],[2,6]]) / 26 = (36+4)/26 = 40/26 ≈ 1.538 V."
         },
         {
-            "id": "q6-supernode-calc",
+            "id": "na-q6",
+            "prompt": "In the reduced incidence matrix A, a branch directed from node 3 to node 1 contributes which values?",
             "options": [
-                "4 V",
-                "6 V",
-                "8 V",
-                "10 V"
+                "+1 in row 3, −1 in row 1",
+                "−1 in row 3, +1 in row 1",
+                "+1 in row 3, +1 in row 1",
+                "−1 in row 3, −1 in row 1"
             ],
-            "correctAnswer": "8 V",
-            "explanation": "Supernode KCL: 3 = v₁/2 + v₂/4. Constraint: v₁ = v₂ + 6. Substituting: 3 = (v₂+6)/2 + v₂/4 = v₂/2 + 3 + v₂/4 = 3v₂/4 + 3. So v₂ = 0V, v₁ = 6V. Wait, let me recalculate: 3 - 3 = 3v₂/4, v₂ = 0, v₁ = 6V.",
-            "prompt": "Two nodes are connected by a 6V source (v₁ - v₂ = 6V). A 3A source enters the supernode. v₁ connects to ground through 2Ω, v₂ through 4Ω. Find v₁ in volts."
+            "correctAnswer": "+1 in row 3, −1 in row 1",
+            "explanation": "The convention is: +1 at the 'from' node (branch leaves node 3) and −1 at the 'to' node (branch enters node 1). Rows for nodes not involved get 0."
         },
         {
-            "id": "q7-matrix-setup",
+            "id": "na-q7",
+            "prompt": "A branch connects node 2 to ground (node 0) with conductance G = 5 S, oriented from node 2 to node 0. In the reduced incidence matrix, this branch's column has which entries?",
             "options": [
-                "[5, 3]ᵀ",
-                "[5, -3]ᵀ",
-                "[-5, 3]ᵀ",
-                "[-5, -3]ᵀ"
+                "[0, +1, 0]ᵀ (for a 3-node circuit)",
+                "[0, −1, 0]ᵀ",
+                "[0, +1, −1]ᵀ",
+                "[+1, 0, 0]ᵀ"
             ],
-            "correctAnswer": "[5, -3]ᵀ",
-            "explanation": "Current entering is positive, leaving is negative. i₁ = +5A (enters), i₂ = -3A (leaves). So i = [5, -3]ᵀ.",
-            "prompt": "For Gv = i, if a 5A source enters node 1 and a 3A source leaves node 2, what is the current vector i?"
+            "correctAnswer": "[0, +1, 0]ᵀ (for a 3-node circuit)",
+            "explanation": "The branch leaves node 2 so row 2 gets +1. It enters ground (node 0), but the ground row is excluded from the reduced incidence matrix. All other rows are 0."
         },
         {
-            "id": "q8-best-method",
+            "id": "na-q8",
+            "prompt": "Which of the following is a property of Yₙ for a circuit containing only linear resistors (no dependent sources)?",
             "options": [
-                "Many voltage sources in series",
-                "Many current sources and parallel branches",
-                "Only one node",
-                "No resistors"
+                "Yₙ is always diagonal",
+                "Yₙ is symmetric",
+                "Yₙ is skew-symmetric",
+                "Yₙ always has zero determinant"
             ],
-            "correctAnswer": "Many current sources and parallel branches",
-            "explanation": "Nodal analysis works best with current sources (they appear directly in the equations) and parallel structures (fewer nodes than meshes).",
-            "prompt": "Nodal analysis is most efficient when the circuit has:"
+            "correctAnswer": "Yₙ is symmetric",
+            "explanation": "For resistor-only circuits, Yₙ = A·Y_b·Aᵀ. Since Y_b is symmetric (diagonal with positive entries), the product A·Y_b·Aᵀ is always symmetric: Y_{kj} = Y_{jk}."
         },
         {
-            "id": "q-extra-9",
+            "id": "na-q9",
+            "prompt": "For a nonlinear resistive circuit, the node equation f(e) = A·î(Aᵀe) − iₛ = 0 cannot be solved by matrix inversion. Which method is typically used instead?",
             "options": [
-                "Many voltage sources in series",
-                "Many current sources and parallel branches",
-                "Only one node",
-                "No resistors"
+                "Cramer's rule",
+                "Newton–Raphson iteration",
+                "LU decomposition",
+                "Eigenvalue decomposition"
             ],
-            "correctAnswer": "Many current sources and parallel branches",
-            "explanation": "Nodal analysis works best with current sources (they appear directly in the equations) and parallel structures (fewer nodes than meshes).",
-            "prompt": "Nodal analysis is most efficient when the circuit has: (Review)"
+            "correctAnswer": "Newton–Raphson iteration",
+            "explanation": "Nonlinear node equations require iterative methods. Newton–Raphson linearizes f(e) around a current estimate and iteratively converges to a solution. Cramer's rule and LU decomposition apply only to linear systems."
         },
         {
-            "id": "q-extra-10",
+            "id": "na-q10",
+            "prompt": "A circuit has 3 non-reference nodes and 5 branches. What are the dimensions of the reduced incidence matrix A?",
             "options": [
-                "Many voltage sources in series",
-                "Many current sources and parallel branches",
-                "Only one node",
-                "No resistors"
+                "3 × 3",
+                "5 × 3",
+                "3 × 5",
+                "4 × 5"
             ],
-            "correctAnswer": "Many current sources and parallel branches",
-            "explanation": "Nodal analysis works best with current sources (they appear directly in the equations) and parallel structures (fewer nodes than meshes).",
-            "prompt": "Nodal analysis is most efficient when the circuit has: (Review) (Review)"
+            "correctAnswer": "3 × 5",
+            "explanation": "The reduced incidence matrix has (n) rows (non-reference nodes) and b columns (branches). With n = 3 nodes and b = 5 branches, A is 3 × 5."
         }
-    ],
-    "id": "nodal-analysis-quiz"
+    ]
 }

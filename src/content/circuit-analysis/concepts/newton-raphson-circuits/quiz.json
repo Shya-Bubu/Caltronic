@@ -1,0 +1,127 @@
+{
+    "id": "quiz-newton-raphson-circuits",
+    "conceptId": "newton-raphson-circuits",
+    "title": "Newton-Raphson Method for Nonlinear Circuits Quiz",
+    "questions": [
+        {
+            "id": "nrc-q1",
+            "prompt": "In the multi-variable Newton-Raphson method, the update formula is x^(j+1) = x^(j) - J^(-1)(x^(j))·f(x^(j)). What is J?",
+            "options": [
+                "The transpose of the incidence matrix A",
+                "The Jacobian matrix with entries J_ij = ∂f_i/∂x_j",
+                "The admittance matrix of the circuit",
+                "The diagonal matrix of branch resistances"
+            ],
+            "correctAnswer": "The Jacobian matrix with entries J_ij = ∂f_i/∂x_j",
+            "explanation": "J is the Jacobian matrix whose (i,j) entry is ∂f_i/∂x_j. It generalises the scalar derivative f'(x) to multiple dimensions. In the scalar case x^(j+1) = x^(j) - f/f', the role of f' is replaced by J in the vector case."
+        },
+        {
+            "id": "nrc-q2",
+            "prompt": "For the circuit with v₃ = 4i₃³, R₁ = 3 Ω, R₂ = 1 Ω, and an 8 A source, if the initial guess is x⁽⁰⁾ = [6, 2]ᵀ, what is x⁽¹⁾ after one Newton-Raphson iteration?",
+            "options": [
+                "[6.0, 2.0]ᵀ",
+                "[6.4, 1.6]ᵀ",
+                "[7.0, 1.0]ᵀ",
+                "[6.5095, 1.4905]ᵀ"
+            ],
+            "correctAnswer": "[6.4, 1.6]ᵀ",
+            "explanation": "From the lecture slides, starting at x⁽⁰⁾ = [6, 2]ᵀ, one full Newton-Raphson iteration (evaluate f, compute J, solve J·Δx = -f, update) gives x⁽¹⁾ = [6.4, 1.6]ᵀ. The value [6.5095, 1.4905]ᵀ is x⁽²⁾ — the result after two iterations."
+        },
+        {
+            "id": "nrc-q3",
+            "prompt": "After two iterations of Newton-Raphson on the v₃ = 4i₃³ circuit, x⁽²⁾ ≈ [6.5095, 1.4905]ᵀ. Using KCL with the 8 A source, what is i₃ at this approximation?",
+            "options": [
+                "i₃ = 8 - 6.5095 - 1.4905 ≈ 0 A",
+                "i₃ = 6.5095 + 1.4905 = 8 A",
+                "i₃ = 6.5095 - 1.4905 = 5.019 A",
+                "i₃ = 8 - 6.5095 = 1.4905 A"
+            ],
+            "correctAnswer": "i₃ = 8 - 6.5095 - 1.4905 ≈ 0 A",
+            "explanation": "By KCL at the top node: i₃ = I_source - i₁ - i₂ = 8 - x₁/R₁ - x₂/R₂. With the node voltage values, the branch currents sum to the source current. At x⁽²⁾, the cubic branch carries approximately zero current at the converged solution."
+        },
+        {
+            "id": "nrc-q4",
+            "prompt": "For a current-controlled nonlinear resistor v = v̂(i), the Newton-Raphson discrete equivalent at iteration j consists of:",
+            "options": [
+                "A nonlinear resistor with a modified characteristic",
+                "A linear resistor R⁽ʲ⁾ = v̂'(i⁽ʲ⁾) in series with a voltage source E⁽ʲ⁾",
+                "A capacitor that stores the previous iteration's energy",
+                "An ideal voltage source equal to v̂(i⁽ʲ⁾)"
+            ],
+            "correctAnswer": "A linear resistor R⁽ʲ⁾ = v̂'(i⁽ʲ⁾) in series with a voltage source E⁽ʲ⁾",
+            "explanation": "The discrete equivalent linearises the nonlinear element at the current operating point. The tangent-line approximation v ≈ v̂(i⁽ʲ⁾) + v̂'(i⁽ʲ⁾)(i - i⁽ʲ⁾) is equivalent to R⁽ʲ⁾ = v̂'(i⁽ʲ⁾) in series with E⁽ʲ⁾ = v̂(i⁽ʲ⁾) - R⁽ʲ⁾·i⁽ʲ⁾."
+        },
+        {
+            "id": "nrc-q5",
+            "prompt": "For the nonlinear resistor v = 4i³, what is the equivalent resistance R⁽ʲ⁾ at the operating point i⁽ʲ⁾ = 2 A?",
+            "options": [
+                "R⁽ʲ⁾ = 4(2)³ = 32 Ω",
+                "R⁽ʲ⁾ = 12(2)² = 48 Ω",
+                "R⁽ʲ⁾ = 4(2)² = 16 Ω",
+                "R⁽ʲ⁾ = 12(2)³ = 96 Ω"
+            ],
+            "correctAnswer": "R⁽ʲ⁾ = 12(2)² = 48 Ω",
+            "explanation": "R⁽ʲ⁾ = dv/di evaluated at i⁽ʲ⁾. For v = 4i³: dv/di = 12i². At i = 2 A: R⁽ʲ⁾ = 12 × (2)² = 12 × 4 = 48 Ω."
+        },
+        {
+            "id": "nrc-q6",
+            "prompt": "For v = 4i³, at i⁽ʲ⁾ = 2 A, what is the equivalent voltage source E⁽ʲ⁾ in the discrete equivalent circuit?",
+            "options": [
+                "E⁽ʲ⁾ = 4(2)³ = 32 V",
+                "E⁽ʲ⁾ = 4(2)³ - 48 × 2 = -64 V",
+                "E⁽ʲ⁾ = 12(2)² = 48 V",
+                "E⁽ʲ⁾ = 4(2)³ + 48 × 2 = 128 V"
+            ],
+            "correctAnswer": "E⁽ʲ⁾ = 4(2)³ - 48 × 2 = -64 V",
+            "explanation": "E⁽ʲ⁾ = v̂(i⁽ʲ⁾) - R⁽ʲ⁾·i⁽ʲ⁾ = 4(2)³ - 48 × 2 = 32 - 96 = -64 V. The negative sign means the equivalent source opposes the resistor voltage — this is consistent with the tangent line passing through (i⁽ʲ⁾, v̂(i⁽ʲ⁾))."
+        },
+        {
+            "id": "nrc-q7",
+            "prompt": "In a circuit with 8 branches where only 2 are nonlinear, how many rows of the Jacobian matrix change between Newton-Raphson iterations?",
+            "options": [
+                "All 8 rows change",
+                "Only 2 rows change",
+                "6 rows change",
+                "No rows change — the Jacobian is constant"
+            ],
+            "correctAnswer": "Only 2 rows change",
+            "explanation": "KCL and KVL contribute constant rows to J, and linear branch equations also contribute constant entries. Only rows corresponding to nonlinear branch constitutive relations contain derivatives that depend on the current iterate. With 2 nonlinear branches, exactly 2 rows change between iterations."
+        },
+        {
+            "id": "nrc-q8",
+            "prompt": "Newton-Raphson converges when ||f(x⁽ʲ⁾)|| < ε. Near a simple root with nonsingular Jacobian, the convergence rate is:",
+            "options": [
+                "Linear — error decreases by a constant factor each iteration",
+                "Quadratic — the number of correct digits roughly doubles each iteration",
+                "Cubic — the number of correct digits roughly triples each iteration",
+                "Logarithmic — convergence slows as the root is approached"
+            ],
+            "correctAnswer": "Quadratic — the number of correct digits roughly doubles each iteration",
+            "explanation": "Newton-Raphson exhibits quadratic convergence near a simple root: if the error at step j is ε_j, then ε_{j+1} ≈ C·ε_j² for some constant C. This means the number of correct significant digits approximately doubles with each iteration, explaining why only 2-5 iterations suffice."
+        },
+        {
+            "id": "nrc-q9",
+            "prompt": "For a voltage-controlled nonlinear resistor i = î(v), the discrete equivalent at iteration j is a Norton equivalent. What are G⁽ʲ⁾ and I⁽ʲ⁾?",
+            "options": [
+                "G⁽ʲ⁾ = î(v⁽ʲ⁾), I⁽ʲ⁾ = î'(v⁽ʲ⁾)",
+                "G⁽ʲ⁾ = î'(v⁽ʲ⁾), I⁽ʲ⁾ = î(v⁽ʲ⁾) - G⁽ʲ⁾·v⁽ʲ⁾",
+                "G⁽ʲ⁾ = 1/î'(v⁽ʲ⁾), I⁽ʲ⁾ = v⁽ʲ⁾/î(v⁽ʲ⁾)",
+                "G⁽ʲ⁾ = î'(v⁽ʲ⁾)·v⁽ʲ⁾, I⁽ʲ⁾ = î(v⁽ʲ⁾)"
+            ],
+            "correctAnswer": "G⁽ʲ⁾ = î'(v⁽ʲ⁾), I⁽ʲ⁾ = î(v⁽ʲ⁾) - G⁽ʲ⁾·v⁽ʲ⁾",
+            "explanation": "Linearising i = î(v) at v⁽ʲ⁾: i ≈ î(v⁽ʲ⁾) + î'(v⁽ʲ⁾)(v - v⁽ʲ⁾) = î'(v⁽ʲ⁾)·v + [î(v⁽ʲ⁾) - î'(v⁽ʲ⁾)·v⁽ʲ⁾]. This is a conductance G⁽ʲ⁾ = î'(v⁽ʲ⁾) in parallel with a current source I⁽ʲ⁾ = î(v⁽ʲ⁾) - G⁽ʲ⁾·v⁽ʲ⁾."
+        },
+        {
+            "id": "nrc-q10",
+            "prompt": "A nonlinear resistor has characteristic i = 0.5v². At v⁽ʲ⁾ = 4 V, what is the conductance G⁽ʲ⁾ of the discrete equivalent?",
+            "options": [
+                "G⁽ʲ⁾ = 0.5(4)² = 8 S",
+                "G⁽ʲ⁾ = 0.5 × 2 × 4 = 4 S",
+                "G⁽ʲ⁾ = 0.5/4 = 0.125 S",
+                "G⁽ʲ⁾ = 2 × 0.5 × (4)² = 16 S"
+            ],
+            "correctAnswer": "G⁽ʲ⁾ = 0.5 × 2 × 4 = 4 S",
+            "explanation": "G⁽ʲ⁾ = dî/dv at v = 4. For i = 0.5v²: di/dv = v. At v = 4: G⁽ʲ⁾ = 4 S. The Norton equivalent current source is I⁽ʲ⁾ = î(4) - G⁽ʲ⁾·4 = 0.5(16) - 4(4) = 8 - 16 = -8 A."
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "conceptId": "REPLACE-concept-id",
+    "_documentation": {
+        "_comment": "This file documents all available visual types for circuit analysis concepts.",
+        "visualTypes": {
+            "plotly": "Interactive Plotly.js charts (V-I curves, bar charts, scatter plots, etc.)",
+            "circuit-schematic": "Declarative JSON → SVG circuit schematics (32px grid)",
+            "falstad-sim": "Falstad CircuitJS interactive simulator (iframe embed, requires ground node)",
+            "ohms-law-sim": "Interactive Ohm's law explorer (React+SVG, no D3)",
+            "v3-ohms-law": "v3 interactive Ohm's law simulator (React+SVG)",
+            "v3-diode-circuit": "v3 interactive diode circuit simulator (React+SVG)",
+            "v3-load-line": "v3 load-line analysis simulator (React+SVG)",
+            "v3-pwl": "v3 piecewise-linear explorer (React+SVG)",
+            "time-domain": "Time-domain signal plot",
+            "signal-plot": "Signal plot with multiple traces"
+        },
+        "minimumRequirements": {
+            "totalVisuals": "8-12 per concept",
+            "falstadSims": "At least 1 per concept (must include ground node)",
+            "interactive": "At least 2 interactive simulations",
+            "plotlyCharts": "At least 2 data visualisations"
+        }
+    },
+    "visuals": [
+        {
+            "id": "REPLACE-plotly-01",
+            "type": "plotly",
+            "title": "REPLACE: Chart Title",
+            "description": "REPLACE: What this chart shows",
+            "traces": [],
+            "layout": {}
+        },
+        {
+            "id": "REPLACE-schematic-01",
+            "type": "circuit-schematic",
+            "title": "REPLACE: Schematic Title",
+            "description": "REPLACE: What this circuit illustrates",
+            "width": 400,
+            "height": 200,
+            "elements": []
+        },
+        {
+            "id": "REPLACE-falstad-01",
+            "type": "falstad-sim",
+            "title": "REPLACE: Simulation Title",
+            "description": "REPLACE: What students can explore",
+            "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nREPLACE-circuit-text\ng 256 288 256 320 0 0",
+            "height": 450
+        }
+    ]
+}

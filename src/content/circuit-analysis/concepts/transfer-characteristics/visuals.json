@@ -1,0 +1,735 @@
+{
+  "visuals": [
+    {
+      "id": "dp-vs-transfer",
+      "type": "circuit-schematic",
+      "title": "Driving-Point vs Transfer Characteristics",
+      "description": "Left: Driving-point — voltage and current measured at the SAME port, the v-i curve describes the port's self-behaviour. Right: Transfer — input at one port, output at a different port, the vo vs vi curve describes how the circuit transforms the signal.",
+      "width": 520,
+      "height": 220,
+      "elements": [
+        {
+          "component": "text",
+          "x": 130,
+          "y": 20,
+          "text": "Driving-Point",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#3b82f6"
+        },
+        {
+          "component": "text",
+          "x": 130,
+          "y": 90,
+          "text": "One-Port",
+          "fontSize": 13,
+          "color": "var(--text)"
+        },
+        {
+          "component": "wire",
+          "x1": 50,
+          "y1": 75,
+          "x2": 90,
+          "y2": 75
+        },
+        {
+          "component": "wire",
+          "x1": 170,
+          "y1": 75,
+          "x2": 210,
+          "y2": 75
+        },
+        {
+          "component": "wire",
+          "x1": 50,
+          "y1": 115,
+          "x2": 90,
+          "y2": 115
+        },
+        {
+          "component": "wire",
+          "x1": 170,
+          "y1": 115,
+          "x2": 210,
+          "y2": 115
+        },
+        {
+          "component": "text",
+          "x": 130,
+          "y": 140,
+          "text": "v, i (same port)",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#94a3b8"
+        },
+        {
+          "component": "text",
+          "x": 130,
+          "y": 175,
+          "text": "Result: v-i curve",
+          "fontSize": 11,
+          "color": "#3b82f6"
+        },
+        {
+          "component": "text",
+          "x": 390,
+          "y": 20,
+          "text": "Transfer",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#f59e0b"
+        },
+        {
+          "component": "text",
+          "x": 390,
+          "y": 90,
+          "text": "Two-Port",
+          "fontSize": 13,
+          "color": "var(--text)"
+        },
+        {
+          "component": "wire",
+          "x1": 300,
+          "y1": 75,
+          "x2": 340,
+          "y2": 75
+        },
+        {
+          "component": "wire",
+          "x1": 440,
+          "y1": 75,
+          "x2": 480,
+          "y2": 75
+        },
+        {
+          "component": "wire",
+          "x1": 300,
+          "y1": 115,
+          "x2": 340,
+          "y2": 115
+        },
+        {
+          "component": "wire",
+          "x1": 440,
+          "y1": 115,
+          "x2": 480,
+          "y2": 115
+        },
+        {
+          "component": "text",
+          "x": 320,
+          "y": 55,
+          "text": "vi (input)",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 460,
+          "y": 55,
+          "text": "vo (output)",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#ef4444"
+        },
+        {
+          "component": "text",
+          "x": 390,
+          "y": 175,
+          "text": "Result: vo vs vi curve",
+          "fontSize": 11,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "transfer-char",
+      "type": "plotly",
+      "title": "Transfer Characteristic: Diode-Resistor Series Circuit",
+      "description": "The transfer characteristic vo vs vi for a series PN-junction diode and linear resistor. Below the diode turn-on (~0.6V), vo ≈ 0. Above turn-on, vo rises linearly with slope approaching 1, offset by the diode voltage drop. A linear voltage divider comparison is shown.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.2,
+            0.4,
+            0.5,
+            0.6,
+            0.7,
+            0.8,
+            1,
+            1.5,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0.01,
+            0.08,
+            0.17,
+            0.37,
+            0.87,
+            1.37,
+            2.37,
+            3.37,
+            4.37
+          ],
+          "name": "Diode + R₂: vo vs vi",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5
+          ],
+          "name": "Linear divider: vo = 0.5vi",
+          "mode": "lines",
+          "line": {
+            "color": "#94a3b8",
+            "width": 1.5,
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Input Voltage vi (V)"
+        },
+        "yaxis": {
+          "title": "Output Voltage vo (V)"
+        },
+        "annotations": [
+          {
+            "x": 0.65,
+            "y": 0.05,
+            "text": "Turn-on knee",
+            "showarrow": true,
+            "arrowhead": 2,
+            "font": {
+              "size": 11,
+              "color": "#f59e0b"
+            }
+          },
+          {
+            "x": 4,
+            "y": 3.37,
+            "text": "Slope → 1",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": -40,
+            "font": {
+              "size": 11,
+              "color": "#22c55e"
+            }
+          }
+        ]
+      },
+      "width": 520,
+      "height": 400
+    },
+    {
+      "id": "parametric-method",
+      "type": "circuit-schematic",
+      "title": "Parametric Construction of Transfer Characteristic",
+      "description": "Step-by-step visual: (1) Choose current i, (2) Compute vi = v₁(i) + v₂(i), (3) Compute vo = v₂(i), (4) Plot (vi, vo), (5) Repeat for many values of i. No inversion required!",
+      "width": 520,
+      "height": 220,
+      "elements": [
+        {
+          "component": "text",
+          "x": 260,
+          "y": 20,
+          "text": "Parametric Method",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "var(--accent)"
+        },
+        {
+          "component": "text",
+          "x": 100,
+          "y": 60,
+          "text": "① Choose i",
+          "fontSize": 12,
+          "color": "#3b82f6"
+        },
+        {
+          "component": "text",
+          "x": 260,
+          "y": 60,
+          "text": "② vi = v̂₁(i) + v̂₂(i)",
+          "fontSize": 12,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 420,
+          "y": 60,
+          "text": "③ vo = v̂₂(i)",
+          "fontSize": 12,
+          "color": "#f59e0b"
+        },
+        {
+          "component": "text",
+          "x": 180,
+          "y": 120,
+          "text": "④ Plot point (vi, vo)",
+          "fontSize": 12,
+          "color": "#ef4444"
+        },
+        {
+          "component": "text",
+          "x": 380,
+          "y": 120,
+          "text": "⑤ Repeat for many i",
+          "fontSize": 12,
+          "color": "#8b5cf6"
+        },
+        {
+          "component": "text",
+          "x": 260,
+          "y": 175,
+          "text": "Result: complete transfer characteristic",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 260,
+          "y": 200,
+          "text": "Works for ANY nonlinear element",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#94a3b8"
+        }
+      ]
+    },
+    {
+      "id": "linear-vs-nonlinear-tc",
+      "type": "plotly",
+      "title": "Linear vs Nonlinear Transfer Characteristics",
+      "description": "The linear voltage divider has constant slope (constant gain). The diode-resistor circuit has a dead zone below Vγ and then varying slope — enabling rectification, limiting, and amplitude compression that linear circuits cannot perform.",
+      "traces": [
+        {
+          "x": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5
+          ],
+          "name": "Linear: vo = 0.5vi",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0.3,
+            0.6,
+            0.7,
+            1,
+            2,
+            3,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.08,
+            0.37,
+            1.37,
+            2.37,
+            4.37
+          ],
+          "name": "Nonlinear: diode + R",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Input vi (V)"
+        },
+        "yaxis": {
+          "title": "Output vo (V)"
+        },
+        "annotations": [
+          {
+            "x": 2.5,
+            "y": 1.25,
+            "text": "Constant slope = 0.5",
+            "showarrow": false,
+            "font": {
+              "size": 10,
+              "color": "#3b82f6"
+            }
+          },
+          {
+            "x": 0.4,
+            "y": 0.2,
+            "text": "Dead zone",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": 30,
+            "ay": -20,
+            "font": {
+              "size": 10,
+              "color": "#ef4444"
+            }
+          },
+          {
+            "x": 4,
+            "y": 3.5,
+            "text": "Varying slope",
+            "showarrow": false,
+            "font": {
+              "size": 10,
+              "color": "#f59e0b"
+            }
+          }
+        ]
+      },
+      "width": 520,
+      "height": 400
+    },
+    {
+      "id": "gain-offset-linearity",
+      "type": "plotly",
+      "title": "Three Properties Encoded in the Transfer Characteristic",
+      "description": "The transfer characteristic encodes three key properties: (1) Gain — the slope dvo/dvi, (2) Offset — the horizontal shift (Vγ for a diode circuit), (3) Linearity — how much the slope varies across the input range.",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.3,
+            0.6,
+            0.7,
+            1,
+            2,
+            3,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0.08,
+            0.37,
+            1.37,
+            2.37,
+            4.37
+          ],
+          "name": "Transfer characteristic",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            1,
+            3
+          ],
+          "y": [
+            0.37,
+            2.37
+          ],
+          "name": "Gain = slope ≈ 1",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2,
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Input vi (V)"
+        },
+        "yaxis": {
+          "title": "Output vo (V)"
+        },
+        "annotations": [
+          {
+            "x": 2,
+            "y": 1.37,
+            "text": "Gain ≈ dvo/dvi",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": 40,
+            "ay": -20,
+            "font": {
+              "size": 11,
+              "color": "#22c55e"
+            }
+          },
+          {
+            "x": 0.6,
+            "y": -0.2,
+            "text": "Offset = Vγ",
+            "showarrow": true,
+            "arrowhead": 2,
+            "ax": 0,
+            "ay": -25,
+            "font": {
+              "size": 11,
+              "color": "#ef4444"
+            }
+          },
+          {
+            "x": 0.3,
+            "y": 0.15,
+            "text": "Nonlinear region",
+            "showarrow": false,
+            "font": {
+              "size": 10,
+              "color": "#8b5cf6"
+            }
+          }
+        ]
+      },
+      "width": 500,
+      "height": 380
+    },
+    {
+      "id": "derivation-procedure",
+      "type": "circuit-schematic",
+      "title": "Transfer Characteristic Derivation Procedure",
+      "description": "Five-step summary: (1) Write KCL: i = i₁ = i₂, (2) Write KVL: vi = v̂₁(i) + v̂₂(i), (3) Write output: vo = v̂₂(i), (4) Eliminate i (analytically or parametrically), (5) Plot vo vs vi.",
+      "width": 500,
+      "height": 260,
+      "elements": [
+        {
+          "component": "text",
+          "x": 250,
+          "y": 20,
+          "text": "Derivation Steps",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "var(--accent)"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 60,
+          "text": "① KCL: i₁ = i₂ = i (series connection)",
+          "fontSize": 12,
+          "color": "#3b82f6"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 95,
+          "text": "② KVL: vi = v̂₁(i) + v̂₂(i)",
+          "fontSize": 12,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 130,
+          "text": "③ Output: vo = v̂₂(i)",
+          "fontSize": 12,
+          "color": "#f59e0b"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 165,
+          "text": "④ Eliminate i: vo = f(vi)",
+          "fontSize": 12,
+          "color": "#ef4444"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 200,
+          "text": "⑤ Plot vo vs vi — Done!",
+          "fontSize": 12,
+          "color": "#8b5cf6"
+        },
+        {
+          "component": "text",
+          "x": 250,
+          "y": 240,
+          "text": "If step ④ is hard, use parametric method!",
+          "fontSize": 10,
+          "fontStyle": "italic",
+          "color": "#94a3b8"
+        }
+      ]
+    },
+    {
+      "id": "falstad-transfer-function",
+      "type": "falstad-sim",
+      "title": "Interactive: Diode Half-Wave Rectifier",
+      "description": "A diode rectifier clips the negative input. The transfer characteristic is linear for vin > 0 and zero for vin < 0.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 1 40 5 0 0 0.5\nd 160 96 352 96 2 default\nr 352 96 352 288 0 10000\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
+      "height": 450
+    },
+    {
+      "id": "transfer-curve-shapes",
+      "type": "plotly",
+      "title": "Common Transfer Characteristic Shapes",
+      "description": "Linear (resistor divider), piecewise-linear (clipper), and nonlinear (exponential) transfer curves.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            -2.5,
+            -2,
+            -1.5,
+            -1,
+            -0.5,
+            0,
+            0.5,
+            1,
+            1.5,
+            2,
+            2.5
+          ],
+          "name": "Linear",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            0.01,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "name": "Clipper",
+          "mode": "lines",
+          "line": {
+            "color": "#f472b6",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.65,
+            0.7
+          ],
+          "y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.05,
+            0.5,
+            2,
+            5,
+            12
+          ],
+          "name": "Exponential",
+          "mode": "lines",
+          "line": {
+            "color": "#a78bfa",
+            "width": 2
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Input (V)"
+        },
+        "yaxis": {
+          "title": "Output (V)"
+        },
+        "showlegend": true
+      },
+      "centeredAxes": true,
+      "height": 380
+    }
+  ]
+}

@@ -30,6 +30,7 @@
   margin-top: 1rem;
   color: var(--text-muted);
   font-size: 1.0625rem;
+  font-weight: 450;
   line-height: 1.6;
   max-width: 55ch;
 }
@@ -50,11 +51,19 @@
   border: 1px solid var(--border);
   overflow: hidden;
   transition: border-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .card:hover {
   border-color: var(--card-accent, var(--accent));
   transform: translateY(-2px);
+}
+
+/* Full card clickable overlay */
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
 }
 
 /* Spotlight overlay */

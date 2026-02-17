@@ -1,0 +1,25 @@
+{
+    "$schema": "concept-metadata-v3",
+    "id": "newton-raphson-circuits",
+    "title": "Newton-Raphson Method for Nonlinear Circuits",
+    "lesson": "lesson-02",
+    "order": 3,
+    "continuationContext": {
+        "previousConcept": "tableau-analysis",
+        "establishedBy": "Nonlinear tableau equations from Concept 2",
+        "addressingGap": "How do we actually solve the nonlinear circuit equations — and can we reduce them to a sequence of familiar linear problems?"
+    },
+    "difficultyProgression": {
+        "intuition": { "startsAt": 125, "endsAt": 135 },
+        "engineering": { "startsAt": 135, "endsAt": 150 },
+        "mathematics": { "startsAt": 150, "endsAt": 165 }
+    },
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "contentPath": "content.md"
+}

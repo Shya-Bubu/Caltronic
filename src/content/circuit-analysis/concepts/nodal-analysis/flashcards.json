@@ -1,65 +1,67 @@
 {
-    "id": "nodal-analysis-flashcards",
+    "id": "flashcards-nodal-analysis",
+    "conceptId": "nodal-analysis",
+    "title": "Nodal Analysis Flashcards",
     "cards": [
         {
-            "id": "fc-1",
-            "front": "What is Nodal Analysis?",
-            "back": "A systematic method to solve circuits by:\n1. Choosing a reference node (ground)\n2. Defining node voltages relative to ground\n3. Writing KCL at each non-reference node\n4. Solving the resulting system of equations",
+            "id": "na-fc1",
+            "front": "What is the first step in the node analysis procedure?",
+            "back": "Choose a **reference node** (ground, labeled node 0). All other node voltages are measured relative to this node.",
             "difficultyLevel": 1
         },
         {
-            "id": "fc-2",
-            "front": "How many equations for N nodes?",
-            "back": "For a circuit with N nodes (including ground):\n\nNumber of equations = N - 1\n\nOne node is reference (ground, 0V), so N-1 unknown node voltages.",
+            "id": "na-fc2",
+            "front": "How is the diagonal entry Y_{kk} of the node-admittance matrix determined by inspection?",
+            "back": "Y_{kk} = **sum of all conductances** connected to node k (including branches to ground and branches to other nodes).",
             "difficultyLevel": 1
         },
         {
-            "id": "fc-3",
-            "front": "KCL Equation Form at a Node",
-            "back": "At node k with voltage vₖ:\n\nΣ (currents leaving) = 0\n\nOr: Σ (vₖ - vⱼ)/Rₖⱼ = Σ Iₛₒᵤᵣcₑ,ᵢₙ\n\nCurrent from k to j: I = (vₖ - vⱼ)/R",
-            "difficultyLevel": 1
+            "id": "na-fc3",
+            "front": "How is the off-diagonal entry Y_{kj} of the node-admittance matrix determined by inspection?",
+            "back": "Y_{kj} = **negative** of the total conductance directly connecting nodes k and j. If no branch connects them, Y_{kj} = 0.",
+            "difficultyLevel": 2
         },
         {
-            "id": "fc-4",
-            "front": "Conductance Matrix: Diagonal Entry G_kk",
-            "back": "G_kk = Sum of ALL conductances connected to node k\n\nG_kk = Σ Gⱼ for all j connected to k\n\n(Always positive)",
-            "difficultyLevel": 1
+            "id": "na-fc4",
+            "front": "Why is the node-admittance matrix Yₙ symmetric for resistor-only circuits?",
+            "back": "Because Yₙ = A · Y_b · Aᵀ, and since Y_b (diagonal branch admittance matrix) is symmetric, (A Y_b Aᵀ)ᵀ = A Y_bᵀ Aᵀ = A Y_b Aᵀ. Physically, the conductance between nodes k and j is the same as between j and k.",
+            "difficultyLevel": 3
         },
         {
-            "id": "fc-5",
-            "front": "Conductance Matrix: Off-Diagonal Entry G_kj",
-            "back": "G_kj = NEGATIVE of conductance between nodes k and j\n\nG_kj = -G_between(k,j)\n\n(Always negative or zero)\n\nNote: G is symmetric, so G_kj = G_jk",
-            "difficultyLevel": 1
+            "id": "na-fc5",
+            "front": "What is the reduced incidence matrix A, and what are its entries?",
+            "back": "A is an n × b matrix (n non-reference nodes, b branches). Entry a_{ij} = +1 if branch j **leaves** node i, −1 if branch j **enters** node i, and 0 if branch j is not connected to node i. The ground node row is omitted.",
+            "difficultyLevel": 3
         },
         {
-            "id": "fc-6",
-            "front": "When to Use a Supernode",
-            "back": "Use a supernode when a voltage source connects two NON-REFERENCE nodes (floating voltage source).\n\nSupernode gives:\n1. Constraint: v₁ - v₂ = V_source\n2. Combined KCL: Treat both nodes as one for KCL",
-            "difficultyLevel": 1
+            "id": "na-fc6",
+            "front": "Express KCL and KVL in matrix form using the incidence matrix A.",
+            "back": "**KCL**: A · i_b = 0 (sum of branch currents at each node is zero).\n**KVL**: v_b = Aᵀ · e (each branch voltage equals the difference of node voltages at its endpoints).",
+            "difficultyLevel": 3
         },
         {
-            "id": "fc-7",
-            "front": "Voltage Source to Ground",
-            "back": "If voltage source V connects node k to ground:\n\nvₖ = V (known!)\n\nNo equation needed for this node—its voltage is fixed by the source.",
-            "difficultyLevel": 1
+            "id": "na-fc7",
+            "front": "Derive the relationship Yₙ = A · Y_b · Aᵀ in words.",
+            "back": "Start with element relations (i_b = Y_b · v_b), substitute KVL (v_b = Aᵀe) to get i_b = Y_b Aᵀ e, then apply KCL (A · i_b = iₛ) to obtain A · Y_b · Aᵀ · e = iₛ. Therefore Yₙ = A · Y_b · Aᵀ.",
+            "difficultyLevel": 4
         },
         {
-            "id": "fc-8",
-            "front": "Current Source Handling",
-            "back": "Current sources appear DIRECTLY in the KCL equations:\n\n• Source INTO node k: +I in current sum\n• Source OUT OF node k: -I in current sum\n\nCurrent sources are 'nodal-friendly'!",
-            "difficultyLevel": 1
+            "id": "na-fc8",
+            "front": "When does a linear nodal analysis system Yₙ · e = iₛ have a unique solution?",
+            "back": "When **det(Yₙ) ≠ 0** (Yₙ is nonsingular). For connected networks with all positive conductances, Yₙ is positive definite and always nonsingular, guaranteeing a unique solution.",
+            "difficultyLevel": 2
         },
         {
-            "id": "fc-9",
-            "front": "Matrix Form: Gv = i",
-            "back": "Standard nodal equations:\n\nGv = i\n\nWhere:\n• G = (N-1) × (N-1) conductance matrix\n• v = node voltage vector\n• i = current source vector (+ for into node)\n\nSolve: v = G⁻¹i",
-            "difficultyLevel": 1
+            "id": "na-fc9",
+            "front": "How does nodal analysis change for nonlinear resistive circuits?",
+            "back": "The node equation becomes **f(e) = A · î(Aᵀe) − iₛ = 0**, a system of nonlinear equations. It cannot be solved by matrix inversion — iterative methods like **Newton–Raphson** are required. Solutions may not exist or may not be unique.",
+            "difficultyLevel": 4
         },
         {
-            "id": "fc-10",
-            "front": "When is Nodal Analysis Best?",
-            "back": "Nodal analysis is most efficient when:\n\n✓ Circuit has many current sources\n✓ Many parallel branches\n✓ Fewer nodes than meshes\n✓ You need node voltages\n\nLess ideal when:\n✗ Many voltage sources (need supernodes)\n✗ More nodes than meshes",
-            "difficultyLevel": 1
+            "id": "na-fc10",
+            "front": "What is the branch voltage v_k in terms of node voltages if branch k is directed from node i to node j?",
+            "back": "v_k = e_i − e_j. This relationship automatically satisfies KVL and is the fundamental reason nodal analysis eliminates KVL as a separate step.",
+            "difficultyLevel": 5
         }
     ]
 }

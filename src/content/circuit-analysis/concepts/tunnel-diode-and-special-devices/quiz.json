@@ -1,0 +1,125 @@
+{
+  "id": "tunnel-diode-and-special-devices-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A nonlinear resistor is called voltage-controlled if:",
+      "options": [
+        "A) Its v-i curve passes through the origin",
+        "B) For every voltage v, there is exactly one current i (i-hat(v) is single-valued)",
+        "C) For every current i, there is exactly one voltage v",
+        "D) It has a linear v-i relationship"
+      ],
+      "correctAnswer": "B) For every voltage v, there is exactly one current i (i-hat(v) is single-valued)",
+      "explanation": "Voltage-controlled means the characteristic can be written as i = i-hat(v) where i-hat is single-valued. Every vertical line (constant v) intersects the curve at most once."
+    },
+    {
+      "id": "q2",
+      "prompt": "The tunnel diode has an N-shaped v-i characteristic. In the negative resistance region, a single voltage value corresponds to:",
+      "options": [
+        "A) Exactly one current",
+        "B) No current (the region is forbidden)",
+        "C) Three different currents",
+        "D) Two different currents"
+      ],
+      "correctAnswer": "C) Three different currents",
+      "explanation": "In the N-shaped curve's NDR region, a vertical line at a given voltage crosses the curve at three points (one on each rising branch and one on the falling branch), giving three current values."
+    },
+    {
+      "id": "q3",
+      "prompt": "Because the tunnel diode's i-hat(v) is not single-valued, the tunnel diode is classified as:",
+      "options": [
+        "A) Voltage-controlled, not current-controlled",
+        "B) Current-controlled, not voltage-controlled",
+        "C) Both voltage-controlled and current-controlled",
+        "D) Neither voltage-controlled nor current-controlled"
+      ],
+      "correctAnswer": "B) Current-controlled, not voltage-controlled",
+      "explanation": "The N-shaped curve fails the vertical line test (not voltage-controlled) but passes the horizontal line test (every horizontal line crosses at most once), so it is current-controlled."
+    },
+    {
+      "id": "q4",
+      "prompt": "The glow tube has an S-shaped v-i characteristic. It is classified as:",
+      "options": [
+        "A) Voltage-controlled, not current-controlled",
+        "B) Current-controlled, not voltage-controlled",
+        "C) Both voltage-controlled and current-controlled",
+        "D) Neither"
+      ],
+      "correctAnswer": "A) Voltage-controlled, not current-controlled",
+      "explanation": "The S-shaped curve passes the vertical line test (each voltage gives one current) but fails the horizontal line test (some currents give multiple voltages). So it is voltage-controlled but not current-controlled."
+    },
+    {
+      "id": "q5",
+      "prompt": "A bilateral nonlinear resistor satisfies:",
+      "options": [
+        "A) f(v, i) = f(v, -i)",
+        "B) f(v, i) = f(-v, i)",
+        "C) f(v, i) = f(-v, -i)",
+        "D) f(v, i) = -f(v, i)"
+      ],
+      "correctAnswer": "C) f(v, i) = f(-v, -i)",
+      "explanation": "Bilateral (symmetric) means the characteristic is unchanged under 180-degree rotation about the origin: replacing (v, i) with (-v, -i) gives the same curve."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which of the following is NOT bilateral?",
+      "options": [
+        "A) A linear resistor v = Ri",
+        "B) A cubic resistor i = av^3",
+        "C) A PN-junction diode i = Is(e^(v/VT) - 1)",
+        "D) A resistor with i = v + v^3"
+      ],
+      "correctAnswer": "C) A PN-junction diode i = Is(e^(v/VT) - 1)",
+      "explanation": "The PN-junction diode's exponential characteristic is not symmetric about the origin: the forward and reverse regions behave completely differently. All the other options satisfy f(-v) = -f(v)."
+    },
+    {
+      "id": "q7",
+      "prompt": "A sinusoidal voltage v = V0*sin(wt) is applied to a nonlinear resistor with i = av + bv^2. The output current contains:",
+      "options": [
+        "A) Only the fundamental frequency w",
+        "B) DC, fundamental w, and second harmonic 2w",
+        "C) Only even harmonics",
+        "D) Fundamental w and third harmonic 3w"
+      ],
+      "correctAnswer": "B) DC, fundamental w, and second harmonic 2w",
+      "explanation": "The linear term gives a component at w. The quadratic term gives sin^2(wt) = (1 - cos(2wt))/2, producing a DC component and a second harmonic at 2w."
+    },
+    {
+      "id": "q8",
+      "prompt": "For a bilateral nonlinear resistor excited by a sinusoid, the output contains:",
+      "options": [
+        "A) All harmonics (even and odd)",
+        "B) Only even harmonics plus DC",
+        "C) Only odd harmonics (no even harmonics, no DC)",
+        "D) Only the fundamental"
+      ],
+      "correctAnswer": "C) Only odd harmonics (no even harmonics, no DC)",
+      "explanation": "A bilateral resistor has an odd-symmetric characteristic (only odd powers in its Taylor expansion). Odd powers of sin(wt) produce only odd harmonics. Even harmonics and DC require even-powered nonlinearities."
+    },
+    {
+      "id": "q9",
+      "prompt": "The PN-junction diode is:",
+      "options": [
+        "A) Voltage-controlled only",
+        "B) Current-controlled only",
+        "C) Both voltage-controlled and current-controlled",
+        "D) Neither voltage-controlled nor current-controlled"
+      ],
+      "correctAnswer": "C) Both voltage-controlled and current-controlled",
+      "explanation": "The exponential i = Is(e^(v/VT) - 1) is strictly monotonic. For every v there is exactly one i (voltage-controlled), and for every i > -Is there is exactly one v (current-controlled). It satisfies both tests."
+    },
+    {
+      "id": "q10",
+      "prompt": "The negative differential resistance region of the tunnel diode is exploited in:",
+      "options": [
+        "A) Voltage regulation only",
+        "B) Oscillators and high-speed switching circuits",
+        "C) Power amplification only",
+        "D) Passive filtering"
+      ],
+      "correctAnswer": "B) Oscillators and high-speed switching circuits",
+      "explanation": "The negative resistance region can supply energy to an external circuit under the right biasing conditions, enabling oscillation and very fast switching. This is the primary application of tunnel diodes."
+    }
+  ]
+}

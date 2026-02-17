@@ -1,0 +1,29 @@
+{
+    "$schema": "concept-metadata-v3",
+    "id": "REPLACE-concept-id",
+    "title": "REPLACE: Concept Title",
+    "lesson": "lesson-XX",
+    "order": 1,
+    "continuationContext": {
+        "previousConcept": "REPLACE-previous-concept-id-or-null",
+        "establishedBy": "REPLACE: What the previous concept established (or 'This is the first concept' if order=1)",
+        "addressingGap": "REPLACE: What gap or question this concept is now addressing"
+    },
+    "difficultyProgression": {
+        "startsAt": 100,
+        "endsAt": 115
+    },
+    "visualRequirements": {
+        "intuitionDiagrams": 2,
+        "engineeringDiagrams": 2,
+        "mathematicsDiagrams": 2,
+        "simulations": 1
+    },
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

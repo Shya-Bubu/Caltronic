@@ -1,0 +1,11 @@
+{
+  "id": "parallel-connections-and-duality",
+  "title": "Parallel Connections and Duality",
+  "slug": "parallel-connections-and-duality",
+  "estimatedMinutes": 10,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "pwl-approximation-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "Why is PWL approximation useful?",
+      "back": "It replaces smooth nonlinear curves with straight-line segments. Within each segment, the element is linear, so standard linear circuit analysis tools apply. The tradeoff is a region analysis step to determine which segment is active.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What is a concave resistor?",
+      "back": "A voltage-controlled PWL element with i = 0 for v <= E and i = G(v-E) for v > E. It has a breakpoint at voltage E and slope G above the breakpoint. It is the basic building block of voltage-controlled PWL curves.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is a convex resistor?",
+      "back": "A current-controlled PWL element with v = 0 for i <= J and v = R(i-J) for i > J. It is the dual of the concave resistor, with a breakpoint at current J and slope R above the breakpoint.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "How is any voltage-controlled PWL characteristic synthesized?",
+      "back": "As a current source I0 + linear conductance G0 + concave resistors in parallel (one per breakpoint). Each concave resistor activates at its breakpoint Ek and adds slope change Gk.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "How is any current-controlled PWL characteristic synthesized?",
+      "back": "As a voltage source V0 + linear resistance R0 + convex resistors in series (one per breakpoint). This is the exact dual of the voltage-controlled synthesis.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "What is the decomposition method for finding PWL parameters?",
+      "back": "G0 = slope of first segment. At each breakpoint Ek: Gk = (slope of segment k+1) - (slope of segment k), the incremental slope change. I0 = current at v = 0 (extrapolated from first segment).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "What is region analysis?",
+      "back": "The process of: (1) assuming which segment each PWL element operates on, (2) replacing each with its linear equivalent, (3) solving the linear circuit, (4) checking consistency (does the solution fall within the assumed regions), (5) revising if inconsistent.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Describe the standard 2-segment PWL model of a PN-junction diode.",
+      "back": "Off: i = 0 for v < V_gamma (~0.7V). On: i = Gd(v - V_gamma) for v >= V_gamma, where Gd = 1/rd is the forward conductance. This is a single concave resistor with E = V_gamma and G = Gd.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What is the most common error in PWL decomposition?",
+      "back": "Confusing absolute slopes with incremental slope changes. The parameter Gk is the CHANGE in slope at breakpoint k (new slope minus old slope), not the absolute slope of the next segment.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "Can Gk be negative? When does this happen?",
+      "back": "Yes. Gk is negative when the slope decreases at a breakpoint. This occurs in models with negative resistance regions, such as a PWL approximation of the tunnel diode in its NDR region.",
+      "difficultyLevel": 4
+    }
+  ]
+}

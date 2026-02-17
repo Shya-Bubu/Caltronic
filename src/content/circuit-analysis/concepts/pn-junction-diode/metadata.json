@@ -1,0 +1,11 @@
+{
+  "id": "pn-junction-diode",
+  "title": "The PN-Junction Diode",
+  "slug": "pn-junction-diode",
+  "estimatedMinutes": 12,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

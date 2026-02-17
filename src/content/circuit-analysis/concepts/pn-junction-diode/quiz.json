@@ -1,0 +1,125 @@
+{
+  "id": "pn-junction-diode-quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "The PN-junction diode equation is i = Is(e^(v/VT) - 1). What is VT at room temperature (T = 300K)?",
+      "options": [
+        "A) 0.7 V",
+        "B) 0.026 V",
+        "C) 0.26 V",
+        "D) 2.6 V"
+      ],
+      "correctAnswer": "B) 0.026 V",
+      "explanation": "VT = kT/q = (1.381e-23 * 300) / 1.602e-19 = 0.02585 V, approximately 26 mV."
+    },
+    {
+      "id": "q2",
+      "prompt": "For a silicon diode with Is = 10^-12 A at room temperature, the current at v = 0.6V is approximately:",
+      "options": [
+        "A) 10 pA",
+        "B) 1 uA",
+        "C) 10 mA",
+        "D) 1 A"
+      ],
+      "correctAnswer": "C) 10 mA",
+      "explanation": "v/VT = 0.6/0.026 = 23.1. e^23.1 = 1.08e10. i = 10^-12 * 1.08e10 = 0.0108 A = 10.8 mA, approximately 10 mA."
+    },
+    {
+      "id": "q3",
+      "prompt": "In deep reverse bias (v << 0), the current through a PN-junction diode approaches:",
+      "options": [
+        "A) Zero exactly",
+        "B) -Is",
+        "C) +Is",
+        "D) Infinity"
+      ],
+      "correctAnswer": "B) -Is",
+      "explanation": "For v << 0, e^(v/VT) approaches 0, so i = Is(0 - 1) = -Is. The current is -Is (reverse saturation current)."
+    },
+    {
+      "id": "q4",
+      "prompt": "The PN-junction diode is classified as a:",
+      "options": [
+        "A) Linear time-invariant resistor",
+        "B) Voltage-controlled nonlinear resistor",
+        "C) Current-controlled linear resistor",
+        "D) Time-varying capacitor"
+      ],
+      "correctAnswer": "B) Voltage-controlled nonlinear resistor",
+      "explanation": "The diode equation gives i as a single-valued function of v (voltage-controlled), the relationship is exponential (nonlinear), and there are no time derivatives (memoryless resistor)."
+    },
+    {
+      "id": "q5",
+      "prompt": "If you increase the forward voltage on a diode by 60 mV (at room temperature), the current approximately:",
+      "options": [
+        "A) Doubles",
+        "B) Increases by 60 mA",
+        "C) Increases by a factor of 10",
+        "D) Stays the same"
+      ],
+      "correctAnswer": "C) Increases by a factor of 10",
+      "explanation": "In forward bias, i is proportional to e^(v/VT). A 60 mV increase means delta(v/VT) = 0.060/0.026 = 2.31 = ln(10). So the current multiplies by e^2.31 = 10."
+    },
+    {
+      "id": "q6",
+      "prompt": "Two identical diodes carry currents i1 = 1 mA and i2 = 10 mA at the same temperature. The voltage difference v2 - v1 is approximately:",
+      "options": [
+        "A) 9 mV",
+        "B) 26 mV",
+        "C) 60 mV",
+        "D) 600 mV"
+      ],
+      "correctAnswer": "C) 60 mV",
+      "explanation": "v2 - v1 = VT * ln(i2/i1) = 0.026 * ln(10) = 0.026 * 2.303 = 0.060 V = 60 mV."
+    },
+    {
+      "id": "q7",
+      "prompt": "When temperature increases from 300K to 350K, the thermal voltage VT:",
+      "options": [
+        "A) Decreases",
+        "B) Stays at 26 mV",
+        "C) Increases to about 30 mV",
+        "D) Doubles"
+      ],
+      "correctAnswer": "C) Increases to about 30 mV",
+      "explanation": "VT = kT/q is proportional to T. At 350K: VT = (350/300) * 26 = 30.3 mV, approximately 30 mV."
+    },
+    {
+      "id": "q8",
+      "prompt": "The reverse saturation current Is of a silicon diode is typically:",
+      "options": [
+        "A) About 1 mA",
+        "B) About 1 uA",
+        "C) About 1 pA (10^-12 A)",
+        "D) About 1 A"
+      ],
+      "correctAnswer": "C) About 1 pA (10^-12 A)",
+      "explanation": "For silicon diodes, Is is very small, typically in the range of 10^-12 to 10^-15 A (picoamps to femtoamps)."
+    },
+    {
+      "id": "q9",
+      "prompt": "The ideal diode model is the limiting case of the PN-junction model as:",
+      "options": [
+        "A) Is approaches infinity",
+        "B) VT approaches infinity",
+        "C) VT approaches zero",
+        "D) Temperature approaches infinity"
+      ],
+      "correctAnswer": "C) VT approaches zero",
+      "explanation": "As VT approaches 0, the exponential e^(v/VT) transitions from smooth to infinitely steep at v = 0, approaching the ideal diode's sharp two-segment characteristic."
+    },
+    {
+      "id": "q10",
+      "prompt": "Is the PN-junction diode passive or active?",
+      "options": [
+        "A) Active, because it is nonlinear",
+        "B) Passive, because its v-i curve lies in quadrants I and III",
+        "C) Active in forward bias, passive in reverse bias",
+        "D) Neither; passivity only applies to linear resistors"
+      ],
+      "correctAnswer": "B) Passive, because its v-i curve lies in quadrants I and III",
+      "explanation": "For v > 0: i > 0 (quadrant I, p = vi > 0). For v < 0: i = -Is < 0 (quadrant III, p = vi > 0). The curve stays in quadrants I and III, so the diode is passive."
+    }
+  ]
+}

@@ -1,13 +1,25 @@
 {
+    "$schema": "concept-metadata-v3",
     "id": "nodal-analysis",
-    "title": "Node Voltage Method (Nodal Analysis)",
+    "title": "Nodal Analysis and the Node-Admittance Matrix",
     "lesson": "lesson-02",
-    "order": 2,
+    "order": 1,
+    "continuationContext": {
+        "previousConcept": null,
+        "establishedBy": "Two-terminal resistor v-i characteristics from Section 1",
+        "addressingGap": "How do we systematically write and solve circuit equations for multi-node networks?"
+    },
+    "difficultyProgression": {
+        "intuition": { "startsAt": 110, "endsAt": 120 },
+        "engineering": { "startsAt": 120, "endsAt": 135 },
+        "mathematics": { "startsAt": 135, "endsAt": 150 }
+    },
     "intuitionPath": "intuition.md",
     "engineeringPath": "engineering.md",
     "mathematicsPath": "mathematics.md",
     "examPath": "exam.md",
     "visualsPath": "visuals.json",
     "quizPath": "quiz.json",
-    "flashcardsPath": "flashcards.json"
+    "flashcardsPath": "flashcards.json",
+    "contentPath": "content.md"
 }

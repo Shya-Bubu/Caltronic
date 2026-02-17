@@ -1,0 +1,65 @@
+{
+  "id": "transfer-characteristics-flashcards",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What distinguishes a transfer characteristic from a driving-point characteristic?",
+      "back": "A driving-point characteristic has input and response at the same port. A transfer characteristic has input at one port and output at a different port. The word 'transfer' means the response is observed at a port different from where the excitation is applied.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "For two series resistors with input vi and output vo = v2, what are the KCL and KVL constraints?",
+      "back": "KCL: i = i1 = i2 (same current through both). KVL: vi = v1 + v2 = v-hat1(i) + v-hat2(i). Output: vo = v-hat2(i).",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "How do you obtain the transfer characteristic vo(vi) from parametric equations?",
+      "back": "Express vi = f(i) and vo = h(i). Then eliminate i: vo = h(f^{-1}(vi)). If analytic inversion is not feasible, compute (vi, vo) pairs for many values of i and plot.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f4",
+      "front": "Why is the parametric method useful for deriving transfer characteristics?",
+      "back": "It avoids the need to invert f(i) analytically, which is often impossible for nonlinear elements. You simply tabulate vi and vo for many values of the parameter i and plot the resulting curve.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "For a diode (R1) in series with a linear resistor (R2), what is vo when vi is well above V_gamma?",
+      "back": "vo is approximately vi - V_gamma. The diode voltage is pinned near V_gamma, so nearly all additional input voltage appears across R2.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "For a diode-resistor series circuit, what is vo when vi < V_gamma?",
+      "back": "vo is approximately 0. Below the turn-on voltage, the diode conducts negligible current, so the voltage across R2 is essentially zero.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f7",
+      "front": "What is the transfer characteristic of a purely linear voltage divider (R1 and R2)?",
+      "back": "vo = R2/(R1 + R2) * vi. A straight line through the origin with slope less than 1.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What does the slope of the transfer characteristic represent?",
+      "back": "The incremental voltage gain: dvo/dvi. A slope greater than 1 means amplification; less than 1 means attenuation; varying slope means the circuit is nonlinear.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What three pieces of information does a transfer characteristic encode?",
+      "back": "Gain (slope dvo/dvi), offset (constant voltage shift between input and output), and linearity (how the slope varies with input level).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f10",
+      "front": "Why can a nonlinear transfer characteristic perform functions that a linear one cannot?",
+      "back": "A varying slope means the circuit treats small and large signals differently. This enables rectification, limiting, amplitude compression, and other nonlinear signal-processing functions that require signal-level-dependent behaviour.",
+      "difficultyLevel": 4
+    }
+  ]
+}

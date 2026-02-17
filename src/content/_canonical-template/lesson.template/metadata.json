@@ -1,0 +1,26 @@
+{
+    "$schema": "lesson-metadata-v3",
+    "id": "lesson-XX",
+    "title": "REPLACE: Lesson Title",
+    
+    "continuity": {
+        "priorKnowledge": [
+            "REPLACE: List concepts/topics assumed from previous lessons",
+            "Or 'none' if this is the first lesson in the module"
+        ],
+        "startsAtLevel": "beginner",
+        "assumedConcepts": []
+    },
+    
+    "weeksCovered": [1],
+    "description": "REPLACE: Brief one-sentence summary of what this lesson covers",
+    "status": "draft",
+    
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "REPLACE-concept-id-1",
+        "REPLACE-concept-id-2", 
+        "REPLACE-concept-id-3"
+    ]
+}

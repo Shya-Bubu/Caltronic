@@ -1,225 +1,665 @@
 {
-    "conceptId": "power-and-passivity",
-    "visuals": [
+  "visuals": [
+    {
+      "id": "quadrant-map",
+      "type": "plotly",
+      "title": "The Four Quadrants: Passive vs Active Regions",
+      "description": "Q1 (v>0, i>0) and Q3 (v<0, i<0): power p = vi > 0 → ABSORBING (passive region). Q2 (v<0, i>0) and Q4 (v>0, i<0): power p = vi < 0 → DELIVERING (active region). A passive device's v-i curve stays in Q1 + Q3.",
+      "traces": [
         {
-            "id": "v1",
-            "type": "d3-vi-curve",
-            "curveType": "linear",
-            "title": "Passive Resistor (Quadrants I and III)",
-            "description": "Curve stays in quadrants I and III where vi ≥ 0. Power p = vi is always positive — resistor absorbs energy."
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.04,
+            -0.03,
+            -0.02,
+            -0.01,
+            0,
+            0.01,
+            0.02,
+            0.03,
+            0.04,
+            0.05
+          ],
+          "name": "Passive: R = 100Ω (Q1 + Q3)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 3
+          }
         },
         {
-            "id": "v2",
-            "type": "d3-vi-curve",
-            "curveType": "tunnel",
-            "title": "Active Region (Negative Resistance)",
-            "description": "When the curve enters quadrant II or IV, vi < 0 and p < 0 — the element delivers energy (active)."
-        },
-        {
-            "id": "v3",
-            "type": "d3-block-diagram",
-            "title": "Power Flow Convention",
-            "description": "Passive sign convention: current enters positive terminal. If P > 0, element absorbs power.",
-            "blocks": [
-                {
-                    "id": "i",
-                    "label": "i →",
-                    "x": 20,
-                    "y": 50,
-                    "type": "input"
-                },
-                {
-                    "id": "r",
-                    "label": "R",
-                    "x": 100,
-                    "y": 40,
-                    "width": 70
-                },
-                {
-                    "id": "v",
-                    "label": "+ v -",
-                    "x": 220,
-                    "y": 50,
-                    "type": "output"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "i",
-                    "to": "r"
-                },
-                {
-                    "from": "r",
-                    "to": "v"
-                }
-            ]
-        },
-        {
-            "id": "v4",
-            "type": "d3-iv-curve",
-            "title": "Power Calculations: Three Formulas",
-            "description": "For a 100Ω resistor at 5V: P=VI=250mW, P=I²R=250mW, P=V²/R=250mW. All three give the same result!",
-            "curves": [
-                {
-                    "label": "100Ω",
-                    "type": "linear-resistor",
-                    "resistance": 100,
-                    "color": "#8b5cf6"
-                }
-            ],
-            "annotations": [
-                {
-                    "point": {
-                        "v": 5,
-                        "i": 0.05
-                    },
-                    "text": "P = 250mW"
-                }
-            ]
-        },
-        {
-            "id": "v5",
-            "type": "d3-block-diagram",
-            "title": "Power Quadrants",
-            "description": "Quadrant I (v>0, i>0): absorbing power. Quadrant II (v<0, i>0): delivering power. Quadrant III (v<0, i<0): absorbing. Quadrant IV (v>0, i<0): delivering.",
-            "blocks": [
-                {
-                    "id": "q1",
-                    "label": "Q-I\\nAbsorb",
-                    "x": 200,
-                    "y": 20,
-                    "width": 80,
-                    "type": "process"
-                },
-                {
-                    "id": "q2",
-                    "label": "Q-II\\nDeliver",
-                    "x": 100,
-                    "y": 20,
-                    "width": 80,
-                    "type": "process"
-                },
-                {
-                    "id": "q3",
-                    "label": "Q-III\\nAbsorb",
-                    "x": 100,
-                    "y": 100,
-                    "width": 80,
-                    "type": "process"
-                },
-                {
-                    "id": "q4",
-                    "label": "Q-IV\\nDeliver",
-                    "x": 200,
-                    "y": 100,
-                    "width": 80,
-                    "type": "process"
-                }
-            ],
-            "connections": []
-        },
-        {
-            "id": "v6",
-            "type": "d3-iv-curve",
-            "title": "Power Contours on IV Plane",
-            "description": "Hyperbolic curves show constant power levels. P=1W, P=5W, P=10W curves overlay the IV characteristic.",
-            "curves": [
-                {
-                    "label": "100Ω Resistor",
-                    "type": "linear-resistor",
-                    "resistance": 100,
-                    "color": "#3b82f6"
-                }
-            ]
-        },
-        {
-            "id": "v7",
-            "type": "d3-iv-curve",
-            "title": "Passive vs Active Element",
-            "description": "Passive (resistor): stays in absorbing quadrants. Active (battery): can deliver power to circuit.",
-            "curves": [
-                {
-                    "label": "Passive (Resistor)",
-                    "type": "linear-resistor",
-                    "resistance": 50,
-                    "color": "#10b981"
-                },
-                {
-                    "label": "Active (Battery)",
-                    "type": "voltage-source",
-                    "voltage": 5,
-                    "color": "#ef4444"
-                }
-            ]
-        },
-        {
-            "id": "v8",
-            "type": "d3-block-diagram",
-            "title": "Energy Flow in Resistive Circuit",
-            "description": "Battery supplies power → Resistor dissipates as heat. Total power delivered equals total power absorbed.",
-            "blocks": [
-                {
-                    "id": "battery",
-                    "label": "Battery\\n(Delivers P)",
-                    "x": 30,
-                    "y": 50,
-                    "width": 100,
-                    "type": "input"
-                },
-                {
-                    "id": "resistor",
-                    "label": "Resistor\\n(Absorbs P)",
-                    "x": 200,
-                    "y": 50,
-                    "width": 100,
-                    "type": "process"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "battery",
-                    "to": "resistor",
-                    "label": "Energy Flow →"
-                }
-            ]
-        },
-        {
-            "id": "v9",
-            "type": "d3-iv-curve",
-            "title": "Power vs Current (Fixed R)",
-            "description": "For constant resistance, power increases quadratically: P = I²R. Doubling current quadruples power!",
-            "curves": [
-                {
-                    "label": "100Ω Resistor",
-                    "type": "linear-resistor",
-                    "resistance": 100,
-                    "color": "#8b5cf6"
-                }
-            ]
-        },
-        {
-            "id": "v10",
-            "type": "d3-iv-curve",
-            "title": "Maximum Power Point",
-            "description": "For a voltage source with internal resistance, maximum power transfer occurs when load R = Rinternal.",
-            "curves": [
-                {
-                    "label": "Source + Load",
-                    "type": "real-voltage-source",
-                    "voltage": 10,
-                    "internalResistance": 50,
-                    "color": "#f59e0b"
-                }
-            ],
-            "annotations": [
-                {
-                    "point": {
-                        "v": 5,
-                        "i": 0.1
-                    },
-                    "text": "Max Power"
-                }
-            ]
+          "x": [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            0.05,
+            0.04,
+            0.03,
+            0.02,
+            0.01,
+            0,
+            -0.01,
+            -0.02,
+            -0.03,
+            -0.04,
+            -0.05
+          ],
+          "name": "Active: R = -100Ω (Q2 + Q4)",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 3
+          }
         }
-    ]
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.06,
+            0.06
+          ]
+        },
+        "annotations": [
+          {
+            "x": 3,
+            "y": 0.04,
+            "text": "Q1: p > 0<br>ABSORBING",
+            "showarrow": false,
+            "font": {
+              "color": "#22c55e",
+              "size": 11
+            }
+          },
+          {
+            "x": -3,
+            "y": 0.04,
+            "text": "Q2: p < 0<br>DELIVERING",
+            "showarrow": false,
+            "font": {
+              "color": "#ef4444",
+              "size": 11
+            }
+          },
+          {
+            "x": -3,
+            "y": -0.04,
+            "text": "Q3: p > 0<br>ABSORBING",
+            "showarrow": false,
+            "font": {
+              "color": "#22c55e",
+              "size": 11
+            }
+          },
+          {
+            "x": 3,
+            "y": -0.04,
+            "text": "Q4: p < 0<br>DELIVERING",
+            "showarrow": false,
+            "font": {
+              "color": "#ef4444",
+              "size": 11
+            }
+          }
+        ]
+      },
+      "centeredAxes": true,
+      "width": 560,
+      "height": 440
+    },
+    {
+      "id": "passive-vs-active",
+      "type": "plotly",
+      "title": "Passive R = +100Ω vs Active R = -100Ω",
+      "description": "The green line (R = +100Ω, passive) stays entirely in Q1 and Q3: p ≥ 0 always. The red line (R = -100Ω, active) passes through Q2 and Q4: p < 0, delivering energy. The negative resistance 'tilts' the line into the active quadrants.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.03,
+            -0.01,
+            0,
+            0.01,
+            0.03,
+            0.05
+          ],
+          "name": "+100Ω (passive, Q1+Q3)",
+          "mode": "lines",
+          "line": {
+            "color": "#22c55e",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            0.05,
+            0.03,
+            0.01,
+            0,
+            -0.01,
+            -0.03,
+            -0.05
+          ],
+          "name": "-100Ω (active, Q2+Q4)",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            0,
+            0,
+            0
+          ],
+          "y": [
+            -0.06,
+            0,
+            0.06
+          ],
+          "name": "R = 0 (short circuit, p = 0)",
+          "mode": "lines",
+          "line": {
+            "color": "#a855f7",
+            "width": 1.5,
+            "dash": "dot"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.07,
+            0.07
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 520,
+      "height": 400
+    },
+    {
+      "id": "device-passivity-comparison",
+      "type": "plotly",
+      "title": "Passivity Check: Multiple Device Types",
+      "description": "PN diode (red, Q1+Q3) = passive. Linear R = 100Ω (blue, Q1+Q3) = passive. Voltage source at v = 3V (orange, crosses Q1 and Q4) = ACTIVE — it can deliver energy.",
+      "traces": [
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            1,
+            3,
+            5
+          ],
+          "y": [
+            -0.05,
+            -0.03,
+            -0.01,
+            0,
+            0.01,
+            0.03,
+            0.05
+          ],
+          "name": "Linear R = 100Ω (passive)",
+          "mode": "lines",
+          "line": {
+            "color": "#3b82f6",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            -5,
+            -3,
+            -1,
+            0,
+            0.3,
+            0.5,
+            0.6,
+            0.7,
+            0.75
+          ],
+          "y": [
+            -0.000001,
+            -0.000001,
+            -0.000001,
+            0,
+            0.0001,
+            0.002,
+            0.008,
+            0.03,
+            0.06
+          ],
+          "name": "PN Diode (passive)",
+          "mode": "lines",
+          "line": {
+            "color": "#ef4444",
+            "width": 2.5
+          }
+        },
+        {
+          "x": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "y": [
+            -0.06,
+            -0.04,
+            -0.02,
+            0,
+            0.02,
+            0.04,
+            0.06
+          ],
+          "name": "V Source at 3V (ACTIVE)",
+          "mode": "lines",
+          "line": {
+            "color": "#f59e0b",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "range": [
+            -0.07,
+            0.07
+          ]
+        }
+      },
+      "centeredAxes": true,
+      "width": 560,
+      "height": 420
+    },
+    {
+      "id": "passive-sign-convention",
+      "type": "circuit-schematic",
+      "title": "The Passive Sign Convention",
+      "description": "Under the associated reference direction, current i enters the + terminal. Power p = vi > 0 means the element ABSORBS (passive). Power p = vi < 0 means it DELIVERS (active).",
+      "width": 448,
+      "height": 224,
+      "elements": [
+        {
+          "component": "wire",
+          "x1": 64,
+          "y1": 128,
+          "x2": 192,
+          "y2": 128
+        },
+        {
+          "component": "resistor",
+          "x": 224,
+          "y": 128,
+          "label": "Element"
+        },
+        {
+          "component": "wire",
+          "x1": 256,
+          "y1": 128,
+          "x2": 384,
+          "y2": 128
+        },
+        {
+          "component": "current-arrow",
+          "x": 128,
+          "y": 96,
+          "label": "i"
+        },
+        {
+          "component": "voltage-mark",
+          "x": 224,
+          "y": 160,
+          "rotation": 90,
+          "label": "v"
+        },
+        {
+          "component": "text",
+          "x": 80,
+          "y": 115,
+          "text": "+",
+          "fontSize": 14,
+          "color": "#22c55e"
+        },
+        {
+          "component": "text",
+          "x": 368,
+          "y": 115,
+          "text": "−",
+          "fontSize": 14,
+          "color": "#ef4444"
+        },
+        {
+          "component": "junction",
+          "x": 64,
+          "y": 128
+        },
+        {
+          "component": "junction",
+          "x": 384,
+          "y": 128
+        },
+        {
+          "component": "text",
+          "x": 224,
+          "y": 200,
+          "text": "p = vi > 0 → absorbing  |  p = vi < 0 → delivering",
+          "fontSize": 10,
+          "color": "var(--sim-text)"
+        }
+      ]
+    },
+    {
+      "id": "resistor-power-circuit",
+      "type": "circuit-schematic",
+      "title": "Resistor Power Dissipation: p = Ri² (always ≥ 0)",
+      "description": "A 100Ω resistor driven by 5V always absorbs power. p = Vs²/R = 25/100 = 0.25W of heat. A positive resistor ALWAYS absorbs — it can never deliver energy.",
+      "width": 380,
+      "height": 280,
+      "elements": [
+        {
+          "component": "voltage-source",
+          "x": 60,
+          "y": 140,
+          "rotation": 90,
+          "label": "Vs",
+          "value": "5V"
+        },
+        {
+          "component": "resistor",
+          "x": 320,
+          "y": 140,
+          "rotation": 90,
+          "label": "R",
+          "value": "100Ω"
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 110,
+          "x2": 60,
+          "y2": 60
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 60,
+          "x2": 320,
+          "y2": 60
+        },
+        {
+          "component": "wire",
+          "x1": 320,
+          "y1": 110,
+          "x2": 320,
+          "y2": 60
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 170,
+          "x2": 60,
+          "y2": 230
+        },
+        {
+          "component": "wire",
+          "x1": 320,
+          "y1": 170,
+          "x2": 320,
+          "y2": 230
+        },
+        {
+          "component": "wire",
+          "x1": 60,
+          "y1": 230,
+          "x2": 320,
+          "y2": 230
+        },
+        {
+          "component": "ground",
+          "x": 190,
+          "y": 230
+        },
+        {
+          "component": "current-arrow",
+          "x": 190,
+          "y": 45,
+          "label": "i = 50mA"
+        },
+        {
+          "component": "text",
+          "x": 190,
+          "y": 260,
+          "text": "p = 0.25 W (heat)",
+          "fontSize": 11,
+          "fontStyle": "italic",
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    {
+      "id": "falstad-resistor-power",
+      "type": "falstad-sim",
+      "title": "Interactive: See Power Flow in Real Time",
+      "description": "A 100Ω resistor connected to a 5V DC source. Watch the current flow animation — the resistor absorbs 0.25W of power. Try changing the resistance and observe how power changes: p = V²/R.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 5 0 0 0.5\nr 160 96 352 96 0 100\nw 352 96 352 288 0\nw 352 288 160 288 0\ng 256 288 256 320 0 0\nx 220 80 0 0 0 12 R=100\no 1 64 0 4099 5 0.1 0 2 1 3\n",
+      "height": 450
+    },
+    {
+      "id": "falstad-power-balance",
+      "type": "falstad-sim",
+      "title": "Interactive: Power Balance — Source Delivers, Resistors Absorb",
+      "description": "A 10V source driving two resistors (R1=1kΩ and R2=2kΩ) in series. The source delivers power while each resistor absorbs. Hover over components to see power values — total absorbed equals total delivered.",
+      "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 10 0 0 0.5\nr 160 96 352 96 0 1000\nr 352 96 352 288 0 2000\nw 352 288 160 288 0\ng 256 288 256 320 0 0\nx 220 80 0 0 0 12 R1=1k\nx 368 192 0 0 0 12 R2=2k\n",
+      "height": 450
+    },
+    {
+      "id": "interactive-quadrant-test",
+      "type": "plotly",
+      "title": "The Quadrant Test for Passivity",
+      "description": "Q1 (v>0, i>0) and Q3 (v<0, i<0): p = vi > 0 — absorbing (green). Q2 (v>0, i<0) and Q4 (v<0, i>0): p = vi < 0 — delivering (red).",
+      "traces": [
+        {
+          "x": [
+            0,
+            5,
+            5,
+            0
+          ],
+          "y": [
+            0,
+            0,
+            0.05,
+            0.05
+          ],
+          "fill": "toself",
+          "fillcolor": "rgba(34,197,94,0.2)",
+          "line": {
+            "color": "rgba(34,197,94,0.5)"
+          },
+          "name": "Q1: Absorbing",
+          "mode": "lines"
+        },
+        {
+          "x": [
+            -5,
+            0,
+            0,
+            -5
+          ],
+          "y": [
+            -0.05,
+            -0.05,
+            0,
+            0
+          ],
+          "fill": "toself",
+          "fillcolor": "rgba(34,197,94,0.2)",
+          "line": {
+            "color": "rgba(34,197,94,0.5)"
+          },
+          "name": "Q3: Absorbing",
+          "mode": "lines"
+        },
+        {
+          "x": [
+            0,
+            5,
+            5,
+            0
+          ],
+          "y": [
+            0,
+            0,
+            -0.05,
+            -0.05
+          ],
+          "fill": "toself",
+          "fillcolor": "rgba(239,68,68,0.2)",
+          "line": {
+            "color": "rgba(239,68,68,0.5)"
+          },
+          "name": "Q4: Delivering",
+          "mode": "lines"
+        },
+        {
+          "x": [
+            -5,
+            0,
+            0,
+            -5
+          ],
+          "y": [
+            0,
+            0,
+            0.05,
+            0.05
+          ],
+          "fill": "toself",
+          "fillcolor": "rgba(239,68,68,0.2)",
+          "line": {
+            "color": "rgba(239,68,68,0.5)"
+          },
+          "name": "Q2: Delivering",
+          "mode": "lines"
+        },
+        {
+          "x": [
+            -5,
+            0,
+            5
+          ],
+          "y": [
+            -0.05,
+            0,
+            0.05
+          ],
+          "name": "Passive resistor (R>0)",
+          "mode": "lines",
+          "line": {
+            "color": "#22d3ee",
+            "width": 2.5,
+            "dash": "dot"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Voltage v (V)",
+          "zeroline": true,
+          "range": [
+            -5.5,
+            5.5
+          ]
+        },
+        "yaxis": {
+          "title": "Current i (A)",
+          "zeroline": true,
+          "range": [
+            -0.055,
+            0.055
+          ]
+        },
+        "showlegend": true,
+        "legend": {
+          "x": 0.02,
+          "y": 0.98
+        }
+      },
+      "centeredAxes": true,
+      "height": 400
+    }
+  ]
 }

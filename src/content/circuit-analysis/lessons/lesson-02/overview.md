@@ -1,116 +1,42 @@
-# General Resistive Circuit Analysis
+# Section 2: General Resistive Circuit Analysis
 
-## Welcome to Systematic Circuit Analysis
+## What This Section Covers
 
-In Lesson 01, you learned about individual circuit elements—resistors, sources, and their characteristics. Now comes the exciting part: **putting them together** into real circuits and analyzing them systematically.
+Section 1 taught you to analyze one or two resistors at a time using v-i curves and graphical methods. But real circuits have dozens of nodes and branches. This section gives you **systematic matrix methods** that scale to circuits of any size — and a powerful algorithm (Newton-Raphson) that extends these methods to nonlinear circuits.
 
-This lesson introduces the powerful tools that professional engineers use every day to solve complex circuits efficiently and reliably.
+## The Three Concepts
 
----
+### Concept 1: Nodal Analysis and the Node-Admittance Matrix
+The workhorse of linear circuit analysis. Choose a reference node, assign node voltages, and write KCL at every other node. The result is a matrix equation $\mathbf{Y}_n \cdot \mathbf{e} = \mathbf{i}_s(t)$ where $\mathbf{Y}_n$ is the **node-admittance matrix** — built by inspection from the circuit. You'll also learn the **reduced incidence matrix** $\mathbf{A}$ that connects graph theory to circuit equations: $\mathbf{Y}_n = \mathbf{A} \mathbf{Y}_b \mathbf{A}^\top$.
 
-## The Challenge
+### Concept 2: Tableau Analysis for Circuit Equations
+Nodal analysis breaks down when the circuit contains voltage sources, ideal transformers, or dependent sources (CCCS, CCVS, VCVS). **Tableau analysis** handles everything by writing ALL equations simultaneously — KCL, KVL, and branch equations — in one large matrix system $\mathbf{T} \cdot \mathbf{x} = \mathbf{u}$. The price is a bigger matrix, but the reward is complete generality: any circuit element fits naturally into the tableau framework.
 
-Consider a circuit with 10 resistors and 3 voltage sources. How do you find all the currents and voltages?
+### Concept 3: Newton-Raphson Method for Nonlinear Circuits
+When branch equations are nonlinear (diodes, transistors), the circuit equations become $\mathbf{f}(\mathbf{x}) = \mathbf{0}$ — a system you can't solve by matrix inversion. The **Newton-Raphson method** linearizes around the current guess using the **Jacobian matrix** and iterates: $\mathbf{x}^{(j+1)} = \mathbf{x}^{(j)} - \mathbf{J}^{-1}(\mathbf{x}^{(j)}) \cdot \mathbf{f}(\mathbf{x}^{(j)})$. The remarkable insight: each iteration is equivalent to solving a **linear circuit** — the nonlinear problem becomes a sequence of linear problems.
 
-**The brute force approach**:
-- Write equations by inspection
-- Try to combine resistors
-- Get confused about what's in series vs parallel
-- Eventually give up or make errors
-
-**The systematic approach** (what you'll learn):
-- Apply Kirchhoff's Laws
-- Choose either Nodal or Mesh Analysis
-- Write equations mechanically
-- Solve (by hand or computer)
-- Get the right answer every time!
-
----
-
-## Learning Journey
-
-### Foundation: Kirchhoff's Laws
-
-Before any systematic method, you need to master:
-- **KCL**: Current in = Current out (at every node)
-- **KVL**: Voltages around any loop sum to zero
-
-These aren't just rules—they're physical laws based on conservation of charge and energy.
-
-### Systematic Methods: Nodal and Mesh Analysis
-
-Two complementary approaches:
-- **Nodal Analysis**: Write KCL at nodes, solve for voltages
-- **Mesh Analysis**: Write KVL around meshes, solve for currents
-
-Both methods work; the choice depends on the circuit structure.
-
-### Simplification: Superposition and Equivalents
-
-For insight and simplification:
-- **Superposition**: Break complex problems into simple ones
-- **Thévenin/Norton**: Replace complex networks with simple equivalents
-
-### Application: Maximum Power Transfer
-
-The practical culmination:
-- When does a load receive maximum power?
-- How do we match source to load?
-
----
-
-## Prerequisites
-
-From Lesson 01, you should understand:
-- ✅ Ohm's Law (V = IR)
-- ✅ V-I characteristics
-- ✅ Series and parallel connections
-- ✅ Voltage and current sources
-- ✅ Power calculations (P = VI)
-
----
-
-## What You'll Be Able to Do
-
-After completing this lesson:
-
-1. **Apply Kirchhoff's Laws** correctly to any circuit topology
-2. **Use Nodal Analysis** to solve circuits with many parallel branches
-3. **Use Mesh Analysis** to solve circuits with many series elements
-4. **Apply Superposition** to analyze multi-source circuits
-5. **Find Thévenin/Norton equivalents** of any linear network
-6. **Calculate maximum power transfer** conditions
-7. **Choose the most efficient method** for any given circuit
-
----
-
-## Concept Flow
+## How These Concepts Connect
 
 ```
-Kirchhoff's Laws (KVL & KCL)
-         ↓
-    ┌────┴────┐
-    ↓         ↓
- Nodal     Mesh
-Analysis   Analysis
-    ↓         ↓
-    └────┬────┘
-         ↓
-  Superposition
-         ↓
-Thévenin & Norton
-         ↓
-Maximum Power Transfer
+Nodal Analysis → Tableau Analysis → Newton-Raphson
+  (linear,          (linear,           (nonlinear,
+   simple elements)  all elements)       iterative)
 ```
 
----
+Nodal analysis is fast but limited. Tableau analysis removes the limitations but stays linear. Newton-Raphson extends to nonlinear circuits by converting them into a sequence of linear problems — which you solve using nodal or tableau methods.
 
-## Tips for Success
+## What You'll Be Able To Do
 
-1. **Master KVL/KCL first** - Everything else builds on these
-2. **Practice the systematic steps** - Don't skip steps even if it seems obvious
-3. **Check your answers** - Use power balance: source power = dissipated power
-4. **Know when to use which method** - Nodal vs Mesh vs Thévenin
-5. **Draw neat diagrams** - Label everything clearly
+After completing this section, you will be able to:
 
-Let's begin with the foundation: Kirchhoff's Laws!
+1. **Form** the node-admittance matrix $\mathbf{Y}_n$ by inspection for any resistive circuit
+2. **Construct** the reduced incidence matrix $\mathbf{A}$ and verify $\mathbf{Y}_n = \mathbf{A}\mathbf{Y}_b\mathbf{A}^\top$
+3. **Write** the complete tableau equation for circuits with voltage sources, dependent sources, and transformers
+4. **Apply** Newton-Raphson iteration to solve nonlinear circuit equations
+5. **Compute** the Jacobian matrix and perform 2-3 iterations to convergence
+6. **Interpret** each Newton-Raphson iteration as a discrete equivalent linear circuit
+
+## Connection to Later Sections
+
+- **Section 3**: First-order circuits are analyzed by reducing the resistive part to a Thévenin/Norton equivalent — using nodal or tableau methods from this section
+- **Section 4**: Second-order circuits require determining initial conditions by solving a resistive circuit at $t = 0^+$

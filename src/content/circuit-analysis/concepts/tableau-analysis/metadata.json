@@ -1,0 +1,25 @@
+{
+    "$schema": "concept-metadata-v3",
+    "id": "tableau-analysis",
+    "title": "Tableau Analysis for Circuit Equations",
+    "lesson": "lesson-02",
+    "order": 2,
+    "continuationContext": {
+        "previousConcept": "nodal-analysis",
+        "establishedBy": "Nodal analysis and incidence matrix from Concept 1",
+        "addressingGap": "How do we handle voltage sources, transformers, and dependent sources that nodal analysis cannot accommodate directly?"
+    },
+    "difficultyProgression": {
+        "intuition": { "startsAt": 120, "endsAt": 130 },
+        "engineering": { "startsAt": 130, "endsAt": 140 },
+        "mathematics": { "startsAt": 140, "endsAt": 155 }
+    },
+    "intuitionPath": "intuition.md",
+    "engineeringPath": "engineering.md",
+    "mathematicsPath": "mathematics.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "contentPath": "content.md"
+}
