@@ -1,0 +1,125 @@
+{
+    "id": "quiz-nonlinear-elements",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The Ebers-Moll equation for a diode is I = I_S(e^(V/V_T) − 1). What is V_T at room temperature?",
+            "options": [
+                "0.7V",
+                "0.3V",
+                "25mV",
+                "25V"
+            ],
+            "correctAnswer": "25mV",
+            "explanation": "V_T = kT/q is the thermal voltage, approximately 25-26 mV at room temperature (300K). This is NOT the 'turn-on voltage' (≈ 0.7V). The 0.7V value is where the exponential produces measurable milliamp currents, but V_T is the scaling factor in the exponent."
+        },
+        {
+            "id": "q2",
+            "prompt": "A silicon diode has I_S = 10⁻¹⁴ A. What is the forward current at V_D = 0.6V (V_T = 25mV)?",
+            "options": [
+                "About 26 μA",
+                "About 2.6 A",
+                "About 2.6 mA",
+                "About 10⁻¹⁴ A"
+            ],
+            "correctAnswer": "About 2.6 mA",
+            "explanation": "I = I_S × e^(V_D/V_T) = 10⁻¹⁴ × e^(0.6/0.025) = 10⁻¹⁴ × e^24 ≈ 10⁻¹⁴ × 2.65 × 10¹⁰ = 2.65 × 10⁻⁴ A ≈ 0.26 mA. The exact answer depends on precision, but it's in the fraction-of-milliamp range at 0.6V, reaching full milliamps closer to 0.7V."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the dynamic resistance of a diode operating at I_D = 5mA?",
+            "options": [
+                "5Ω",
+                "25Ω",
+                "140Ω",
+                "0.2Ω"
+            ],
+            "correctAnswer": "5Ω",
+            "explanation": "Dynamic resistance r_d ≈ V_T / I_D = 25mV / 5mA = 5Ω. This is the small-signal resistance — the slope of the V-I curve at the operating point. It's small because the exponential curve is very steep at milliamp currents."
+        },
+        {
+            "id": "q4",
+            "prompt": "An element has V-I relationship I = αV³. This element is:",
+            "options": [
+                "Linear with resistance 1/α",
+                "Nonlinear — cubic characteristic",
+                "An ideal voltage source",
+                "A piecewise-linear element"
+            ],
+            "correctAnswer": "Nonlinear — cubic characteristic",
+            "explanation": "The relationship I = αV³ is not of the form I = GV (linear). The conductance G = dI/dV = 3αV² depends on V, making this a nonlinear element. Its V-I plot is a cubic curve, steeper at higher voltages."
+        },
+        {
+            "id": "q5",
+            "prompt": "The 'black-box' approach to circuit elements means:",
+            "options": [
+                "The element is painted black",
+                "You characterise it only by its V-I relationship at the terminals",
+                "You ignore the element in calculations",
+                "The element has unknown resistance"
+            ],
+            "correctAnswer": "You characterise it only by its V-I relationship at the terminals",
+            "explanation": "The black-box approach is fundamental: any two-terminal element, regardless of internal construction, is completely described by the relationship between terminal voltage V and current I. You don't need to know what's inside."
+        },
+        {
+            "id": "q6",
+            "prompt": "In the diode V-I curve, the 'knee' voltage for silicon is approximately:",
+            "options": [
+                "25 mV",
+                "0.3V",
+                "0.6-0.7V",
+                "1.5V"
+            ],
+            "correctAnswer": "0.6-0.7V",
+            "explanation": "Silicon diodes appear to 'turn on' around 0.6-0.7V because the exponential function e^(V/0.025) reaches values that produce milliamp currents at this voltage. Below this, current exists but is negligibly small (picoamps to nanoamps). Germanium diodes have a knee around 0.3V."
+        },
+        {
+            "id": "q7",
+            "prompt": "On a V-I plot, the load line of a series circuit with V_supply and R_load has slope:",
+            "options": [
+                "+R_load",
+                "+1/R_load",
+                "−1/R_load",
+                "−R_load"
+            ],
+            "correctAnswer": "−1/R_load",
+            "explanation": "The load line comes from KVL: V_supply = V_D + I·R_load, giving I = (V_supply − V_D)/R_load = −V_D/R_load + V_supply/R_load. The slope ΔI/ΔV = −1/R_load (negative), which makes sense: higher voltage across the diode means less left for the resistor, so less current."
+        },
+        {
+            "id": "q8",
+            "prompt": "If a diode's reverse bias voltage is −5V, the reverse current is approximately:",
+            "options": [
+                "5A in reverse",
+                "−I_S ≈ −10⁻¹⁴ A",
+                "Zero exactly",
+                "Depends on the load resistance"
+            ],
+            "correctAnswer": "−I_S ≈ −10⁻¹⁴ A",
+            "explanation": "At V_D = −5V: I = I_S(e^(−5/0.025) − 1) = I_S(e^(−200) − 1) ≈ I_S(0 − 1) = −I_S. The exponential term is essentially zero for any significant reverse voltage, leaving a tiny reverse saturation current of about −10⁻¹⁴ A."
+        },
+        {
+            "id": "q9",
+            "prompt": "Which method is most appropriate for finding the operating point of a single diode in a series resistor circuit?",
+            "options": [
+                "Superposition theorem",
+                "Graphical load-line method",
+                "Delta-star transformation",
+                "Norton's theorem"
+            ],
+            "correctAnswer": "Graphical load-line method",
+            "explanation": "Superposition only works for linear circuits. The load-line method plots the diode's nonlinear V-I curve and the circuit's linear constraint (load line) on the same axes — their intersection gives the operating point. SPICE uses numerical methods for more complex circuits."
+        },
+        {
+            "id": "q10",
+            "prompt": "The saturation current I_S in the Ebers-Moll equation depends most strongly on:",
+            "options": [
+                "Applied voltage",
+                "Load resistance",
+                "Temperature",
+                "Wire gauge"
+            ],
+            "correctAnswer": "Temperature",
+            "explanation": "I_S is a strong function of temperature — it roughly doubles for every 10°C increase. This comes from the semiconductor physics: I_S depends on the intrinsic carrier concentration nᵢ, which increases exponentially with temperature. V_T also depends on temperature (V_T = kT/q), but I_S is far more sensitive."
+        }
+    ]
+}

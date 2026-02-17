@@ -1,0 +1,11 @@
+{
+    "id": "diode-models",
+    "title": "Diode Models — Ideal Switch to Piecewise-Linear",
+    "slug": "diode-models",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

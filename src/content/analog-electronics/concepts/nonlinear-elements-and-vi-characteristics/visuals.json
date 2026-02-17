@@ -1,0 +1,795 @@
+{
+    "visuals": [
+        {
+            "id": "linear-vs-nonlinear-comparison",
+            "type": "plotly",
+            "title": "Linear vs Nonlinear V-I Characteristics",
+            "description": "A resistor produces a straight line (linear). A diode produces an exponential curve (nonlinear). Both are valid V-I characteristics — only the shape differs.",
+            "traces": [
+                {
+                    "x": [
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "y": [
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2.5
+                    },
+                    "name": "Resistor (Linear)"
+                },
+                {
+                    "x": [
+                        -1,
+                        -0.5,
+                        -0.1,
+                        0,
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.5,
+                        0.6,
+                        0.65,
+                        0.7,
+                        0.75,
+                        0.8
+                    ],
+                    "y": [
+                        -0.001,
+                        -0.001,
+                        -0.001,
+                        0,
+                        0.0001,
+                        0.001,
+                        0.006,
+                        0.03,
+                        0.15,
+                        0.8,
+                        1.5,
+                        2.8,
+                        5.0,
+                        8.0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2.5
+                    },
+                    "name": "Diode (Nonlinear)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        -1.5,
+                        1.5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (mA)",
+                    "range": [
+                        -2,
+                        10
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1.1,
+                        "y": 1.1,
+                        "text": "Constant slope",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 40,
+                        "ay": -20,
+                        "font": {
+                            "size": 11,
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 0.7,
+                        "y": 4,
+                        "text": "Slope increases!",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 40,
+                        "ay": -20,
+                        "font": {
+                            "size": 11,
+                            "color": "#ef4444"
+                        }
+                    }
+                ]
+            },
+            "height": 400
+        },
+        {
+            "id": "diode-ebers-moll-vi",
+            "type": "plotly",
+            "title": "Silicon Diode V-I Curve (Ebers-Moll)",
+            "description": "The exponential V-I characteristic of a silicon diode. Near-zero current below 0.5V, then rapid exponential rise. Reverse current is negligibly small (≈ I_S).",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        -1.5,
+                        -1,
+                        -0.5,
+                        -0.3,
+                        -0.1,
+                        0,
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.45,
+                        0.5,
+                        0.55,
+                        0.6,
+                        0.62,
+                        0.64,
+                        0.66,
+                        0.68,
+                        0.7
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.001,
+                        0.01,
+                        0.03,
+                        0.07,
+                        0.18,
+                        0.45,
+                        0.65,
+                        1.0,
+                        1.5,
+                        2.3,
+                        3.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "I = Iₛ(e^(V/Vₜ) − 1)"
+                },
+                {
+                    "x": [
+                        0.6
+                    ],
+                    "y": [
+                        0.45
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#f59e0b"
+                    },
+                    "name": "Knee ≈ 0.6V"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Diode Voltage V_D (V)",
+                    "range": [
+                        -2.5,
+                        0.8
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Diode Current I_D (mA)",
+                    "range": [
+                        -0.5,
+                        4
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": -1.2,
+                        "y": 0.3,
+                        "text": "Reverse: I ≈ −I_S ≈ 0",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": 2.5,
+                        "text": "Forward: exponential rise",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#22d3ee"
+                        }
+                    }
+                ]
+            },
+            "height": 400
+        },
+        {
+            "id": "black-box-concept",
+            "type": "plotly",
+            "title": "The Black Box Approach",
+            "description": "Any two-terminal device is fully characterised by its V-I relationship. You don't need to know what's inside — just measure V and I at the terminals.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1
+                    ],
+                    "y": [
+                        0.5,
+                        0.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#64748b",
+                        "width": 4
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                },
+                {
+                    "x": [
+                        0.5
+                    ],
+                    "y": [
+                        0.5
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 50,
+                        "color": "#1e293b",
+                        "symbol": "square",
+                        "line": {
+                            "color": "#a78bfa",
+                            "width": 3
+                        }
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.3,
+                        1.3
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.3,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0.5,
+                        "y": 0.5,
+                        "text": "?",
+                        "showarrow": false,
+                        "font": {
+                            "size": 28,
+                            "color": "#a78bfa"
+                        }
+                    },
+                    {
+                        "x": -0.05,
+                        "y": 0.5,
+                        "text": "I →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 16,
+                            "color": "#22d3ee"
+                        }
+                    },
+                    {
+                        "x": 0.3,
+                        "y": 0.78,
+                        "text": "+",
+                        "showarrow": false,
+                        "font": {
+                            "size": 20,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 0.7,
+                        "y": 0.78,
+                        "text": "−",
+                        "showarrow": false,
+                        "font": {
+                            "size": 20,
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": 0.1,
+                        "text": "V-I curve tells you EVERYTHING",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 250
+        },
+        {
+            "id": "cubic-device-vi",
+            "type": "plotly",
+            "title": "Hypothetical Cubic Device: I = αV³",
+            "description": "A device with cubic V-I characteristic. The conductance G = dI/dV = 3αV² varies with voltage. Steeper at higher voltages, flat at V = 0.",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        -1.8,
+                        -1.5,
+                        -1.2,
+                        -1,
+                        -0.8,
+                        -0.5,
+                        -0.3,
+                        0,
+                        0.3,
+                        0.5,
+                        0.8,
+                        1,
+                        1.2,
+                        1.5,
+                        1.8,
+                        2
+                    ],
+                    "y": [
+                        -8,
+                        -5.83,
+                        -3.38,
+                        -1.73,
+                        -1,
+                        -0.51,
+                        -0.13,
+                        -0.03,
+                        0,
+                        0.03,
+                        0.13,
+                        0.51,
+                        1,
+                        1.73,
+                        3.38,
+                        5.83,
+                        8
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    },
+                    "name": "I = V³ (α=1)"
+                },
+                {
+                    "x": [
+                        -2,
+                        0,
+                        2
+                    ],
+                    "y": [
+                        -2,
+                        0,
+                        2
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "name": "Resistor comparison (I = V)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1.5,
+                        "y": 5,
+                        "text": "Steeper than linear at high V",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "mosfet-quadratic-preview",
+            "type": "plotly",
+            "title": "Preview: MOSFET Quadratic V-I in Saturation",
+            "description": "In the saturation region, I_DS = (K/2)(V_GS − V_T)². This parabolic relationship means the MOSFET is a nonlinear element.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.125,
+                        0.5,
+                        1.125,
+                        2,
+                        3.125,
+                        4.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 3
+                    },
+                    "name": "I_DS = (K/2)(V_GS − V_T)²"
+                },
+                {
+                    "x": [
+                        2
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#ef4444"
+                    },
+                    "name": "V_T = 2V (threshold)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_GS (V)",
+                    "range": [
+                        -0.5,
+                        5.5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_DS (mA)",
+                    "range": [
+                        -0.5,
+                        5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1,
+                        "y": 0.5,
+                        "text": "Cutoff (V_GS < V_T)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    },
+                    {
+                        "x": 4,
+                        "y": 3.5,
+                        "text": "Quadratic region",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#22c55e"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "load-line-concept",
+            "type": "plotly",
+            "title": "Load-Line Method — Finding the Operating Point",
+            "description": "The diode's V-I curve and the circuit's load line are plotted together. Their intersection Q is the operating point — the only point that satisfies both relationships.",
+            "traces": [
+                {
+                    "x": [
+                        -0.5,
+                        0,
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.5,
+                        0.55,
+                        0.6,
+                        0.62,
+                        0.64,
+                        0.66,
+                        0.68,
+                        0.7,
+                        0.75
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.001,
+                        0.01,
+                        0.07,
+                        0.15,
+                        0.45,
+                        0.65,
+                        1.0,
+                        1.5,
+                        2.3,
+                        3.5,
+                        7.0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "Diode V-I curve"
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2.5,
+                        "dash": "dash"
+                    },
+                    "name": "Load line: I = (5−V)/1kΩ"
+                },
+                {
+                    "x": [
+                        0.66
+                    ],
+                    "y": [
+                        1.5
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 12,
+                        "color": "#ef4444",
+                        "symbol": "x"
+                    },
+                    "name": "Operating point Q"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        -0.5,
+                        5.5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (mA)",
+                    "range": [
+                        -0.5,
+                        6
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0.66,
+                        "y": 2.2,
+                        "text": "Q (operating point)",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 60,
+                        "ay": -20,
+                        "font": {
+                            "size": 13,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 5,
+                        "y": 0.5,
+                        "text": "V_supply",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 420
+        },
+        {
+            "id": "falstad-diode-simple",
+            "type": "falstad-sim",
+            "title": "Interactive: Simple Diode Circuit",
+            "description": "A voltage source, resistor, and diode in series. Watch the current change nonlinearly as you adjust the source voltage. Compare forward and reverse bias.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 5 0 0 0.5\nr 160 96 304 96 0 1000\nd 304 96 304 288 2 default\nw 304 288 160 288 0\ng 224 288 224 320 0 0\no 2 64 0 4099 5 0.05 0 1\n",
+            "height": 450
+        },
+        {
+            "id": "dynamic-resistance-visual",
+            "type": "plotly",
+            "title": "Dynamic Resistance Changes with Operating Point",
+            "description": "The tangent line at each point on the diode curve has a different slope — that slope is 1/r_d (dynamic conductance). Steeper tangent = smaller dynamic resistance.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.5,
+                        0.55,
+                        0.6,
+                        0.65,
+                        0.7,
+                        0.75
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0.001,
+                        0.01,
+                        0.07,
+                        0.15,
+                        0.45,
+                        1.2,
+                        3.5,
+                        8.0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "Diode V-I"
+                },
+                {
+                    "x": [
+                        0.5,
+                        0.6
+                    ],
+                    "y": [
+                        -0.33,
+                        0.47
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "name": "Tangent at 0.55V (r_d ≈ 125Ω)"
+                },
+                {
+                    "x": [
+                        0.62,
+                        0.72
+                    ],
+                    "y": [
+                        -1.1,
+                        5.9
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "name": "Tangent at 0.67V (r_d ≈ 14Ω)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        -0.1,
+                        0.8
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (mA)",
+                    "range": [
+                        -1,
+                        9
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true
+            },
+            "height": 400
+        }
+    ]
+}

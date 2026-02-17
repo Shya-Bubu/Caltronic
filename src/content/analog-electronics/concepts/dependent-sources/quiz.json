@@ -1,0 +1,125 @@
+{
+    "id": "quiz-dependent-sources",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A VCCS has the relationship I₂ = G_m V₁. The units of G_m are:",
+            "options": [
+                "Ohms (Ω)",
+                "Siemens (S) = A/V",
+                "Dimensionless",
+                "Volts per amp (V/A)"
+            ],
+            "correctAnswer": "Siemens (S) = A/V",
+            "explanation": "G_m converts voltage (V) to current (A), so its units are A/V = siemens (S). This is called transconductance. Think of it as 'how many amps per volt' — the same unit as conductance G = 1/R."
+        },
+        {
+            "id": "q2",
+            "prompt": "Which dependent source type models a BJT in the active region?",
+            "options": [
+                "VCVS",
+                "VCCS",
+                "CCCS",
+                "CCVS"
+            ],
+            "correctAnswer": "CCCS",
+            "explanation": "A BJT's collector current is controlled by its base current: I_C = β × I_B. The input is a current (I_B), the output is a current (I_C), so it's a Current-Controlled Current Source (CCCS). β is the current gain, typically 100-300."
+        },
+        {
+            "id": "q3",
+            "prompt": "A VCVS has μ = 1000. If V₁ = 5mV, the output voltage V₂ is:",
+            "options": [
+                "5V",
+                "5mV",
+                "0.005V",
+                "5000V"
+            ],
+            "correctAnswer": "5V",
+            "explanation": "V₂ = μ × V₁ = 1000 × 5mV = 5V. The VCVS amplifies the input voltage by the gain factor μ. This large gain from a small input is exactly how op-amps work — they are modeled as VCVS with very high μ."
+        },
+        {
+            "id": "q4",
+            "prompt": "In a circuit diagram, how is a dependent source distinguished from an independent source?",
+            "options": [
+                "Dependent sources use a diamond (◇), independent use a circle (○)",
+                "Dependent sources are larger",
+                "Dependent sources are drawn in red",
+                "There is no visual difference"
+            ],
+            "correctAnswer": "Dependent sources use a diamond (◇), independent use a circle (○)",
+            "explanation": "This is a universal convention in circuit diagrams. The diamond shape immediately tells you that the source's value depends on some other quantity in the circuit. The circle indicates a fixed, independent value."
+        },
+        {
+            "id": "q5",
+            "prompt": "Why can't you 'turn off' dependent sources during superposition analysis?",
+            "options": [
+                "They don't have terminals",
+                "Their value depends on circuit variables that change with each source",
+                "They are always AC sources",
+                "Superposition doesn't apply to any sources"
+            ],
+            "correctAnswer": "Their value depends on circuit variables that change with each source",
+            "explanation": "A dependent source's output is controlled by a circuit variable (voltage or current). When you turn off independent sources one at a time, the circuit variables change, which changes the dependent source's output. You must keep dependent sources active throughout the analysis."
+        },
+        {
+            "id": "q6",
+            "prompt": "A CCVS has transresistance r = 2kΩ and input current I₁ = 3mA. The output voltage is:",
+            "options": [
+                "6V",
+                "0.67V",
+                "6kV",
+                "1.5V"
+            ],
+            "correctAnswer": "6V",
+            "explanation": "V₂ = r × I₁ = 2000Ω × 3mA = 6V. Notice r has units of ohms — it converts current (A) to voltage (V). 'Transresistance' means 'transfer resistance': the resistance-like quantity that relates input current to output voltage."
+        },
+        {
+            "id": "q7",
+            "prompt": "Which dependent source type does a MOSFET in saturation approximate?",
+            "options": [
+                "CCCS",
+                "VCCS",
+                "VCVS",
+                "CCVS"
+            ],
+            "correctAnswer": "VCCS",
+            "explanation": "A MOSFET's drain current in saturation is controlled by the gate-source voltage: I_D = (K/2)(V_GS − V_T)². The input is a voltage (V_GS), the output is a current (I_D). In small-signal analysis, I_d = g_m × v_gs, which is a VCCS."
+        },
+        {
+            "id": "q8",
+            "prompt": "The current gain β of a CCCS is dimensionless because:",
+            "options": [
+                "It has no physical meaning",
+                "It relates current (A) to current (A) — same units cancel",
+                "It is always equal to 1",
+                "Convention requires it"
+            ],
+            "correctAnswer": "It relates current (A) to current (A) — same units cancel",
+            "explanation": "β = I₂/I₁ = amps/amps = dimensionless. When the control and output variables have the same units, the proportionality constant is a pure number. Same applies to μ in VCVS (volts/volts = dimensionless)."
+        },
+        {
+            "id": "q9",
+            "prompt": "How many terminals (nodes) does a dependent source have?",
+            "options": [
+                "2 (one port)",
+                "3 (one port + ground)",
+                "4 (two ports)",
+                "1 (single terminal)"
+            ],
+            "correctAnswer": "4 (two ports)",
+            "explanation": "A dependent source has two ports: the control port (2 terminals where the controlling variable is sensed) and the output port (2 terminals where the dependent voltage or current is produced). Total = 4 terminals."
+        },
+        {
+            "id": "q10",
+            "prompt": "An op-amp is modeled as a VCVS with V_out = A(V₊ − V₋). If A = 200,000 and V₊ − V₋ = 10μV, then V_out is:",
+            "options": [
+                "2V",
+                "20V",
+                "0.2V",
+                "200V"
+            ],
+            "correctAnswer": "2V",
+            "explanation": "V_out = A × (V₊ − V₋) = 200,000 × 10 × 10⁻⁶ = 200,000 × 10⁻⁵ = 2V. This demonstrates the extreme amplification of an op-amp: a 10 microvolt difference at the input produces a 2V output. In practice, the output is limited by the supply rails."
+        }
+    ]
+}

@@ -1,0 +1,789 @@
+{
+    "visuals": [
+        {
+            "id": "associated-variable-convention",
+            "type": "plotly",
+            "title": "Associated Variable Convention",
+            "description": "Current enters the positive terminal. Under this convention, P = VI > 0 means the element absorbs power.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1
+                    ],
+                    "y": [
+                        0.5,
+                        0.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#64748b",
+                        "width": 4
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                },
+                {
+                    "x": [
+                        0.5
+                    ],
+                    "y": [
+                        0.5
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 40,
+                        "color": "#1e293b",
+                        "line": {
+                            "color": "#22d3ee",
+                            "width": 3
+                        }
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.3,
+                        1.3
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.2,
+                        1.2
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0.15,
+                        "y": 0.5,
+                        "text": "→ I",
+                        "showarrow": false,
+                        "font": {
+                            "size": 18,
+                            "color": "#22d3ee"
+                        }
+                    },
+                    {
+                        "x": 0.35,
+                        "y": 0.7,
+                        "text": "+",
+                        "showarrow": false,
+                        "font": {
+                            "size": 22,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 0.65,
+                        "y": 0.7,
+                        "text": "−",
+                        "showarrow": false,
+                        "font": {
+                            "size": 22,
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": 0.5,
+                        "text": "Element",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#94a3b8"
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": 0.15,
+                        "text": "P = V × I > 0 → absorbs power",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#a78bfa"
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": 0.0,
+                        "text": "P = V × I < 0 → delivers power",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 250
+        },
+        {
+            "id": "ideal-wire-vi",
+            "type": "plotly",
+            "title": "V-I Characteristic — Ideal Wire (V = 0)",
+            "description": "An ideal wire has zero voltage for any current. Its V-I plot is a vertical line on the current axis.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "y": [
+                        -5,
+                        0,
+                        5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "Ideal Wire (R = 0)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        -3,
+                        3
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "range": [
+                        -6,
+                        6
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0.7,
+                        "y": 3,
+                        "text": "V = 0 always",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 60,
+                        "ay": 0,
+                        "font": {
+                            "size": 13,
+                            "color": "#22d3ee"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "resistor-vi-family",
+            "type": "plotly",
+            "title": "V-I Characteristics — Resistor Family (Ohm's Law)",
+            "description": "Different resistor values produce lines with different slopes. Steeper slope = lower resistance = higher conductance G.",
+            "traces": [
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2.5
+                    },
+                    "name": "R = 1Ω (G = 1S)"
+                },
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -2.5,
+                        -2,
+                        -1.5,
+                        -1,
+                        -0.5,
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2.5
+                    },
+                    "name": "R = 2Ω (G = 0.5S)"
+                },
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -1,
+                        -0.8,
+                        -0.6,
+                        -0.4,
+                        -0.2,
+                        0,
+                        0.2,
+                        0.4,
+                        0.6,
+                        0.8,
+                        1
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2.5
+                    },
+                    "name": "R = 5Ω (G = 0.2S)"
+                },
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -0.5,
+                        -0.4,
+                        -0.3,
+                        -0.2,
+                        -0.1,
+                        0,
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2.5
+                    },
+                    "name": "R = 10Ω (G = 0.1S)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 3,
+                        "y": 3.5,
+                        "text": "Steeper = smaller R",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 400
+        },
+        {
+            "id": "falstad-resistor-circuit",
+            "type": "falstad-sim",
+            "title": "Interactive: Simple Resistor Circuit",
+            "description": "A voltage source connected to a resistor. Change the voltage and observe how V = IR holds. Probe voltages and currents.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 10 0 0 0.5\nr 160 96 352 96 0 1000\nw 352 96 352 288 0\nw 160 288 352 288 0\ng 256 288 256 320 0 0\nx 220 80 0 24 0 14 R=1kΩ\no 1 64 0 4099 10 0.05 0 1\n",
+            "height": 450
+        },
+        {
+            "id": "open-circuit-vi",
+            "type": "plotly",
+            "title": "V-I Characteristic — Open Circuit (I = 0)",
+            "description": "An open circuit has zero current for any voltage. Its V-I plot is a horizontal line on the voltage axis.",
+            "traces": [
+                {
+                    "x": [
+                        -5,
+                        0,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 3
+                    },
+                    "name": "Open Circuit (R = ∞)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        -6,
+                        6
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "range": [
+                        -3,
+                        3
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 3,
+                        "y": 0.5,
+                        "text": "I = 0 always",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 0,
+                        "ay": -40,
+                        "font": {
+                            "size": 13,
+                            "color": "#a78bfa"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "voltage-source-vi",
+            "type": "plotly",
+            "title": "V-I Characteristic — Ideal Voltage Source (V = E)",
+            "description": "An ideal voltage source maintains constant voltage E regardless of current. V-I plot is a vertical line at V = E.",
+            "traces": [
+                {
+                    "x": [
+                        10,
+                        10,
+                        10
+                    ],
+                    "y": [
+                        -5,
+                        0,
+                        5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    },
+                    "name": "V = 10V (DC source)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "range": [
+                        -6,
+                        6
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 10,
+                        "y": -4,
+                        "text": "E = 10V",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 50,
+                        "ay": 0,
+                        "font": {
+                            "size": 13,
+                            "color": "#ef4444"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "current-source-vi",
+            "type": "plotly",
+            "title": "V-I Characteristic — Ideal Current Source (I = I₀)",
+            "description": "An ideal current source forces constant current I₀ regardless of voltage. V-I plot is a horizontal line at I = I₀.",
+            "traces": [
+                {
+                    "x": [
+                        -10,
+                        0,
+                        10
+                    ],
+                    "y": [
+                        2,
+                        2,
+                        2
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 3
+                    },
+                    "name": "I₀ = 2A"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        -12,
+                        12
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "range": [
+                        -1,
+                        4
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 5,
+                        "y": 2.5,
+                        "text": "I₀ = 2A (constant)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#22c55e"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "battery-thevenin-vi",
+            "type": "plotly",
+            "title": "Battery with Internal Resistance — Thévenin V-I Line",
+            "description": "Terminal voltage drops linearly with current: V = E − I·R_int. Open-circuit voltage = E, short-circuit current = E/R_int.",
+            "traces": [
+                {
+                    "x": [
+                        12,
+                        11,
+                        10,
+                        9,
+                        8,
+                        7,
+                        6,
+                        5,
+                        4,
+                        3,
+                        2,
+                        1,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20,
+                        22,
+                        24
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    },
+                    "name": "E=12V, R_int=0.5Ω"
+                },
+                {
+                    "x": [
+                        12
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#22c55e"
+                    },
+                    "name": "Open-circuit (V=E)",
+                    "hovertext": "V_OC = 12V, I = 0"
+                },
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        24
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#ef4444"
+                    },
+                    "name": "Short-circuit (I=E/R)",
+                    "hovertext": "V = 0, I_SC = 24A"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Terminal Voltage V (V)",
+                    "range": [
+                        -1,
+                        14
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "range": [
+                        -2,
+                        26
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 6,
+                        "y": 15,
+                        "text": "slope = −1/R_int",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 400
+        },
+        {
+            "id": "falstad-battery-internal-r",
+            "type": "falstad-sim",
+            "title": "Interactive: Battery with Internal Resistance",
+            "description": "A 12V battery with 0.5Ω internal resistance connected to a load. Try different load values and see how terminal voltage changes.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 12 0 0 0.5\nr 160 96 288 96 0 0.5\nr 288 96 288 288 0 100\nw 160 288 288 288 0\ng 224 288 224 320 0 0\nx 192 80 0 24 0 12 R_int=0.5Ω\nx 304 192 0 24 0 12 R_load\no 2 64 0 4099 10 0.05 0 1\n",
+            "height": 450
+        },
+        {
+            "id": "vi-comparison-all",
+            "type": "plotly",
+            "title": "All Linear Elements — V-I Characteristics Compared",
+            "description": "Every linear element produces a straight line (or a point) on the V-I plot. The line's slope and position tell you everything about the element.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0
+                    ],
+                    "y": [
+                        -4,
+                        4
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 2.5,
+                        "dash": "solid"
+                    },
+                    "name": "Ideal Wire (V=0)"
+                },
+                {
+                    "x": [
+                        -4,
+                        0,
+                        4
+                    ],
+                    "y": [
+                        -2,
+                        0,
+                        2
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2.5
+                    },
+                    "name": "Resistor (R=2Ω)"
+                },
+                {
+                    "x": [
+                        -4,
+                        4
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 2.5,
+                        "dash": "dash"
+                    },
+                    "name": "Open Circuit (I=0)"
+                },
+                {
+                    "x": [
+                        5,
+                        5
+                    ],
+                    "y": [
+                        -4,
+                        4
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2.5,
+                        "dash": "dot"
+                    },
+                    "name": "Voltage Source (E=5V)"
+                },
+                {
+                    "x": [
+                        -4,
+                        4
+                    ],
+                    "y": [
+                        1.5,
+                        1.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2.5,
+                        "dash": "dashdot"
+                    },
+                    "name": "Current Source (I₀=1.5A)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage V (V)",
+                    "range": [
+                        -5,
+                        7
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Current I (A)",
+                    "range": [
+                        -5,
+                        5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true
+            },
+            "height": 420
+        }
+    ]
+}

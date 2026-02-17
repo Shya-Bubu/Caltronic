@@ -1,0 +1,125 @@
+{
+    "id": "quiz-diode-models",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In the ideal switch diode model, what is the forward voltage drop?",
+            "options": [
+                "0.7V",
+                "0.3V",
+                "0V",
+                "Depends on current"
+            ],
+            "correctAnswer": "0V",
+            "explanation": "The ideal switch model treats the diode as a perfect short circuit when forward-biased: V_D = 0, regardless of current. This is the simplest model and ignores the real 0.6-0.7V forward drop. It's only useful when the signal voltage is much larger than 0.7V."
+        },
+        {
+            "id": "q2",
+            "prompt": "Using the CVD model (V_γ = 0.7V), a half-wave rectifier with V_S = 10V peak has peak output of:",
+            "options": [
+                "10V",
+                "9.3V",
+                "10.7V",
+                "0.7V"
+            ],
+            "correctAnswer": "9.3V",
+            "explanation": "In the CVD model, the diode drops a constant V_γ = 0.7V when conducting. Peak output = V_peak − V_γ = 10 − 0.7 = 9.3V. The 0.7V is 'lost' across the diode, reducing the output."
+        },
+        {
+            "id": "q3",
+            "prompt": "In the PWL model with R_f, the forward diode equation is:",
+            "options": [
+                "V_D = V_γ",
+                "V_D = V_γ + I_D × R_f",
+                "V_D = I_D × R_f",
+                "V_D = V_γ / I_D"
+            ],
+            "correctAnswer": "V_D = V_γ + I_D × R_f",
+            "explanation": "The PWL model includes both the threshold voltage V_γ and the forward resistance R_f. The total forward voltage drop increases linearly with current: V_D = V_γ + I_D × R_f. When R_f = 0, this reduces to the CVD model."
+        },
+        {
+            "id": "q4",
+            "prompt": "Which diode model would you choose for analysing a 230V mains rectifier by hand?",
+            "options": [
+                "Ebers-Moll (exact)",
+                "PWL with R_f",
+                "CVD (V_γ = 0.7V)",
+                "Ideal switch"
+            ],
+            "correctAnswer": "Ideal switch",
+            "explanation": "At 230V, the 0.7V diode drop is less than 0.3% of the signal — negligible. The ideal switch model gives sufficiently accurate results with minimal calculation. The CVD model would work too but adds unnecessary complexity."
+        },
+        {
+            "id": "q5",
+            "prompt": "A diode with V_γ = 0.7V and R_f = 10Ω carries 50mA. The forward voltage drop is:",
+            "options": [
+                "0.7V",
+                "1.2V",
+                "0.5V",
+                "10V"
+            ],
+            "correctAnswer": "1.2V",
+            "explanation": "V_D = V_γ + I_D × R_f = 0.7 + 0.05 × 10 = 0.7 + 0.5 = 1.2V. The R_f term contributes 0.5V at this current level, increasing the total drop significantly above the threshold voltage."
+        },
+        {
+            "id": "q6",
+            "prompt": "Why is the Ebers-Moll equation difficult to solve by hand in circuit analysis?",
+            "options": [
+                "It has too many parameters",
+                "It creates transcendental equations (V inside and outside exponential)",
+                "It only works for germanium",
+                "It requires temperature data"
+            ],
+            "correctAnswer": "It creates transcendental equations (V inside and outside exponential)",
+            "explanation": "When you write KVL: V_S = I_S×e^(V_D/V_T)×R + V_D, the variable V_D appears both inside an exponential and outside it. This transcendental equation has no closed-form solution — you need numerical methods (Newton-Raphson) or graphical techniques."
+        },
+        {
+            "id": "q7",
+            "prompt": "In a half-wave rectifier using the CVD model, the diode turns ON when:",
+            "options": [
+                "V_S > 0",
+                "V_S > V_γ",
+                "V_S > V_S(peak)",
+                "Always"
+            ],
+            "correctAnswer": "V_S > V_γ",
+            "explanation": "With the CVD model, the diode needs the source voltage to exceed V_γ (≈ 0.7V) before it conducts. Between 0V and 0.7V, the diode remains OFF and the output is 0V. This creates a small 'dead zone' at the base of the sine wave."
+        },
+        {
+            "id": "q8",
+            "prompt": "The slope of the V-I characteristic in the PWL model's forward region is:",
+            "options": [
+                "1/V_γ",
+                "1/R_f",
+                "R_f",
+                "V_γ/R_f"
+            ],
+            "correctAnswer": "1/R_f",
+            "explanation": "In the forward region: I_D = (V_D − V_γ)/R_f. This is a line starting at V_D = V_γ with slope ΔI/ΔV = 1/R_f. Smaller R_f → steeper slope → closer to the CVD model (which has infinite slope = zero resistance at V_γ)."
+        },
+        {
+            "id": "q9",
+            "prompt": "For a silicon diode, V_γ is typically chosen as:",
+            "options": [
+                "25 mV",
+                "0.3V",
+                "0.6-0.7V",
+                "1.5V"
+            ],
+            "correctAnswer": "0.6-0.7V",
+            "explanation": "V_γ ≈ 0.6-0.7V for silicon. This is the voltage where the Ebers-Moll exponential produces readily measurable current (milliamps). Germanium diodes use V_γ ≈ 0.3V. Don't confuse V_γ with V_T (thermal voltage ≈ 25mV)."
+        },
+        {
+            "id": "q10",
+            "prompt": "The CVD model is equivalent to which Thévenin circuit when the diode is ON?",
+            "options": [
+                "A voltage source V_γ with zero series resistance",
+                "A current source I_S",
+                "A resistor R_f",
+                "An open circuit"
+            ],
+            "correctAnswer": "A voltage source V_γ with zero series resistance",
+            "explanation": "When ON, the CVD model maintains V_D = V_γ regardless of current — exactly like an ideal voltage source. The forward resistance is zero (slope is infinite on the V-I plot). The PWL model adds a series R_f to this voltage source."
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "mosfet-models-and-regions",
+    "title": "MOSFET Models & Regions of Operation",
+    "slug": "mosfet-models-and-regions",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

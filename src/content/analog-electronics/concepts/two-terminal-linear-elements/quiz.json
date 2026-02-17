@@ -1,0 +1,149 @@
+{
+    "id": "quiz-two-terminal-linear-elements",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Under the associated variable convention, current is defined as positive when it:",
+            "options": [
+                "Exits the positive terminal",
+                "Enters the positive terminal",
+                "Flows clockwise in the circuit",
+                "Is measured by an ammeter"
+            ],
+            "correctAnswer": "Enters the positive terminal",
+            "explanation": "The associated variable convention defines positive current as entering the positive voltage terminal. This ensures that P = VI is positive when the element absorbs power (like a resistor). This is a bookkeeping rule, not a physical law."
+        },
+        {
+            "id": "q2",
+            "prompt": "What does the V-I characteristic of an ideal wire look like?",
+            "options": [
+                "A horizontal line at I = 0",
+                "A vertical line at V = 0",
+                "A line through the origin with slope R",
+                "A vertical line at V = E"
+            ],
+            "correctAnswer": "A vertical line at V = 0",
+            "explanation": "An ideal wire has V = 0 for any current. On a V-I plot (V horizontal, I vertical), this is a vertical line along the I-axis. The current can be anything, but the voltage is always zero because the resistance is zero."
+        },
+        {
+            "id": "q3",
+            "prompt": "On a V-I plot (I on vertical axis, V on horizontal axis), the slope of a resistor's characteristic line equals:",
+            "options": [
+                "R (resistance)",
+                "1/R (conductance G)",
+                "R² (resistance squared)",
+                "√R (square root of resistance)"
+            ],
+            "correctAnswer": "1/R (conductance G)",
+            "explanation": "From V = IR, we get I = V/R = GV. The slope ΔI/ΔV = 1/R = G (conductance in siemens). A steeper line means lower resistance. This is a common confusion point — the slope is G, not R."
+        },
+        {
+            "id": "q4",
+            "prompt": "An ideal current source has a V-I characteristic that is:",
+            "options": [
+                "A vertical line",
+                "A horizontal line",
+                "A line through the origin",
+                "A parabola"
+            ],
+            "correctAnswer": "A horizontal line",
+            "explanation": "An ideal current source maintains I = I₀ regardless of voltage. On a V-I plot, this is a horizontal line at I = I₀. The voltage across the source adjusts to whatever the circuit demands."
+        },
+        {
+            "id": "q5",
+            "prompt": "A battery has EMF E = 12V and internal resistance R_int = 0.5Ω. What is the terminal voltage when it delivers 4A?",
+            "options": [
+                "12V",
+                "10V",
+                "14V",
+                "8V"
+            ],
+            "correctAnswer": "10V",
+            "explanation": "Using the Thévenin model: V = E - I·R_int = 12 - 4(0.5) = 12 - 2 = 10V. The internal resistance causes a 2V drop, so the terminal voltage is less than the EMF when current is being drawn."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the short-circuit current of a battery with E = 9V and R_int = 0.3Ω?",
+            "options": [
+                "0A",
+                "3A",
+                "30A",
+                "27A"
+            ],
+            "correctAnswer": "30A",
+            "explanation": "At short-circuit, V = 0, so 0 = E - I·R_int, giving I_SC = E/R_int = 9/0.3 = 30A. This dangerous current is why batteries can cause fires — the internal resistance is very low, allowing very large short-circuit currents."
+        },
+        {
+            "id": "q7",
+            "prompt": "Three resistors with conductances G₁ = 2S, G₂ = 3S, and G₃ = 5S are connected in parallel. What is the total conductance?",
+            "options": [
+                "10S",
+                "0.1S",
+                "0.97S",
+                "1.03S"
+            ],
+            "correctAnswer": "10S",
+            "explanation": "For parallel resistors, total conductance is simply G_total = G₁ + G₂ + G₃ = 2 + 3 + 5 = 10S. This is why conductance is easier to work with for parallel combinations — you just add directly instead of using the reciprocal formula."
+        },
+        {
+            "id": "q8",
+            "prompt": "A 1kΩ resistor has 5V across it. The power absorbed by the resistor is:",
+            "options": [
+                "5mW",
+                "25mW",
+                "5W",
+                "0.005W"
+            ],
+            "correctAnswer": "25mW",
+            "explanation": "P = V²/R = 25/1000 = 0.025W = 25mW. Alternatively, I = V/R = 5mA, so P = VI = 5V × 5mA = 25mW. All three power formulas (VI, I²R, V²/R) give the same positive result — a resistor always absorbs power."
+        },
+        {
+            "id": "q9",
+            "prompt": "The V-I characteristic of a battery with internal resistance has:",
+            "options": [
+                "Positive slope (from origin)",
+                "Zero slope (horizontal line)",
+                "Negative slope (falling from left to right)",
+                "Infinite slope (vertical line)"
+            ],
+            "correctAnswer": "Negative slope (falling from left to right)",
+            "explanation": "From V = E - I·R_int, rearranging: I = (E - V)/R_int = -V/R_int + E/R_int. The slope ΔI/ΔV = -1/R_int, which is negative. As more current is drawn, the terminal voltage drops — giving a line that falls from left to right."
+        },
+        {
+            "id": "q10",
+            "prompt": "An element has V = 10V across it and I = -2A (using associated convention). The element is:",
+            "options": [
+                "Absorbing 20W",
+                "Delivering 20W",
+                "Absorbing -20W",
+                "Neither absorbing nor delivering"
+            ],
+            "correctAnswer": "Delivering 20W",
+            "explanation": "P = VI = 10 × (-2) = -20W. A negative power under the associated convention means the element is delivering power, not absorbing it. This element is acting as a source — like a battery powering a circuit."
+        },
+        {
+            "id": "q11",
+            "prompt": "Which of the following is NOT a property of an ideal voltage source?",
+            "options": [
+                "It maintains constant voltage regardless of current",
+                "Its V-I characteristic is a vertical line",
+                "It has zero internal resistance",
+                "It can only deliver current in one direction"
+            ],
+            "correctAnswer": "It can only deliver current in one direction",
+            "explanation": "An ideal voltage source maintains V = E for ANY current — positive, negative, or zero. It can both deliver and absorb current. The constraint is on voltage, not on current direction. Its V-I plot is vertical (any I, fixed V), confirming zero internal resistance."
+        },
+        {
+            "id": "q12",
+            "prompt": "Two resistors have the same V-I slope on a V-I plot. What can you conclude?",
+            "options": [
+                "They have the same resistance",
+                "They dissipate the same power",
+                "They carry the same current",
+                "They have the same voltage across them"
+            ],
+            "correctAnswer": "They have the same resistance",
+            "explanation": "The slope on a V-I plot (I vertical, V horizontal) is G = 1/R. Same slope means same conductance, which means same resistance. However, the actual current, voltage, and power depend on how they're connected in the circuit — the V-I line only tells you the element relationship, not the operating point."
+        }
+    ]
+}

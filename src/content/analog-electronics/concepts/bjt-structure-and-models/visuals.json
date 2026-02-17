@@ -1,0 +1,529 @@
+{
+    "visuals": [
+        {
+            "id": "bjt-structure-diagram",
+            "type": "plotly",
+            "title": "NPN BJT Semiconductor Structure",
+            "description": "N-type emitter (heavily doped), P-type base (very thin), N-type collector. The thin base is key to transistor action.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.8,
+                        0.8,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "fill": "toself",
+                    "fillcolor": "rgba(59, 130, 246, 0.3)",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2
+                    },
+                    "name": "N (Emitter)",
+                    "mode": "lines"
+                },
+                {
+                    "x": [
+                        0.8,
+                        1.1,
+                        1.1,
+                        0.8
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "fill": "toself",
+                    "fillcolor": "rgba(239, 68, 68, 0.3)",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2
+                    },
+                    "name": "P (Base)",
+                    "mode": "lines"
+                },
+                {
+                    "x": [
+                        1.1,
+                        2,
+                        2,
+                        1.1
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "fill": "toself",
+                    "fillcolor": "rgba(59, 130, 246, 0.3)",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2
+                    },
+                    "name": "N (Collector)",
+                    "mode": "lines"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.3,
+                        2.3
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        1.5
+                    ]
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0.4,
+                        "y": 0.5,
+                        "text": "N⁺<br>(Emitter)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 0.95,
+                        "y": 0.5,
+                        "text": "P<br>(Base)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 1.55,
+                        "y": 0.5,
+                        "text": "N<br>(Collector)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 0.95,
+                        "y": -0.3,
+                        "text": "← very thin (~1μm) →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 300
+        },
+        {
+            "id": "back-to-back-limitation",
+            "type": "plotly",
+            "title": "Why Two Diodes ≠ One BJT",
+            "description": "Two discrete diodes back-to-back split current equally — no amplification. The thin base in a real BJT enables 99% of electrons to reach the collector.",
+            "traces": [
+                {
+                    "x": [
+                        "Back-to-Back\nDiodes",
+                        "Real BJT"
+                    ],
+                    "y": [
+                        50,
+                        99.5
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ef4444",
+                            "#22c55e"
+                        ]
+                    },
+                    "text": [
+                        "50% to each side\n(no amplification)",
+                        "99.5% to collector\n(β = 200)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 13,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Device"
+                },
+                "yaxis": {
+                    "title": "% of Emitter Current Reaching Collector",
+                    "range": [
+                        0,
+                        110
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 350
+        },
+        {
+            "id": "electron-flow-diagram",
+            "type": "plotly",
+            "title": "Three Fates of Electrons in the BJT Base",
+            "description": "Most electrons cross the thin base to the collector (I_C). A few recombine in the base (I_B). This ratio determines β = I_C/I_B.",
+            "traces": [
+                {
+                    "labels": [
+                        "Collected (I_C)",
+                        "Recombined (I_B)"
+                    ],
+                    "values": [
+                        99.5,
+                        0.5
+                    ],
+                    "type": "pie",
+                    "marker": {
+                        "colors": [
+                            "#22c55e",
+                            "#ef4444"
+                        ]
+                    },
+                    "textinfo": "label+percent",
+                    "textfont": {
+                        "size": 14,
+                        "color": "#ffffff"
+                    },
+                    "hole": 0.4
+                }
+            ],
+            "layout": {
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0.5,
+                        "y": 0.5,
+                        "text": "β = 200",
+                        "showarrow": false,
+                        "font": {
+                            "size": 16,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "bjt-modes-table",
+            "type": "plotly",
+            "title": "BJT Operating Modes — Junction Bias Summary",
+            "description": "Three modes determined by the bias of B-E and B-C junctions. Active mode is for amplification, cutoff and saturation for switching.",
+            "traces": [
+                {
+                    "x": [
+                        "Cutoff",
+                        "Active",
+                        "Saturation"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        1
+                    ],
+                    "name": "B-E Forward?",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#3b82f6"
+                    },
+                    "text": [
+                        "Reverse",
+                        "Forward",
+                        "Forward"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 14,
+                        "color": "#ffffff"
+                    }
+                },
+                {
+                    "x": [
+                        "Cutoff",
+                        "Active",
+                        "Saturation"
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        1
+                    ],
+                    "name": "B-C Forward?",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ef4444"
+                    },
+                    "text": [
+                        "Reverse",
+                        "Reverse",
+                        "Forward"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 14,
+                        "color": "#ffffff"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Mode"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        2.5
+                    ]
+                },
+                "barmode": "stack",
+                "showlegend": true
+            },
+            "height": 350
+        },
+        {
+            "id": "bjt-cutoff-circuit",
+            "type": "plotly",
+            "title": "BJT Cutoff Mode — Equivalent Circuit",
+            "description": "All terminals are open circuits. No current flows: I_C = I_B = I_E = 0. The transistor is OFF.",
+            "traces": [
+                {
+                    "x": [
+                        0.3,
+                        0.5,
+                        0.7
+                    ],
+                    "y": [
+                        0.8,
+                        0.5,
+                        0.8
+                    ],
+                    "mode": "markers+text",
+                    "marker": {
+                        "size": 15,
+                        "color": [
+                            "#3b82f6",
+                            "#1e293b",
+                            "#3b82f6"
+                        ]
+                    },
+                    "text": [
+                        "E",
+                        "B",
+                        "C"
+                    ],
+                    "textposition": "top center",
+                    "textfont": {
+                        "size": 14,
+                        "color": "#94a3b8"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.2
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0.5,
+                        "y": 0.2,
+                        "text": "I_C = I_B = I_E = 0<br>All open circuits",
+                        "showarrow": false,
+                        "font": {
+                            "size": 16,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": 1.05,
+                        "text": "CUTOFF MODE",
+                        "showarrow": false,
+                        "font": {
+                            "size": 18,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 250
+        },
+        {
+            "id": "bjt-active-circuit",
+            "type": "plotly",
+            "title": "BJT Active Mode — Equivalent Circuit Components",
+            "description": "B-E: 0.7V source. B-C: open circuit. C-E: current source I_C = β I_B. This is the amplification configuration.",
+            "traces": [
+                {
+                    "x": [
+                        "B-E Junction",
+                        "B-C Junction",
+                        "C-E Path"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#22c55e",
+                            "#ef4444",
+                            "#22d3ee"
+                        ]
+                    },
+                    "text": [
+                        "0.7V source<br>(forward diode)",
+                        "Open circuit<br>(reverse biased)",
+                        "I_C = β I_B<br>(CCCS)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 14,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Component"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": "B-C Junction",
+                        "y": 1.15,
+                        "text": "NOT a short circuit!",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "bjt-saturation-circuit",
+            "type": "plotly",
+            "title": "BJT Saturation Mode — V_CE,sat ≈ 0.2V",
+            "description": "Both junctions forward biased. V_CE drops to 0.2V. I_C is limited by external circuit, NOT β I_B. Transistor acts as a switch.",
+            "traces": [
+                {
+                    "x": [
+                        "V_BE",
+                        "V_CE,sat"
+                    ],
+                    "y": [
+                        0.7,
+                        0.2
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#22c55e",
+                            "#f59e0b"
+                        ]
+                    },
+                    "text": [
+                        "0.7V<br>(B-E forward)",
+                        "0.2V<br>(sat. switch)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 15,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Junction Voltage"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)",
+                    "range": [
+                        0,
+                        1
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": "V_CE,sat",
+                        "y": 0.45,
+                        "text": "I_C < β I_B",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#ef4444"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "falstad-bjt-active",
+            "type": "falstad-sim",
+            "title": "Interactive: NPN BJT in Active Mode",
+            "description": "An NPN BJT biased in active mode. The base current controls the collector current. Adjust R_B to change the operating point. Watch I_C = β × I_B.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 304 160 96 0 0 40 12 0 0 0.5\nr 160 96 304 96 0 100000\nt 304 96 304 192 0 1 0.6137056388801094 0.6030005660116131 100\nr 304 192 304 304 0 1000\nw 160 304 304 304 0\ng 224 304 224 336 0 0\nw 160 96 160 192 0\nw 160 192 304 192 0\nx 340 96 0 24 0 12 R_B=100kΩ\nx 340 248 0 24 0 12 R_C=1kΩ\no 2 64 0 4099 10 0.05 0 1\n",
+            "height": 450
+        }
+    ]
+}

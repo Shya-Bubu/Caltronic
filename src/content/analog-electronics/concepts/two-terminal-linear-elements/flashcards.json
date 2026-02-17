@@ -1,0 +1,77 @@
+{
+    "id": "flashcards-two-terminal-linear-elements",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the associated variable convention?",
+            "back": "Current is defined as positive when entering the positive voltage terminal. Under this convention, P = VI > 0 means the element absorbs power.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the V-I relationship for an ideal wire?",
+            "back": "V = 0 for all I. Zero resistance, vertical line on V-I plot. Any current can flow without voltage drop.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is conductance G and its unit?",
+            "back": "G = 1/R, measured in siemens (S). It's the slope of the I-vs-V line. Useful for parallel combinations: G_total = G₁ + G₂ + G₃.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the slope of a resistor's V-I characteristic?",
+            "back": "The slope is G = 1/R (conductance), NOT R. A steeper line means lower resistance and higher conductance. From I = GV, slope = ΔI/ΔV = G.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is the V-I characteristic of an ideal voltage source?",
+            "back": "A vertical line at V = E. The voltage is constant regardless of current. Direction of current doesn't matter — the source maintains fixed voltage.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is the V-I characteristic of an ideal current source?",
+            "back": "A horizontal line at I = I₀. The current is constant regardless of voltage. The voltage adjusts to satisfy the rest of the circuit.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Write the terminal voltage equation for a battery with internal resistance.",
+            "back": "V = E − I·R_int (Thévenin model). E is the EMF, R_int is internal resistance. Terminal voltage drops linearly with current. V-I plot has negative slope −1/R_int.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the short-circuit current of a battery?",
+            "back": "I_SC = E / R_int. Found by setting V = 0 in the Thévenin equation. This is the maximum current the battery can deliver (and is dangerous for real batteries).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "If P = VI is negative under the associated convention, what does it mean?",
+            "back": "The element is delivering power to the circuit (acting as a source), not absorbing it. Negative P means energy flows OUT of the element.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "How do you find the operating point of a battery connected to a load resistor?",
+            "back": "Plot both V-I lines on the same graph: battery line (V = E − IR_int) and load line (V = IR_L). The intersection is the operating point. This is the load-line method.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "Why is the V-I characteristic called a 'universal language' for circuit elements?",
+            "back": "Any two-terminal element — simple or complex, linear or nonlinear — is completely characterised by its V-I relationship. Analysis always reduces to finding where V-I curves intersect.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f12",
+            "front": "State all three forms of the power equation for a resistor.",
+            "back": "P = VI = I²R = V²/R. All three are always positive because a resistor always absorbs power (converts to heat). They are equivalent via Ohm's law substitution.",
+            "difficultyLevel": 2
+        }
+    ]
+}

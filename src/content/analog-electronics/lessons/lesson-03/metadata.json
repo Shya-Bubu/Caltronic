@@ -1,0 +1,19 @@
+{
+    "id": "lesson-03",
+    "title": "Modeling Electronic Elements and Circuits",
+    "slug": "lesson-03",
+    "description": "Model real electronic components — from ideal wires to nonlinear diodes, BJTs, and MOSFETs — using progressively more accurate V-I relationships.",
+    "prerequisites": [],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "two-terminal-linear-elements",
+        "nonlinear-elements-and-vi-characteristics",
+        "dependent-sources",
+        "diode-models",
+        "bjt-structure-and-models",
+        "mosfet-models-and-regions"
+    ],
+    "lectureWeek": 3,
+    "estimatedMinutes": 180
+}

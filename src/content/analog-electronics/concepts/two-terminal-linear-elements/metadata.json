@@ -1,0 +1,11 @@
+{
+    "id": "two-terminal-linear-elements",
+    "title": "Two-Terminal Linear Elements",
+    "slug": "two-terminal-linear-elements",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

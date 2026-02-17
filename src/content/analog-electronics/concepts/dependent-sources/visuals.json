@@ -1,0 +1,633 @@
+{
+    "visuals": [
+        {
+            "id": "two-port-concept",
+            "type": "plotly",
+            "title": "Two-Port Device — Control Port and Output Port",
+            "description": "A dependent source has four terminals. The control port senses a voltage or current. The output port produces a voltage or current proportional to the control signal.",
+            "traces": [
+                {
+                    "x": [
+                        0.5
+                    ],
+                    "y": [
+                        0.5
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 60,
+                        "color": "#1e293b",
+                        "symbol": "square",
+                        "line": {
+                            "color": "#a78bfa",
+                            "width": 3
+                        }
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        1.5
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.3,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0.5,
+                        "y": 0.5,
+                        "text": "Dependent<br>Source",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#a78bfa"
+                        }
+                    },
+                    {
+                        "x": -0.1,
+                        "y": 0.7,
+                        "text": "V₁ or I₁",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": -50,
+                        "ay": 0,
+                        "font": {
+                            "size": 14,
+                            "color": "#22d3ee"
+                        }
+                    },
+                    {
+                        "x": -0.1,
+                        "y": 0.3,
+                        "text": "(control)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#94a3b8"
+                        }
+                    },
+                    {
+                        "x": 1.1,
+                        "y": 0.7,
+                        "text": "V₂ or I₂",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 50,
+                        "ay": 0,
+                        "arrowside": "start",
+                        "font": {
+                            "size": 14,
+                            "color": "#f59e0b"
+                        }
+                    },
+                    {
+                        "x": 1.1,
+                        "y": 0.3,
+                        "text": "(output)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#94a3b8"
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": -0.05,
+                        "text": "Output = constant × input",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 250
+        },
+        {
+            "id": "four-types-comparison",
+            "type": "plotly",
+            "title": "Four Types of Dependent Sources",
+            "description": "VCCS (G_m), CCCS (β), VCVS (μ), CCVS (r) — organized by what they sense (rows) and what they produce (columns).",
+            "traces": [
+                {
+                    "x": [
+                        "VCCS",
+                        "CCCS",
+                        "VCVS",
+                        "CCVS"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#22d3ee",
+                            "#ef4444",
+                            "#22c55e",
+                            "#f59e0b"
+                        ]
+                    },
+                    "text": [
+                        "I₂ = G_m V₁<br>G_m (S)",
+                        "I₂ = β I₁<br>β (−)",
+                        "V₂ = μ V₁<br>μ (−)",
+                        "V₂ = r I₁<br>r (Ω)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 13,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "text",
+                    "hovertext": [
+                        "Voltage in → Current out<br>MOSFET model",
+                        "Current in → Current out<br>BJT model",
+                        "Voltage in → Voltage out<br>Op-amp model",
+                        "Current in → Voltage out<br>Transimpedance amp"
+                    ]
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Dependent Source Type"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.5
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": "VCCS",
+                        "y": 1.15,
+                        "text": "MOSFET",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#22d3ee"
+                        }
+                    },
+                    {
+                        "x": "CCCS",
+                        "y": 1.15,
+                        "text": "BJT",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": "VCVS",
+                        "y": 1.15,
+                        "text": "Op-Amp",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#22c55e"
+                        }
+                    },
+                    {
+                        "x": "CCVS",
+                        "y": 1.15,
+                        "text": "TIA",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "diamond-vs-circle",
+            "type": "plotly",
+            "title": "Independent (○) vs Dependent (◇) Source Symbols",
+            "description": "Circles represent independent sources with fixed values. Diamonds represent dependent sources whose values are controlled by another circuit variable.",
+            "traces": [
+                {
+                    "x": [
+                        0.3,
+                        0.7
+                    ],
+                    "y": [
+                        0.5,
+                        0.5
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": [
+                            50,
+                            50
+                        ],
+                        "color": [
+                            "#1e293b",
+                            "#1e293b"
+                        ],
+                        "symbol": [
+                            "circle",
+                            "diamond"
+                        ],
+                        "line": {
+                            "color": [
+                                "#3b82f6",
+                                "#f59e0b"
+                            ],
+                            "width": 3
+                        }
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0.3,
+                        "y": 0.5,
+                        "text": "E",
+                        "showarrow": false,
+                        "font": {
+                            "size": 18,
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 0.3,
+                        "y": 0.2,
+                        "text": "Independent<br>Fixed value",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 0.7,
+                        "y": 0.5,
+                        "text": "μV₁",
+                        "showarrow": false,
+                        "font": {
+                            "size": 16,
+                            "color": "#f59e0b"
+                        }
+                    },
+                    {
+                        "x": 0.7,
+                        "y": 0.2,
+                        "text": "Dependent<br>Controlled value",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 250
+        },
+        {
+            "id": "vccs-detail",
+            "type": "plotly",
+            "title": "VCCS — Voltage-Controlled Current Source",
+            "description": "The input voltage V₁ controls the output current I₂ = G_m V₁. Used to model MOSFETs in saturation.",
+            "traces": [
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -250,
+                        -200,
+                        -150,
+                        -100,
+                        -50,
+                        0,
+                        50,
+                        100,
+                        150,
+                        200,
+                        250
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "I₂ = G_m V₁ (G_m = 50mS)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Control Voltage V₁ (V)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Output Current I₂ (mA)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 3,
+                        "y": 200,
+                        "text": "slope = G_m = 50 mS",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 350
+        },
+        {
+            "id": "cccs-detail",
+            "type": "plotly",
+            "title": "CCCS — Current-Controlled Current Source",
+            "description": "The input current I₁ controls the output current I₂ = β I₁. Used to model BJTs in the active region.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80,
+                        90,
+                        100
+                    ],
+                    "y": [
+                        0,
+                        2.2,
+                        4.4,
+                        6.6,
+                        8.8,
+                        11,
+                        13.2,
+                        15.4,
+                        17.6,
+                        19.8,
+                        22
+                    ],
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 5
+                    },
+                    "name": "I_C = β I_B (β = 220)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Base Current I_B (μA)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Collector Current I_C (mA)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 60,
+                        "y": 16,
+                        "text": "slope = β = 220",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "transistor-dependent-source-connection",
+            "type": "plotly",
+            "title": "Transistors as Dependent Sources",
+            "description": "BJT = CCCS (base current controls collector current). MOSFET = VCCS (gate voltage controls drain current). Op-Amp = VCVS (differential voltage controls output).",
+            "traces": [
+                {
+                    "x": [
+                        "BJT",
+                        "MOSFET",
+                        "Op-Amp"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ef4444",
+                            "#22d3ee",
+                            "#22c55e"
+                        ]
+                    },
+                    "text": [
+                        "CCCS<br>I_C = β I_B<br>β ≈ 220",
+                        "VCCS<br>I_D = g_m V_GS<br>g_m ≈ 50mS",
+                        "VCVS<br>V_out = A Δv<br>A ≈ 10⁵"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 13,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "text",
+                    "hovertext": [
+                        "Current in → Current out<br>Current-controlled device",
+                        "Voltage in → Current out<br>Voltage-controlled device",
+                        "Voltage in → Voltage out<br>Very high gain amplifier"
+                    ]
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Device"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 350
+        },
+        {
+            "id": "falstad-dependent-source",
+            "type": "falstad-sim",
+            "title": "Interactive: VCCS in a Simple Circuit",
+            "description": "A voltage-controlled current source where the input voltage controls the output current. Adjust the input voltage and observe the output current change proportionally.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 0 40 5 0 0 0.5\nr 160 96 352 96 0 1000\nw 352 96 352 288 0\nw 160 288 352 288 0\ng 256 288 256 320 0 0\nx 220 80 0 24 0 14 VCCS demo\no 1 64 0 4099 10 0.05 0 1\n",
+            "height": 450
+        },
+        {
+            "id": "units-comparison-table",
+            "type": "plotly",
+            "title": "Proportionality Constants — Units Summary",
+            "description": "G_m and r have units (S and Ω) because they convert between different quantities. β and μ are dimensionless because input and output are the same type.",
+            "traces": [
+                {
+                    "x": [
+                        "G_m (VCCS)",
+                        "β (CCCS)",
+                        "μ (VCVS)",
+                        "r (CCVS)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#22d3ee",
+                            "#ef4444",
+                            "#22c55e",
+                            "#f59e0b"
+                        ]
+                    },
+                    "text": [
+                        "Siemens (S)<br>= A/V",
+                        "Dimensionless<br>(A/A)",
+                        "Dimensionless<br>(V/V)",
+                        "Ohms (Ω)<br>= V/A"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 14,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Constant"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": "G_m (VCCS)",
+                        "y": 1.15,
+                        "text": "Has units ↑",
+                        "showarrow": false,
+                        "font": {
+                            "size": 10,
+                            "color": "#22d3ee"
+                        }
+                    },
+                    {
+                        "x": "β (CCCS)",
+                        "y": 1.15,
+                        "text": "Pure number",
+                        "showarrow": false,
+                        "font": {
+                            "size": 10,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": "μ (VCVS)",
+                        "y": 1.15,
+                        "text": "Pure number",
+                        "showarrow": false,
+                        "font": {
+                            "size": 10,
+                            "color": "#22c55e"
+                        }
+                    },
+                    {
+                        "x": "r (CCVS)",
+                        "y": 1.15,
+                        "text": "Has units ↑",
+                        "showarrow": false,
+                        "font": {
+                            "size": 10,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "height": 320
+        }
+    ]
+}

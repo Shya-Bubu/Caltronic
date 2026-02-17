@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-diode-models",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the ideal switch diode model equations.",
+            "back": "Forward (V_D > 0): V_D = 0, diode = short circuit. Reverse (V_D < 0): I_D = 0, diode = open circuit. Simplest model, ignores 0.7V drop.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "State the CVD (constant voltage drop) diode model.",
+            "back": "Forward (V_D ≥ V_γ): V_D = V_γ ≈ 0.7V. Reverse: I_D = 0. Captures the threshold voltage but assumes zero forward resistance. Most commonly used model.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "State the PWL diode model with forward resistance.",
+            "back": "Forward (V_D ≥ V_γ): V_D = V_γ + I_D × R_f. Reverse: I_D = 0. Most accurate PWL model. Accounts for voltage increase with current. R_f typically 5-50Ω.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Why can't the Ebers-Moll equation be solved algebraically in most circuits?",
+            "back": "KVL creates a transcendental equation where V_D appears inside an exponential AND as a linear term. No closed-form solution exists — need numerical iteration or graphical methods.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "How do you choose which diode model to use?",
+            "back": "Signal ≫ 0.7V → ideal switch. 0.7V matters → CVD. Forward resistance matters → PWL. Need exact → Ebers-Moll + SPICE. CVD handles ~80% of hand calculations.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "In a half-wave rectifier with CVD model, what is the peak output?",
+            "back": "V_out(peak) = V_S(peak) − V_γ. For V_S = 10V peak, V_out = 10 − 0.7 = 9.3V. The diode only conducts when V_S > V_γ.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What is the difference between V_T and V_γ?",
+            "back": "V_T ≈ 25mV is the thermal voltage (kT/q) — the scaling factor in the Ebers-Moll exponent. V_γ ≈ 0.7V is the threshold/forward drop voltage used in PWL models. They are completely different quantities.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What does the PWL model look like as a circuit?",
+            "back": "An ideal voltage source V_γ in series with a resistor R_f (when forward-biased). This is a Thévenin equivalent. When reverse-biased, it's an open circuit.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is V_γ for silicon vs germanium diodes?",
+            "back": "Silicon: V_γ ≈ 0.6-0.7V. Germanium: V_γ ≈ 0.2-0.3V. The difference comes from the bandgap energy of the semiconductor material.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Why are all three diode models called 'piecewise-linear'?",
+            "back": "Each model's V-I characteristic consists of straight line segments (pieces). The exact diode curve is exponential (smooth), but the PWL models approximate it with joined line segments — making algebra possible.",
+            "difficultyLevel": 3
+        }
+    ]
+}

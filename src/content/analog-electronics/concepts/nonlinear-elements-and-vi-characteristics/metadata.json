@@ -1,0 +1,11 @@
+{
+    "id": "nonlinear-elements-and-vi-characteristics",
+    "title": "Nonlinear Elements & V-I Characteristics",
+    "slug": "nonlinear-elements-and-vi-characteristics",
+    "estimatedMinutes": 12,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

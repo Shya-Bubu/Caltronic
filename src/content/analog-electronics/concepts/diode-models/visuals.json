@@ -1,0 +1,832 @@
+{
+    "visuals": [
+        {
+            "id": "ideal-switch-model",
+            "type": "plotly",
+            "title": "Model 1: Ideal Switch Diode",
+            "description": "The simplest model. Forward bias: V_D = 0 (short circuit). Reverse bias: I_D = 0 (open circuit). No threshold voltage.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        10
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "Forward (V=0, any I)"
+                },
+                {
+                    "x": [
+                        -5,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "Reverse (I=0, any V<0)",
+                    "showlegend": false
+                },
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#f59e0b"
+                    },
+                    "name": "Origin",
+                    "showlegend": false
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -5,
+                        2
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_D (mA)",
+                    "range": [
+                        -2,
+                        12
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": -2.5,
+                        "y": 1.5,
+                        "text": "OFF (open)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 0.8,
+                        "y": 6,
+                        "text": "ON (short)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#22c55e"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "cvd-model",
+            "type": "plotly",
+            "title": "Model 2: Constant Voltage Drop (V_γ = 0.7V)",
+            "description": "Forward bias: V_D = V_γ = 0.7V (fixed drop). Reverse: I_D = 0. Vertical line at 0.7V replaces the origin.",
+            "traces": [
+                {
+                    "x": [
+                        0.7,
+                        0.7
+                    ],
+                    "y": [
+                        0,
+                        10
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    },
+                    "name": "Forward (V = 0.7V, any I)"
+                },
+                {
+                    "x": [
+                        -5,
+                        0.7
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    },
+                    "name": "Reverse (I = 0)",
+                    "showlegend": false
+                },
+                {
+                    "x": [
+                        0.7
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#ef4444"
+                    },
+                    "name": "V_γ = 0.7V"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -5,
+                        2
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_D (mA)",
+                    "range": [
+                        -2,
+                        12
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": -2,
+                        "y": 1.5,
+                        "text": "OFF",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 1.3,
+                        "y": 6,
+                        "text": "ON at V_γ",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#22c55e"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "pwl-model",
+            "type": "plotly",
+            "title": "Model 3: PWL with Forward Resistance (V_γ + I·R_f)",
+            "description": "Forward: V_D = V_γ + I_D × R_f (line with slope 1/R_f starting at V_γ). Reverse: I_D = 0. Most accurate PWL model.",
+            "traces": [
+                {
+                    "x": [
+                        0.7,
+                        0.75,
+                        0.8,
+                        0.9,
+                        1.0,
+                        1.2,
+                        1.5
+                    ],
+                    "y": [
+                        0,
+                        2.5,
+                        5,
+                        10,
+                        15,
+                        25,
+                        40
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 3
+                    },
+                    "name": "Forward (slope = 1/R_f = 1/20Ω)"
+                },
+                {
+                    "x": [
+                        -5,
+                        0.7
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 3
+                    },
+                    "name": "Reverse (I = 0)",
+                    "showlegend": false
+                },
+                {
+                    "x": [
+                        0.7
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#ef4444"
+                    },
+                    "name": "V_γ = 0.7V"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -3,
+                        1.8
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_D (mA)",
+                    "range": [
+                        -5,
+                        45
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1.3,
+                        "y": 30,
+                        "text": "slope = 1/R_f",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 40,
+                        "ay": -20,
+                        "font": {
+                            "size": 12,
+                            "color": "#a78bfa"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "three-models-overlay",
+            "type": "plotly",
+            "title": "All Three Models vs Ebers-Moll Curve",
+            "description": "The three PWL approximations overlaid on the exact exponential curve. Each successive model is more accurate but more complex.",
+            "traces": [
+                {
+                    "x": [
+                        -1,
+                        -0.5,
+                        0,
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.5,
+                        0.55,
+                        0.6,
+                        0.65,
+                        0.7,
+                        0.75,
+                        0.8
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.001,
+                        0.01,
+                        0.07,
+                        0.18,
+                        0.45,
+                        1.2,
+                        3.5,
+                        8,
+                        16
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#94a3b8",
+                        "width": 2,
+                        "dash": "dot"
+                    },
+                    "name": "Ebers-Moll (exact)"
+                },
+                {
+                    "x": [
+                        -1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        15
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 2.5
+                    },
+                    "name": "Model 1: Ideal switch"
+                },
+                {
+                    "x": [
+                        -1,
+                        0.7,
+                        0.7,
+                        0.7
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        15
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2.5
+                    },
+                    "name": "Model 2: CVD (0.7V)"
+                },
+                {
+                    "x": [
+                        -1,
+                        0.7,
+                        0.8,
+                        1.0
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        5,
+                        15
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 2.5
+                    },
+                    "name": "Model 3: PWL + R_f"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -1.5,
+                        1.2
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_D (mA)",
+                    "range": [
+                        -2,
+                        18
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true
+            },
+            "height": 420
+        },
+        {
+            "id": "halfwave-rectifier-output",
+            "type": "plotly",
+            "title": "Half-Wave Rectifier — Output Waveforms by Model",
+            "description": "Input sine wave (10V peak) and output waveforms using all three diode models. The CVD model clips the bottom of the waveform by V_γ.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        6.28
+                    ],
+                    "y": [
+                        0,
+                        5,
+                        8.66,
+                        10,
+                        8.66,
+                        5,
+                        0,
+                        -5,
+                        -8.66,
+                        -10,
+                        -8.66,
+                        -5,
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#64748b",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "name": "Input (V_S)"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        6.28
+                    ],
+                    "y": [
+                        0,
+                        5,
+                        8.66,
+                        10,
+                        8.66,
+                        5,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 2.5
+                    },
+                    "name": "Ideal switch (peak 10V)"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        6.28
+                    ],
+                    "y": [
+                        0,
+                        4.3,
+                        7.96,
+                        9.3,
+                        7.96,
+                        4.3,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2.5
+                    },
+                    "name": "CVD (peak 9.3V)"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        6.28
+                    ],
+                    "y": [
+                        0,
+                        4.22,
+                        7.8,
+                        9.11,
+                        7.8,
+                        4.22,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 2.5
+                    },
+                    "name": "PWL (peak 9.11V)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (radians)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true
+            },
+            "height": 420
+        },
+        {
+            "id": "falstad-halfwave-rectifier",
+            "type": "falstad-sim",
+            "title": "Interactive: Half-Wave Rectifier",
+            "description": "A sine wave source, diode, and load resistor. Watch the output clip the negative half-cycle. Probe the diode voltage to see the ~0.7V forward drop.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 288 160 96 0 1 60 10 0 0 0.5\nd 160 96 304 96 2 default\nr 304 96 304 288 0 1000\nw 304 288 160 288 0\ng 224 288 224 320 0 0\nx 200 80 0 24 0 12 Diode\nx 320 192 0 24 0 12 R_L=1kΩ\no 2 64 0 4099 10 0.05 0 1\n",
+            "height": 450
+        },
+        {
+            "id": "model-selection-guide",
+            "type": "plotly",
+            "title": "Decision Guide: Which Diode Model to Use",
+            "description": "Choose based on required accuracy vs analysis effort. The CVD model handles ~80% of hand calculations.",
+            "traces": [
+                {
+                    "x": [
+                        "Ideal Switch",
+                        "CVD (V_γ)",
+                        "PWL (V_γ+R_f)",
+                        "Ebers-Moll"
+                    ],
+                    "y": [
+                        1,
+                        3,
+                        7,
+                        10
+                    ],
+                    "type": "bar",
+                    "name": "Analysis Complexity",
+                    "marker": {
+                        "color": "#ef4444"
+                    }
+                },
+                {
+                    "x": [
+                        "Ideal Switch",
+                        "CVD (V_γ)",
+                        "PWL (V_γ+R_f)",
+                        "Ebers-Moll"
+                    ],
+                    "y": [
+                        3,
+                        7,
+                        9,
+                        10
+                    ],
+                    "type": "bar",
+                    "name": "Accuracy",
+                    "marker": {
+                        "color": "#22c55e"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Model"
+                },
+                "yaxis": {
+                    "title": "Score (1-10)",
+                    "range": [
+                        0,
+                        12
+                    ]
+                },
+                "barmode": "group",
+                "showlegend": true
+            },
+            "height": 380
+        },
+        {
+            "id": "pwl-thevenin-equivalent",
+            "type": "plotly",
+            "title": "PWL Model as Thévenin Equivalent Circuit",
+            "description": "When ON: the diode looks like a voltage source V_γ in series with resistor R_f. When OFF: open circuit. This makes circuit analysis algebraic.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.3,
+                        0.5,
+                        0.7,
+                        0.9,
+                        1.1
+                    ],
+                    "y": [
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#64748b",
+                        "width": 4
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                },
+                {
+                    "x": [
+                        0.35
+                    ],
+                    "y": [
+                        0.5
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 35,
+                        "color": "#1e293b",
+                        "line": {
+                            "color": "#f59e0b",
+                            "width": 3
+                        }
+                    },
+                    "name": "V_γ (source)",
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                },
+                {
+                    "x": [
+                        0.75
+                    ],
+                    "y": [
+                        0.5
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 35,
+                        "color": "#1e293b",
+                        "symbol": "square",
+                        "line": {
+                            "color": "#a78bfa",
+                            "width": 3
+                        }
+                    },
+                    "name": "R_f",
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.2,
+                        1.3
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.1,
+                        1.1
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0.35,
+                        "y": 0.5,
+                        "text": "V_γ",
+                        "showarrow": false,
+                        "font": {
+                            "size": 16,
+                            "color": "#f59e0b"
+                        }
+                    },
+                    {
+                        "x": 0.75,
+                        "y": 0.5,
+                        "text": "R_f",
+                        "showarrow": false,
+                        "font": {
+                            "size": 16,
+                            "color": "#a78bfa"
+                        }
+                    },
+                    {
+                        "x": 0.55,
+                        "y": 0.8,
+                        "text": "PWL Diode (ON state)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#94a3b8"
+                        }
+                    },
+                    {
+                        "x": 0.1,
+                        "y": 0.38,
+                        "text": "Anode →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#22d3ee"
+                        }
+                    },
+                    {
+                        "x": 1.0,
+                        "y": 0.38,
+                        "text": "→ Cathode",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#22d3ee"
+                        }
+                    }
+                ]
+            },
+            "height": 220
+        }
+    ]
+}

@@ -70,12 +70,17 @@ export const modules: Module[] = [
     description: "Analog device behavior, amplifiers, and practical circuit intuition.",
     category: "Core Theory",
     accent: "#f0a03a",
-    updatedToWeek: 2,
+    updatedToWeek: 6,
     lectures: [
       {
         id: "lab-02",
         title: "Two Stage Direct Coupled Amplifier Design",
         path: "/analog-electronics/lab-02",
+      },
+      {
+        id: "lesson-03",
+        title: "Modeling Electronic Elements and Circuits",
+        path: "/analog-electronics/lesson-03",
       },
     ],
   },

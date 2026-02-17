@@ -1,0 +1,11 @@
+{
+    "id": "bjt-structure-and-models",
+    "title": "BJT Structure, External Energy Model & Modes",
+    "slug": "bjt-structure-and-models",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

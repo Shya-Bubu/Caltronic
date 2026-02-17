@@ -1,0 +1,125 @@
+{
+    "id": "quiz-mosfet-models",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The MOSFET is controlled by:",
+            "options": [
+                "Base current",
+                "Gate-source voltage",
+                "Collector current",
+                "Drain voltage"
+            ],
+            "correctAnswer": "Gate-source voltage",
+            "explanation": "The MOSFET is a voltage-controlled device. The gate-source voltage V_GS determines whether the channel forms and how much drain current flows. Unlike the BJT, the gate draws essentially zero DC current because it's insulated by the gate oxide."
+        },
+        {
+            "id": "q2",
+            "prompt": "In MOSFET saturation, I_DS is given by:",
+            "options": [
+                "K(V_GS − V_T)",
+                "(K/2)(V_GS − V_T)²",
+                "V_DS / R_on",
+                "β I_B"
+            ],
+            "correctAnswer": "(K/2)(V_GS − V_T)²",
+            "explanation": "The saturation region equation is I_DS = (K/2)(V_GS − V_T)². Note the (K/2) factor and the squared term. The current depends only on V_GS (not V_DS) — the MOSFET acts as a voltage-controlled current source."
+        },
+        {
+            "id": "q3",
+            "prompt": "The MOSFET is in the triode region when:",
+            "options": [
+                "V_GS < V_T",
+                "V_DS ≥ V_GS − V_T",
+                "V_DS < V_GS − V_T (and V_GS > V_T)",
+                "V_DS = 0"
+            ],
+            "correctAnswer": "V_DS < V_GS − V_T (and V_GS > V_T)",
+            "explanation": "Triode (linear) region: the MOSFET is ON (V_GS > V_T) and V_DS is small enough that the channel hasn't pinched off. The condition is V_DS < V_GS − V_T = V_OV. In this region, the MOSFET behaves like a voltage-controlled resistor."
+        },
+        {
+            "id": "q4",
+            "prompt": "'Saturation' in a MOSFET corresponds to which BJT mode?",
+            "options": [
+                "BJT saturation",
+                "BJT active mode",
+                "BJT cutoff",
+                "None — they use different definitions"
+            ],
+            "correctAnswer": "BJT active mode",
+            "explanation": "MOSFET saturation = amplification mode (I_DS constant, current source behaviour). This is equivalent to BJT ACTIVE mode. Confusingly, 'BJT saturation' means both junctions forward biased (switch ON) — the opposite role. This naming inconsistency is a common source of confusion."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the overdrive voltage V_OV?",
+            "options": [
+                "V_DS − V_T",
+                "V_GS − V_T",
+                "V_DD − V_DS",
+                "V_GS × V_T"
+            ],
+            "correctAnswer": "V_GS − V_T",
+            "explanation": "V_OV = V_GS − V_T is the overdrive voltage — the amount by which V_GS exceeds the threshold. It determines both the drain current in saturation (I_DS = K/2 × V_OV²) and the boundary between triode and saturation (V_DS = V_OV)."
+        },
+        {
+            "id": "q6",
+            "prompt": "If K = 2 mA/V², V_T = 1V, and V_GS = 3V, what is I_DS in saturation?",
+            "options": [
+                "4 mA",
+                "2 mA",
+                "8 mA",
+                "1 mA"
+            ],
+            "correctAnswer": "4 mA",
+            "explanation": "I_DS = (K/2)(V_GS − V_T)² = (2/2)(3 − 1)² = 1 × 4 = 4 mA. V_OV = 3 − 1 = 2V, so saturation requires V_DS ≥ 2V. If V_DS < 2V, the MOSFET would be in triode and this formula doesn't apply."
+        },
+        {
+            "id": "q7",
+            "prompt": "The transconductance g_m of a MOSFET in saturation is:",
+            "options": [
+                "K/2",
+                "K(V_GS − V_T)",
+                "K²V_T",
+                "1/R_on"
+            ],
+            "correctAnswer": "K(V_GS − V_T)",
+            "explanation": "g_m = dI_DS/dV_GS = K(V_GS − V_T) = KV_OV. This is the small-signal parameter that connects to the VCCS model: i_d = g_m × v_gs. Larger K or larger overdrive voltage means higher transconductance and higher gain."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the switch model of a MOSFET, the ON state is modeled as:",
+            "options": [
+                "A constant current",
+                "A short circuit (R = 0)",
+                "A 0.7V source",
+                "A 0.2V source"
+            ],
+            "correctAnswer": "A short circuit (R = 0)",
+            "explanation": "The simplest MOSFET model treats it as a perfect switch: OFF = open circuit, ON = short circuit. This ignores the channel resistance and the distinction between triode and saturation. It's useful only for crude digital logic estimates."
+        },
+        {
+            "id": "q9",
+            "prompt": "The voltage gain of a common-source MOSFET amplifier is:",
+            "options": [
+                "g_m × R_D",
+                "−g_m × R_D",
+                "β × R_D",
+                "R_D / g_m"
+            ],
+            "correctAnswer": "−g_m × R_D",
+            "explanation": "A_v = −g_m R_D. The negative sign indicates signal inversion (increasing V_GS → increasing I_DS → increasing voltage drop across R_D → decreasing V_out). g_m converts input voltage to current, R_D converts current to output voltage."
+        },
+        {
+            "id": "q10",
+            "prompt": "The 'saturation discipline' means:",
+            "options": [
+                "Always operate the MOSFET in triode",
+                "Keep V_DS ≥ V_GS − V_T for the entire signal swing",
+                "Set V_DS = 0",
+                "Operate at V_GS = V_T"
+            ],
+            "correctAnswer": "Keep V_DS ≥ V_GS − V_T for the entire signal swing",
+            "explanation": "For linear amplification, the MOSFET must stay in saturation at all times: V_DS ≥ V_OV for every value of the input signal. If the output swings too far, V_DS drops below V_OV and the MOSFET enters triode — the amplification relationship breaks and the output clips."
+        }
+    ]
+}

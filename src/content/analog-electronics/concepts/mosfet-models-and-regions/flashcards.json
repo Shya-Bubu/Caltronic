@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-mosfet-models",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the MOSFET saturation equation?",
+            "back": "I_DS = (K/2)(V_GS − V_T)². K = transconductance parameter, V_T = threshold voltage, V_GS − V_T = V_OV (overdrive voltage). Valid when V_DS ≥ V_OV.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "What are the three MOSFET regions of operation?",
+            "back": "1. Cutoff (V_GS < V_T): OFF, I_DS = 0. 2. Triode (V_GS > V_T, V_DS < V_OV): resistor-like. 3. Saturation (V_GS > V_T, V_DS ≥ V_OV): current source (amplifier).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is the MOSFET transconductance g_m?",
+            "back": "g_m = K(V_GS − V_T) = KV_OV = dI_DS/dV_GS. It's the VCCS proportionality constant. Small-signal model: i_d = g_m × v_gs. Voltage gain: A_v = −g_m R_D.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "How does MOSFET 'saturation' differ from BJT 'saturation'?",
+            "back": "MOSFET saturation = amplifier mode (constant I_DS, current source). BJT saturation = switch ON mode (both junctions forward, V_CE = 0.2V). They mean OPPOSITE things despite the same name!",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "What is the overdrive voltage V_OV?",
+            "back": "V_OV = V_GS − V_T. It's the gate voltage above threshold. Determines: I_DS = (K/2)V_OV², g_m = KV_OV, and the triode/saturation boundary at V_DS = V_OV.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is R_on for a MOSFET in the triode region?",
+            "back": "R_on = 1/[K(V_GS − V_T)] = 1/(KV_OV). The MOSFET acts like a voltage-controlled resistor in triode. Higher V_GS → lower R_on → more current for the same V_DS.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Why does the MOSFET gate draw zero DC current?",
+            "back": "The gate is insulated from the channel by a thin oxide (SiO₂) layer. No DC path exists between gate and channel. This gives the MOSFET essentially infinite input impedance at DC. Tiny AC current flows through gate capacitance at high frequencies.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the saturation discipline?",
+            "back": "For proper amplification, ensure V_DS ≥ V_GS − V_T at ALL times during signal swing. If V_DS drops below V_OV, MOSFET enters triode and gain/linearity are lost (clipping distortion).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What three MOSFET models exist (progressively more accurate)?",
+            "back": "1. Switch model (ON = short, OFF = open). 2. Switch-resistor (triode: R_on). 3. Switch-current-source (saturation: VCCS). Each adds detail at the cost of complexity.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "What is the voltage gain of a CS MOSFET amplifier?",
+            "back": "A_v = −g_m R_D = −K(V_GS − V_T)R_D. Negative sign = signal inversion. Increase g_m (more overdrive) or R_D for higher gain, but constrained by saturation discipline.",
+            "difficultyLevel": 4
+        }
+    ]
+}

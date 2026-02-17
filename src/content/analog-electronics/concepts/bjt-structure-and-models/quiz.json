@@ -1,0 +1,125 @@
+{
+    "id": "quiz-bjt-structure-and-models",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Why can't two discrete diodes connected back-to-back replicate BJT behaviour?",
+            "options": [
+                "The diodes are too large",
+                "There is no thin base region to enable transistor action",
+                "Diodes only work with AC",
+                "The doping levels are wrong"
+            ],
+            "correctAnswer": "There is no thin base region to enable transistor action",
+            "explanation": "In a real BJT, the base region is extremely thin (<1μm), allowing most electrons from the emitter to diffuse across and be collected. Two discrete diodes have thick, separate regions with no mechanism for carriers to transit from one junction to the other."
+        },
+        {
+            "id": "q2",
+            "prompt": "The BJT in active mode behaves as a:",
+            "options": [
+                "VCVS (voltage-controlled voltage source)",
+                "VCCS (voltage-controlled current source)",
+                "CCCS (current-controlled current source)",
+                "Resistor"
+            ],
+            "correctAnswer": "CCCS (current-controlled current source)",
+            "explanation": "In active mode, I_C = β I_B — the collector current is controlled by the base current. This is the definition of a Current-Controlled Current Source (CCCS). The base current is the input, the collector current is the proportional output."
+        },
+        {
+            "id": "q3",
+            "prompt": "In saturation mode, V_CE,sat is approximately:",
+            "options": [
+                "0V",
+                "0.2V",
+                "0.7V",
+                "5V"
+            ],
+            "correctAnswer": "0.2V",
+            "explanation": "In saturation, both junctions are forward-biased. V_CE = V_BE − V_BC ≈ 0.7 − 0.5 = 0.2V. This small residual voltage is why a saturated BJT acts like a closed switch with a tiny voltage drop."
+        },
+        {
+            "id": "q4",
+            "prompt": "In active mode, the base-collector junction is:",
+            "options": [
+                "Forward biased",
+                "Reverse biased",
+                "Short circuited",
+                "Floating"
+            ],
+            "correctAnswer": "Reverse biased",
+            "explanation": "Active mode requires B-E forward biased and B-C reverse biased. The reverse-biased B-C junction acts as an open circuit in the model. The collector current β I_B flows due to transistor action (electrons swept from base to collector), not through the junction as a normal diode current."
+        },
+        {
+            "id": "q5",
+            "prompt": "If β = 200 and I_B = 50μA, what is I_C in active mode?",
+            "options": [
+                "10mA",
+                "4μA",
+                "250μA",
+                "100mA"
+            ],
+            "correctAnswer": "10mA",
+            "explanation": "I_C = β × I_B = 200 × 50μA = 200 × 50 × 10⁻⁶ = 10 × 10⁻³ = 10mA. The current gain β amplifies the tiny base current into a much larger collector current — this is the fundamental amplification mechanism."
+        },
+        {
+            "id": "q6",
+            "prompt": "If β = 150 and I_C = 15mA, what is the emitter current I_E?",
+            "options": [
+                "15mA",
+                "15.1mA",
+                "0.1mA",
+                "2250mA"
+            ],
+            "correctAnswer": "15.1mA",
+            "explanation": "I_B = I_C/β = 15/150 = 0.1mA. By KCL: I_E = I_C + I_B = 15 + 0.1 = 15.1mA. The emitter current is slightly larger than the collector current because it includes the small base current."
+        },
+        {
+            "id": "q7",
+            "prompt": "A BJT is in saturation when:",
+            "options": [
+                "Both junctions reverse biased",
+                "B-E forward, B-C reverse",
+                "Both junctions forward biased",
+                "B-E reverse, B-C forward"
+            ],
+            "correctAnswer": "Both junctions forward biased",
+            "explanation": "Saturation occurs when both the B-E and B-C junctions are forward biased. In this state, I_C < β I_B — there is 'excess' base current. V_CE drops to ~0.2V. The transistor acts as a closed switch, not an amplifier."
+        },
+        {
+            "id": "q8",
+            "prompt": "To verify that a BJT is in active mode after solving, you should check that:",
+            "options": [
+                "V_CE = 0V",
+                "V_CE > V_CE,sat (> 0.2V) and I_C = β I_B",
+                "I_C = 0",
+                "V_BE = 0V"
+            ],
+            "correctAnswer": "V_CE > V_CE,sat (> 0.2V) and I_C = β I_B",
+            "explanation": "Active mode requires: V_CE > V_CE,sat (ensuring B-C is reverse biased) AND I_C = β I_B (the amplification relationship holds). If your calculated V_CE ≤ 0.2V, the transistor is actually in saturation, and you must redo the analysis."
+        },
+        {
+            "id": "q9",
+            "prompt": "What causes the collector current to flow in an NPN BJT in active mode?",
+            "options": [
+                "Forward bias of B-C junction",
+                "Electrons from emitter diffusing through the thin base and being collected",
+                "Holes flowing from collector to base",
+                "An external current source"
+            ],
+            "correctAnswer": "Electrons from emitter diffusing through the thin base and being collected",
+            "explanation": "The heavily-doped emitter injects electrons into the thin base. Because the base is so narrow, most electrons (>99%) don't recombine — they diffuse across and are swept into the collector by the B-C junction's electric field. This 'transistor action' is what creates I_C = β I_B."
+        },
+        {
+            "id": "q10",
+            "prompt": "In the BJT circuit model for cutoff mode, all three terminals look like:",
+            "options": [
+                "Short circuits",
+                "Open circuits",
+                "Voltage sources",
+                "Current sources"
+            ],
+            "correctAnswer": "Open circuits",
+            "explanation": "In cutoff, both junctions are reverse biased, so I_C = I_B = I_E = 0. All terminals are effectively open circuits — no current flows anywhere. The BJT behaves as if it's not there (or as an insulator)."
+        }
+    ]
+}

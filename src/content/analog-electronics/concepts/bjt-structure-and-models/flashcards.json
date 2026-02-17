@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-bjt-structure-and-models",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the fundamental equation of the BJT in active mode?",
+            "back": "I_C = β I_B. The collector current is β times the base current. β (or h_FE) is the DC current gain, typically 100-300. This makes the BJT a current-controlled current source (CCCS).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What are the three modes of BJT operation?",
+            "back": "1. Cutoff: both junctions reverse — OFF. 2. Active linear: B-E forward, B-C reverse — amplifier. 3. Saturation: both forward — switch ON. Active mode is for amplification, saturation for switching.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Why doesn't the back-to-back diode model work for a BJT?",
+            "back": "Real BJT has an extremely thin base (<1μm) that allows electrons from emitter to transit to collector (transistor action). Discrete diodes have thick, independent regions with no cross-transit mechanism.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "State the KCL relationship for BJT terminal currents.",
+            "back": "I_E = I_C + I_B = (β + 1) I_B. The emitter current equals the sum of collector and base currents. Since β ≫ 1, I_E ≈ I_C.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is V_CE,sat for a typical silicon BJT?",
+            "back": "V_CE,sat ≈ 0.2V. In saturation, both junctions are forward biased: V_CE = V_BE − V_BC ≈ 0.7 − 0.5 = 0.2V. The transistor acts like a closed switch with a small residual voltage drop.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "How do you verify a BJT is in active mode?",
+            "back": "After solving, check: (1) V_CE > V_CE,sat (>0.2V), (2) I_C = β I_B, and (3) V_BE ≈ 0.7V. If V_CE ≤ 0.2V, the BJT is actually in saturation — redo analysis with saturation model.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is the equivalent circuit for BJT active mode?",
+            "back": "B-E: 0.7V source (forward diode). B-C: open circuit (reverse biased). C-E: current source I_C = β I_B. The B-C junction is NOT a short circuit.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the equivalent circuit for BJT saturation mode?",
+            "back": "B-E: 0.7V source. C-E: 0.2V source. I_C is limited by external circuit: I_C = (V_CC − V_CE,sat)/R_C. The relationship I_C = β I_B does NOT hold (I_C < β I_B).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What are the three fates of electrons injected into the BJT base?",
+            "back": "1. Most (~99%) cross the thin base and are collected → I_C. 2. Some recombine with holes → I_B. 3. Very few are lost. The ratio I_C/I_B = β reflects how efficiently electrons transit.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Why is saturation bad for amplifiers but good for switches?",
+            "back": "In saturation, I_C ≠ β I_B (no amplification). But V_CE drops to 0.2V (nearly zero), making it an excellent ON-state switch. Digital circuits use cutoff (OFF) and saturation (ON).",
+            "difficultyLevel": 3
+        }
+    ]
+}

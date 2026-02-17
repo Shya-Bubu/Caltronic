@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-nonlinear-elements",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the Ebers-Moll equation for a diode?",
+            "back": "I_D = I_S(e^(V_D/V_T) − 1). I_S ≈ 10⁻¹⁴ A (saturation current), V_T ≈ 25 mV (thermal voltage at 300K). Exponential in forward bias, flat at −I_S in reverse.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "What is the thermal voltage V_T?",
+            "back": "V_T = kT/q ≈ 25-26 mV at room temperature. k = Boltzmann's constant, T = absolute temperature, q = electron charge. Appears in the exponent of the diode equation.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is dynamic resistance r_d of a diode?",
+            "back": "r_d = V_T / I_D (approximate). It is the small-signal resistance — the slope of the V-I curve at a specific operating point. At I_D = 1mA, r_d ≈ 25Ω. At 10mA, r_d ≈ 2.5Ω.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "Why does a silicon diode appear to 'turn on' at 0.6-0.7V?",
+            "back": "The exponential e^(V/25mV) produces negligible current below ~0.5V and milliamp-level current around 0.6-0.7V. The transition looks sudden because the exponential grows so rapidly.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "What is the black-box approach?",
+            "back": "Any two-terminal element is fully characterised by its V-I relationship at the terminals, regardless of internal construction. You don't need to know the physics inside — just the V-I curve.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f6",
+            "front": "What defines a nonlinear element?",
+            "back": "An element whose V-I relationship is NOT of the form V = kI (constant k). Equivalently, its resistance changes with operating point. Examples: diode (exponential), MOSFET (quadratic).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What are the three methods for solving circuits with nonlinear elements?",
+            "back": "1. Graphical (load-line): plot V-I curves, find intersection. 2. Piecewise-linear (PWL): approximate curve with line segments. 3. Numerical (Newton-Raphson): computer iteration (SPICE).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the load-line method?",
+            "back": "Plot the nonlinear element's V-I curve and the circuit's linear constraint (load line: I = (V_supply − V)/R_load) on the same axes. Their intersection is the operating point Q.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is the reverse saturation current I_S?",
+            "back": "I_S ≈ 10⁻¹⁴ A for silicon at room temperature. It is the tiny reverse current that flows when the diode is reverse-biased. It doubles approximately every 10°C.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Can a nonlinear circuit have multiple operating points?",
+            "back": "Yes! If the V-I curve intersects the load line at multiple points, there are multiple valid operating points. This is how bistable circuits (flip-flops, latches) work — two stable states.",
+            "difficultyLevel": 4
+        }
+    ]
+}

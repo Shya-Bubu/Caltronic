@@ -1,0 +1,847 @@
+{
+    "visuals": [
+        {
+            "id": "bjt-vs-mosfet-comparison",
+            "type": "plotly",
+            "title": "BJT vs MOSFET — Control Mechanism",
+            "description": "BJT is controlled by base current (CCCS). MOSFET is controlled by gate voltage (VCCS). The MOSFET gate draws zero DC current.",
+            "traces": [
+                {
+                    "x": [
+                        "BJT",
+                        "MOSFET"
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ef4444",
+                            "#22d3ee"
+                        ]
+                    },
+                    "text": [
+                        "Current-Controlled<br>I_C = β I_B<br>Gate draws I_B",
+                        "Voltage-Controlled<br>I_DS = (K/2)(V_GS−V_T)²<br>Gate draws ≈ 0A"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 14,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Device"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 300
+        },
+        {
+            "id": "switch-model",
+            "type": "plotly",
+            "title": "Model 1: Simple Switch (ON/OFF)",
+            "description": "V_GS < V_T → OFF (open circuit). V_GS ≥ V_T → ON (short circuit). Crudest MOSFET model, useful for digital logic estimates.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        1,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        5,
+                        5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "Switch response"
+                },
+                {
+                    "x": [
+                        1
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#f59e0b"
+                    },
+                    "name": "V_T (threshold)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_GS (V)",
+                    "range": [
+                        -0.5,
+                        3.5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "Drain Current (arbitrary)",
+                    "range": [
+                        -1,
+                        7
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0.5,
+                        "y": 2,
+                        "text": "OFF<br>(open)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 2,
+                        "y": 6,
+                        "text": "ON<br>(short)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#22c55e"
+                        }
+                    }
+                ]
+            },
+            "height": 330
+        },
+        {
+            "id": "switch-resistor-model",
+            "type": "plotly",
+            "title": "Model 2: Switch-Resistor (Triode Region)",
+            "description": "For small V_DS, the MOSFET acts like a voltage-controlled resistor: R_on = 1/[K(V_GS − V_T)]. Higher V_GS → lower R_on.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2
+                    ],
+                    "y": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8
+                    ],
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2.5
+                    },
+                    "marker": {
+                        "size": 5
+                    },
+                    "name": "V_GS = 3V (low R_on)"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2.5
+                    },
+                    "marker": {
+                        "size": 5
+                    },
+                    "name": "V_GS = 2V"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2
+                    ],
+                    "y": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2
+                    ],
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2.5
+                    },
+                    "marker": {
+                        "size": 5
+                    },
+                    "name": "V_GS = 1.5V (high R_on)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_DS (V)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_DS (mA)",
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1.5,
+                        "y": 7,
+                        "text": "Slope = 1/R_on",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "switch-current-source-model",
+            "type": "plotly",
+            "title": "Model 3: Switch-Current-Source (Saturation)",
+            "description": "I_DS = (K/2)(V_GS − V_T)² — current is constant regardless of V_DS. The MOSFET acts as a voltage-controlled current source (VCCS).",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0.125,
+                        0.5,
+                        1.125
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a78bfa",
+                        "width": 3
+                    },
+                    "name": "I_DS = (K/2)(V_GS − V_T)²"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_GS (V)",
+                    "range": [
+                        -0.5,
+                        5.5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_DS (mA)",
+                    "range": [
+                        -0.2,
+                        1.5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 2,
+                        "y": 0.2,
+                        "text": "V_T",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 0,
+                        "ay": 30,
+                        "font": {
+                            "size": 13,
+                            "color": "#f59e0b"
+                        }
+                    },
+                    {
+                        "x": 4.5,
+                        "y": 1.3,
+                        "text": "Quadratic rise",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#a78bfa"
+                        }
+                    }
+                ]
+            },
+            "height": 380
+        },
+        {
+            "id": "mosfet-vi-family",
+            "type": "plotly",
+            "title": "MOSFET I_DS vs V_DS Family of Curves",
+            "description": "Each curve corresponds to a different V_GS. Triode region (rising) transitions to saturation (flat) at V_DS = V_GS − V_T. The boundary is a parabola.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0.375,
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2
+                    },
+                    "name": "V_GS = 3V"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0.75,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2,
+                        2,
+                        2,
+                        2
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2
+                    },
+                    "name": "V_GS = 4V"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        1.125,
+                        2,
+                        2.625,
+                        3,
+                        3.375,
+                        3.5,
+                        4,
+                        4.5,
+                        4.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2
+                    },
+                    "name": "V_GS = 5V"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        1.625,
+                        3,
+                        4.125,
+                        5,
+                        5.625,
+                        6,
+                        6.5,
+                        7,
+                        8,
+                        8
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2
+                    },
+                    "name": "V_GS = 6V"
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0.5,
+                        2,
+                        4.5,
+                        8,
+                        12.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#94a3b8",
+                        "width": 1.5,
+                        "dash": "dash"
+                    },
+                    "name": "Triode/Sat boundary"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_DS (V)",
+                    "range": [
+                        -0.5,
+                        6
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_DS (mA)",
+                    "range": [
+                        -0.5,
+                        10
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1,
+                        "y": 5,
+                        "text": "Triode",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#22d3ee"
+                        }
+                    },
+                    {
+                        "x": 4,
+                        "y": 6,
+                        "text": "Saturation",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#a78bfa"
+                        }
+                    }
+                ]
+            },
+            "height": 450
+        },
+        {
+            "id": "transfer-characteristic",
+            "type": "plotly",
+            "title": "Transfer Characteristic: V_out vs V_in",
+            "description": "For a CS amplifier with R_D, V_out = V_DD − I_DS × R_D. The inverted parabola shows signal inversion. The slope at Q is the voltage gain A_v.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        10,
+                        10,
+                        10,
+                        10,
+                        9.75,
+                        9,
+                        7.75,
+                        6,
+                        3.75,
+                        1
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22d3ee",
+                        "width": 3
+                    },
+                    "name": "V_out = V_DD − (K/2)(V_in−V_T)²R_D"
+                },
+                {
+                    "x": [
+                        3.5
+                    ],
+                    "y": [
+                        7.75
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 12,
+                        "color": "#ef4444",
+                        "symbol": "x"
+                    },
+                    "name": "Q (operating point)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_in = V_GS (V)",
+                    "range": [
+                        -0.5,
+                        5.5
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "V_out (V)",
+                    "range": [
+                        0,
+                        12
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1,
+                        "y": 10.5,
+                        "text": "Cutoff",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    },
+                    {
+                        "x": 3.5,
+                        "y": 9,
+                        "text": "Slope = A_v",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 40,
+                        "ay": -20,
+                        "font": {
+                            "size": 12,
+                            "color": "#ef4444"
+                        }
+                    },
+                    {
+                        "x": 4.5,
+                        "y": 2,
+                        "text": "Triode",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#94a3b8"
+                        }
+                    }
+                ]
+            },
+            "height": 400
+        },
+        {
+            "id": "saturation-discipline",
+            "type": "plotly",
+            "title": "Saturation Discipline — Stay in the Safe Zone",
+            "description": "The shaded region shows where V_DS ≥ V_OV (saturation). The operating point Q must stay inside this region for the entire signal swing.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0.5,
+                        2,
+                        4.5,
+                        8,
+                        12.5
+                    ],
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    },
+                    "name": "Boundary: V_DS = V_OV",
+                    "fill": "tonexty"
+                },
+                {
+                    "x": [
+                        3
+                    ],
+                    "y": [
+                        6
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#22c55e",
+                        "symbol": "star"
+                    },
+                    "name": "Q (safe)"
+                },
+                {
+                    "x": [
+                        1
+                    ],
+                    "y": [
+                        3
+                    ],
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ef4444",
+                        "symbol": "x"
+                    },
+                    "name": "Danger (triode!)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_DS (V)",
+                    "range": [
+                        -0.5,
+                        6
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "yaxis": {
+                    "title": "I_DS (mA)",
+                    "range": [
+                        -1,
+                        14
+                    ],
+                    "zeroline": true,
+                    "zerolinecolor": "#475569"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 4,
+                        "y": 3,
+                        "text": "SATURATION<br>(amplifier)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#22c55e"
+                        }
+                    },
+                    {
+                        "x": 1,
+                        "y": 8,
+                        "text": "TRIODE<br>(no gain)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#ef4444"
+                        }
+                    }
+                ]
+            },
+            "height": 420
+        },
+        {
+            "id": "mosfet-bjt-summary",
+            "type": "plotly",
+            "title": "MOSFET vs BJT — Feature Comparison",
+            "description": "Key differences between the two transistor types. Note: 'saturation' means opposite things for each device!",
+            "traces": [
+                {
+                    "x": [
+                        "Control Type",
+                        "Model",
+                        "Input Z",
+                        "Amplify Region",
+                        "Switch-ON Region"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "BJT",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ef4444"
+                    },
+                    "text": [
+                        "Current<br>(I_B)",
+                        "CCCS<br>(β)",
+                        "Moderate<br>(h_ie)",
+                        "Active",
+                        "Saturation"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 12,
+                        "color": "#ffffff"
+                    }
+                },
+                {
+                    "x": [
+                        "Control Type",
+                        "Model",
+                        "Input Z",
+                        "Amplify Region",
+                        "Switch-ON Region"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "MOSFET",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#22d3ee"
+                    },
+                    "text": [
+                        "Voltage<br>(V_GS)",
+                        "VCCS<br>(g_m)",
+                        "Very High<br>(≈ ∞)",
+                        "Saturation",
+                        "Triode"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 12,
+                        "color": "#ffffff"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Feature"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        2.3
+                    ]
+                },
+                "barmode": "stack",
+                "showlegend": true
+            },
+            "height": 400
+        },
+        {
+            "id": "falstad-mosfet-circuit",
+            "type": "falstad-sim",
+            "title": "Interactive: NMOS Common-Source Amplifier",
+            "description": "An NMOS transistor with drain resistor and gate bias. Adjust V_GS and watch the drain current and output voltage change. See the transfer characteristic in action.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 304 160 96 0 0 40 10 0 0 0.5\nv 160 96 304 96 0 0 40 3 0 0 0.5\nr 304 96 304 192 0 1000\nw 304 192 304 304 0\nw 160 304 304 304 0\ng 224 304 224 336 0 0\nx 320 144 0 24 0 12 R_D=1kΩ\nx 180 96 0 24 0 12 V_GS\no 2 64 0 4099 10 0.05 0 1\n",
+            "height": 450
+        }
+    ]
+}

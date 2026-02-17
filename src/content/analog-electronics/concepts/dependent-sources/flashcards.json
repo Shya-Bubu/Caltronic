@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-dependent-sources",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are the four types of dependent sources?",
+            "back": "VCCS (voltage→current, G_m in S), CCCS (current→current, β dimensionless), VCVS (voltage→voltage, μ dimensionless), CCVS (current→voltage, r in Ω).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "What type of dependent source models a BJT in active mode?",
+            "back": "CCCS — Current-Controlled Current Source. I_C = β I_B. The base current controls the collector current. β ≈ 100-300 typically.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What type of dependent source models a MOSFET in saturation?",
+            "back": "VCCS — Voltage-Controlled Current Source. I_D = g_m V_GS (small signal). The gate-source voltage controls the drain current.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is transconductance G_m?",
+            "back": "The proportionality constant of a VCCS: I_out = G_m V_in. Units: siemens (S) = A/V. It tells you how many amps of output current per volt of input voltage.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "How are dependent sources drawn in circuit diagrams?",
+            "back": "Diamond (◇) shape, NOT circle (○). Circle = independent source (fixed value). Diamond = dependent source (value controlled by another circuit variable).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f6",
+            "front": "Can you use superposition with dependent sources?",
+            "back": "You cannot turn off dependent sources during superposition. They must remain active because their value depends on circuit variables that change. Only independent sources are turned on/off.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is transresistance r?",
+            "back": "The proportionality constant of a CCVS: V_out = r I_in. Units: ohms (Ω). It converts input current to output voltage. 'Trans' because it transfers across ports.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why is μ (voltage gain of VCVS) dimensionless?",
+            "back": "μ = V_out/V_in = volts/volts = dimensionless. When input and output are the same type (both voltages), the gain is a pure number. Same for β (both currents).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "How many terminals does a dependent source have?",
+            "back": "Four terminals (two ports). Port 1 = control port (senses V or I). Port 2 = output port (produces V or I). The control variable at port 1 determines the output at port 2.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f10",
+            "front": "What type of dependent source models an op-amp?",
+            "back": "VCVS — Voltage-Controlled Voltage Source. V_out = A(V₊ − V₋). A is the open-loop gain (typically 10⁵ to 10⁶). The differential input voltage controls the output voltage.",
+            "difficultyLevel": 3
+        }
+    ]
+}
