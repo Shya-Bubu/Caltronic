@@ -1,0 +1,149 @@
+{
+    "id": "complex-numbers-review-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the value of the imaginary unit j in electrical engineering?",
+            "options": [
+                "A) j = -1",
+                "B) j = √(-1)",
+                "C) j = 1/√2",
+                "D) j = √2"
+            ],
+            "correctAnswer": "B) j = √(-1)",
+            "explanation": "The imaginary unit j is defined as j = √(-1). In mathematics it is written as i, but electrical engineers use j to avoid confusion with current i."
+        },
+        {
+            "id": "q2",
+            "prompt": "Express the complex number A = 3 + j4 in polar form.",
+            "options": [
+                "A) 5∠36.87°",
+                "B) 5∠53.13°",
+                "C) 7∠53.13°",
+                "D) 5∠126.87°"
+            ],
+            "correctAnswer": "B) 5∠53.13°",
+            "explanation": "|A| = √(9+16) = 5. The angle is tan⁻¹(4/3) = 53.13°. Since both real and imaginary parts are positive, the number is in the first quadrant, so no adjustment is needed."
+        },
+        {
+            "id": "q3",
+            "prompt": "Which form of a complex number is best suited for multiplication?",
+            "options": [
+                "A) Rectangular form",
+                "B) Polar form",
+                "C) Matrix form",
+                "D) It doesn't matter"
+            ],
+            "correctAnswer": "B) Polar form",
+            "explanation": "In polar form, multiplication is simply magnitudes multiplied and angles added: |A||B|∠(θ_a + θ_b). This is much simpler than expanding the rectangular product."
+        },
+        {
+            "id": "q4",
+            "prompt": "If A = -4 + j3, what is the magnitude |A|?",
+            "options": [
+                "A) 1",
+                "B) 7",
+                "C) 5",
+                "D) 25"
+            ],
+            "correctAnswer": "C) 5",
+            "explanation": "|A| = √((-4)² + 3²) = √(16 + 9) = √25 = 5. Remember that the magnitude uses the squares of both parts, so negative signs don't affect it."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the complex conjugate of A = 2 - j7?",
+            "options": [
+                "A) -2 + j7",
+                "B) 2 + j7",
+                "C) -2 - j7",
+                "D) 7 - j2"
+            ],
+            "correctAnswer": "B) 2 + j7",
+            "explanation": "The complex conjugate A* is obtained by changing the sign of the imaginary part only. So (2 - j7)* = 2 + j7. The real part stays the same."
+        },
+        {
+            "id": "q6",
+            "prompt": "According to Euler's formula, what does e^(jπ/2) equal?",
+            "options": [
+                "A) -1",
+                "B) j",
+                "C) -j",
+                "D) 1"
+            ],
+            "correctAnswer": "B) j",
+            "explanation": "By Euler's formula, e^(jα) = cos α + j sin α. At α = π/2: cos(π/2) = 0 and sin(π/2) = 1. So e^(jπ/2) = 0 + j(1) = j."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the result of AA* for any complex number A?",
+            "options": [
+                "A) 2·Re[A]",
+                "B) 2·Im[A]",
+                "C) |A|²",
+                "D) |A|"
+            ],
+            "correctAnswer": "C) |A|²",
+            "explanation": "For A = a_r + ja_i, AA* = (a_r + ja_i)(a_r - ja_i) = a_r² + a_i² = |A|². This is always a real, positive number."
+        },
+        {
+            "id": "q8",
+            "prompt": "The complex number A = -1 - j√3 lies in which quadrant of the complex plane?",
+            "options": [
+                "A) First quadrant",
+                "B) Second quadrant",
+                "C) Third quadrant",
+                "D) Fourth quadrant"
+            ],
+            "correctAnswer": "C) Third quadrant",
+            "explanation": "The real part is negative (-1) and the imaginary part is also negative (-√3). Negative real + negative imaginary means the point is in the third quadrant (lower-left)."
+        },
+        {
+            "id": "q9",
+            "prompt": "Simplify: (1 + j)/(1 - j)",
+            "options": [
+                "A) 1",
+                "B) j",
+                "C) -j",
+                "D) 1 + j"
+            ],
+            "correctAnswer": "B) j",
+            "explanation": "Rationalise by multiplying by (1+j)/(1+j): numerator = (1+j)² = 1 + 2j + j² = 2j. Denominator = 1² + 1² = 2. Result = 2j/2 = j."
+        },
+        {
+            "id": "q10",
+            "prompt": "What geometric effect does multiplying a complex number by j have?",
+            "options": [
+                "A) Doubles the magnitude",
+                "B) Rotates it 90° counterclockwise",
+                "C) Reflects it across the real axis",
+                "D) Halves the phase angle"
+            ],
+            "correctAnswer": "B) Rotates it 90° counterclockwise",
+            "explanation": "Since j = 1∠90°, multiplying by j adds 90° to the phase angle while keeping the magnitude unchanged. This is a 90° counterclockwise rotation on the complex plane."
+        },
+        {
+            "id": "q11",
+            "prompt": "Express cos(α) in terms of complex exponentials using Euler's formula.",
+            "options": [
+                "A) cos α = (e^(jα) - e^(-jα)) / 2j",
+                "B) cos α = (e^(jα) + e^(-jα)) / 2",
+                "C) cos α = e^(jα) / 2",
+                "D) cos α = Re[e^(-jα)]"
+            ],
+            "correctAnswer": "B) cos α = (e^(jα) + e^(-jα)) / 2",
+            "explanation": "From Euler's formula: e^(jα) = cos α + j sin α and e^(-jα) = cos α - j sin α. Adding these: e^(jα) + e^(-jα) = 2 cos α. Therefore cos α = (e^(jα) + e^(-jα))/2."
+        },
+        {
+            "id": "q12",
+            "prompt": "If A = 10∠60° and B = 2∠(-30°), what is A/B?",
+            "options": [
+                "A) 5∠90°",
+                "B) 5∠30°",
+                "C) 20∠30°",
+                "D) 5∠(-90°)"
+            ],
+            "correctAnswer": "A) 5∠90°",
+            "explanation": "For division in polar form: magnitudes divide (10/2 = 5) and angles subtract (60° - (-30°) = 90°). So A/B = 5∠90° = j5."
+        }
+    ]
+}

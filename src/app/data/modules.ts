@@ -38,6 +38,11 @@ export const modules: Module[] = [
         title: "General Resistive Circuit Analysis",
         path: "/circuit-analysis/lesson-02",
       },
+      {
+        id: "lesson-05",
+        title: "AC Phasors & Impedance",
+        path: "/circuit-analysis/lesson-05",
+      },
     ],
   },
   {

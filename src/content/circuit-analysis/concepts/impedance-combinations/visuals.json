@@ -1,0 +1,258 @@
+{
+    "visuals": [
+        {
+            "id": "kvl-kcl-phasor",
+            "type": "d3-block-diagram",
+            "title": "Kirchhoff's Laws in the Phasor Domain",
+            "description": "KVL and KCL transfer directly to the phasor domain. The same loop and node equations apply — just with complex phasor quantities.",
+            "blocks": [
+                {
+                    "id": "kvl-dc",
+                    "label": "DC: Σv_k = 0",
+                    "x": 50,
+                    "y": 50,
+                    "width": 200
+                },
+                {
+                    "id": "kvl-ac",
+                    "label": "AC: ΣV_k = 0",
+                    "x": 350,
+                    "y": 50,
+                    "width": 200
+                },
+                {
+                    "id": "kcl-dc",
+                    "label": "DC: Σi_k = 0",
+                    "x": 50,
+                    "y": 130,
+                    "width": 200
+                },
+                {
+                    "id": "kcl-ac",
+                    "label": "AC: ΣI_k = 0",
+                    "x": 350,
+                    "y": 130,
+                    "width": 200
+                }
+            ],
+            "connections": [
+                {
+                    "from": "kvl-dc",
+                    "to": "kvl-ac",
+                    "label": "Same form"
+                },
+                {
+                    "from": "kcl-dc",
+                    "to": "kcl-ac",
+                    "label": "Same form"
+                }
+            ]
+        },
+        {
+            "id": "series-impedance-diagram",
+            "type": "circuit-schematic",
+            "title": "Series Impedance: Z_eq = Z₁ + Z₂ + Z₃",
+            "description": "Three impedances in series. The same phasor current I flows through each. The total voltage is V = (Z₁+Z₂+Z₃)I.",
+            "elements": [
+                {
+                    "type": "source",
+                    "id": "vs",
+                    "label": "V_s",
+                    "from": "A",
+                    "to": "B"
+                },
+                {
+                    "type": "impedance",
+                    "id": "z1",
+                    "label": "Z₁",
+                    "from": "B",
+                    "to": "C"
+                },
+                {
+                    "type": "impedance",
+                    "id": "z2",
+                    "label": "Z₂",
+                    "from": "C",
+                    "to": "D"
+                },
+                {
+                    "type": "impedance",
+                    "id": "z3",
+                    "label": "Z₃",
+                    "from": "D",
+                    "to": "A"
+                }
+            ]
+        },
+        {
+            "id": "parallel-impedance-diagram",
+            "type": "circuit-schematic",
+            "title": "Parallel Impedance: 1/Z_eq = 1/Z₁ + 1/Z₂",
+            "description": "Two impedances in parallel. The same phasor voltage V appears across each. The total current is I = (Y₁+Y₂)V.",
+            "elements": [
+                {
+                    "type": "source",
+                    "id": "vs",
+                    "label": "V_s",
+                    "from": "A",
+                    "to": "B"
+                },
+                {
+                    "type": "impedance",
+                    "id": "z1",
+                    "label": "Z₁",
+                    "from": "A",
+                    "to": "B"
+                },
+                {
+                    "type": "impedance",
+                    "id": "z2",
+                    "label": "Z₂",
+                    "from": "A",
+                    "to": "B"
+                }
+            ]
+        },
+        {
+            "id": "voltage-divider-impedance",
+            "type": "plotly",
+            "title": "AC Voltage Divider: V₂ = Z₂/(Z₁+Z₂) × V_s",
+            "description": "Phasor diagram showing the source voltage V_s, and the divided voltage V₂ across the capacitor in an RC divider. V₂ is attenuated and phase-shifted.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "V_s = 10∠0°",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        -5
+                    ],
+                    "name": "V₂ = 7.07∠(-45°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        5
+                    ],
+                    "name": "V₁ = 7.07∠45° (across R)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        5,
+                        10
+                    ],
+                    "y": [
+                        -5,
+                        0
+                    ],
+                    "name": "KVL check: V₁ + V₂ = V_s",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -2,
+                        12
+                    ]
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -7,
+                        7
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 500,
+            "height": 440
+        },
+        {
+            "id": "y-delta-diagram",
+            "type": "d3-block-diagram",
+            "title": "Y-Δ Transformation with Impedances",
+            "description": "The same formulas as DC but with complex impedances. Balanced case: Z_Y = Z_Δ/3.",
+            "blocks": [
+                {
+                    "id": "delta",
+                    "label": "Δ: Z_a, Z_b, Z_c",
+                    "x": 50,
+                    "y": 80,
+                    "width": 200
+                },
+                {
+                    "id": "wye",
+                    "label": "Y: Z_1, Z_2, Z_3",
+                    "x": 380,
+                    "y": 80,
+                    "width": 200
+                },
+                {
+                    "id": "formula",
+                    "label": "Z₁ = Z_b·Z_c/(Z_a+Z_b+Z_c)",
+                    "x": 160,
+                    "y": 180,
+                    "width": 300
+                }
+            ],
+            "connections": [
+                {
+                    "from": "delta",
+                    "to": "wye",
+                    "label": "Δ → Y"
+                },
+                {
+                    "from": "wye",
+                    "to": "delta",
+                    "label": "Y → Δ"
+                }
+            ]
+        },
+        {
+            "id": "falstad-series-rlc",
+            "type": "falstad-sim",
+            "title": "Interactive: Series RLC Circuit",
+            "description": "Explore a series RLC circuit. Observe how the voltages across R, L, and C add up to the source voltage (KVL), and how the impedances combine at different frequencies.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 128 304 128 112 0 1 60 10 0 0 0.5\nr 128 112 288 112 0 100\nl 288 112 432 112 0 0.1 0\nc 432 112 432 304 0 0.00001 0 0.001\nw 432 304 128 304 0\ng 280 304 280 336 0 0\no 0 32 0 4099 10 0.05 0 2 0 3\no 1 32 0 4099 10 0.05 1 2 1 3\no 2 32 0 4099 10 0.05 2 2 2 3\no 3 32 0 4099 10 0.05 3 2 3 3\n",
+            "height": 500
+        }
+    ]
+}

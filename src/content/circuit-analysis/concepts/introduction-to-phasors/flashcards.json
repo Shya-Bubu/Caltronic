@@ -1,0 +1,65 @@
+{
+    "id": "introduction-to-phasors-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is a phasor?",
+            "back": "A complex number V = Vm∠φ that represents the amplitude (Vm) and phase (φ) of a sinusoid Vm·cos(ωt + φ). It does not contain the frequency.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "How do you extract a phasor from v(t) = Vm·cos(ωt + φ)?",
+            "back": "The phasor is V = Vm∠φ. Simply take the amplitude and phase from the cosine function. Drop the cos(ωt + ...) part.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "How do you convert a sine signal to phasor form?",
+            "back": "First convert to cosine: sin(ωt + φ) = cos(ωt + φ - 90°). Then extract the phasor: Vm∠(φ - 90°).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "How do you handle a negative amplitude like -A·cos(ωt + φ)?",
+            "back": "Add 180° to the phase: -A·cos(ωt + φ) = A·cos(ωt + φ - 180°). The phasor is A∠(φ - 180°).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What does differentiation correspond to in the phasor domain?",
+            "back": "Multiplication by jω. So dv/dt ↔ jωV. This scales amplitude by ω and adds 90° to the phase.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What does integration correspond to in the phasor domain?",
+            "back": "Division by jω. So ∫v(t)dt ↔ V/(jω). This divides amplitude by ω and subtracts 90° from the phase.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "How do you convert a phasor V = Vm∠φ back to the time domain?",
+            "back": "v(t) = Re{Ve^(jωt)} = Vm·cos(ωt + φ). Multiply the phasor by e^(jωt) and take the real part.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is a phasor diagram?",
+            "back": "A plot of one or more phasors as arrows on the complex plane. Length = amplitude, angle from positive real axis = phase. Used to visualise relative phase differences between signals.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why does the phasor method only work for signals of the same frequency?",
+            "back": "Because the time factor e^(jωt) is factored out and assumed identical for all signals. If frequencies differ, the relative phases change with time and phasor addition breaks down.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Who introduced the phasor method for solving AC circuits?",
+            "back": "Charles Proteus Steinmetz (1865-1923), a German-Austrian mathematician and electrical engineer.",
+            "difficultyLevel": 4
+        }
+    ]
+}

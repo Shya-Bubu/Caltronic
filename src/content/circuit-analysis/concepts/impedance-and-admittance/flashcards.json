@@ -1,0 +1,65 @@
+{
+    "id": "impedance-and-admittance-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is impedance Z?",
+            "back": "The ratio V/I in the phasor domain: V = ZI. It's the AC generalisation of resistance, measured in Ohms (Ω). It's generally complex.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the impedance of a resistor?",
+            "back": "Z_R = R (purely real). Voltage and current are in phase — no phase shift.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is the impedance of an inductor?",
+            "back": "Z_L = jωL = ωL∠90°. Voltage leads current by 90°. At DC (ω=0), ZL=0 (short). At high ω, ZL→∞ (open).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the impedance of a capacitor?",
+            "back": "Z_C = 1/(jωC) = (1/ωC)∠(-90°). Voltage lags current by 90°. At DC (ω=0), ZC→∞ (open). At high ω, ZC→0 (short).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "State the ELI the ICE man mnemonic.",
+            "back": "ELI: in an inductor (L), voltage (E) leads current (I). ICE: in a capacitor (C), current (I) leads voltage (E).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What are resistance and reactance in Z = R + jX?",
+            "back": "R is resistance (always ≥ 0 for passive elements, dissipates energy). X is reactance (positive = inductive, negative = capacitive, stores energy).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is admittance Y?",
+            "back": "Y = 1/Z = I/V, measured in Siemens (S). Written as Y = G + jB where G is conductance and B is susceptance.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why is the impedance of an inductor zero at DC?",
+            "back": "Z_L = jωL. At DC, ω = 0, so Z_L = 0 (short circuit). The inductor only opposes CHANGING current. With DC (constant current), there's no opposition.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why is imaginary impedance associated with energy storage rather than dissipation?",
+            "back": "When V and I are 90° apart, average power P = ½VmIm·cos(90°) = 0. The element absorbs energy during one quarter-cycle and returns it during the next — no net dissipation.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "For a complex Z = R + jX, what is the admittance Y = G + jB?",
+            "back": "Y = 1/(R+jX) = (R-jX)/(R²+X²). So G = R/(R²+X²) and B = -X/(R²+X²). G ≠ 1/R in general!",
+            "difficultyLevel": 4
+        }
+    ]
+}

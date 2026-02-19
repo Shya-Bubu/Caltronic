@@ -1,0 +1,510 @@
+{
+    "visuals": [
+        {
+            "id": "sinusoid-to-phasor-concept",
+            "type": "plotly",
+            "title": "From Sinusoid to Phasor: The Core Idea",
+            "description": "A sinusoid v(t) = Vm·cos(ωt + φ) carries two key pieces of information: the amplitude Vm and the phase φ. The phasor captures just these two, discarding the redundant time variation.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.001,
+                        0.002,
+                        0.003,
+                        0.004,
+                        0.005,
+                        0.006,
+                        0.007,
+                        0.008,
+                        0.009,
+                        0.01,
+                        0.011,
+                        0.012,
+                        0.013,
+                        0.014,
+                        0.015,
+                        0.016,
+                        0.017,
+                        0.018,
+                        0.019,
+                        0.02
+                    ],
+                    "y": [
+                        4.33,
+                        4.98,
+                        4.33,
+                        2.5,
+                        0,
+                        -2.5,
+                        -4.33,
+                        -4.98,
+                        -4.33,
+                        -2.5,
+                        0,
+                        2.5,
+                        4.33,
+                        4.98,
+                        4.33,
+                        2.5,
+                        0,
+                        -2.5,
+                        -4.33,
+                        -4.98,
+                        -4.33
+                    ],
+                    "name": "v(t) = 5cos(2π·50·t + 30°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (s)"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)",
+                    "range": [
+                        -6,
+                        6
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 0.004,
+                        "y": 5.5,
+                        "text": "Vm = 5V",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 40,
+                        "ay": -20
+                    },
+                    {
+                        "x": 0,
+                        "y": 4.33,
+                        "text": "φ = 30°",
+                        "showarrow": false,
+                        "font": {
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "width": 560,
+            "height": 350
+        },
+        {
+            "id": "phasor-extraction",
+            "type": "d3-block-diagram",
+            "title": "Phasor Extraction: Stripping the Time Factor",
+            "description": "The process of going from a sinusoid to its phasor: write in exponential form, factor out e^(jωt), and keep what remains.",
+            "blocks": [
+                {
+                    "id": "sinusoid",
+                    "label": "v(t) = Vm·cos(ωt + φ)",
+                    "x": 50,
+                    "y": 80,
+                    "width": 200
+                },
+                {
+                    "id": "complex",
+                    "label": "Re{Vm·e^(jφ)·e^(jωt)}",
+                    "x": 320,
+                    "y": 80,
+                    "width": 200
+                },
+                {
+                    "id": "phasor",
+                    "label": "V = Vm∠φ",
+                    "x": 590,
+                    "y": 80,
+                    "width": 140
+                }
+            ],
+            "connections": [
+                {
+                    "from": "sinusoid",
+                    "to": "complex",
+                    "label": "Euler"
+                },
+                {
+                    "from": "complex",
+                    "to": "phasor",
+                    "label": "Drop e^(jωt)"
+                }
+            ]
+        },
+        {
+            "id": "phasor-transform-table",
+            "type": "plotly",
+            "title": "Sinusoid-Phasor Transformation Examples",
+            "description": "Three different sinusoids and their phasor representations plotted as vectors on the complex plane.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        4.5
+                    ],
+                    "y": [
+                        0,
+                        2.6
+                    ],
+                    "name": "V₁ = 5.2∠30°",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": [
+                            0,
+                            10
+                        ]
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        -0.75
+                    ],
+                    "y": [
+                        0,
+                        -1.3
+                    ],
+                    "name": "V₂ = 1.5∠(-120°)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": [
+                            0,
+                            10
+                        ]
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        -1.63
+                    ],
+                    "name": "I = 1.63∠(-90°)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": [
+                            0,
+                            10
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -3,
+                        6
+                    ],
+                    "scaleanchor": "y"
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -3,
+                        4
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 500,
+            "height": 440
+        },
+        {
+            "id": "phasor-diagram-example",
+            "type": "plotly",
+            "title": "Phasor Diagram: Visualising Multiple Signals",
+            "description": "A phasor diagram showing three voltage phasors. The lengths represent amplitudes, the angles represent phases. You can immediately see which signal leads or lags.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "V₁ = 10∠0° (reference)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        3.54
+                    ],
+                    "y": [
+                        0,
+                        3.54
+                    ],
+                    "name": "V₂ = 5∠45° (leads V₁)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        6.93
+                    ],
+                    "y": [
+                        0,
+                        -4
+                    ],
+                    "name": "V₃ = 8∠(-30°) (lags V₁)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -2,
+                        12
+                    ]
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -6,
+                        6
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 500,
+            "height": 400
+        },
+        {
+            "id": "rotating-phasor-sim",
+            "type": "d3-simulation",
+            "simulationType": "signal-generator",
+            "title": "Interactive: Rotating Phasor & Sinusoid",
+            "description": "Watch the phasor rotate counterclockwise at angular frequency ω. Its projection onto the real axis traces out the cosine waveform in the time domain."
+        },
+        {
+            "id": "differentiation-phasor",
+            "type": "plotly",
+            "title": "Derivative Property: Multiplying by jω Shifts Phase by 90°",
+            "description": "The original signal (blue) and its derivative (red). The derivative has amplitude scaled by ω and phase shifted by +90° — corresponding to multiplication by jω in the phasor domain.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.001,
+                        0.002,
+                        0.003,
+                        0.004,
+                        0.005,
+                        0.006,
+                        0.007,
+                        0.008,
+                        0.009,
+                        0.01,
+                        0.011,
+                        0.012,
+                        0.013,
+                        0.014,
+                        0.015,
+                        0.016,
+                        0.017,
+                        0.018,
+                        0.019,
+                        0.02
+                    ],
+                    "y": [
+                        5,
+                        4.05,
+                        1.55,
+                        -1.55,
+                        -4.05,
+                        -5,
+                        -4.05,
+                        -1.55,
+                        1.55,
+                        4.05,
+                        5,
+                        4.05,
+                        1.55,
+                        -1.55,
+                        -4.05,
+                        -5,
+                        -4.05,
+                        -1.55,
+                        1.55,
+                        4.05,
+                        5
+                    ],
+                    "name": "v(t) = 5cos(2π·50·t)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.001,
+                        0.002,
+                        0.003,
+                        0.004,
+                        0.005,
+                        0.006,
+                        0.007,
+                        0.008,
+                        0.009,
+                        0.01,
+                        0.011,
+                        0.012,
+                        0.013,
+                        0.014,
+                        0.015,
+                        0.016,
+                        0.017,
+                        0.018,
+                        0.019,
+                        0.02
+                    ],
+                    "y": [
+                        0,
+                        -952,
+                        -1499,
+                        -1499,
+                        -952,
+                        0,
+                        952,
+                        1499,
+                        1499,
+                        952,
+                        0,
+                        -952,
+                        -1499,
+                        -1499,
+                        -952,
+                        0,
+                        952,
+                        1499,
+                        1499,
+                        952,
+                        0
+                    ],
+                    "name": "dv/dt (scaled ×1/300 for visibility)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (s)"
+                },
+                "yaxis": {
+                    "title": "v(t) [V]",
+                    "range": [
+                        -6,
+                        6
+                    ]
+                },
+                "yaxis2": {
+                    "title": "dv/dt",
+                    "overlaying": "y",
+                    "side": "right"
+                }
+            },
+            "width": 560,
+            "height": 350
+        },
+        {
+            "id": "time-vs-phasor-comparison",
+            "type": "d3-block-diagram",
+            "title": "Time Domain vs Phasor Domain: Side-by-Side",
+            "description": "The time domain deals with instantaneous, real-valued signals that vary with time. The phasor domain uses time-independent complex numbers — much simpler for algebra.",
+            "blocks": [
+                {
+                    "id": "time",
+                    "label": "Time Domain: v(t) = Vm·cos(ωt+φ)",
+                    "x": 50,
+                    "y": 60,
+                    "width": 250
+                },
+                {
+                    "id": "phasor",
+                    "label": "Phasor Domain: V = Vm∠φ",
+                    "x": 400,
+                    "y": 60,
+                    "width": 200
+                },
+                {
+                    "id": "t-props",
+                    "label": "Real, time-varying, has ω",
+                    "x": 50,
+                    "y": 150,
+                    "width": 250
+                },
+                {
+                    "id": "p-props",
+                    "label": "Complex, time-independent, no ω",
+                    "x": 400,
+                    "y": 150,
+                    "width": 200
+                }
+            ],
+            "connections": [
+                {
+                    "from": "time",
+                    "to": "phasor",
+                    "label": "Transform"
+                },
+                {
+                    "from": "phasor",
+                    "to": "time",
+                    "label": "Re{Ve^(jωt)}"
+                }
+            ]
+        },
+        {
+            "id": "falstad-ac-resistor",
+            "type": "falstad-sim",
+            "title": "Interactive: AC Voltage Source with Resistor",
+            "description": "A simple AC circuit with a sinusoidal source and a resistor. Notice that the voltage and current are perfectly in phase — this is because a resistor has no phase shift.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 176 288 176 96 0 1 60 5 0 0 0.5\nr 176 96 368 96 0 1000\nw 368 96 368 288 0\nw 368 288 176 288 0\ng 272 288 272 320 0 0\no 0 32 0 4099 5 0.05 0 2 0 3\no 1 32 0 4099 0.005 0.05 1 2 1 3\n",
+            "height": 450
+        }
+    ]
+}

@@ -1,0 +1,640 @@
+{
+    "visuals": [
+        {
+            "id": "instantaneous-power-waveform",
+            "type": "plotly",
+            "title": "Instantaneous Power p(t) in an AC Circuit",
+            "description": "The instantaneous power (gold) is the product of voltage (blue) and current (green). Notice the power goes negative when v and i have opposite signs — the load is RETURNING energy to the source.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ],
+                    "y": [
+                        10,
+                        9.5,
+                        8.1,
+                        5.9,
+                        3.1,
+                        0,
+                        -3.1,
+                        -5.9,
+                        -8.1,
+                        -9.5,
+                        -10,
+                        -9.5,
+                        -8.1,
+                        -5.9,
+                        -3.1,
+                        0,
+                        3.1,
+                        5.9,
+                        8.1,
+                        9.5,
+                        10
+                    ],
+                    "name": "v(t) (V)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ],
+                    "y": [
+                        4.33,
+                        4.98,
+                        4.33,
+                        2.5,
+                        0,
+                        -2.5,
+                        -4.33,
+                        -4.98,
+                        -4.33,
+                        -2.5,
+                        0,
+                        2.5,
+                        4.33,
+                        4.98,
+                        4.33,
+                        2.5,
+                        0,
+                        -2.5,
+                        -4.33,
+                        -4.98,
+                        -4.33
+                    ],
+                    "name": "i(t) (A)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ],
+                    "y": [
+                        43.3,
+                        47.3,
+                        35.1,
+                        14.75,
+                        0,
+                        0,
+                        13.4,
+                        29.4,
+                        35.1,
+                        23.75,
+                        0,
+                        -23.75,
+                        -35.1,
+                        -29.4,
+                        -13.4,
+                        0,
+                        0,
+                        -14.75,
+                        -35.1,
+                        -47.3,
+                        -43.3
+                    ],
+                    "name": "p(t) = v(t)·i(t) (W)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (a.u.)"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "annotations": [
+                    {
+                        "x": 12,
+                        "y": -35,
+                        "text": "p < 0: energy returned",
+                        "showarrow": false,
+                        "font": {
+                            "color": "#ef4444"
+                        }
+                    }
+                ]
+            },
+            "width": 560,
+            "height": 380
+        },
+        {
+            "id": "average-power-diagram",
+            "type": "plotly",
+            "title": "Average Power: The Constant Component of p(t)",
+            "description": "Average power P is the DC (constant) component of the instantaneous power waveform. The oscillating component averages to zero over a complete cycle.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20
+                    ],
+                    "y": [
+                        43.3,
+                        35.1,
+                        0,
+                        13.4,
+                        35.1,
+                        0,
+                        -35.1,
+                        -13.4,
+                        0,
+                        -35.1,
+                        -43.3
+                    ],
+                    "name": "p(t) — instantaneous power",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        20
+                    ],
+                    "y": [
+                        21.65,
+                        21.65
+                    ],
+                    "name": "P = average power",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (a.u.)"
+                },
+                "yaxis": {
+                    "title": "Power (W)"
+                }
+            },
+            "width": 520,
+            "height": 340
+        },
+        {
+            "id": "rms-comparison",
+            "type": "plotly",
+            "title": "RMS Value: Equivalent DC Heating Power",
+            "description": "A 10V peak sinusoid (blue) has Vrms = 7.07V. A 7.07V DC signal (red dashed) delivers the same average power to a resistor — this is why RMS is the standard.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ],
+                    "y": [
+                        10,
+                        9.5,
+                        8.1,
+                        5.9,
+                        3.1,
+                        0,
+                        -3.1,
+                        -5.9,
+                        -8.1,
+                        -9.5,
+                        -10,
+                        -9.5,
+                        -8.1,
+                        -5.9,
+                        -3.1,
+                        0,
+                        3.1,
+                        5.9,
+                        8.1,
+                        9.5,
+                        10
+                    ],
+                    "name": "AC: Vm = 10V (peak)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        20
+                    ],
+                    "y": [
+                        7.07,
+                        7.07
+                    ],
+                    "name": "DC equivalent: 7.07V = Vrms",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2.5,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (a.u.)"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)",
+                    "range": [
+                        -12,
+                        12
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 15,
+                        "y": 10.5,
+                        "text": "Vpeak = 10V",
+                        "showarrow": false,
+                        "font": {
+                            "color": "#3b82f6"
+                        }
+                    },
+                    {
+                        "x": 15,
+                        "y": 8,
+                        "text": "Vrms = 7.07V",
+                        "showarrow": false,
+                        "font": {
+                            "color": "#ef4444"
+                        }
+                    }
+                ]
+            },
+            "width": 520,
+            "height": 340
+        },
+        {
+            "id": "power-factor-diagram",
+            "type": "plotly",
+            "title": "Power Factor: Leading vs Lagging",
+            "description": "Lagging pf (inductive): current phasor lags voltage. Leading pf (capacitive): current phasor leads voltage. Unity pf: in phase (resistive).",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "V = 10∠0° (reference)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        4.33
+                    ],
+                    "y": [
+                        0,
+                        -2.5
+                    ],
+                    "name": "I_lag = 5∠(-30°) — lagging (inductive)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        4.33
+                    ],
+                    "y": [
+                        0,
+                        2.5
+                    ],
+                    "name": "I_lead = 5∠30° — leading (capacitive)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "I_unity = 5∠0° — unity pf",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a855f7",
+                        "width": 3,
+                        "dash": "dot"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -1,
+                        11
+                    ]
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -4,
+                        4
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 500,
+            "height": 380
+        },
+        {
+            "id": "power-triangle",
+            "type": "plotly",
+            "title": "The Power Triangle",
+            "description": "S = P + jQ forms a right triangle. P (real power, W) is the horizontal leg. Q (reactive power, VAR) is the vertical leg. S (apparent power, VA) is the hypotenuse. The angle is the power factor angle.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        120
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "P = 120 W (real power)",
+                    "mode": "lines+text",
+                    "text": [
+                        "",
+                        "P = 120 W"
+                    ],
+                    "textposition": "bottom center",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        120,
+                        120
+                    ],
+                    "y": [
+                        0,
+                        160
+                    ],
+                    "name": "Q = 160 VAR (reactive power)",
+                    "mode": "lines+text",
+                    "text": [
+                        "",
+                        "Q = 160 VAR"
+                    ],
+                    "textposition": "middle right",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        120
+                    ],
+                    "y": [
+                        0,
+                        160
+                    ],
+                    "name": "S = 200 VA (apparent power)",
+                    "mode": "lines+text",
+                    "text": [
+                        "",
+                        "S = 200 VA"
+                    ],
+                    "textposition": "top left",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Real Power P (W)",
+                    "range": [
+                        -20,
+                        180
+                    ]
+                },
+                "yaxis": {
+                    "title": "Reactive Power Q (VAR)",
+                    "range": [
+                        -20,
+                        200
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 30,
+                        "y": 15,
+                        "text": "θ = 53.13°",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#a855f7"
+                        }
+                    },
+                    {
+                        "x": 60,
+                        "y": -15,
+                        "text": "pf = cos θ = 0.6",
+                        "showarrow": false,
+                        "font": {
+                            "color": "#22c55e"
+                        }
+                    }
+                ]
+            },
+            "width": 480,
+            "height": 440
+        },
+        {
+            "id": "power-conservation-diagram",
+            "type": "d3-block-diagram",
+            "title": "Conservation of AC Power",
+            "description": "Both real power P and reactive power Q are individually conserved. The total complex power delivered by sources equals the total complex power absorbed by loads.",
+            "blocks": [
+                {
+                    "id": "src",
+                    "label": "Source: S_s = P_s + jQ_s",
+                    "x": 50,
+                    "y": 80,
+                    "width": 240
+                },
+                {
+                    "id": "r",
+                    "label": "R: absorbs P_R",
+                    "x": 380,
+                    "y": 40,
+                    "width": 180
+                },
+                {
+                    "id": "l",
+                    "label": "L: absorbs +Q_L",
+                    "x": 380,
+                    "y": 110,
+                    "width": 180
+                },
+                {
+                    "id": "c",
+                    "label": "C: absorbs -Q_C",
+                    "x": 380,
+                    "y": 180,
+                    "width": 180
+                }
+            ],
+            "connections": [
+                {
+                    "from": "src",
+                    "to": "r",
+                    "label": "P"
+                },
+                {
+                    "from": "src",
+                    "to": "l",
+                    "label": "+Q"
+                },
+                {
+                    "from": "src",
+                    "to": "c",
+                    "label": "-Q"
+                }
+            ]
+        },
+        {
+            "id": "falstad-power-rl",
+            "type": "falstad-sim",
+            "title": "Interactive: Power in a Series RL Circuit",
+            "description": "Observe the instantaneous power in the resistor (always positive — dissipative) versus the inductor (oscillates around zero — reactive). Only the resistor absorbs average power.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 144 304 144 112 0 1 60 10 0 0 0.5\nr 144 112 336 112 0 100\nl 336 112 336 304 0 0.2 0\nw 336 304 144 304 0\ng 240 304 240 336 0 0\no 0 32 0 4099 10 0.05 0 2 0 3\no 1 32 0 4099 0.1 0.05 1 2 1 3\no 2 32 0 4099 10 0.05 2 2 2 3\n",
+            "height": 450
+        }
+    ]
+}

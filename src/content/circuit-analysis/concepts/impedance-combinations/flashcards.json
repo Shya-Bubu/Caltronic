@@ -1,0 +1,65 @@
+{
+    "id": "impedance-combinations-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "How do impedances combine in series?",
+            "back": "They add directly: Z_eq = Z₁ + Z₂ + ... + Z_N. Identical to resistors in series.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "How do impedances combine in parallel?",
+            "back": "Their reciprocals add: 1/Z_eq = 1/Z₁ + 1/Z₂ + ... Or admittances add: Y_eq = Y₁ + Y₂ + ...",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "State the impedance voltage divider formula.",
+            "back": "V₂ = Z₂/(Z₁+Z₂) × V_s. Identical to the DC voltage divider with impedances replacing resistances.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Does KVL work in the phasor domain?",
+            "back": "Yes! The sum of phasor voltages around any closed loop is zero: ΣV_k = 0. This follows from the additive property of phasors.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "State the product-over-sum formula for two parallel impedances.",
+            "back": "Z_eq = Z₁Z₂/(Z₁ + Z₂). Use this when exactly two impedances are in parallel.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is the resonant frequency of a series RLC circuit?",
+            "back": "ω₀ = 1/√(LC). At this frequency, ωL = 1/(ωC), so the imaginary parts cancel and Z = R (purely real).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "In a balanced Y-Δ transform, how are Z_Y and Z_Δ related?",
+            "back": "Z_Y = Z_Δ/3. Each wye impedance is one-third of each delta impedance.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What happens at parallel resonance (L and C in parallel at ω₀)?",
+            "back": "Z_eq → ∞ (open circuit). The parallel LC combination has infinite impedance at the resonant frequency, blocking current flow.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "Why does admittance simplify parallel circuit analysis?",
+            "back": "Admittances add directly in parallel (Y_eq = Y₁ + Y₂), avoiding the reciprocal formula. This mirrors how conductances add for parallel DC resistors.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Can you use Thevenin/Norton equivalents in the phasor domain?",
+            "back": "Yes! All DC analysis techniques work in the phasor domain with complex impedances. V_th and Z_th become complex-valued phasor quantities.",
+            "difficultyLevel": 4
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "id": "lesson-05",
+    "title": "AC Phasors & Impedance",
+    "slug": "lesson-05",
+    "description": "Sinusoidal steady-state analysis using phasors: complex number foundations, phasor representation of sinusoids, impedance and admittance of R/L/C elements, impedance combinations, and AC power analysis including RMS, power factor, and complex power.",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "complex-numbers-review",
+        "introduction-to-phasors",
+        "phasor-properties-and-addition",
+        "impedance-and-admittance",
+        "impedance-combinations",
+        "ac-power-analysis"
+    ],
+    "lectureWeek": 5,
+    "estimatedMinutes": 150
+}

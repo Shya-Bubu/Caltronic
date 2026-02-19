@@ -1,0 +1,149 @@
+{
+    "id": "impedance-and-admittance-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the impedance of a resistor in the phasor domain?",
+            "options": [
+                "A) jωR",
+                "B) R",
+                "C) 1/(jωR)",
+                "D) R∠90°"
+            ],
+            "correctAnswer": "B) R",
+            "explanation": "The resistor's V-I relationship v = Ri is purely algebraic (no derivatives). In phasor form, V = RI, so Z_R = R — a real number. No phase shift occurs."
+        },
+        {
+            "id": "q2",
+            "prompt": "What is the impedance of an inductor?",
+            "options": [
+                "A) jωL",
+                "B) L",
+                "C) ωL",
+                "D) 1/(jωL)"
+            ],
+            "correctAnswer": "A) jωL",
+            "explanation": "From v = L·di/dt, the derivative property gives V = jωL·I, so Z_L = jωL. It's purely imaginary with a positive value, meaning voltage leads current by 90°."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the impedance of a capacitor?",
+            "options": [
+                "A) jωC",
+                "B) 1/C",
+                "C) 1/(jωC)",
+                "D) -jωC"
+            ],
+            "correctAnswer": "C) 1/(jωC)",
+            "explanation": "From i = C·dv/dt, we get I = jωC·V, so V = (1/jωC)·I. The impedance Z_C = 1/(jωC) = -j/(ωC) is purely imaginary and negative."
+        },
+        {
+            "id": "q4",
+            "prompt": "According to ELI the ICE man, in an inductor:",
+            "options": [
+                "A) Current leads voltage by 90°",
+                "B) Voltage leads current by 90°",
+                "C) Voltage and current are in phase",
+                "D) Voltage lags current by 45°"
+            ],
+            "correctAnswer": "B) Voltage leads current by 90°",
+            "explanation": "ELI: E (voltage) L (inductor) I (current) — voltage leads current. Since Z_L = jωL = ωL∠90°, the voltage phasor is 90° ahead of the current phasor."
+        },
+        {
+            "id": "q5",
+            "prompt": "At ω = 0 (DC), what does an ideal inductor behave like?",
+            "options": [
+                "A) Open circuit",
+                "B) Short circuit",
+                "C) 1 Ω resistor",
+                "D) Voltage source"
+            ],
+            "correctAnswer": "B) Short circuit",
+            "explanation": "Z_L = jωL = j(0)L = 0. An impedance of zero is a short circuit. At DC, the inductor has no opposition to current flow — only changing currents create voltage."
+        },
+        {
+            "id": "q6",
+            "prompt": "At ω = 0 (DC), what does an ideal capacitor behave like?",
+            "options": [
+                "A) Short circuit",
+                "B) Open circuit",
+                "C) 1 Ω resistor",
+                "D) Current source"
+            ],
+            "correctAnswer": "B) Open circuit",
+            "explanation": "Z_C = 1/(jωC) = 1/(j·0·C) → ∞. Infinite impedance means open circuit. At DC, the capacitor is fully charged and no current flows."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the unit of impedance?",
+            "options": [
+                "A) Siemens (S)",
+                "B) Farads (F)",
+                "C) Ohms (Ω)",
+                "D) Henries (H)"
+            ],
+            "correctAnswer": "C) Ohms (Ω)",
+            "explanation": "Impedance is measured in Ohms (Ω), the same unit as resistance. Even though impedance can be complex, the unit remains Ohms."
+        },
+        {
+            "id": "q8",
+            "prompt": "In Z = R + jX, what is X called?",
+            "options": [
+                "A) Conductance",
+                "B) Susceptance",
+                "C) Reactance",
+                "D) Admittance"
+            ],
+            "correctAnswer": "C) Reactance",
+            "explanation": "X is the reactance — the imaginary part of impedance. Positive X is inductive reactance (X_L = ωL); negative X is capacitive reactance (X_C = -1/ωC)."
+        },
+        {
+            "id": "q9",
+            "prompt": "What is admittance Y?",
+            "options": [
+                "A) Y = Z²",
+                "B) Y = 1/Z",
+                "C) Y = Z*",
+                "D) Y = jZ"
+            ],
+            "correctAnswer": "B) Y = 1/Z",
+            "explanation": "Admittance Y = 1/Z = I/V. It's the reciprocal of impedance, measured in Siemens (S). The relationship I = YV is analogous to I = GV for conductance."
+        },
+        {
+            "id": "q10",
+            "prompt": "The admittance of a capacitor is:",
+            "options": [
+                "A) 1/(jωC)",
+                "B) -jωC",
+                "C) jωC",
+                "D) ωC"
+            ],
+            "correctAnswer": "C) jωC",
+            "explanation": "Y_C = 1/Z_C = 1/(1/jωC) = jωC. The admittance of a capacitor is purely imaginary and positive (positive susceptance)."
+        },
+        {
+            "id": "q11",
+            "prompt": "Find the impedance of a 50 mH inductor at f = 1 kHz.",
+            "options": [
+                "A) j50 Ω",
+                "B) j314.16 Ω",
+                "C) 314.16 Ω",
+                "D) j100π Ω"
+            ],
+            "correctAnswer": "B) j314.16 Ω",
+            "explanation": "ω = 2πf = 2π(1000) = 6283.2 rad/s. Z_L = jωL = j(6283.2)(0.05) = j314.16 Ω. Remember to use ω, not f, in the formula."
+        },
+        {
+            "id": "q12",
+            "prompt": "Why is reactance called 'imaginary' impedance?",
+            "options": [
+                "A) It doesn't physically exist",
+                "B) It represents energy storage, not dissipation — stored energy is returned each cycle",
+                "C) It can only be measured with imaginary instruments",
+                "D) It's just a mathematical artifact with no physical meaning"
+            ],
+            "correctAnswer": "B) It represents energy storage, not dissipation — stored energy is returned each cycle",
+            "explanation": "The imaginary part of impedance corresponds to elements that store energy (inductors in magnetic fields, capacitors in electric fields) and return it. The 90° phase shift means average power is zero — no energy is dissipated."
+        }
+    ]
+}

@@ -1,0 +1,513 @@
+{
+    "visuals": [
+        {
+            "id": "phasor-addition-diagram",
+            "type": "plotly",
+            "title": "Phasor Addition: V₁ + V₂ = V_sum",
+            "description": "Two phasors V₁ = 4∠30° and V₂ = 3∠(-60°) are added as vectors. The sum (gold) is the resultant from the origin.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        3.464
+                    ],
+                    "y": [
+                        0,
+                        2
+                    ],
+                    "name": "V₁ = 4∠30°",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1.5
+                    ],
+                    "y": [
+                        0,
+                        -2.598
+                    ],
+                    "name": "V₂ = 3∠(-60°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        4.964
+                    ],
+                    "y": [
+                        0,
+                        -0.598
+                    ],
+                    "name": "V_sum = 5∠(-6.87°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 4
+                    }
+                },
+                {
+                    "x": [
+                        3.464,
+                        4.964
+                    ],
+                    "y": [
+                        2,
+                        -0.598
+                    ],
+                    "name": "V₂ (translated for tip-to-tail)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -1,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -4,
+                        3
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 500,
+            "height": 420
+        },
+        {
+            "id": "phasor-addition-worked",
+            "type": "plotly",
+            "title": "Worked Example: Result of Adding Two Sinusoids",
+            "description": "The time-domain signals v₁(t) = 4cos(ωt+30°), v₂(t) = 3cos(ωt-60°), and their sum v(t) = 5cos(ωt-6.87°).",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        6.5,
+                        7,
+                        7.5,
+                        8,
+                        8.5,
+                        9,
+                        9.5,
+                        10
+                    ],
+                    "y": [
+                        3.46,
+                        3.06,
+                        1.53,
+                        -0.52,
+                        -2.47,
+                        -3.76,
+                        -4,
+                        -3.06,
+                        -1.24,
+                        0.99,
+                        2.93,
+                        3.99,
+                        3.87,
+                        2.57,
+                        0.52,
+                        -1.53,
+                        -3.14,
+                        -3.87,
+                        -3.46,
+                        -2.04,
+                        0
+                    ],
+                    "name": "v₁(t) = 4cos(ωt + 30°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        6.5,
+                        7,
+                        7.5,
+                        8,
+                        8.5,
+                        9,
+                        9.5,
+                        10
+                    ],
+                    "y": [
+                        1.5,
+                        2.6,
+                        3,
+                        2.6,
+                        1.5,
+                        0,
+                        -1.5,
+                        -2.6,
+                        -3,
+                        -2.6,
+                        -1.5,
+                        0,
+                        1.5,
+                        2.6,
+                        3,
+                        2.6,
+                        1.5,
+                        0,
+                        -1.5,
+                        -2.6,
+                        -3
+                    ],
+                    "name": "v₂(t) = 3cos(ωt - 60°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        6.5,
+                        7,
+                        7.5,
+                        8,
+                        8.5,
+                        9,
+                        9.5,
+                        10
+                    ],
+                    "y": [
+                        4.96,
+                        5.66,
+                        4.53,
+                        2.08,
+                        -0.97,
+                        -3.76,
+                        -5.5,
+                        -5.66,
+                        -4.24,
+                        -1.61,
+                        1.43,
+                        3.99,
+                        5.37,
+                        5.17,
+                        3.52,
+                        1.07,
+                        -1.64,
+                        -3.87,
+                        -4.96,
+                        -4.64,
+                        -3
+                    ],
+                    "name": "v(t) = 5cos(ωt - 6.87°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f59e0b",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "time (a.u.)"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)"
+                }
+            },
+            "width": 560,
+            "height": 350
+        },
+        {
+            "id": "derivative-property-visual",
+            "type": "plotly",
+            "title": "Derivative Property: Multiplying by jω Rotates +90°",
+            "description": "The original phasor V = 5∠30° (blue) and its derivative jωV at ω = 100 (red). The derivative has magnitude 500 and phase 120° — rotated by exactly 90°.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        4.33
+                    ],
+                    "y": [
+                        0,
+                        2.5
+                    ],
+                    "name": "V = 5∠30°",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": [
+                            0,
+                            10
+                        ]
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        -2.5
+                    ],
+                    "y": [
+                        0,
+                        4.33
+                    ],
+                    "name": "jV = 5∠120° (×100 hidden for scale)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": [
+                            0,
+                            10
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -5,
+                        6
+                    ],
+                    "scaleanchor": "y"
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -2,
+                        6
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 1,
+                        "y": 2.5,
+                        "text": "+90°",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "centeredAxes": true,
+            "width": 480,
+            "height": 440
+        },
+        {
+            "id": "cap-current-leads-voltage",
+            "type": "plotly",
+            "title": "Capacitor: Current Leads Voltage by 90°",
+            "description": "For a capacitor, i = C·dv/dt. The derivative property means the current phasor is rotated +90° from the voltage. The current peaks a quarter cycle BEFORE the voltage.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ],
+                    "y": [
+                        12,
+                        11.4,
+                        9.7,
+                        7.1,
+                        3.7,
+                        0,
+                        -3.7,
+                        -7.1,
+                        -9.7,
+                        -11.4,
+                        -12,
+                        -11.4,
+                        -9.7,
+                        -7.1,
+                        -3.7,
+                        0,
+                        3.7,
+                        7.1,
+                        9.7,
+                        11.4,
+                        12
+                    ],
+                    "name": "v(t) — voltage",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ],
+                    "y": [
+                        0,
+                        3.7,
+                        7.1,
+                        9.7,
+                        11.4,
+                        12,
+                        11.4,
+                        9.7,
+                        7.1,
+                        3.7,
+                        0,
+                        -3.7,
+                        -7.1,
+                        -9.7,
+                        -11.4,
+                        -12,
+                        -11.4,
+                        -9.7,
+                        -7.1,
+                        -3.7,
+                        0
+                    ],
+                    "name": "i(t) — current (leads by 90°)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2.5,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (a.u.)"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "annotations": [
+                    {
+                        "x": 5,
+                        "y": 13,
+                        "text": "← Current peaks first",
+                        "showarrow": false,
+                        "font": {
+                            "color": "#22c55e"
+                        }
+                    }
+                ]
+            },
+            "width": 560,
+            "height": 350
+        },
+        {
+            "id": "graphical-addition",
+            "type": "d3-simulation",
+            "simulationType": "vi-curve",
+            "title": "Interactive: Graphical Phasor Addition",
+            "description": "Drag two phasors on the complex plane and see their sum computed both graphically (tip-to-tail) and algebraically in real time."
+        },
+        {
+            "id": "falstad-series-rc",
+            "type": "falstad-sim",
+            "title": "Interactive: Series RC Circuit — Voltage Addition",
+            "description": "Watch how the source voltage equals the sum of V_R and V_C. The individual voltage drops have different phases but add up (as phasors) to match the source.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 144 304 144 112 0 1 60 10 0 0 0.5\nr 144 112 336 112 0 1000\nc 336 112 336 304 0 0.0000047 0 0.001\nw 336 304 144 304 0\ng 240 304 240 336 0 0\no 0 32 0 4099 10 0.05 0 2 0 3\no 1 32 0 4099 0.01 0.05 1 2 1 3\no 2 32 0 4099 10 0.05 2 2 2 3\n",
+            "height": 450
+        }
+    ]
+}

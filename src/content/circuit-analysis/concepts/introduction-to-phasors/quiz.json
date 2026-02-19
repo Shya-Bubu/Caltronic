@@ -1,0 +1,125 @@
+{
+    "id": "introduction-to-phasors-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is a phasor?",
+            "options": [
+                "A) A time-varying sinusoidal signal",
+                "B) A complex number representing the amplitude and phase of a sinusoid",
+                "C) The frequency of an AC signal",
+                "D) A rotating vector that includes time dependence"
+            ],
+            "correctAnswer": "B) A complex number representing the amplitude and phase of a sinusoid",
+            "explanation": "A phasor is defined as a complex number V = Vm∠φ that captures the amplitude and phase of a sinusoid Vm·cos(ωt + φ). It does not include the time factor e^(jωt)."
+        },
+        {
+            "id": "q2",
+            "prompt": "What is the phasor representation of v(t) = 12cos(1000t + 45°)?",
+            "options": [
+                "A) 12∠45°",
+                "B) 12cos(45°)",
+                "C) 12e^(j1000t)",
+                "D) 12∠1045°"
+            ],
+            "correctAnswer": "A) 12∠45°",
+            "explanation": "To extract the phasor, take the amplitude (12) and phase (45°) from the cosine. The frequency (1000 rad/s) is NOT included in the phasor — it is implicit."
+        },
+        {
+            "id": "q3",
+            "prompt": "Convert i(t) = 8sin(ωt + 60°) to phasor form.",
+            "options": [
+                "A) 8∠60°",
+                "B) 8∠(-30°)",
+                "C) 8∠150°",
+                "D) 8∠(-60°)"
+            ],
+            "correctAnswer": "B) 8∠(-30°)",
+            "explanation": "First convert sine to cosine: sin(θ) = cos(θ - 90°). So i(t) = 8cos(ωt + 60° - 90°) = 8cos(ωt - 30°). The phasor is I = 8∠(-30°)."
+        },
+        {
+            "id": "q4",
+            "prompt": "Which property does the phasor domain use to represent differentiation?",
+            "options": [
+                "A) Division by jω",
+                "B) Multiplication by jω",
+                "C) Addition of ω",
+                "D) Subtraction of 90°"
+            ],
+            "correctAnswer": "B) Multiplication by jω",
+            "explanation": "In the phasor domain, differentiating a sinusoid corresponds to multiplying its phasor by jω. This scales the amplitude by ω and shifts the phase by +90°."
+        },
+        {
+            "id": "q5",
+            "prompt": "The phasor V = 20∠(-90°) at ω = 500 rad/s corresponds to which time-domain signal?",
+            "options": [
+                "A) v(t) = 20cos(500t - 90°)",
+                "B) v(t) = 20sin(500t)",
+                "C) v(t) = -20cos(500t)",
+                "D) Both A and B are correct"
+            ],
+            "correctAnswer": "D) Both A and B are correct",
+            "explanation": "v(t) = 20cos(500t - 90°) is the direct conversion. Since cos(θ - 90°) = sin(θ), this equals 20sin(500t). Both expressions are equivalent."
+        },
+        {
+            "id": "q6",
+            "prompt": "v(t) = -5cos(ωt + 30°). What is the phasor?",
+            "options": [
+                "A) -5∠30°",
+                "B) 5∠(-150°)",
+                "C) 5∠210°",
+                "D) Both B and C are correct"
+            ],
+            "correctAnswer": "D) Both B and C are correct",
+            "explanation": "A negative cosine adds 180° to the phase: -5cos(ωt+30°) = 5cos(ωt+30°-180°) = 5cos(ωt-150°). So V = 5∠(-150°) = 5∠210°. Both representations are the same angle."
+        },
+        {
+            "id": "q7",
+            "prompt": "What information does a phasor NOT contain?",
+            "options": [
+                "A) Amplitude of the sinusoid",
+                "B) Phase of the sinusoid",
+                "C) Frequency of the sinusoid",
+                "D) Whether it represents voltage or current"
+            ],
+            "correctAnswer": "C) Frequency of the sinusoid",
+            "explanation": "A phasor contains amplitude and phase only. The frequency ω is implicit — it is the same for all signals in the circuit and is understood from context."
+        },
+        {
+            "id": "q8",
+            "prompt": "If dv/dt has the phasor jωV, what does ∫v(t)dt correspond to in phasor domain?",
+            "options": [
+                "A) jωV",
+                "B) -jωV",
+                "C) V/(jω)",
+                "D) V·ω"
+            ],
+            "correctAnswer": "C) V/(jω)",
+            "explanation": "Integration is the inverse of differentiation. If d/dt ↔ jω, then ∫dt ↔ 1/(jω). So integrating v(t) corresponds to dividing its phasor by jω."
+        },
+        {
+            "id": "q9",
+            "prompt": "On a phasor diagram, a phasor V = 10∠(-45°) would point in which direction?",
+            "options": [
+                "A) 45° above the positive real axis",
+                "B) 45° below the positive real axis",
+                "C) Along the negative imaginary axis",
+                "D) Along the positive real axis"
+            ],
+            "correctAnswer": "B) 45° below the positive real axis",
+            "explanation": "A negative phase angle means the phasor is measured clockwise from the positive real axis. -45° puts it 45° below the real axis, in the fourth quadrant."
+        },
+        {
+            "id": "q10",
+            "prompt": "Which of the following is TRUE about v(t) vs its phasor V?",
+            "options": [
+                "A) v(t) is complex; V is real",
+                "B) v(t) depends on time; V does not",
+                "C) v(t) contains phase; V does not",
+                "D) v(t) and V are interchangeable"
+            ],
+            "correctAnswer": "B) v(t) depends on time; V does not",
+            "explanation": "v(t) is the instantaneous, time-varying, always-real signal. V is a time-independent complex number encoding amplitude and phase. v(t) is recovered via v(t) = Re{Ve^(jωt)}."
+        }
+    ]
+}

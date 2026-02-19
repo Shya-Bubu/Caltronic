@@ -1,0 +1,125 @@
+{
+    "id": "phasor-properties-and-addition-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The additive property of phasors states that adding sinusoids of the same frequency is equivalent to:",
+            "options": [
+                "A) Adding their amplitudes",
+                "B) Adding their phasors as complex numbers",
+                "C) Multiplying their phasors",
+                "D) Adding their frequencies"
+            ],
+            "correctAnswer": "B) Adding their phasors as complex numbers",
+            "explanation": "The additive property says that if v(t) = v₁(t) + v₂(t), then V = V₁ + V₂. You add the phasors as complex numbers (using rectangular form), not just magnitudes."
+        },
+        {
+            "id": "q2",
+            "prompt": "Find the phasor sum: V₁ = 6∠0° + V₂ = 6∠90°.",
+            "options": [
+                "A) 12∠45°",
+                "B) 6√2∠45°",
+                "C) 6∠90°",
+                "D) 6∠45°"
+            ],
+            "correctAnswer": "B) 6√2∠45°",
+            "explanation": "V₁ = 6 + j0. V₂ = 0 + j6. Sum = 6 + j6. Magnitude = √(36+36) = 6√2. Angle = tan⁻¹(6/6) = 45°. So the sum is 6√2∠45°."
+        },
+        {
+            "id": "q3",
+            "prompt": "Can you add phasors of signals with different frequencies?",
+            "options": [
+                "A) Yes, always",
+                "B) Yes, but only in rectangular form",
+                "C) No, phasor addition requires the same frequency",
+                "D) No, but you can multiply them"
+            ],
+            "correctAnswer": "C) No, phasor addition requires the same frequency",
+            "explanation": "The additive property relies on factoring out a common e^(jωt). If the frequencies differ, the time factors are different and cannot be combined into a single phasor."
+        },
+        {
+            "id": "q4",
+            "prompt": "The derivative property states that d/dt in the time domain corresponds to what in the phasor domain?",
+            "options": [
+                "A) Division by jω",
+                "B) Multiplication by jω",
+                "C) Addition of jω",
+                "D) Multiplication by ω²"
+            ],
+            "correctAnswer": "B) Multiplication by jω",
+            "explanation": "Differentiating v(t) = Re{Ve^(jωt)} gives Re{jωVe^(jωt)}. So the phasor of dv/dt is jωV — multiplication by jω."
+        },
+        {
+            "id": "q5",
+            "prompt": "Multiplying a phasor by j has what geometric effect?",
+            "options": [
+                "A) Doubles the magnitude",
+                "B) Rotates by 180°",
+                "C) Rotates by 90° counterclockwise",
+                "D) Reflects across the real axis"
+            ],
+            "correctAnswer": "C) Rotates by 90° counterclockwise",
+            "explanation": "Since j = 1∠90°, multiplying by j adds 90° to the phase angle without changing the magnitude. This is a 90° counterclockwise rotation."
+        },
+        {
+            "id": "q6",
+            "prompt": "If two phasors are equal in magnitude but 180° apart in phase, their sum is:",
+            "options": [
+                "A) Double the magnitude",
+                "B) Zero",
+                "C) The magnitude at 90°",
+                "D) The magnitude at 0°"
+            ],
+            "correctAnswer": "B) Zero",
+            "explanation": "Phasors 180° apart point in opposite directions. Like vectors, they cancel completely: V∠0° + V∠180° = V + (-V) = 0."
+        },
+        {
+            "id": "q7",
+            "prompt": "Integration in the phasor domain corresponds to:",
+            "options": [
+                "A) Multiplying by jω",
+                "B) Dividing by jω",
+                "C) Adding jω",
+                "D) Squaring the phasor"
+            ],
+            "correctAnswer": "B) Dividing by jω",
+            "explanation": "Integration is the inverse of differentiation. Since d/dt ↔ jω, integration ∫dt ↔ 1/(jω). This divides the magnitude by ω and shifts the phase by -90°."
+        },
+        {
+            "id": "q8",
+            "prompt": "Find v(t) = 4cos(ωt) + 3cos(ωt + 90°). What is the amplitude of v(t)?",
+            "options": [
+                "A) 7",
+                "B) 1",
+                "C) 5",
+                "D) √7"
+            ],
+            "correctAnswer": "C) 5",
+            "explanation": "V₁ = 4∠0° = 4 + j0. V₂ = 3∠90° = 0 + j3. Sum = 4 + j3. |V| = √(16+9) = √25 = 5."
+        },
+        {
+            "id": "q9",
+            "prompt": "What is the phasor of dv/dt if v(t) = 10cos(100t + 60°)?",
+            "options": [
+                "A) 10∠60°",
+                "B) 1000∠150°",
+                "C) 1000∠(-30°)",
+                "D) 100∠150°"
+            ],
+            "correctAnswer": "B) 1000∠150°",
+            "explanation": "V = 10∠60°. Derivative phasor = jωV = (100∠90°)(10∠60°) = 1000∠(90°+60°) = 1000∠150°."
+        },
+        {
+            "id": "q10",
+            "prompt": "In graphical phasor addition, the tip-to-tail method shows that the sum of V₁ and V₂ is:",
+            "options": [
+                "A) The arrow from the tip of V₁ to the origin",
+                "B) The arrow from the origin to the tip of V₂ (placed at V₁'s tip)",
+                "C) The longer of the two vectors",
+                "D) Always along the real axis"
+            ],
+            "correctAnswer": "B) The arrow from the origin to the tip of V₂ (placed at V₁'s tip)",
+            "explanation": "Like vector addition, place the tail of V₂ at the tip of V₁. The resultant is the arrow from the origin to the tip of V₂ in its new position."
+        }
+    ]
+}

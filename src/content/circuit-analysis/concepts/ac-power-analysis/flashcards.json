@@ -1,0 +1,65 @@
+{
+    "id": "ac-power-analysis-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the formula for average power P in an AC circuit.",
+            "back": "P = ½VmIm·cos(θv - θi) = Vrms·Irms·cos(θv - θi). The cos term is the power factor.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the RMS value of Vm·cos(ωt + φ)?",
+            "back": "Vrms = Vm/√2 ≈ 0.707·Vm. RMS = Root Mean Square of the periodic signal.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Define power factor.",
+            "back": "pf = cos(θv - θi) = P/S. It's the ratio of real power to apparent power, ranging from 0 to 1.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the difference between lagging and leading power factor?",
+            "back": "Lagging: current lags voltage (inductive load, Q > 0). Leading: current leads voltage (capacitive load, Q < 0). Always specify which!",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Define apparent power S.",
+            "back": "S = Vrms·Irms = |S| (magnitude of complex power). Unit: VA (volt-amperes). It's the maximum possible real power if the load were purely resistive.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Define reactive power Q.",
+            "back": "Q = Vrms·Irms·sin(θv - θi) = Im[S]. Unit: VAR. Positive Q = inductive, negative Q = capacitive. Reactive power does no useful work.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "State the formula for complex power S.",
+            "back": "S = P + jQ = ½VI* = Vrms·Irms*. Use the conjugate of I (I*), not I itself!",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the power triangle?",
+            "back": "A right triangle: P (horizontal), Q (vertical), S (hypotenuse). S² = P² + Q². The angle is θv - θi.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why does an ideal inductor absorb zero average power?",
+            "back": "Z_L = jωL gives a 90° phase difference. P = Vrms·Irms·cos(90°) = 0. Energy is stored in the magnetic field during one quarter-cycle and returned during the next.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "State the conservation of AC power principle.",
+            "back": "ΣS_sources = ΣS_loads, meaning both ΣP and ΣQ are individually conserved. Total real power generated = total real power consumed, and same for reactive power.",
+            "difficultyLevel": 4
+        }
+    ]
+}

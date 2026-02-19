@@ -1,0 +1,125 @@
+{
+    "id": "impedance-combinations-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Series impedances combine by:",
+            "options": [
+                "A) Adding their reciprocals",
+                "B) Adding them directly: Z_eq = Z_1 + Z_2 + ...",
+                "C) Using the product-over-sum formula",
+                "D) Multiplying them"
+            ],
+            "correctAnswer": "B) Adding them directly: Z_eq = Z_1 + Z_2 + ...",
+            "explanation": "Series impedances add directly, just like resistors in series in DC circuits. The same current flows through each, so V_total = (Z₁ + Z₂ + ...)I."
+        },
+        {
+            "id": "q2",
+            "prompt": "For parallel impedances, the equivalent impedance is found by:",
+            "options": [
+                "A) Adding them directly",
+                "B) Taking the product of all impedances",
+                "C) Summing their reciprocals: 1/Z_eq = 1/Z₁ + 1/Z₂ + ...",
+                "D) Averaging them"
+            ],
+            "correctAnswer": "C) Summing their reciprocals: 1/Z_eq = 1/Z₁ + 1/Z₂ + ...",
+            "explanation": "Parallel impedances combine the same way as parallel resistances: 1/Z_eq = 1/Z₁ + 1/Z₂ + ... Or equivalently, Y_eq = Y₁ + Y₂ + ..."
+        },
+        {
+            "id": "q3",
+            "prompt": "KVL in the phasor domain states:",
+            "options": [
+                "A) The sum of phasor voltages around a loop equals the source voltage",
+                "B) The sum of phasor voltages around any closed loop is zero",
+                "C) The product of phasor voltages equals zero",
+                "D) KVL does not apply in the phasor domain"
+            ],
+            "correctAnswer": "B) The sum of phasor voltages around any closed loop is zero",
+            "explanation": "KVL directly transfers to the phasor domain: ΣV_k = 0 around any closed loop. This works because of the additive property of phasors."
+        },
+        {
+            "id": "q4",
+            "prompt": "Find Z_eq for R = 50 Ω in series with Z_C = -j100 Ω.",
+            "options": [
+                "A) 50 - j100 Ω",
+                "B) 150 Ω",
+                "C) -j50 Ω",
+                "D) 111.8∠(-63.43°) Ω"
+            ],
+            "correctAnswer": "A) 50 - j100 Ω",
+            "explanation": "In series, impedances add: Z_eq = 50 + (-j100) = 50 - j100 Ω. The magnitude is √(50²+100²) = 111.8 Ω and angle is -63.43°, but the rectangular form 50-j100 Ω is the direct answer."
+        },
+        {
+            "id": "q5",
+            "prompt": "The voltage divider formula for impedances is:",
+            "options": [
+                "A) V₂ = (Z₁/Z₂)·V_s",
+                "B) V₂ = (Z₂/(Z₁ + Z₂))·V_s",
+                "C) V₂ = (Z₁/(Z₁ + Z₂))·V_s",
+                "D) V₂ = Z₂·V_s"
+            ],
+            "correctAnswer": "B) V₂ = (Z₂/(Z₁ + Z₂))·V_s",
+            "explanation": "The voltage divider formula is identical to the DC version with impedances: V₂ = Z₂/(Z₁+Z₂) × V_s. The voltage across Z₂ is proportional to its fraction of total impedance."
+        },
+        {
+            "id": "q6",
+            "prompt": "For two parallel impedances Z₁ and Z₂, the product-over-sum formula gives:",
+            "options": [
+                "A) Z_eq = Z₁ + Z₂",
+                "B) Z_eq = Z₁·Z₂/(Z₁ + Z₂)",
+                "C) Z_eq = (Z₁ + Z₂)/(Z₁·Z₂)",
+                "D) Z_eq = √(Z₁·Z₂)"
+            ],
+            "correctAnswer": "B) Z_eq = Z₁·Z₂/(Z₁ + Z₂)",
+            "explanation": "For exactly two parallel impedances: Z_eq = Z₁Z₂/(Z₁+Z₂). This is identical to the parallel resistor formula from DC analysis."
+        },
+        {
+            "id": "q7",
+            "prompt": "In a series RLC circuit, at what condition does the impedance become purely real?",
+            "options": [
+                "A) When ωL = R",
+                "B) When ωL = 1/(ωC)",
+                "C) When R = 0",
+                "D) When ω = 0"
+            ],
+            "correctAnswer": "B) When ωL = 1/(ωC)",
+            "explanation": "Z = R + j(ωL - 1/ωC). This is purely real when ωL = 1/(ωC), i.e., ω₀ = 1/√(LC). This is the resonant frequency, where the circuit behaves as a pure resistor."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the balanced Y-Δ transformation, if each delta impedance is Z_Δ, each wye impedance is:",
+            "options": [
+                "A) Z_Y = Z_Δ",
+                "B) Z_Y = 3Z_Δ",
+                "C) Z_Y = Z_Δ/3",
+                "D) Z_Y = Z_Δ²"
+            ],
+            "correctAnswer": "C) Z_Y = Z_Δ/3",
+            "explanation": "For a balanced (all equal) network: Z_Y = Z_b·Z_c/(Z_a+Z_b+Z_c) = Z_Δ²/(3Z_Δ) = Z_Δ/3. Each wye impedance is one-third of each delta impedance."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why is admittance (Y) more convenient than impedance (Z) for parallel combinations?",
+            "options": [
+                "A) Admittance is always real",
+                "B) Parallel admittances add directly: Y_eq = Y₁ + Y₂",
+                "C) Admittance is easier to measure",
+                "D) There is no advantage"
+            ],
+            "correctAnswer": "B) Parallel admittances add directly: Y_eq = Y₁ + Y₂",
+            "explanation": "For parallel branches, admittances add: Y_eq = Y₁ + Y₂ + ... This avoids the messy reciprocal formula 1/Z_eq = 1/Z₁ + 1/Z₂. It's the AC analogue of conductances adding in parallel."
+        },
+        {
+            "id": "q10",
+            "prompt": "A capacitor (-j20 Ω) is in parallel with an inductor (j20 Ω). What is Z_eq?",
+            "options": [
+                "A) 0 Ω (short circuit)",
+                "B) j40 Ω",
+                "C) -j40 Ω",
+                "D) ∞ (open circuit)"
+            ],
+            "correctAnswer": "D) ∞ (open circuit)",
+            "explanation": "Z_eq = (j20)(-j20)/(j20-j20) = 400/0 → ∞. When X_L = -X_C (parallel resonance), the parallel combination acts as an open circuit at the resonant frequency."
+        }
+    ]
+}

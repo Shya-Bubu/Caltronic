@@ -1,0 +1,77 @@
+{
+    "id": "complex-numbers-review-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the imaginary unit j?",
+            "back": "j = √(-1). In electrical engineering, j is used instead of i to avoid confusion with current.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Write the rectangular form of a complex number A.",
+            "back": "A = a_r + ja_i, where a_r = Re[A] is the real part and a_i = Im[A] is the imaginary part.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Write the polar form of a complex number A.",
+            "back": "A = |A|∠φ_a = |A|e^(jφ_a), where |A| is the magnitude and φ_a is the phase angle.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "How do you convert from rectangular to polar form?",
+            "back": "|A| = √(a_r² + a_i²) and φ = tan⁻¹(a_i/a_r). Watch out: if a_r < 0, adjust by ±180°.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "State Euler's formula.",
+            "back": "e^(±jα) = cos α ± j sin α. This links the exponential form to trigonometric functions.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is the complex conjugate of A = a_r + ja_i?",
+            "back": "A* = a_r - ja_i = |A|∠(-φ_a). The sign of the imaginary part is flipped.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What does AA* equal?",
+            "back": "AA* = a_r² + a_i² = |A|². The product of a complex number with its conjugate is always real and positive.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "When multiplying two complex numbers in polar form, how do magnitudes and angles combine?",
+            "back": "Magnitudes multiply, angles add: AB = |A||B|∠(φ_a + φ_b).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is the geometric effect of multiplying a complex number by j?",
+            "back": "It rotates the number by 90° counterclockwise on the complex plane. Since j = 1∠90°, the magnitude is unchanged and 90° is added to the phase.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What is rationalisation in complex division?",
+            "back": "Multiply numerator and denominator by the conjugate of the denominator: B/A = BA*/(AA*). The denominator AA* = |A|² becomes real.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "Express cos α and sin α using complex exponentials.",
+            "back": "cos α = (e^(jα) + e^(-jα))/2 and sin α = (e^(jα) - e^(-jα))/(2j).",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f12",
+            "front": "What is the value of 1/j?",
+            "back": "1/j = 1∠(-90°) = -j. Multiplying numerator and denominator by j: 1/j = j/j² = j/(-1) = -j.",
+            "difficultyLevel": 4
+        }
+    ]
+}

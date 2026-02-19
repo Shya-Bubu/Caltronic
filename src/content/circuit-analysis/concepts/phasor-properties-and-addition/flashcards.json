@@ -1,0 +1,65 @@
+{
+    "id": "phasor-properties-and-addition-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the additive property of phasors.",
+            "back": "The sum of sinusoids of the same frequency can be found by adding their phasors: v₁ + v₂ ↔ V₁ + V₂. The result is another sinusoid of the same frequency.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "State the derivative property of phasors.",
+            "back": "Differentiating a sinusoid corresponds to multiplying its phasor by jω: dv/dt ↔ jωV. This scales the amplitude by ω and shifts phase by +90°.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Why must all sinusoids have the same frequency for phasor addition to work?",
+            "back": "The method relies on factoring out a common e^(jωt). If frequencies differ, the time factors are different and cannot be combined into a single phasor.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What form should you use when adding phasors?",
+            "back": "Rectangular form: add real parts and imaginary parts separately. Then convert the result to polar to find the amplitude and phase.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is the integration property in phasor domain?",
+            "back": "Integration corresponds to dividing by jω: ∫v·dt ↔ V/(jω). This divides amplitude by ω and shifts phase by -90°.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What are the two geometric effects of multiplying a phasor by jω?",
+            "back": "1) The magnitude is scaled by ω. 2) The phase is rotated by +90° (counterclockwise). This is why derivatives lead the original signal.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What happens when you add two phasors of equal magnitude but 180° apart?",
+            "back": "They cancel completely — the sum is zero. This corresponds to destructive interference of two equal-amplitude, opposite-phase sinusoids.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Describe the graphical (tip-to-tail) method for phasor addition.",
+            "back": "Place the tail of V₂ at the tip of V₁. The resultant is the arrow from the origin to the tip of V₂. This is identical to vector addition.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "How does the derivative property apply to the capacitor equation i = C·dv/dt?",
+            "back": "In phasor domain: I = C·jωV = jωCV. This shows the current leads the voltage by 90° for a capacitor.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "If V₁ = A∠0° and V₂ = A∠90°, what is V₁ + V₂?",
+            "back": "V₁ + V₂ = A + jA = A√2∠45°. Two equal-magnitude phasors 90° apart combine to give √2 times the original magnitude at 45°.",
+            "difficultyLevel": 4
+        }
+    ]
+}

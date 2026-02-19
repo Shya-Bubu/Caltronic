@@ -1,0 +1,573 @@
+{
+    "visuals": [
+        {
+            "id": "complex-plane-intro",
+            "type": "plotly",
+            "title": "The Complex Plane",
+            "description": "The complex plane has a real axis (horizontal) and an imaginary axis (vertical). Every complex number A = a_r + ja_i is a point on this plane.",
+            "traces": [
+                {
+                    "x": [
+                        3
+                    ],
+                    "y": [
+                        4
+                    ],
+                    "name": "A = 3 + j4",
+                    "mode": "markers+text",
+                    "text": [
+                        "A = 3 + j4"
+                    ],
+                    "textposition": "top right",
+                    "marker": {
+                        "color": "#3b82f6",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": [
+                        -2
+                    ],
+                    "y": [
+                        3
+                    ],
+                    "name": "B = -2 + j3",
+                    "mode": "markers+text",
+                    "text": [
+                        "B = -2 + j3"
+                    ],
+                    "textposition": "top left",
+                    "marker": {
+                        "color": "#ef4444",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": [
+                        4
+                    ],
+                    "y": [
+                        -2
+                    ],
+                    "name": "C = 4 - j2",
+                    "mode": "markers+text",
+                    "text": [
+                        "C = 4 - j2"
+                    ],
+                    "textposition": "bottom right",
+                    "marker": {
+                        "color": "#22c55e",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": [
+                        -3
+                    ],
+                    "y": [
+                        -4
+                    ],
+                    "name": "D = -3 - j4",
+                    "mode": "markers+text",
+                    "text": [
+                        "D = -3 - j4"
+                    ],
+                    "textposition": "bottom left",
+                    "marker": {
+                        "color": "#f59e0b",
+                        "size": 12
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Real Axis (Re)",
+                    "range": [
+                        -6,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "title": "Imaginary Axis (Im)",
+                    "range": [
+                        -6,
+                        6
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 500,
+            "height": 500
+        },
+        {
+            "id": "complex-plane-plot",
+            "type": "plotly",
+            "title": "Complex Number A = a_r + ja_i on the Complex Plane",
+            "description": "The real part a_r is the horizontal coordinate, and the imaginary part a_i is the vertical coordinate. The magnitude |A| is the distance from the origin, and the angle φ is measured from the positive real axis.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        4
+                    ],
+                    "name": "Magnitude |A| = 5",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        3,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        4
+                    ],
+                    "name": "Imaginary part (a_i = 4)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#a855f7",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "Real part (a_r = 3)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Real Axis (Re)",
+                    "range": [
+                        -1,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "title": "Imaginary Axis (Im)",
+                    "range": [
+                        -1,
+                        6
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 1.5,
+                        "y": 1.2,
+                        "text": "φ = 53.13°",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#f59e0b"
+                        }
+                    }
+                ]
+            },
+            "centeredAxes": true,
+            "width": 480,
+            "height": 480
+        },
+        {
+            "id": "rectangular-vs-polar",
+            "type": "plotly",
+            "title": "Rectangular vs Polar: Two Views of the Same Number",
+            "description": "A = 3 + j4 = 5∠53.13°. The rectangular form gives the (x, y) coordinates. The polar form gives the distance and direction from the origin.",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        4
+                    ],
+                    "name": "|A| = 5 (polar magnitude)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        3
+                    ],
+                    "y": [
+                        4
+                    ],
+                    "name": "A = 3 + j4",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#3b82f6",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        3,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        4
+                    ],
+                    "name": "Rectangular components",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2,
+                        "dash": "dot"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -1,
+                        5.5
+                    ]
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -1,
+                        5.5
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 460,
+            "height": 460
+        },
+        {
+            "id": "conversion-demo",
+            "type": "d3-simulation",
+            "simulationType": "vi-curve",
+            "title": "Interactive: Rectangular ↔ Polar Converter",
+            "description": "Move the point on the complex plane and see both the rectangular (a_r + ja_i) and polar (|A|∠φ) representations update in real time."
+        },
+        {
+            "id": "conjugate-diagram",
+            "type": "plotly",
+            "title": "Complex Conjugate: A and A* are Mirror Images",
+            "description": "The conjugate A* is the reflection of A across the real axis. Notice that A + A* = 2·Re[A] (a real number) and AA* = |A|² (also real).",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        -4
+                    ],
+                    "y": [
+                        0,
+                        3
+                    ],
+                    "name": "A = -4 + j3",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#3b82f6",
+                        "width": 2.5
+                    },
+                    "marker": {
+                        "size": 10
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        -4
+                    ],
+                    "y": [
+                        0,
+                        -3
+                    ],
+                    "name": "A* = -4 - j3",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ef4444",
+                        "width": 2.5
+                    },
+                    "marker": {
+                        "size": 10
+                    }
+                },
+                {
+                    "x": [
+                        -4,
+                        -4
+                    ],
+                    "y": [
+                        -3,
+                        3
+                    ],
+                    "name": "A + A* = -8 (real axis)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#22c55e",
+                        "width": 1.5,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -6,
+                        2
+                    ]
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -5,
+                        5
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 480,
+            "height": 400
+        },
+        {
+            "id": "euler-unit-circle",
+            "type": "plotly",
+            "title": "Euler's Formula: e^(jα) Traces the Unit Circle",
+            "description": "As α goes from 0 to 2π, the point e^(jα) = cos α + j sin α traces out a complete circle of radius 1. Key points: e^(j0) = 1, e^(jπ/2) = j, e^(jπ) = -1, e^(j3π/2) = -j.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        0.866,
+                        0.5,
+                        0,
+                        -0.5,
+                        -0.866,
+                        -1,
+                        -0.866,
+                        -0.5,
+                        0,
+                        0.5,
+                        0.866,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        0.5,
+                        0.866,
+                        1,
+                        0.866,
+                        0.5,
+                        0,
+                        -0.5,
+                        -0.866,
+                        -1,
+                        -0.866,
+                        -0.5,
+                        0
+                    ],
+                    "name": "Unit circle: |e^(jα)| = 1",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b7280",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        0,
+                        -1,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        0,
+                        -1
+                    ],
+                    "name": "Key points",
+                    "mode": "markers+text",
+                    "text": [
+                        "1 (α=0)",
+                        "j (α=π/2)",
+                        "-1 (α=π)",
+                        "-j (α=3π/2)"
+                    ],
+                    "textposition": [
+                        "middle right",
+                        "top center",
+                        "middle left",
+                        "bottom center"
+                    ],
+                    "marker": {
+                        "color": "#3b82f6",
+                        "size": 12
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -1.8,
+                        1.8
+                    ],
+                    "scaleanchor": "y"
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -1.8,
+                        1.8
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 460,
+            "height": 460
+        },
+        {
+            "id": "euler-formula-sim",
+            "type": "d3-simulation",
+            "simulationType": "signal-generator",
+            "title": "Interactive: Euler's Formula Explorer",
+            "description": "Adjust the angle α and watch the point e^(jα) move around the unit circle. The real part (cos α) and imaginary part (sin α) update simultaneously."
+        },
+        {
+            "id": "j-rotation-diagram",
+            "type": "plotly",
+            "title": "Powers of j: 90° Rotation Steps",
+            "description": "Each multiplication by j rotates the complex number by 90° counterclockwise. Starting from 1: j⁰ = 1, j¹ = j, j² = -1, j³ = -j, j⁴ = 1 (back to start).",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        0,
+                        -1,
+                        0,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        0,
+                        -1,
+                        0
+                    ],
+                    "name": "Powers of j",
+                    "mode": "lines+markers+text",
+                    "text": [
+                        "j⁰ = 1",
+                        "j¹ = j",
+                        "j² = -1",
+                        "j³ = -j",
+                        "j⁴ = 1"
+                    ],
+                    "textposition": [
+                        "middle right",
+                        "top center",
+                        "middle left",
+                        "bottom center",
+                        "middle right"
+                    ],
+                    "line": {
+                        "color": "#a855f7",
+                        "width": 2,
+                        "dash": "dot"
+                    },
+                    "marker": {
+                        "color": "#a855f7",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        0.866,
+                        0.5,
+                        0,
+                        -0.5,
+                        -0.866,
+                        -1,
+                        -0.866,
+                        -0.5,
+                        0,
+                        0.5,
+                        0.866,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        0.5,
+                        0.866,
+                        1,
+                        0.866,
+                        0.5,
+                        0,
+                        -0.5,
+                        -0.866,
+                        -1,
+                        -0.866,
+                        -0.5,
+                        0
+                    ],
+                    "name": "Unit circle",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#374151",
+                        "width": 1
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Re",
+                    "range": [
+                        -1.8,
+                        1.8
+                    ],
+                    "scaleanchor": "y"
+                },
+                "yaxis": {
+                    "title": "Im",
+                    "range": [
+                        -1.8,
+                        1.8
+                    ]
+                }
+            },
+            "centeredAxes": true,
+            "width": 460,
+            "height": 460
+        }
+    ]
+}
