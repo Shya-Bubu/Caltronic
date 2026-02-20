@@ -1,0 +1,207 @@
+{
+    "visuals": [
+        {
+            "id": "periodic-signal-definition",
+            "type": "plotly",
+            "title": "Periodic Signal: x(t) = 11 + 4sin(5t) + (4/3)sin(15t)",
+            "description": "Shows the periodic signal x(t) oscillating around its DC component of 11. The fundamental period T₀ = 2π/5 is marked, demonstrating that the signal repeats identically after each period.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "Array.from({length: 500}, (_, i) => i * 4 * Math.PI / 500)",
+                        "y_expr": "Array.from({length: 500}, (_, i) => { const t = i * 4 * Math.PI / 500; return 11 + 4 * Math.sin(5 * t) + (4/3) * Math.sin(15 * t); })",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "x(t)",
+                        "line": {
+                            "color": "#4f8cff",
+                            "width": 2.5
+                        }
+                    },
+                    {
+                        "x_expr": "[0, 4 * Math.PI]",
+                        "y_expr": "[11, 11]",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "DC = 11",
+                        "line": {
+                            "color": "#ff6b8a",
+                            "width": 1.5,
+                            "dash": "dash"
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "x(t) = 11 + 4sin(5t) + (4/3)sin(15t)",
+                    "xaxis": {
+                        "title": "t (seconds)"
+                    },
+                    "yaxis": {
+                        "title": "x(t)"
+                    },
+                    "showlegend": true
+                }
+            }
+        },
+        {
+            "id": "magnitude-phase-spectrum",
+            "type": "plotly",
+            "title": "Magnitude & Phase Spectrum of x(t)",
+            "description": "Side-by-side magnitude and phase plots of the Fourier coefficients X_k. The magnitude spectrum is symmetric (|X_{-k}| = |X_k|) and the phase spectrum is anti-symmetric for this real signal.",
+            "config": {
+                "data": [
+                    {
+                        "x": [
+                            -3,
+                            -2,
+                            -1,
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "y": [
+                            0.667,
+                            0,
+                            2,
+                            11,
+                            2,
+                            0,
+                            0.667
+                        ],
+                        "type": "bar",
+                        "name": "|X_k|",
+                        "marker": {
+                            "color": "#4f8cff"
+                        },
+                        "xaxis": "x1",
+                        "yaxis": "y1"
+                    },
+                    {
+                        "x": [
+                            -3,
+                            -2,
+                            -1,
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "y": [
+                            1.5708,
+                            0,
+                            1.5708,
+                            0,
+                            -1.5708,
+                            0,
+                            -1.5708
+                        ],
+                        "type": "bar",
+                        "name": "∠X_k",
+                        "marker": {
+                            "color": "#ff6b8a"
+                        },
+                        "xaxis": "x2",
+                        "yaxis": "y2"
+                    }
+                ],
+                "layout": {
+                    "title": "Magnitude & Phase Spectra",
+                    "grid": {
+                        "rows": 1,
+                        "columns": 2,
+                        "pattern": "independent"
+                    },
+                    "xaxis": {
+                        "title": "k"
+                    },
+                    "yaxis": {
+                        "title": "|X_k|"
+                    },
+                    "xaxis2": {
+                        "title": "k"
+                    },
+                    "yaxis2": {
+                        "title": "∠X_k (rad)"
+                    },
+                    "showlegend": true
+                }
+            }
+        },
+        {
+            "id": "inter-domain-diagram",
+            "type": "d3-block-diagram",
+            "title": "Inter-Domain Analysis: Time ↔ Frequency",
+            "description": "A conceptual block diagram showing that the same signal x(t) can be viewed in the time domain as a waveform and in the frequency domain as a set of Fourier coefficients X_k. Both representations are unique and complete.",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "time",
+                        "label": "Time Domain\nx(t)",
+                        "x": 100,
+                        "y": 150,
+                        "width": 180,
+                        "height": 80,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "freq",
+                        "label": "Frequency Domain\n{X_k}",
+                        "x": 500,
+                        "y": 150,
+                        "width": 180,
+                        "height": 80,
+                        "fill": "#ff6b8a"
+                    }
+                ],
+                "edges": [
+                    {
+                        "from": "time",
+                        "to": "freq",
+                        "label": "Analysis\nX_k = (1/T₀)∫ x(t)e^{-jkω₀t} dt",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "freq",
+                        "to": "time",
+                        "label": "Synthesis\nx(t) = Σ X_k e^{jkω₀t}",
+                        "style": "arrow",
+                        "curveOffset": 40
+                    }
+                ]
+            }
+        },
+        {
+            "id": "euler-formula-circle",
+            "type": "plotly",
+            "title": "Euler's Formula: e^{jθ} on the Unit Circle",
+            "description": "Complex exponential e^{jθ} traces the unit circle in the complex plane. The real part gives cos(θ) and the imaginary part gives sin(θ). This visualises why e^{jθ} is the natural basis for Fourier analysis.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "Array.from({length: 100}, (_, i) => Math.cos(2 * Math.PI * i / 100))",
+                        "y_expr": "Array.from({length: 100}, (_, i) => Math.sin(2 * Math.PI * i / 100))",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "e^{jθ}",
+                        "line": {
+                            "color": "#6b62ff",
+                            "width": 2
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "e^{jθ} on the Unit Circle",
+                    "xaxis": {
+                        "title": "Re",
+                        "scaleanchor": "y"
+                    },
+                    "yaxis": {
+                        "title": "Im"
+                    },
+                    "showlegend": true
+                }
+            }
+        }
+    ]
+}

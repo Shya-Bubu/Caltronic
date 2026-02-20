@@ -1,0 +1,112 @@
+{
+    "visuals": [
+        {
+            "id": "square-pulse-train",
+            "type": "plotly",
+            "title": "Square Pulse Train: T₀ = 4, 2T₁ = 1",
+            "description": "A periodic square pulse train with amplitude 1, pulse width 2T₁ = 1 second, and period T₀ = 4 seconds. The duty cycle is 25%.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "(() => { const pts = []; for(let m=-2; m<=2; m++) { const c = m*4; pts.push(c-0.5-0.01, c-0.5, c-0.5, c+0.5, c+0.5, c+0.5+0.01); } return pts; })()",
+                        "y_expr": "(() => { const pts = []; for(let m=-2; m<=2; m++) { pts.push(0, 0, 1, 1, 0, 0); } return pts; })()",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "x(t)",
+                        "line": {
+                            "color": "#4f8cff",
+                            "width": 2.5
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "Square Pulse Train (T₀=4, 2T₁=1)",
+                    "xaxis": {
+                        "title": "t (seconds)",
+                        "range": [
+                            -6,
+                            6
+                        ]
+                    },
+                    "yaxis": {
+                        "title": "x(t)",
+                        "range": [
+                            -0.2,
+                            1.4
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "id": "sinc-spectrum",
+            "type": "plotly",
+            "title": "Fourier Coefficients X_k (Sinc Envelope)",
+            "description": "The FS coefficients X_k = sin(kπ/4)/(kπ) for T₀=4, T₁=0.5. They follow a sinc envelope that decays as 1/k, with zero crossings where kω₀T₁ = nπ.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "Array.from({length: 41}, (_, i) => i - 20)",
+                        "y_expr": "Array.from({length: 41}, (_, i) => { const k = i - 20; if(k === 0) return 0.25; return Math.sin(k * Math.PI / 4) / (k * Math.PI); })",
+                        "type": "bar",
+                        "name": "X_k",
+                        "marker": {
+                            "color": "#6b62ff"
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "X_k = sin(kπ/4)/(kπ)",
+                    "xaxis": {
+                        "title": "k (harmonic index)"
+                    },
+                    "yaxis": {
+                        "title": "X_k"
+                    },
+                    "bargap": 0.3
+                }
+            }
+        },
+        {
+            "id": "bandwidth-duration-tradeoff",
+            "type": "plotly",
+            "title": "Bandwidth–Duration Trade-off",
+            "description": "Comparing the spectra of a wide pulse (T₁=1) and a narrow pulse (T₁=0.25) with the same period T₀=4. The narrow pulse has a wider spectrum (more significant harmonics), illustrating the fundamental trade-off.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "Array.from({length: 41}, (_, i) => i - 20)",
+                        "y_expr": "Array.from({length: 41}, (_, i) => { const k = i - 20; if(k === 0) return 0.5; return Math.sin(k * Math.PI / 2) / (k * Math.PI); })",
+                        "type": "bar",
+                        "name": "Wide pulse (2T₁=2)",
+                        "marker": {
+                            "color": "#4f8cff",
+                            "opacity": 0.7
+                        }
+                    },
+                    {
+                        "x_expr": "Array.from({length: 41}, (_, i) => i - 20)",
+                        "y_expr": "Array.from({length: 41}, (_, i) => { const k = i - 20; if(k === 0) return 0.125; return Math.sin(k * Math.PI / 8) / (k * Math.PI); })",
+                        "type": "bar",
+                        "name": "Narrow pulse (2T₁=0.5)",
+                        "marker": {
+                            "color": "#ff6b8a",
+                            "opacity": 0.7
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "Narrow Pulse → Wide Spectrum",
+                    "xaxis": {
+                        "title": "k"
+                    },
+                    "yaxis": {
+                        "title": "X_k"
+                    },
+                    "barmode": "group",
+                    "showlegend": true
+                }
+            }
+        }
+    ]
+}

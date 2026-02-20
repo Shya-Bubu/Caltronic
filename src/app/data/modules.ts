@@ -54,7 +54,13 @@ export const modules: Module[] = [
     category: "Core Theory",
     accent: "#6b62ff",
     updatedToWeek: 7,
-    lectures: [],
+    lectures: [
+      {
+        id: "lesson-04",
+        title: "Fourier Series — Part I",
+        path: "/signals-and-systems/lesson-04",
+      },
+    ],
   },
   {
     id: "EE2030",
@@ -78,9 +84,9 @@ export const modules: Module[] = [
     updatedToWeek: 6,
     lectures: [
       {
-        id: "lab-02",
+        id: "lesson-02",
         title: "Two Stage Direct Coupled Amplifier Design",
-        path: "/analog-electronics/lab-02",
+        path: "/analog-electronics/lesson-02",
       },
       {
         id: "lesson-03",

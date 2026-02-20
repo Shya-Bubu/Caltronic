@@ -1,0 +1,94 @@
+{
+    "visuals": [
+        {
+            "id": "time-shift-phase-change",
+            "type": "plotly",
+            "title": "Time Shift → Phase Change Only",
+            "description": "Shows a signal x(t) and its shifted version x(t−t₀). Their magnitude spectra |X_k| are identical, but their phase spectra differ by −kω₀t₀. Higher harmonics experience larger phase shifts.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                        "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.sin(t) + 0.5*Math.sin(3*t); })",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "x(t)",
+                        "line": {
+                            "color": "#4f8cff",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                        "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; const t0 = Math.PI/4; return Math.sin(t-t0) + 0.5*Math.sin(3*(t-t0)); })",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "x(t − π/4)",
+                        "line": {
+                            "color": "#ff6b8a",
+                            "width": 2,
+                            "dash": "dash"
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "Time Shift: Same Shape, Different Position",
+                    "xaxis": {
+                        "title": "t"
+                    },
+                    "yaxis": {
+                        "title": "Amplitude"
+                    },
+                    "showlegend": true
+                }
+            }
+        },
+        {
+            "id": "properties-summary-diagram",
+            "type": "d3-block-diagram",
+            "title": "FS Properties Summary",
+            "description": "A visual summary of all four properties showing the transformation in the time domain and its effect on the FS coefficients.",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "lin",
+                        "label": "Linearity\nαx+βy → αX_k+βY_k\n(same ω₀)",
+                        "x": 100,
+                        "y": 60,
+                        "width": 240,
+                        "height": 70,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "shift",
+                        "label": "Time Shift\nx(t−t₀) → X_k·e^{−jkω₀t₀}\n|X_k| unchanged",
+                        "x": 400,
+                        "y": 60,
+                        "width": 240,
+                        "height": 70,
+                        "fill": "#6b62ff"
+                    },
+                    {
+                        "id": "rev",
+                        "label": "Time Reversal\nx(−t) → X_{−k}",
+                        "x": 100,
+                        "y": 200,
+                        "width": 240,
+                        "height": 70,
+                        "fill": "#ff6b8a"
+                    },
+                    {
+                        "id": "scale",
+                        "label": "Time Scaling\nx(αt) → X_k\nPeriod: T₀/α",
+                        "x": 400,
+                        "y": 200,
+                        "width": 240,
+                        "height": 70,
+                        "fill": "#2fbf8f"
+                    }
+                ],
+                "edges": []
+            }
+        }
+    ]
+}

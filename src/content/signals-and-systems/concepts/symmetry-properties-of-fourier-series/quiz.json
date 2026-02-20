@@ -1,0 +1,125 @@
+{
+    "id": "symmetry-properties-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "For a real periodic signal x(t), the FS coefficients satisfy:",
+            "options": [
+                "A) X_{−k} = X_k",
+                "B) X_{−k} = −X_k",
+                "C) X_{−k} = X_k* (conjugate)",
+                "D) X_{−k} = |X_k|"
+            ],
+            "correctAnswer": "C",
+            "explanation": "Real signals have conjugate symmetry: X_{−k} = X_k*. This means the real part of X_k is even and the imaginary part is odd. The magnitude is even (|X_{−k}| = |X_k|) and the phase is odd (∠X_{−k} = −∠X_k)."
+        },
+        {
+            "id": "q2",
+            "prompt": "If x(t) is real and even, then X_k is:",
+            "options": [
+                "A) Purely imaginary",
+                "B) Purely real and even",
+                "C) Complex with equal real and imaginary parts",
+                "D) Zero for all k"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Real: X_{−k} = X_k*. Even: X_{−k} = X_k. Combining: X_k* = X_k, so X_k is real. Also X_k = X_{−k}, so X_k is an even function of k. The square pulse (centred) is a perfect example."
+        },
+        {
+            "id": "q3",
+            "prompt": "If x(t) is real and odd, then X_k is:",
+            "options": [
+                "A) Purely real",
+                "B) Purely imaginary and odd, with X₀ = 0",
+                "C) Always zero",
+                "D) Real and even"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Real: X_{−k} = X_k*. Odd: X_{−k} = −X_k. Together: X_k* = −X_k → X_k is purely imaginary. Also X_k = −X_{−k} (odd). For k=0: X₀ = −X₀ → X₀ = 0 (odd functions have zero average)."
+        },
+        {
+            "id": "q4",
+            "prompt": "For a real signal, |X_{−k}| equals:",
+            "options": [
+                "A) −|X_k|",
+                "B) |X_k|",
+                "C) |X_k|²",
+                "D) 1/|X_k|"
+            ],
+            "correctAnswer": "B",
+            "explanation": "From X_{−k} = X_k*: |X_{−k}| = |X_k*| = |X_k|. The magnitude spectrum is always even symmetric for real signals. You only need to plot the positive-k half."
+        },
+        {
+            "id": "q5",
+            "prompt": "For a real signal, ∠X_{−k} equals:",
+            "options": [
+                "A) ∠X_k",
+                "B) −∠X_k",
+                "C) ∠X_k + π",
+                "D) π/2"
+            ],
+            "correctAnswer": "B",
+            "explanation": "From X_{−k} = X_k*: ∠X_{−k} = ∠(X_k*) = −∠X_k. The phase spectrum is odd (anti-symmetric about k=0). For real, even signals the phase is zero everywhere (X_k is real)."
+        },
+        {
+            "id": "q6",
+            "prompt": "The signal sin(ω₀t) is real and odd. Its FS coefficient X₀ is:",
+            "options": [
+                "A) 1",
+                "B) 0.5",
+                "C) 0",
+                "D) −1"
+            ],
+            "correctAnswer": "C",
+            "explanation": "For odd signals, X₀ = 0. The average of sin(ω₀t) over one period is zero — the positive and negative halves cancel exactly."
+        },
+        {
+            "id": "q7",
+            "prompt": "If you compute X_k for a real signal and find |X₃| ≠ |X_{−3}|, you should:",
+            "options": [
+                "A) Accept the result — conjugate symmetry doesn't apply",
+                "B) Recheck your computation — this violates conjugate symmetry",
+                "C) Average the two values",
+                "D) Set both to zero"
+            ],
+            "correctAnswer": "B",
+            "explanation": "For real signals, |X_{−k}| must equal |X_k|. If your computation gives |X₃| ≠ |X_{−3}|, there's an error somewhere. Use symmetry as a built-in verification tool."
+        },
+        {
+            "id": "q8",
+            "prompt": "The even part of a real signal x(t) is:",
+            "options": [
+                "A) x(t) + x(−t)",
+                "B) [x(t) + x(−t)] / 2",
+                "C) [x(t) − x(−t)] / 2",
+                "D) x(t) · x(−t)"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Any signal can be decomposed as x(t) = x_e(t) + x_o(t), where x_e(t) = [x(t)+x(−t)]/2 is the even part and x_o(t) = [x(t)−x(−t)]/2 is the odd part. The even part contributes the real part of X_k; the odd part contributes the imaginary part."
+        },
+        {
+            "id": "q9",
+            "prompt": "For an even signal, the FS integral can be simplified to:",
+            "options": [
+                "A) X_k = (2/T₀) ∫₀^{T₀/2} x(t) cos(kω₀t) dt",
+                "B) X_k = (2/T₀) ∫₀^{T₀} x(t) sin(kω₀t) dt",
+                "C) X_k = (1/T₀) ∫₀^{T₀} x(t) dt",
+                "D) X_k = ∫₋∞^∞ x(t) e^{−jkω₀t} dt"
+            ],
+            "correctAnswer": "A",
+            "explanation": "For even x(t), the product x(t)·sin(kω₀t) is odd (even × odd = odd) and integrates to zero over a symmetric interval. Only the cosine part survives: X_k = (2/T₀)∫₀^{T₀/2} x(t)cos(kω₀t) dt — halving the integration work."
+        },
+        {
+            "id": "q10",
+            "prompt": "A purely imaginary signal jg(t) (where g(t) is real) has FS coefficients satisfying:",
+            "options": [
+                "A) X_{−k} = X_k*",
+                "B) X_{−k} = −X_k*",
+                "C) X_{−k} = X_k",
+                "D) X_k is always zero"
+            ],
+            "correctAnswer": "B",
+            "explanation": "If x(t) = jg(t) where g is real, then x(t)* = −jg(t) = −x(t). So X_k* = X_{−k}* → using x* = −x we get X_{−k} = −X_k*. This is anti-conjugate symmetry."
+        }
+    ]
+}

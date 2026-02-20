@@ -1,0 +1,140 @@
+{
+    "visuals": [
+        {
+            "id": "efs-analysis-synthesis-diagram",
+            "type": "d3-block-diagram",
+            "title": "EFS Analysis ↔ Synthesis Pair",
+            "description": "Block diagram showing the two directions: Analysis extracts X_k from x(t) using the integral operator; Synthesis reconstructs x(t) from X_k via the infinite sum.",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "xt",
+                        "label": "x(t)\nPeriodic signal",
+                        "x": 80,
+                        "y": 150,
+                        "width": 180,
+                        "height": 80,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "xk",
+                        "label": "X_k\nFS Coefficients",
+                        "x": 500,
+                        "y": 150,
+                        "width": 180,
+                        "height": 80,
+                        "fill": "#6b62ff"
+                    }
+                ],
+                "edges": [
+                    {
+                        "from": "xt",
+                        "to": "xk",
+                        "label": "Analysis: X_k = (1/T₀)∫x(t)e^{−jkω₀t}dt",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "xk",
+                        "to": "xt",
+                        "label": "Synthesis: x(t) = Σ X_k e^{jkω₀t}",
+                        "style": "arrow",
+                        "curveOffset": 40
+                    }
+                ]
+            }
+        },
+        {
+            "id": "orthogonality-visual",
+            "type": "plotly",
+            "title": "Orthogonality: e^{j(m−k)ω₀t} Integrates to Zero",
+            "description": "Shows how cos((m-k)ω₀t) (real part of the complex exponential) integrates to zero over one period when m ≠ k. Positive and negative areas cancel exactly.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                        "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(3 * i * 2 * Math.PI / 200))",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "cos(3ω₀t), m−k=3",
+                        "line": {
+                            "color": "#4f8cff",
+                            "width": 2
+                        },
+                        "fill": "tozeroy",
+                        "fillcolor": "rgba(79,140,255,0.2)"
+                    }
+                ],
+                "layout": {
+                    "title": "∫₀^{T₀} cos((m-k)ω₀t) dt = 0 for m ≠ k",
+                    "xaxis": {
+                        "title": "t (over one period T₀)"
+                    },
+                    "yaxis": {
+                        "title": "cos((m−k)ω₀t)"
+                    },
+                    "annotations": [
+                        {
+                            "text": "Net area = 0 (positive and negative cancel)",
+                            "x": 3.14,
+                            "y": 0.5,
+                            "showarrow": false
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "harmonic-reconstruction",
+            "type": "plotly",
+            "title": "FS Reconstruction: Adding Harmonics",
+            "description": "Shows how adding progressively more harmonics to a square wave approximation improves the reconstruction, while the Gibbs overshoot remains near discontinuities.",
+            "config": {
+                "data": [
+                    {
+                        "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                        "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=1; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "1 term",
+                        "line": {
+                            "color": "#4f8cff",
+                            "width": 1.5
+                        }
+                    },
+                    {
+                        "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                        "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=5; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "3 terms",
+                        "line": {
+                            "color": "#6b62ff",
+                            "width": 1.5
+                        }
+                    },
+                    {
+                        "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                        "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=21; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                        "type": "scatter",
+                        "mode": "lines",
+                        "name": "11 terms",
+                        "line": {
+                            "color": "#ff6b8a",
+                            "width": 2
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "Square Wave Approximation by Fourier Series",
+                    "xaxis": {
+                        "title": "t"
+                    },
+                    "yaxis": {
+                        "title": "x(t)"
+                    },
+                    "showlegend": true
+                }
+            }
+        }
+    ]
+}

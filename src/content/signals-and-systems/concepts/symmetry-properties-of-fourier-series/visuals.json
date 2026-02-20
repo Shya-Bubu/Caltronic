@@ -1,0 +1,201 @@
+{
+    "visuals": [
+        {
+            "id": "conjugate-symmetry-spectra",
+            "type": "plotly",
+            "title": "Conjugate Symmetry: |X_k| Even, ∠X_k Odd",
+            "description": "For a real signal, the magnitude spectrum is even symmetric about k=0 and the phase spectrum is odd (anti-symmetric). This is conjugate symmetry in action.",
+            "config": {
+                "data": [
+                    {
+                        "x": [
+                            -5,
+                            -4,
+                            -3,
+                            -2,
+                            -1,
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "y": [
+                            0.1,
+                            0.2,
+                            0.5,
+                            0.8,
+                            1.5,
+                            3.0,
+                            1.5,
+                            0.8,
+                            0.5,
+                            0.2,
+                            0.1
+                        ],
+                        "type": "bar",
+                        "name": "|X_k| (even)",
+                        "marker": {
+                            "color": "#4f8cff"
+                        },
+                        "xaxis": "x1",
+                        "yaxis": "y1"
+                    },
+                    {
+                        "x": [
+                            -5,
+                            -4,
+                            -3,
+                            -2,
+                            -1,
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "y": [
+                            0.5,
+                            0.4,
+                            0.3,
+                            0.2,
+                            0.1,
+                            0,
+                            -0.1,
+                            -0.2,
+                            -0.3,
+                            -0.4,
+                            -0.5
+                        ],
+                        "type": "bar",
+                        "name": "∠X_k (odd)",
+                        "marker": {
+                            "color": "#ff6b8a"
+                        },
+                        "xaxis": "x2",
+                        "yaxis": "y2"
+                    }
+                ],
+                "layout": {
+                    "title": "Real Signal: Conjugate Symmetry",
+                    "grid": {
+                        "rows": 1,
+                        "columns": 2,
+                        "pattern": "independent"
+                    },
+                    "xaxis": {
+                        "title": "k"
+                    },
+                    "yaxis": {
+                        "title": "|X_k|"
+                    },
+                    "xaxis2": {
+                        "title": "k"
+                    },
+                    "yaxis2": {
+                        "title": "∠X_k (rad)"
+                    },
+                    "showlegend": true
+                }
+            }
+        },
+        {
+            "id": "symmetry-decision-tree",
+            "type": "d3-block-diagram",
+            "title": "Symmetry Decision Tree",
+            "description": "A decision tree showing how to determine the form of X_k based on signal properties: real? even? odd?",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "q1",
+                        "label": "Is x(t) real?",
+                        "x": 300,
+                        "y": 30,
+                        "width": 180,
+                        "height": 50,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "conj",
+                        "label": "X_{−k} = X_k*\nConjugate Symmetric",
+                        "x": 300,
+                        "y": 120,
+                        "width": 220,
+                        "height": 60,
+                        "fill": "#6b62ff"
+                    },
+                    {
+                        "id": "q2",
+                        "label": "Is x(t) also even?",
+                        "x": 130,
+                        "y": 220,
+                        "width": 180,
+                        "height": 50,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "q3",
+                        "label": "Is x(t) also odd?",
+                        "x": 470,
+                        "y": 220,
+                        "width": 180,
+                        "height": 50,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "rEven",
+                        "label": "X_k ∈ ℝ, even\n(no imaginary part)",
+                        "x": 130,
+                        "y": 310,
+                        "width": 200,
+                        "height": 60,
+                        "fill": "#2fbf8f"
+                    },
+                    {
+                        "id": "rOdd",
+                        "label": "X_k ∈ jℝ, odd\nX₀ = 0",
+                        "x": 470,
+                        "y": 310,
+                        "width": 200,
+                        "height": 60,
+                        "fill": "#ff6b8a"
+                    }
+                ],
+                "edges": [
+                    {
+                        "from": "q1",
+                        "to": "conj",
+                        "label": "Yes",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "conj",
+                        "to": "q2",
+                        "label": "",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "conj",
+                        "to": "q3",
+                        "label": "",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "q2",
+                        "to": "rEven",
+                        "label": "Yes",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "q3",
+                        "to": "rOdd",
+                        "label": "Yes",
+                        "style": "arrow"
+                    }
+                ]
+            }
+        }
+    ]
+}

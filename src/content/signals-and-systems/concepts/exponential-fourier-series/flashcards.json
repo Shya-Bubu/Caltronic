@@ -1,0 +1,65 @@
+{
+    "id": "exponential-fourier-series-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Write the EFS analysis equation.",
+            "back": "X_k = (1/T₀) ∫_{T₀} x(t) e^{-jkω₀t} dt\n\nKey: minus sign in exponent, 1/T₀ factor, integrate over one period.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f2",
+            "front": "Write the EFS synthesis equation.",
+            "back": "x(t) = Σ_{k=-∞}^{∞} X_k e^{+jkω₀t}\n\nKey: plus sign in exponent, no 1/T₀ factor, sum from -∞ to +∞.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f3",
+            "front": "Why does the analysis integral extract only the k-th coefficient?",
+            "back": "Orthogonality: ∫_{T₀} e^{j(m-k)ω₀t} dt = 0 for m ≠ k, and = T₀ for m = k. So multiplying by e^{-jkω₀t} and integrating annihilates every term except X_k.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f4",
+            "front": "What is X₀ and how do you compute it?",
+            "back": "X₀ = (1/T₀) ∫_{T₀} x(t) dt — the average (DC) value. The exponential disappears since e^{-j·0·t} = 1.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f5",
+            "front": "Can you choose any interval to evaluate the FS integral?",
+            "back": "Yes — any contiguous interval of length T₀ gives the same X_k (due to periodicity). Choose the one that simplifies the integral. Common choices: [0, T₀] or [-T₀/2, +T₀/2].",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f6",
+            "front": "What happens to |X_k| as |k| → ∞?",
+            "back": "|X_k| → 0 for any finite-power periodic signal. Higher harmonics carry less energy. This ensures the FS converges.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f7",
+            "front": "What is the Gibbs phenomenon?",
+            "back": "A ~9% overshoot near discontinuities when a periodic signal is approximated by a truncated FS. The overshoot persists (doesn't shrink) as more terms are added — it only gets narrower.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f8",
+            "front": "What does conjugate symmetry X_{-k} = X_k* mean physically?",
+            "back": "For real signals: magnitudes are even symmetric (|X_{-k}| = |X_k|) and phases are odd anti-symmetric (∠X_{-k} = -∠X_k). This halves the independent information in the spectrum.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f9",
+            "front": "What's the difference between the EFS and the Fourier Transform?",
+            "back": "EFS: for periodic signals, discrete spectrum (coefficients at kω₀). FT: for aperiodic signals, continuous spectrum X(ω). EFS sums from -∞ to +∞ over k; FT integrates from -∞ to +∞ over ω.",
+            "difficultyLevel": "advanced"
+        },
+        {
+            "id": "f10",
+            "front": "What is the fundamental component and what are harmonics?",
+            "back": "X₁ is the fundamental (at ω₀). X_k for k ≥ 2 are harmonics: X₂ = 2nd harmonic (2ω₀), X₃ = 3rd harmonic (3ω₀), etc. Odd harmonics (3rd, 5th) are important in power systems for distortion analysis.",
+            "difficultyLevel": "basic"
+        }
+    ]
+}

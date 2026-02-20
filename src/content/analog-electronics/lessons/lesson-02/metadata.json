@@ -1,7 +1,7 @@
 {
-    "id": "lab-02",
+    "id": "lesson-02",
     "title": "Two Stage Direct Coupled Amplifier Design",
-    "slug": "lab-02",
+    "slug": "lesson-02",
     "description": "Design a two-stage NPN-PNP direct-coupled amplifier to meet gain, swing, and load specifications using the h-parameter model and systematic DC/AC design flow.",
     "prerequisites": [
         "lesson-01"

@@ -1,0 +1,22 @@
+{
+    "id": "lesson-04",
+    "title": "Fourier Series — Part I",
+    "slug": "lesson-04",
+    "description": "Inter-domain analysis of periodic signals via the Exponential Fourier Series: periodicity, the EFS integral, Fourier coefficients of the square pulse train, and key FS properties including linearity, time shifting, time reversal, time scaling, and symmetry conditions for real, even, and odd signals.",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "periodicity-and-inter-domain-analysis",
+        "exponential-fourier-series",
+        "fourier-series-of-square-pulse",
+        "fourier-series-properties",
+        "symmetry-properties-of-fourier-series"
+    ],
+    "lectureWeek": 4,
+    "estimatedMinutes": 120
+}
