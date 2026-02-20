@@ -84,9 +84,9 @@ export const modules: Module[] = [
     updatedToWeek: 6,
     lectures: [
       {
-        id: "lesson-02",
+        id: "lab-02",
         title: "Two Stage Direct Coupled Amplifier Design",
-        path: "/analog-electronics/lesson-02",
+        path: "/analog-electronics/lab-02",
       },
       {
         id: "lesson-03",
