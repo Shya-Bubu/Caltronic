@@ -1,0 +1,100 @@
+{
+    "visuals": [
+        {
+            "id": "power-spectrum-bar",
+            "type": "plotly",
+            "title": "Power Spectrum |X_k|² (Square Pulse Example)",
+            "description": "Bar chart showing |X_k|² for a square pulse train. The sum of all bars equals the total average power (Parseval's theorem). Higher harmonics carry progressively less power.",
+            "config": {
+                "data": [
+                    {
+                        "x": [
+                            -5,
+                            -4,
+                            -3,
+                            -2,
+                            -1,
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "y_expr": "[0.004, 0, 0.011, 0, 0.101, 0.25, 0.101, 0, 0.011, 0, 0.004]",
+                        "type": "bar",
+                        "name": "|X_k|²",
+                        "marker": {
+                            "color": "#4f8cff"
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "Power Spectrum: Square Pulse (50% duty cycle)",
+                    "xaxis": {
+                        "title": "Harmonic k",
+                        "dtick": 1
+                    },
+                    "yaxis": {
+                        "title": "|X_k|²"
+                    },
+                    "showlegend": false
+                }
+            }
+        },
+        {
+            "id": "parsevals-diagram",
+            "type": "d3-block-diagram",
+            "title": "Parseval's Theorem: Two Ways to Compute Power",
+            "description": "Shows the equivalence between time-domain power integral and frequency-domain coefficient sum.",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "td",
+                        "label": "Time Domain\nP = (1/T₀)∫|x(t)|² dt",
+                        "x": 120,
+                        "y": 50,
+                        "width": 240,
+                        "height": 55,
+                        "fill": "#ff6b8a"
+                    },
+                    {
+                        "id": "eq",
+                        "label": "=",
+                        "x": 350,
+                        "y": 50,
+                        "width": 40,
+                        "height": 55,
+                        "fill": "#6b62ff"
+                    },
+                    {
+                        "id": "fd",
+                        "label": "Frequency Domain\nP = Σ|X_k|²",
+                        "x": 500,
+                        "y": 50,
+                        "width": 240,
+                        "height": 55,
+                        "fill": "#2fbf8f"
+                    },
+                    {
+                        "id": "why",
+                        "label": "Thanks to orthogonality:\ncross-terms vanish",
+                        "x": 350,
+                        "y": 150,
+                        "width": 240,
+                        "height": 50,
+                        "fill": "#f5a623"
+                    }
+                ],
+                "edges": [
+                    {
+                        "from": "eq",
+                        "to": "why",
+                        "label": "",
+                        "style": "dashed"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -60,6 +60,11 @@ export const modules: Module[] = [
         title: "Fourier Series — Part I",
         path: "/signals-and-systems/lesson-04",
       },
+      {
+        id: "lesson-05",
+        title: "Fourier Series — Part II",
+        path: "/signals-and-systems/lesson-05",
+      },
     ],
   },
   {

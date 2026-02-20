@@ -1,0 +1,53 @@
+{
+    "id": "lti-fs-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the FS input/output relation for an LTI system.",
+            "back": "Y_k = H(jkω₀) · X_k\n\nEach FS coefficient is multiplied by the frequency response evaluated at the harmonic frequency kω₀.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f2",
+            "front": "Why are complex exponentials called eigenfunctions of LTI systems?",
+            "back": "Input e^{st} → output H(s)·e^{st}. The signal passes through unchanged in shape, only scaled by H(s). This is the eigenfunction/eigenvalue relationship.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f3",
+            "front": "Does the output period change when a periodic signal passes through an LTI system?",
+            "back": "No. The output has the same period T₀ as the input. Each harmonic keeps its frequency kω₀; only its amplitude and phase are modified by H(jkω₀).",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f4",
+            "front": "How does FS analysis simplify LTI system computation?",
+            "back": "Time domain: y(t) = x(t) * h(t) → convolution integral (hard)\nFS domain: Y_k = H(jkω₀)·X_k → multiplication (easy)\n\nConvolution becomes multiplication in the frequency domain.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f5",
+            "front": "How does a lowpass LTI system affect a periodic signal's FS?",
+            "back": "|H(jkω₀)| decreases with k → high harmonics are attenuated → smoother output. Sharp edges (high-frequency content) are removed.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f6",
+            "front": "Express output power in terms of H and X_k.",
+            "back": "P_out = Σ|Y_k|² = Σ|H(jkω₀)|²·|X_k|²\n\nEach harmonic's power is scaled by |H|² at that frequency. Combines the LTI result with Parseval's theorem.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f7",
+            "front": "Show that differentiation is an LTI system. What is its H(jω)?",
+            "back": "d/dt of e^{jωt} = jω·e^{jωt}\n\nSo H(jω) = jω → |H| = ω (grows with ω = highpass). This connects the differentiation property to the LTI eigenfunction framework.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f8",
+            "front": "What is the frequency response of integration as an LTI system?",
+            "back": "H(jω) = 1/(jω) → |H| = 1/ω (decreases with ω = lowpass). Integration attenuates high frequencies, smoothing the signal.",
+            "difficultyLevel": "intermediate"
+        }
+    ]
+}

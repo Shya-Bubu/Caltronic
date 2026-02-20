@@ -1,0 +1,53 @@
+{
+    "id": "trig-fs-orthogonality-flashcards",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Write the trigonometric Fourier series.",
+            "back": "x(t) = a₀ + Σ_{k=1}^{∞} [a_k cos(kω₀t) + b_k sin(kω₀t)]\n\nwhere a₀ = X₀, a_k = (2/T₀)∫x(t)cos(kω₀t)dt, b_k = (2/T₀)∫x(t)sin(kω₀t)dt",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f2",
+            "front": "How do a_k and b_k relate to X_k for real signals?",
+            "back": "a_k = 2Re(X_k)\nb_k = −2Im(X_k)\n\nThis comes from a_k = X_k + X_{−k} and b_k = j(X_k − X_{−k}) with X_{−k} = X_k*.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f3",
+            "front": "State the orthogonality condition for FS basis functions.",
+            "back": "⟨φ_k, φ_m⟩ = (1/T₀)∫_{T₀} e^{jkω₀t} · e^{−jmω₀t} dt = δ_{km}\n\n= 1 if k = m\n= 0 if k ≠ m\n\nThis is the Kronecker delta — basis functions are orthonormal.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f4",
+            "front": "Why do harmonics with k ≠ m integrate to zero over one period?",
+            "back": "e^{j(k−m)ω₀t} completes an integer number of full cycles over T₀ (since k−m is an integer). The integral of a sinusoid over complete cycles is always zero.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f5",
+            "front": "What is the physical analogy for orthogonality of FS basis functions?",
+            "back": "It's like orthogonal axes (x̂, ŷ, ẑ) in 3D. Projecting a vector onto one axis gives the component along that axis without contamination from other axes. Similarly, projecting x(t) onto e^{jkω₀t} gives X_k with no cross-talk from other harmonics.",
+            "difficultyLevel": "intermediate"
+        },
+        {
+            "id": "f6",
+            "front": "What factor distinguishes the trig FS coefficient formulas from the EFS?",
+            "back": "Factor of 2:\na_k = (2/T₀)∫x(t)cos(kω₀t)dt\nb_k = (2/T₀)∫x(t)sin(kω₀t)dt\n\nvs EFS: X_k = (1/T₀)∫x(t)e^{−jkω₀t}dt",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f7",
+            "front": "Why is the EFS preferred over trig FS in engineering?",
+            "back": "EFS provides compact complex representation: X_k = |X_k|e^{j∠X_k} directly gives magnitude and phase. Properties (shift, differentiation, etc.) are cleaner. Trig FS splits into two real coefficients a_k and b_k, losing compactness.",
+            "difficultyLevel": "basic"
+        },
+        {
+            "id": "f8",
+            "front": "What range does k take in the trig FS sum?",
+            "back": "k = 1 to ∞ (plus a separate a₀ term for DC).\n\nContrast with EFS: k = −∞ to +∞. In trig FS, the +k and −k pairs are combined into single cos/sin terms.",
+            "difficultyLevel": "basic"
+        }
+    ]
+}

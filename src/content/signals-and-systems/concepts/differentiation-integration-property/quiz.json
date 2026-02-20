@@ -1,0 +1,125 @@
+{
+    "id": "diff-integration-property-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The FS coefficient of x'(t) = dx/dt is:",
+            "options": [
+                "A) X_k / (jkω₀)",
+                "B) jkω₀ X_k (for k ≠ 0)",
+                "C) kX_k",
+                "D) X_k + jkω₀"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Differentiating the synthesis equation brings down jkω₀ from d/dt of e^{jkω₀t}. So X'_k = jkω₀ X_k for k ≠ 0. The DC term X₀ always differentiates to zero."
+        },
+        {
+            "id": "q2",
+            "prompt": "Differentiation in the time domain is equivalent to which process in the frequency domain?",
+            "options": [
+                "A) Lowpass filtering",
+                "B) Bandpass filtering",
+                "C) Highpass filtering (sharpening)",
+                "D) No change to the spectrum"
+            ],
+            "correctAnswer": "C",
+            "explanation": "The multiplier jkω₀ has magnitude |k|ω₀, which grows with k. Higher harmonics are amplified more. This is a highpass process — it sharpens the signal by boosting high-frequency content."
+        },
+        {
+            "id": "q3",
+            "prompt": "Integration in the time domain acts as:",
+            "options": [
+                "A) A highpass process (sharpening)",
+                "B) A lowpass process (smoothing)",
+                "C) A bandstop filter",
+                "D) An allpass process"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Integration divides X_k by jkω₀. Since |jkω₀| grows with k, dividing by it attenuates high-k harmonics → lowpass behaviour → signal smoothing."
+        },
+        {
+            "id": "q4",
+            "prompt": "The differentiation property is valid for:",
+            "options": [
+                "A) All k including k = 0",
+                "B) Only k ≠ 0",
+                "C) Only k > 0",
+                "D) Only even k"
+            ],
+            "correctAnswer": "B",
+            "explanation": "At k = 0, the DC term X₀ is a constant whose derivative is zero. The property X'_k = jkω₀X_k gives 0·X₀ = 0 for k=0, which is correct but you should find X'_0 separately to confirm."
+        },
+        {
+            "id": "q5",
+            "prompt": "If x(t) has a finite jump of magnitude A at some time instant, then x'(t) at that point contains:",
+            "options": [
+                "A) A constant A",
+                "B) A delta function Aδ(t − t₀)",
+                "C) Zero",
+                "D) A step function"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Just as d/dt of the unit step u(t) = δ(t), a finite jump of magnitude A in x(t) at t = t₀ produces Aδ(t − t₀) in x'(t). This is the key insight for differentiating discontinuous signals like triangular waves."
+        },
+        {
+            "id": "q6",
+            "prompt": "To find the FS of a triangular pulse train, the 'smart' approach is to:",
+            "options": [
+                "A) Use the definition integral directly with integration by parts",
+                "B) Differentiate first to get a simpler signal, find its FS, then divide by jkω₀",
+                "C) Use the linearity property",
+                "D) Apply time reversal"
+            ],
+            "correctAnswer": "B",
+            "explanation": "The professor emphasises this technique: differentiate the triangle to get constant segments + delta functions (much simpler), find the FS of that signal using known pairs (impulse train), then recover X_k by dividing by jkω₀."
+        },
+        {
+            "id": "q7",
+            "prompt": "After differentiation, the DC component X'₀ of x'(t) is always:",
+            "options": [
+                "A) Equal to X₀",
+                "B) Equal to jω₀X₀",
+                "C) Zero",
+                "D) Undefined"
+            ],
+            "correctAnswer": "C",
+            "explanation": "The average of the derivative of any periodic signal is zero, because the integral of x'(t) over one period gives x(t₀+T₀) − x(t₀) = 0 (periodicity). So X'₀ = 0 always."
+        },
+        {
+            "id": "q8",
+            "prompt": "A square pulse has sharp edges. Integrating it would produce:",
+            "options": [
+                "A) A sharper signal with more edges",
+                "B) A smoother signal (e.g., triangular or parabolic)",
+                "C) The same signal",
+                "D) An impulse train"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Integration is lowpass/smoothing. It attenuates high-frequency components that create sharp edges, resulting in a smoother waveform — e.g., integrating a square wave gives triangular segments."
+        },
+        {
+            "id": "q9",
+            "prompt": "For the k-th harmonic, the ratio |X'_k|/|X_k| equals:",
+            "options": [
+                "A) 1 for all k",
+                "B) kω₀ (increases with k)",
+                "C) 1/(kω₀) (decreases with k)",
+                "D) ω₀ (constant for all k)"
+            ],
+            "correctAnswer": "B",
+            "explanation": "|X'_k| = |jkω₀||X_k| = kω₀|X_k|. So the ratio is kω₀, which grows linearly with k. This confirms that higher harmonics are amplified proportionally — the defining behaviour of a highpass process."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why is 'differentiation + division' preferred over 'integration by parts' for finding FS of complex waveforms?",
+            "options": [
+                "A) It gives a different answer",
+                "B) It is always simpler — differentiation reduces signal complexity, and division by jkω₀ is trivial",
+                "C) Integration by parts doesn't work for periodic signals",
+                "D) The professor forbids integration by parts"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Differentiating a complex signal (triangle, parabola) often produces a much simpler signal (constants + deltas). Finding the FS of the simpler signal is easy. Then dividing by jkω₀ recovers the original FS. This avoids tedious repeated integration by parts."
+        }
+    ]
+}

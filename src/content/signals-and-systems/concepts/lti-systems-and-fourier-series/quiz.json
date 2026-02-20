@@ -1,0 +1,125 @@
+{
+    "id": "lti-fs-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "When a periodic signal passes through an LTI system, the output FS coefficients are:",
+            "options": [
+                "A) Y_k = X_k + H(jkω₀)",
+                "B) Y_k = H(jkω₀) · X_k",
+                "C) Y_k = X_k / H(jkω₀)",
+                "D) Y_k = H(jω₀) · X_k (same H for all k)"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Each harmonic e^{jkω₀t} is an eigenfunction of the LTI system with eigenvalue H(jkω₀). By linearity, the output coefficient is Y_k = H(jkω₀)·X_k. Note: H is evaluated at different frequencies for each k."
+        },
+        {
+            "id": "q2",
+            "prompt": "Complex exponentials e^{st} are called eigenfunctions of LTI systems because:",
+            "options": [
+                "A) They have the highest energy",
+                "B) The output is a scaled version of the input: H(s)·e^{st}",
+                "C) They are periodic",
+                "D) They always produce zero output"
+            ],
+            "correctAnswer": "B",
+            "explanation": "An eigenfunction passes through the system and comes out as a scalar multiple of itself. For input e^{st}, output = H(s)·e^{st}. The shape is preserved; only the amplitude and phase change."
+        },
+        {
+            "id": "q3",
+            "prompt": "The output of an LTI system to a periodic input is:",
+            "options": [
+                "A) Aperiodic",
+                "B) Periodic with a different period",
+                "C) Periodic with the same period T₀",
+                "D) Always a constant"
+            ],
+            "correctAnswer": "C",
+            "explanation": "Each harmonic e^{jkω₀t} is scaled by H(jkω₀) but keeps the same frequency kω₀. So the output is a sum of the same harmonics with modified coefficients — still periodic with period T₀."
+        },
+        {
+            "id": "q4",
+            "prompt": "Why does FS analysis convert convolution to multiplication?",
+            "options": [
+                "A) Because the FS uses real functions",
+                "B) Because complex exponentials are eigenfunctions — each passes through independently",
+                "C) Because H(jω) is always 1",
+                "D) Because the input is always real"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Each basis function e^{jkω₀t} is an eigenfunction that passes through the system independently, getting scaled by H(jkω₀). No cross-terms between harmonics. This turns the convolution integral into simple multiplication: Y_k = H·X_k."
+        },
+        {
+            "id": "q5",
+            "prompt": "A lowpass LTI system applied to a square wave will produce:",
+            "options": [
+                "A) A sharper square wave",
+                "B) A smoother, rounded waveform",
+                "C) An impulse train",
+                "D) No change"
+            ],
+            "correctAnswer": "B",
+            "explanation": "A lowpass system attenuates high-frequency harmonics (|H(jkω₀)| decreases with k). The sharp edges of the square wave, which require high harmonics, get smoothed out. The output is a rounder version of the input."
+        },
+        {
+            "id": "q6",
+            "prompt": "The output power when a periodic signal passes through an LTI system is:",
+            "options": [
+                "A) P_out = Σ|X_k|²",
+                "B) P_out = Σ|H(jkω₀)|²·|X_k|²",
+                "C) P_out = |H(jω₀)|²·Σ|X_k|²",
+                "D) P_out = Σ|H(jkω₀)·X_k|"
+            ],
+            "correctAnswer": "B",
+            "explanation": "By Parseval's, P_out = Σ|Y_k|² = Σ|H(jkω₀)·X_k|² = Σ|H(jkω₀)|²·|X_k|². Each harmonic's power is scaled by |H|² at that frequency."
+        },
+        {
+            "id": "q7",
+            "prompt": "If H(jω) = 1/(1+jωRC) and the input has ω₀ = 1, X₁ = 1, what is |Y₁|?",
+            "options": [
+                "A) 1/√(1+R²C²)",
+                "B) 1/(RC)",
+                "C) 1",
+                "D) RC"
+            ],
+            "correctAnswer": "A",
+            "explanation": "|Y₁| = |H(jω₀)|·|X₁| = |1/(1+jRC)|·1 = 1/√(1+R²C²). The magnitude of H at ω = ω₀ scales the first harmonic's amplitude."
+        },
+        {
+            "id": "q8",
+            "prompt": "Differentiation can be viewed as an LTI system with frequency response:",
+            "options": [
+                "A) H(jω) = 1/jω",
+                "B) H(jω) = jω",
+                "C) H(jω) = 1",
+                "D) H(jω) = ω²"
+            ],
+            "correctAnswer": "B",
+            "explanation": "d/dt of e^{jωt} = jω·e^{jωt}. So differentiation is an LTI system with H(jω) = jω — magnitude grows linearly (highpass). This unifies the differentiation property with the LTI framework."
+        },
+        {
+            "id": "q9",
+            "prompt": "Integration can be viewed as an LTI system with frequency response:",
+            "options": [
+                "A) H(jω) = jω",
+                "B) H(jω) = 1/(jω)",
+                "C) H(jω) = ω",
+                "D) H(jω) = δ(ω)"
+            ],
+            "correctAnswer": "B",
+            "explanation": "∫e^{jωt}dt = (1/jω)e^{jωt}. Integration has H(jω) = 1/(jω) — magnitude decreases with ω (lowpass). This connects integration property to the LTI system perspective."
+        },
+        {
+            "id": "q10",
+            "prompt": "An ideal lowpass filter with cutoff at 3ω₀ applied to a signal with 10 harmonics will:",
+            "options": [
+                "A) Pass only harmonics k = 0, ±1, ±2, ±3 and block all higher ones",
+                "B) Pass all harmonics",
+                "C) Block all harmonics",
+                "D) Only pass the DC component"
+            ],
+            "correctAnswer": "A",
+            "explanation": "An ideal lowpass with cutoff 3ω₀ sets H(jkω₀) = 1 for |k| ≤ 3 and H = 0 for |k| > 3. So Y_k = X_k for k = 0,±1,±2,±3 and Y_k = 0 for higher harmonics. The output is a band-limited approximation."
+        }
+    ]
+}

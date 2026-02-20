@@ -1,0 +1,199 @@
+{
+    "visuals": [
+        {
+            "id": "coefficient-decay-comparison",
+            "type": "plotly",
+            "title": "FS Coefficient Decay: Impulse vs Square vs Triangle",
+            "description": "Compares |X_k| for three standard signals. Impulse train (flat), square pulse (1/k decay), triangular pulse (1/k² decay). Smoother signals have faster-decaying coefficients.",
+            "config": {
+                "data": [
+                    {
+                        "x": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
+                        ],
+                        "y": [
+                            1,
+                            1,
+                            1,
+                            1,
+                            1,
+                            1,
+                            1,
+                            1,
+                            1,
+                            1
+                        ],
+                        "type": "scatter",
+                        "mode": "lines+markers",
+                        "name": "Impulse (flat)",
+                        "line": {
+                            "color": "#ff6b8a",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "x": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
+                        ],
+                        "y_expr": "[1, 0.5, 0.333, 0.25, 0.2, 0.167, 0.143, 0.125, 0.111, 0.1]",
+                        "type": "scatter",
+                        "mode": "lines+markers",
+                        "name": "Square (1/k)",
+                        "line": {
+                            "color": "#4f8cff",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "x": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
+                        ],
+                        "y_expr": "[1, 0.25, 0.111, 0.0625, 0.04, 0.028, 0.02, 0.016, 0.012, 0.01]",
+                        "type": "scatter",
+                        "mode": "lines+markers",
+                        "name": "Triangle (1/k²)",
+                        "line": {
+                            "color": "#2fbf8f",
+                            "width": 2
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "Coefficient Decay: Smoother → Faster Decay",
+                    "xaxis": {
+                        "title": "Harmonic k",
+                        "dtick": 1
+                    },
+                    "yaxis": {
+                        "title": "Normalised |X_k|",
+                        "type": "log"
+                    },
+                    "showlegend": true
+                }
+            }
+        },
+        {
+            "id": "differentiate-triangle-flow",
+            "type": "d3-block-diagram",
+            "title": "Finding Triangular Pulse FS via Differentiation",
+            "description": "Block diagram showing the 'smart approach': differentiate the triangle, find X'_k using known impulse train pair, divide by jkω₀.",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "tri",
+                        "label": "Triangular Wave\nx(t)",
+                        "x": 80,
+                        "y": 50,
+                        "width": 180,
+                        "height": 55,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "diff",
+                        "label": "d/dt",
+                        "x": 280,
+                        "y": 50,
+                        "width": 80,
+                        "height": 55,
+                        "fill": "#6b62ff"
+                    },
+                    {
+                        "id": "simp",
+                        "label": "Simpler Signal\nconstant + delta train",
+                        "x": 450,
+                        "y": 50,
+                        "width": 210,
+                        "height": 55,
+                        "fill": "#ff6b8a"
+                    },
+                    {
+                        "id": "xkp",
+                        "label": "X'_k = −1/T₀\n(impulse train pair)",
+                        "x": 450,
+                        "y": 160,
+                        "width": 210,
+                        "height": 55,
+                        "fill": "#ff6b8a"
+                    },
+                    {
+                        "id": "div",
+                        "label": "÷ jkω₀",
+                        "x": 280,
+                        "y": 160,
+                        "width": 80,
+                        "height": 55,
+                        "fill": "#6b62ff"
+                    },
+                    {
+                        "id": "xk",
+                        "label": "X_k = j/(2kπ)\nTriangle FS done!",
+                        "x": 80,
+                        "y": 160,
+                        "width": 180,
+                        "height": 55,
+                        "fill": "#2fbf8f"
+                    }
+                ],
+                "edges": [
+                    {
+                        "from": "tri",
+                        "to": "diff",
+                        "label": "",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "diff",
+                        "to": "simp",
+                        "label": "",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "simp",
+                        "to": "xkp",
+                        "label": "Find FS",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "xkp",
+                        "to": "div",
+                        "label": "",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "div",
+                        "to": "xk",
+                        "label": "",
+                        "style": "arrow"
+                    }
+                ]
+            }
+        }
+    ]
+}

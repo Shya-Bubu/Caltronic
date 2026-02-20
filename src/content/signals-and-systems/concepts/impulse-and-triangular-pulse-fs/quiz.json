@@ -1,0 +1,125 @@
+{
+    "id": "impulse-triangle-fs-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The FS coefficients of an impulse train with period T₀ are:",
+            "options": [
+                "A) X_k = 1/T₀ for all k",
+                "B) X_k = T₀ for all k",
+                "C) X_k = sin(kω₀T₀)/(kπ)",
+                "D) X_k = 1/k"
+            ],
+            "correctAnswer": "A",
+            "explanation": "Using the sifting property of δ(t): X_k = (1/T₀)∫δ(t)e^{−jkω₀t}dt = (1/T₀)·e⁰ = 1/T₀ for ALL k. Every harmonic has the same weight — the delta function has infinite bandwidth."
+        },
+        {
+            "id": "q2",
+            "prompt": "Why are all FS coefficients of the impulse train equal (no decay)?",
+            "options": [
+                "A) Because it's a real function",
+                "B) Because the delta function is the sharpest possible signal with infinite bandwidth",
+                "C) Because it's periodic",
+                "D) Because T₀ is very large"
+            ],
+            "correctAnswer": "B",
+            "explanation": "The delta function has zero width and infinite sharpness. Creating such a sharp feature requires all frequency components equally — the high harmonics never diminish. This is infinite bandwidth."
+        },
+        {
+            "id": "q3",
+            "prompt": "To find the FS of a triangular waveform using properties, the first step is to:",
+            "options": [
+                "A) Integrate the signal",
+                "B) Apply the time scaling property",
+                "C) Find X₀ separately, then differentiate x(t)",
+                "D) Use time reversal"
+            ],
+            "correctAnswer": "C",
+            "explanation": "Always find X₀ first (it needs no properties). Then differentiate x(t) to get a simpler signal whose FS is easy to find. The differentiation property (valid for k≠0) then lets you recover X_k by dividing by jkω₀."
+        },
+        {
+            "id": "q4",
+            "prompt": "When you differentiate a triangular wave, the result contains:",
+            "options": [
+                "A) Only constant segments",
+                "B) Constant segments plus delta functions at discontinuities",
+                "C) Only delta functions",
+                "D) Sinusoidal functions"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Between jump points, the derivative is the constant slope of the ramp. At the discontinuities (where the triangle drops), finite jumps produce delta functions. Both parts must be accounted for."
+        },
+        {
+            "id": "q5",
+            "prompt": "The FS coefficients of a triangular pulse decay as:",
+            "options": [
+                "A) 1/k (like the square pulse)",
+                "B) 1/k² (faster than square pulse)",
+                "C) Constant (like the impulse train)",
+                "D) 1/k³"
+            ],
+            "correctAnswer": "B",
+            "explanation": "The triangular pulse is smoother than the square pulse (ramps instead of jumps). Smoother signals have faster-decaying coefficients. Applying the differentiation property: X_k = X'_k/(jkω₀), where X'_k decays as 1/k (impulse-like), adds another 1/k factor → total 1/k²."
+        },
+        {
+            "id": "q6",
+            "prompt": "For the impulse train, the symmetry property predicts X_k should be:",
+            "options": [
+                "A) Complex valued",
+                "B) Purely imaginary",
+                "C) Purely real and even",
+                "D) Zero for odd k"
+            ],
+            "correctAnswer": "C",
+            "explanation": "The impulse train is real and even (δ(t) = δ(−t)). Real + even signals have purely real, even FS coefficients. Indeed, X_k = 1/T₀ is a positive real constant for all k ✓"
+        },
+        {
+            "id": "q7",
+            "prompt": "In computing X_k for the impulse train, we used the integration window [−T₀/2, T₀/2]. Why?",
+            "options": [
+                "A) It's the only valid window",
+                "B) It conveniently captures exactly one delta function δ(t) at t = 0",
+                "C) The integral is easier with negative limits",
+                "D) It makes X₀ zero"
+            ],
+            "correctAnswer": "B",
+            "explanation": "This window is centred at t = 0, so only δ(t) at the origin falls inside. This simplifies the integral enormously — you apply the sifting property once and get 1/T₀ immediately."
+        },
+        {
+            "id": "q8",
+            "prompt": "Which FS pair has the fastest coefficient decay?",
+            "options": [
+                "A) Impulse train (1/T₀ for all k)",
+                "B) Square pulse (∝ 1/k)",
+                "C) Triangular pulse (∝ 1/k²)",
+                "D) They all decay at the same rate"
+            ],
+            "correctAnswer": "C",
+            "explanation": "Smoother signals → faster decay. Triangle (ramps, smooth) decays as 1/k²; square (sharp edges) decays as 1/k; impulse (infinitely sharp) doesn't decay at all. The pattern: smoother signal = fewer high-frequency components needed."
+        },
+        {
+            "id": "q9",
+            "prompt": "If x(t) is a triangular wave and you have found X'_k = −1/2 (from the impulse train part), and ω₀ = π, then X_k =",
+            "options": [
+                "A) −1/(2jkπ) = j/(2kπ)",
+                "B) −jkπ/2",
+                "C) 2jkπ",
+                "D) −1/2"
+            ],
+            "correctAnswer": "A",
+            "explanation": "X_k = X'_k/(jkω₀) = (−1/2)/(jkπ). Simplifying: −1/(2jkπ) = j/(2kπ) (using −1/j = j). This matches the lecture derivation."
+        },
+        {
+            "id": "q10",
+            "prompt": "The 'differentiate then divide' technique is particularly useful because:",
+            "options": [
+                "A) It always gives X₀ directly",
+                "B) Differentiation reduces signal complexity, and dividing by jkω₀ is trivial",
+                "C) It avoids computing any integrals",
+                "D) It works for aperiodic signals too"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Differentiating converts ramps into constants and jumps into delta functions — much simpler signals whose FS is known. Then one division by jkω₀ recovers the original FS. This avoids tedious integration by parts. Note: X₀ still needs to be computed separately."
+        }
+    ]
+}

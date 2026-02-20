@@ -1,0 +1,125 @@
+{
+    "id": "parsevals-theorem-quiz",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Parseval's theorem states that the average power of a periodic signal equals:",
+            "options": [
+                "A) Σ X_k",
+                "B) Σ |X_k|²",
+                "C) (Σ |X_k|)²",
+                "D) Σ X_k²"
+            ],
+            "correctAnswer": "B",
+            "explanation": "P_avg = Σ_{k=-∞}^{∞} |X_k|². Each term |X_k|² is the power contribution of the k-th harmonic. The total power is the sum of all harmonic powers."
+        },
+        {
+            "id": "q2",
+            "prompt": "The average power of a periodic signal in the time domain is defined as:",
+            "options": [
+                "A) (1/T₀)∫|x(t)|² dt over one period",
+                "B) ∫|x(t)|² dt over all time",
+                "C) max|x(t)|²",
+                "D) (1/T₀)∫x(t) dt"
+            ],
+            "correctAnswer": "A",
+            "explanation": "P_avg = (1/T₀)∫_{T₀}|x(t)|² dt. This integrates the instantaneous power |x(t)|² over one period and normalises by T₀. For complex signals, |x(t)|² = x(t)·x*(t)."
+        },
+        {
+            "id": "q3",
+            "prompt": "In the Parseval's theorem derivation, which property is crucial?",
+            "options": [
+                "A) Differentiation property",
+                "B) Orthogonality of FS basis functions",
+                "C) Time shifting property",
+                "D) Linearity"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Through the derivation, substituting the FS for x(t) and x*(t), the cross-terms vanish due to orthogonality (only k=m terms survive). This is why Parseval's is sometimes called a consequence of orthogonality."
+        },
+        {
+            "id": "q4",
+            "prompt": "For a real periodic signal, the power can be written as:",
+            "options": [
+                "A) P = |X₀|² + Σ_{k=1}^∞ |X_k|²",
+                "B) P = |X₀|² + 2Σ_{k=1}^∞ |X_k|²",
+                "C) P = 2Σ_{k=0}^∞ |X_k|²",
+                "D) P = Σ_{k=1}^∞ 2|X_k|"
+            ],
+            "correctAnswer": "B",
+            "explanation": "For real signals, |X_{-k}| = |X_k|. So the sum from -∞ to +∞ can be written as |X₀|² (the DC term once) plus 2·Σ|X_k|² for k=1 to ∞ (positive and negative k pairs)."
+        },
+        {
+            "id": "q5",
+            "prompt": "|X_k|² represents:",
+            "options": [
+                "A) The phase of the k-th harmonic",
+                "B) The power contribution of the k-th harmonic",
+                "C) The energy of the signal",
+                "D) The amplitude of x(t)"
+            ],
+            "correctAnswer": "B",
+            "explanation": "|X_k|² is the power spectral component at harmonic k. It tells you how much power the k-th harmonic contributes to the total signal power."
+        },
+        {
+            "id": "q6",
+            "prompt": "A square pulse train with X₀ = 0.5 and the first 3 pairs have |X_k|² = 0.1, 0.05, 0.02. Approximate total power in the first 3 harmonics:",
+            "options": [
+                "A) 0.5² + 2(0.1 + 0.05 + 0.02) = 0.59",
+                "B) 0.1 + 0.05 + 0.02 = 0.17",
+                "C) 0.5 + 0.34 = 0.84",
+                "D) 2(0.5² + 0.1 + 0.05 + 0.02) = 0.84"
+            ],
+            "correctAnswer": "A",
+            "explanation": "P ≈ |X₀|² + 2(|X₁|² + |X₂|² + |X₃|²) = 0.25 + 2(0.17) = 0.25 + 0.34 = 0.59. DC power plus twice each positive-k power (for the negative-k pair)."
+        },
+        {
+            "id": "q7",
+            "prompt": "Parseval's theorem can be used as a sanity check because:",
+            "options": [
+                "A) It only works for square waves",
+                "B) If time-domain and frequency-domain power disagree, you have an error in your FS",
+                "C) It gives the exact signal shape",
+                "D) It always equals 1"
+            ],
+            "correctAnswer": "B",
+            "explanation": "Both sides must give the same number. If you compute P from the time integral and from Σ|X_k|² and they don't match, your FS coefficients are wrong. This is a powerful verification tool."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why are periodic signals called 'power signals'?",
+            "options": [
+                "A) They have finite power but infinite energy",
+                "B) They have finite energy and finite power",
+                "C) They generate electrical power",
+                "D) They have zero power"
+            ],
+            "correctAnswer": "A",
+            "explanation": "A periodic signal extends to ±∞, so its total energy is infinite. But the average power per period (P_avg = (1/T₀)∫|x|²dt) is finite. Hence: power signals."
+        },
+        {
+            "id": "q9",
+            "prompt": "If 10 harmonics capture 95% of total power and 20 harmonics capture 99%, the essential bandwidth is closer to:",
+            "options": [
+                "A) 10ω₀",
+                "B) 20ω₀",
+                "C) Depends on the accuracy requirement",
+                "D) ω₀"
+            ],
+            "correctAnswer": "C",
+            "explanation": "Essential bandwidth depends on how much power is 'enough'. For 95% capture, ~10 harmonics suffice (bandwidth ≈ 10ω₀). For 99%, you need ~20 (bandwidth ≈ 20ω₀). The choice depends on the application."
+        },
+        {
+            "id": "q10",
+            "prompt": "In the derivation of Parseval's theorem, the integral ∫x(t)e^{jkω₀t}dt/(T₀) equals:",
+            "options": [
+                "A) X_k",
+                "B) X_k*",
+                "C) |X_k|²",
+                "D) X_k/T₀"
+            ],
+            "correctAnswer": "B",
+            "explanation": "The analysis equation is X_k = (1/T₀)∫x(t)e^{−jkω₀t}dt. With the positive exponent (+jk), we get (1/T₀)∫x*(t)e^{jkω₀t}dt = X_k* — the conjugate. This is a key step in the Parseval's derivation."
+        }
+    ]
+}

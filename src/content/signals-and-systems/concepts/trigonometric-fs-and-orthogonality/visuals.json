@@ -1,0 +1,76 @@
+{
+    "visuals": [
+        {
+            "id": "efs-to-trig-relationship",
+            "type": "d3-block-diagram",
+            "title": "EFS ↔ Trigonometric FS Relationship",
+            "description": "Shows how EFS coefficients X_k and X_{−k} combine to form trigonometric coefficients a_k and b_k.",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "efs",
+                        "label": "EFS Coefficients\nX_k, X_{−k}",
+                        "x": 300,
+                        "y": 30,
+                        "width": 200,
+                        "height": 55,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "ak",
+                        "label": "a_k = X_k + X_{−k}\n= 2Re(X_k)",
+                        "x": 130,
+                        "y": 130,
+                        "width": 200,
+                        "height": 60,
+                        "fill": "#2fbf8f"
+                    },
+                    {
+                        "id": "bk",
+                        "label": "b_k = j(X_k − X_{−k})\n= −2Im(X_k)",
+                        "x": 470,
+                        "y": 130,
+                        "width": 200,
+                        "height": 60,
+                        "fill": "#ff6b8a"
+                    },
+                    {
+                        "id": "trig",
+                        "label": "Trig FS:\na₀ + Σ(a_k cos + b_k sin)",
+                        "x": 300,
+                        "y": 230,
+                        "width": 260,
+                        "height": 55,
+                        "fill": "#6b62ff"
+                    }
+                ],
+                "edges": [
+                    {
+                        "from": "efs",
+                        "to": "ak",
+                        "label": "sum",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "efs",
+                        "to": "bk",
+                        "label": "diff",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "ak",
+                        "to": "trig",
+                        "label": "cos",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "bk",
+                        "to": "trig",
+                        "label": "sin",
+                        "style": "arrow"
+                    }
+                ]
+            }
+        }
+    ]
+}

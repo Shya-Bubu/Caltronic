@@ -1,0 +1,128 @@
+{
+    "visuals": [
+        {
+            "id": "highpass-lowpass-comparison",
+            "type": "plotly",
+            "title": "Differentiation (Highpass) vs Integration (Lowpass)",
+            "description": "Shows the magnitude gain/attenuation factor for each harmonic k under differentiation (|jkω₀| = k, growing) and integration (1/|jkω₀| = 1/k, shrinking). Differentiation amplifies high harmonics; integration attenuates them.",
+            "config": {
+                "data": [
+                    {
+                        "x": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
+                        ],
+                        "y": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
+                        ],
+                        "type": "bar",
+                        "name": "Differentiation: |jkω₀| (highpass)",
+                        "marker": {
+                            "color": "#ff6b8a"
+                        }
+                    },
+                    {
+                        "x": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9,
+                            10
+                        ],
+                        "y_expr": "[1, 0.5, 0.333, 0.25, 0.2, 0.167, 0.143, 0.125, 0.111, 0.1]",
+                        "type": "bar",
+                        "name": "Integration: 1/|jkω₀| (lowpass)",
+                        "marker": {
+                            "color": "#4f8cff"
+                        }
+                    }
+                ],
+                "layout": {
+                    "title": "Effect on Each Harmonic k (ω₀ = 1)",
+                    "xaxis": {
+                        "title": "Harmonic k",
+                        "dtick": 1
+                    },
+                    "yaxis": {
+                        "title": "Gain/Attenuation Factor"
+                    },
+                    "barmode": "group",
+                    "showlegend": true
+                }
+            }
+        },
+        {
+            "id": "diff-int-summary",
+            "type": "d3-block-diagram",
+            "title": "Differentiation vs Integration in FS Domain",
+            "description": "Summary diagram showing time-domain and frequency-domain effects.",
+            "config": {
+                "nodes": [
+                    {
+                        "id": "sig",
+                        "label": "Signal x(t)\nFS: X_k",
+                        "x": 300,
+                        "y": 30,
+                        "width": 200,
+                        "height": 55,
+                        "fill": "#4f8cff"
+                    },
+                    {
+                        "id": "diff",
+                        "label": "x'(t)\nX'_k = jkω₀ X_k\nHighpass · Sharpening",
+                        "x": 120,
+                        "y": 140,
+                        "width": 230,
+                        "height": 70,
+                        "fill": "#ff6b8a"
+                    },
+                    {
+                        "id": "int",
+                        "label": "∫x(t)dt\nX_k / (jkω₀)\nLowpass · Smoothing",
+                        "x": 480,
+                        "y": 140,
+                        "width": 230,
+                        "height": 70,
+                        "fill": "#2fbf8f"
+                    }
+                ],
+                "edges": [
+                    {
+                        "from": "sig",
+                        "to": "diff",
+                        "label": "d/dt",
+                        "style": "arrow"
+                    },
+                    {
+                        "from": "sig",
+                        "to": "int",
+                        "label": "∫ dt",
+                        "style": "arrow"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "id": "lesson-05",
+    "title": "Fourier Series — Part II",
+    "slug": "lesson-05",
+    "description": "Differentiation/integration property, impulse and triangular pulse FS, trigonometric FS, Parseval's theorem, and LTI systems in the FS domain.",
+    "prerequisites": [
+        "lesson-04"
+    ],
+    "lectureWeek": 5,
+    "estimatedMinutes": 90,
+    "concepts": [
+        "differentiation-integration-property",
+        "impulse-and-triangular-pulse-fs",
+        "trigonometric-fs-and-orthogonality",
+        "parsevals-theorem",
+        "lti-systems-and-fourier-series"
+    ]
+}
