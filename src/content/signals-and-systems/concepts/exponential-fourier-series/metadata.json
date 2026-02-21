@@ -1,5 +1,10 @@
 {
     "id": "exponential-fourier-series",
     "title": "Exponential Fourier Series",
-    "slug": "exponential-fourier-series"
+    "slug": "exponential-fourier-series",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

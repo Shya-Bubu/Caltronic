@@ -6,6 +6,8 @@
     "prerequisites": [
         "lesson-04"
     ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
     "lectureWeek": 5,
     "estimatedMinutes": 90,
     "concepts": [

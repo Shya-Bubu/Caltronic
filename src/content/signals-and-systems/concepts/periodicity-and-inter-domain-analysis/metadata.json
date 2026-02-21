@@ -1,5 +1,10 @@
 {
     "id": "periodicity-and-inter-domain-analysis",
     "title": "Periodicity & Inter-Domain Analysis",
-    "slug": "periodicity-and-inter-domain-analysis"
+    "slug": "periodicity-and-inter-domain-analysis",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

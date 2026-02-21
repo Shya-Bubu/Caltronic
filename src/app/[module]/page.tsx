@@ -33,7 +33,7 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
     mod.lectures.map(async (lecture) => {
       const lectureSlug = lecture.path.split('/').filter(Boolean).at(1) ?? lecture.id;
       const lectureDir = resolve(contentRoot, slug, 'lessons', lectureSlug);
-      
+
       // Check if directory exists first
       if (!lessonDirectoryExists(contentRoot, slug, lectureSlug)) {
         return {
@@ -44,10 +44,10 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
           error: 'Content not yet created',
         };
       }
-      
+
       // Try to load the lecture
       const result = await safeLoadLecture(lectureDir);
-      
+
       if (result.success && result.data) {
         return {
           link: lecture,
@@ -56,7 +56,7 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
           available: true,
         };
       }
-      
+
       // Fallback for invalid/incomplete content
       return {
         link: lecture,
@@ -96,20 +96,22 @@ export default async function ModuleIndexPage({ params }: ModuleIndexProps) {
             {lectureCards.map((card) => {
               // Extract number from ID (e.g. "lesson-01" -> "01")
               const lessonNum = card.link.id.match(/\d+/)?.[0] || '00';
+              const isLab = card.link.id.startsWith('lab-');
+              const kickerLabel = isLab ? `Lab ${lessonNum}` : `Lesson ${lessonNum}`;
 
               return (
-                <article 
-                  key={card.link.id} 
+                <article
+                  key={card.link.id}
                   className={`${styles.lectureCard} ${!card.available ? styles.lectureCardUnavailable : ''}`}
                 >
                   <div className={styles.lectureNumber}>
                     {lessonNum}
                   </div>
                   <div className={styles.lectureInfo}>
-                    <div className={styles.lectureKicker}>Lesson {lessonNum}</div>
+                    <div className={styles.lectureKicker}>{kickerLabel}</div>
                     <div className={styles.lectureTitle}>{card.link.title}</div>
                     <div className={styles.lectureMeta}>
-                      {card.available 
+                      {card.available
                         ? `${card.conceptCount} concepts`
                         : card.error || 'Content not available'}
                     </div>

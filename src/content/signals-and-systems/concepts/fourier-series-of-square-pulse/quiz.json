@@ -10,7 +10,7 @@
                 "C) T₀/2T₁",
                 "D) 1"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) 2T₁/T₀",
             "explanation": "X₀ = (1/T₀)∫_{-T₁}^{+T₁} 1 dt = 2T₁/T₀. This is simply the duty cycle — the fraction of the period during which the pulse is 'on'. For example, a 50% duty cycle gives X₀ = 0.5."
         },
         {
@@ -22,7 +22,7 @@
                 "C) sin(kω₀T₀)/(kπ)",
                 "D) 2T₁/(k²π²)"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) sin(kω₀T₁)/(kπ)",
             "explanation": "X_k = sin(kω₀T₁)/(kπ). This comes from evaluating the FS integral: integrating e^{-jkω₀t} over [-T₁, +T₁], using Euler's formula to recognise sin, and simplifying with ω₀T₀ = 2π."
         },
         {
@@ -34,7 +34,7 @@
                 "C) Because the amplitude is 1",
                 "D) Because k ranges from -∞ to +∞"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Because the signal is real and even: x(t) = x(-t)",
             "explanation": "A real, even signal has real FS coefficients. The centred square pulse is symmetric about t=0, so x(t) = x(-t). This even symmetry ensures that the imaginary parts cancel in the FS integral, leaving purely real X_k values."
         },
         {
@@ -46,7 +46,7 @@
                 "C) Stays the same width",
                 "D) Disappears"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Gets wider",
             "explanation": "The main lobe width is inversely proportional to T₁. Halving the pulse width doubles the spectral width — narrower pulses require higher-frequency components to represent the sharper transitions. This is the fundamental bandwidth-duration trade-off."
         },
         {
@@ -58,7 +58,7 @@
                 "C) e^{-k}",
                 "D) 1/√k"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) 1/k",
             "explanation": "The sinc envelope decays as 1/(kπ), which is a 1/k rate. This relatively slow decay is due to the sharp discontinuities in the square pulse. Smoother signals (like triangular waves) have faster decay rates (1/k²)."
         },
         {
@@ -70,7 +70,7 @@
                 "C) 4",
                 "D) 1"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) 0.25",
             "explanation": "X₀ = 2T₁/T₀ = 1/4 = 0.25. The pulse is on for 1 out of every 4 seconds, giving a 25% duty cycle. This is the average value of the signal."
         },
         {
@@ -82,7 +82,7 @@
                 "C) k = T₀",
                 "D) kω₀ = 1"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) kω₀T₁ = nπ for non-zero integer n",
             "explanation": "X_k = sin(kω₀T₁)/(kπ) = 0 when sin(kω₀T₁) = 0, i.e., when kω₀T₁ = nπ for integer n ≠ 0. These zeros define the lobes of the sinc envelope."
         },
         {
@@ -94,7 +94,7 @@
                 "C) The average of left- and right-hand limits",
                 "D) Zero"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) The average of left- and right-hand limits",
             "explanation": "At a jump discontinuity, the FS converges to the midpoint (arithmetic mean) of the left and right limits. For the square pulse jumping from 0 to 1, the FS converges to 0.5 at the discontinuity."
         },
         {
@@ -106,7 +106,7 @@
                 "C) The Fourier Transform of g(t)",
                 "D) The convolution of g(t) with itself"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) A periodic extension of the pulse g(t)",
             "explanation": "Shifting g(t) by integer multiples of T₀ and summing creates an infinite periodic repetition — the periodic extension. This is the standard way to define a periodic signal from a single-period template."
         },
         {
@@ -118,7 +118,7 @@
                 "C) All pulses have the same bandwidth",
                 "D) Bandwidth is independent of pulse shape"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Narrow pulses have wide spectra",
             "explanation": "Narrow pulses (small T₁) produce wide spectra (many significant harmonics). This is the fundamental bandwidth-duration trade-off: to represent sharp time-domain features, you need many high-frequency components."
         }
     ]

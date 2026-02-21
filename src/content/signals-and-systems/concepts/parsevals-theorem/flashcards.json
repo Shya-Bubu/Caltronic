@@ -5,49 +5,61 @@
             "id": "f1",
             "front": "State Parseval's theorem for the Fourier Series.",
             "back": "P_avg = (1/T₀)∫|x(t)|²dt = Σ_{k=−∞}^{∞} |X_k|²\n\nTotal average power = sum of squared magnitudes of all FS coefficients.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "What does |X_k|² represent physically?",
             "back": "The power contribution of the k-th harmonic to the total signal power. Each harmonic carries its own independent power, and Parseval's says they all add up.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f3",
             "front": "For real signals, simplify the Parseval's summation.",
             "back": "P = |X₀|² + 2·Σ_{k=1}^{∞} |X_k|²\n\nBecause |X_{−k}| = |X_k| for real signals, each k>0 contributes twice (for +k and −k).",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 1
         },
         {
             "id": "f4",
             "front": "How can Parseval's theorem serve as a sanity check?",
             "back": "Compute power two ways:\n1. Time domain: P = (1/T₀)∫|x(t)|²dt\n2. Frequency domain: P = Σ|X_k|²\n\nIf they don't match, your FS coefficients are wrong.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f5",
             "front": "Outline the key step in deriving Parseval's theorem.",
             "back": "Substitute FS for x(t) in (1/T₀)∫x(t)·x*(t)dt. The orthogonality of basis functions makes all cross-terms (k ≠ m) vanish, leaving only Σ|X_k|².",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "Why are periodic signals called 'power signals'?",
             "back": "They have finite average power but infinite total energy (since they extend to ±∞). Power = energy per period, which is finite.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "How does Parseval's theorem help estimate bandwidth?",
             "back": "Truncate to N harmonics: P_N = Σ_{k=−N}^{N} |X_k|².\nCompare P_N/P_total. If P_10/P = 0.99, then 10 harmonics capture 99% of power → essential bandwidth ≈ 10ω₀.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f8",
             "front": "What is the 'power spectrum'?",
             "back": "The set of values {|X_k|²} for all k. It shows how power is distributed across harmonic frequencies. The sum of all values equals the total average power (Parseval's).",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "For x(t) = A·cos(ω₀t), what is P using Parseval's?",
+            "back": "X₁ = A/2, X₋₁ = A/2. P = |X₁|² + |X₋₁|² = (A/2)² + (A/2)² = A²/2. This matches the known time-domain result P = A²/2 for a sinusoid.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What happens to P if you add a DC offset C to a signal?",
+            "back": "P_new = P_old + C². The DC offset adds its own power contribution independently. For x(t) + C: X₀ increases by C, so power increases by C².",
+            "difficultyLevel": 3
         }
     ]
 }

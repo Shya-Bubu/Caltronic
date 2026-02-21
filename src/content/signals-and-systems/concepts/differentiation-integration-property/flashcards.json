@@ -5,61 +5,61 @@
             "id": "f1",
             "front": "State the differentiation property of the FS.",
             "back": "x'(t) ↔ jkω₀ X_k (for k ≠ 0)\n\nDifferentiating in the time domain multiplies each FS coefficient by jkω₀.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "State the integration property of the FS.",
             "back": "∫x(t)dt ↔ X_k / (jkω₀) (for k ≠ 0)\n\nIntegration divides each FS coefficient by jkω₀.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f3",
             "front": "Why is differentiation called a highpass process?",
             "back": "The multiplier jkω₀ has magnitude |k|ω₀, which grows with k. Higher harmonics (larger k) are amplified more → highpass behaviour → signal sharpening.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f4",
             "front": "Why is integration called a lowpass process?",
             "back": "Division by jkω₀ means bigger k → bigger divisor → more attenuation of high harmonics. Result: high-frequency content reduced → smoother signal.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 2
         },
         {
             "id": "f5",
             "front": "What happens to X₀ after differentiation?",
             "back": "X'₀ = 0 always. The DC component (average) of a periodic signal's derivative is zero because ∫x'(t)dt over one period = x(t+T₀) − x(t) = 0.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "How does differentiating a signal with a finite jump produce a delta function?",
             "back": "d/dt of a step of height A at t₀ = Aδ(t − t₀). Finite jumps in x(t) become delta functions in x'(t). This is key for differentiating triangular waves, sawtooth waves, etc.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "Describe the 'differentiate then divide' technique for finding FS.",
             "back": "1. Differentiate x(t) to get a simpler x'(t)\n2. Find X'_k of the simpler signal (using known pairs)\n3. Recover X_k = X'_k / (jkω₀)\n\nAlways simpler than integration by parts for complex waveforms.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f8",
             "front": "Integrating a square wave produces what kind of waveform?",
             "back": "A triangular wave. Integration = lowpass = smoothing. The sharp edges of the square wave become linear ramps. The high-frequency content needed for sharp edges is attenuated.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 3
         },
         {
             "id": "f9",
             "front": "What is the physical meaning of 'spectral sharpening'?",
             "back": "Amplifying high-frequency components makes a signal exhibit sharper transitions (steeper edges). Differentiation does this. Example: a smooth ramp differentiated becomes a sharp step.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f10",
             "front": "What is the physical meaning of 'spectral smoothing'?",
             "back": "Attenuating high-frequency components rounds off sharp edges. Integration does this. Example: a square pulse integrated becomes a triangular pulse (smooth ramps instead of abrupt transitions).",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 4
         }
     ]
 }

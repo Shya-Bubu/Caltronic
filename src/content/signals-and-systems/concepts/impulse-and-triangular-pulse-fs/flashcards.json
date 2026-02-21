@@ -5,61 +5,61 @@
             "id": "f1",
             "front": "What are the FS coefficients of an impulse train with period T₀?",
             "back": "X_k = 1/T₀ for ALL k (including k = 0).\n\nEvery harmonic has equal weight. The delta function is infinitely sharp → infinite bandwidth → no decay.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "Derive X_k for the impulse train using the sifting property.",
             "back": "X_k = (1/T₀)∫_{−T₀/2}^{T₀/2} δ(t)·e^{−jkω₀t} dt\n= (1/T₀)·e^{−jkω₀·0}\n= (1/T₀)·1 = 1/T₀",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 1
         },
         {
             "id": "f3",
             "front": "Why doesn't the impulse train spectrum decay?",
             "back": "The delta function has zero width and infinite sharpness. Creating it requires all frequency components equally — even at k → ∞, the coefficient is still 1/T₀. This is infinite bandwidth.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 1
         },
         {
             "id": "f4",
             "front": "Describe the steps to find FS of a triangular pulse using differentiation.",
             "back": "1. Find X₀ = average of x(t) (e.g., area/T₀)\n2. Differentiate x(t) → constant slope + delta functions at jumps\n3. Find X'_k using impulse train FS pair\n4. Recover X_k = X'_k / (jkω₀) for k ≠ 0",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f5",
             "front": "How do triangular pulse coefficients decay compared to square pulse?",
             "back": "Triangular: ∝ 1/k² (faster decay)\nSquare: ∝ 1/k (slower decay)\n\nTriangular is smoother (ramps vs. jumps) → fewer high-frequency components needed → faster decay.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "State the general rule: smoother signal → _____ decay.",
             "back": "Smoother signal → FASTER coefficient decay.\n\nImpulse (sharpest): no decay\nSquare (sharp edges): 1/k\nTriangle (ramps): 1/k²\nParabolic: 1/k³\n\nEach order of smoothness adds one power of 1/k.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "What happens when you differentiate a signal with a finite jump of height A?",
             "back": "The jump produces a delta function Aδ(t − t₀) in the derivative. This is because d/dt of a step of height A = Aδ(t). Finite jumps → impulses.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f8",
             "front": "Why is the impulse train FS purely real?",
             "back": "The impulse train δ(t) = δ(−t) is real and even. By symmetry properties: real + even signal → purely real, even FS coefficients. Indeed, X_k = 1/T₀ ∈ ℝ for all k.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f9",
             "front": "List the three standard FS pairs you should know.",
             "back": "1. Square pulse: X_k = sin(kω₀T₁)/(kπ) — decays as 1/k\n2. Impulse train: X_k = 1/T₀ for all k — no decay\n3. Triangular pulse: X_k ∝ 1/k² — decays as 1/k²",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 3
         },
         {
             "id": "f10",
             "front": "Why is 'differentiate then divide' better than integration by parts?",
             "back": "Differentiation simplifies signals (ramps → constants, jumps → deltas). The simpler signal's FS is easy to find using known pairs. One division by jkω₀ recovers the answer. Much faster than repeated integration by parts, especially for parabolic or higher-order waveforms.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 4
         }
     ]
 }

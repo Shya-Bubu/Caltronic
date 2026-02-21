@@ -1,5 +1,10 @@
 {
     "id": "trigonometric-fs-and-orthogonality",
-    "title": "Trigonometric Fourier Series and Orthogonality",
-    "slug": "trigonometric-fs-and-orthogonality"
+    "title": "Trigonometric Fourier Series & Orthogonality",
+    "slug": "trigonometric-fs-and-orthogonality",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

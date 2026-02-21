@@ -10,7 +10,7 @@
                 "C) Y_k = X_k / H(jkω₀)",
                 "D) Y_k = H(jω₀) · X_k (same H for all k)"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Y_k = H(jkω₀) · X_k",
             "explanation": "Each harmonic e^{jkω₀t} is an eigenfunction of the LTI system with eigenvalue H(jkω₀). By linearity, the output coefficient is Y_k = H(jkω₀)·X_k. Note: H is evaluated at different frequencies for each k."
         },
         {
@@ -22,7 +22,7 @@
                 "C) They are periodic",
                 "D) They always produce zero output"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) The output is a scaled version of the input: H(s)·e^{st}",
             "explanation": "An eigenfunction passes through the system and comes out as a scalar multiple of itself. For input e^{st}, output = H(s)·e^{st}. The shape is preserved; only the amplitude and phase change."
         },
         {
@@ -34,7 +34,7 @@
                 "C) Periodic with the same period T₀",
                 "D) Always a constant"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) Periodic with the same period T₀",
             "explanation": "Each harmonic e^{jkω₀t} is scaled by H(jkω₀) but keeps the same frequency kω₀. So the output is a sum of the same harmonics with modified coefficients — still periodic with period T₀."
         },
         {
@@ -46,7 +46,7 @@
                 "C) Because H(jω) is always 1",
                 "D) Because the input is always real"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Because complex exponentials are eigenfunctions — each passes through independently",
             "explanation": "Each basis function e^{jkω₀t} is an eigenfunction that passes through the system independently, getting scaled by H(jkω₀). No cross-terms between harmonics. This turns the convolution integral into simple multiplication: Y_k = H·X_k."
         },
         {
@@ -58,7 +58,7 @@
                 "C) An impulse train",
                 "D) No change"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) A smoother, rounded waveform",
             "explanation": "A lowpass system attenuates high-frequency harmonics (|H(jkω₀)| decreases with k). The sharp edges of the square wave, which require high harmonics, get smoothed out. The output is a rounder version of the input."
         },
         {
@@ -70,7 +70,7 @@
                 "C) P_out = |H(jω₀)|²·Σ|X_k|²",
                 "D) P_out = Σ|H(jkω₀)·X_k|"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) P_out = Σ|H(jkω₀)|²·|X_k|²",
             "explanation": "By Parseval's, P_out = Σ|Y_k|² = Σ|H(jkω₀)·X_k|² = Σ|H(jkω₀)|²·|X_k|². Each harmonic's power is scaled by |H|² at that frequency."
         },
         {
@@ -82,7 +82,7 @@
                 "C) 1",
                 "D) RC"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) 1/√(1+R²C²)",
             "explanation": "|Y₁| = |H(jω₀)|·|X₁| = |1/(1+jRC)|·1 = 1/√(1+R²C²). The magnitude of H at ω = ω₀ scales the first harmonic's amplitude."
         },
         {
@@ -94,7 +94,7 @@
                 "C) H(jω) = 1",
                 "D) H(jω) = ω²"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) H(jω) = jω",
             "explanation": "d/dt of e^{jωt} = jω·e^{jωt}. So differentiation is an LTI system with H(jω) = jω — magnitude grows linearly (highpass). This unifies the differentiation property with the LTI framework."
         },
         {
@@ -106,7 +106,7 @@
                 "C) H(jω) = ω",
                 "D) H(jω) = δ(ω)"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) H(jω) = 1/(jω)",
             "explanation": "∫e^{jωt}dt = (1/jω)e^{jωt}. Integration has H(jω) = 1/(jω) — magnitude decreases with ω (lowpass). This connects integration property to the LTI system perspective."
         },
         {
@@ -118,7 +118,7 @@
                 "C) Block all harmonics",
                 "D) Only pass the DC component"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) Pass only harmonics k = 0, ±1, ±2, ±3 and block all higher ones",
             "explanation": "An ideal lowpass with cutoff 3ω₀ sets H(jkω₀) = 1 for |k| ≤ 3 and H = 0 for |k| > 3. So Y_k = X_k for k = 0,±1,±2,±3 and Y_k = 0 for higher harmonics. The output is a band-limited approximation."
         }
     ]

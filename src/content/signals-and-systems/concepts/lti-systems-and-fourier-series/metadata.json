@@ -1,5 +1,10 @@
 {
     "id": "lti-systems-and-fourier-series",
-    "title": "LTI Systems and the Fourier Series",
-    "slug": "lti-systems-and-fourier-series"
+    "title": "LTI Systems and Fourier Series",
+    "slug": "lti-systems-and-fourier-series",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

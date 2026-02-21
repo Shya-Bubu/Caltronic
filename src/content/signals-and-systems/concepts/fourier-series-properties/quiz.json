@@ -10,7 +10,7 @@
                 "C) The same phase",
                 "D) Zero DC component"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) The same fundamental frequency ω₀",
             "explanation": "Linearity says αX_k + βY_k only when x(t) and y(t) share the same ω₀. If they have different fundamental frequencies, the harmonic grids don't align and you cannot simply add coefficients at the same index k."
         },
         {
@@ -22,7 +22,7 @@
                 "C) X_{k−1}",
                 "D) X_k / t₀"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) X_k · e^{−jkω₀t₀}",
             "explanation": "Time shifting introduces a linear phase factor: x(t − t₀) ↔ X_k e^{−jkω₀t₀}. The minus sign in the exponent is critical. This phase factor has magnitude 1, so |X_k| is unchanged."
         },
         {
@@ -34,7 +34,7 @@
                 "C) Both magnitude and phase spectra",
                 "D) Neither magnitude nor phase"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Only the phase spectrum",
             "explanation": "The time shift factor e^{−jkω₀t₀} has |e^{−jkω₀t₀}| = 1, so multiplying X_k by it doesn't change the magnitude. Only the phase changes: ∠X_k' = ∠X_k − kω₀t₀. This is a key physical insight."
         },
         {
@@ -46,7 +46,7 @@
                 "C) −X_k",
                 "D) X_k · e^{jπk}"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) X_{−k}",
             "explanation": "Time reversal mirrors the index: x(−t) ↔ X_{−k}. Replacing t with −t in the synthesis equation and substituting m = −k gives the result. For real signals, X_{−k} = X_k*, so time reversal also gives the conjugate."
         },
         {
@@ -58,7 +58,7 @@
                 "C) Period T₀/2, coefficients X_k",
                 "D) Period T₀, coefficients X_k/2"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) Period T₀/2, coefficients X_k",
             "explanation": "Time scaling by α = 2 compresses the signal: period becomes T₀/2, fundamental frequency becomes 2ω₀. But the FS coefficients X_k remain unchanged. The same magnitudes and phases, just on a faster time scale."
         },
         {
@@ -70,7 +70,7 @@
                 "C) −kπ/2",
                 "D) −π/2 (same for all k)"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) −kπ/2",
             "explanation": "The phase shift is −kω₀t₀ = −k(2π/T₀)(T₀/4) = −kπ/2. So k=1 gets −π/2, k=2 gets −π, k=3 gets −3π/2, etc. The phase change is proportional to k — higher harmonics shift more."
         },
         {
@@ -82,7 +82,7 @@
                 "C) Higher harmonics are always imaginary",
                 "D) The 1/T₀ factor increases with k"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Higher harmonics oscillate faster, so the same time shift represents more cycles",
             "explanation": "A time shift of t₀ seconds represents t₀/T_k cycles for the k-th harmonic (where T_k = T₀/k). Higher k means shorter period T_k, so the same t₀ covers more cycles → larger phase change. The phase shift is −kω₀t₀, linearly proportional to k."
         },
         {
@@ -94,7 +94,7 @@
                 "C) (3+2)·P_k",
                 "D) P_k + Q_k"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) 3P_k + 2Q_k",
             "explanation": "By linearity: x(t) = αp(t) + βq(t) → X_k = αP_k + βQ_k = 3P_k + 2Q_k. This works because both signals share the same ω₀."
         },
         {
@@ -106,7 +106,7 @@
                 "C) x(−t) is always zero",
                 "D) The FS of x(−t) has double the magnitude"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) The FS of x(−t) is the conjugate of the FS of x(t)",
             "explanation": "For real signals: X_{−k} = X_k*. So x(−t) ↔ X_{−k} = X_k*. The FS of the time-reversed signal is the complex conjugate of the original FS. This means magnitudes are identical but phases are negated."
         },
         {
@@ -118,7 +118,7 @@
                 "C) Linearity",
                 "D) Time scaling"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) Linearity",
             "explanation": "Both sin(10t) and cos(10t) share ω₀ = 10. The signal x(t) is a linear combination (1·sin + 2·cos), so linearity applies directly: X_k = 1·(FS of sin) + 2·(FS of cos)."
         }
     ]

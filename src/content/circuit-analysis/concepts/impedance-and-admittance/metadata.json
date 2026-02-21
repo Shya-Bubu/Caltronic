@@ -1,5 +1,10 @@
 {
     "id": "impedance-and-admittance",
-    "title": "Impedance & Admittance",
-    "slug": "impedance-and-admittance"
+    "title": "Impedance and Admittance",
+    "slug": "impedance-and-admittance",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

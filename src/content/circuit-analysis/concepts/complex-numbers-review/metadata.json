@@ -1,5 +1,10 @@
 {
     "id": "complex-numbers-review",
     "title": "Complex Numbers Review",
-    "slug": "complex-numbers-review"
+    "slug": "complex-numbers-review",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

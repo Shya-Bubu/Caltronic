@@ -5,61 +5,61 @@
             "id": "f1",
             "front": "Give the FS coefficient formula for the square pulse train.",
             "back": "X₀ = 2T₁/T₀ (DC/duty cycle)\nX_k = sin(kω₀T₁)/(kπ) for k ≠ 0\nPulse: amplitude 1, width 2T₁, period T₀.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "Why does X_k follow a sinc envelope?",
             "back": "Integrating e^{-jkω₀t} over a rectangular window [-T₁,+T₁] produces sin(kω₀T₁)/(kπ) — the sinc function. The rectangular shape in time maps to sinc in the frequency domain.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 1
         },
         {
             "id": "f3",
             "front": "How does pulse width affect the spectrum?",
             "back": "Narrower pulse (smaller T₁) → wider main lobe → more significant harmonics → higher bandwidth. This is the bandwidth-duration trade-off.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 1
         },
         {
             "id": "f4",
             "front": "At what values of k do the X_k equal zero?",
             "back": "X_k = 0 when sin(kω₀T₁) = 0, i.e., when kω₀T₁ = nπ (n ≠ 0). These zero crossings define the lobes of the spectrum.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f5",
             "front": "What does the 1/k decay rate tell you about the signal?",
             "back": "A 1/k decay is slow, meaning many harmonics are needed. This slow decay is characteristic of signals with sharp discontinuities (like the square pulse edges).",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "What is the duty cycle and how does it relate to X₀?",
             "back": "Duty cycle = 2T₁/T₀ = fraction of the period the pulse is 'on'. X₀ = 2T₁/T₀ = duty cycle = average value of x(t).",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "Why are the square pulse FS coefficients all real?",
             "back": "Because the centred square pulse is real and even: x(t) = x(-t). Even symmetry in time forces the FS coefficients to be purely real — no phase variation.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f8",
             "front": "What happens at discontinuities when you truncate the FS?",
             "back": "Gibbs phenomenon: ~9% overshoot that persists regardless of how many terms are summed. The overshoot narrows but doesn't diminish. The FS converges to the midpoint value at the discontinuity.",
-            "difficultyLevel": "advanced"
+            "difficultyLevel": 3
         },
         {
             "id": "f9",
             "front": "How do you represent a periodic pulse train mathematically?",
             "back": "Define one pulse g(t) = 1 for |t|<T₁, 0 otherwise. Then x(t) = Σ_{m=-∞}^{∞} g(t - mT₀) creates the periodic extension by shifting and summing.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 3
         },
         {
             "id": "f10",
             "front": "What is the best integration interval for the centred square pulse?",
             "back": "Use [-T₀/2, +T₀/2]. Since x(t) = 0 outside [-T₁, +T₁], the effective limits become [-T₁, +T₁]. This avoids dealing with two separate pulse segments.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 4
         }
     ]
 }

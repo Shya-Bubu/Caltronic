@@ -1,5 +1,10 @@
 {
     "id": "differentiation-integration-property",
     "title": "Differentiation and Integration Property",
-    "slug": "differentiation-integration-property"
+    "slug": "differentiation-integration-property",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

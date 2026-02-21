@@ -5,61 +5,61 @@
             "id": "f1",
             "front": "State the formal definition of a periodic signal.",
             "back": "x(t) = x(t + mT₀) for all integers m and some positive T₀. The smallest such T₀ is the fundamental period.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "How are T₀, f₀, and ω₀ related?",
             "back": "f₀ = 1/T₀ (Hz) and ω₀ = 2π/T₀ = 2πf₀ (rad/s). T₀ is the fundamental period, f₀ the fundamental frequency, ω₀ the angular fundamental frequency.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f3",
             "front": "How do you find the fundamental period of a sum of sinusoids?",
             "back": "T₀ = LCM of the individual periods. Equivalently, ω₀ = GCD of all component angular frequencies. The ratio of any two frequencies must be rational for the signal to be periodic.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 1
         },
         {
             "id": "f4",
             "front": "Write sin(θ) and cos(θ) in terms of complex exponentials.",
             "back": "sin(θ) = (e^{jθ} − e^{−jθ}) / (2j)\ncos(θ) = (e^{jθ} + e^{−jθ}) / 2\nThese are inverse Euler formulas, essential for converting to the EFS.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 2
         },
         {
             "id": "f5",
             "front": "What is the DC component X₀ of a periodic signal?",
             "back": "X₀ = (1/T₀) ∫_{T₀} x(t) dt — the average value of x(t) over one period. It is a real number for real signals.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "What does the magnitude spectrum |X_k| represent?",
             "back": "|X_k| gives the amplitude of the k-th harmonic component. Together with the phase spectrum ∠X_k, it uniquely determines the periodic signal.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "Why are periodic signals called power signals?",
             "back": "They repeat forever → infinite energy. But their average power P = (1/T₀)∫_{T₀} |x(t)|² dt is finite. So they are power signals, not energy signals.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 3
         },
         {
             "id": "f8",
             "front": "What is the key idea of inter-domain analysis?",
             "back": "The same signal has multiple equivalent representations on different axes (domains). In the time domain it is x(t); in the Fourier domain it is the set of coefficients X_k. Neither is more 'real' — they are two views of the same object.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f9",
             "front": "When is a sum x(t) = sin(ω₁t) + sin(ω₂t) NOT periodic?",
             "back": "When ω₁/ω₂ is irrational. There is no common period if the ratio of frequencies is not a rational number. Example: sin(πt) + sin(√2·t) is not periodic.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f10",
             "front": "What are X₁, X₂, X₃ called in the Fourier Series?",
             "back": "X₁ = fundamental component (at ω₀), X₂ = 2nd harmonic (at 2ω₀), X₃ = 3rd harmonic (at 3ω₀). Higher harmonics carry finer signal detail and have diminishing magnitudes.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 4
         }
     ]
 }

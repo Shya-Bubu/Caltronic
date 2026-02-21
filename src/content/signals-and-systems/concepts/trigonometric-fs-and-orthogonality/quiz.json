@@ -10,7 +10,7 @@
                 "C) Sum of delta functions",
                 "D) A single cosine"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) a₀ + Σ(a_k cos kω₀t + b_k sin kω₀t) from k=1 to ∞",
             "explanation": "The trigonometric FS uses real-valued cosines and sines instead of complex exponentials. It sums from k=1 to ∞ (not −∞), with a₀ being the DC component. Each pair (a_k, b_k) corresponds to a pair (X_k, X_{−k}) in the EFS."
         },
         {
@@ -22,7 +22,7 @@
                 "C) a_k = |X_k|²",
                 "D) a_k = Im(X_k)"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) a_k = 2 Re(X_k)",
             "explanation": "a_k = X_k + X_{−k}. For real signals, X_{−k} = X_k*, so a_k = X_k + X_k* = 2Re(X_k). Similarly, b_k = j(X_k − X_k*) = −2Im(X_k)."
         },
         {
@@ -34,7 +34,7 @@
                 "C) T₀",
                 "D) 1/(2T₀)"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) 2/T₀",
             "explanation": "a_k = (2/T₀)∫x(t)cos(kω₀t)dt and b_k = (2/T₀)∫x(t)sin(kω₀t)dt. The factor 2 arises because each trig coefficient combines two EFS coefficients (at +k and −k)."
         },
         {
@@ -46,7 +46,7 @@
                 "C) They have the same frequency",
                 "D) They are both real"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Their inner product is zero",
             "explanation": "Orthogonality means the inner product ⟨φ_k, φ_m⟩ = 0 for k ≠ m. This is the function analogue of perpendicular vectors having zero dot product."
         },
         {
@@ -58,7 +58,7 @@
                 "C) k − m",
                 "D) T₀"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) δ_{km} (1 if k=m, 0 otherwise)",
             "explanation": "(1/T₀)∫e^{j(k−m)ω₀t}dt = 0 when k≠m (integer cycles integrate to zero) and = 1 when k=m. This Kronecker delta confirms orthonormality."
         },
         {
@@ -70,7 +70,7 @@
                 "C) Because the sum is finite",
                 "D) Because X_k is always real"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) Because the basis functions don't interfere — each projection isolates one coefficient",
             "explanation": "When you project x(t) onto e^{jk₀ω₀t}, orthogonality means all other harmonics contribute zero to the integral. Only the k₀-th coefficient survives. No cross-talk = independent computation."
         },
         {
@@ -82,7 +82,7 @@
                 "C) k = 1 to +∞ (plus a separate a₀ term)",
                 "D) k = 1 to N"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) k = 1 to +∞ (plus a separate a₀ term)",
             "explanation": "The trig FS pairs the +k and −k EFS terms into single cos/sin terms. So k goes from 1 to ∞, plus the separate DC term a₀ = X₀."
         },
         {
@@ -94,7 +94,7 @@
                 "C) 2",
                 "D) −2"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) 4",
             "explanation": "a₃ = 2Re(X₃) = 2 × 2 = 4. The real part of X₃ is 2. For real signals, a_k = 2Re(X_k) because X_{−k} = X_k*."
         },
         {
@@ -106,7 +106,7 @@
                 "C) −1",
                 "D) 1"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) 2",
             "explanation": "b₃ = −2Im(X₃) = −2 × (−1) = 2. The imaginary part of X₃ is −1. For real signals, b_k = −2Im(X_k)."
         },
         {
@@ -118,7 +118,7 @@
                 "C) The trig FS doesn't work for periodic signals",
                 "D) The EFS has fewer coefficients"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) The EFS provides complete magnitude and phase information in a compact complex form",
             "explanation": "The EFS coefficient X_k = |X_k|e^{j∠X_k} directly gives magnitude and phase for each harmonic. The trig FS splits this into a_k and b_k, losing the compact representation. Properties (shift, reversal, etc.) are also cleaner in the EFS."
         }
     ]

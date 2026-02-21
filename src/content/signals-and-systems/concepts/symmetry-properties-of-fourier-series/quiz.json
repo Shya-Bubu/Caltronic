@@ -10,7 +10,7 @@
                 "C) X_{−k} = X_k* (conjugate)",
                 "D) X_{−k} = |X_k|"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) X_{−k} = X_k* (conjugate)",
             "explanation": "Real signals have conjugate symmetry: X_{−k} = X_k*. This means the real part of X_k is even and the imaginary part is odd. The magnitude is even (|X_{−k}| = |X_k|) and the phase is odd (∠X_{−k} = −∠X_k)."
         },
         {
@@ -22,7 +22,7 @@
                 "C) Complex with equal real and imaginary parts",
                 "D) Zero for all k"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Purely real and even",
             "explanation": "Real: X_{−k} = X_k*. Even: X_{−k} = X_k. Combining: X_k* = X_k, so X_k is real. Also X_k = X_{−k}, so X_k is an even function of k. The square pulse (centred) is a perfect example."
         },
         {
@@ -34,7 +34,7 @@
                 "C) Always zero",
                 "D) Real and even"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Purely imaginary and odd, with X₀ = 0",
             "explanation": "Real: X_{−k} = X_k*. Odd: X_{−k} = −X_k. Together: X_k* = −X_k → X_k is purely imaginary. Also X_k = −X_{−k} (odd). For k=0: X₀ = −X₀ → X₀ = 0 (odd functions have zero average)."
         },
         {
@@ -46,7 +46,7 @@
                 "C) |X_k|²",
                 "D) 1/|X_k|"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) |X_k|",
             "explanation": "From X_{−k} = X_k*: |X_{−k}| = |X_k*| = |X_k|. The magnitude spectrum is always even symmetric for real signals. You only need to plot the positive-k half."
         },
         {
@@ -58,7 +58,7 @@
                 "C) ∠X_k + π",
                 "D) π/2"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) −∠X_k",
             "explanation": "From X_{−k} = X_k*: ∠X_{−k} = ∠(X_k*) = −∠X_k. The phase spectrum is odd (anti-symmetric about k=0). For real, even signals the phase is zero everywhere (X_k is real)."
         },
         {
@@ -70,7 +70,7 @@
                 "C) 0",
                 "D) −1"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) 0",
             "explanation": "For odd signals, X₀ = 0. The average of sin(ω₀t) over one period is zero — the positive and negative halves cancel exactly."
         },
         {
@@ -82,7 +82,7 @@
                 "C) Average the two values",
                 "D) Set both to zero"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Recheck your computation — this violates conjugate symmetry",
             "explanation": "For real signals, |X_{−k}| must equal |X_k|. If your computation gives |X₃| ≠ |X_{−3}|, there's an error somewhere. Use symmetry as a built-in verification tool."
         },
         {
@@ -94,7 +94,7 @@
                 "C) [x(t) − x(−t)] / 2",
                 "D) x(t) · x(−t)"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) [x(t) + x(−t)] / 2",
             "explanation": "Any signal can be decomposed as x(t) = x_e(t) + x_o(t), where x_e(t) = [x(t)+x(−t)]/2 is the even part and x_o(t) = [x(t)−x(−t)]/2 is the odd part. The even part contributes the real part of X_k; the odd part contributes the imaginary part."
         },
         {
@@ -106,7 +106,7 @@
                 "C) X_k = (1/T₀) ∫₀^{T₀} x(t) dt",
                 "D) X_k = ∫₋∞^∞ x(t) e^{−jkω₀t} dt"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) X_k = (2/T₀) ∫₀^{T₀/2} x(t) cos(kω₀t) dt",
             "explanation": "For even x(t), the product x(t)·sin(kω₀t) is odd (even × odd = odd) and integrates to zero over a symmetric interval. Only the cosine part survives: X_k = (2/T₀)∫₀^{T₀/2} x(t)cos(kω₀t) dt — halving the integration work."
         },
         {
@@ -118,7 +118,7 @@
                 "C) X_{−k} = X_k",
                 "D) X_k is always zero"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) X_{−k} = −X_k*",
             "explanation": "If x(t) = jg(t) where g is real, then x(t)* = −jg(t) = −x(t). So X_k* = X_{−k}* → using x* = −x we get X_{−k} = −X_k*. This is anti-conjugate symmetry."
         }
     ]

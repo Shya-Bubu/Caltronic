@@ -1,5 +1,10 @@
 {
     "id": "parsevals-theorem",
-    "title": "Power and Parseval's Theorem",
-    "slug": "parsevals-theorem"
+    "title": "Parseval's Theorem",
+    "slug": "parsevals-theorem",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

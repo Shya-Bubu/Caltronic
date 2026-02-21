@@ -1,5 +1,10 @@
 {
     "id": "phasor-properties-and-addition",
-    "title": "Phasor Properties & Addition",
-    "slug": "phasor-properties-and-addition"
+    "title": "Phasor Properties and Addition",
+    "slug": "phasor-properties-and-addition",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

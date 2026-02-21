@@ -1,5 +1,10 @@
 {
     "id": "fourier-series-properties",
     "title": "Fourier Series Properties",
-    "slug": "fourier-series-properties"
+    "slug": "fourier-series-properties",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

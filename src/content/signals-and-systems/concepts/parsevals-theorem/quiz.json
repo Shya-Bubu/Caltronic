@@ -10,7 +10,7 @@
                 "C) (Σ |X_k|)²",
                 "D) Σ X_k²"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Σ |X_k|²",
             "explanation": "P_avg = Σ_{k=-∞}^{∞} |X_k|². Each term |X_k|² is the power contribution of the k-th harmonic. The total power is the sum of all harmonic powers."
         },
         {
@@ -22,7 +22,7 @@
                 "C) max|x(t)|²",
                 "D) (1/T₀)∫x(t) dt"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) (1/T₀)∫|x(t)|² dt over one period",
             "explanation": "P_avg = (1/T₀)∫_{T₀}|x(t)|² dt. This integrates the instantaneous power |x(t)|² over one period and normalises by T₀. For complex signals, |x(t)|² = x(t)·x*(t)."
         },
         {
@@ -34,7 +34,7 @@
                 "C) Time shifting property",
                 "D) Linearity"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) Orthogonality of FS basis functions",
             "explanation": "Through the derivation, substituting the FS for x(t) and x*(t), the cross-terms vanish due to orthogonality (only k=m terms survive). This is why Parseval's is sometimes called a consequence of orthogonality."
         },
         {
@@ -46,7 +46,7 @@
                 "C) P = 2Σ_{k=0}^∞ |X_k|²",
                 "D) P = Σ_{k=1}^∞ 2|X_k|"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) P = |X₀|² + 2Σ_{k=1}^∞ |X_k|²",
             "explanation": "For real signals, |X_{-k}| = |X_k|. So the sum from -∞ to +∞ can be written as |X₀|² (the DC term once) plus 2·Σ|X_k|² for k=1 to ∞ (positive and negative k pairs)."
         },
         {
@@ -58,7 +58,7 @@
                 "C) The energy of the signal",
                 "D) The amplitude of x(t)"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) The power contribution of the k-th harmonic",
             "explanation": "|X_k|² is the power spectral component at harmonic k. It tells you how much power the k-th harmonic contributes to the total signal power."
         },
         {
@@ -70,7 +70,7 @@
                 "C) 0.5 + 0.34 = 0.84",
                 "D) 2(0.5² + 0.1 + 0.05 + 0.02) = 0.84"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) 0.5² + 2(0.1 + 0.05 + 0.02) = 0.59",
             "explanation": "P ≈ |X₀|² + 2(|X₁|² + |X₂|² + |X₃|²) = 0.25 + 2(0.17) = 0.25 + 0.34 = 0.59. DC power plus twice each positive-k power (for the negative-k pair)."
         },
         {
@@ -82,7 +82,7 @@
                 "C) It gives the exact signal shape",
                 "D) It always equals 1"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) If time-domain and frequency-domain power disagree, you have an error in your FS",
             "explanation": "Both sides must give the same number. If you compute P from the time integral and from Σ|X_k|² and they don't match, your FS coefficients are wrong. This is a powerful verification tool."
         },
         {
@@ -94,7 +94,7 @@
                 "C) They generate electrical power",
                 "D) They have zero power"
             ],
-            "correctAnswer": "A",
+            "correctAnswer": "A) They have finite power but infinite energy",
             "explanation": "A periodic signal extends to ±∞, so its total energy is infinite. But the average power per period (P_avg = (1/T₀)∫|x|²dt) is finite. Hence: power signals."
         },
         {
@@ -106,7 +106,7 @@
                 "C) Depends on the accuracy requirement",
                 "D) ω₀"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) Depends on the accuracy requirement",
             "explanation": "Essential bandwidth depends on how much power is 'enough'. For 95% capture, ~10 harmonics suffice (bandwidth ≈ 10ω₀). For 99%, you need ~20 (bandwidth ≈ 20ω₀). The choice depends on the application."
         },
         {
@@ -118,7 +118,7 @@
                 "C) |X_k|²",
                 "D) X_k/T₀"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) X_k*",
             "explanation": "The analysis equation is X_k = (1/T₀)∫x(t)e^{−jkω₀t}dt. With the positive exponent (+jk), we get (1/T₀)∫x*(t)e^{jkω₀t}dt = X_k* — the conjugate. This is a key step in the Parseval's derivation."
         }
     ]

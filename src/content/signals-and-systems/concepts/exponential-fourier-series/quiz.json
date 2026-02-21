@@ -10,7 +10,7 @@
                 "C) X_k = T₀ ∫_{T₀} x(t) e^{-jkω₀t} dt",
                 "D) X_k = ∫_{-∞}^{∞} x(t) e^{-jkω₀t} dt"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) X_k = (1/T₀) ∫_{T₀} x(t) e^{-jkω₀t} dt",
             "explanation": "The analysis equation is X_k = (1/T₀) ∫_{T₀} x(t) e^{-jkω₀t} dt. Note: (1) the 1/T₀ normalisation factor, (2) the minus sign in the exponent, and (3) the integral is over one complete period T₀, not from -∞ to ∞ (that would be the Fourier Transform)."
         },
         {
@@ -22,7 +22,7 @@
                 "C) x(t) = Σ X_k e^{jkω₀t}",
                 "D) x(t) = T₀ Σ X_k e^{-jkω₀t}"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) x(t) = Σ X_k e^{jkω₀t}",
             "explanation": "The synthesis equation is x(t) = Σ_{k=-∞}^{∞} X_k e^{+jkω₀t}. The plus sign in the exponent is the opposite of the analysis equation. There is no 1/T₀ factor — that factor already appeared in the analysis equation when computing X_k."
         },
         {
@@ -34,7 +34,7 @@
                 "C) The average value of x(t) over one period",
                 "D) Zero for all real signals"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) The average value of x(t) over one period",
             "explanation": "X₀ = (1/T₀)∫_{T₀} x(t) dt, which is the average (mean) value of x(t) over one period. When k=0, the exponential e^{-j·0·t} = 1, so the integral becomes a plain average."
         },
         {
@@ -46,7 +46,7 @@
                 "C) 1 for m ≠ k; 0 for m = k",
                 "D) π for m ≠ k; 2π for m = k"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) 0 for m ≠ k; T₀ for m = k",
             "explanation": "When m ≠ k, the integrand e^{j(m-k)ω₀t} is a complex exponential at a non-zero harmonic frequency. Its integral over a complete period is zero (positive and negative areas cancel). When m = k, e^{j·0·t} = 1, so the integral equals T₀."
         },
         {
@@ -58,7 +58,7 @@
                 "C) Analysis uses −jkω₀t, synthesis uses +jkω₀t",
                 "D) Both use −jkω₀t"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) Analysis uses −jkω₀t, synthesis uses +jkω₀t",
             "explanation": "Analysis: e^{−jkω₀t} (minus). Synthesis: e^{+jkω₀t} (plus). This sign convention is analogous to the Fourier Transform pair. The minus sign in analysis 'demodulates' the k-th harmonic; the plus sign in synthesis 'remodulates' it."
         },
         {
@@ -70,7 +70,7 @@
                 "C) Any contiguous interval of length T₀",
                 "D) [−∞, +∞]"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) Any contiguous interval of length T₀",
             "explanation": "The periodicity of x(t) means that the integral over any contiguous interval of length T₀ gives the same result. Choose the interval that simplifies the calculation — for symmetric signals, [−T₀/2, +T₀/2] is often easiest."
         },
         {
@@ -82,7 +82,7 @@
                 "C) Approach zero",
                 "D) Oscillate between fixed values"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) Approach zero",
             "explanation": "|X_k| → 0 as |k| → ∞ for signals with finite power. This means higher harmonics contribute less and less, which is why truncating the series to a finite number of terms still gives a reasonable approximation."
         },
         {
@@ -94,7 +94,7 @@
                 "C) The convergence of the FS to the average at discontinuities",
                 "D) The orthogonality of complex exponentials"
             ],
-            "correctAnswer": "B",
+            "correctAnswer": "B) The ~9% overshoot near discontinuities that persists regardless of how many harmonics are used",
             "explanation": "The Gibbs phenomenon is the persistent ~9% overshoot that occurs near discontinuities in a signal when reconstructed using a finite Fourier Series. Adding more terms makes the overshoot narrower but not smaller — it is an inherent limitation of Fourier approximation of discontinuous signals."
         },
         {
@@ -106,7 +106,7 @@
                 "C) 30 rad/s",
                 "D) 3 rad/s"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) 30 rad/s",
             "explanation": "The k-th harmonic is at frequency kω₀. So the 3rd harmonic is at 3 × 10 = 30 rad/s. The fundamental is at 10 rad/s, 2nd harmonic at 20 rad/s, 3rd at 30 rad/s, etc."
         },
         {
@@ -118,7 +118,7 @@
                 "C) X_{−k} = X_k* (conjugate symmetry)",
                 "D) X_{−k} = −X_k"
             ],
-            "correctAnswer": "C",
+            "correctAnswer": "C) X_{−k} = X_k* (conjugate symmetry)",
             "explanation": "For real signals, the FS coefficients satisfy conjugate symmetry: X_{−k} = X_k*. This means |X_{−k}| = |X_k| (magnitude is even) and ∠X_{−k} = −∠X_k (phase is odd). X_k need not be real unless the signal is also even."
         }
     ]

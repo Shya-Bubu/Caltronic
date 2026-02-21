@@ -1,5 +1,10 @@
 {
     "id": "symmetry-properties-of-fourier-series",
-    "title": "Symmetry Properties of the Fourier Series",
-    "slug": "symmetry-properties-of-fourier-series"
+    "title": "Symmetry Properties of Fourier Series",
+    "slug": "symmetry-properties-of-fourier-series",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

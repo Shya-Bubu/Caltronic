@@ -1,5 +1,10 @@
 {
     "id": "impulse-and-triangular-pulse-fs",
-    "title": "EFS of the Impulse Train and Triangular Pulse",
-    "slug": "impulse-and-triangular-pulse-fs"
+    "title": "Impulse and Triangular Pulse Fourier Series",
+    "slug": "impulse-and-triangular-pulse-fs",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }

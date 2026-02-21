@@ -5,61 +5,61 @@
             "id": "f1",
             "front": "What is conjugate symmetry of X_k?",
             "back": "X_{−k} = X_k* for real signals. This means |X_{−k}| = |X_k| (magnitude even) and ∠X_{−k} = −∠X_k (phase odd).",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "What are the FS constraints for a real, even signal?",
             "back": "X_k is purely real and even: X_k = X_{−k} ∈ ℝ. No imaginary part, no phase plot needed. Example: centred square pulse.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f3",
             "front": "What are the FS constraints for a real, odd signal?",
             "back": "X_k is purely imaginary and odd: X_k = −X_{−k}, X_k ∈ jℝ. Also X₀ = 0 (odd functions have zero average). Example: sin(ω₀t).",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f4",
             "front": "Why does X₀ = 0 for odd signals?",
             "back": "Odd signals satisfy x(t) = −x(−t). The integral (average) over a symmetric period gives zero because positive and negative halves cancel. So X₀ = (1/T₀)∫x(t)dt = 0.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 2
         },
         {
             "id": "f5",
             "front": "How do you decompose any real signal into even and odd parts?",
             "back": "x(t) = x_e(t) + x_o(t)\nx_e(t) = [x(t) + x(−t)]/2 (even part → contributes real FS)\nx_o(t) = [x(t) − x(−t)]/2 (odd part → contributes imaginary FS)",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "How does symmetry simplify the FS integral for even signals?",
             "back": "For even x(t): the sin(kω₀t) term integrates to zero (even × odd = odd). So X_k = (2/T₀)∫₀^{T₀/2} x(t)cos(kω₀t) dt — you only integrate over half the period.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "How do you use symmetry to verify your computed X_k?",
             "back": "Check: (1) Real signal → |X_{−k}| should equal |X_k|. (2) Even signal → X_k should be real. (3) Odd signal → X_k should be imaginary with X₀=0. If any check fails, recompute.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f8",
             "front": "What symmetry does the magnitude spectrum always have for real signals?",
             "back": "Even symmetry: |X_{−k}| = |X_k|. The magnitude plot is symmetric about k=0. You only need to compute or plot the positive-k half.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 3
         },
         {
             "id": "f9",
             "front": "What symmetry does the phase spectrum always have for real signals?",
             "back": "Odd (anti-symmetric): ∠X_{−k} = −∠X_k. The phase plot is anti-symmetric about k=0. For real even signals, ∠X_k = 0 everywhere.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f10",
             "front": "Summarise the symmetry table for FS coefficients.",
             "back": "Real: X_{−k} = X_k* (conjugate symmetric)\nReal + Even: X_k real, even\nReal + Odd: X_k imaginary, odd, X₀=0\nPurely imaginary: X_{−k} = −X_k* (anti-conjugate)",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 4
         }
     ]
 }

@@ -5,61 +5,61 @@
             "id": "f1",
             "front": "State the linearity property of the FS.",
             "back": "αx(t) + βy(t) ↔ αX_k + βY_k, provided x(t) and y(t) have the SAME fundamental frequency ω₀.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f2",
             "front": "State the time shifting property of the FS.",
             "back": "x(t − t₀) ↔ X_k · e^{−jkω₀t₀}\n\nMagnitude unchanged: |X_k'| = |X_k|\nPhase shifted: ∠X_k' = ∠X_k − kω₀t₀",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f3",
             "front": "State the time reversal property of the FS.",
             "back": "x(−t) ↔ X_{−k}\n\nThe coefficients mirror about k = 0. For real signals: X_{−k} = X_k*, so time reversal gives conjugate coefficients.",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 1
         },
         {
             "id": "f4",
             "front": "State the time scaling property of the FS.",
             "back": "x(αt) has period T₀/α and fundamental frequency αω₀, but the FS coefficients X_k remain unchanged. Only the frequency grid is rescaled.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f5",
             "front": "Why doesn't time shifting change |X_k|?",
             "back": "The time shift factor e^{−jkω₀t₀} has magnitude 1. Multiplying X_k by a unit-magnitude complex number rotates it in the complex plane without changing its length → magnitudes unchanged.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f6",
             "front": "Why does higher k mean more phase change under time shifting?",
             "back": "Higher k = higher frequency = shorter period. The same time delay t₀ represents more cycles at higher frequencies, so the phase shift −kω₀t₀ grows linearly with k.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 2
         },
         {
             "id": "f7",
             "front": "When does linearity NOT apply?",
             "back": "When x(t) and y(t) have DIFFERENT fundamental frequencies. The harmonic grids (kω₀ vs kω₀') don't align, so you can't add X_k and Y_k at the same index k.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f8",
             "front": "How do you use properties to avoid re-integration?",
             "back": "Start with a known FS pair (e.g., square pulse). Apply properties (shift, reverse, scale, linearity) to derive the FS of the modified signal without evaluating any new integrals.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f9",
             "front": "What is the FS of x(t − T₀/4) in terms of X_k?",
             "back": "X_k · e^{−jkω₀T₀/4} = X_k · e^{−jkπ/2}\n\nFor k=1: phase −π/2; k=2: phase −π; k=3: phase −3π/2; etc.",
-            "difficultyLevel": "intermediate"
+            "difficultyLevel": 3
         },
         {
             "id": "f10",
             "front": "Summarise what changes vs stays the same under time shift.",
             "back": "UNCHANGED: |X_k| (magnitude), signal shape, power\nCHANGED: ∠X_k (phase shifts by −kω₀t₀), signal position in time",
-            "difficultyLevel": "basic"
+            "difficultyLevel": 4
         }
     ]
 }

@@ -1,5 +1,10 @@
 {
     "id": "fourier-series-of-square-pulse",
-    "title": "Fourier Series of the Square Pulse Train",
-    "slug": "fourier-series-of-square-pulse"
+    "title": "Fourier Series of the Square Pulse",
+    "slug": "fourier-series-of-square-pulse",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
 }
