@@ -1,0 +1,64 @@
+{
+    "flashcards": [
+        {
+            "id": "fbc-fc1",
+            "front": "What is the fixed bias circuit?",
+            "back": "A single resistor R₁ connects V_CC to the base of the BJT, providing a constant DC base current I_B = (V_CC − 0.7)/R₁. The emitter is grounded directly.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fbc-fc2",
+            "front": "Write the formula for I_B in fixed bias.",
+            "back": "I_B = (V_CC − V_BE) / R₁ ≈ (V_CC − 0.7) / R₁. Derived from KVL around the base-emitter loop.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fbc-fc3",
+            "front": "Write the formula for V_CE in fixed bias.",
+            "back": "V_CE = V_CC − I_C·R_C = V_CC − βI_B·R_C. Derived from KVL around the collector-emitter (output) loop.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "fbc-fc4",
+            "front": "Is I_B dependent on β in fixed bias?",
+            "back": "No. I_B = (V_CC − 0.7)/R₁ — it depends only on V_CC, V_BE, and R₁. However, I_C = βI_B IS dependent on β, so the Q-point is still β-sensitive.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "fbc-fc5",
+            "front": "Why is fixed bias unstable?",
+            "back": "Because I_C = βI_B. Since β varies widely (between transistors and with temperature), the Q-point shifts dramatically. This can push the transistor into saturation or cutoff.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "fbc-fc6",
+            "front": "What is thermal runaway?",
+            "back": "A positive feedback loop: T↑ → β↑ → I_C↑ → P = I_C·V_CE ↑ → T↑ → ... If heat can't escape fast enough, the transistor overheats and is destroyed.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "fbc-fc7",
+            "front": "How do you obtain the DC equivalent circuit?",
+            "back": "Open-circuit all capacitors (X_C → ∞ at DC) and short-circuit all inductors (X_L → 0 at DC). This removes the signal source and leaves only the bias network.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "fbc-fc8",
+            "front": "How do you check that the transistor is in the active region?",
+            "back": "Verify: V_BE ≈ 0.7 V (BE junction forward-biased) AND V_CE > V_CE(sat) ≈ 0.2 V (BC junction reverse-biased). If V_CE < 0.2 V, the transistor is in saturation.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "fbc-fc9",
+            "front": "Design problem: choose R₁ for a desired I_CQ in fixed bias.",
+            "back": "Work backwards: I_B = I_CQ / β, then R₁ = (V_CC − 0.7) / I_B. Choose the nearest standard resistor value.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "fbc-fc10",
+            "front": "What are the three steps to calculate the Q-point in fixed bias?",
+            "back": "1) KVL on BE loop: I_B = (V_CC − 0.7)/R₁. 2) I_C = βI_B. 3) KVL on CE loop: V_CE = V_CC − I_C·R_C. Q = (V_CEQ, I_CQ).",
+            "difficultyLevel": 1
+        }
+    ]
+}

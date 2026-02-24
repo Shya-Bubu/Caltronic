@@ -1,94 +1,326 @@
 {
     "visuals": [
         {
-            "id": "time-shift-phase-change",
+            "id": "linearity-demo",
             "type": "plotly",
-            "title": "Time Shift → Phase Change Only",
-            "description": "Shows a signal x(t) and its shifted version x(t−t₀). Their magnitude spectra |X_k| are identical, but their phase spectra differ by −kω₀t₀. Higher harmonics experience larger phase shifts.",
-            "config": {
-                "data": [
-                    {
-                        "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                        "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.sin(t) + 0.5*Math.sin(3*t); })",
-                        "type": "scatter",
-                        "mode": "lines",
-                        "name": "x(t)",
-                        "line": {
-                            "color": "#4f8cff",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                        "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; const t0 = Math.PI/4; return Math.sin(t-t0) + 0.5*Math.sin(3*(t-t0)); })",
-                        "type": "scatter",
-                        "mode": "lines",
-                        "name": "x(t − π/4)",
-                        "line": {
-                            "color": "#ff6b8a",
-                            "width": 2,
-                            "dash": "dash"
-                        }
+            "title": "Linearity: Adding Two Signals = Adding Their Spectra",
+            "description": "Two periodic signals with the same ω₀ are added. The resulting spectrum is the coefficient-wise sum of the individual spectra. The top row shows the signals; the bottom shows their spectra combining.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.sin(t); })",
+                    "mode": "lines",
+                    "name": "x(t) = sin(t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
                     }
-                ],
-                "layout": {
-                    "title": "Time Shift: Same Shape, Different Position",
-                    "xaxis": {
-                        "title": "t"
-                    },
-                    "yaxis": {
-                        "title": "Amplitude"
-                    },
-                    "showlegend": true
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return 0.5*Math.sin(3*t); })",
+                    "mode": "lines",
+                    "name": "y(t) = 0.5sin(3t)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.sin(t) + 0.5*Math.sin(3*t); })",
+                    "mode": "lines",
+                    "name": "x(t) + y(t)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
                 }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "time-shift-original-vs-shifted",
+            "type": "plotly",
+            "title": "Time Shift: Same Shape, Different Position",
+            "description": "The signal x(t) and its shifted version x(t − π/4). The waveforms look identical except for the horizontal offset. Their magnitude spectra are identical — only the phases change.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.sin(t) + 0.5*Math.sin(3*t); })",
+                    "mode": "lines",
+                    "name": "x(t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; const t0 = Math.PI/4; return Math.sin(t-t0) + 0.5*Math.sin(3*(t-t0)); })",
+                    "mode": "lines",
+                    "name": "x(t − π/4)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "time-shift-phase-effect",
+            "type": "plotly",
+            "title": "Phase Change Due to Time Shift: −kω₀t₀ per Harmonic",
+            "description": "Phase change increases linearly with harmonic number k. The 3rd harmonic gets 3× the phase shift of the fundamental. This is why time shifting rearranges the phases but leaves magnitudes untouched.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "y": [
+                        -0.785,
+                        -1.571,
+                        -2.356,
+                        -3.142,
+                        -3.927,
+                        -4.712,
+                        -5.497
+                    ],
+                    "type": "bar",
+                    "name": "Phase shift −kω₀t₀ (t₀ = π/4)",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k",
+                    "dtick": 1
+                },
+                "yaxis": {
+                    "title": "Phase shift (rad)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "time-reversal-demo",
+            "type": "plotly",
+            "title": "Time Reversal: x(t) vs x(−t)",
+            "description": "Time reversal mirrors the signal about t = 0. For real signals this mirrors the coefficients about k = 0, swapping X_k and X_{−k}.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => -Math.PI + i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 200; return Math.sin(t) + 0.3*Math.sin(2*t); })",
+                    "mode": "lines",
+                    "name": "x(t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => -Math.PI + i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 200; return Math.sin(-t) + 0.3*Math.sin(-2*t); })",
+                    "mode": "lines",
+                    "name": "x(−t)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "time-scaling-compression",
+            "type": "plotly",
+            "title": "Time Scaling: Compression Spreads the Frequency Axis",
+            "description": "x(t) and x(2t) have the same coefficients X_k, but x(2t) oscillates twice as fast. The period halves, the frequency doubles, but the harmonic weights are unchanged.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 4 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => { const t = i * 4 * Math.PI / 300; return Math.sin(t) + 0.5*Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "x(t): T₀ = 2π",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 4 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => { const t = i * 4 * Math.PI / 300; return Math.sin(2*t) + 0.5*Math.cos(4*t); })",
+                    "mode": "lines",
+                    "name": "x(2t): T₀ = π",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
             }
         },
         {
             "id": "properties-summary-diagram",
             "type": "d3-block-diagram",
-            "title": "FS Properties Summary",
-            "description": "A visual summary of all four properties showing the transformation in the time domain and its effect on the FS coefficients.",
-            "config": {
-                "nodes": [
-                    {
-                        "id": "lin",
-                        "label": "Linearity\nαx+βy → αX_k+βY_k\n(same ω₀)",
-                        "x": 100,
-                        "y": 60,
-                        "width": 240,
-                        "height": 70,
-                        "fill": "#4f8cff"
-                    },
-                    {
-                        "id": "shift",
-                        "label": "Time Shift\nx(t−t₀) → X_k·e^{−jkω₀t₀}\n|X_k| unchanged",
-                        "x": 400,
-                        "y": 60,
-                        "width": 240,
-                        "height": 70,
-                        "fill": "#6b62ff"
-                    },
-                    {
-                        "id": "rev",
-                        "label": "Time Reversal\nx(−t) → X_{−k}",
-                        "x": 100,
-                        "y": 200,
-                        "width": 240,
-                        "height": 70,
-                        "fill": "#ff6b8a"
-                    },
-                    {
-                        "id": "scale",
-                        "label": "Time Scaling\nx(αt) → X_k\nPeriod: T₀/α",
-                        "x": 400,
-                        "y": 200,
-                        "width": 240,
-                        "height": 70,
-                        "fill": "#2fbf8f"
-                    }
-                ],
-                "edges": []
-            }
+            "title": "Four Properties at a Glance",
+            "description": "Summary diagram showing each property's effect: Linearity adds coefficients; Time Shift rotates phases; Time Reversal mirrors indices; Time Scaling changes only the period.",
+            "blocks": [
+                {
+                    "id": "lin",
+                    "label": "Linearity\nαx+βy → αX_k+βY_k\n(same ω₀)",
+                    "x": 70,
+                    "y": 50,
+                    "width": 220,
+                    "height": 65,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "shift",
+                    "label": "Time Shift\nx(t−t₀) → X_k·e^{−jkω₀t₀}\n|X_k| unchanged",
+                    "x": 340,
+                    "y": 50,
+                    "width": 220,
+                    "height": 65,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "rev",
+                    "label": "Time Reversal\nx(−t) → X_{−k}",
+                    "x": 70,
+                    "y": 160,
+                    "width": 220,
+                    "height": 65,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "scale",
+                    "label": "Time Scaling\nx(αt) → X_k\nPeriod: T₀/α",
+                    "x": 340,
+                    "y": 160,
+                    "width": 220,
+                    "height": 65,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "shift-magnitude-unchanged",
+            "type": "d3-simulation",
+            "simulationType": "signal-generator",
+            "title": "Interactive: Shift a Signal and Watch the Spectrum",
+            "description": "Slide the time shift t₀ and observe how the magnitude spectrum stays constant while the phase spectrum tilts. The larger the shift, the steeper the phase slope."
+        },
+        {
+            "id": "properties-walk-through-sim",
+            "type": "d3-simulation",
+            "simulationType": "fourier-coefficients",
+            "title": "Interactive: Apply Properties and See the Result",
+            "description": "Select a base signal, then apply linearity, time shift, reversal, or scaling. Watch both the time-domain waveform and the frequency-domain coefficients update simultaneously."
+        },
+        {
+            "id": "linearity-spectrum-add",
+            "type": "d3-waveform",
+            "title": "Waveform View: Linearity Combines Components",
+            "description": "Side-by-side waveform view showing x(t), y(t), and their sum αx(t) + βy(t). The combined waveform is a visual sum that reinforces the linearity concept.",
+            "waveType": "composite",
+            "mode": "continuous"
+        },
+        {
+            "id": "time-scaling-freq-axis",
+            "type": "d3-block-diagram",
+            "title": "Time Scaling: What Changes and What Doesn't",
+            "description": "Visual comparison showing that time scaling changes T₀ and ω₀ but leaves X_k unchanged. The harmonic spacing stretches but the weights remain the same.",
+            "blocks": [
+                {
+                    "id": "orig",
+                    "label": "x(t)\nT₀, ω₀\nSpectra: X_k at kω₀",
+                    "x": 80,
+                    "y": 70,
+                    "width": 200,
+                    "height": 65,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "scaled",
+                    "label": "x(αt)\nT₀/α, αω₀\nSpectra: X_k at kαω₀",
+                    "x": 380,
+                    "y": 70,
+                    "width": 200,
+                    "height": 65,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "note",
+                    "label": "Same X_k values\nDifferent spacing",
+                    "x": 230,
+                    "y": 170,
+                    "width": 200,
+                    "height": 45,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "orig",
+                    "to": "scaled",
+                    "label": "t → αt"
+                },
+                {
+                    "from": "orig",
+                    "to": "note"
+                },
+                {
+                    "from": "scaled",
+                    "to": "note"
+                }
+            ]
         }
     ]
 }

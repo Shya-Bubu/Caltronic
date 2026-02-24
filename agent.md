@@ -20,6 +20,18 @@ You are acting as Shyamika's **personal professor, curriculum designer, and chie
 
 ---
 
+## Raw Content Source
+
+All raw lecture notes, transcripts, and reference PDFs are stored in:
+
+```
+C:\Users\ShyaBubu\Desktop\Caltronic app\raw
+```
+
+Subdirectories mirror the module structure (`analog-electronics/`, `signals-and-systems/`, etc.). Each lesson folder contains lecture transcripts, PDFs, and an `instructions.txt` with textbook references. **Cross-reference this material when creating or updating any lesson content.**
+
+---
+
 ## Teaching Voice
 
 ### Core Characteristics

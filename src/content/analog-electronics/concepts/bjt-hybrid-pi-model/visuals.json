@@ -1,0 +1,473 @@
+{
+    "visuals": [
+        {
+            "id": "h-parameter-full-model",
+            "type": "d3-block-diagram",
+            "title": "General h-Parameter Two-Port Model",
+            "description": "The full h-parameter model of a BJT: input side has h_ie (input impedance) and h_re·v_ce (reverse voltage feedback). Output side has h_fe·i_b (forward current source) and 1/h_oe (output impedance). Four parameters, two dependent sources.",
+            "blocks": [
+                {
+                    "id": "hie",
+                    "label": "h_ie = r_π\n(input impedance)",
+                    "x": 40,
+                    "y": 50,
+                    "width": 180,
+                    "height": 50,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "hre",
+                    "label": "h_re · v_ce\n(reverse feedback)\n≈ 0 (neglected)",
+                    "x": 40,
+                    "y": 120,
+                    "width": 210,
+                    "height": 55,
+                    "fill": "#aab4c0"
+                },
+                {
+                    "id": "hfe",
+                    "label": "h_fe · i_b = β · i_b\n(forward current source)",
+                    "x": 350,
+                    "y": 50,
+                    "width": 230,
+                    "height": 50,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "hoe",
+                    "label": "1/h_oe = R_out\n(output impedance)\n≈ ∞ (neglected)",
+                    "x": 350,
+                    "y": 120,
+                    "width": 210,
+                    "height": 55,
+                    "fill": "#aab4c0"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "hybrid-pi-circuit",
+            "type": "d3-block-diagram",
+            "title": "The Hybrid-π Model (Simplified)",
+            "description": "After neglecting h_re (≈ 0) and h_oe (≈ 0): the base-emitter port has r_π (= V_T/I_BQ). The collector-emitter port has a current-controlled current source β·i_b. This is the standard 3-parameter hybrid-π model.",
+            "blocks": [
+                {
+                    "id": "base",
+                    "label": "B (Base)",
+                    "x": 30,
+                    "y": 80,
+                    "width": 80,
+                    "height": 30,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "rpi",
+                    "label": "r_π = h_ie\n≈ βV_T/I_CQ",
+                    "x": 140,
+                    "y": 65,
+                    "width": 150,
+                    "height": 55,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "emitter",
+                    "label": "E (Emitter)",
+                    "x": 340,
+                    "y": 140,
+                    "width": 100,
+                    "height": 30,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "cccs",
+                    "label": "β · i_b\n(CCCS)",
+                    "x": 380,
+                    "y": 55,
+                    "width": 120,
+                    "height": 55,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "collector",
+                    "label": "C (Collector)",
+                    "x": 530,
+                    "y": 80,
+                    "width": 100,
+                    "height": 30,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "base",
+                    "to": "rpi",
+                    "label": "i_b →"
+                },
+                {
+                    "from": "rpi",
+                    "to": "emitter",
+                    "label": "v_be across"
+                },
+                {
+                    "from": "cccs",
+                    "to": "collector",
+                    "label": "i_c = β·i_b"
+                },
+                {
+                    "from": "cccs",
+                    "to": "emitter"
+                }
+            ]
+        },
+        {
+            "id": "vccs-conversion",
+            "type": "d3-block-diagram",
+            "title": "Converting CCCS to VCCS: Introducing g_m",
+            "description": "Since i_b = v_be/r_π, the current source β·i_b = β·v_be/r_π = g_m·v_be. This converts the model from current-controlled (β·i_b) to voltage-controlled (g_m·v_be). g_m = β/r_π = I_CQ/V_T is the transconductance.",
+            "blocks": [
+                {
+                    "id": "cccs",
+                    "label": "CCCS form:\ni_c = β · i_b\n= β · (v_be/r_π)",
+                    "x": 40,
+                    "y": 50,
+                    "width": 220,
+                    "height": 60,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "arrow",
+                    "label": "Define:\ng_m = β/r_π",
+                    "x": 310,
+                    "y": 55,
+                    "width": 130,
+                    "height": 50,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "vccs",
+                    "label": "VCCS form:\ni_c = g_m · v_be\n= (I_CQ/V_T) · v_be",
+                    "x": 490,
+                    "y": 50,
+                    "width": 230,
+                    "height": 60,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "cccs",
+                    "to": "arrow"
+                },
+                {
+                    "from": "arrow",
+                    "to": "vccs"
+                }
+            ]
+        },
+        {
+            "id": "gm-vs-ic-plot",
+            "type": "plotly",
+            "title": "Transconductance g_m vs Collector Current I_C",
+            "description": "g_m = I_CQ/V_T. At room temperature V_T = 26 mV. g_m increases linearly with I_CQ. At I_C = 1 mA, g_m = 38.5 mA/V. At I_C = 10 mA, g_m = 385 mA/V.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 100}, (_, i) => 0.1 + i * 0.1)",
+                    "y_expr": "Array.from({length: 100}, (_, i) => (0.1 + i * 0.1) / 0.026)",
+                    "mode": "lines",
+                    "name": "g_m (mA/V) at 27°C",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "I_CQ (mA)"
+                },
+                "yaxis": {
+                    "title": "g_m (mA/V)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "rpi-vs-ic-plot",
+            "type": "plotly",
+            "title": "r_π vs Collector Current I_C (for different β)",
+            "description": "r_π = β/g_m = βV_T/I_CQ. At I_C = 1 mA and β = 100: r_π = 2.6 kΩ. r_π decreases with I_C and increases with β.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 100}, (_, i) => 0.1 + i * 0.1)",
+                    "y_expr": "Array.from({length: 100}, (_, i) => 100 * 0.026 / (0.1 + i * 0.1))",
+                    "mode": "lines",
+                    "name": "r_π (kΩ), β = 100",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 100}, (_, i) => 0.1 + i * 0.1)",
+                    "y_expr": "Array.from({length: 100}, (_, i) => 200 * 0.026 / (0.1 + i * 0.1))",
+                    "mode": "lines",
+                    "name": "r_π (kΩ), β = 200",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "I_CQ (mA)"
+                },
+                "yaxis": {
+                    "title": "r_π (kΩ)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "parameter-relationships",
+            "type": "d3-block-diagram",
+            "title": "Key Parameter Relationships",
+            "description": "The four small-signal parameters: g_m = I_CQ/V_T (independent of β!), r_π = β/g_m = βV_T/I_CQ, r_e = 1/g_m = V_T/I_CQ (≈ 26mV/I_CQ at room temp), r_π = β·r_e.",
+            "blocks": [
+                {
+                    "id": "gm",
+                    "label": "g_m = I_CQ / V_T\n(transconductance)\nβ-independent!",
+                    "x": 40,
+                    "y": 30,
+                    "width": 200,
+                    "height": 55,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "rpi",
+                    "label": "r_π = β / g_m\n= β V_T / I_CQ\n(input resistance)",
+                    "x": 290,
+                    "y": 30,
+                    "width": 200,
+                    "height": 55,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "re",
+                    "label": "r_e = 1 / g_m\n= V_T / I_CQ\n≈ 26 mV / I_CQ",
+                    "x": 40,
+                    "y": 115,
+                    "width": 200,
+                    "height": 55,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "link",
+                    "label": "r_π = β · r_e\ng_m = 1 / r_e",
+                    "x": 290,
+                    "y": 115,
+                    "width": 200,
+                    "height": 55,
+                    "fill": "#6b62ff"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "gm",
+                    "to": "rpi",
+                    "label": "× β"
+                },
+                {
+                    "from": "gm",
+                    "to": "re",
+                    "label": "reciprocal"
+                },
+                {
+                    "from": "re",
+                    "to": "link"
+                },
+                {
+                    "from": "rpi",
+                    "to": "link"
+                }
+            ]
+        },
+        {
+            "id": "simplified-hybrid-pi",
+            "type": "d3-block-diagram",
+            "title": "Further Simplified Model: R_out → ∞",
+            "description": "When R_out (= 1/h_oe) is much larger than the load resistance R_L, we can remove R_out entirely. The model reduces to just r_π at the input and g_m·v_be at the output — the most commonly used version.",
+            "blocks": [
+                {
+                    "id": "base",
+                    "label": "B",
+                    "x": 30,
+                    "y": 80,
+                    "width": 50,
+                    "height": 30,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "rpi",
+                    "label": "r_π",
+                    "x": 120,
+                    "y": 65,
+                    "width": 100,
+                    "height": 50,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "vbe",
+                    "label": "v_be",
+                    "x": 120,
+                    "y": 130,
+                    "width": 100,
+                    "height": 30,
+                    "fill": "#aab4c0"
+                },
+                {
+                    "id": "gmvbe",
+                    "label": "g_m · v_be",
+                    "x": 320,
+                    "y": 65,
+                    "width": 130,
+                    "height": 50,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "collector",
+                    "label": "C",
+                    "x": 490,
+                    "y": 80,
+                    "width": 50,
+                    "height": 30,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "emitter",
+                    "label": "E",
+                    "x": 250,
+                    "y": 160,
+                    "width": 50,
+                    "height": 30,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "base",
+                    "to": "rpi"
+                },
+                {
+                    "from": "rpi",
+                    "to": "emitter"
+                },
+                {
+                    "from": "gmvbe",
+                    "to": "collector"
+                },
+                {
+                    "from": "gmvbe",
+                    "to": "emitter"
+                }
+            ]
+        },
+        {
+            "id": "thermal-voltage-note",
+            "type": "d3-block-diagram",
+            "title": "The Thermal Voltage V_T",
+            "description": "V_T = kT/q ≈ 26 mV at room temperature (T = 300 K). k = 1.38×10⁻²³ J/K (Boltzmann), q = 1.6×10⁻¹⁹ C (electron charge). V_T sets the scale for all small-signal parameters.",
+            "blocks": [
+                {
+                    "id": "formula",
+                    "label": "V_T = kT/q",
+                    "x": 40,
+                    "y": 40,
+                    "width": 130,
+                    "height": 40,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "values",
+                    "label": "k = 1.38×10⁻²³ J/K\nq = 1.6×10⁻¹⁹ C\nT = 300 K (room temp)",
+                    "x": 220,
+                    "y": 25,
+                    "width": 220,
+                    "height": 70,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "result",
+                    "label": "V_T ≈ 26 mV\nat room temperature",
+                    "x": 500,
+                    "y": 40,
+                    "width": 180,
+                    "height": 40,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "formula",
+                    "to": "values"
+                },
+                {
+                    "from": "values",
+                    "to": "result"
+                }
+            ]
+        },
+        {
+            "id": "parameter-calculator-sim",
+            "type": "d3-simulation",
+            "simulationType": "parameter-calculator",
+            "title": "Interactive: Small-Signal Parameter Calculator",
+            "description": "Enter I_CQ and β, and instantly see g_m, r_π, r_e, and the complete hybrid-π model with calculated values. Adjust I_CQ and see how all parameters change."
+        },
+        {
+            "id": "re-model-alternative",
+            "type": "d3-block-diagram",
+            "title": "Alternative: The r_e Model",
+            "description": "An equivalent view: replace r_π with r_e at the emitter. Input: looking into the base, you see β·r_e = r_π. Output: g_m·v_be = i_c. The r_e model is popular for common-base analysis.",
+            "blocks": [
+                {
+                    "id": "hybrid_pi",
+                    "label": "HYBRID-π MODEL\n• r_π between B and E\n• g_m·v_be from C to E\n• Best for CE analysis",
+                    "x": 40,
+                    "y": 30,
+                    "width": 260,
+                    "height": 80,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "re_model",
+                    "label": "r_e MODEL\n• r_e = V_T/I_CQ in emitter\n• i_c = g_m·v_be = α·i_e\n• Best for CB analysis",
+                    "x": 360,
+                    "y": 30,
+                    "width": 260,
+                    "height": 80,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "equiv",
+                    "label": "Both models are equivalent\nr_π = β · r_e",
+                    "x": 190,
+                    "y": 140,
+                    "width": 260,
+                    "height": 40,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "hybrid_pi",
+                    "to": "equiv"
+                },
+                {
+                    "from": "re_model",
+                    "to": "equiv"
+                }
+            ]
+        }
+    ]
+}

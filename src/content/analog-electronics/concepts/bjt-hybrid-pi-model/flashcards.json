@@ -1,0 +1,64 @@
+{
+    "flashcards": [
+        {
+            "id": "hpi-fc1",
+            "front": "What is the hybrid-π model?",
+            "back": "A linearised small-signal equivalent circuit for the BJT, derived from h-parameters by neglecting h_re and h_oe. Contains r_π (input resistance) and g_m·v_be (VCCS).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "hpi-fc2",
+            "front": "Write the formula for g_m (transconductance).",
+            "back": "g_m = I_CQ / V_T ≈ I_CQ / 26 mV (at room temperature). It is independent of β.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "hpi-fc3",
+            "front": "Write the formula for r_π (input resistance).",
+            "back": "r_π = β / g_m = β V_T / I_CQ. It depends on both β and the bias current.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "hpi-fc4",
+            "front": "What is r_e and how does it relate to r_π?",
+            "back": "r_e = 1/g_m = V_T/I_CQ ≈ 26 mV / I_CQ. r_π = β · r_e (the emitter resistance seen from the base is β times larger).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpi-fc5",
+            "front": "Why is g_m independent of β?",
+            "back": "g_m = β/r_π = β/(βV_T/I_CQ) = I_CQ/V_T. The β cancels in numerator and denominator. g_m depends only on the Q-point current.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpi-fc6",
+            "front": "What is V_T (thermal voltage)?",
+            "back": "V_T = kT/q ≈ 26 mV at room temperature (27°C / 300 K). k = Boltzmann's constant, q = electron charge. It sets the scale for all small-signal parameters.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpi-fc7",
+            "front": "When can R_out be dropped from the model?",
+            "back": "When R_out = 1/h_oe >> R_L (typically R_out > 10 R_L). Since R_out is usually 100k–1MΩ and R_L is 1k–10kΩ, this is almost always valid.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "hpi-fc8",
+            "front": "CCCS form vs VCCS form of the model?",
+            "back": "CCCS: i_c = β·i_b (current-controlled). VCCS: i_c = g_m·v_be (voltage-controlled). Equivalent because i_b = v_be/r_π, so β·i_b = β·v_be/r_π = g_m·v_be.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "hpi-fc9",
+            "front": "Which h-parameters are neglected and why?",
+            "back": "h_re ≈ 0 (negligible reverse feedback from output to input) and h_oe ≈ 0 (output resistance ≈ ∞, doesn't load the circuit).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpi-fc10",
+            "front": "When do you use hybrid-π vs r_e model?",
+            "back": "Hybrid-π (r_π at base): best for common-emitter analysis. r_e model (r_e at emitter): best for common-base analysis. Both are mathematically equivalent.",
+            "difficultyLevel": 3
+        }
+    ]
+}

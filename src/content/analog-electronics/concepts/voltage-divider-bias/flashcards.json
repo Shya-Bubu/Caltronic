@@ -1,0 +1,64 @@
+{
+    "flashcards": [
+        {
+            "id": "vdb-fc1",
+            "front": "What is voltage divider bias?",
+            "back": "A biasing scheme using R₁-R₂ to set V_B and an emitter resistor R_E for negative feedback. It makes the Q-point nearly independent of β.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "vdb-fc2",
+            "front": "Write the Thévenin voltage for the R₁-R₂ divider.",
+            "back": "V_TH = R₂/(R₁+R₂) × V_CC. This is the open-circuit voltage at the base node.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "vdb-fc3",
+            "front": "Write the Thévenin resistance for the R₁-R₂ divider.",
+            "back": "R_TH = R₁ ‖ R₂ = R₁R₂/(R₁+R₂). Found by shorting V_CC and looking back into the two resistors.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "vdb-fc4",
+            "front": "Write the I_B formula for voltage divider bias.",
+            "back": "I_B = (V_TH − 0.7) / [R_TH + (1+β)R_E]. The (1+β)R_E term is the emitter resistance reflected to the base.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "vdb-fc5",
+            "front": "What condition makes the Q-point nearly β-independent?",
+            "back": "(1+β)R_E >> R_TH (rule of thumb: >10×). Then I_C ≈ (V_TH − 0.7)/R_E, which depends only on resistor values, not β.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "vdb-fc6",
+            "front": "How does R_E provide negative feedback?",
+            "back": "If I_C↑ → I_E↑ → V_E = I_E·R_E ↑ → V_BE = V_B − V_E ↓ → I_B↓ → I_C↓. The increase self-corrects.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "vdb-fc7",
+            "front": "What is the R_E design trade-off?",
+            "back": "Larger R_E = better stability but less V_CE headroom for signal swing. Rule of thumb: allocate V_CC/3 each to R_C drop, V_CE, and R_E drop.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "vdb-fc8",
+            "front": "What does an emitter bypass capacitor do?",
+            "back": "At DC: open circuit → R_E provides bias stability. At AC: short circuit → removes R_E from AC path, increasing voltage gain without affecting the DC Q-point.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "vdb-fc9",
+            "front": "Write the V_CE formula for voltage divider bias.",
+            "back": "V_CE = V_CC − I_C(R_C + R_E). Derived from KVL around the CE output loop, with I_E ≈ I_C.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "vdb-fc10",
+            "front": "What is thermal runaway and how does VDB prevent it?",
+            "back": "Thermal runaway: T↑→β↑→I_C↑→P↑→T↑ (positive feedback in fixed bias). VDB with R_E introduces negative feedback that counteracts I_C increases, preventing the runaway loop.",
+            "difficultyLevel": 3
+        }
+    ]
+}

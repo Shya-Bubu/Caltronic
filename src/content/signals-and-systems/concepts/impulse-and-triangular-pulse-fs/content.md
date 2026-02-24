@@ -1,153 +1,204 @@
-## 📋 Before We Start
+## Before We Start
 
 <details>
 <summary><strong>What you should already be comfortable with</strong></summary>
 
-- EFS analysis equation: $X_k = \frac{1}{T_0}\int_{T_0} x(t)\,e^{-jk\omega_0 t}\,dt$
-- Delta function sifting property: $\int f(t)\delta(t-t_0)\,dt = f(t_0)$
-- Square pulse FS pair from Lesson 04
-- Differentiation property: $x'(t) \leftrightarrow jk\omega_0 X_k$
-- Relationship between step function and delta function: $\frac{d}{dt}u(t) = \delta(t)$
+From the previous concepts:
+- **EFS analysis equation**: $X_k = \frac{1}{T_0}\int_{T_0} x(t)\,e^{-jk\omega_0 t}\,dt$
+- **Differentiation property**: $x'(t) \xleftrightarrow{} jk\omega_0\,X_k$
+- **Integration property**: $\int x(t)\,dt \xleftrightarrow{} X_k/(jk\omega_0)$
+- **Sifting property of $\delta(t)$**: $\int f(t)\,\delta(t-t_0)\,dt = f(t_0)$
+- **Square pulse FS**: $X_k = \frac{\sin(k\omega_0 T_1)}{k\pi}$ with $1/k$ decay
 
 </details>
 
 ---
 
-## 🎯 Why These Two Pairs?
+## Two Signals, One Deep Connection
 
-The **impulse train** and **triangular pulse train** are two fundamental FS pairs that every engineer should know by heart. Together with the square pulse train from Lesson 04, they form the core set of "building blocks" for Fourier analysis.
+In this concept, we compute the Fourier Series of two seemingly unrelated signals — the **periodic impulse train** and the **triangular pulse train** — and discover that they are connected by integration.
 
-- The impulse train has a beautifully simple spectrum (all coefficients equal!)
-- The triangular pulse demonstrates the power of the differentiation property as a derivation tool
+These are the two extreme cases of periodic signals:
+- The impulse train is the **least smooth** periodic signal imaginable: infinitely sharp spikes
+- The triangular wave is **much smoother**: continuous everywhere (though it has corners)
 
----
+Understanding both, and the integration chain that connects them, locks in the smoothness–decay relationship from the previous concept.
 
-## 📖 FS of the Impulse Train
-
-### Definition
-
-The impulse train (or Dirac comb) with period $T_0$ is:
-
-$$\delta_{T_0}(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT_0)$$
-
-It's a sequence of equally spaced delta functions, one every $T_0$ seconds.
-
-### Finding $X_0$
-
-$$X_0 = \frac{1}{T_0}\int_{-T_0/2}^{T_0/2} \delta(t)\,dt = \frac{1}{T_0} \cdot 1 = \frac{1}{T_0}$$
-
-We chose the integration window $[-T_0/2, T_0/2]$ so only $\delta(t)$ at $t = 0$ falls inside.
-
-### Finding $X_k$
-
-$$X_k = \frac{1}{T_0}\int_{-T_0/2}^{T_0/2} \delta(t)\,e^{-jk\omega_0 t}\,dt$$
-
-By the sifting property, $\delta(t)$ picks out the value of $e^{-jk\omega_0 t}$ at $t = 0$:
-
-$$X_k = \frac{1}{T_0} \cdot e^{0} = \frac{1}{T_0}$$
-
-### The result
-
-$$X_k = \frac{1}{T_0} \quad \text{for ALL } k$$
-
-**Every single FS coefficient is the same.** This is remarkable and deeply meaningful.
-
-### Interpretation: Why Are All Coefficients Equal?
-
-The delta function is the **sharpest possible signal** — it has zero width and infinite height. Sharp signals require high-frequency content (remember the sharpening discussion from the differentiation property). But the impulse is so sharp that even at $k \to \infty$, the high-frequency components don't decay. It has **infinite bandwidth**.
-
-Compare this with the square pulse, where $X_k \propto \frac{\sin(k\omega_0 T_1)}{k\pi}$, which decays as $1/k$. The square pulse has sharp edges but finite width — it needs high frequencies but they eventually diminish.
-
-### Symmetry Check
-
-The impulse train is **real and even** ($\delta(-t) = \delta(t)$). Our symmetry properties say the coefficients should be purely real and even. Indeed, $X_k = 1/T_0$ is real and the same for all $k$ ✓
+> **Why This Matters**: The impulse train is the most fundamental testing signal in engineering — it appears in sampling theory, convolution, and system identification. The triangular wave demonstrates how integration creates smoothing. Together, they complete the picture of how signal smoothness determines spectral decay.
 
 ---
 
-## 📖 FS of the Triangular Pulse Train
+## Part 1: The Periodic Impulse Train
 
-### Setup
+### The Signal
 
-Consider a triangular waveform with period $T_0 = 2$:
-- Rises linearly from 0 to 1 over $[0, 1]$
-- Falls linearly from 1 to 0 over $[1, 2]$
-- Repeats periodically
+A periodic impulse train $\delta_T(t)$ is an infinite sum of equally-spaced Dirac delta functions:
 
-The function in one period $[0, 2]$: $x(t) = t/2$ for $0 \leq t \leq 2$ (simplified example from the lecture).
+$$\delta_T(t) = \sum_{m=-\infty}^{\infty} \delta(t - mT_0)$$
 
-### The Naïve Approach (Don't Do This)
+Each impulse has zero duration but unit area. The spacing between impulses is $T_0$.
 
-Substitute into the analysis integral: $X_k = \frac{1}{2}\int_0^2 \frac{t}{2} e^{-jk\pi t}\,dt$
+[[visual:impulse-train-waveform]]
 
-This requires integration by parts. It works, but it's tedious and error-prone for more complex waveforms.
+### Computing the FS Coefficients
 
-### The Smart Approach: Differentiate First
+Apply the analysis equation with the integration window $[-T_0/2, +T_0/2]$. Within this window, there is only one impulse at $t = 0$:
 
-**Step 1: Find $X_0$ directly** (always do this first)
+$$X_k = \frac{1}{T_0}\int_{-T_0/2}^{+T_0/2} \delta(t)\,e^{-jk\omega_0 t}\,dt$$
 
-$$X_0 = \frac{1}{T_0}\int_0^{T_0} x(t)\,dt = \text{area under triangle}/T_0 = \frac{1}{2}$$
+Now use the **sifting property**: the impulse $\delta(t)$ samples the integrand at $t = 0$:
 
-**Step 2: Differentiate x(t)**
+$$X_k = \frac{1}{T_0}\,e^{-jk\omega_0 \cdot 0} = \frac{1}{T_0}$$
 
-$$x'(t) = \frac{1}{2} \text{ (the slope)} - \delta(t-nT_0) \text{ (at jumps)}$$
+[[visual:impulse-derivation-diagram]]
 
-The derivative has two parts:
-- A constant $1/2$ between jump points (the gradient of the ramp)
-- Negative delta functions at each discontinuity (where the triangle drops from 1 back to 0)
+$$\boxed{X_k = \frac{1}{T_0} \quad \text{for all } k}$$
 
-**Step 3: Find $X'_k$**
+### The Remarkable Result
 
-The constant part contributes to $X'_0$ only (DC). For $k \neq 0$, only the impulse train contributes:
+Every coefficient is the same constant $1/T_0$ — regardless of $k$. The magnitude spectrum is **perfectly flat**.
 
-$$X'_k = -\frac{1}{T_0} \quad (k \neq 0)$$
+[[visual:impulse-flat-spectrum]]
 
-(Impulse train with spacing $T_0$ and amplitude $-1$)
+> **Key Insight**: The impulse train contains **all harmonics equally**. It has no preference for any frequency — every harmonic from $k = 0$ to $k = \pm\infty$ has the same weight. This is why it's the ultimate "test signal": it excites every frequency equally.
 
-**Step 4: Recover $X_k$**
+### Physical Interpretation
 
-$$X_k = \frac{X'_k}{jk\omega_0} = \frac{-1/T_0}{jk\omega_0}$$
+Why does an infinitely sharp spike need all frequencies equally? Because representing an infinitely narrow feature requires contributions from arbitrarily high frequencies. If you removed any harmonics, the impulse would widen. The flat spectrum is a direct consequence of the extreme concentration in time.
 
-Substitute $\omega_0 = 2\pi/T_0$:
+This is the **bandwidth–duration trade-off** at its most extreme:
+- **Narrowest possible pulse** (zero duration) → **widest possible spectrum** (flat, infinite bandwidth)
 
-$$X_k = \frac{-1/T_0}{jk \cdot 2\pi/T_0} = \frac{-1}{j2\pi k} = \frac{j}{2\pi k}$$
+<details>
+<summary><strong>Pause & Think</strong>: As T₀ increases (impulses spread further apart), what happens to the spectrum?</summary>
 
-### Why the Smart Method Wins
+$X_k = 1/T_0$ gets smaller for all $k$. The spectrum is still flat, but lower in amplitude. This makes sense: with a longer period, there's more "zero time" between impulses, so the average energy per period decreases. The harmonic spacing also decreases ($\omega_0 = 2\pi/T_0$ becomes smaller), so the spectral lines get denser but weaker.
 
-| Method | Steps | Difficulty |
-|--------|-------|-----------|
-| Direct integration | Integration by parts (possibly repeated) | Tedious |
-| Differentiation property | Differentiate (trivial) → known pair → divide | Simple |
-
-For parabolic or higher-order waveforms, the advantage is even greater — you might need to differentiate twice.
+</details>
 
 ---
 
-## 📐 Standard FS Pairs Summary
+## Part 2: The Triangular Pulse Train
 
-| Signal | $X_k$ | Key feature |
-|--------|--------|-------------|
-| Square pulse train | $\frac{\sin(k\omega_0 T_1)}{k\pi}$ | Decays as $1/k$ (sharp edges) |
-| Impulse train | $\frac{1}{T_0}$ (all $k$) | No decay (infinitely sharp) |
-| Triangular pulse | $\propto \frac{1}{k^2}$ | Faster decay (smoother signal) |
+### The Signal
 
-Observe the pattern: **smoother signal → faster coefficient decay**. Triangular (smooth) decays as $1/k^2$; square (sharp edges) as $1/k$; impulse (infinitely sharp) doesn't decay at all.
+A periodic triangular wave $\Lambda_T(t)$ has a peak at $t = 0$ and ramps linearly to zero at $t = \pm T_1$, then repeats with period $T_0$:
+
+$$\Lambda(t) = \begin{cases} 1 - \frac{|t|}{T_1}, & |t| \leq T_1 \\ 0, & T_1 < |t| \leq T_0/2 \end{cases}$$
+
+[[visual:triangular-pulse-waveform]]
+
+This signal is **continuous everywhere** but has **corners** at $t = 0$ (peak) and $t = \pm T_1$ (base). Compared to the square pulse, it's one degree smoother.
+
+### Deriving the FS Using the Integration Property
+
+Here's an elegant shortcut. Instead of evaluating the analysis integral directly (messy!), use the **integration property** and the known FS of the square pulse.
+
+The triangular pulse is the **definite integral** of the square pulse (up to scaling). Specifically, if the square pulse has coefficients $X_k^{\text{sq}} = \frac{\sin(k\omega_0 T_1)}{k\pi}$, then the triangular pulse coefficients are:
+
+$$X_k^{\text{tri}} = \frac{X_k^{\text{sq}}}{jk\omega_0} = \frac{\sin(k\omega_0 T_1)}{jk^2\pi\omega_0}$$
+
+But be careful — this approach gives the correct result only after properly adjusting for scaling and DC. The direct calculation gives the triangular coefficients as following a **sinc² envelope**:
+
+$$\boxed{X_k \propto \operatorname{sinc}^2\left(\frac{k\omega_0 T_1}{\pi}\right) \propto \frac{1}{k^2}}$$
+
+The key point: the decay is $1/k^2$, exactly one power faster than the square pulse's $1/k$.
+
+### Why $1/k^2$ Decay?
+
+The triangular wave is the integral of the square wave. Integration divides each coefficient by $jk\omega_0$, adding an extra $1/k$ to the decay:
+
+$$\frac{1}{k} \xrightarrow{\text{integrate}} \frac{1}{k} \times \frac{1}{k} = \frac{1}{k^2}$$
+
+[[visual:triangular-spectrum]]
+
+[[visual:square-vs-triangle-spectrum]]
 
 ---
 
-## ⚠️ Common Mistakes
+## The Integration Chain
+
+Now step back and see how impulse, square, and triangular waves form a hierarchy connected by integration:
+
+[[visual:integration-chain-diagram]]
+
+| Signal | Smoothness | FS decay | Spectrum shape |
+|--------|-----------|----------|---------------|
+| **Impulse train** | Maximally discontinuous | $|X_k| = \text{const}$ (no decay) | Flat |
+| **Square wave** | Jump discontinuities | $|X_k| \propto 1/k$ | sinc envelope |
+| **Triangular wave** | Continuous, corners | $|X_k| \propto 1/k^2$ | sinc² envelope |
+| **Smoother wave** | Differentiable | $|X_k| \propto 1/k^3$ or faster | sinc³ or faster |
+
+Each integration step:
+1. **Smooths the signal**: removes one level of discontinuity
+2. **Adds $1/k$ to the decay**: the spectrum falls off faster
+3. **Adds $-90°$ of phase**: rotates all coefficients
+
+This chain is one of the most important conceptual frameworks in signal processing. It tells you *exactly* how signal smoothness connects to spectral content.
+
+<details>
+<summary><strong>Pause & Think</strong>: What signal do you get if you integrate the triangular wave?</summary>
+
+You get something even smoother — a piecewise-parabolic (quadratic) wave that is differentiable everywhere (no corners, only changes in curvature). Its FS coefficients would decay as $1/k^3$ — the sinc³ envelope. Each integration removes one type of discontinuity and adds one power of $1/k$ to the decay.
+
+</details>
+
+---
+
+## Convergence Comparison
+
+The practical impact of faster decay is dramatic. Compare reconstruction quality with the same number of harmonics:
+
+[[visual:tri-vs-square-convergence]]
+
+With just 5 harmonics:
+- The **triangular wave** reconstruction is nearly perfect — the $1/k^2$ decay means terms beyond $k = 5$ are negligible
+- The **square wave** reconstruction still has visible Gibbs overshoot — the $1/k$ decay means harmonics beyond $k = 5$ are still significant
+
+[[visual:triangle-reconstruction-sim]]
+
+This is why triangular waves are "easier" signals from a Fourier perspective — they converge much more quickly.
+
+---
+
+## Worked Example
+
+**Given**: Impulse train with $T_0 = 4$ seconds.
+
+**Find**: FS coefficients and the synthesis equation.
+
+**Solution**:
+
+$$X_k = \frac{1}{T_0} = \frac{1}{4} = 0.25 \quad \text{for all } k$$
+
+$$\omega_0 = \frac{2\pi}{4} = \frac{\pi}{2}$$
+
+The synthesis equation becomes:
+
+$$\delta_T(t) = \sum_{k=-\infty}^{\infty} \frac{1}{4}\,e^{jk\frac{\pi}{2}t} = \frac{1}{4}\sum_{k=-\infty}^{\infty} e^{jk\frac{\pi}{2}t}$$
+
+This is a remarkable identity: an infinite sum of equally-weighted complex exponentials produces a train of delta functions. It's one of the deepest results in Fourier analysis.
+
+[[visual:coefficient-decay-explorer]]
+
+---
+
+## Common Mistakes
 
 | Mistake | Correction |
 |---------|-----------|
-| Forgetting delta functions when differentiating discontinuous signals | Finite jumps produce delta functions in the derivative |
-| Trying to integrate with the naïve method for complex waveforms | Use differentiation property — it's almost always simpler |
-| Thinking the impulse train FS should decay | It doesn't — the delta function has infinite bandwidth |
-| Not finding $X_0$ separately | Always compute $X_0$ first, then use properties for $k \neq 0$ |
+| Forgetting the sifting property: $\int f(t)\delta(t)\,dt = f(0)$ | The integral doesn't "spread" — $\delta(t)$ samples the integrand at $t = 0$ |
+| Expecting the impulse spectrum to decay | It doesn't! $X_k = 1/T_0$ for all $k$ — the spectrum is flat |
+| Confusing $1/k$ and $1/k^2$ decay | Square wave: $1/k$ (discontinuities). Triangular wave: $1/k^2$ (continuous, corners) |
+| Computing triangular FS from scratch | Use the integration property on the square wave FS — much faster |
+| Forgetting the DC component when using integration | Integration can change the average value; handle $X_0$ separately |
 
 ---
 
-## 📝 Summary
+## Summary
 
-- **Impulse train**: $X_k = 1/T_0$ for all $k$ — flat spectrum, infinite bandwidth
-- **Triangular pulse**: derived via differentiation property, decays as $1/k^2$
-- The "differentiate → find FS of simpler signal → divide by $jk\omega_0$" technique is a powerful exam tool
-- Smoother signals have faster-decaying FS coefficients
+- The **periodic impulse train** has $X_k = 1/T_0$ for all $k$ — a flat spectrum that contains every harmonic equally. It is the extreme case of the bandwidth–duration trade-off.
+- The **triangular pulse train** has coefficients following a sinc² envelope with $1/k^2$ decay — faster than the square wave's $1/k$ because the triangular wave is smoother.
+- The **integration chain** — impulse $\to$ square $\to$ triangle — each step integrates, smooths the signal, and adds $1/k$ to the spectral decay rate.
+- Faster decay = fewer harmonics needed = better convergence with finite terms.
+- Use the **integration property** to derive the triangular FS from the square pulse FS, avoiding direct integration.

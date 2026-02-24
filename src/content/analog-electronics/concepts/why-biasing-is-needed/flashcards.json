@@ -1,0 +1,64 @@
+{
+    "flashcards": [
+        {
+            "id": "wbin-fc1",
+            "front": "What happens to a sinusoidal signal fed into an unbiased BJT common-emitter circuit?",
+            "back": "More than half the signal is clipped. Whenever v_in < 0.7 V, the transistor enters cutoff (I_C = 0, v_out = V_CC). Only the portion above 0.7 V produces output.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "wbin-fc2",
+            "front": "What is the Q-point (quiescent point)?",
+            "back": "The DC operating conditions when no signal is applied: Q = (V_CEQ, I_CQ). It's where the transistor 'sits' at rest, set entirely by the bias circuit.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "wbin-fc3",
+            "front": "What is the purpose of biasing a BJT?",
+            "back": "To establish a stable DC operating point in the active linear region, so the transistor can amplify both positive and negative input swings without clipping into cutoff or saturation.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "wbin-fc4",
+            "front": "What is the notation for a DC-only quantity (e.g., collector current)?",
+            "back": "Capital letter, capital subscript: I_C, V_CE. Example: I_C = 2 mA means the DC collector current is 2 mA.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "wbin-fc5",
+            "front": "What is the notation for a purely AC quantity?",
+            "back": "Lowercase letter, lowercase subscript: i_c, v_ce. These have zero average — they represent only the signal component with no DC.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "wbin-fc6",
+            "front": "What does lowercase letter + capital subscript represent? (e.g., i_C, v_CE)",
+            "back": "The total instantaneous value: DC + AC combined. i_C = I_C + i_c (total = DC component + AC component).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "wbin-fc7",
+            "front": "Why is a coupling capacitor placed between the signal source and the base?",
+            "back": "It blocks DC (X_C = ∞ at ω = 0) and passes AC (X_C ≈ 0 at signal frequencies). This prevents the signal source's DC from disturbing the carefully established bias.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "wbin-fc8",
+            "front": "Why is the common-emitter output inverted relative to the input?",
+            "back": "Because v_out = V_CC − I_C·R_C. When v_in increases → I_B increases → I_C increases → I_C·R_C increases → v_out decreases. The minus sign creates the inversion.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "wbin-fc9",
+            "front": "If the input signal swings to −A volts, what minimum DC base bias is needed?",
+            "back": "V_bias ≥ 0.7 + A volts. The bias must ensure V_BE > 0.7 V even at the most negative input swing. Example: for A = 2 V, need ≥ 2.7 V bias.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "wbin-fc10",
+            "front": "What two conditions must the Q-point satisfy simultaneously?",
+            "back": "1) The transistor's I_C vs V_CE characteristics (device physics). 2) The external circuit's KVL constraint (load line equation). The Q-point is the intersection of these two.",
+            "difficultyLevel": 3
+        }
+    ]
+}

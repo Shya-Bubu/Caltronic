@@ -1,0 +1,11 @@
+{
+    "id": "dc-and-ac-load-lines",
+    "title": "DC & AC Load Lines",
+    "slug": "dc-and-ac-load-lines",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

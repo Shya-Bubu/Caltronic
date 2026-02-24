@@ -1,0 +1,134 @@
+{
+    "questions": [
+        {
+            "id": "vdb-q1",
+            "question": "What is the Thévenin voltage V_TH of a voltage divider with R₁ = 100 kΩ, R₂ = 50 kΩ, V_CC = 15 V?",
+            "type": "multiple-choice",
+            "options": [
+                "10 V",
+                "5 V",
+                "7.5 V",
+                "15 V"
+            ],
+            "correctAnswer": 1,
+            "explanation": "V_TH = R₂/(R₁+R₂) × V_CC = 50k/(100k+50k) × 15 = (1/3) × 15 = 5 V. The Thévenin voltage is the open-circuit voltage at the base terminal."
+        },
+        {
+            "id": "vdb-q2",
+            "question": "What is the Thévenin resistance R_TH of R₁ = 100 kΩ and R₂ = 50 kΩ?",
+            "type": "multiple-choice",
+            "options": [
+                "150 kΩ",
+                "33.3 kΩ",
+                "50 kΩ",
+                "100 kΩ"
+            ],
+            "correctAnswer": 1,
+            "explanation": "R_TH = R₁ ‖ R₂ = (R₁×R₂)/(R₁+R₂) = (100k×50k)/(100k+50k) = 5000M/150k = 33.3 kΩ. The parallel combination is always less than the smaller resistor."
+        },
+        {
+            "id": "vdb-q3",
+            "question": "In the VDB I_B formula, what does the (1+β)R_E term in the denominator represent?",
+            "type": "multiple-choice",
+            "options": [
+                "The collector resistance reflected to the base",
+                "The emitter resistance reflected to the base side of the BE loop",
+                "The total circuit resistance",
+                "The transistor's internal resistance"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Since I_E = (1+β)I_B flows through R_E, the voltage drop I_E·R_E = (1+β)I_B·R_E appears in the BE loop KVL. From the base's perspective, R_E looks (1+β) times larger. This is the 'reflected' emitter resistance."
+        },
+        {
+            "id": "vdb-q4",
+            "question": "How does R_E provide negative feedback against temperature changes?",
+            "type": "multiple-choice",
+            "options": [
+                "R_E decreases with temperature, reducing I_C",
+                "T↑ → β↑ → I_C↑ → I_E↑ → V_E↑ → V_BE↓ → I_B↓ → I_C↓ (self-correcting)",
+                "R_E absorbs excess heat from the transistor",
+                "R_E limits V_CC when temperature rises"
+            ],
+            "correctAnswer": 1,
+            "explanation": "When temperature rises, β increases and I_C tries to increase. But I_E = I_C+I_B also increases, raising V_E = I_E·R_E. Since V_B is held constant by the voltage divider, V_BE = V_B - V_E decreases. Lower V_BE means less I_B, which reduces I_C — counteracting the original increase."
+        },
+        {
+            "id": "vdb-q5",
+            "question": "For the Q-point to be nearly independent of β, what condition must be satisfied?",
+            "type": "multiple-choice",
+            "options": [
+                "R₁ must equal R₂",
+                "(1+β)R_E >> R_TH (typically >10× larger)",
+                "R_C must be much larger than R_E",
+                "β must be greater than 200"
+            ],
+            "correctAnswer": 1,
+            "explanation": "When (1+β)R_E >> R_TH, the R_TH term in the denominator becomes negligible: I_C ≈ (V_TH - 0.7)/R_E, which is independent of β. Rule of thumb: (1+β)R_E > 10·R_TH for less than 10% β sensitivity."
+        },
+        {
+            "id": "vdb-q6",
+            "question": "What is the trade-off of using a larger R_E?",
+            "type": "multiple-choice",
+            "options": [
+                "Better stability but more complex circuit topology",
+                "Better stability but less voltage headroom for V_CE signal swing",
+                "Better stability but higher power consumption",
+                "Better stability but lower β"
+            ],
+            "correctAnswer": 1,
+            "explanation": "V_CE = V_CC - I_C(R_C + R_E). A larger R_E means more of V_CC is dropped across R_E, leaving less V_CE for the signal to swing. The designer must balance stability (large R_E) against available output swing (need adequate V_CE)."
+        },
+        {
+            "id": "vdb-q7",
+            "question": "In the worked example (V_CC=10V, R₁=R₂=56kΩ, R_E=20kΩ, β=50), why can we approximate I_B ≈ 4.3 μA?",
+            "type": "multiple-choice",
+            "options": [
+                "Because V_BE ≈ 0 for this circuit",
+                "Because (1+β)R_E = 51×20k = 1020k >> R_TH = 28k, so we can ignore R_TH in the denominator",
+                "Because β = 50 is an approximation itself",
+                "Because R₁ = R₂ simplifies the calculation"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The denominator is R_TH + (1+β)R_E = 28k + 51×20k = 28k + 1020k = 1048k. Since 28k is only 2.7% of 1048k, we can approximate: I_B ≈ 4.3V/1020k ≈ 4.3V/1000k = 4.3 μA. This is within 5% of the exact answer."
+        },
+        {
+            "id": "vdb-q8",
+            "question": "What causes thermal runaway in a fixed bias circuit but NOT in a VDB circuit with R_E?",
+            "type": "multiple-choice",
+            "options": [
+                "Fixed bias uses cheaper resistors that overheat",
+                "In fixed bias, I_B is constant so I_C = βI_B increases unchecked with β. In VDB, R_E creates negative feedback that counteracts I_C increases.",
+                "VDB circuits operate at lower voltages",
+                "The voltage divider absorbs the excess current"
+            ],
+            "correctAnswer": 1,
+            "explanation": "In fixed bias, I_B is set by R₁ and doesn't change regardless of temperature. So when β increases with temperature, I_C = βI_B increases freely (positive feedback → runaway). In VDB with R_E, any increase in I_C raises V_E, which reduces V_BE, which reduces I_B, which pulls I_C back down (negative feedback → stability)."
+        },
+        {
+            "id": "vdb-q9",
+            "question": "What design rule of thumb allocates V_CC across the three voltage drops?",
+            "type": "multiple-choice",
+            "options": [
+                "All of V_CC across V_CE",
+                "V_CC/3 across R_C, V_CC/3 across V_CE, V_CC/3 across R_E",
+                "V_CC/2 across R_C, V_CC/2 across V_CE",
+                "V_CC/4 across each of R_C, R_E, V_CE, and V_BE"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The common rule of thumb splits V_CC into thirds: 1/3 across R_C (for load), 1/3 across V_CE (for signal swing), 1/3 across R_E (for stability). This gives a reasonable balance between output swing and bias stability."
+        },
+        {
+            "id": "vdb-q10",
+            "question": "An emitter bypass capacitor is placed across R_E. What is its effect?",
+            "type": "multiple-choice",
+            "options": [
+                "It removes all negative feedback, making the circuit unstable",
+                "At DC it's open (R_E provides bias stability), at AC it shorts R_E (removing AC feedback to increase gain)",
+                "It increases the Q-point current",
+                "It provides additional DC bias voltage"
+            ],
+            "correctAnswer": 1,
+            "explanation": "At DC (ω=0), X_C = ∞ — the capacitor is open, so R_E is fully active and provides DC stability. At signal frequencies, X_C ≈ 0 — the capacitor shorts R_E, removing the AC negative feedback. This is desirable because R_E reduces AC voltage gain. The bypass gives you stable bias AND high gain."
+        }
+    ]
+}

@@ -1,0 +1,486 @@
+{
+    "visuals": [
+        {
+            "id": "unbiased-bjt-circuit",
+            "type": "d3-block-diagram",
+            "title": "Unbiased BJT Common-Emitter Circuit",
+            "description": "A sinusoidal source v_in connected through R_B to the base of an NPN transistor. The collector is connected to V_CC through R_C, and the emitter is grounded. No DC bias is applied — the transistor relies entirely on the input signal.",
+            "blocks": [
+                {
+                    "id": "vin",
+                    "label": "v_in\n(sinusoid)",
+                    "x": 40,
+                    "y": 80,
+                    "width": 100,
+                    "height": 45,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "rb",
+                    "label": "R_B",
+                    "x": 180,
+                    "y": 80,
+                    "width": 80,
+                    "height": 45,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "bjt",
+                    "label": "NPN BJT\nQ₁",
+                    "x": 310,
+                    "y": 60,
+                    "width": 100,
+                    "height": 80,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "rc",
+                    "label": "R_C",
+                    "x": 460,
+                    "y": 30,
+                    "width": 80,
+                    "height": 45,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "vcc",
+                    "label": "V_CC",
+                    "x": 460,
+                    "y": 120,
+                    "width": 80,
+                    "height": 35,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "vout",
+                    "label": "v_out = V_CE",
+                    "x": 460,
+                    "y": 80,
+                    "width": 120,
+                    "height": 35,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "vin",
+                    "to": "rb"
+                },
+                {
+                    "from": "rb",
+                    "to": "bjt",
+                    "label": "Base"
+                },
+                {
+                    "from": "bjt",
+                    "to": "rc",
+                    "label": "Collector"
+                },
+                {
+                    "from": "rc",
+                    "to": "vcc"
+                }
+            ]
+        },
+        {
+            "id": "signal-clipping-waveform",
+            "type": "plotly",
+            "title": "Input vs Output: Signal Clipping Without Bias",
+            "description": "The input sinusoid swings from +1 V to −1 V. Whenever v_in < 0.7 V the BJT cuts off and v_out = V_CC. Only the portion above 0.7 V produces a varying (inverted) output. More than half the signal is lost.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => Math.sin(i * 2 * Math.PI / 400))",
+                    "mode": "lines",
+                    "name": "Input v_in (1 V peak)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    },
+                    "yaxis": "y1"
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const vin = Math.sin(i * 2 * Math.PI / 400); if(vin < 0.7) return 10; return 10 - 50 * 10 / 100 * (vin - 0.7); })",
+                    "mode": "lines",
+                    "name": "Output v_out (clipped!)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (rad)"
+                },
+                "yaxis": {
+                    "title": "v_in (V)",
+                    "side": "left"
+                },
+                "yaxis2": {
+                    "title": "v_out (V)",
+                    "side": "right",
+                    "overlaying": "y"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "bjt-regions-map",
+            "type": "d3-block-diagram",
+            "title": "BJT Operating Regions and Signal Swing",
+            "description": "The three operating regions of a BJT: cutoff (both junctions reverse-biased), active linear (BE forward, BC reverse), and saturation (both forward). Biasing places the Q-point in the active region so the signal can swing without hitting cutoff or saturation.",
+            "blocks": [
+                {
+                    "id": "cutoff",
+                    "label": "CUTOFF\nI_C ≈ 0\nV_CE ≈ V_CC\nTransistor OFF",
+                    "x": 40,
+                    "y": 60,
+                    "width": 180,
+                    "height": 70,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "active",
+                    "label": "ACTIVE LINEAR\nI_C = βI_B\nAmplification occurs\nQ-POINT goes here ✓",
+                    "x": 260,
+                    "y": 60,
+                    "width": 200,
+                    "height": 70,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "saturation",
+                    "label": "SATURATION\nI_C < βI_B\nV_CE ≈ 0.2 V\nTransistor fully ON",
+                    "x": 500,
+                    "y": 60,
+                    "width": 180,
+                    "height": 70,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "cutoff",
+                    "to": "active",
+                    "label": "V_BE > 0.7"
+                },
+                {
+                    "from": "active",
+                    "to": "saturation",
+                    "label": "V_CE < V_CE(sat)"
+                }
+            ]
+        },
+        {
+            "id": "biasing-solution-diagram",
+            "type": "d3-block-diagram",
+            "title": "The Solution: Add a DC Bias to Keep the BJT Active",
+            "description": "By adding a fixed DC voltage at the base (through a biasing network), the transistor stays in the active region even when the input signal goes negative. The signal rides on top of the DC bias.",
+            "blocks": [
+                {
+                    "id": "dc_bias",
+                    "label": "DC Bias\n(from V_CC via resistors)",
+                    "x": 40,
+                    "y": 40,
+                    "width": 200,
+                    "height": 45,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "ac_signal",
+                    "label": "AC Signal\n(v_in through C_in)",
+                    "x": 40,
+                    "y": 110,
+                    "width": 200,
+                    "height": 45,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "sum",
+                    "label": "V_BE = V_BEQ + v_be\nDC + AC",
+                    "x": 300,
+                    "y": 75,
+                    "width": 200,
+                    "height": 45,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "output",
+                    "label": "Undistorted output\nFull signal amplified",
+                    "x": 560,
+                    "y": 75,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "dc_bias",
+                    "to": "sum"
+                },
+                {
+                    "from": "ac_signal",
+                    "to": "sum"
+                },
+                {
+                    "from": "sum",
+                    "to": "output"
+                }
+            ]
+        },
+        {
+            "id": "biased-output-waveform",
+            "type": "plotly",
+            "title": "With Proper Bias: Full Signal Amplified",
+            "description": "When a DC bias keeps V_BE well above 0.7 V, the small-signal input rides on top and the output is a clean, amplified, inverted sinusoid. No clipping occurs.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => 0.012 * Math.sin(i * 2 * Math.PI / 400))",
+                    "mode": "lines",
+                    "name": "Input v_in (12 mV peak)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    },
+                    "yaxis": "y1"
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => 5 - 100 * 0.012 * Math.sin(i * 2 * Math.PI / 400))",
+                    "mode": "lines",
+                    "name": "Output v_out (amplified, inverted)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (rad)"
+                },
+                "yaxis": {
+                    "title": "v_in (V)",
+                    "side": "left"
+                },
+                "yaxis2": {
+                    "title": "v_out (V)",
+                    "side": "right",
+                    "overlaying": "y"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "qpoint-on-characteristics",
+            "type": "plotly",
+            "title": "Q-Point on the Output Characteristics",
+            "description": "The quiescent operating point (Q-point) sits in the middle of the active region on the I_C vs V_CE characteristics. The signal swings the operating point along the load line without reaching cutoff or saturation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 100}, (_, i) => i * 0.12)",
+                    "y_expr": "Array.from({length: 100}, (_, i) => { const v = i * 0.12; if(v < 0.2) return 50e-6 * 200 * v / 0.2; return 50e-6 * 200; })",
+                    "mode": "lines",
+                    "name": "I_B = 50 μA",
+                    "line": {
+                        "color": "#aab4c0",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 100}, (_, i) => i * 0.12)",
+                    "y_expr": "Array.from({length: 100}, (_, i) => { const v = i * 0.12; if(v < 0.2) return 30e-6 * 200 * v / 0.2; return 30e-6 * 200; })",
+                    "mode": "lines",
+                    "name": "I_B = 30 μA",
+                    "line": {
+                        "color": "#aab4c0",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x": [
+                        5
+                    ],
+                    "y": [
+                        0.006
+                    ],
+                    "mode": "markers",
+                    "name": "Q-point",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ff6b8a",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_CE (V)",
+                    "range": [
+                        0,
+                        12
+                    ]
+                },
+                "yaxis": {
+                    "title": "I_C (A)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "notation-table",
+            "type": "d3-block-diagram",
+            "title": "Signal Notation Convention",
+            "description": "Four notation styles: (1) Capital letter + capital subscript = DC quantities (I_C, V_CE). (2) Lowercase letter + lowercase subscript = pure AC (i_c, v_ce). (3) Lowercase letter + capital subscript = total instantaneous (i_C, v_CE = DC + AC). (4) Capital letter + lowercase subscript = phasor/RMS (I_c, V_ce).",
+            "blocks": [
+                {
+                    "id": "dc",
+                    "label": "DC only\nI_C , V_CE\nCapital + Capital",
+                    "x": 40,
+                    "y": 30,
+                    "width": 180,
+                    "height": 55,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "ac",
+                    "label": "AC only\ni_c , v_ce\nlower + lower",
+                    "x": 260,
+                    "y": 30,
+                    "width": 180,
+                    "height": 55,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "total",
+                    "label": "Total (DC+AC)\ni_C , v_CE\nlower + Capital",
+                    "x": 40,
+                    "y": 115,
+                    "width": 180,
+                    "height": 55,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "phasor",
+                    "label": "Phasor / RMS\nI_c , V_ce\nCapital + lower",
+                    "x": 260,
+                    "y": 115,
+                    "width": 180,
+                    "height": 55,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "dc-ac-superposition",
+            "type": "plotly",
+            "title": "DC + AC = Total Signal at the Base",
+            "description": "The total base-emitter voltage is the sum of the DC bias (V_BEQ ≈ 0.7 V) and the small AC signal (v_be). The DC component keeps the transistor on; the AC component is what gets amplified.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i / 400 * 4 * Math.PI)",
+                    "y_expr": "Array.from({length: 400}, () => 0.7)",
+                    "mode": "lines",
+                    "name": "DC bias V_BEQ = 0.7 V",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i / 400 * 4 * Math.PI)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => 0.012 * Math.sin(i / 400 * 4 * Math.PI))",
+                    "mode": "lines",
+                    "name": "AC signal v_be (12 mV)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i / 400 * 4 * Math.PI)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => 0.7 + 0.012 * Math.sin(i / 400 * 4 * Math.PI))",
+                    "mode": "lines",
+                    "name": "Total v_BE = V_BEQ + v_be",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time"
+                },
+                "yaxis": {
+                    "title": "v_BE (V)",
+                    "range": [
+                        0.65,
+                        0.75
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "clipping-explorer-sim",
+            "type": "d3-simulation",
+            "simulationType": "signal-generator",
+            "title": "Interactive: Explore Signal Clipping vs Bias Level",
+            "description": "Adjust the DC bias voltage and input amplitude. Watch how too little bias causes clipping (cutoff), too much causes saturation clipping, and the right amount produces clean amplification."
+        },
+        {
+            "id": "coupling-capacitor-diagram",
+            "type": "d3-block-diagram",
+            "title": "Coupling Capacitor: Blocking DC, Passing AC",
+            "description": "A coupling capacitor C_in is placed between the signal source and the base. At DC (ω = 0), X_C = ∞ — open circuit, so the DC bias is undisturbed. At signal frequencies, X_C ≈ 0 — the AC signal passes through to the base.",
+            "blocks": [
+                {
+                    "id": "source",
+                    "label": "Signal Source\nv_s (AC + DC)",
+                    "x": 40,
+                    "y": 60,
+                    "width": 160,
+                    "height": 50,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "cap",
+                    "label": "C_in\nBlocks DC\nPasses AC",
+                    "x": 250,
+                    "y": 60,
+                    "width": 140,
+                    "height": 50,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "base",
+                    "label": "BJT Base\nReceives only AC\nDC bias undisturbed",
+                    "x": 440,
+                    "y": 60,
+                    "width": 200,
+                    "height": 50,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "source",
+                    "to": "cap"
+                },
+                {
+                    "from": "cap",
+                    "to": "base"
+                }
+            ]
+        }
+    ]
+}

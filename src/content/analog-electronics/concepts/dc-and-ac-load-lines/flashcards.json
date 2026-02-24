@@ -1,0 +1,64 @@
+{
+    "flashcards": [
+        {
+            "id": "dcac-fc1",
+            "front": "What is a load line?",
+            "back": "The set of all possible (V_CE, I_C) operating points allowed by the external circuit. It's a straight line on the output characteristics, derived from KVL.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dcac-fc2",
+            "front": "What is the slope of the DC load line?",
+            "back": "−1/(R_C + R_E). The two intercepts are: V_CE = V_CC (at I_C = 0) and I_C = V_CC/(R_C + R_E) (at V_CE = 0).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dcac-fc3",
+            "front": "How do you find the Q-point graphically?",
+            "back": "Draw the DC load line on the output characteristics. Find where it intersects the I_BQ curve. That intersection is the Q-point (V_CEQ, I_CQ).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "dcac-fc4",
+            "front": "How do you draw the AC equivalent circuit?",
+            "back": "Short all capacitors (X_C ≈ 0 at signal freq), short V_CC to ground, open DC current sources. What remains is the AC signal path.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "dcac-fc5",
+            "front": "What is the slope of the AC load line?",
+            "back": "−1/(R_C + r_e1), where r_e1 is the unbypassed emitter resistance. Steeper than the DC line because r_e1 < R_E.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "dcac-fc6",
+            "front": "Where does the AC load line pass through?",
+            "back": "Through the Q-point. The AC load line and the DC load line intersect at the Q-point. The signal swings along the AC line.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "dcac-fc7",
+            "front": "Why is the AC load line steeper than the DC load line?",
+            "back": "The bypass capacitor shorts part of R_E at signal frequencies, reducing the total emitter resistance. Smaller resistance → steeper slope.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "dcac-fc8",
+            "front": "What determines the maximum undistorted signal swing?",
+            "back": "The distance from the Q-point to the nearer clipping boundary (saturation at V_CE ≈ 0.2 V or cutoff at I_C = 0) along the AC load line.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "dcac-fc9",
+            "front": "What does 'properly biased' mean in terms of load lines?",
+            "back": "The Q-point is positioned so the signal can swing its full amplitude along the AC load line without reaching saturation or cutoff.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "dcac-fc10",
+            "front": "What are the two-point shortcuts for the DC load line?",
+            "back": "Point 1: (V_CC, 0) — all voltage across transistor. Point 2: (0, V_CC/(R_C+R_E)) — maximum current. Connect with a straight line.",
+            "difficultyLevel": 1
+        }
+    ]
+}

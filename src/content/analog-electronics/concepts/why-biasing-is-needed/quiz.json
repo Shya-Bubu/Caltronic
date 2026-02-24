@@ -1,0 +1,134 @@
+{
+    "questions": [
+        {
+            "id": "wbin-q1",
+            "question": "What happens to the output of an NPN common-emitter circuit when no DC bias is applied and a 1 V peak sinusoidal input is connected to the base?",
+            "type": "multiple-choice",
+            "options": [
+                "The output is a clean, amplified, inverted sinusoid",
+                "More than half the signal is clipped — the output is V_CC whenever v_in < 0.7 V",
+                "The transistor saturates and the output is always close to 0 V",
+                "The output is identical to the input with no amplification"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Without DC bias, the BE junction only conducts when v_in > 0.7 V. For most of the cycle (when v_in < 0.7 V), the transistor is in cutoff and v_out = V_CC. Only the peaks above 0.7 V produce a varying output, so more than half the signal is lost."
+        },
+        {
+            "id": "wbin-q2",
+            "question": "Why does the transistor enter cutoff when v_in < 0.7 V in an unbiased circuit?",
+            "type": "multiple-choice",
+            "options": [
+                "The collector resistor blocks all current below 0.7 V",
+                "The base-emitter junction is a PN diode — it requires V_BE > 0.7 V to conduct",
+                "The transistor's beta drops to zero below 0.7 V",
+                "The emitter resistor creates a voltage divider that prevents conduction"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The BE junction of a silicon BJT is essentially a PN diode. It has a turn-on voltage of approximately 0.7 V. Below this threshold, no base current flows (I_B = 0), and consequently no collector current flows (I_C = βI_B = 0). The transistor is in cutoff."
+        },
+        {
+            "id": "wbin-q3",
+            "question": "What is the purpose of biasing a BJT?",
+            "type": "multiple-choice",
+            "options": [
+                "To increase the transistor's maximum collector current",
+                "To establish a DC operating point (Q-point) in the active region so the transistor can amplify without clipping",
+                "To protect the transistor from thermal damage",
+                "To convert the transistor from NPN to PNP mode"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Biasing sets a fixed DC operating point — the Q-point — in the active linear region. This ensures the transistor is always conducting, so both positive and negative swings of the input signal produce proportional output changes. Without biasing, the transistor clips the signal."
+        },
+        {
+            "id": "wbin-q4",
+            "question": "The Q-point (V_CEQ, I_CQ) represents:",
+            "type": "multiple-choice",
+            "options": [
+                "The maximum possible collector current and voltage",
+                "The DC operating conditions when no input signal is applied",
+                "The peak-to-peak signal swing of the amplifier",
+                "The transistor's breakdown voltage and current"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The Q-point (quiescent point) defines the DC conditions when the circuit is at rest — no input signal applied. It is characterised by V_CEQ (DC collector-emitter voltage) and I_CQ (DC collector current). The signal then swings around this point."
+        },
+        {
+            "id": "wbin-q5",
+            "question": "In the notation convention, what does a lowercase letter with a lowercase subscript (e.g., v_ce, i_c) represent?",
+            "type": "multiple-choice",
+            "options": [
+                "DC quantity only",
+                "Total instantaneous value (DC + AC)",
+                "Pure AC quantity (zero average)",
+                "Phasor / RMS value"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Lowercase letter + lowercase subscript denotes a purely AC quantity with zero average. For example, v_ce is the AC component only of the collector-emitter voltage. Capital letter + capital subscript = DC. Lowercase letter + capital subscript = total (DC + AC). Capital letter + lowercase subscript = phasor/RMS."
+        },
+        {
+            "id": "wbin-q6",
+            "question": "What is the role of a coupling capacitor C_in at the input of a BJT amplifier?",
+            "type": "multiple-choice",
+            "options": [
+                "It amplifies the input signal before it reaches the base",
+                "It blocks DC from the signal source while passing the AC signal, so the DC bias is not disturbed",
+                "It provides additional DC bias to the base",
+                "It smooths out the AC signal to make it more sinusoidal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The coupling capacitor acts as an open circuit at DC (X_C = 1/(ωC) → ∞ when ω = 0) and a short circuit at signal frequencies (X_C ≈ 0). This means the AC signal passes freely to the base while any DC component in the signal source is blocked, protecting the carefully established DC bias."
+        },
+        {
+            "id": "wbin-q7",
+            "question": "If I_CQ = 3 mA and i_c = 0.2 sin(ωt) mA, what is the total instantaneous collector current at ωt = π/2?",
+            "type": "multiple-choice",
+            "options": [
+                "3.0 mA",
+                "3.2 mA",
+                "2.8 mA",
+                "0.2 mA"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Total instantaneous current = DC + AC: i_C = I_CQ + i_c = 3 + 0.2 sin(π/2) = 3 + 0.2(1) = 3.2 mA. At ωt = 3π/2 it would be 3 − 0.2 = 2.8 mA."
+        },
+        {
+            "id": "wbin-q8",
+            "question": "Why is the output of a common-emitter amplifier inverted relative to the input?",
+            "type": "multiple-choice",
+            "options": [
+                "Because the coupling capacitor introduces a 180° phase shift",
+                "Because v_out = V_CC − I_C·R_C: when I_C increases (due to v_in increasing), v_out decreases",
+                "Because the BE junction polarity reverses for negative inputs",
+                "Because beta is negative for NPN transistors"
+            ],
+            "correctAnswer": 1,
+            "explanation": "From KVL: v_out = V_CC − I_C·R_C. When v_in increases, I_B increases, I_C = βI_B increases, and I_C·R_C increases. So V_CC minus a larger I_C·R_C gives a smaller v_out. The minus sign creates the phase inversion, which is a defining characteristic of the common-emitter configuration."
+        },
+        {
+            "id": "wbin-q9",
+            "question": "If the input signal can swing to −2 V, what minimum DC bias voltage is needed at the base to prevent cutoff?",
+            "type": "multiple-choice",
+            "options": [
+                "0.7 V",
+                "2.0 V",
+                "2.7 V",
+                "3.4 V"
+            ],
+            "correctAnswer": 2,
+            "explanation": "The base voltage must stay above 0.7 V at all times for the BJT to remain active. If the input can reach −2 V, the DC bias must be at least 0.7 + 2.0 = 2.7 V, so that at the most negative input swing, V_BE = 2.7 − 2.0 = 0.7 V (just at the threshold)."
+        },
+        {
+            "id": "wbin-q10",
+            "question": "Which of the following is NOT a consequence of improper biasing?",
+            "type": "multiple-choice",
+            "options": [
+                "Signal clipping at the output",
+                "Transistor operating in cutoff or saturation instead of the active region",
+                "Increased transistor beta (current gain)",
+                "Severe output distortion"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Improper biasing causes signal clipping (either cutoff or saturation clipping), distorted output, and the transistor leaving the active linear region. However, the transistor's beta is a physical property of the device — it doesn't change due to biasing. Beta depends on the transistor's construction and temperature, not on the external bias circuit."
+        }
+    ]
+}

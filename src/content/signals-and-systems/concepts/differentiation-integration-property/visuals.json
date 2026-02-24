@@ -1,128 +1,419 @@
 {
     "visuals": [
         {
-            "id": "highpass-lowpass-comparison",
-            "type": "plotly",
-            "title": "Differentiation (Highpass) vs Integration (Lowpass)",
-            "description": "Shows the magnitude gain/attenuation factor for each harmonic k under differentiation (|jkω₀| = k, growing) and integration (1/|jkω₀| = 1/k, shrinking). Differentiation amplifies high harmonics; integration attenuates them.",
-            "config": {
-                "data": [
-                    {
-                        "x": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10
-                        ],
-                        "y": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10
-                        ],
-                        "type": "bar",
-                        "name": "Differentiation: |jkω₀| (highpass)",
-                        "marker": {
-                            "color": "#ff6b8a"
-                        }
-                    },
-                    {
-                        "x": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10
-                        ],
-                        "y_expr": "[1, 0.5, 0.333, 0.25, 0.2, 0.167, 0.143, 0.125, 0.111, 0.1]",
-                        "type": "bar",
-                        "name": "Integration: 1/|jkω₀| (lowpass)",
-                        "marker": {
-                            "color": "#4f8cff"
-                        }
-                    }
-                ],
-                "layout": {
-                    "title": "Effect on Each Harmonic k (ω₀ = 1)",
-                    "xaxis": {
-                        "title": "Harmonic k",
-                        "dtick": 1
-                    },
-                    "yaxis": {
-                        "title": "Gain/Attenuation Factor"
-                    },
-                    "barmode": "group",
-                    "showlegend": true
+            "id": "diff-int-block-diagram",
+            "type": "d3-block-diagram",
+            "title": "Differentiation and Integration in the FS Domain",
+            "description": "Starting from signal x(t) with coefficients X_k, differentiation maps X_k → jkω₀X_k (amplifies high frequencies), while integration maps X_k → X_k/(jkω₀) (attenuates high frequencies).",
+            "blocks": [
+                {
+                    "id": "sig",
+                    "label": "x(t)\nFS: X_k",
+                    "x": 250,
+                    "y": 30,
+                    "width": 180,
+                    "height": 50,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "diff",
+                    "label": "x'(t)\njkω₀ X_k\nHighpass",
+                    "x": 80,
+                    "y": 130,
+                    "width": 200,
+                    "height": 55,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "integ",
+                    "label": "∫x(t)dt\nX_k/(jkω₀)\nLowpass",
+                    "x": 400,
+                    "y": 130,
+                    "width": 200,
+                    "height": 55,
+                    "fill": "#2fbf8f"
                 }
+            ],
+            "connections": [
+                {
+                    "from": "sig",
+                    "to": "diff",
+                    "label": "d/dt"
+                },
+                {
+                    "from": "sig",
+                    "to": "integ",
+                    "label": "∫ dt"
+                }
+            ]
+        },
+        {
+            "id": "highpass-lowpass-bars",
+            "type": "plotly",
+            "title": "Differentiation (Highpass) vs Integration (Lowpass) Gain",
+            "description": "Differentiation multiplies each harmonic by k (growing with k — amplifies high frequencies). Integration divides by k (shrinking with k — attenuates high frequencies). This is why differentiation sharpens and integration smooths.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "type": "bar",
+                    "name": "Differentiation: |jkω₀| ∝ k",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        1,
+                        0.5,
+                        0.333,
+                        0.25,
+                        0.2,
+                        0.167,
+                        0.143,
+                        0.125,
+                        0.111,
+                        0.1
+                    ],
+                    "type": "bar",
+                    "name": "Integration: 1/|jkω₀| ∝ 1/k",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k",
+                    "dtick": 1
+                },
+                "yaxis": {
+                    "title": "Gain Factor"
+                },
+                "barmode": "group",
+                "showlegend": true
             }
         },
         {
-            "id": "diff-int-summary",
-            "type": "d3-block-diagram",
-            "title": "Differentiation vs Integration in FS Domain",
-            "description": "Summary diagram showing time-domain and frequency-domain effects.",
-            "config": {
-                "nodes": [
-                    {
-                        "id": "sig",
-                        "label": "Signal x(t)\nFS: X_k",
-                        "x": 300,
-                        "y": 30,
-                        "width": 200,
-                        "height": 55,
-                        "fill": "#4f8cff"
-                    },
-                    {
-                        "id": "diff",
-                        "label": "x'(t)\nX'_k = jkω₀ X_k\nHighpass · Sharpening",
-                        "x": 120,
-                        "y": 140,
-                        "width": 230,
-                        "height": 70,
-                        "fill": "#ff6b8a"
-                    },
-                    {
-                        "id": "int",
-                        "label": "∫x(t)dt\nX_k / (jkω₀)\nLowpass · Smoothing",
-                        "x": 480,
-                        "y": 140,
-                        "width": 230,
-                        "height": 70,
-                        "fill": "#2fbf8f"
+            "id": "sawtooth-original",
+            "type": "d3-waveform",
+            "title": "Sawtooth Wave: A Signal to Differentiate",
+            "description": "A sawtooth wave ramps linearly and then resets. Its linear ramp contains many harmonics. Differentiating it will produce impulses at the jumps and a constant between them.",
+            "waveType": "sawtooth",
+            "mode": "continuous"
+        },
+        {
+            "id": "differentiation-time-domain",
+            "type": "plotly",
+            "title": "Time Domain: Signal and Its Derivative",
+            "description": "A smooth periodic signal x(t) and its derivative x'(t). The derivative is large where x(t) changes rapidly and zero where x(t) is flat. Sharp features in x(t) become amplified in x'(t).",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => { const t = i * 2 * Math.PI / 300; return Math.sin(t) + 0.3*Math.sin(3*t); })",
+                    "mode": "lines",
+                    "name": "x(t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
                     }
-                ],
-                "edges": [
-                    {
-                        "from": "sig",
-                        "to": "diff",
-                        "label": "d/dt",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "sig",
-                        "to": "int",
-                        "label": "∫ dt",
-                        "style": "arrow"
+                },
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => { const t = i * 2 * Math.PI / 300; return Math.cos(t) + 0.9*Math.cos(3*t); })",
+                    "mode": "lines",
+                    "name": "x'(t)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
                     }
-                ]
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
             }
+        },
+        {
+            "id": "integration-smoothing-demo",
+            "type": "plotly",
+            "title": "Integration Smooths: x(t) vs ∫x(t)dt",
+            "description": "Integration smooths a signal by attenuating high harmonics. The integral of a square-ish signal looks triangular because the sharp edges are rounded off.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => { const t = i * 2 * Math.PI / 300; return Math.sin(t) + 0.5*Math.sin(3*t) + 0.2*Math.sin(5*t); })",
+                    "mode": "lines",
+                    "name": "x(t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => { const t = i * 2 * Math.PI / 300; return -Math.cos(t) - (0.5/3)*Math.cos(3*t) - (0.2/5)*Math.cos(5*t); })",
+                    "mode": "lines",
+                    "name": "∫x(t)dt (smoothed)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "spectrum-sharpening",
+            "type": "plotly",
+            "title": "Spectrum After Differentiation: High Harmonics Boosted",
+            "description": "The original spectrum |X_k| decays. After differentiation, the new coefficients |jkω₀X_k| grow with k, boosting higher harmonics. This is why derivatives sharpen signals.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "y": [
+                        1,
+                        0.5,
+                        0.33,
+                        0.25,
+                        0.2,
+                        0.167,
+                        0.143
+                    ],
+                    "type": "bar",
+                    "name": "|X_k| (original)",
+                    "marker": {
+                        "color": "#4f8cff",
+                        "opacity": 0.7
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "name": "|jkω₀X_k| (after diff)",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "opacity": 0.7
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k",
+                    "dtick": 1
+                },
+                "yaxis": {
+                    "title": "|Coefficient|"
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "spectrum-smoothing",
+            "type": "plotly",
+            "title": "Spectrum After Integration: High Harmonics Attenuated",
+            "description": "After integration, the coefficients |X_k/(jkω₀)| decay faster than the original. High harmonics are suppressed, leaving a smoother signal in the time domain.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "y": [
+                        1,
+                        0.5,
+                        0.33,
+                        0.25,
+                        0.2,
+                        0.167,
+                        0.143
+                    ],
+                    "type": "bar",
+                    "name": "|X_k| (original)",
+                    "marker": {
+                        "color": "#4f8cff",
+                        "opacity": 0.7
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "y": [
+                        1,
+                        0.25,
+                        0.111,
+                        0.063,
+                        0.04,
+                        0.028,
+                        0.02
+                    ],
+                    "type": "bar",
+                    "name": "|X_k/(jkω₀)| (after int)",
+                    "marker": {
+                        "color": "#2fbf8f",
+                        "opacity": 0.7
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k",
+                    "dtick": 1
+                },
+                "yaxis": {
+                    "title": "|Coefficient|"
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "diff-int-explorer",
+            "type": "d3-simulation",
+            "simulationType": "harmonic-builder",
+            "title": "Interactive: Differentiate and Integrate a Signal",
+            "description": "Start with a composite signal and apply differentiation or integration. Watch how the harmonic amplitudes change — differentiation boosts high-k terms while integration suppresses them."
+        },
+        {
+            "id": "decay-rate-comparison",
+            "type": "d3-simulation",
+            "simulationType": "fourier-coefficients",
+            "title": "Interactive: Coefficient Decay Before and After Operations",
+            "description": "Compare the coefficient decay rates of a signal, its derivative, and its integral. Smoother signals have faster-decaying coefficients."
+        },
+        {
+            "id": "phase-shift-diagram",
+            "type": "d3-block-diagram",
+            "title": "Phase Effects: +90° per Differentiation, −90° per Integration",
+            "description": "Differentiation multiplies by jk, adding +90° per operation. Integration divides by jk, adding −90°. The j factor rotates each coefficient in the complex plane.",
+            "blocks": [
+                {
+                    "id": "orig_phase",
+                    "label": "X_k\nOriginal phase",
+                    "x": 80,
+                    "y": 60,
+                    "width": 180,
+                    "height": 50,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "diff_phase",
+                    "label": "jkω₀X_k\nPhase + 90°",
+                    "x": 340,
+                    "y": 30,
+                    "width": 200,
+                    "height": 50,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "int_phase",
+                    "label": "X_k/(jkω₀)\nPhase − 90°",
+                    "x": 340,
+                    "y": 110,
+                    "width": 200,
+                    "height": 50,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "orig_phase",
+                    "to": "diff_phase",
+                    "label": "×jkω₀"
+                },
+                {
+                    "from": "orig_phase",
+                    "to": "int_phase",
+                    "label": "÷jkω₀"
+                }
+            ]
         }
     ]
 }

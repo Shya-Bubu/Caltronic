@@ -1,140 +1,324 @@
 {
     "visuals": [
         {
-            "id": "efs-analysis-synthesis-diagram",
+            "id": "efs-block-diagram",
             "type": "d3-block-diagram",
-            "title": "EFS Analysis ↔ Synthesis Pair",
-            "description": "Block diagram showing the two directions: Analysis extracts X_k from x(t) using the integral operator; Synthesis reconstructs x(t) from X_k via the infinite sum.",
-            "config": {
-                "nodes": [
-                    {
-                        "id": "xt",
-                        "label": "x(t)\nPeriodic signal",
-                        "x": 80,
-                        "y": 150,
-                        "width": 180,
-                        "height": 80,
-                        "fill": "#4f8cff"
+            "title": "The EFS Analysis–Synthesis Pair",
+            "description": "Two directions: Analysis extracts X_k from x(t) using the integral operator; Synthesis reconstructs x(t) from X_k via the infinite sum. Together they form a complete, reversible transform.",
+            "blocks": [
+                {
+                    "id": "xt",
+                    "label": "Time Domain\nx(t)",
+                    "x": 80,
+                    "y": 80,
+                    "width": 180,
+                    "height": 70,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "xk",
+                    "label": "Frequency Domain\n{X_k}",
+                    "x": 450,
+                    "y": 80,
+                    "width": 180,
+                    "height": 70,
+                    "fill": "#6b62ff"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "xt",
+                    "to": "xk",
+                    "label": "Analysis: X_k = (1/T₀)∫x(t)e^{−jkω₀t}dt"
+                },
+                {
+                    "from": "xk",
+                    "to": "xt",
+                    "label": "Synthesis: x(t) = Σ X_k e^{jkω₀t}"
+                }
+            ]
+        },
+        {
+            "id": "orthogonality-cancellation",
+            "type": "plotly",
+            "title": "Orthogonality: Why Cross-Terms Vanish",
+            "description": "The function cos((m−k)ω₀t) integrates to zero over one period when m ≠ k. Positive areas (blue) exactly cancel negative areas (red). This is the mathematical engine behind the analysis integral.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(3 * i * 2 * Math.PI / 200))",
+                    "mode": "lines",
+                    "name": "cos(3ω₀t), m−k=3",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
                     },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(79,140,255,0.2)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t (over one period T₀)"
+                },
+                "yaxis": {
+                    "title": "cos((m−k)ω₀t)"
+                },
+                "annotations": [
                     {
-                        "id": "xk",
-                        "label": "X_k\nFS Coefficients",
-                        "x": 500,
-                        "y": 150,
-                        "width": 180,
-                        "height": 80,
-                        "fill": "#6b62ff"
+                        "text": "Net area = 0 (positive and negative cancel)",
+                        "x": 3.14,
+                        "y": 0.5,
+                        "showarrow": false
                     }
                 ],
-                "edges": [
-                    {
-                        "from": "xt",
-                        "to": "xk",
-                        "label": "Analysis: X_k = (1/T₀)∫x(t)e^{−jkω₀t}dt",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "xk",
-                        "to": "xt",
-                        "label": "Synthesis: x(t) = Σ X_k e^{jkω₀t}",
-                        "style": "arrow",
-                        "curveOffset": 40
-                    }
-                ]
+                "showlegend": true
             }
         },
         {
-            "id": "orthogonality-visual",
-            "type": "plotly",
-            "title": "Orthogonality: e^{j(m−k)ω₀t} Integrates to Zero",
-            "description": "Shows how cos((m-k)ω₀t) (real part of the complex exponential) integrates to zero over one period when m ≠ k. Positive and negative areas cancel exactly.",
-            "config": {
-                "data": [
-                    {
-                        "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                        "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(3 * i * 2 * Math.PI / 200))",
-                        "type": "scatter",
-                        "mode": "lines",
-                        "name": "cos(3ω₀t), m−k=3",
-                        "line": {
-                            "color": "#4f8cff",
-                            "width": 2
-                        },
-                        "fill": "tozeroy",
-                        "fillcolor": "rgba(79,140,255,0.2)"
-                    }
-                ],
-                "layout": {
-                    "title": "∫₀^{T₀} cos((m-k)ω₀t) dt = 0 for m ≠ k",
-                    "xaxis": {
-                        "title": "t (over one period T₀)"
-                    },
-                    "yaxis": {
-                        "title": "cos((m−k)ω₀t)"
-                    },
-                    "annotations": [
-                        {
-                            "text": "Net area = 0 (positive and negative cancel)",
-                            "x": 3.14,
-                            "y": 0.5,
-                            "showarrow": false
-                        }
-                    ]
+            "id": "frequency-sieve-diagram",
+            "type": "d3-block-diagram",
+            "title": "The Frequency Sieve: How Analysis Isolates One Harmonic",
+            "description": "Multiplying x(t) by e^{−jkω₀t} and integrating over T₀ is like a sieve that lets only the k-th harmonic through. All other harmonics produce zero due to orthogonality.",
+            "blocks": [
+                {
+                    "id": "signal",
+                    "label": "x(t) = Σ X_m e^{jmω₀t}",
+                    "x": 60,
+                    "y": 60,
+                    "width": 220,
+                    "height": 50,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "multiply",
+                    "label": "× e^{−jkω₀t}",
+                    "x": 330,
+                    "y": 60,
+                    "width": 140,
+                    "height": 50,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "integrate",
+                    "label": "(1/T₀) ∫ dt",
+                    "x": 520,
+                    "y": 60,
+                    "width": 130,
+                    "height": 50,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "result",
+                    "label": "X_k\n(only k-th survives)",
+                    "x": 330,
+                    "y": 160,
+                    "width": 180,
+                    "height": 50,
+                    "fill": "#2fbf8f"
                 }
+            ],
+            "connections": [
+                {
+                    "from": "signal",
+                    "to": "multiply"
+                },
+                {
+                    "from": "multiply",
+                    "to": "integrate"
+                },
+                {
+                    "from": "integrate",
+                    "to": "result"
+                }
+            ]
+        },
+        {
+            "id": "dc-component-area",
+            "type": "plotly",
+            "title": "X₀ = Average Value (Area Under One Period / T₀)",
+            "description": "The DC coefficient X₀ is the average value of x(t) over one period. Geometrically, it's the height of a rectangle with the same area as one period of the signal.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return 2 + Math.sin(t) + 0.5*Math.sin(3*t); })",
+                    "mode": "lines",
+                    "name": "x(t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(79,140,255,0.15)"
+                },
+                {
+                    "x_expr": "[0, 2*Math.PI]",
+                    "y_expr": "[2, 2]",
+                    "mode": "lines",
+                    "name": "X₀ = 2 (average)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t (one period)"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
             }
         },
         {
-            "id": "harmonic-reconstruction",
-            "type": "plotly",
-            "title": "FS Reconstruction: Adding Harmonics",
-            "description": "Shows how adding progressively more harmonics to a square wave approximation improves the reconstruction, while the Gibbs overshoot remains near discontinuities.",
-            "config": {
-                "data": [
-                    {
-                        "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
-                        "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=1; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
-                        "type": "scatter",
-                        "mode": "lines",
-                        "name": "1 term",
-                        "line": {
-                            "color": "#4f8cff",
-                            "width": 1.5
-                        }
-                    },
-                    {
-                        "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
-                        "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=5; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
-                        "type": "scatter",
-                        "mode": "lines",
-                        "name": "3 terms",
-                        "line": {
-                            "color": "#6b62ff",
-                            "width": 1.5
-                        }
-                    },
-                    {
-                        "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
-                        "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=21; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
-                        "type": "scatter",
-                        "mode": "lines",
-                        "name": "11 terms",
-                        "line": {
-                            "color": "#ff6b8a",
-                            "width": 2
-                        }
-                    }
-                ],
-                "layout": {
-                    "title": "Square Wave Approximation by Fourier Series",
-                    "xaxis": {
-                        "title": "t"
-                    },
-                    "yaxis": {
-                        "title": "x(t)"
-                    },
-                    "showlegend": true
+            "id": "efs-step-by-step",
+            "type": "d3-block-diagram",
+            "title": "Systematic Procedure for Computing EFS Coefficients",
+            "description": "Follow these five steps in order for any periodic signal. Smart choice of integration window at Step 3 can dramatically simplify the maths.",
+            "blocks": [
+                {
+                    "id": "s1",
+                    "label": "Step 1\nIdentify T₀ and ω₀",
+                    "x": 80,
+                    "y": 40,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "s2",
+                    "label": "Step 2\nCompute X₀ (average)",
+                    "x": 310,
+                    "y": 40,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "s3",
+                    "label": "Step 3\nCompute X_k (k ≠ 0)",
+                    "x": 540,
+                    "y": 40,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "s4",
+                    "label": "Step 4\nPolar form |X_k|∠X_k",
+                    "x": 190,
+                    "y": 130,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "s5",
+                    "label": "Step 5\nDraw spectra",
+                    "x": 420,
+                    "y": 130,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#2fbf8f"
                 }
+            ],
+            "connections": [
+                {
+                    "from": "s1",
+                    "to": "s2"
+                },
+                {
+                    "from": "s2",
+                    "to": "s3"
+                },
+                {
+                    "from": "s3",
+                    "to": "s4"
+                },
+                {
+                    "from": "s4",
+                    "to": "s5"
+                }
+            ]
+        },
+        {
+            "id": "harmonic-builder-efs",
+            "type": "d3-simulation",
+            "simulationType": "harmonic-builder",
+            "title": "Interactive: Fourier Synthesis — Build Signals from Harmonics",
+            "description": "Add harmonics one at a time and watch the signal assemble. Start with DC, add the fundamental, then the 3rd, 5th, 7th harmonics. Watch a square wave emerge from sine waves."
+        },
+        {
+            "id": "gibbs-phenomenon",
+            "type": "d3-simulation",
+            "simulationType": "gibbs-phenomenon",
+            "title": "Interactive: The Gibbs Overshoot",
+            "description": "Increase the number of harmonics and observe the persistent ~9% overshoot at discontinuities. This overshoot never goes away — it just gets narrower. This is the Gibbs phenomenon."
+        },
+        {
+            "id": "square-wave-reconstruction",
+            "type": "plotly",
+            "title": "Square Wave Approximation: 1, 3, and 11 Harmonics",
+            "description": "Progressive reconstruction of a square wave. As more odd harmonics are added, the approximation improves everywhere except near the discontinuities, where the Gibbs overshoot persists.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; return (4/Math.PI)*Math.sin(t); })",
+                    "mode": "lines",
+                    "name": "1 harmonic",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=5; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "mode": "lines",
+                    "name": "3 harmonics",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=21; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "mode": "lines",
+                    "name": "11 harmonics",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
             }
+        },
+        {
+            "id": "coefficient-calculator",
+            "type": "d3-simulation",
+            "simulationType": "fourier-coefficients",
+            "title": "Interactive: Fourier Coefficient Explorer",
+            "description": "Change the signal shape and see the magnitude and phase spectra update in real time. Compare how different waveforms produce different coefficient patterns."
+        },
+        {
+            "id": "integration-window-choice",
+            "type": "d3-waveform",
+            "title": "A Periodic Pulse: Choose Your Integration Window",
+            "description": "The same pulse train shown with two possible integration windows. Choosing the one centred on the pulse (symmetric limits) often simplifies the integral by making the signal even.",
+            "waveType": "rect",
+            "mode": "continuous"
         }
     ]
 }

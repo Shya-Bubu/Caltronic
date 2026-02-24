@@ -1,0 +1,545 @@
+{
+    "visuals": [
+        {
+            "id": "vdb-circuit-schematic",
+            "type": "d3-block-diagram",
+            "title": "Voltage Divider Bias Circuit",
+            "description": "An NPN transistor biased by a potential divider: R₁ connects V_CC to the base, R₂ connects the base to ground. The collector has R_C, and the emitter has R_E. This creates a more stable Q-point than fixed bias.",
+            "blocks": [
+                {
+                    "id": "vcc",
+                    "label": "+V_CC",
+                    "x": 280,
+                    "y": 10,
+                    "width": 80,
+                    "height": 30,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "r1",
+                    "label": "R₁",
+                    "x": 120,
+                    "y": 50,
+                    "width": 80,
+                    "height": 40,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "r2",
+                    "label": "R₂",
+                    "x": 120,
+                    "y": 130,
+                    "width": 80,
+                    "height": 40,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "rc",
+                    "label": "R_C",
+                    "x": 400,
+                    "y": 50,
+                    "width": 80,
+                    "height": 40,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "bjt",
+                    "label": "NPN\nBJT",
+                    "x": 260,
+                    "y": 80,
+                    "width": 90,
+                    "height": 60,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "re",
+                    "label": "R_E",
+                    "x": 300,
+                    "y": 160,
+                    "width": 80,
+                    "height": 40,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "gnd",
+                    "label": "GND",
+                    "x": 280,
+                    "y": 215,
+                    "width": 60,
+                    "height": 25,
+                    "fill": "#aab4c0"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "vcc",
+                    "to": "r1"
+                },
+                {
+                    "from": "vcc",
+                    "to": "rc"
+                },
+                {
+                    "from": "r1",
+                    "to": "bjt",
+                    "label": "Base"
+                },
+                {
+                    "from": "r2",
+                    "to": "bjt"
+                },
+                {
+                    "from": "r2",
+                    "to": "gnd"
+                },
+                {
+                    "from": "rc",
+                    "to": "bjt",
+                    "label": "Collector"
+                },
+                {
+                    "from": "bjt",
+                    "to": "re",
+                    "label": "Emitter"
+                },
+                {
+                    "from": "re",
+                    "to": "gnd"
+                }
+            ]
+        },
+        {
+            "id": "thevenin-conversion",
+            "type": "d3-block-diagram",
+            "title": "Thévenin Equivalent of the Bias Network",
+            "description": "The R₁-R₂ divider seen from the base simplifies to a single voltage source V_TH = R₂/(R₁+R₂)·V_CC in series with R_TH = R₁‖R₂. This makes the KVL analysis straightforward.",
+            "blocks": [
+                {
+                    "id": "original",
+                    "label": "Original bias:\nR₁ to V_CC\nR₂ to GND",
+                    "x": 40,
+                    "y": 50,
+                    "width": 180,
+                    "height": 60,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "arrow",
+                    "label": "Thévenin\nEquivalent",
+                    "x": 270,
+                    "y": 60,
+                    "width": 120,
+                    "height": 40,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "thevenin",
+                    "label": "V_TH = R₂/(R₁+R₂)·V_CC\nR_TH = R₁ ‖ R₂\n= R₁R₂/(R₁+R₂)",
+                    "x": 440,
+                    "y": 40,
+                    "width": 250,
+                    "height": 80,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "original",
+                    "to": "arrow"
+                },
+                {
+                    "from": "arrow",
+                    "to": "thevenin"
+                }
+            ]
+        },
+        {
+            "id": "vdb-be-loop-kvl",
+            "type": "d3-block-diagram",
+            "title": "KVL on the Base-Emitter Loop (Thévenin Form)",
+            "description": "After Thévenin conversion: V_TH = I_B·R_TH + V_BE + I_E·R_E. Since I_E ≈ (1+β)I_B, this gives I_B = (V_TH − 0.7)/(R_TH + (1+β)R_E).",
+            "blocks": [
+                {
+                    "id": "vth",
+                    "label": "V_TH",
+                    "x": 40,
+                    "y": 60,
+                    "width": 70,
+                    "height": 40,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "rth_drop",
+                    "label": "I_B · R_TH",
+                    "x": 150,
+                    "y": 60,
+                    "width": 120,
+                    "height": 40,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "vbe",
+                    "label": "V_BE\n≈ 0.7 V",
+                    "x": 310,
+                    "y": 60,
+                    "width": 100,
+                    "height": 40,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "re_drop",
+                    "label": "I_E · R_E\n≈ (1+β)I_B·R_E",
+                    "x": 450,
+                    "y": 60,
+                    "width": 180,
+                    "height": 40,
+                    "fill": "#f5a623"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "vth",
+                    "to": "rth_drop",
+                    "label": "→"
+                },
+                {
+                    "from": "rth_drop",
+                    "to": "vbe",
+                    "label": "→"
+                },
+                {
+                    "from": "vbe",
+                    "to": "re_drop",
+                    "label": "→"
+                }
+            ]
+        },
+        {
+            "id": "thermal-runaway-loop",
+            "type": "d3-block-diagram",
+            "title": "Thermal Runaway: The Positive Feedback Loop",
+            "description": "Without R_E: Temperature ↑ → β ↑ → I_C ↑ → P = I_C·V_CE ↑ → Temperature ↑. This runaway loop can destroy the transistor.",
+            "blocks": [
+                {
+                    "id": "temp",
+                    "label": "Temperature ↑",
+                    "x": 40,
+                    "y": 30,
+                    "width": 160,
+                    "height": 40,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "beta",
+                    "label": "β ↑",
+                    "x": 260,
+                    "y": 30,
+                    "width": 80,
+                    "height": 40,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "ic",
+                    "label": "I_C ↑",
+                    "x": 400,
+                    "y": 30,
+                    "width": 80,
+                    "height": 40,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "power",
+                    "label": "P = I_C·V_CE ↑",
+                    "x": 540,
+                    "y": 30,
+                    "width": 160,
+                    "height": 40,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "heat",
+                    "label": "More heat\n→ Temperature ↑↑",
+                    "x": 290,
+                    "y": 110,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#ff6b8a"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "temp",
+                    "to": "beta"
+                },
+                {
+                    "from": "beta",
+                    "to": "ic"
+                },
+                {
+                    "from": "ic",
+                    "to": "power"
+                },
+                {
+                    "from": "power",
+                    "to": "heat"
+                },
+                {
+                    "from": "heat",
+                    "to": "temp",
+                    "label": "Positive feedback!"
+                }
+            ]
+        },
+        {
+            "id": "negative-feedback-re",
+            "type": "d3-block-diagram",
+            "title": "How R_E Provides Negative Feedback",
+            "description": "With R_E: T↑ → β↑ → I_C↑ → I_E↑ → V_E = I_E·R_E ↑ → V_BE = V_B − V_E ↓ → I_B↓ → I_C↓. The emitter resistor counteracts the increase, stabilising the Q-point.",
+            "blocks": [
+                {
+                    "id": "temp",
+                    "label": "T ↑ → β ↑",
+                    "x": 40,
+                    "y": 40,
+                    "width": 130,
+                    "height": 40,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "ic_up",
+                    "label": "I_C ↑ → I_E ↑",
+                    "x": 210,
+                    "y": 40,
+                    "width": 140,
+                    "height": 40,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "ve_up",
+                    "label": "V_E = I_E·R_E ↑",
+                    "x": 400,
+                    "y": 40,
+                    "width": 160,
+                    "height": 40,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "vbe_down",
+                    "label": "V_BE = V_B − V_E ↓",
+                    "x": 400,
+                    "y": 110,
+                    "width": 180,
+                    "height": 40,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "ib_down",
+                    "label": "I_B ↓ → I_C ↓",
+                    "x": 160,
+                    "y": 110,
+                    "width": 160,
+                    "height": 40,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "temp",
+                    "to": "ic_up"
+                },
+                {
+                    "from": "ic_up",
+                    "to": "ve_up"
+                },
+                {
+                    "from": "ve_up",
+                    "to": "vbe_down"
+                },
+                {
+                    "from": "vbe_down",
+                    "to": "ib_down",
+                    "label": "Negative feedback!"
+                }
+            ]
+        },
+        {
+            "id": "stability-comparison-plot",
+            "type": "plotly",
+            "title": "Q-Point Stability: Fixed Bias vs Voltage Divider Bias",
+            "description": "I_CQ vs β for both circuits. Fixed bias: I_C changes linearly with β. Voltage divider with R_E: I_C is nearly constant because the (1+β)R_E term in the denominator dominates, making I_B shrink as β grows.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => 50 + i)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => (50 + i) * 20e-6 * 1000)",
+                    "mode": "lines",
+                    "name": "Fixed bias (I_C = β × 20 μA)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => 50 + i)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const b = 50 + i; const ib = 4.3 / (28 + (1+b) * 1); return b * ib; })",
+                    "mode": "lines",
+                    "name": "VDB with R_E (nearly constant)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "β"
+                },
+                "yaxis": {
+                    "title": "I_CQ (mA)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "vdb-worked-example",
+            "type": "d3-block-diagram",
+            "title": "Worked Example: VDB with R₁ = R₂ = 56 kΩ",
+            "description": "V_CC = 10 V, R₁ = R₂ = 56 kΩ, R_C = 10 kΩ, R_E = 20 kΩ, β = 50. V_TH = 5 V, R_TH = 28 kΩ. I_B ≈ 4.1 μA, I_C ≈ 205 μA, V_CE ≈ 3.85 V.",
+            "blocks": [
+                {
+                    "id": "given",
+                    "label": "Given:\nV_CC=10V, R₁=R₂=56kΩ\nR_C=10kΩ, R_E=20kΩ, β=50",
+                    "x": 40,
+                    "y": 20,
+                    "width": 260,
+                    "height": 70,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "thev",
+                    "label": "Thévenin:\nV_TH = 5 V\nR_TH = 28 kΩ",
+                    "x": 340,
+                    "y": 20,
+                    "width": 180,
+                    "height": 70,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "ib",
+                    "label": "I_B = (5−0.7)/(28k+51×20k)\n≈ 4.1 μA",
+                    "x": 40,
+                    "y": 120,
+                    "width": 280,
+                    "height": 45,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "ic",
+                    "label": "I_C = 50 × 4.1 μA\n≈ 205 μA",
+                    "x": 360,
+                    "y": 120,
+                    "width": 180,
+                    "height": 45,
+                    "fill": "#f5a623"
+                },
+                {
+                    "id": "vce",
+                    "label": "V_CE ≈ 10 − 205μ(10k+20k)\n≈ 3.85 V",
+                    "x": 180,
+                    "y": 190,
+                    "width": 280,
+                    "height": 45,
+                    "fill": "#ff6b8a"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "given",
+                    "to": "thev"
+                },
+                {
+                    "from": "thev",
+                    "to": "ib"
+                },
+                {
+                    "from": "ib",
+                    "to": "ic"
+                },
+                {
+                    "from": "ic",
+                    "to": "vce"
+                }
+            ]
+        },
+        {
+            "id": "vdb-design-sim",
+            "type": "d3-simulation",
+            "simulationType": "parameter-sweep",
+            "title": "Interactive: Tune R₁, R₂, R_E and Watch the Q-Point",
+            "description": "Adjust the resistor values and β. Compare how much the Q-point moves with voltage divider bias vs fixed bias. Notice how larger R_E makes the Q-point more stable against β changes."
+        },
+        {
+            "id": "re-tradeoff-plot",
+            "type": "plotly",
+            "title": "R_E Trade-off: Stability vs Voltage Headroom",
+            "description": "Increasing R_E improves Q-point stability but consumes more of V_CC as I_E·R_E, leaving less room for V_CE signal swing. The designer must balance stability against available output swing.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 100}, (_, i) => 0.1 + i * 0.05)",
+                    "y_expr": "Array.from({length: 100}, (_, i) => { const re = 0.1 + i * 0.05; return re / (28 + 51 * re) * 100; })",
+                    "mode": "lines",
+                    "name": "Stability factor (%)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 100}, (_, i) => 0.1 + i * 0.05)",
+                    "y_expr": "Array.from({length: 100}, (_, i) => { const re = 0.1 + i * 0.05; const ib = 4.3 / (28 + 51 * re); const ic = 50 * ib; return 10 - ic * (10 + re); })",
+                    "mode": "lines",
+                    "name": "V_CE available (V)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "R_E (kΩ)"
+                },
+                "yaxis": {
+                    "title": "Value"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "vdb-vs-fixed-summary",
+            "type": "d3-block-diagram",
+            "title": "Comparison: Fixed Bias vs Voltage Divider Bias",
+            "description": "Side-by-side comparison of the two circuits. Fixed bias: simple, 1 resistor, β-sensitive, thermal runaway risk. VDB: 4 resistors, uses Thévenin, β-insensitive (when (1+β)R_E >> R_TH), thermally stable.",
+            "blocks": [
+                {
+                    "id": "fixed",
+                    "label": "FIXED BIAS\n• 1 resistor (R₁)\n• Easy to calculate\n• Q-point ∝ β\n• Thermal runaway risk\n• Rarely used in practice",
+                    "x": 40,
+                    "y": 30,
+                    "width": 280,
+                    "height": 100,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "vdb",
+                    "label": "VOLTAGE DIVIDER BIAS\n• 4 resistors (R₁,R₂,R_C,R_E)\n• Uses Thévenin equivalent\n• Q-point ≈ independent of β\n• Thermally stable (R_E feedback)\n• Industry standard",
+                    "x": 380,
+                    "y": 30,
+                    "width": 300,
+                    "height": 100,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": []
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "voltage-divider-bias",
+    "title": "Voltage Divider Bias with Emitter Stabilisation",
+    "slug": "voltage-divider-bias",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,20 @@
+{
+    "id": "lesson-04",
+    "title": "BJT Biasing & Small-Signal Models",
+    "slug": "lesson-04",
+    "description": "Design stable DC operating points for BJT amplifiers using fixed and voltage-divider bias, analyse load lines graphically, and model small-signal behaviour with the hybrid-π equivalent circuit.",
+    "prerequisites": [
+        "lesson-03"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "why-biasing-is-needed",
+        "fixed-bias-circuit",
+        "voltage-divider-bias",
+        "dc-and-ac-load-lines",
+        "bjt-hybrid-pi-model"
+    ],
+    "lectureWeek": 4,
+    "estimatedMinutes": 240
+}

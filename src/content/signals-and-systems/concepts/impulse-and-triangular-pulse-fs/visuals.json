@@ -1,199 +1,303 @@
 {
     "visuals": [
         {
-            "id": "coefficient-decay-comparison",
+            "id": "impulse-train-waveform",
+            "type": "d3-waveform",
+            "title": "The Periodic Impulse Train",
+            "description": "An infinite train of equally-spaced Dirac impulses, each separated by T₀ seconds. Despite having zero width, each impulse has unit area. This is the most fundamental periodic signal.",
+            "waveType": "impulse",
+            "mode": "continuous"
+        },
+        {
+            "id": "impulse-flat-spectrum",
             "type": "plotly",
-            "title": "FS Coefficient Decay: Impulse vs Square vs Triangle",
-            "description": "Compares |X_k| for three standard signals. Impulse train (flat), square pulse (1/k decay), triangular pulse (1/k² decay). Smoother signals have faster-decaying coefficients.",
-            "config": {
-                "data": [
-                    {
-                        "x": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10
-                        ],
-                        "y": [
-                            1,
-                            1,
-                            1,
-                            1,
-                            1,
-                            1,
-                            1,
-                            1,
-                            1,
-                            1
-                        ],
-                        "type": "scatter",
-                        "mode": "lines+markers",
-                        "name": "Impulse (flat)",
-                        "line": {
-                            "color": "#ff6b8a",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "x": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10
-                        ],
-                        "y_expr": "[1, 0.5, 0.333, 0.25, 0.2, 0.167, 0.143, 0.125, 0.111, 0.1]",
-                        "type": "scatter",
-                        "mode": "lines+markers",
-                        "name": "Square (1/k)",
-                        "line": {
-                            "color": "#4f8cff",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "x": [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10
-                        ],
-                        "y_expr": "[1, 0.25, 0.111, 0.0625, 0.04, 0.028, 0.02, 0.016, 0.012, 0.01]",
-                        "type": "scatter",
-                        "mode": "lines+markers",
-                        "name": "Triangle (1/k²)",
-                        "line": {
-                            "color": "#2fbf8f",
-                            "width": 2
-                        }
+            "title": "Impulse Train Spectrum: All Harmonics Equal",
+            "description": "Every coefficient X_k = 1/T₀ — flat magnitude across all harmonics. The impulse train contains all frequencies equally. This is the frequency-domain 'white noise' of periodic signals.",
+            "traces": [
+                {
+                    "x": [
+                        -8,
+                        -7,
+                        -6,
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "y": [
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25,
+                        0.25
+                    ],
+                    "type": "bar",
+                    "name": "X_k = 1/T₀ = 0.25",
+                    "marker": {
+                        "color": "#4f8cff"
                     }
-                ],
-                "layout": {
-                    "title": "Coefficient Decay: Smoother → Faster Decay",
-                    "xaxis": {
-                        "title": "Harmonic k",
-                        "dtick": 1
-                    },
-                    "yaxis": {
-                        "title": "Normalised |X_k|",
-                        "type": "log"
-                    },
-                    "showlegend": true
                 }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k",
+                    "dtick": 2
+                },
+                "yaxis": {
+                    "title": "|X_k|",
+                    "range": [
+                        0,
+                        0.35
+                    ]
+                },
+                "showlegend": false
             }
         },
         {
-            "id": "differentiate-triangle-flow",
+            "id": "impulse-derivation-diagram",
             "type": "d3-block-diagram",
-            "title": "Finding Triangular Pulse FS via Differentiation",
-            "description": "Block diagram showing the 'smart approach': differentiate the triangle, find X'_k using known impulse train pair, divide by jkω₀.",
-            "config": {
-                "nodes": [
-                    {
-                        "id": "tri",
-                        "label": "Triangular Wave\nx(t)",
-                        "x": 80,
-                        "y": 50,
-                        "width": 180,
-                        "height": 55,
-                        "fill": "#4f8cff"
-                    },
-                    {
-                        "id": "diff",
-                        "label": "d/dt",
-                        "x": 280,
-                        "y": 50,
-                        "width": 80,
-                        "height": 55,
-                        "fill": "#6b62ff"
-                    },
-                    {
-                        "id": "simp",
-                        "label": "Simpler Signal\nconstant + delta train",
-                        "x": 450,
-                        "y": 50,
-                        "width": 210,
-                        "height": 55,
-                        "fill": "#ff6b8a"
-                    },
-                    {
-                        "id": "xkp",
-                        "label": "X'_k = −1/T₀\n(impulse train pair)",
-                        "x": 450,
-                        "y": 160,
-                        "width": 210,
-                        "height": 55,
-                        "fill": "#ff6b8a"
-                    },
-                    {
-                        "id": "div",
-                        "label": "÷ jkω₀",
-                        "x": 280,
-                        "y": 160,
-                        "width": 80,
-                        "height": 55,
-                        "fill": "#6b62ff"
-                    },
-                    {
-                        "id": "xk",
-                        "label": "X_k = j/(2kπ)\nTriangle FS done!",
-                        "x": 80,
-                        "y": 160,
-                        "width": 180,
-                        "height": 55,
-                        "fill": "#2fbf8f"
+            "title": "Deriving the Impulse Train FS",
+            "description": "The sifting property of δ(t) extracts the value of the integrand at t = 0. Since e^{−jkω₀·0} = 1, every coefficient evaluates to 1/T₀ regardless of k.",
+            "blocks": [
+                {
+                    "id": "analysis",
+                    "label": "X_k = (1/T₀)∫ δ(t)e^{−jkω₀t} dt",
+                    "x": 80,
+                    "y": 50,
+                    "width": 280,
+                    "height": 50,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "sift",
+                    "label": "Sifting: δ(t) samples at t=0\ne^{−jk·0} = 1",
+                    "x": 410,
+                    "y": 50,
+                    "width": 230,
+                    "height": 50,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "result",
+                    "label": "X_k = 1/T₀ for all k",
+                    "x": 240,
+                    "y": 140,
+                    "width": 200,
+                    "height": 45,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "analysis",
+                    "to": "sift"
+                },
+                {
+                    "from": "sift",
+                    "to": "result"
+                }
+            ]
+        },
+        {
+            "id": "triangular-pulse-waveform",
+            "type": "d3-waveform",
+            "title": "The Triangular Pulse Train",
+            "description": "A periodic triangular wave that ramps linearly up and down. It is continuous everywhere but has corners at the peaks and valleys. It can be derived by integrating a square wave.",
+            "waveType": "triangle",
+            "mode": "continuous"
+        },
+        {
+            "id": "triangular-spectrum",
+            "type": "plotly",
+            "title": "Triangular Pulse Spectrum: sinc² Envelope",
+            "description": "The coefficients follow a sinc² envelope, decaying as 1/k². The faster decay (compared to 1/k for square waves) reflects the triangular wave's continuity — no jump discontinuities.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 31}, (_, i) => i - 15)",
+                    "y_expr": "Array.from({length: 31}, (_, i) => { const k = i - 15; if(k === 0) return 0.25; const val = Math.sin(k * Math.PI / 4) / (k * Math.PI / 4); return 0.25 * val * val; })",
+                    "type": "bar",
+                    "name": "|X_k| (sinc² envelope)",
+                    "marker": {
+                        "color": "#6b62ff"
                     }
-                ],
-                "edges": [
-                    {
-                        "from": "tri",
-                        "to": "diff",
-                        "label": "",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "diff",
-                        "to": "simp",
-                        "label": "",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "simp",
-                        "to": "xkp",
-                        "label": "Find FS",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "xkp",
-                        "to": "div",
-                        "label": "",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "div",
-                        "to": "xk",
-                        "label": "",
-                        "style": "arrow"
-                    }
-                ]
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k",
+                    "dtick": 3
+                },
+                "yaxis": {
+                    "title": "|X_k|"
+                },
+                "bargap": 0.3,
+                "showlegend": false
             }
+        },
+        {
+            "id": "square-vs-triangle-spectrum",
+            "type": "plotly",
+            "title": "Decay Comparison: Square (1/k) vs Triangular (1/k²)",
+            "description": "The square wave coefficients decay as 1/k (slow — needs many harmonics). The triangular wave coefficients decay as 1/k² (fast — fewer harmonics needed). The extra smoothness buys you faster convergence.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 21}, (_, i) => i + 1)",
+                    "y_expr": "Array.from({length: 21}, (_, i) => 1 / (i + 1))",
+                    "mode": "lines+markers",
+                    "name": "1/k (square wave)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 21}, (_, i) => i + 1)",
+                    "y_expr": "Array.from({length: 21}, (_, i) => 1 / ((i + 1) * (i + 1)))",
+                    "mode": "lines+markers",
+                    "name": "1/k² (triangular wave)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k"
+                },
+                "yaxis": {
+                    "title": "Coefficient magnitude (normalised)",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "integration-chain-diagram",
+            "type": "d3-block-diagram",
+            "title": "Integration Chain: Impulse → Square → Triangle",
+            "description": "Each integration smooths the signal and adds 1/k to the decay rate. Impulse (flat spectrum) → integrate → square (1/k) → integrate → triangle (1/k²).",
+            "blocks": [
+                {
+                    "id": "impulse",
+                    "label": "Impulse Train\n|X_k| = const\nFlat spectrum",
+                    "x": 60,
+                    "y": 60,
+                    "width": 180,
+                    "height": 60,
+                    "fill": "#ff6b8a"
+                },
+                {
+                    "id": "square",
+                    "label": "Square Wave\n|X_k| ∝ 1/k\nsinc envelope",
+                    "x": 290,
+                    "y": 60,
+                    "width": 180,
+                    "height": 60,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "triangle",
+                    "label": "Triangle Wave\n|X_k| ∝ 1/k²\nsinc² envelope",
+                    "x": 520,
+                    "y": 60,
+                    "width": 180,
+                    "height": 60,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "impulse",
+                    "to": "square",
+                    "label": "∫ dt"
+                },
+                {
+                    "from": "square",
+                    "to": "triangle",
+                    "label": "∫ dt"
+                }
+            ]
+        },
+        {
+            "id": "triangle-reconstruction-sim",
+            "type": "d3-simulation",
+            "simulationType": "harmonic-builder",
+            "title": "Interactive: Reconstruct the Triangular Wave from Harmonics",
+            "description": "Build the triangular wave by adding harmonics. Notice how much fewer terms are needed compared to the square wave — the 1/k² decay means convergence is rapid."
+        },
+        {
+            "id": "tri-vs-square-convergence",
+            "type": "plotly",
+            "title": "Convergence: Triangle (5 harmonics) vs Square (5 harmonics)",
+            "description": "With the same number of harmonics (5), the triangular reconstruction is nearly perfect while the square wave still has visible Gibbs overshoot. Faster decay means faster convergence.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let n=0; n<5; n++) { const k = 2*n+1; s += (8/(k*k*Math.PI*Math.PI))*Math.pow(-1,n)*Math.cos(k*t); } return s; })",
+                    "mode": "lines",
+                    "name": "Triangle (5 harmonics)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=9; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "mode": "lines",
+                    "name": "Square (5 harmonics)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "coefficient-decay-explorer",
+            "type": "d3-simulation",
+            "simulationType": "fourier-coefficients",
+            "title": "Interactive: Compare Coefficient Decay Rates",
+            "description": "Switch between impulse, square, and triangular waveforms. Watch how the spectrum changes from flat to 1/k to 1/k². Each integration step compresses the spectrum."
         }
     ]
 }

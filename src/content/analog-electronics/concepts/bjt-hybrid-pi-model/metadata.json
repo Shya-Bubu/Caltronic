@@ -1,0 +1,11 @@
+{
+    "id": "bjt-hybrid-pi-model",
+    "title": "BJT Hybrid-π Small-Signal Model",
+    "slug": "bjt-hybrid-pi-model",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

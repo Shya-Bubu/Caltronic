@@ -1,76 +1,357 @@
 {
     "visuals": [
         {
-            "id": "efs-to-trig-relationship",
+            "id": "efs-to-tfs-diagram",
             "type": "d3-block-diagram",
-            "title": "EFS ↔ Trigonometric FS Relationship",
-            "description": "Shows how EFS coefficients X_k and X_{−k} combine to form trigonometric coefficients a_k and b_k.",
-            "config": {
-                "nodes": [
-                    {
-                        "id": "efs",
-                        "label": "EFS Coefficients\nX_k, X_{−k}",
-                        "x": 300,
-                        "y": 30,
-                        "width": 200,
-                        "height": 55,
-                        "fill": "#4f8cff"
-                    },
-                    {
-                        "id": "ak",
-                        "label": "a_k = X_k + X_{−k}\n= 2Re(X_k)",
-                        "x": 130,
-                        "y": 130,
-                        "width": 200,
-                        "height": 60,
-                        "fill": "#2fbf8f"
-                    },
-                    {
-                        "id": "bk",
-                        "label": "b_k = j(X_k − X_{−k})\n= −2Im(X_k)",
-                        "x": 470,
-                        "y": 130,
-                        "width": 200,
-                        "height": 60,
-                        "fill": "#ff6b8a"
-                    },
-                    {
-                        "id": "trig",
-                        "label": "Trig FS:\na₀ + Σ(a_k cos + b_k sin)",
-                        "x": 300,
-                        "y": 230,
-                        "width": 260,
-                        "height": 55,
-                        "fill": "#6b62ff"
+            "title": "From Exponential FS to Trigonometric FS",
+            "description": "The exponential series uses complex exponentials e^{jkω₀t}. Grouping positive and negative k terms and applying Euler's formula converts to a real-valued trigonometric form with cosines and sines.",
+            "blocks": [
+                {
+                    "id": "efs",
+                    "label": "EFS\nx(t) = Σ X_k e^{jkω₀t}\nComplex coefficients",
+                    "x": 60,
+                    "y": 60,
+                    "width": 220,
+                    "height": 60,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "euler",
+                    "label": "Euler's Formula\ne^{jθ} = cosθ + j sinθ\nGroup ±k terms",
+                    "x": 330,
+                    "y": 60,
+                    "width": 220,
+                    "height": 60,
+                    "fill": "#6b62ff"
+                },
+                {
+                    "id": "tfs",
+                    "label": "TFS\nx(t) = a₀ + Σ(aₖcosкω₀t + bₖsinкω₀t)\nReal coefficients",
+                    "x": 200,
+                    "y": 160,
+                    "width": 270,
+                    "height": 60,
+                    "fill": "#2fbf8f"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "efs",
+                    "to": "euler"
+                },
+                {
+                    "from": "euler",
+                    "to": "tfs"
+                }
+            ]
+        },
+        {
+            "id": "tfs-coefficients-relation",
+            "type": "d3-block-diagram",
+            "title": "Coefficient Relationships: X_k ↔ a_k, b_k",
+            "description": "The conversion formulas: a₀ = X₀, aₖ = 2Re(Xₖ), bₖ = −2Im(Xₖ). These let you move freely between the two forms. For real signals, the TFS uses only real numbers.",
+            "blocks": [
+                {
+                    "id": "xk",
+                    "label": "X_k = (aₖ − jbₖ)/2",
+                    "x": 80,
+                    "y": 50,
+                    "width": 230,
+                    "height": 45,
+                    "fill": "#4f8cff"
+                },
+                {
+                    "id": "ak",
+                    "label": "aₖ = 2Re(Xₖ)\n= (2/T₀)∫x(t)cos(kω₀t)dt",
+                    "x": 370,
+                    "y": 20,
+                    "width": 260,
+                    "height": 50,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "bk",
+                    "label": "bₖ = −2Im(Xₖ)\n= (2/T₀)∫x(t)sin(kω₀t)dt",
+                    "x": 370,
+                    "y": 100,
+                    "width": 260,
+                    "height": 50,
+                    "fill": "#ff6b8a"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "xk",
+                    "to": "ak"
+                },
+                {
+                    "from": "xk",
+                    "to": "bk"
+                }
+            ]
+        },
+        {
+            "id": "orthogonal-cosines",
+            "type": "plotly",
+            "title": "Orthogonal Cosines: cos(ω₀t) and cos(2ω₀t)",
+            "description": "Plot cos(ω₀t) and cos(2ω₀t) over one period, and their pointwise product. The product oscillates symmetrically — its integral over one period is exactly zero. This is orthogonality.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(i * 2 * Math.PI / 200))",
+                    "mode": "lines",
+                    "name": "cos(ω₀t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
                     }
-                ],
-                "edges": [
-                    {
-                        "from": "efs",
-                        "to": "ak",
-                        "label": "sum",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "efs",
-                        "to": "bk",
-                        "label": "diff",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "ak",
-                        "to": "trig",
-                        "label": "cos",
-                        "style": "arrow"
-                    },
-                    {
-                        "from": "bk",
-                        "to": "trig",
-                        "label": "sin",
-                        "style": "arrow"
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(2 * i * 2 * Math.PI / 200))",
+                    "mode": "lines",
+                    "name": "cos(2ω₀t)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
                     }
-                ]
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.cos(t) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "Product (area = 0)",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(47,191,143,0.15)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
             }
+        },
+        {
+            "id": "orthogonality-grid",
+            "type": "plotly",
+            "title": "Orthogonality Inner Product Table",
+            "description": "The inner product ∫cos(mω₀t)cos(nω₀t)dt over one period equals T₀/2 when m = n (diagonal), and 0 when m ≠ n (off-diagonal). This matrix structure is the foundation of Fourier analysis.",
+            "traces": [
+                {
+                    "x": [
+                        "cos(ω₀t)",
+                        "cos(2ω₀t)",
+                        "cos(3ω₀t)",
+                        "cos(4ω₀t)"
+                    ],
+                    "y": [
+                        "cos(ω₀t)",
+                        "cos(2ω₀t)",
+                        "cos(3ω₀t)",
+                        "cos(4ω₀t)"
+                    ],
+                    "z": [
+                        [
+                            1,
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            1,
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            0,
+                            1,
+                            0
+                        ],
+                        [
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    ],
+                    "type": "heatmap",
+                    "colorscale": [
+                        [
+                            0,
+                            "#1a1a2e"
+                        ],
+                        [
+                            1,
+                            "#4f8cff"
+                        ]
+                    ],
+                    "showscale": false
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": ""
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "cos-sin-orthogonal",
+            "type": "plotly",
+            "title": "Cosine and Sine Are Always Orthogonal",
+            "description": "cos(kω₀t) and sin(mω₀t) are orthogonal for ALL k and m (not just k ≠ m). Their product is always an odd function, so its integral over any symmetric interval is zero.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(i * 2 * Math.PI / 200))",
+                    "mode": "lines",
+                    "name": "cos(ω₀t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => Math.sin(i * 2 * Math.PI / 200))",
+                    "mode": "lines",
+                    "name": "sin(ω₀t)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.cos(t) * Math.sin(t); })",
+                    "mode": "lines",
+                    "name": "Product (area = 0)",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(245,166,35,0.15)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "even-odd-tfs-symmetry",
+            "type": "d3-block-diagram",
+            "title": "Symmetry in the TFS: Even → Cosines Only, Odd → Sines Only",
+            "description": "For real even signals, all bₖ = 0 (only cosine terms survive). For real odd signals, all aₖ = 0 including a₀ (only sine terms). This mirrors the EFS symmetry results.",
+            "blocks": [
+                {
+                    "id": "even_sig",
+                    "label": "Even Signal\nx(t) = x(−t)\naₖ only\nbₖ = 0",
+                    "x": 80,
+                    "y": 50,
+                    "width": 200,
+                    "height": 60,
+                    "fill": "#2fbf8f"
+                },
+                {
+                    "id": "odd_sig",
+                    "label": "Odd Signal\nx(t) = −x(−t)\nbₖ only\naₖ = 0, a₀ = 0",
+                    "x": 380,
+                    "y": 50,
+                    "width": 200,
+                    "height": 60,
+                    "fill": "#ff6b8a"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "tfs-square-wave",
+            "type": "plotly",
+            "title": "TFS of a Standard Square Wave: Only Odd Sine Harmonics",
+            "description": "The 50% duty cycle square wave (real, odd) has only sine terms with odd k: b₁, b₃, b₅, ... The coefficients decay as 1/k — only odd harmonics survive because of the half-wave symmetry.",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        3,
+                        5,
+                        7,
+                        9,
+                        11,
+                        13,
+                        15
+                    ],
+                    "y": [
+                        1.273,
+                        0.424,
+                        0.255,
+                        0.182,
+                        0.141,
+                        0.116,
+                        0.098,
+                        0.085
+                    ],
+                    "type": "bar",
+                    "name": "bₖ = 4/(kπ) (odd k only)",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Harmonic k",
+                    "dtick": 2
+                },
+                "yaxis": {
+                    "title": "bₖ"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "tfs-reconstruction-sim",
+            "type": "d3-simulation",
+            "simulationType": "harmonic-builder",
+            "title": "Interactive: Build a Signal with Cosines and Sines",
+            "description": "Add cosine and sine harmonics individually to see how they combine. Notice: adding only cosines produces an even signal; adding only sines produces an odd signal."
+        },
+        {
+            "id": "orthogonality-explorer-sim",
+            "type": "d3-simulation",
+            "simulationType": "fourier-coefficients",
+            "title": "Interactive: Test Orthogonality by Choosing m and n",
+            "description": "Select two values m and n, and watch the product cos(mω₀t)·cos(nω₀t) integrate to zero when m ≠ n but to T₀/2 when m = n. This is the inner product in action."
+        },
+        {
+            "id": "efs-vs-tfs-waveform",
+            "type": "d3-waveform",
+            "title": "Same Signal, Two Representations",
+            "description": "A periodic signal shown once with its EFS decomposition (complex exponentials in the background) and once with its TFS decomposition (cosines and sines). Both reconstruct the same waveform exactly.",
+            "waveType": "composite",
+            "mode": "continuous"
         }
     ]
 }

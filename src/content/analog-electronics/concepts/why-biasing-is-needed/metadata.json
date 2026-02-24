@@ -1,0 +1,11 @@
+{
+    "id": "why-biasing-is-needed",
+    "title": "Why Biasing? Signal Clipping & DC Operating Points",
+    "slug": "why-biasing-is-needed",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

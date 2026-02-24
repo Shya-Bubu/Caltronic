@@ -1,0 +1,134 @@
+{
+    "questions": [
+        {
+            "id": "hpi-q1",
+            "question": "What is the hybrid-π model?",
+            "type": "multiple-choice",
+            "options": [
+                "A nonlinear model for large-signal BJT analysis",
+                "A linear small-signal equivalent circuit derived from h-parameters by neglecting h_re and h_oe",
+                "A thermal model for predicting transistor temperature",
+                "A DC model for calculating the Q-point"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The hybrid-π model is a linearised small-signal equivalent circuit obtained from the general h-parameter model by setting h_re ≈ 0 and h_oe ≈ 0 (or R_out → ∞). It replaces the nonlinear BJT with r_π and a dependent current source for AC analysis around the Q-point."
+        },
+        {
+            "id": "hpi-q2",
+            "question": "What is the transconductance g_m?",
+            "type": "multiple-choice",
+            "options": [
+                "g_m = V_T / I_CQ",
+                "g_m = I_CQ / V_T — the ratio of DC collector current to thermal voltage",
+                "g_m = β × r_π",
+                "g_m = I_BQ / V_T"
+            ],
+            "correctAnswer": 1,
+            "explanation": "g_m = I_CQ/V_T relates the small-signal collector current to the base-emitter voltage: i_c = g_m·v_be. At room temperature with V_T = 26 mV, a 1 mA bias gives g_m = 38.5 mA/V. Crucially, g_m does not depend on β."
+        },
+        {
+            "id": "hpi-q3",
+            "question": "What is r_π?",
+            "type": "multiple-choice",
+            "options": [
+                "The external resistor in the emitter",
+                "The small-signal input resistance looking into the base: r_π = β/g_m = βV_T/I_CQ",
+                "The thermal resistance of the transistor package",
+                "The collector-emitter resistance"
+            ],
+            "correctAnswer": 1,
+            "explanation": "r_π = h_ie is the small-signal resistance between base and emitter. It equals β/g_m = βV_T/I_CQ. Unlike g_m, r_π does depend on β. Higher β or lower I_CQ gives a larger r_π (higher input impedance)."
+        },
+        {
+            "id": "hpi-q4",
+            "question": "If I_CQ = 2 mA and β = 100, what is g_m? (V_T = 26 mV)",
+            "type": "multiple-choice",
+            "options": [
+                "76.9 mA/V",
+                "38.5 mA/V",
+                "7.69 mA/V",
+                "0.769 mA/V"
+            ],
+            "correctAnswer": 0,
+            "explanation": "g_m = I_CQ/V_T = 2 mA / 26 mV = 76.9 mA/V. Note that β is not needed for this calculation — g_m depends only on the bias current and thermal voltage."
+        },
+        {
+            "id": "hpi-q5",
+            "question": "With g_m = 76.9 mA/V and β = 100, what is r_π?",
+            "type": "multiple-choice",
+            "options": [
+                "1.3 kΩ",
+                "7.69 kΩ",
+                "100 kΩ",
+                "26 Ω"
+            ],
+            "correctAnswer": 0,
+            "explanation": "r_π = β/g_m = 100/76.9 mA/V = 1300 Ω = 1.3 kΩ. Alternatively: r_π = βV_T/I_CQ = 100×26mV/2mA = 2600/2 = 1300 Ω. Both give the same answer."
+        },
+        {
+            "id": "hpi-q6",
+            "question": "What is r_e, and how does it relate to r_π?",
+            "type": "multiple-choice",
+            "options": [
+                "r_e = 1/g_m = V_T/I_CQ, and r_π = β × r_e",
+                "r_e = g_m × r_π",
+                "r_e is the external emitter resistor R_E",
+                "r_e = r_π / g_m"
+            ],
+            "correctAnswer": 0,
+            "explanation": "r_e = 1/g_m = V_T/I_CQ ≈ 26mV/I_CQ (mA). It's the intrinsic small-signal emitter resistance. It relates to r_π by r_π = β·r_e — the base 'sees' the emitter resistance multiplied by β because the base current is β times smaller."
+        },
+        {
+            "id": "hpi-q7",
+            "question": "Why is g_m independent of β?",
+            "type": "multiple-choice",
+            "options": [
+                "Because β cancels out in the derivation: g_m = β/r_π = β/(βV_T/I_CQ) = I_CQ/V_T",
+                "Because g_m is a property of the packaging, not the semiconductor",
+                "Because g_m is defined to exclude β by convention",
+                "g_m is actually dependent on β, but the dependence is weak"
+            ],
+            "correctAnswer": 0,
+            "explanation": "g_m = β/r_π. Since r_π = βV_T/I_CQ, substituting: g_m = β/(βV_T/I_CQ) = I_CQ/V_T. The β in the numerator and denominator cancel exactly. This is why g_m depends only on the Q-point current and the thermal voltage."
+        },
+        {
+            "id": "hpi-q8",
+            "question": "When can you drop R_out (= 1/h_oe) from the hybrid-π model?",
+            "type": "multiple-choice",
+            "options": [
+                "Always — it's never needed",
+                "When R_out >> R_L (the load resistance), so it doesn't significantly affect the circuit",
+                "Only when β > 200",
+                "Only for PNP transistors"
+            ],
+            "correctAnswer": 1,
+            "explanation": "R_out appears in parallel with the load at the output. When R_out >> R_L (typically R_out > 10 R_L), most of the current flows through R_L and R_out has negligible effect. Since R_out is typically 100k–1MΩ and R_L is typically 1k–10kΩ, this condition is almost always met."
+        },
+        {
+            "id": "hpi-q9",
+            "question": "The hybrid-π model should be used for:",
+            "type": "multiple-choice",
+            "options": [
+                "DC analysis to find the Q-point",
+                "Small-signal AC analysis around the Q-point",
+                "Large-signal transient analysis",
+                "Thermal analysis of the transistor"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The hybrid-π model is valid only for small-signal AC analysis around the DC operating point (Q-point). You must first find the Q-point using DC analysis (with the nonlinear model), then use the hybrid-π model to analyse how small AC signals are amplified."
+        },
+        {
+            "id": "hpi-q10",
+            "question": "Which h-parameters are neglected in the simplified hybrid-π model?",
+            "type": "multiple-choice",
+            "options": [
+                "h_ie and h_fe",
+                "h_re (reverse voltage feedback) and h_oe (output admittance)",
+                "h_ie and h_oe",
+                "All four h-parameters are kept"
+            ],
+            "correctAnswer": 1,
+            "explanation": "h_re ≈ 10⁻⁴ (negligible reverse feedback) and h_oe ≈ 10⁻⁶ S (very high output resistance, effectively infinite). Dropping these leaves h_ie = r_π (input resistance) and h_fe = β (forward current gain), giving the simplified two-element model."
+        }
+    ]
+}
