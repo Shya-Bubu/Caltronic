@@ -2,54 +2,63 @@
     "visuals": [
         {
             "id": "dc-load-line-derivation",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Deriving the DC Load Line from KVL",
-            "description": "KVL around the CE output loop: V_CC = I_C·R_C + V_CE + I_E·R_E. Rearranging: I_C = −V_CE/(R_C+R_E) + V_CC/(R_C+R_E). This is y = mx + c — a straight line on the I_C vs V_CE plane.",
-            "blocks": [
+            "description": "KVL: V_CC = I_C(R_C+R_E) + V_CE → I_C = −V_CE/(R_C+R_E) + V_CC/(R_C+R_E). A straight line on I_C vs V_CE.",
+            "traces": [
                 {
-                    "id": "kvl",
-                    "label": "KVL: V_CC = I_C·R_C + V_CE + I_E·R_E",
-                    "x": 40,
-                    "y": 30,
-                    "width": 360,
-                    "height": 40,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "approx",
-                    "label": "Since I_E ≈ I_C:\nV_CC = I_C(R_C+R_E) + V_CE",
-                    "x": 40,
-                    "y": 90,
-                    "width": 360,
-                    "height": 50,
-                    "fill": "#6b62ff"
-                },
-                {
-                    "id": "result",
-                    "label": "I_C = −V_CE/(R_C+R_E) + V_CC/(R_C+R_E)\nSlope = −1/(R_C+R_E)\nIntercept = V_CC/(R_C+R_E)",
-                    "x": 40,
-                    "y": 160,
-                    "width": 400,
-                    "height": 60,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "KVL Equation",
+                        "Approximation",
+                        "Result"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#6b62ff",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "V_CC = I_C·R_C<br>+ V_CE + I_E·R_E",
+                        "Since I_E ≈ I_C:<br>V_CC = I_C(R_C+R_E)<br>+ V_CE",
+                        "Slope = −1/(R_C+R_E)<br>y-int = V_CC/(R_C+R_E)<br>x-int = V_CC"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "kvl",
-                    "to": "approx"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "approx",
-                    "to": "result"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "dc-load-line-on-chars",
             "type": "plotly",
             "title": "DC Load Line on Output Characteristics",
-            "description": "The DC load line is a straight line from (V_CC, 0) on the V_CE axis to (0, V_CC/(R_C+R_E)) on the I_C axis. It intersects the I_BQ characteristic curve at the Q-point.",
+            "description": "The DC load line from (V_CC, 0) to (0, V_CC/(R_C+R_E)). The Q-point is at the intersection with the I_BQ curve.",
             "traces": [
                 {
                     "x": [
@@ -119,131 +128,163 @@
         },
         {
             "id": "dc-load-line-endpoints",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Two-Point Method for Drawing the DC Load Line",
-            "description": "You only need two points to draw a straight line: (1) Set I_C = 0 → V_CE = V_CC (x-intercept). (2) Set V_CE = 0 → I_C = V_CC/(R_C+R_E) (y-intercept). Connect them.",
-            "blocks": [
+            "description": "Point 1: I_C = 0 → V_CE = V_CC. Point 2: V_CE = 0 → I_C = V_CC/(R_C+R_E). Connect with a line.",
+            "traces": [
                 {
-                    "id": "pt1",
-                    "label": "Point 1: I_C = 0\n→ V_CE = V_CC\n(Transistor in cutoff)",
-                    "x": 40,
-                    "y": 50,
-                    "width": 230,
-                    "height": 60,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "pt2",
-                    "label": "Point 2: V_CE = 0\n→ I_C = V_CC/(R_C+R_E)\n(Max possible current)",
-                    "x": 330,
-                    "y": 50,
-                    "width": 260,
-                    "height": 60,
-                    "fill": "#ff6b8a"
-                },
-                {
-                    "id": "line",
-                    "label": "Connect → DC Load Line\nSlope = −1/(R_C+R_E)",
-                    "x": 180,
-                    "y": 140,
-                    "width": 260,
-                    "height": 40,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Point 1:\nI_C = 0",
+                        "Point 2:\nV_CE = 0"
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "V_CE = V_CC<br>(cutoff: all voltage<br>across transistor)",
+                        "I_C = V_CC/(R_C+R_E)<br>(max possible<br>current)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 11,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "pt1",
-                    "to": "line"
+            "layout": {
+                "xaxis": {
+                    "title": "Two intercepts → draw straight line"
                 },
-                {
-                    "from": "pt2",
-                    "to": "line"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "ac-equivalent-circuit",
-            "type": "d3-block-diagram",
-            "title": "AC Equivalent Circuit: Capacitors Shorted, DC Sources Killed",
-            "description": "For AC analysis: short all capacitors (X_C ≈ 0), short DC voltage sources (V_CC → ground), open DC current sources. What remains: R₁‖R₂, R_C from collector to ground, R_E₁ (unbypassed portion), signal source.",
-            "blocks": [
+            "type": "plotly",
+            "title": "AC Equivalent Circuit Rules",
+            "description": "Short capacitors, short V_CC to ground, open current sources. What remains is the AC signal path.",
+            "traces": [
                 {
-                    "id": "full",
-                    "label": "Full circuit\n(DC + AC)",
-                    "x": 40,
-                    "y": 60,
-                    "width": 150,
-                    "height": 50,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "rules",
-                    "label": "AC rules:\n• Short capacitors\n• Short V_CC to GND\n• Keep signal source",
-                    "x": 240,
-                    "y": 40,
-                    "width": 210,
-                    "height": 80,
-                    "fill": "#f5a623"
-                },
-                {
-                    "id": "ac_eq",
-                    "label": "AC Equivalent:\nR₁‖R₂ to base\nR_C to collector→GND\nR_E₁ in emitter",
-                    "x": 500,
-                    "y": 40,
-                    "width": 210,
-                    "height": 80,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Full Circuit",
+                        "→ AC Rules →",
+                        "AC Equivalent"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#f5a623",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "DC + AC<br>components",
+                        "• Short caps<br>• Short V_CC→GND<br>• Keep signal",
+                        "R₁‖R₂ at base<br>R_C to GND<br>R_E₁ in emitter"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "full",
-                    "to": "rules"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "rules",
-                    "to": "ac_eq"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "ac-load-line-derivation",
-            "type": "d3-block-diagram",
-            "title": "Deriving the AC Load Line",
-            "description": "KVL in the AC equivalent (CE loop): i_c·R_C + v_ce + i_e·R_E₁ = 0. Since i_e ≈ i_c: i_c = −v_ce/(R_C + R_E₁). Slope = −1/(R_C+R_E₁) — steeper than the DC load line (no R_E₂).",
-            "blocks": [
+            "type": "plotly",
+            "title": "AC Load Line: Steeper Slope",
+            "description": "AC KVL: i_c(R_C + r_e₁) + v_ce = 0. Slope = −1/(R_C + r_e₁) — steeper than DC because bypass cap removes R_E₂.",
+            "traces": [
                 {
-                    "id": "kvl_ac",
-                    "label": "AC KVL: i_c·R_C + v_ce + i_e·r_e₁ = 0\n(No V_CC, no bypassed R_E₂)",
-                    "x": 40,
-                    "y": 40,
-                    "width": 360,
-                    "height": 50,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "result_ac",
-                    "label": "i_c = −v_ce/(R_C + r_e₁)\nSlope = −1/(R_C + r_e₁)\nNo intercept (passes through origin for v_ce component)",
-                    "x": 40,
-                    "y": 110,
-                    "width": 400,
-                    "height": 55,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "AC KVL",
+                        "Result"
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "i_c·R_C + v_ce<br>+ i_e·r_e₁ = 0<br>(No V_CC, caps shorted)",
+                        "Slope = −1/(R_C+r_e₁)<br>Steeper than DC!<br>Passes through Q-point"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "kvl_ac",
-                    "to": "result_ac"
-                }
-            ]
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 260
         },
         {
             "id": "dc-vs-ac-load-lines",
             "type": "plotly",
-            "title": "DC Load Line vs AC Load Line on Output Characteristics",
-            "description": "The AC load line passes through the Q-point but has a steeper slope than the DC load line (because the AC sees a smaller total resistance). The signal swings along the AC load line, not the DC load line.",
+            "title": "DC Load Line vs AC Load Line",
+            "description": "Both pass through the Q-point. The AC line is steeper. The signal swings along the AC load line.",
             "traces": [
                 {
                     "x": [
@@ -263,7 +304,7 @@
                     }
                 },
                 {
-                    "x_expr": "Array.from({length: 100}, (_, i) => { const v = i * 0.1; return v; })",
+                    "x_expr": "Array.from({length: 100}, (_, i) => i * 0.1)",
                     "y_expr": "Array.from({length: 100}, (_, i) => { const v = i * 0.1; return 205e-6 + (3.85 - v) / 10240; })",
                     "mode": "lines",
                     "name": "AC Load Line (slope = −1/10.24k)",
@@ -305,8 +346,8 @@
         {
             "id": "signal-swing-regions",
             "type": "plotly",
-            "title": "Signal Swing Limits: Saturation and Cutoff Boundaries",
-            "description": "The Q-point must have enough room along the AC load line to swing towards both saturation (V_CE ≈ 0.2 V) and cutoff (I_C ≈ 0). If the signal drives beyond these limits, clipping occurs.",
+            "title": "Signal Swing Limits: Saturation and Cutoff",
+            "description": "The signal swings along the AC load line. Clipping occurs if it hits saturation (V_CE ≈ 0.2V) or cutoff (I_C = 0).",
             "traces": [
                 {
                     "x": [
@@ -335,7 +376,7 @@
                         0
                     ],
                     "mode": "lines",
-                    "name": "Cutoff boundary (I_C = 0)",
+                    "name": "Cutoff (I_C = 0)",
                     "line": {
                         "color": "#4f8cff",
                         "width": 2,
@@ -384,95 +425,144 @@
         },
         {
             "id": "properly-biased-check",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Is the Circuit Properly Biased?",
-            "description": "Check: can the signal swing along the AC load line without hitting saturation (V_CE < 0.2 V) or cutoff (I_C = 0)? If yes → properly biased. If no → redesign the bias or reduce the signal amplitude.",
-            "blocks": [
+            "description": "If the signal can swing without hitting saturation or cutoff → properly biased. Otherwise → redesign.",
+            "traces": [
                 {
-                    "id": "q",
-                    "label": "Q-point on AC load line",
-                    "x": 40,
-                    "y": 60,
-                    "width": 210,
-                    "height": 40,
-                    "fill": "#f5a623"
-                },
-                {
-                    "id": "swing",
-                    "label": "Can signal swing to\nboth limits without\nhitting boundaries?",
-                    "x": 300,
-                    "y": 40,
-                    "width": 220,
-                    "height": 70,
-                    "fill": "#6b62ff"
-                },
-                {
-                    "id": "yes",
-                    "label": "YES → Properly biased ✓",
-                    "x": 560,
-                    "y": 30,
-                    "width": 220,
-                    "height": 35,
-                    "fill": "#2fbf8f"
-                },
-                {
-                    "id": "no",
-                    "label": "NO → Clipping occurs ✗\nRedesign bias or reduce signal",
-                    "x": 560,
-                    "y": 80,
-                    "width": 260,
-                    "height": 40,
-                    "fill": "#ff6b8a"
+                    "x": [
+                        "Q-point on<br>AC load line",
+                        "Can signal<br>swing freely?",
+                        "YES →<br>Proper bias ✓",
+                        "NO →<br>Clipping ✗"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#f5a623",
+                            "#6b62ff",
+                            "#2fbf8f",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Start here",
+                        "Check both<br>directions",
+                        "Full<br>amplification",
+                        "Redesign bias<br>or reduce signal"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "q",
-                    "to": "swing"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "swing",
-                    "to": "yes"
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
                 },
-                {
-                    "from": "swing",
-                    "to": "no"
-                }
-            ]
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "load-line-sim",
-            "type": "d3-simulation",
-            "simulationType": "load-line",
+            "type": "v3-load-line",
             "title": "Interactive: Draw Load Lines and Watch Signal Swing",
-            "description": "Adjust R_C, R_E, and V_CC to change the DC load line. Set the Q-point and see the AC load line. Apply a signal and watch the operating point move along the AC load line. Observe clipping if the signal is too large."
+            "description": "Adjust R_C, R_E, V_CC. Set Q-point. Apply a signal and watch the operating point track along the AC load line."
         },
         {
             "id": "dc-vs-ac-summary-table",
-            "type": "d3-block-diagram",
-            "title": "Summary: DC vs AC Load Lines",
-            "description": "DC Load Line: slope = −1/(R_C+R_E), passes from V_CC to V_CC/(R_C+R_E), determines Q-point. AC Load Line: slope = −1/(R_C+r_e₁), passes through Q-point, determines signal swing.",
-            "blocks": [
+            "type": "plotly",
+            "title": "DC vs AC Load Lines — Summary Comparison",
+            "description": "DC load line determines Q-point. AC load line determines signal swing. Signal travels along the AC line.",
+            "traces": [
                 {
-                    "id": "dc",
-                    "label": "DC LOAD LINE\n• Slope: −1/(R_C+R_E)\n• x-int: V_CC\n• y-int: V_CC/(R_C+R_E)\n• Purpose: find Q-point",
-                    "x": 40,
-                    "y": 30,
-                    "width": 280,
-                    "height": 90,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Slope",
+                        "Purpose",
+                        "Signal travels along"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "DC Load Line",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    },
+                    "text": [
+                        "−1/(R_C+R_E)<br>(gentler)",
+                        "Find<br>Q-point",
+                        "No — DC only<br>sets bias"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    }
                 },
                 {
-                    "id": "ac",
-                    "label": "AC LOAD LINE\n• Slope: −1/(R_C+r_e₁)\n• Passes through Q-point\n• Steeper than DC line\n• Purpose: signal swing limits",
-                    "x": 380,
-                    "y": 30,
-                    "width": 290,
-                    "height": 90,
-                    "fill": "#ff6b8a"
+                    "x": [
+                        "Slope",
+                        "Purpose",
+                        "Signal travels along"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "AC Load Line",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    },
+                    "text": [
+                        "−1/(R_C+r_e₁)<br>(steeper)",
+                        "Signal<br>swing limits",
+                        "YES — signal<br>traces this line!"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    }
                 }
             ],
-            "connections": []
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        2.2
+                    ]
+                },
+                "barmode": "stack",
+                "showlegend": true
+            },
+            "height": 320
         }
     ]
 }
