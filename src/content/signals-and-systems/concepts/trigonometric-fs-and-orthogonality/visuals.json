@@ -2,103 +2,125 @@
     "visuals": [
         {
             "id": "efs-to-tfs-diagram",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "From Exponential FS to Trigonometric FS",
-            "description": "The exponential series uses complex exponentials e^{jkω₀t}. Grouping positive and negative k terms and applying Euler's formula converts to a real-valued trigonometric form with cosines and sines.",
-            "blocks": [
+            "description": "The exponential FS uses complex exponentials e^{jkω₀t}. Combining +k and −k terms using Euler's formula gives the trigonometric form with real cosines and sines.",
+            "traces": [
                 {
-                    "id": "efs",
-                    "label": "EFS\nx(t) = Σ X_k e^{jkω₀t}\nComplex coefficients",
-                    "x": 60,
-                    "y": 60,
-                    "width": 220,
-                    "height": 60,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "euler",
-                    "label": "Euler's Formula\ne^{jθ} = cosθ + j sinθ\nGroup ±k terms",
-                    "x": 330,
-                    "y": 60,
-                    "width": 220,
-                    "height": 60,
-                    "fill": "#6b62ff"
-                },
-                {
-                    "id": "tfs",
-                    "label": "TFS\nx(t) = a₀ + Σ(aₖcosкω₀t + bₖsinкω₀t)\nReal coefficients",
-                    "x": 200,
-                    "y": 160,
-                    "width": 270,
-                    "height": 60,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Exponential FS\nx(t) = Σ X_k e^{jkω₀t}",
+                        "→ Euler's formula →",
+                        "Trigonometric FS\na₀/2 + Σ(a_k cos + b_k sin)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#f5a623",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Complex\nexponentials",
+                        "e^{jθ} = cosθ + jsinθ\nCombine ±k terms",
+                        "Real cosines\nand sines"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "efs",
-                    "to": "euler"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "euler",
-                    "to": "tfs"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "tfs-coefficients-relation",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Coefficient Relationships: X_k ↔ a_k, b_k",
-            "description": "The conversion formulas: a₀ = X₀, aₖ = 2Re(Xₖ), bₖ = −2Im(Xₖ). These let you move freely between the two forms. For real signals, the TFS uses only real numbers.",
-            "blocks": [
+            "description": "a_k = 2Re{X_k}, b_k = −2Im{X_k}, X_k = (a_k − jb_k)/2. These convert between the two FS forms.",
+            "traces": [
                 {
-                    "id": "xk",
-                    "label": "X_k = (aₖ − jbₖ)/2",
-                    "x": 80,
-                    "y": 50,
-                    "width": 230,
-                    "height": 45,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "ak",
-                    "label": "aₖ = 2Re(Xₖ)\n= (2/T₀)∫x(t)cos(kω₀t)dt",
-                    "x": 370,
-                    "y": 20,
-                    "width": 260,
-                    "height": 50,
-                    "fill": "#2fbf8f"
-                },
-                {
-                    "id": "bk",
-                    "label": "bₖ = −2Im(Xₖ)\n= (2/T₀)∫x(t)sin(kω₀t)dt",
-                    "x": 370,
-                    "y": 100,
-                    "width": 260,
-                    "height": 50,
-                    "fill": "#ff6b8a"
+                    "x": [
+                        "X_k\n(complex)",
+                        "a_k = 2Re{X_k}",
+                        "b_k = −2Im{X_k}",
+                        "Back:\nX_k = (a_k−jb_k)/2"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "Exponential\ncoefficient",
+                        "Real part\n→ cosine terms",
+                        "Imaginary part\n→ sine terms",
+                        "Inverse\nrelation"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "xk",
-                    "to": "ak"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "xk",
-                    "to": "bk"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "orthogonal-cosines",
             "type": "plotly",
             "title": "Orthogonal Cosines: cos(ω₀t) and cos(2ω₀t)",
-            "description": "Plot cos(ω₀t) and cos(2ω₀t) over one period, and their pointwise product. The product oscillates symmetrically — its integral over one period is exactly zero. This is orthogonality.",
+            "description": "The product cos(ω₀t)·cos(2ω₀t) oscillates symmetrically and integrates to zero over one period. This is orthogonality.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(i * 2 * Math.PI / 200))",
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => Math.cos(i * 2 * Math.PI / 300))",
                     "mode": "lines",
                     "name": "cos(ω₀t)",
                     "line": {
@@ -107,8 +129,8 @@
                     }
                 },
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(2 * i * 2 * Math.PI / 200))",
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => Math.cos(2 * i * 2 * Math.PI / 300))",
                     "mode": "lines",
                     "name": "cos(2ω₀t)",
                     "line": {
@@ -117,17 +139,15 @@
                     }
                 },
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.cos(t) * Math.cos(2*t); })",
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => Math.cos(i * 2 * Math.PI / 300) * Math.cos(2 * i * 2 * Math.PI / 300))",
                     "mode": "lines",
-                    "name": "Product (area = 0)",
+                    "name": "Product (integrates to 0)",
                     "line": {
                         "color": "#2fbf8f",
                         "width": 2,
                         "dash": "dash"
-                    },
-                    "fill": "tozeroy",
-                    "fillcolor": "rgba(47,191,143,0.15)"
+                    }
                 }
             ],
             "layout": {
@@ -144,109 +164,96 @@
             "id": "orthogonality-grid",
             "type": "plotly",
             "title": "Orthogonality Inner Product Table",
-            "description": "The inner product ∫cos(mω₀t)cos(nω₀t)dt over one period equals T₀/2 when m = n (diagonal), and 0 when m ≠ n (off-diagonal). This matrix structure is the foundation of Fourier analysis.",
+            "description": "⟨cos(mω₀t), cos(nω₀t)⟩ = 0 when m ≠ n, and = T₀/2 when m = n. Same for sines. Cross terms (cos-sin) always zero.",
             "traces": [
                 {
                     "x": [
-                        "cos(ω₀t)",
-                        "cos(2ω₀t)",
-                        "cos(3ω₀t)",
-                        "cos(4ω₀t)"
+                        "⟨cos m, cos n⟩\nm ≠ n",
+                        "⟨cos m, cos m⟩\nm = n",
+                        "⟨sin m, sin n⟩\nm ≠ n",
+                        "⟨sin m, sin m⟩\nm = n",
+                        "⟨cos m, sin n⟩\nany m, n"
                     ],
                     "y": [
-                        "cos(ω₀t)",
-                        "cos(2ω₀t)",
-                        "cos(3ω₀t)",
-                        "cos(4ω₀t)"
+                        0,
+                        0.5,
+                        0,
+                        0.5,
+                        0
                     ],
-                    "z": [
-                        [
-                            1,
-                            0,
-                            0,
-                            0
-                        ],
-                        [
-                            0,
-                            1,
-                            0,
-                            0
-                        ],
-                        [
-                            0,
-                            0,
-                            1,
-                            0
-                        ],
-                        [
-                            0,
-                            0,
-                            0,
-                            1
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#ff6b8a"
                         ]
+                    },
+                    "text": [
+                        "= 0\n(orthogonal)",
+                        "= T₀/2\n(self)",
+                        "= 0\n(orthogonal)",
+                        "= T₀/2\n(self)",
+                        "= 0\n(always!)"
                     ],
-                    "type": "heatmap",
-                    "colorscale": [
-                        [
-                            0,
-                            "#1a1a2e"
-                        ],
-                        [
-                            1,
-                            "#4f8cff"
-                        ]
-                    ],
-                    "showscale": false
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
             "layout": {
                 "xaxis": {
-                    "title": ""
+                    "title": "Inner Product"
                 },
                 "yaxis": {
-                    "title": ""
+                    "title": "Value / T₀"
                 },
                 "showlegend": false
-            }
+            },
+            "height": 300
         },
         {
             "id": "cos-sin-orthogonal",
             "type": "plotly",
             "title": "Cosine and Sine Are Always Orthogonal",
-            "description": "cos(kω₀t) and sin(mω₀t) are orthogonal for ALL k and m (not just k ≠ m). Their product is always an odd function, so its integral over any symmetric interval is zero.",
+            "description": "cos(kω₀t) and sin(kω₀t) are orthogonal for any k: their product integrates to zero over one period.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => Math.cos(i * 2 * Math.PI / 200))",
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => Math.cos(2 * i * 2 * Math.PI / 300))",
                     "mode": "lines",
-                    "name": "cos(ω₀t)",
+                    "name": "cos(2ω₀t)",
                     "line": {
                         "color": "#4f8cff",
                         "width": 2
                     }
                 },
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => Math.sin(i * 2 * Math.PI / 200))",
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => Math.sin(2 * i * 2 * Math.PI / 300))",
                     "mode": "lines",
-                    "name": "sin(ω₀t)",
+                    "name": "sin(2ω₀t)",
                     "line": {
                         "color": "#ff6b8a",
                         "width": 2
                     }
                 },
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = i * 2 * Math.PI / 200; return Math.cos(t) * Math.sin(t); })",
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => 0.5 * Math.sin(4 * i * 2 * Math.PI / 300))",
                     "mode": "lines",
-                    "name": "Product (area = 0)",
+                    "name": "Product = sin(4ω₀t)/2 → ∫ = 0",
                     "line": {
-                        "color": "#f5a623",
-                        "width": 2,
-                        "dash": "dash"
-                    },
-                    "fill": "tozeroy",
-                    "fillcolor": "rgba(245,166,35,0.15)"
+                        "color": "#2fbf8f",
+                        "width": 1.5,
+                        "dash": "dot"
+                    }
                 }
             ],
             "layout": {
@@ -261,97 +268,157 @@
         },
         {
             "id": "even-odd-tfs-symmetry",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Symmetry in the TFS: Even → Cosines Only, Odd → Sines Only",
-            "description": "For real even signals, all bₖ = 0 (only cosine terms survive). For real odd signals, all aₖ = 0 including a₀ (only sine terms). This mirrors the EFS symmetry results.",
-            "blocks": [
+            "description": "Even signals x(t) = x(−t) have b_k = 0 (only cosines). Odd signals x(t) = −x(−t) have a_k = 0 (only sines).",
+            "traces": [
                 {
-                    "id": "even_sig",
-                    "label": "Even Signal\nx(t) = x(−t)\naₖ only\nbₖ = 0",
-                    "x": 80,
-                    "y": 50,
-                    "width": 200,
-                    "height": 60,
-                    "fill": "#2fbf8f"
-                },
-                {
-                    "id": "odd_sig",
-                    "label": "Odd Signal\nx(t) = −x(−t)\nbₖ only\naₖ = 0, a₀ = 0",
-                    "x": 380,
-                    "y": 50,
-                    "width": 200,
-                    "height": 60,
-                    "fill": "#ff6b8a"
+                    "x": [
+                        "Even signal\nx(t) = x(−t)",
+                        "Odd signal\nx(t) = −x(−t)",
+                        "Neither"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#ff6b8a",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "b_k = 0\nCosines ONLY\na₀/2 + Σa_k cos(kω₀t)",
+                        "a_k = 0\nSines ONLY\nΣb_k sin(kω₀t)",
+                        "Both a_k, b_k\npresent"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": []
+            "layout": {
+                "xaxis": {
+                    "title": "Signal Symmetry"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 300
         },
         {
             "id": "tfs-square-wave",
             "type": "plotly",
             "title": "TFS of a Standard Square Wave: Only Odd Sine Harmonics",
-            "description": "The 50% duty cycle square wave (real, odd) has only sine terms with odd k: b₁, b₃, b₅, ... The coefficients decay as 1/k — only odd harmonics survive because of the half-wave symmetry.",
+            "description": "An odd square wave has only sine terms with odd k: x(t) = (4/π)Σ sin(kω₀t)/k for k = 1, 3, 5, ...",
             "traces": [
                 {
                     "x": [
                         1,
+                        2,
                         3,
+                        4,
                         5,
+                        6,
                         7,
-                        9,
-                        11,
-                        13,
-                        15
+                        8,
+                        9
                     ],
-                    "y": [
-                        1.273,
-                        0.424,
-                        0.255,
-                        0.182,
-                        0.141,
-                        0.116,
-                        0.098,
-                        0.085
-                    ],
+                    "y_expr": "[4/Math.PI, 0, 4/(3*Math.PI), 0, 4/(5*Math.PI), 0, 4/(7*Math.PI), 0, 4/(9*Math.PI)]",
                     "type": "bar",
-                    "name": "bₖ = 4/(kπ) (odd k only)",
+                    "name": "b_k (sine coefficients)",
                     "marker": {
-                        "color": "#ff6b8a"
+                        "color_expr": "[1,2,3,4,5,6,7,8,9].map(k => k % 2 === 1 ? '#ff6b8a' : '#aab4c0')"
                     }
                 }
             ],
             "layout": {
                 "xaxis": {
                     "title": "Harmonic k",
-                    "dtick": 2
+                    "dtick": 1
                 },
                 "yaxis": {
-                    "title": "bₖ"
+                    "title": "b_k"
                 },
-                "showlegend": false
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 2,
+                        "y": 0.05,
+                        "text": "Even k = 0!",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#aab4c0"
+                        }
+                    }
+                ]
             }
         },
         {
             "id": "tfs-reconstruction-sim",
-            "type": "d3-simulation",
-            "simulationType": "harmonic-builder",
+            "type": "v3-waveform",
             "title": "Interactive: Build a Signal with Cosines and Sines",
-            "description": "Add cosine and sine harmonics individually to see how they combine. Notice: adding only cosines produces an even signal; adding only sines produces an odd signal."
+            "description": "Adjust individual a_k and b_k coefficients. Watch the signal update in real time as you add cosine and sine harmonics."
         },
         {
             "id": "orthogonality-explorer-sim",
-            "type": "d3-simulation",
-            "simulationType": "fourier-coefficients",
+            "type": "v3-waveform",
             "title": "Interactive: Test Orthogonality by Choosing m and n",
-            "description": "Select two values m and n, and watch the product cos(mω₀t)·cos(nω₀t) integrate to zero when m ≠ n but to T₀/2 when m = n. This is the inner product in action."
+            "description": "Choose m and n, see the product cos(mω₀t)·cos(nω₀t), and verify the integral is zero when m ≠ n."
         },
         {
             "id": "efs-vs-tfs-waveform",
-            "type": "d3-waveform",
+            "type": "plotly",
             "title": "Same Signal, Two Representations",
-            "description": "A periodic signal shown once with its EFS decomposition (complex exponentials in the background) and once with its TFS decomposition (cosines and sines). Both reconstruct the same waveform exactly.",
-            "waveType": "composite",
-            "mode": "continuous"
+            "description": "The same periodic signal represented by exponential FS (complex coefficients) and trigonometric FS (real cosines/sines). Both reconstruct identically.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = i * 2 * Math.PI / 400; return 0.5 + Math.cos(t) + 0.3*Math.cos(2*t) - 0.5*Math.sin(t) + 0.2*Math.sin(3*t); })",
+                    "mode": "lines",
+                    "name": "x(t) — both FS forms give this",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 3,
+                        "y": 2,
+                        "text": "EFS and TFS are equivalent representations",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            }
         }
     ]
 }

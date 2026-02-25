@@ -2,62 +2,83 @@
     "visuals": [
         {
             "id": "parseval-concept-diagram",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Parseval's Theorem: Time Domain Power = Frequency Domain Power",
-            "description": "The average power of a periodic signal can be computed either as the time integral of |x(t)|² or as the sum of |X_k|². Both give the same answer — energy is conserved between domains.",
-            "blocks": [
+            "description": "The average power of a periodic signal can be computed either by integrating |x(t)|² over one period, or by summing |X_k|² over all harmonics. Both give the same answer.",
+            "traces": [
                 {
-                    "id": "time",
-                    "label": "Time Domain\nP = (1/T₀)∫|x(t)|² dt",
-                    "x": 60,
-                    "y": 60,
-                    "width": 250,
-                    "height": 55,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "freq",
-                    "label": "Frequency Domain\nP = Σ|X_k|²",
-                    "x": 380,
-                    "y": 60,
-                    "width": 220,
-                    "height": 55,
-                    "fill": "#ff6b8a"
-                },
-                {
-                    "id": "equal",
-                    "label": "P_time = P_freq\nEnergy is\nconserved!",
-                    "x": 220,
-                    "y": 155,
-                    "width": 220,
-                    "height": 55,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Time Domain\n(1/T₀)∫|x(t)|² dt",
+                        "=",
+                        "Frequency Domain\nΣ |X_k|²"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#f5a623",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Average power\nfrom waveform",
+                        "Parseval's\nTheorem",
+                        "Sum of spectral\ncomponent powers"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 11,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "time",
-                    "to": "equal"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "freq",
-                    "to": "equal"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": "=",
+                        "y": 1.15,
+                        "text": "P_avg = (1/T₀)∫|x(t)|²dt = Σ|X_k|²",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            },
+            "height": 300
         },
         {
             "id": "power-spectrum-bars",
             "type": "plotly",
             "title": "Power Spectrum |X_k|² of a Square Pulse Train",
-            "description": "Each bar shows the power carried by the k-th harmonic. The sum of all bars equals the average power computed in the time domain. Most power is in the low harmonics (main lobe).",
+            "description": "The power in each harmonic is |X_k|². Most power is concentrated in the low harmonics. Higher harmonics contribute diminishing amounts.",
             "traces": [
                 {
                     "x_expr": "Array.from({length: 21}, (_, i) => i - 10)",
-                    "y_expr": "Array.from({length: 21}, (_, i) => { const k = i - 10; if(k === 0) return 0.0625; const v = Math.sin(k * Math.PI / 4) / (k * Math.PI); return v * v; })",
+                    "y_expr": "Array.from({length: 21}, (_, i) => { const k = i - 10; if(k === 0) return 0.25; const v = Math.sin(k * Math.PI * 0.25) / (k * Math.PI); return v * v; })",
                     "type": "bar",
                     "name": "|X_k|²",
                     "marker": {
-                        "color": "#6b62ff"
+                        "color": "#4f8cff"
                     }
                 }
             ],
@@ -76,19 +97,36 @@
             "id": "cumulative-power",
             "type": "plotly",
             "title": "Cumulative Power: How Many Harmonics Capture Most Energy?",
-            "description": "Running sum of |X_k|² as harmonics are added. For the square pulse (25% duty cycle), the first 8 harmonics capture ~95% of the total power. This defines the effective bandwidth.",
+            "description": "As you include more harmonics, the cumulative power approaches the total. For a square wave, ~95% of power is captured within the first 5 harmonics.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 16}, (_, i) => i)",
-                    "y_expr": "(() => { const vals = []; let sum = 0.0625; vals.push(sum); for(let k=1; k<=15; k++) { const v = Math.sin(k*Math.PI/4)/(k*Math.PI); sum += 2*v*v; vals.push(sum); } const total = sum; return vals.map(v => v/total * 100); })()",
+                    "x_expr": "Array.from({length: 20}, (_, i) => i + 1)",
+                    "y_expr": "Array.from({length: 20}, (_, i) => { let s = 0.0625; for(let k=1; k<=i+1; k++) { const v = Math.sin(k * Math.PI * 0.25) / (k * Math.PI); s += 2 * v * v; } return s / 0.25 * 100; })",
                     "mode": "lines+markers",
-                    "name": "% of total power",
+                    "name": "Cumulative power (%)",
                     "line": {
-                        "color": "#4f8cff",
+                        "color": "#2fbf8f",
                         "width": 2.5
                     },
                     "marker": {
                         "size": 6
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        20
+                    ],
+                    "y": [
+                        95,
+                        95
+                    ],
+                    "mode": "lines",
+                    "name": "95% threshold",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1.5,
+                        "dash": "dash"
                     }
                 }
             ],
@@ -103,38 +141,38 @@
                         105
                     ]
                 },
-                "showlegend": false
+                "showlegend": true
             }
         },
         {
             "id": "power-waveform-area",
             "type": "plotly",
             "title": "Time Domain: |x(t)|² and Its Average",
-            "description": "The squared signal |x(t)|². For the square pulse, |x(t)|² = x(t) (since the pulse is 0 or 1). The average value (shaded) equals the duty cycle, which matches Σ|X_k|².",
+            "description": "The average of |x(t)|² over one period gives the average power. For a square wave with amplitude A, P_avg = A²·(d/T₀) where d is the pulse width.",
             "traces": [
                 {
-                    "x_expr": "(() => { const pts = []; for(let m=-1; m<=1; m++) { const c = m*4; pts.push(c-0.5-0.01, c-0.5, c-0.5, c+0.5, c+0.5, c+0.5+0.01); } return pts; })()",
-                    "y_expr": "(() => { const pts = []; for(let m=-1; m<=1; m++) { pts.push(0, 0, 1, 1, 0, 0); } return pts; })()",
+                    "x_expr": "Array.from({length: 400}, (_, i) => i / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = i / 400; return (t < 0.25 || t > 0.75) ? 1 : 0; })",
                     "mode": "lines",
-                    "name": "|x(t)|²",
+                    "name": "|x(t)|² (square pulse)",
                     "line": {
                         "color": "#4f8cff",
-                        "width": 2.5
+                        "width": 2
                     },
                     "fill": "tozeroy",
                     "fillcolor": "rgba(79,140,255,0.2)"
                 },
                 {
                     "x": [
-                        -6,
-                        6
+                        0,
+                        1
                     ],
                     "y": [
-                        0.25,
-                        0.25
+                        0.5,
+                        0.5
                     ],
                     "mode": "lines",
-                    "name": "Average power = 0.25",
+                    "name": "Average = P_avg = 0.5",
                     "line": {
                         "color": "#ff6b8a",
                         "width": 2,
@@ -144,16 +182,12 @@
             ],
             "layout": {
                 "xaxis": {
-                    "title": "t (seconds)",
-                    "range": [
-                        -5,
-                        5
-                    ]
+                    "title": "t / T₀"
                 },
                 "yaxis": {
                     "title": "|x(t)|²",
                     "range": [
-                        0,
+                        -0.1,
                         1.3
                     ]
                 },
@@ -162,143 +196,200 @@
         },
         {
             "id": "parseval-verification-sim",
-            "type": "d3-simulation",
-            "simulationType": "fourier-coefficients",
+            "type": "v3-waveform",
             "title": "Interactive: Verify Parseval's Theorem",
-            "description": "Choose a signal and watch both the time-domain power integral and the frequency-domain sum |X_k|² update. They always match, confirming Parseval's theorem."
+            "description": "Compute power in both domains and verify they match. Add harmonics one by one and watch the frequency-domain sum approach the time-domain integral."
         },
         {
             "id": "bandwidth-power-tradeoff",
             "type": "plotly",
             "title": "Bandwidth Estimation: 95% Power Bandwidth",
-            "description": "The 95% power bandwidth is the number of harmonics needed to capture 95% of the total power. Narrow pulses need more harmonics (wider bandwidth) to capture the same fraction of power.",
+            "description": "The 95% power bandwidth is the range of harmonics that capture 95% of the signal's power. Smoother signals have narrower bandwidth.",
             "traces": [
                 {
                     "x": [
-                        "10%",
-                        "25%",
-                        "50%",
-                        "75%"
+                        "Square wave",
+                        "Triangle wave",
+                        "Sinusoid"
                     ],
                     "y": [
-                        16,
-                        8,
-                        4,
-                        2
+                        7,
+                        3,
+                        1
                     ],
                     "type": "bar",
                     "name": "Harmonics for 95% power",
                     "marker": {
-                        "color": "#6b62ff"
+                        "color": [
+                            "#ff6b8a",
+                            "#6b62ff",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "7 harmonics\n(slow 1/k decay)",
+                        "3 harmonics\n(fast 1/k² decay)",
+                        "1 harmonic\n(pure tone)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 11,
+                        "color": "#ffffff"
                     }
                 }
             ],
             "layout": {
                 "xaxis": {
-                    "title": "Duty Cycle"
+                    "title": "Signal Type"
                 },
                 "yaxis": {
-                    "title": "Number of harmonics (approx)"
+                    "title": "Harmonics needed for 95% power"
                 },
                 "showlegend": false
-            }
+            },
+            "height": 300
         },
         {
             "id": "rms-from-spectrum",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "RMS Value from Fourier Coefficients",
-            "description": "The RMS value of a signal equals the square root of the sum of |X_k|². This is often the fastest way to compute RMS for signals whose FS is known.",
-            "blocks": [
+            "description": "x_rms = √(P_avg) = √(Σ|X_k|²). You can compute RMS directly from the spectrum without ever going to the time domain.",
+            "traces": [
                 {
-                    "id": "coeffs",
-                    "label": "FS Coefficients\nX₀, X₁, X₂, ...",
-                    "x": 80,
-                    "y": 60,
-                    "width": 200,
-                    "height": 50,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "sum",
-                    "label": "Power = |X₀|² + 2Σ|Xₖ|²\n(for real signals)",
-                    "x": 340,
-                    "y": 60,
-                    "width": 230,
-                    "height": 50,
-                    "fill": "#6b62ff"
-                },
-                {
-                    "id": "rms",
-                    "label": "RMS = √Power",
-                    "x": 210,
-                    "y": 150,
-                    "width": 200,
-                    "height": 45,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Parseval:\nP_avg = Σ|X_k|²",
+                        "→ RMS →",
+                        "x_rms = √(P_avg)\n= √(Σ|X_k|²)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#f5a623",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Sum spectral\npower",
+                        "Take square\nroot",
+                        "RMS from\nfrequency domain!"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 11,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "coeffs",
-                    "to": "sum"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "sum",
-                    "to": "rms"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 260
         },
         {
             "id": "harmonic-power-pie",
             "type": "plotly",
             "title": "Power Distribution: DC vs 1st vs Higher Harmonics",
-            "description": "For the 25% duty cycle square pulse, the DC component carries the largest share of power, the fundamental carries the next largest, and higher harmonics carry progressively less.",
+            "description": "For a typical signal, the DC term and fundamental harmonic carry most of the power. Higher harmonics contribute diminishing fractions.",
             "traces": [
                 {
                     "labels": [
-                        "DC (k=0)",
-                        "k=±1",
-                        "k=±2",
-                        "k=±3",
-                        "k=±4+"
+                        "DC (|X₀|²)",
+                        "1st harmonic (|X₁|²)",
+                        "3rd harmonic",
+                        "5th harmonic",
+                        "Higher"
                     ],
                     "values": [
-                        25.0,
-                        40.5,
-                        20.3,
-                        4.5,
-                        9.7
+                        25,
+                        40,
+                        20,
+                        10,
+                        5
                     ],
                     "type": "pie",
                     "marker": {
                         "colors": [
+                            "#f5a623",
                             "#4f8cff",
                             "#6b62ff",
-                            "#ff6b8a",
-                            "#f5a623",
-                            "#2fbf8f"
+                            "#2fbf8f",
+                            "#aab4c0"
                         ]
+                    },
+                    "textinfo": "label+percent",
+                    "textfont": {
+                        "size": 12,
+                        "color": "#ffffff"
+                    },
+                    "hole": 0.3
+                }
+            ],
+            "layout": {
+                "showlegend": false
+            },
+            "height": 350
+        },
+        {
+            "id": "signal-power-comparison",
+            "type": "v3-waveform",
+            "title": "Interactive: Compare RMS of Different Waveforms",
+            "description": "Switch between square, triangle, and sawtooth waveforms. Compare their RMS values computed from both time and frequency domains."
+        },
+        {
+            "id": "power-in-band",
+            "type": "plotly",
+            "title": "Waveform View: Signal Reconstructed with Limited Bandwidth",
+            "description": "A signal reconstructed with only the first few harmonics vs the full signal. The limited-bandwidth version captures most of the energy but loses sharp features.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=21; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "mode": "lines",
+                    "name": "Full signal (many harmonics)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=3; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "mode": "lines",
+                    "name": "Limited bandwidth (k ≤ 3)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5,
+                        "dash": "dash"
                     }
                 }
             ],
             "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
                 "showlegend": true
             }
-        },
-        {
-            "id": "signal-power-comparison",
-            "type": "d3-simulation",
-            "simulationType": "signal-generator",
-            "title": "Interactive: Compare RMS of Different Waveforms",
-            "description": "Switch between square, triangular, and sawtooth waveforms with the same peak amplitude. Observe how the RMS values differ because the power distributions across harmonics are different."
-        },
-        {
-            "id": "power-in-band",
-            "type": "d3-waveform",
-            "title": "Waveform View: Signal Reconstructed with Limited Bandwidth",
-            "description": "Shows the original signal and a band-limited version using only the first N harmonics. The error between them represents the power outside the band — quantified by Parseval's theorem.",
-            "waveType": "rect",
-            "mode": "continuous"
         }
     ]
 }

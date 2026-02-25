@@ -2,111 +2,156 @@
     "visuals": [
         {
             "id": "lti-eigenfunction-diagram",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Complex Exponentials Are Eigenfunctions of LTI Systems",
-            "description": "When e^{jkω₀t} passes through an LTI system with transfer function H(jω), the output is H(jkω₀)·e^{jkω₀t}. The shape (complex exponential) is preserved; only the amplitude and phase change.",
-            "blocks": [
+            "description": "When e^{jkω₀t} passes through an LTI system, the output is H(jkω₀)·e^{jkω₀t}. The shape is unchanged — only scaled and phase-shifted by the transfer function.",
+            "traces": [
                 {
-                    "id": "input",
-                    "label": "Input\ne^{jkω₀t}",
-                    "x": 60,
-                    "y": 60,
-                    "width": 160,
-                    "height": 50,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "system",
-                    "label": "LTI System\nH(jω)",
-                    "x": 270,
-                    "y": 60,
-                    "width": 160,
-                    "height": 50,
-                    "fill": "#6b62ff"
-                },
-                {
-                    "id": "output",
-                    "label": "Output\nH(jkω₀)·e^{jkω₀t}",
-                    "x": 480,
-                    "y": 60,
-                    "width": 200,
-                    "height": 50,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Input:\ne^{jkω₀t}",
+                        "→ LTI System\nH(jω) →",
+                        "Output:\nH(jkω₀) · e^{jkω₀t}"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#f5a623",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Complex\nexponential",
+                        "Transfer\nfunction",
+                        "Same exponential\nscaled by H(jkω₀)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "input",
-                    "to": "system"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "system",
-                    "to": "output"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": "→ LTI System\nH(jω) →",
+                        "y": 1.15,
+                        "text": "Eigenfunction: shape preserved!",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            },
+            "height": 300
         },
         {
             "id": "periodic-through-lti",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Periodic Signal Through an LTI System",
-            "description": "Because x(t) = ΣX_k e^{jkω₀t} and each exponential is an eigenfunction, the output is y(t) = ΣX_k·H(jkω₀)·e^{jkω₀t}. Each harmonic is independently scaled and phase-shifted by H(jkω₀).",
-            "blocks": [
+            "description": "Each harmonic X_k·e^{jkω₀t} is independently scaled by H(jkω₀). Output coefficients: Y_k = X_k · H(jkω₀). The system processes each frequency independently.",
+            "traces": [
                 {
-                    "id": "x",
-                    "label": "x(t) = Σ X_k e^{jkω₀t}\nPeriodic input",
-                    "x": 40,
-                    "y": 60,
-                    "width": 240,
-                    "height": 55,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "h",
-                    "label": "H(jω)\nLTI System",
-                    "x": 330,
-                    "y": 60,
-                    "width": 160,
-                    "height": 55,
-                    "fill": "#6b62ff"
-                },
-                {
-                    "id": "y",
-                    "label": "y(t) = Σ X_k H(jkω₀) e^{jkω₀t}\nY_k = X_k · H(jkω₀)",
-                    "x": 540,
-                    "y": 60,
-                    "width": 250,
-                    "height": 55,
-                    "fill": "#2fbf8f"
+                    "x": [
+                        "Input x(t)\n= Σ X_k e^{jkω₀t}",
+                        "→ H(jω) →\neach k independently",
+                        "Output y(t)\n= Σ Y_k e^{jkω₀t}"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#f5a623",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Sum of\nharmonics",
+                        "Y_k = X_k · H(jkω₀)\nper harmonic",
+                        "Modified\nharmonics"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "x",
-                    "to": "h"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "h",
-                    "to": "y"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "lowpass-magnitude",
             "type": "plotly",
             "title": "Lowpass Filter Magnitude Response |H(jω)|",
-            "description": "An ideal lowpass filter passes frequencies below the cutoff ω_c and blocks those above. When applied to a periodic signal, it keeps the low harmonics and removes the high ones.",
+            "description": "A lowpass filter passes low frequencies (|H| ≈ 1) and attenuates high frequencies (|H| → 0). The cutoff frequency ω_c determines the transition.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => -10 + i * 20 / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => { const w = -10 + i * 20 / 200; return Math.abs(w) < 5 ? 1 : 0; })",
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 0.1)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => 1 / Math.sqrt(1 + Math.pow(i * 0.1 / 5, 2)))",
                     "mode": "lines",
-                    "name": "|H(jω)|",
+                    "name": "|H(jω)| (1st order)",
                     "line": {
                         "color": "#4f8cff",
                         "width": 2.5
-                    },
-                    "fill": "tozeroy",
-                    "fillcolor": "rgba(79,140,255,0.15)"
+                    }
+                },
+                {
+                    "x": [
+                        5,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0.707
+                    ],
+                    "mode": "lines",
+                    "name": "ω_c (cutoff, −3dB)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1.5,
+                        "dash": "dash"
+                    }
                 }
             ],
             "layout": {
@@ -117,34 +162,33 @@
                     "title": "|H(jω)|",
                     "range": [
                         0,
-                        1.3
+                        1.1
                     ]
                 },
-                "showlegend": false
+                "showlegend": true
             }
         },
         {
             "id": "square-through-lowpass",
             "type": "plotly",
             "title": "Square Wave Through a Lowpass Filter",
-            "description": "A square wave (blue) passes through a lowpass filter that removes harmonics above k = 5. The output (green) is smooth and rounded — the sharp edges are gone because the high-frequency content was removed.",
+            "description": "The lowpass filter removes high harmonics, rounding the sharp edges. The output looks like a smoothed version of the input.",
             "traces": [
                 {
                     "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
-                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=21; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=15; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
                     "mode": "lines",
                     "name": "Input: square wave",
                     "line": {
                         "color": "#4f8cff",
-                        "width": 1.5,
-                        "dash": "dot"
+                        "width": 1.5
                     }
                 },
                 {
                     "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
-                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=5; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=15; k+=2) { const H = 1/Math.sqrt(1+k*k*0.04); s += H*(4/(k*Math.PI))*Math.sin(k*t); } return s; })",
                     "mode": "lines",
-                    "name": "Output: lowpass filtered",
+                    "name": "Output: filtered (smoothed)",
                     "line": {
                         "color": "#2fbf8f",
                         "width": 2.5
@@ -156,7 +200,7 @@
                     "title": "t"
                 },
                 "yaxis": {
-                    "title": "Amplitude"
+                    "title": "x(t)"
                 },
                 "showlegend": true
             }
@@ -165,24 +209,23 @@
             "id": "highpass-effect",
             "type": "plotly",
             "title": "Square Wave Through a Highpass Filter",
-            "description": "A highpass filter removes the low harmonics and keeps the high ones. The output shows the edges of the square wave (sharp transitions) but no flat tops — the DC and low-frequency content is stripped away.",
+            "description": "A highpass filter removes the DC and low harmonics, keeping only the sharp transitions. The output shows spikes at the edges.",
             "traces": [
                 {
                     "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
-                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=21; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=15; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
                     "mode": "lines",
                     "name": "Input: square wave",
                     "line": {
                         "color": "#4f8cff",
-                        "width": 1.5,
-                        "dash": "dot"
+                        "width": 1.5
                     }
                 },
                 {
                     "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
-                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=5; k<=21; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=15; k+=2) { const H = k*0.2/Math.sqrt(1+k*k*0.04); s += H*(4/(k*Math.PI))*Math.sin(k*t); } return s; })",
                     "mode": "lines",
-                    "name": "Output: highpass filtered",
+                    "name": "Output: highpass (edges only)",
                     "line": {
                         "color": "#ff6b8a",
                         "width": 2.5
@@ -194,7 +237,7 @@
                     "title": "t"
                 },
                 "yaxis": {
-                    "title": "Amplitude"
+                    "title": "x(t)"
                 },
                 "showlegend": true
             }
@@ -203,7 +246,7 @@
             "id": "coeff-modification",
             "type": "plotly",
             "title": "Input vs Output Spectra: Y_k = X_k · H(jkω₀)",
-            "description": "The input spectrum X_k (blue) is multiplied harmonic-by-harmonic by the filter's frequency response. The output spectrum Y_k (green) shows which harmonics survived the filter.",
+            "description": "The output spectrum is the input spectrum multiplied by the filter's frequency response at each harmonic frequency.",
             "traces": [
                 {
                     "x": [
@@ -211,21 +254,11 @@
                         3,
                         5,
                         7,
-                        9,
-                        11,
-                        13
+                        9
                     ],
-                    "y": [
-                        1.273,
-                        0.424,
-                        0.255,
-                        0.182,
-                        0.141,
-                        0.116,
-                        0.098
-                    ],
+                    "y_expr": "[4/Math.PI, 4/(3*Math.PI), 4/(5*Math.PI), 4/(7*Math.PI), 4/(9*Math.PI)]",
                     "type": "bar",
-                    "name": "|X_k| (input)",
+                    "name": "Input |X_k|",
                     "marker": {
                         "color": "#4f8cff",
                         "opacity": 0.6
@@ -237,21 +270,11 @@
                         3,
                         5,
                         7,
-                        9,
-                        11,
-                        13
+                        9
                     ],
-                    "y": [
-                        1.273,
-                        0.424,
-                        0.255,
-                        0,
-                        0,
-                        0,
-                        0
-                    ],
+                    "y_expr": "[4/Math.PI*0.98, 4/(3*Math.PI)*0.86, 4/(5*Math.PI)*0.71, 4/(7*Math.PI)*0.58, 4/(9*Math.PI)*0.49]",
                     "type": "bar",
-                    "name": "|Y_k| (after lowpass)",
+                    "name": "Output |Y_k| = |X_k|·|H(jkω₀)|",
                     "marker": {
                         "color": "#2fbf8f",
                         "opacity": 0.8
@@ -274,51 +297,114 @@
             "id": "rc-lowpass-response",
             "type": "plotly",
             "title": "RC Lowpass Filter: Magnitude and Phase",
-            "description": "A simple RC circuit acts as a lowpass filter with H(jω) = 1/(1 + jωRC). The magnitude rolls off smoothly and the phase shifts from 0° to −90°. Real filters don't have sharp cutoffs like ideal ones.",
+            "description": "H(jω) = 1/(1 + jωRC). Magnitude: 1/√(1 + (ωRC)²). Phase: −arctan(ωRC). Cutoff at ω_c = 1/RC.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => Math.pow(10, -1 + i * 3 / 200))",
-                    "y_expr": "Array.from({length: 200}, (_, i) => { const w = Math.pow(10, -1 + i * 3 / 200); return 1 / Math.sqrt(1 + w*w); })",
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 0.1)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => 1 / Math.sqrt(1 + Math.pow(i * 0.1 / 5, 2)))",
                     "mode": "lines",
-                    "name": "|H(jω)| (RC = 1)",
+                    "name": "|H(jω)| (magnitude)",
                     "line": {
                         "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 200}, (_, i) => i * 0.1)",
+                    "y_expr": "Array.from({length: 200}, (_, i) => -Math.atan(i * 0.1 / 5) * 180 / Math.PI)",
+                    "mode": "lines",
+                    "name": "∠H(jω) (degrees)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|H(jω)|",
+                    "range": [
+                        0,
+                        1.1
+                    ]
+                },
+                "yaxis2": {
+                    "title": "Phase (°)",
+                    "overlaying": "y",
+                    "side": "right",
+                    "range": [
+                        -100,
+                        10
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "lti-filter-sim",
+            "type": "v3-waveform",
+            "title": "Interactive: Pass a Signal Through a Filter",
+            "description": "Choose a periodic signal and a filter type (lowpass/highpass). Watch the spectrum and time-domain output change as you adjust the cutoff frequency."
+        },
+        {
+            "id": "eigenfunction-waveform",
+            "type": "plotly",
+            "title": "Eigenfunction Property: Input and Output Shape Match",
+            "description": "Input: e^{j2ω₀t} (a complex exponential). Output: H(j2ω₀)·e^{j2ω₀t}. Same frequency, just scaled and phase-shifted.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => Math.cos(2 * i * 2 * Math.PI / 300))",
+                    "mode": "lines",
+                    "name": "Input: cos(2ω₀t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => i * 2 * Math.PI / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => 0.7 * Math.cos(2 * i * 2 * Math.PI / 300 - 0.5))",
+                    "mode": "lines",
+                    "name": "Output: |H|·cos(2ω₀t + ∠H)",
+                    "line": {
+                        "color": "#2fbf8f",
                         "width": 2.5
                     }
                 }
             ],
             "layout": {
                 "xaxis": {
-                    "title": "ω (rad/s)",
-                    "type": "log"
+                    "title": "t"
                 },
                 "yaxis": {
-                    "title": "|H(jω)|"
+                    "title": "Amplitude"
                 },
-                "showlegend": false
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 3,
+                        "y": 1.1,
+                        "text": "Same frequency, different amplitude & phase",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
             }
         },
         {
-            "id": "lti-filter-sim",
-            "type": "d3-simulation",
-            "simulationType": "signal-generator",
-            "title": "Interactive: Pass a Signal Through a Filter",
-            "description": "Choose a periodic input signal and select a filter type (lowpass, highpass, bandpass). Watch the input and output waveforms side by side, and see how the spectrum is shaped by the filter."
-        },
-        {
-            "id": "eigenfunction-waveform",
-            "type": "d3-waveform",
-            "title": "Eigenfunction Property: Input and Output Shape Match",
-            "description": "A complex exponential passes through an LTI system and comes out as the same complex exponential, only scaled and phase-shifted. The waveform shape is preserved — this is the eigenfunction property.",
-            "waveType": "cosine",
-            "mode": "continuous"
-        },
-        {
             "id": "output-power-parseval",
-            "type": "d3-simulation",
-            "simulationType": "fourier-coefficients",
+            "type": "v3-waveform",
             "title": "Interactive: Output Power After Filtering",
-            "description": "Apply a filter to a periodic signal and compute the output power using Parseval's theorem. Compare input power Σ|X_k|² with output power Σ|X_k·H(jkω₀)|²."
+            "description": "Apply Parseval's theorem to compute output power: P_out = Σ|Y_k|² = Σ|X_k|²·|H(jkω₀)|². Compare input and output power."
         }
     ]
 }
