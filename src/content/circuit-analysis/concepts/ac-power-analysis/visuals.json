@@ -577,56 +577,93 @@
         },
         {
             "id": "power-conservation-diagram",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Conservation of AC Power",
             "description": "Both real power P and reactive power Q are individually conserved. The total complex power delivered by sources equals the total complex power absorbed by loads.",
-            "blocks": [
+            "traces": [
                 {
-                    "id": "src",
-                    "label": "Source: S_s = P_s + jQ_s",
-                    "x": 50,
-                    "y": 80,
-                    "width": 240
-                },
-                {
-                    "id": "r",
-                    "label": "R: absorbs P_R",
-                    "x": 380,
-                    "y": 40,
-                    "width": 180
-                },
-                {
-                    "id": "l",
-                    "label": "L: absorbs +Q_L",
-                    "x": 380,
-                    "y": 110,
-                    "width": 180
-                },
-                {
-                    "id": "c",
-                    "label": "C: absorbs -Q_C",
-                    "x": 380,
-                    "y": 180,
-                    "width": 180
+                    "x": [
+                        "Source: S_s = P_s + jQ_s",
+                        "R: absorbs P_R",
+                        "L: absorbs +Q_L",
+                        "C: absorbs -Q_C"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Source: S_s = P_s + jQ_s",
+                        "R: absorbs P_R",
+                        "L: absorbs +Q_L",
+                        "C: absorbs -Q_C"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "src",
-                    "to": "r",
-                    "label": "P"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "src",
-                    "to": "l",
-                    "label": "+Q"
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
                 },
-                {
-                    "from": "src",
-                    "to": "c",
-                    "label": "-Q"
-                }
-            ]
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 1.15,
+                        "text": "P",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    },
+                    {
+                        "x": 1,
+                        "y": 1.15,
+                        "text": "+Q",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    },
+                    {
+                        "x": 2,
+                        "y": 1.15,
+                        "text": "-Q",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            },
+            "height": 300
         },
         {
             "id": "falstad-power-rl",

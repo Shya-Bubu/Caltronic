@@ -2,51 +2,83 @@
     "visuals": [
         {
             "id": "kvl-kcl-phasor",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Kirchhoff's Laws in the Phasor Domain",
             "description": "KVL and KCL transfer directly to the phasor domain. The same loop and node equations apply — just with complex phasor quantities.",
-            "blocks": [
+            "traces": [
                 {
-                    "id": "kvl-dc",
-                    "label": "DC: Σv_k = 0",
-                    "x": 50,
-                    "y": 50,
-                    "width": 200
-                },
-                {
-                    "id": "kvl-ac",
-                    "label": "AC: ΣV_k = 0",
-                    "x": 350,
-                    "y": 50,
-                    "width": 200
-                },
-                {
-                    "id": "kcl-dc",
-                    "label": "DC: Σi_k = 0",
-                    "x": 50,
-                    "y": 130,
-                    "width": 200
-                },
-                {
-                    "id": "kcl-ac",
-                    "label": "AC: ΣI_k = 0",
-                    "x": 350,
-                    "y": 130,
-                    "width": 200
+                    "x": [
+                        "DC: Σv_k = 0",
+                        "AC: ΣV_k = 0",
+                        "DC: Σi_k = 0",
+                        "AC: ΣI_k = 0"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "DC: Σv_k = 0",
+                        "AC: ΣV_k = 0",
+                        "DC: Σi_k = 0",
+                        "AC: ΣI_k = 0"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "kvl-dc",
-                    "to": "kvl-ac",
-                    "label": "Same form"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "kcl-dc",
-                    "to": "kcl-ac",
-                    "label": "Same form"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 1.15,
+                        "text": "Same form",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    },
+                    {
+                        "x": 1,
+                        "y": 1.15,
+                        "text": "Same form",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            },
+            "height": 300
         },
         {
             "id": "series-impedance-diagram",
@@ -207,44 +239,79 @@
         },
         {
             "id": "y-delta-diagram",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Y-Δ Transformation with Impedances",
             "description": "The same formulas as DC but with complex impedances. Balanced case: Z_Y = Z_Δ/3.",
-            "blocks": [
+            "traces": [
                 {
-                    "id": "delta",
-                    "label": "Δ: Z_a, Z_b, Z_c",
-                    "x": 50,
-                    "y": 80,
-                    "width": 200
-                },
-                {
-                    "id": "wye",
-                    "label": "Y: Z_1, Z_2, Z_3",
-                    "x": 380,
-                    "y": 80,
-                    "width": 200
-                },
-                {
-                    "id": "formula",
-                    "label": "Z₁ = Z_b·Z_c/(Z_a+Z_b+Z_c)",
-                    "x": 160,
-                    "y": 180,
-                    "width": 300
+                    "x": [
+                        "Δ: Z_a, Z_b, Z_c",
+                        "Y: Z_1, Z_2, Z_3",
+                        "Z₁ = Z_b·Z_c/(Z_a+Z_b+Z_c)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Δ: Z_a, Z_b, Z_c",
+                        "Y: Z_1, Z_2, Z_3",
+                        "Z₁ = Z_b·Z_c/(Z_a+Z_b+Z_c)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "delta",
-                    "to": "wye",
-                    "label": "Δ → Y"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "wye",
-                    "to": "delta",
-                    "label": "Y → Δ"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 1.15,
+                        "text": "Δ → Y",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    },
+                    {
+                        "x": 1,
+                        "y": 1.15,
+                        "text": "Y → Δ",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            },
+            "height": 300
         },
         {
             "id": "falstad-series-rlc",

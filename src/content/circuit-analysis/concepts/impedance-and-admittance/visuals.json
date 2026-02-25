@@ -2,51 +2,83 @@
     "visuals": [
         {
             "id": "ohms-law-ac-analogy",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "DC Ohm's Law → AC Ohm's Law",
             "description": "The fundamental analogy: in DC circuits, V = RI with real R. In AC circuits, V = ZI with complex Z. The analysis techniques are identical.",
-            "blocks": [
+            "traces": [
                 {
-                    "id": "dc",
-                    "label": "DC: V = RI",
-                    "x": 100,
-                    "y": 60,
-                    "width": 160
-                },
-                {
-                    "id": "ac",
-                    "label": "AC: V = ZI",
-                    "x": 380,
-                    "y": 60,
-                    "width": 160
-                },
-                {
-                    "id": "dc2",
-                    "label": "R is real (Ω)",
-                    "x": 100,
-                    "y": 150,
-                    "width": 160
-                },
-                {
-                    "id": "ac2",
-                    "label": "Z is complex (Ω)",
-                    "x": 380,
-                    "y": 150,
-                    "width": 160
+                    "x": [
+                        "DC: V = RI",
+                        "AC: V = ZI",
+                        "R is real (Ω)",
+                        "Z is complex (Ω)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "DC: V = RI",
+                        "AC: V = ZI",
+                        "R is real (Ω)",
+                        "Z is complex (Ω)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "dc",
-                    "to": "ac",
-                    "label": "Generalise"
+            "layout": {
+                "xaxis": {
+                    "title": ""
                 },
-                {
-                    "from": "dc2",
-                    "to": "ac2",
-                    "label": "R → Z"
-                }
-            ]
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 1.15,
+                        "text": "Generalise",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    },
+                    {
+                        "x": 1,
+                        "y": 1.15,
+                        "text": "R → Z",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            },
+            "height": 300
         },
         {
             "id": "resistor-phasor-diagram",
@@ -284,33 +316,58 @@
         },
         {
             "id": "impedance-summary-table",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "ELI the ICE Man: Phase Relationships at a Glance",
             "description": "Resistor: in phase. Inductor (L): E leads I. Capacitor (C): I leads E. Remember: ELI the ICE man!",
-            "blocks": [
+            "traces": [
                 {
-                    "id": "r",
-                    "label": "R: V in phase with I (φ = 0°)",
-                    "x": 50,
-                    "y": 50,
-                    "width": 280
-                },
-                {
-                    "id": "l",
-                    "label": "L: V leads I by 90° (ELI)",
-                    "x": 50,
-                    "y": 120,
-                    "width": 280
-                },
-                {
-                    "id": "c",
-                    "label": "C: I leads V by 90° (ICE)",
-                    "x": 50,
-                    "y": 190,
-                    "width": 280
+                    "x": [
+                        "R: V in phase with I (φ = 0°)",
+                        "L: V leads I by 90° (ELI)",
+                        "C: I leads V by 90° (ICE)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "R: V in phase with I (φ = 0°)",
+                        "L: V leads I by 90° (ELI)",
+                        "C: I leads V by 90° (ICE)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": []
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": []
+            },
+            "height": 300
         },
         {
             "id": "impedance-plane-plot",
@@ -434,60 +491,81 @@
         },
         {
             "id": "admittance-comparison",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Impedance vs Admittance Notation",
             "description": "Impedance Z = R + jX (Ohms). Admittance Y = G + jB (Siemens). Y = 1/Z. R ↔ G, X ↔ B, but ONLY for pure elements.",
-            "blocks": [
+            "traces": [
                 {
-                    "id": "z",
-                    "label": "Z = R + jX (Ω)",
-                    "x": 50,
-                    "y": 60,
-                    "width": 200
-                },
-                {
-                    "id": "y",
-                    "label": "Y = G + jB (S)",
-                    "x": 350,
-                    "y": 60,
-                    "width": 200
-                },
-                {
-                    "id": "zr",
-                    "label": "R = resistance",
-                    "x": 50,
-                    "y": 140,
-                    "width": 200
-                },
-                {
-                    "id": "yg",
-                    "label": "G = conductance",
-                    "x": 350,
-                    "y": 140,
-                    "width": 200
-                },
-                {
-                    "id": "zx",
-                    "label": "X = reactance",
-                    "x": 50,
-                    "y": 210,
-                    "width": 200
-                },
-                {
-                    "id": "yb",
-                    "label": "B = susceptance",
-                    "x": 350,
-                    "y": 210,
-                    "width": 200
+                    "x": [
+                        "Z = R + jX (Ω)",
+                        "Y = G + jB (S)",
+                        "R = resistance",
+                        "G = conductance",
+                        "X = reactance",
+                        "B = susceptance"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff",
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Z = R + jX (Ω)",
+                        "Y = G + jB (S)",
+                        "R = resistance",
+                        "G = conductance",
+                        "X = reactance",
+                        "B = susceptance"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
-            "connections": [
-                {
-                    "from": "z",
-                    "to": "y",
-                    "label": "Y = 1/Z"
-                }
-            ]
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 1.15,
+                        "text": "Y = 1/Z",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            },
+            "height": 300
         },
         {
             "id": "falstad-rc-phasor",

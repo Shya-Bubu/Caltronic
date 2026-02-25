@@ -2,142 +2,63 @@
     "visuals": [
         {
             "id": "conjugate-symmetry-diagram",
-            "type": "d3-block-diagram",
+            "type": "plotly",
             "title": "Conjugate Symmetry: X_{−k} = X_k* for Real Signals",
-            "description": "For any real-valued signal, negative-k coefficients are the complex conjugate of positive-k coefficients. This means the magnitude spectrum is even and the phase spectrum is odd.",
-            "blocks": [
-                {
-                    "id": "real",
-                    "label": "x(t) is real\nx(t) = x(t)*",
-                    "x": 220,
-                    "y": 30,
-                    "width": 200,
-                    "height": 55,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "mag",
-                    "label": "|X_{−k}| = |X_k|\nMagnitude: EVEN",
-                    "x": 80,
-                    "y": 130,
-                    "width": 200,
-                    "height": 55,
-                    "fill": "#2fbf8f"
-                },
-                {
-                    "id": "phase",
-                    "label": "∠X_{−k} = −∠X_k\nPhase: ODD",
-                    "x": 360,
-                    "y": 130,
-                    "width": 200,
-                    "height": 55,
-                    "fill": "#ff6b8a"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "real",
-                    "to": "mag",
-                    "label": "X_{−k} = X_k*"
-                },
-                {
-                    "from": "real",
-                    "to": "phase",
-                    "label": "X_{−k} = X_k*"
-                }
-            ]
-        },
-        {
-            "id": "even-signal-waveform",
-            "type": "d3-waveform",
-            "title": "An Even Signal: x(t) = x(−t)",
-            "description": "An even signal is symmetric about t = 0. It looks the same whether you play it forwards or backwards. The cosine is the prototypical even function.",
-            "waveType": "cosine",
-            "mode": "continuous"
-        },
-        {
-            "id": "odd-signal-waveform",
-            "type": "d3-waveform",
-            "title": "An Odd Signal: x(t) = −x(−t)",
-            "description": "An odd signal is anti-symmetric about t = 0. Flipping it left-to-right also flips it upside-down. The sine is the prototypical odd function.",
-            "waveType": "sine",
-            "mode": "continuous"
-        },
-        {
-            "id": "real-even-spectrum",
-            "type": "plotly",
-            "title": "Spectrum of a Real, Even Signal: All Real X_k",
-            "description": "The centred square pulse is real and even. Its coefficients are entirely real (no imaginary part) and symmetric about k = 0. No phase plot is needed — all phases are 0 or π.",
-            "traces": [
-                {
-                    "x_expr": "Array.from({length: 21}, (_, i) => i - 10)",
-                    "y_expr": "Array.from({length: 21}, (_, i) => { const k = i - 10; if(k === 0) return 0.25; return Math.sin(k * Math.PI / 4) / (k * Math.PI); })",
-                    "type": "bar",
-                    "name": "X_k (real, even signal)",
-                    "marker": {
-                        "color": "#4f8cff"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "Harmonic k",
-                    "dtick": 2
-                },
-                "yaxis": {
-                    "title": "X_k (real)"
-                },
-                "showlegend": false
-            }
-        },
-        {
-            "id": "real-odd-spectrum",
-            "type": "plotly",
-            "title": "Spectrum of a Real, Odd Signal: Purely Imaginary X_k",
-            "description": "A sine-based signal is real and odd. Its coefficients are purely imaginary and anti-symmetric: X_k = −X_{−k}. The DC component X₀ is always zero for odd signals.",
+            "description": "For real-valued x(t), the Fourier coefficients satisfy X_{−k} = X_k*. This means |X_{−k}| = |X_k| and ∠X_{−k} = −∠X_k.",
             "traces": [
                 {
                     "x": [
-                        -5,
-                        -3,
-                        -1,
-                        0,
-                        1,
-                        3,
-                        5
+                        "X_{−k} = X_k*",
+                        "|X_{−k}| = |X_k|",
+                        "∠X_{−k} = −∠X_k"
                     ],
                     "y": [
-                        0.127,
-                        0.212,
-                        0.637,
-                        0,
-                        -0.637,
-                        -0.212,
-                        -0.127
+                        1,
+                        1,
+                        1
                     ],
                     "type": "bar",
-                    "name": "jIm(X_k) (odd, imaginary)",
                     "marker": {
-                        "color": "#ff6b8a"
-                    }
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Complex\nconjugate",
+                        "Magnitude:\neven symmetry",
+                        "Phase:\nodd symmetry"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 11,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
             "layout": {
                 "xaxis": {
-                    "title": "Harmonic k",
-                    "dtick": 1
+                    "title": ""
                 },
                 "yaxis": {
-                    "title": "Im(X_k)"
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
                 },
                 "showlegend": false
-            }
+            },
+            "height": 280
         },
         {
             "id": "mag-phase-real-signal",
             "type": "plotly",
-            "title": "Magnitude & Phase for a General Real Signal",
-            "description": "A real (but neither even nor odd) signal. Magnitude spectrum is even (symmetric). Phase spectrum is odd (anti-symmetric). X_k is complex but satisfies X_{−k} = X_k*.",
+            "title": "Magnitude (Even) and Phase (Odd) for a Real Signal",
+            "description": "The magnitude spectrum is symmetric about k=0. The phase spectrum is anti-symmetric.",
             "traces": [
                 {
                     "x": [
@@ -156,13 +77,13 @@
                     "y": [
                         0.1,
                         0.15,
-                        0.25,
-                        0.4,
-                        0.8,
-                        1.5,
-                        0.8,
-                        0.4,
-                        0.25,
+                        0.3,
+                        0.5,
+                        1,
+                        2,
+                        1,
+                        0.5,
+                        0.3,
                         0.15,
                         0.1
                     ],
@@ -175,7 +96,7 @@
             ],
             "layout": {
                 "xaxis": {
-                    "title": "Harmonic k",
+                    "title": "k",
                     "dtick": 1
                 },
                 "yaxis": {
@@ -185,87 +106,298 @@
             }
         },
         {
-            "id": "symmetry-table-diagram",
-            "type": "d3-block-diagram",
-            "title": "Complete Symmetry Map",
-            "description": "Shows how signal symmetries constrain the FS coefficients. Real → conjugate symmetric. Real + Even → purely real. Real + Odd → purely imaginary, X₀ = 0.",
-            "blocks": [
-                {
-                    "id": "real_sig",
-                    "label": "Real Signal\nX_{−k} = X_k*",
-                    "x": 230,
-                    "y": 20,
-                    "width": 200,
-                    "height": 50,
-                    "fill": "#4f8cff"
-                },
-                {
-                    "id": "real_even",
-                    "label": "Real + Even\nX_k real, even",
-                    "x": 80,
-                    "y": 110,
-                    "width": 200,
-                    "height": 50,
-                    "fill": "#2fbf8f"
-                },
-                {
-                    "id": "real_odd",
-                    "label": "Real + Odd\nX_k imaginary, odd\nX₀ = 0",
-                    "x": 380,
-                    "y": 110,
-                    "width": 200,
-                    "height": 50,
-                    "fill": "#ff6b8a"
-                },
-                {
-                    "id": "general",
-                    "label": "General\nX_k = Re + jIm\nSplit into even + odd",
-                    "x": 230,
-                    "y": 200,
-                    "width": 200,
-                    "height": 50,
-                    "fill": "#f5a623"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "real_sig",
-                    "to": "real_even",
-                    "label": "x(t)=x(−t)"
-                },
-                {
-                    "from": "real_sig",
-                    "to": "real_odd",
-                    "label": "x(t)=−x(−t)"
-                },
-                {
-                    "from": "real_sig",
-                    "to": "general",
-                    "label": "neither"
-                }
-            ]
-        },
-        {
-            "id": "even-odd-decomposition",
+            "id": "even-signal-waveform",
             "type": "plotly",
-            "title": "Even–Odd Decomposition of a Real Signal",
-            "description": "Any real signal splits into an even part x_e(t) = [x(t)+x(−t)]/2 and an odd part x_o(t) = [x(t)−x(−t)]/2. The even part produces real FS coefficients; the odd part produces imaginary coefficients.",
+            "title": "Even Signal: x(t) = x(−t)",
+            "description": "An even signal is symmetric about t=0. Its Fourier coefficients are purely real — no imaginary part.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => -Math.PI + i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 200; return Math.cos(t) + 0.5*Math.sin(t) + 0.3*Math.cos(3*t); })",
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; return Math.cos(t) + 0.5*Math.cos(3*t); })",
                     "mode": "lines",
-                    "name": "x(t)",
+                    "name": "x(t) = cos(t) + 0.5cos(3t)",
                     "line": {
                         "color": "#4f8cff",
                         "width": 2.5
                     }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 1.6,
+                        "text": "Symmetric about t=0",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "real-even-spectrum",
+            "type": "plotly",
+            "title": "Even Signal Spectrum: X_k Is Purely Real",
+            "description": "For an even signal, X_k = X_k* = X_{−k}, so X_k is real. All phase angles are 0 or π.",
+            "traces": [
+                {
+                    "x": [
+                        -5,
+                        -3,
+                        -1,
+                        0,
+                        1,
+                        3,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0.5,
+                        1,
+                        0,
+                        1,
+                        0.5,
+                        0
+                    ],
+                    "type": "bar",
+                    "name": "X_k (real, even)",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "k",
+                    "dtick": 1
+                },
+                "yaxis": {
+                    "title": "X_k (real)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "odd-signal-waveform",
+            "type": "plotly",
+            "title": "Odd Signal: x(t) = −x(−t)",
+            "description": "An odd signal is anti-symmetric about t=0. Its Fourier coefficients are purely imaginary.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; return Math.sin(t) + 0.5*Math.sin(3*t); })",
+                    "mode": "lines",
+                    "name": "x(t) = sin(t) + 0.5sin(3t)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 1.6,
+                        "text": "Anti-symmetric about t=0",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#f5a623"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "real-odd-spectrum",
+            "type": "plotly",
+            "title": "Odd Signal Spectrum: X_k Is Purely Imaginary",
+            "description": "For an odd signal, X_k = −X_{−k} and X_k is purely imaginary. No cosine terms in the TFS.",
+            "traces": [
+                {
+                    "x": [
+                        -5,
+                        -3,
+                        -1,
+                        0,
+                        1,
+                        3,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        -0.5,
+                        -1,
+                        0,
+                        1,
+                        0.5,
+                        0
+                    ],
+                    "type": "bar",
+                    "name": "jIm{X_k} (odd, imaginary)",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "k",
+                    "dtick": 1
+                },
+                "yaxis": {
+                    "title": "Im{X_k}"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "half-integration-diagram",
+            "type": "plotly",
+            "title": "Half-Period Integration: Exploit Symmetry to Simplify",
+            "description": "For even/odd signals, you only need to integrate over half a period and double the result (with appropriate sign).",
+            "traces": [
+                {
+                    "x": [
+                        "Even signal",
+                        "Odd signal"
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "X_k = (2/T₀)∫₀^{T₀/2}\nx(t)cos(kω₀t)dt\n(integrate half, double)",
+                        "X_k = (−2j/T₀)∫₀^{T₀/2}\nx(t)sin(kω₀t)dt\n(integrate half, double)"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 9,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 300
+        },
+        {
+            "id": "symmetry-table-diagram",
+            "type": "plotly",
+            "title": "Symmetry Summary Table",
+            "description": "Real → conjugate symmetric. Real+Even → real+even coefficients. Real+Odd → purely imaginary+odd coefficients.",
+            "traces": [
+                {
+                    "x": [
+                        "Real x(t)",
+                        "Real + Even",
+                        "Real + Odd",
+                        "Imaginary x(t)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "X_{−k} = X_k*\nConjugate\nsymmetric",
+                        "X_k real\nand even\n(cosines only)",
+                        "X_k imaginary\nand odd\n(sines only)",
+                        "X_{−k} = −X_k*\nAnti-conjugate\nsymmetric"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 9,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Signal Type"
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 300
+        },
+        {
+            "id": "even-odd-decomposition",
+            "type": "plotly",
+            "title": "Any Signal = Even Part + Odd Part",
+            "description": "x_e(t) = [x(t)+x(−t)]/2 (even part), x_o(t) = [x(t)−x(−t)]/2 (odd part). Every signal decomposes uniquely.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; return Math.sin(t) + 0.5*Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "x(t) = sin(t) + 0.5cos(2t)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
                 },
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => -Math.PI + i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 200; return Math.cos(t) + 0.3*Math.cos(3*t); })",
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; return 0.5*Math.cos(2*t); })",
                     "mode": "lines",
-                    "name": "x_e(t) = even part",
+                    "name": "x_e(t) = 0.5cos(2t) (even)",
                     "line": {
                         "color": "#2fbf8f",
                         "width": 2,
@@ -273,10 +405,10 @@
                     }
                 },
                 {
-                    "x_expr": "Array.from({length: 200}, (_, i) => -Math.PI + i * 2 * Math.PI / 200)",
-                    "y_expr": "Array.from({length: 200}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 200; return 0.5*Math.sin(t); })",
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; return Math.sin(t); })",
                     "mode": "lines",
-                    "name": "x_o(t) = odd part",
+                    "name": "x_o(t) = sin(t) (odd)",
                     "line": {
                         "color": "#ff6b8a",
                         "width": 2,
@@ -296,37 +428,9 @@
         },
         {
             "id": "symmetry-explorer-sim",
-            "type": "d3-simulation",
-            "simulationType": "fourier-coefficients",
-            "title": "Interactive: See How Symmetry Constrains Coefficients",
-            "description": "Choose an even, odd, or general signal. Watch how symmetry forces X_k to be real, imaginary, or complex. Try toggling even/odd components and see the spectrum update."
-        },
-        {
-            "id": "half-integration-diagram",
-            "type": "d3-block-diagram",
-            "title": "Simplified Integration for Even and Odd Signals",
-            "description": "For even signals, the integral reduces to 2× the integral over half a period with a cosine kernel. For odd signals, you get 2× over half with a sine kernel. This halves the computation.",
-            "blocks": [
-                {
-                    "id": "even_int",
-                    "label": "Even x(t)\nX_k = (2/T₀)∫₀^{T₀/2} x(t)cos(kω₀t) dt\nAll real",
-                    "x": 60,
-                    "y": 60,
-                    "width": 280,
-                    "height": 60,
-                    "fill": "#2fbf8f"
-                },
-                {
-                    "id": "odd_int",
-                    "label": "Odd x(t)\nX_k = −j(2/T₀)∫₀^{T₀/2} x(t)sin(kω₀t) dt\nAll imaginary",
-                    "x": 380,
-                    "y": 60,
-                    "width": 280,
-                    "height": 60,
-                    "fill": "#ff6b8a"
-                }
-            ],
-            "connections": []
+            "type": "v3-waveform",
+            "title": "Interactive: Explore Symmetry Properties",
+            "description": "Toggle between even, odd, and general signals. Watch the coefficients change between real, imaginary, and complex."
         }
     ]
 }

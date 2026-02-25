@@ -1,355 +1,427 @@
 {
-  "conceptId": "tableau-analysis",
-  "visuals": [
-    {
-      "id": "vis-tableau-nodal-vs-tableau",
-      "type": "diagram",
-      "title": "Nodal Analysis Limitations vs Tableau Analysis",
-      "description": "Side-by-side comparison showing three circuit elements (ideal voltage source, ideal transformer, dependent source) that nodal analysis cannot handle directly, with arrows indicating how tableau analysis resolves each limitation by including branch voltages and currents as explicit unknowns.",
-      "layout": "two-column",
-      "elements": [
+    "conceptId": "tableau-analysis",
+    "visuals": [
         {
-          "label": "Nodal Analysis",
-          "items": [
-            "Unknowns: node voltages only (n−1)",
-            "❌ Voltage source: no i = f(v) relation",
-            "❌ Ideal transformer: coupled branches",
-            "❌ CCVS/CCCS: controlling variable is a branch current"
-          ]
+            "id": "vis-tableau-nodal-vs-tableau",
+            "type": "plotly",
+            "title": "Nodal Analysis Limitations vs Tableau Analysis",
+            "description": "Side-by-side comparison showing three circuit elements (ideal voltage source, ideal transformer, dependent source) that nodal analysis cannot handle directly, with arrows indicating how tableau analysis resolves each limitation by including branch voltages and currents as explicit unknowns.",
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "traces": [
+                {
+                    "x": [
+                        "Nodal Analysis Limitations vs Tableau Analysis"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Side-by-side comparison showing three circuit elements (ideal voltage source, id"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "height": 250
         },
         {
-          "label": "Tableau Analysis",
-          "items": [
-            "Unknowns: v_b, i_b, e (2b + n − 1)",
-            "✓ Voltage source: v_k = V_s as branch equation",
-            "✓ Transformer: two coupled branch equations",
-            "✓ All dependent sources: coefficients in M_v or M_i"
-          ]
+            "id": "vis-tableau-equation-structure",
+            "type": "plotly",
+            "title": "Tableau Equation Structure Overview",
+            "description": "Block diagram showing the three sets of equations stacked vertically: KCL (n−1 equations), KVL (b equations), and Branch constitutive equations (b equations), with the corresponding unknown vectors (v_b, i_b, e) indicated along the top. Total: 2b + n − 1 equations and unknowns.",
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "traces": [
+                {
+                    "x": [
+                        "Tableau Equation Structure Overview"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Block diagram showing the three sets of equations stacked vertically: KCL (n−1 e"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "height": 250
+        },
+        {
+            "id": "vis-tableau-branch-equations",
+            "type": "plotly",
+            "title": "Branch Constitutive Equations for Common Elements",
+            "description": "Visual reference card showing the branch equation, M_v entry, and M_i entry for each common circuit element: resistor, independent voltage source, independent current source, and all four dependent source types (VCVS, VCCS, CCVS, CCCS), plus the ideal transformer.",
+            "traces": [
+                {
+                    "x": [
+                        "Branch Constitutive Equations for Common Elements"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Visual reference card showing the branch equation, M_v entry, and M_i entry for "
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "vis-tableau-matrix-blocks",
+            "type": "plotly",
+            "title": "Tableau Matrix T — Block Structure",
+            "description": "A large annotated matrix showing the 3×3 block structure of T. The top-left is a zero block, top-middle is A, top-right is zero; middle row is I_b, zero, −Aᵀ; bottom row is M_v, M_i, zero. Colour-coded by equation type (blue=KCL, green=KVL, orange=branch). The unknown vector x = [v_b; i_b; e] and right-hand side u = [0; 0; u_s] are shown alongside.",
+            "traces": [
+                {
+                    "x": [
+                        "Tableau Matrix T — Block Structure"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A large annotated matrix showing the 3×3 block structure of T. The top-left is a"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "vis-tableau-4branch-circuit",
+            "type": "plotly",
+            "title": "4-Branch Example Circuit with Dependent Source",
+            "description": "Circuit schematic with 3 nodes (0 = datum, 1, 2) and 4 branches: branch 1 is a 10V voltage source from node 0 to 1, branch 2 is a 2Ω resistor from node 1 to 2, branch 3 is a 4Ω resistor from node 2 to 0, and branch 4 is a CCCS (β=2, controlled by i₃) from node 1 to 0. Branch current reference directions and node labels are clearly marked.",
+            "traces": [
+                {
+                    "x": [
+                        "4-Branch Example Circuit with Dependent Source"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Circuit schematic with 3 nodes (0 = datum, 1, 2) and 4 branches: branch 1 is a 1"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "vis-tableau-solved-example",
+            "type": "plotly",
+            "title": "Solved 4-Branch Circuit — All Branch Variables",
+            "description": "The same 4-branch circuit as above, now annotated with the computed solution values: all branch voltages (v₁=10, v₂=10/3, v₃=20/3, v₄=10), all branch currents (i₁=5, i₂=5/3, i₃=5/3, i₄=10/3), and node voltages (e₁=10, e₂=20/3). Values displayed next to each element for easy verification.",
+            "traces": [
+                {
+                    "x": [
+                        "Solved 4-Branch Circuit — All Branch Variables"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "The same 4-branch circuit as above, now annotated with the computed solution val"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "vis-tableau-comparison-table",
+            "type": "plotly",
+            "title": "Nodal vs Tableau Analysis — Feature Comparison",
+            "description": "Table comparing nodal analysis and tableau analysis across multiple dimensions: system size, variable types, ability to handle voltage sources, current sources, dependent sources, ideal transformers, and generality. Colour-coded green (supported) and red (not supported) indicators.",
+            "traces": [
+                {
+                    "x": [
+                        "Nodal vs Tableau Analysis — Feature Comparison"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Table comparing nodal analysis and tableau analysis across multiple dimensions: "
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "vis-tableau-nonlinear-iteration",
+            "type": "plotly",
+            "title": "Newton-Raphson Iteration for Nonlinear Tableau",
+            "description": "Flowchart showing the iterative solution process for nonlinear circuits: (1) Initial guess x⁰, (2) Evaluate F(x^k), (3) Check convergence ||F|| < ε, (4) If not converged compute Jacobian J(x^k), (5) Solve J·Δx = −F, (6) Update x^(k+1) = x^k + Δx, (7) Go to step 2. Annotated with notes that KCL/KVL rows of J are constant and only branch-equation rows change per iteration.",
+            "traces": [
+                {
+                    "x": [
+                        "Newton-Raphson Iteration for Nonlinear Tableau"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Flowchart showing the iterative solution process for nonlinear circuits: (1) Ini"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "vis-tableau-summary-flowchart",
+            "type": "plotly",
+            "title": "Tableau Analysis Workflow Summary",
+            "description": "End-to-end flowchart for applying tableau analysis: (1) Identify branches and nodes, (2) Construct incidence matrix A, (3) Write KCL: A·i_b = 0, (4) Write KVL: v_b − Aᵀ·e = 0, (5) Write branch equations for each element, (6) Assemble T·x = u, (7) Check det(T) ≠ 0, (8) Solve for x = [v_b; i_b; e].",
+            "traces": [
+                {
+                    "x": [
+                        "Tableau Analysis Workflow Summary"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "End-to-end flowchart for applying tableau analysis: (1) Identify branches and no"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "falstad-full-circuit",
+            "type": "falstad-sim",
+            "title": "Interactive: Full Tableau Example Circuit",
+            "description": "A voltage source and two resistors for demonstrating the tableau equations. Each element adds its constitutive equation.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 0 40 10 0 0 0.5\nr 160 96 352 96 0 1000\nr 352 96 352 288 0 2000\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
+            "height": 450
         }
-      ]
-    },
-    {
-      "id": "vis-tableau-equation-structure",
-      "type": "diagram",
-      "title": "Tableau Equation Structure Overview",
-      "description": "Block diagram showing the three sets of equations stacked vertically: KCL (n−1 equations), KVL (b equations), and Branch constitutive equations (b equations), with the corresponding unknown vectors (v_b, i_b, e) indicated along the top. Total: 2b + n − 1 equations and unknowns.",
-      "layout": "stacked-blocks",
-      "blocks": [
-        {
-          "label": "KCL: A · i_b = 0",
-          "rows": "n − 1",
-          "color": "blue"
-        },
-        {
-          "label": "KVL: v_b − Aᵀ · e = 0",
-          "rows": "b",
-          "color": "green"
-        },
-        {
-          "label": "Branch: M_v · v_b + M_i · i_b = u_s",
-          "rows": "b",
-          "color": "orange"
-        }
-      ],
-      "unknowns": [
-        "v_b (b)",
-        "i_b (b)",
-        "e (n−1)"
-      ]
-    },
-    {
-      "id": "vis-tableau-branch-equations",
-      "type": "table-diagram",
-      "title": "Branch Constitutive Equations for Common Elements",
-      "description": "Visual reference card showing the branch equation, M_v entry, and M_i entry for each common circuit element: resistor, independent voltage source, independent current source, and all four dependent source types (VCVS, VCCS, CCVS, CCCS), plus the ideal transformer.",
-      "elements": [
-        {
-          "type": "Resistor R_k",
-          "equation": "v_k − R_k·i_k = 0",
-          "Mv": "1",
-          "Mi": "−R_k"
-        },
-        {
-          "type": "Voltage Source V_s",
-          "equation": "v_k = V_s",
-          "Mv": "1",
-          "Mi": "0"
-        },
-        {
-          "type": "Current Source I_s",
-          "equation": "i_k = I_s",
-          "Mv": "0",
-          "Mi": "1"
-        },
-        {
-          "type": "VCVS (μ)",
-          "equation": "v_k − μ·v_j = 0",
-          "Mv": "1 (diag), −μ (col j)",
-          "Mi": "0"
-        },
-        {
-          "type": "VCCS (g)",
-          "equation": "i_k − g·v_j = 0",
-          "Mv": "−g (col j)",
-          "Mi": "1"
-        },
-        {
-          "type": "CCVS (r)",
-          "equation": "v_k − r·i_j = 0",
-          "Mv": "1",
-          "Mi": "−r (col j)"
-        },
-        {
-          "type": "CCCS (β)",
-          "equation": "i_k − β·i_j = 0",
-          "Mv": "0",
-          "Mi": "1 (diag), −β (col j)"
-        },
-        {
-          "type": "Ideal Transformer (n)",
-          "equation": "v_p − n·v_s = 0,  n·i_p + i_s = 0",
-          "Mv": "coupled",
-          "Mi": "coupled"
-        }
-      ]
-    },
-    {
-      "id": "vis-tableau-matrix-blocks",
-      "type": "matrix-diagram",
-      "title": "Tableau Matrix T — Block Structure",
-      "description": "A large annotated matrix showing the 3×3 block structure of T. The top-left is a zero block, top-middle is A, top-right is zero; middle row is I_b, zero, −Aᵀ; bottom row is M_v, M_i, zero. Colour-coded by equation type (blue=KCL, green=KVL, orange=branch). The unknown vector x = [v_b; i_b; e] and right-hand side u = [0; 0; u_s] are shown alongside.",
-      "matrix": {
-        "rows": [
-          [
-            "0",
-            "A",
-            "0"
-          ],
-          [
-            "I_b",
-            "0",
-            "−Aᵀ"
-          ],
-          [
-            "M_v",
-            "M_i",
-            "0"
-          ]
-        ],
-        "rowLabels": [
-          "KCL (n−1)",
-          "KVL (b)",
-          "Branch (b)"
-        ],
-        "colLabels": [
-          "v_b (b)",
-          "i_b (b)",
-          "e (n−1)"
-        ]
-      }
-    },
-    {
-      "id": "vis-tableau-4branch-circuit",
-      "type": "circuit-diagram",
-      "title": "4-Branch Example Circuit with Dependent Source",
-      "description": "Circuit schematic with 3 nodes (0 = datum, 1, 2) and 4 branches: branch 1 is a 10V voltage source from node 0 to 1, branch 2 is a 2Ω resistor from node 1 to 2, branch 3 is a 4Ω resistor from node 2 to 0, and branch 4 is a CCCS (β=2, controlled by i₃) from node 1 to 0. Branch current reference directions and node labels are clearly marked.",
-      "nodes": [
-        "0 (datum)",
-        "1",
-        "2"
-      ],
-      "branches": [
-        {
-          "id": 1,
-          "from": 0,
-          "to": 1,
-          "element": "V_s = 10 V"
-        },
-        {
-          "id": 2,
-          "from": 1,
-          "to": 2,
-          "element": "R₂ = 2 Ω"
-        },
-        {
-          "id": 3,
-          "from": 2,
-          "to": 0,
-          "element": "R₃ = 4 Ω"
-        },
-        {
-          "id": 4,
-          "from": 1,
-          "to": 0,
-          "element": "CCCS, β = 2, ctrl: i₃"
-        }
-      ]
-    },
-    {
-      "id": "vis-tableau-solved-example",
-      "type": "annotated-circuit",
-      "title": "Solved 4-Branch Circuit — All Branch Variables",
-      "description": "The same 4-branch circuit as above, now annotated with the computed solution values: all branch voltages (v₁=10, v₂=10/3, v₃=20/3, v₄=10), all branch currents (i₁=5, i₂=5/3, i₃=5/3, i₄=10/3), and node voltages (e₁=10, e₂=20/3). Values displayed next to each element for easy verification.",
-      "solution": {
-        "nodeVoltages": {
-          "e1": "10 V",
-          "e2": "20/3 ≈ 6.667 V"
-        },
-        "branchVoltages": {
-          "v1": "10 V",
-          "v2": "10/3 ≈ 3.333 V",
-          "v3": "20/3 ≈ 6.667 V",
-          "v4": "10 V"
-        },
-        "branchCurrents": {
-          "i1": "5 A",
-          "i2": "5/3 ≈ 1.667 A",
-          "i3": "5/3 ≈ 1.667 A",
-          "i4": "10/3 ≈ 3.333 A"
-        }
-      }
-    },
-    {
-      "id": "vis-tableau-comparison-table",
-      "type": "comparison-table",
-      "title": "Nodal vs Tableau Analysis — Feature Comparison",
-      "description": "Table comparing nodal analysis and tableau analysis across multiple dimensions: system size, variable types, ability to handle voltage sources, current sources, dependent sources, ideal transformers, and generality. Colour-coded green (supported) and red (not supported) indicators.",
-      "columns": [
-        "Feature",
-        "Nodal Analysis",
-        "Tableau Analysis"
-      ],
-      "rows": [
-        [
-          "System size",
-          "Small (n−1)",
-          "Large (2b+n−1)"
-        ],
-        [
-          "Variables",
-          "Node voltages",
-          "All (v_b, i_b, e)"
-        ],
-        [
-          "Voltage sources",
-          "Super-node workaround",
-          "Direct"
-        ],
-        [
-          "Current sources",
-          "Direct",
-          "Direct"
-        ],
-        [
-          "Dependent sources",
-          "Case-by-case",
-          "Systematic"
-        ],
-        [
-          "Ideal transformers",
-          "Cannot handle",
-          "Two branch equations"
-        ],
-        [
-          "Generality",
-          "Limited",
-          "Complete"
-        ]
-      ]
-    },
-    {
-      "id": "vis-tableau-nonlinear-iteration",
-      "type": "flowchart",
-      "title": "Newton-Raphson Iteration for Nonlinear Tableau",
-      "description": "Flowchart showing the iterative solution process for nonlinear circuits: (1) Initial guess x⁰, (2) Evaluate F(x^k), (3) Check convergence ||F|| < ε, (4) If not converged compute Jacobian J(x^k), (5) Solve J·Δx = −F, (6) Update x^(k+1) = x^k + Δx, (7) Go to step 2. Annotated with notes that KCL/KVL rows of J are constant and only branch-equation rows change per iteration.",
-      "steps": [
-        {
-          "id": 1,
-          "label": "Initial guess x⁰",
-          "type": "start"
-        },
-        {
-          "id": 2,
-          "label": "Evaluate F(xᵏ)",
-          "type": "process"
-        },
-        {
-          "id": 3,
-          "label": "||F|| < ε?",
-          "type": "decision",
-          "yes": 7,
-          "no": 4
-        },
-        {
-          "id": 4,
-          "label": "Compute Jacobian J(xᵏ)",
-          "type": "process"
-        },
-        {
-          "id": 5,
-          "label": "Solve J·Δx = −F(xᵏ)",
-          "type": "process"
-        },
-        {
-          "id": 6,
-          "label": "xᵏ⁺¹ = xᵏ + Δx",
-          "type": "process",
-          "next": 2
-        },
-        {
-          "id": 7,
-          "label": "Solution found: x*",
-          "type": "end"
-        }
-      ]
-    },
-    {
-      "id": "vis-tableau-summary-flowchart",
-      "type": "flowchart",
-      "title": "Tableau Analysis Workflow Summary",
-      "description": "End-to-end flowchart for applying tableau analysis: (1) Identify branches and nodes, (2) Construct incidence matrix A, (3) Write KCL: A·i_b = 0, (4) Write KVL: v_b − Aᵀ·e = 0, (5) Write branch equations for each element, (6) Assemble T·x = u, (7) Check det(T) ≠ 0, (8) Solve for x = [v_b; i_b; e].",
-      "steps": [
-        {
-          "id": 1,
-          "label": "Identify b branches, n nodes"
-        },
-        {
-          "id": 2,
-          "label": "Construct reduced incidence matrix A"
-        },
-        {
-          "id": 3,
-          "label": "Write KCL: A · i_b = 0"
-        },
-        {
-          "id": 4,
-          "label": "Write KVL: v_b − Aᵀ · e = 0"
-        },
-        {
-          "id": 5,
-          "label": "Write branch equations for each element"
-        },
-        {
-          "id": 6,
-          "label": "Assemble tableau system T · x = u"
-        },
-        {
-          "id": 7,
-          "label": "Check: det(T) ≠ 0?"
-        },
-        {
-          "id": 8,
-          "label": "Solve T · x = u for all variables"
-        }
-      ]
-    },
-    {
-      "id": "falstad-full-circuit",
-      "type": "falstad-sim",
-      "title": "Interactive: Full Tableau Example Circuit",
-      "description": "A voltage source and two resistors for demonstrating the tableau equations. Each element adds its constitutive equation.",
-      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 0 40 10 0 0 0.5\nr 160 96 352 96 0 1000\nr 352 96 352 288 0 2000\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
-      "height": 450
-    }
-  ]
+    ]
 }

@@ -270,8 +270,7 @@
         },
         {
             "id": "conversion-demo",
-            "type": "d3-simulation",
-            "simulationType": "vi-curve",
+            "type": "v3-waveform",
             "title": "Interactive: Rectangular ↔ Polar Converter",
             "description": "Move the point on the complex plane and see both the rectangular (a_r + ja_i) and polar (|A|∠φ) representations update in real time."
         },
@@ -457,8 +456,7 @@
         },
         {
             "id": "euler-formula-sim",
-            "type": "d3-simulation",
-            "simulationType": "signal-generator",
+            "type": "v3-waveform",
             "title": "Interactive: Euler's Formula Explorer",
             "description": "Adjust the angle α and watch the point e^(jα) move around the unit circle. The real part (cos α) and imaginary part (sin α) update simultaneously."
         },

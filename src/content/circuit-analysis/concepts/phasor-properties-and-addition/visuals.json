@@ -496,8 +496,7 @@
         },
         {
             "id": "graphical-addition",
-            "type": "d3-simulation",
-            "simulationType": "vi-curve",
+            "type": "v3-waveform",
             "title": "Interactive: Graphical Phasor Addition",
             "description": "Drag two phasors on the complex plane and see their sum computed both graphically (tip-to-tail) and algebraically in real time."
         },

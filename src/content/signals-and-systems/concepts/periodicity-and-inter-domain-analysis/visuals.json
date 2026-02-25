@@ -2,18 +2,52 @@
   "visuals": [
     {
       "id": "periodic-sine-wave",
-      "type": "d3-waveform",
+      "type": "plotly",
       "title": "A Simple Periodic Signal: The Sine Wave",
       "description": "A continuous sine wave repeating every T₀ seconds. Notice how every point x(t) is identical to x(t + T₀) — this is the defining property of periodicity.",
-      "waveType": "sine",
-      "mode": "continuous"
+      "traces": [
+        {
+          "x_expr": "Array.from({length: 400}, (_, i) => i * 4 * Math.PI / 400)",
+          "y_expr": "Array.from({length: 400}, (_, i) => Math.sin(i * 4 * Math.PI / 400))",
+          "mode": "lines",
+          "name": "sin(ω₀t)",
+          "line": {
+            "color": "#4f8cff",
+            "width": 2.5
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "t (seconds)"
+        },
+        "yaxis": {
+          "title": "x(t)",
+          "range": [
+            -1.3,
+            1.3
+          ]
+        },
+        "showlegend": true,
+        "annotations": [
+          {
+            "x": 3.14,
+            "y": -1.15,
+            "text": "← T₀ →",
+            "showarrow": false,
+            "font": {
+              "size": 12,
+              "color": "#f5a623"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "signal-generator-explore",
-      "type": "d3-simulation",
-      "simulationType": "signal-generator",
+      "type": "v3-waveform",
       "title": "Interactive: Explore Periodic Signals",
-      "description": "Adjust the frequency and amplitude to see how periodic signals change. Watch how increasing ω₀ shortens the period T₀, and how amplitude affects the peak value but not the period."
+      "description": "Adjust the frequency and amplitude to see how periodic signals change. Watch how increasing ω₀ shortens the period T₀."
     },
     {
       "id": "periodic-signal-composite",
@@ -26,26 +60,36 @@
           "y_expr": "Array.from({length: 500}, (_, i) => { const t = i * 4 * Math.PI / 500; return 11 + 4 * Math.sin(5 * t) + (4/3) * Math.sin(15 * t); })",
           "mode": "lines",
           "name": "x(t)",
-          "line": { "color": "#4f8cff", "width": 2.5 }
+          "line": {
+            "color": "#4f8cff",
+            "width": 2.5
+          }
         },
         {
           "x_expr": "[0, 4 * Math.PI]",
           "y_expr": "[11, 11]",
           "mode": "lines",
           "name": "DC = 11",
-          "line": { "color": "#ff6b8a", "width": 1.5, "dash": "dash" }
+          "line": {
+            "color": "#ff6b8a",
+            "width": 1.5,
+            "dash": "dash"
+          }
         }
       ],
       "layout": {
-        "xaxis": { "title": "t (seconds)" },
-        "yaxis": { "title": "x(t)" },
+        "xaxis": {
+          "title": "t (seconds)"
+        },
+        "yaxis": {
+          "title": "x(t)"
+        },
         "showlegend": true
       }
     },
     {
       "id": "period-frequency-explorer",
-      "type": "d3-simulation",
-      "simulationType": "frequency-period",
+      "type": "v3-waveform",
       "title": "Interactive: Period ↔ Frequency Relationship",
       "description": "Drag the slider to change frequency. Watch the period update in real time. This builds intuition for the inverse relationship T₀ = 1/f₀."
     },
@@ -53,28 +97,56 @@
       "id": "euler-unit-circle",
       "type": "plotly",
       "title": "Euler's Formula: e^{jθ} on the Unit Circle",
-      "description": "The complex exponential e^{jθ} traces the unit circle. The horizontal projection gives cos(θ) and the vertical projection gives sin(θ). This is why complex exponentials are the natural basis for Fourier analysis.",
+      "description": "The complex exponential e^{jθ} traces the unit circle. The horizontal projection gives cos(θ) and the vertical projection gives sin(θ).",
       "traces": [
         {
           "x_expr": "Array.from({length: 100}, (_, i) => Math.cos(2 * Math.PI * i / 100))",
           "y_expr": "Array.from({length: 100}, (_, i) => Math.sin(2 * Math.PI * i / 100))",
           "mode": "lines",
           "name": "e^{jθ}",
-          "line": { "color": "#6b62ff", "width": 2 }
+          "line": {
+            "color": "#6b62ff",
+            "width": 2
+          }
         },
         {
-          "x": [1, 0.707],
-          "y": [0, 0.707],
+          "x": [
+            1,
+            0.707
+          ],
+          "y": [
+            0,
+            0.707
+          ],
           "mode": "markers+text",
           "name": "θ = 0, π/4",
-          "text": ["(1,0)", "(cos π/4, sin π/4)"],
+          "text": [
+            "(1,0)",
+            "(cos π/4, sin π/4)"
+          ],
           "textposition": "top right",
-          "marker": { "size": 8, "color": "#ff6b8a" }
+          "marker": {
+            "size": 8,
+            "color": "#ff6b8a"
+          }
         }
       ],
       "layout": {
-        "xaxis": { "title": "Re", "scaleanchor": "y", "range": [-1.3, 1.3] },
-        "yaxis": { "title": "Im", "range": [-1.3, 1.3] },
+        "xaxis": {
+          "title": "Re",
+          "scaleanchor": "y",
+          "range": [
+            -1.3,
+            1.3
+          ]
+        },
+        "yaxis": {
+          "title": "Im",
+          "range": [
+            -1.3,
+            1.3
+          ]
+        },
         "showlegend": true
       },
       "width": 420,
@@ -82,35 +154,102 @@
     },
     {
       "id": "inter-domain-block-diagram",
-      "type": "d3-block-diagram",
+      "type": "plotly",
       "title": "Inter-Domain Analysis: Time ↔ Frequency",
-      "description": "The same signal x(t) has two equivalent representations. Analysis extracts the coefficients X_k from x(t); synthesis reconstructs x(t) from its coefficients. No information is lost in either direction.",
-      "blocks": [
-        { "id": "time", "label": "Time Domain\nx(t)", "x": 100, "y": 80, "width": 180, "height": 70, "fill": "#4f8cff" },
-        { "id": "freq", "label": "Frequency Domain\n{X_k}", "x": 450, "y": 80, "width": 180, "height": 70, "fill": "#ff6b8a" }
+      "description": "The same signal x(t) has two equivalent representations. Analysis extracts X_k from x(t); synthesis reconstructs x(t) from X_k. No information is lost.",
+      "traces": [
+        {
+          "x": [
+            "Time Domain\nx(t)",
+            "→ Analysis →\nExtract X_k",
+            "Frequency Domain\n{X_k}",
+            "→ Synthesis →\nReconstruct x(t)"
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#f5a623",
+              "#ff6b8a",
+              "#f5a623"
+            ]
+          },
+          "text": [
+            "Waveform\n(time view)",
+            "X_k = (1/T₀)∫\nx(t)e^{−jkω₀t}dt",
+            "Coefficients\n(freq view)",
+            "x(t) = Σ\nX_k e^{jkω₀t}"
+          ],
+          "textposition": "inside",
+          "textfont": {
+            "size": 9,
+            "color": "#ffffff"
+          },
+          "showlegend": false,
+          "hoverinfo": "none"
+        }
       ],
-      "connections": [
-        { "from": "time", "to": "freq", "label": "Analysis" },
-        { "from": "freq", "to": "time", "label": "Synthesis" }
-      ]
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "visible": false,
+          "range": [
+            0,
+            1.3
+          ]
+        },
+        "showlegend": false
+      },
+      "height": 300
     },
     {
       "id": "magnitude-spectrum-bar",
       "type": "plotly",
       "title": "Magnitude Spectrum |X_k|",
-      "description": "The magnitude spectrum shows how much energy each harmonic carries. X₀ = 11 is the DC (average), |X₁| = 2 is the fundamental, and |X₃| = 2/3 is the third harmonic. The spectrum is symmetric for real signals.",
+      "description": "The magnitude spectrum shows how much energy each harmonic carries. X₀ = 11 is the DC, |X₁| = 2 is the fundamental, and |X₃| = 2/3 is the third harmonic.",
       "traces": [
         {
-          "x": [-3, -2, -1, 0, 1, 2, 3],
-          "y": [0.667, 0, 2, 11, 2, 0, 0.667],
+          "x": [
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3
+          ],
+          "y": [
+            0.667,
+            0,
+            2,
+            11,
+            2,
+            0,
+            0.667
+          ],
           "type": "bar",
           "name": "|X_k|",
-          "marker": { "color": "#4f8cff" }
+          "marker": {
+            "color": "#4f8cff"
+          }
         }
       ],
       "layout": {
-        "xaxis": { "title": "Harmonic k", "dtick": 1 },
-        "yaxis": { "title": "|X_k|" },
+        "xaxis": {
+          "title": "Harmonic k",
+          "dtick": 1
+        },
+        "yaxis": {
+          "title": "|X_k|"
+        },
         "showlegend": false
       }
     },
@@ -118,33 +257,54 @@
       "id": "phase-spectrum-bar",
       "type": "plotly",
       "title": "Phase Spectrum ∠X_k",
-      "description": "The phase spectrum shows the phase angle of each coefficient. For real signals, the phase is anti-symmetric: ∠X_{−k} = −∠X_k. Positive-k components have phase −π/2 (from the sine terms), and negative-k have +π/2.",
+      "description": "The phase spectrum shows the phase angle of each coefficient. For real signals, the phase is anti-symmetric: ∠X_{−k} = −∠X_k.",
       "traces": [
         {
-          "x": [-3, -2, -1, 0, 1, 2, 3],
-          "y": [1.5708, 0, 1.5708, 0, -1.5708, 0, -1.5708],
+          "x": [
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3
+          ],
+          "y": [
+            1.5708,
+            0,
+            1.5708,
+            0,
+            -1.5708,
+            0,
+            -1.5708
+          ],
           "type": "bar",
           "name": "∠X_k",
-          "marker": { "color": "#ff6b8a" }
+          "marker": {
+            "color": "#ff6b8a"
+          }
         }
       ],
       "layout": {
-        "xaxis": { "title": "Harmonic k", "dtick": 1 },
-        "yaxis": { "title": "∠X_k (rad)" },
+        "xaxis": {
+          "title": "Harmonic k",
+          "dtick": 1
+        },
+        "yaxis": {
+          "title": "∠X_k (rad)"
+        },
         "showlegend": false
       }
     },
     {
       "id": "harmonic-builder-demo",
-      "type": "d3-simulation",
-      "simulationType": "harmonic-builder",
+      "type": "v3-waveform",
       "title": "Interactive: Build a Signal from Harmonics",
-      "description": "Add harmonics one by one and watch the signal take shape. Start with the DC component, add the fundamental, then higher harmonics. This is Fourier synthesis in action."
+      "description": "Add harmonics one by one and watch the signal take shape. Start with DC, add the fundamental, then higher harmonics. This is Fourier synthesis in action."
     },
     {
       "id": "fourier-coefficients-explore",
-      "type": "d3-simulation",
-      "simulationType": "fourier-coefficients",
+      "type": "v3-waveform",
       "title": "Interactive: Fourier Coefficient Visualization",
       "description": "Explore how changing the signal shape affects the Fourier coefficients. See the magnitude and phase spectra update in real time as you modify the waveform."
     }

@@ -2,186 +2,199 @@
     "visuals": [
         {
             "id": "square-pulse-train",
-            "type": "d3-waveform",
-            "title": "The Square Pulse Train",
-            "description": "A periodic rectangular pulse train with amplitude 1, pulse width 2T₁, and period T₀. Each pulse is centred at a multiple of T₀. The duty cycle is 2T₁/T₀.",
-            "waveType": "rect",
-            "mode": "continuous"
-        },
-        {
-            "id": "pulse-duty-cycle-sim",
-            "type": "d3-simulation",
-            "simulationType": "signal-generator",
-            "title": "Interactive: Adjust Pulse Width and Period",
-            "description": "Drag the sliders to change T₁ (pulse half-width) and T₀ (period). Watch how the duty cycle 2T₁/T₀ and the DC component X₀ change in real time."
-        },
-        {
-            "id": "integration-setup",
             "type": "plotly",
-            "title": "Setting Up the Integration: One Period Centred at Origin",
-            "description": "The integration window [−T₀/2, +T₀/2] is shown in grey. Inside this window, x(t) = 1 only on [−T₁, +T₁] (blue region). Outside the pulse, x(t) = 0, so those parts contribute nothing to the integral.",
+            "title": "The Square Pulse Train",
+            "description": "A periodic square pulse with width d and period T₀. The duty cycle d/T₀ controls how much of each period is 'on'.",
             "traces": [
                 {
-                    "x_expr": "(() => { const pts = []; for(let m=-2; m<=2; m++) { const c = m*4; pts.push(c-0.5-0.01, c-0.5, c-0.5, c+0.5, c+0.5, c+0.5+0.01); } return pts; })()",
-                    "y_expr": "(() => { const pts = []; for(let m=-2; m<=2; m++) { pts.push(0, 0, 1, 1, 0, 0); } return pts; })()",
+                    "x_expr": "Array.from({length: 800}, (_, i) => -2 + i * 4 / 800)",
+                    "y_expr": "Array.from({length: 800}, (_, i) => { const t = ((-2 + i * 4 / 800) % 1 + 1) % 1; return t < 0.25 || t > 0.75 ? 1 : 0; })",
                     "mode": "lines",
-                    "name": "x(t)",
+                    "name": "Square pulse (d/T₀ = 0.5)",
                     "line": {
                         "color": "#4f8cff",
                         "width": 2.5
                     }
-                },
-                {
-                    "x": [
-                        -2,
-                        -2,
-                        2,
-                        2
-                    ],
-                    "y": [
-                        -0.1,
-                        1.3,
-                        1.3,
-                        -0.1
-                    ],
-                    "mode": "lines",
-                    "name": "Integration window [−T₀/2, T₀/2]",
-                    "line": {
-                        "color": "#f5a623",
-                        "width": 1.5,
-                        "dash": "dot"
-                    },
-                    "fill": "toself",
-                    "fillcolor": "rgba(245,166,35,0.08)"
                 }
             ],
             "layout": {
                 "xaxis": {
-                    "title": "t (seconds)",
-                    "range": [
-                        -6,
-                        6
-                    ]
+                    "title": "t / T₀"
                 },
                 "yaxis": {
                     "title": "x(t)",
                     "range": [
                         -0.2,
-                        1.4
+                        1.3
                     ]
                 },
                 "showlegend": true
             }
         },
         {
-            "id": "derivation-block-diagram",
-            "type": "d3-block-diagram",
-            "title": "Analysis Integral: From x(t) to X_k = sin(kω₀T₁)/(kπ)",
-            "description": "Flow diagram showing the key steps: choose symmetric window → integrate e^{−jkω₀t} over the pulse → use Euler to get 2sin(kω₀T₁) → simplify with ω₀T₀ = 2π → arrive at sinc-like formula.",
-            "blocks": [
+            "id": "pulse-duty-cycle-sim",
+            "type": "v3-waveform",
+            "title": "Interactive: Vary the Duty Cycle",
+            "description": "Adjust the duty cycle d/T₀ and watch how the pulse width changes."
+        },
+        {
+            "id": "integration-setup",
+            "type": "plotly",
+            "title": "Integration Setup: Applying the Analysis Formula",
+            "description": "To find X_k, multiply the square pulse by e^{−jkω₀t} and integrate over one period. Since x(t)=1 only for |t| < d/2, the integral simplifies.",
+            "traces": [
                 {
-                    "id": "window",
-                    "label": "Choose window\n[−T₀/2, +T₀/2]",
-                    "x": 60,
-                    "y": 60,
-                    "width": 160,
-                    "height": 50,
-                    "fill": "#4f8cff"
+                    "x_expr": "Array.from({length: 400}, (_, i) => -0.5 + i / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -0.5 + i / 400; return Math.abs(t) < 0.125 ? 1 : 0; })",
+                    "mode": "lines",
+                    "name": "x(t) pulse (d/T₀ = 0.25)",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(79,140,255,0.2)"
                 },
                 {
-                    "id": "integrate",
-                    "label": "Integrate x(t)e^{−jkω₀t}\nover [−T₁, +T₁]",
-                    "x": 270,
-                    "y": 60,
-                    "width": 190,
-                    "height": 50,
-                    "fill": "#6b62ff"
-                },
-                {
-                    "id": "euler",
-                    "label": "Euler identity\n→ 2sin(kω₀T₁)",
-                    "x": 510,
-                    "y": 60,
-                    "width": 160,
-                    "height": 50,
-                    "fill": "#ff6b8a"
-                },
-                {
-                    "id": "result",
-                    "label": "X_k = sin(kω₀T₁)/(kπ)",
-                    "x": 290,
-                    "y": 150,
-                    "width": 200,
-                    "height": 45,
-                    "fill": "#2fbf8f"
+                    "x_expr": "Array.from({length: 400}, (_, i) => -0.5 + i / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -0.5 + i / 400; return Math.cos(2 * Math.PI * 3 * t); })",
+                    "mode": "lines",
+                    "name": "Re{e^{−j3ω₀t}} (k=3 example)",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1.5,
+                        "dash": "dash"
+                    }
                 }
             ],
-            "connections": [
-                {
-                    "from": "window",
-                    "to": "integrate"
+            "layout": {
+                "xaxis": {
+                    "title": "t / T₀"
                 },
-                {
-                    "from": "integrate",
-                    "to": "euler"
+                "yaxis": {
+                    "title": "Amplitude"
                 },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "derivation-block-diagram",
+            "type": "plotly",
+            "title": "Derivation Flow: From Definition to sinc",
+            "description": "Apply the analysis integral to the rectangular pulse, simplify using Euler's formula, arrive at sinc.",
+            "traces": [
                 {
-                    "from": "euler",
-                    "to": "result"
+                    "x": [
+                        "X_k = (1/T₀)∫\nx(t)e^{−jkω₀t}dt",
+                        "→ Pulse is 1\nover [−d/2, d/2] →",
+                        "→ Euler's →",
+                        "X_k = (d/T₀)\nsinc(kd/T₀)"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#6b62ff",
+                            "#f5a623",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Analysis\nformula",
+                        "Simplify\nintegrand",
+                        "Euler's\nformula",
+                        "sinc\nresult"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
-            ]
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 280
+        },
+        {
+            "id": "sinc-continuous-envelope",
+            "type": "plotly",
+            "title": "The Continuous sinc Envelope",
+            "description": "sinc(x) = sin(πx)/(πx). The Fourier coefficients are samples of this continuous function at integer k values.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 300}, (_, i) => -6 + i * 12 / 300)",
+                    "y_expr": "Array.from({length: 300}, (_, i) => { const x = -6 + i * 12 / 300; if(Math.abs(x) < 0.001) return 1; return Math.sin(Math.PI * x) / (Math.PI * x); })",
+                    "mode": "lines",
+                    "name": "sinc(x) envelope",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 11}, (_, i) => i - 5).filter(x => x !== 0)",
+                    "y_expr": "Array.from({length: 11}, (_, i) => i - 5).filter(x => x !== 0).map(() => 0)",
+                    "mode": "markers",
+                    "name": "Zeros at integers",
+                    "marker": {
+                        "size": 8,
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "x"
+                },
+                "yaxis": {
+                    "title": "sinc(x)"
+                },
+                "showlegend": true
+            }
         },
         {
             "id": "sinc-spectrum-bar",
             "type": "plotly",
-            "title": "Fourier Coefficients X_k Following a Sinc Envelope",
-            "description": "The coefficients X_k = sin(kπ/4)/(kπ) for T₀ = 4, T₁ = 0.5. They follow a sinc envelope that decays as 1/k. Zero crossings occur where kω₀T₁ is a multiple of π. All coefficients are real because x(t) is even.",
+            "title": "Fourier Coefficients: Samples of sinc Envelope",
+            "description": "X_k follows a sinc envelope: X_k = (d/T₀) sinc(kd/T₀). First null at k = T₀/d.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 41}, (_, i) => i - 20)",
-                    "y_expr": "Array.from({length: 41}, (_, i) => { const k = i - 20; if(k === 0) return 0.25; return Math.sin(k * Math.PI / 4) / (k * Math.PI); })",
+                    "x_expr": "Array.from({length: 31}, (_, i) => i - 15)",
+                    "y_expr": "Array.from({length: 31}, (_, i) => { const k = i - 15; if(k === 0) return 0.25; return 0.25 * Math.sin(k * Math.PI * 0.25) / (k * Math.PI * 0.25); })",
                     "type": "bar",
-                    "name": "X_k",
+                    "name": "X_k (sinc envelope)",
                     "marker": {
-                        "color": "#6b62ff"
+                        "color": "#4f8cff"
                     }
                 }
             ],
             "layout": {
                 "xaxis": {
                     "title": "Harmonic k",
-                    "dtick": 4
+                    "dtick": 3
                 },
                 "yaxis": {
                     "title": "X_k"
-                },
-                "bargap": 0.3,
-                "showlegend": false
-            }
-        },
-        {
-            "id": "sinc-continuous-envelope",
-            "type": "plotly",
-            "title": "The Continuous sinc(u) Envelope",
-            "description": "The normalised sinc function sinc(u) = sin(πu)/(πu), shown as a continuous curve. The discrete FS coefficients X_k sit on samples of a scaled version of this envelope. The main lobe width is inversely proportional to T₁.",
-            "traces": [
-                {
-                    "x_expr": "Array.from({length: 401}, (_, i) => (i - 200) * 0.05)",
-                    "y_expr": "Array.from({length: 401}, (_, i) => { const u = (i - 200) * 0.05; if(Math.abs(u) < 0.001) return 1; return Math.sin(Math.PI * u) / (Math.PI * u); })",
-                    "mode": "lines",
-                    "name": "sinc(u)",
-                    "line": {
-                        "color": "#4f8cff",
-                        "width": 2.5
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "u"
-                },
-                "yaxis": {
-                    "title": "sinc(u)"
                 },
                 "showlegend": false
             }
@@ -189,101 +202,112 @@
         {
             "id": "bandwidth-duration-compare",
             "type": "plotly",
-            "title": "Bandwidth–Duration Trade-off: Wide vs Narrow Pulse",
-            "description": "Wide pulse (50% duty cycle, blue) has a narrow spectrum. Narrow pulse (12.5% duty cycle, red) has a wide spectrum. Narrow in time → broad in frequency, and vice versa.",
+            "title": "Time-Bandwidth Duality: Narrow Pulse ↔ Wide Spectrum",
+            "description": "A narrow pulse (small d) has a wide spectrum. A wide pulse has a narrow spectrum.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 41}, (_, i) => i - 20)",
-                    "y_expr": "Array.from({length: 41}, (_, i) => { const k = i - 20; if(k === 0) return 0.5; return Math.sin(k * Math.PI / 2) / (k * Math.PI); })",
+                    "x": [
+                        "Narrow pulse\n(small d/T₀)",
+                        "Wide pulse\n(large d/T₀)"
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
                     "type": "bar",
-                    "name": "Wide pulse (2T₁/T₀ = 50%)",
                     "marker": {
-                        "color": "#4f8cff",
-                        "opacity": 0.7
-                    }
-                },
-                {
-                    "x_expr": "Array.from({length: 41}, (_, i) => i - 20)",
-                    "y_expr": "Array.from({length: 41}, (_, i) => { const k = i - 20; if(k === 0) return 0.125; return Math.sin(k * Math.PI / 8) / (k * Math.PI); })",
-                    "type": "bar",
-                    "name": "Narrow pulse (2T₁/T₀ = 12.5%)",
-                    "marker": {
-                        "color": "#ff6b8a",
-                        "opacity": 0.7
-                    }
+                        "color": [
+                            "#ff6b8a",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Wide spectrum\n(first null at large k)\nMany harmonics needed",
+                        "Narrow spectrum\n(first null at small k)\nFewer harmonics"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
                 }
             ],
             "layout": {
                 "xaxis": {
-                    "title": "Harmonic k"
+                    "title": "Pulse Type"
                 },
                 "yaxis": {
-                    "title": "X_k"
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
                 },
-                "barmode": "group",
-                "showlegend": true
-            }
+                "showlegend": false
+            },
+            "height": 280
         },
         {
             "id": "reconstruction-harmonics",
-            "type": "d3-simulation",
-            "simulationType": "harmonic-builder",
+            "type": "v3-waveform",
             "title": "Interactive: Reconstruct the Square Pulse from Harmonics",
-            "description": "Add harmonics one at a time and watch the square pulse emerge. Notice how odd harmonics shape the flat top while the Gibbs overshoot persists at the edges."
-        },
-        {
-            "id": "duty-cycle-spectrum-sim",
-            "type": "d3-simulation",
-            "simulationType": "fourier-coefficients",
-            "title": "Interactive: Duty Cycle vs Spectrum Shape",
-            "description": "Change the duty cycle and watch the spectrum transform. 50% duty cycle eliminates all even harmonics. As the duty cycle decreases, the main lobe widens and more harmonics become significant."
+            "description": "Add harmonics progressively and watch the sum approximate the square pulse."
         },
         {
             "id": "convergence-comparison",
             "type": "plotly",
-            "title": "Convergence: 1, 5, and 21 Harmonics",
-            "description": "Progressive reconstruction showing 1, 5, and 21 harmonics. More harmonics sharpen the edges but the ~9% Gibbs overshoot at discontinuities persists even with 21 terms.",
+            "title": "Convergence: Partial Sums with 3, 7, and 15 Harmonics",
+            "description": "More harmonics give a better approximation. Gibbs overshoot at edges persists but narrows.",
             "traces": [
                 {
-                    "x_expr": "Array.from({length: 400}, (_, i) => -2 + i * 4 / 400)",
-                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -2 + i * 4 / 400; let s = 0.25; for(let k=1; k<=1; k++) s += 2*(Math.sin(k*Math.PI/4)/(k*Math.PI))*Math.cos(k*Math.PI*t/2); return s; })",
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=15; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
                     "mode": "lines",
-                    "name": "1 harmonic",
+                    "name": "N=15",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                },
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=7; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
+                    "mode": "lines",
+                    "name": "N=7",
                     "line": {
                         "color": "#4f8cff",
-                        "width": 1.5
+                        "width": 2
                     }
                 },
                 {
-                    "x_expr": "Array.from({length: 400}, (_, i) => -2 + i * 4 / 400)",
-                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -2 + i * 4 / 400; let s = 0.25; for(let k=1; k<=5; k++) s += 2*(Math.sin(k*Math.PI/4)/(k*Math.PI))*Math.cos(k*Math.PI*t/2); return s; })",
+                    "x_expr": "Array.from({length: 400}, (_, i) => -Math.PI + i * 2 * Math.PI / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -Math.PI + i * 2 * Math.PI / 400; let s = 0; for(let k=1; k<=3; k+=2) s += (4/(k*Math.PI))*Math.sin(k*t); return s; })",
                     "mode": "lines",
-                    "name": "5 harmonics",
-                    "line": {
-                        "color": "#6b62ff",
-                        "width": 1.5
-                    }
-                },
-                {
-                    "x_expr": "Array.from({length: 400}, (_, i) => -2 + i * 4 / 400)",
-                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -2 + i * 4 / 400; let s = 0.25; for(let k=1; k<=21; k++) s += 2*(Math.sin(k*Math.PI/4)/(k*Math.PI))*Math.cos(k*Math.PI*t/2); return s; })",
-                    "mode": "lines",
-                    "name": "21 harmonics",
+                    "name": "N=3",
                     "line": {
                         "color": "#ff6b8a",
-                        "width": 2
+                        "width": 1.5,
+                        "dash": "dash"
                     }
                 }
             ],
             "layout": {
                 "xaxis": {
-                    "title": "t (seconds)"
+                    "title": "t"
                 },
                 "yaxis": {
                     "title": "x(t)"
                 },
                 "showlegend": true
             }
+        },
+        {
+            "id": "duty-cycle-spectrum-sim",
+            "type": "v3-waveform",
+            "title": "Interactive: Duty Cycle vs Spectrum",
+            "description": "Change the duty cycle and watch the sinc envelope shift. Narrow pulses have wider spectra."
         }
     ]
 }

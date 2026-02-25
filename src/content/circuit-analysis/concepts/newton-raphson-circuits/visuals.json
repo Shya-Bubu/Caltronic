@@ -1,77 +1,381 @@
 {
-  "conceptId": "newton-raphson-circuits",
-  "visuals": [
-    {
-      "id": "nr-scalar-tangent",
-      "type": "diagram",
-      "title": "Scalar Newton-Raphson — Tangent Line Interpretation",
-      "description": "A plot of y = f(x) versus x showing a smooth curve crossing zero at x*. Starting from initial guess x(0), a tangent line is drawn at the point (x(0), f(x(0))); where this tangent crosses the x-axis gives x(1). From x(1), another tangent is drawn giving x(2), which is very close to x*. Each iterate is labelled, with vertical dashed lines to the curve and diagonal tangent lines to the axis. Arrows indicate the direction of convergence.",
-      "context": "Quick visual recap of the scalar Newton-Raphson method before extending to multiple variables.",
-      "placementNotes": "Place in Section 1.1 after the scalar NR formula."
-    },
-    {
-      "id": "jacobian-structure",
-      "type": "diagram",
-      "title": "Jacobian Matrix Structure for a Nonlinear Circuit",
-      "description": "A block-matrix diagram of the Jacobian J(x). The matrix is partitioned into regions: a large upper-left block labelled 'KCL rows (constant — incidence matrix A)', a middle block labelled 'KVL rows (constant — Aᵀ entries)', and a lower block labelled 'Branch equations'. Within the branch-equation block, most entries are shaded lightly and labelled 'constant (linear elements)', while a few entries are shaded in a highlight colour and labelled 'iteration-dependent (nonlinear elements)'. Annotations emphasise that only the highlighted entries change between iterations.",
-      "context": "Shows students that the Jacobian is mostly constant, with only nonlinear-branch entries varying per iteration.",
-      "placementNotes": "Place in Section 2.1 after the discussion of Jacobian structure."
-    },
-    {
-      "id": "v3-4i3-cubed-circuit",
-      "type": "circuit-diagram",
-      "title": "Three-Branch Circuit with v₃ = 4i₃³ and 8 A Source",
-      "description": "A circuit schematic with an 8 A current source connected to a node. From that node, three branches go to the reference node: Branch 1 is a 3 Ω linear resistor (labelled R₁ = 3 Ω, v₁ = 3i₁), Branch 2 is a 1 Ω linear resistor (labelled R₂ = 1 Ω, v₂ = i₂), and Branch 3 is a nonlinear resistor with the characteristic v₃ = 4i₃³ drawn in a special symbol (resistor with a curve through it). Branch currents i₁, i₂, i₃ are shown with arrows. The node voltage variables x₁ and x₂ are labelled.",
-      "context": "The primary worked example from the lecture slides — students will perform Newton-Raphson iterations on this circuit.",
-      "placementNotes": "Place in Section 4.1 when the circuit is first described."
-    },
-    {
-      "id": "nr-iteration-trajectory",
-      "type": "diagram",
-      "title": "Newton-Raphson Iteration Trajectory in (x₁, x₂) Space",
-      "description": "A 2D plot with x₁ on the horizontal axis and x₂ on the vertical axis. Two curves are plotted: f₁(x₁, x₂) = 0 and f₂(x₁, x₂) = 0. Their intersection is marked as the solution x*. Three points are plotted and connected by arrows: x⁽⁰⁾ = (6, 2), x⁽¹⁾ = (6.4, 1.6), and x⁽²⁾ = (6.5095, 1.4905). The arrows show the iteration converging toward x*. Each point is labelled with its iteration number.",
-      "context": "Visualises the convergence of the Newton-Raphson iterations in the 2D solution space for the slide example.",
-      "placementNotes": "Place in Section 4.6 after the iteration table."
-    },
-    {
-      "id": "convergence-plot",
-      "type": "chart",
-      "title": "Convergence of ||f(x⁽ʲ⁾)|| vs. Iteration Number",
-      "description": "A semi-log plot with iteration number j on the horizontal axis (0, 1, 2, 3) and ||f(x⁽ʲ⁾)|| on the vertical axis (log scale). The plot shows a rapidly declining curve — the residual norm drops by roughly an order of magnitude or more each iteration, illustrating quadratic convergence. A horizontal dashed line at ε marks the convergence tolerance. The curve dips below ε after iteration 2, indicating convergence.",
-      "context": "Demonstrates the quadratic convergence behaviour of Newton-Raphson for the worked example.",
-      "placementNotes": "Place at the end of Section 4.6, after the convergence check."
-    },
-    {
-      "id": "discrete-equivalent-circuit",
-      "type": "circuit-diagram",
-      "title": "Discrete Equivalent Circuit — Nonlinear Element Replaced by R⁽ʲ⁾ and E⁽ʲ⁾",
-      "description": "Two side-by-side circuit diagrams. LEFT: The original nonlinear circuit with a nonlinear resistor symbol (resistor with curve) labelled v = v̂(i). RIGHT: The Newton-Raphson discrete equivalent at iteration j, where the nonlinear element is replaced by a linear resistor R⁽ʲ⁾ = v̂'(i⁽ʲ⁾) in series with a voltage source E⁽ʲ⁾ = v̂(i⁽ʲ⁾) − R⁽ʲ⁾·i⁽ʲ⁾. All other (linear) elements remain unchanged between the two diagrams. An equals sign and 'at iteration j' label connect the two diagrams.",
-      "context": "The central visual idea: each Newton-Raphson iteration transforms the nonlinear circuit into a linear one with the same topology.",
-      "placementNotes": "Place in Section 5.2 alongside the discrete equivalent formulas."
-    },
-    {
-      "id": "multi-branch-nonlinear",
-      "type": "circuit-diagram",
-      "title": "Multi-Branch Circuit with Voltage- and Current-Controlled Nonlinear Resistors",
-      "description": "A circuit with n = 3 nodes and b = 4 branches. Branch 1 is a voltage-controlled nonlinear resistor (i₁ = î₁(v₁)), Branch 2 is a current-controlled nonlinear resistor (v₂ = v̂₂(i₂)), Branches 3 and 4 are a linear resistor and a voltage/current source respectively. Node voltages e₁, e₂ are labelled. Beside the circuit, two small boxes show the Norton equivalent (G⁽ʲ⁾ ∥ I⁽ʲ⁾) for branch 1 and the Thévenin equivalent (R⁽ʲ⁾ + E⁽ʲ⁾) for branch 2.",
-      "context": "Extends the discrete equivalent idea to circuits with multiple nonlinear branches of different types.",
-      "placementNotes": "Place in Section 6.1 when the multi-branch circuit is introduced."
-    },
-    {
-      "id": "nr-algorithm-flowchart",
-      "type": "flowchart",
-      "title": "Newton-Raphson Algorithm Flowchart for Circuit Analysis",
-      "description": "A flowchart with these steps: (1) START → Choose initial guess x⁽⁰⁾, set j = 0. (2) Compute f(x⁽ʲ⁾). (3) Decision: ||f(x⁽ʲ⁾)|| < ε? If YES → STOP, solution found. If NO → continue. (4) Compute Jacobian J(x⁽ʲ⁾). (5) Solve J·Δx = −f for Δx. (6) Update x⁽ʲ⁺¹⁾ = x⁽ʲ⁾ + Δx, j = j + 1. (7) Go to step 2. The decision diamond is highlighted. Side annotation: 'Step 5 is equivalent to solving a LINEAR circuit.'",
-      "context": "Provides a complete algorithmic summary that students can use as a reference when implementing Newton-Raphson.",
-      "placementNotes": "Place at the end of Section 7 as a summary visual."
-    },
-    {
-      "id": "falstad-nonlinear-circuit",
-      "type": "falstad-sim",
-      "title": "Interactive: Nonlinear Circuit (Diode + Resistor)",
-      "description": "This circuit requires iterative solution because the diode exponential makes linear algebra insufficient.",
-      "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 0 40 3 0 0 0.5\nr 160 96 256 96 0 500\nd 256 96 352 96 2 default\nr 352 96 352 288 0 1000\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
-      "height": 450
-    }
-  ]
+    "conceptId": "newton-raphson-circuits",
+    "visuals": [
+        {
+            "id": "nr-scalar-tangent",
+            "type": "plotly",
+            "title": "Scalar Newton-Raphson — Tangent Line Interpretation",
+            "description": "A plot of y = f(x) versus x showing a smooth curve crossing zero at x*. Starting from initial guess x(0), a tangent line is drawn at the point (x(0), f(x(0))); where this tangent crosses the x-axis gives x(1). From x(1), another tangent is drawn giving x(2), which is very close to x*. Each iterate is labelled, with vertical dashed lines to the curve and diagonal tangent lines to the axis. Arrows indicate the direction of convergence.",
+            "traces": [
+                {
+                    "x": [
+                        "Scalar Newton-Raphson — Tangent Line Interpretation"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A plot of y = f(x) versus x showing a smooth curve crossing zero at x*. Starting"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "jacobian-structure",
+            "type": "plotly",
+            "title": "Jacobian Matrix Structure for a Nonlinear Circuit",
+            "description": "A block-matrix diagram of the Jacobian J(x). The matrix is partitioned into regions: a large upper-left block labelled 'KCL rows (constant — incidence matrix A)', a middle block labelled 'KVL rows (constant — Aᵀ entries)', and a lower block labelled 'Branch equations'. Within the branch-equation block, most entries are shaded lightly and labelled 'constant (linear elements)', while a few entries are shaded in a highlight colour and labelled 'iteration-dependent (nonlinear elements)'. Annotations emphasise that only the highlighted entries change between iterations.",
+            "traces": [
+                {
+                    "x": [
+                        "Jacobian Matrix Structure for a Nonlinear Circuit"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A block-matrix diagram of the Jacobian J(x). The matrix is partitioned into regi"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "v3-4i3-cubed-circuit",
+            "type": "plotly",
+            "title": "Three-Branch Circuit with v₃ = 4i₃³ and 8 A Source",
+            "description": "A circuit schematic with an 8 A current source connected to a node. From that node, three branches go to the reference node: Branch 1 is a 3 Ω linear resistor (labelled R₁ = 3 Ω, v₁ = 3i₁), Branch 2 is a 1 Ω linear resistor (labelled R₂ = 1 Ω, v₂ = i₂), and Branch 3 is a nonlinear resistor with the characteristic v₃ = 4i₃³ drawn in a special symbol (resistor with a curve through it). Branch currents i₁, i₂, i₃ are shown with arrows. The node voltage variables x₁ and x₂ are labelled.",
+            "traces": [
+                {
+                    "x": [
+                        "Three-Branch Circuit with v₃ = 4i₃³ and 8 A Source"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A circuit schematic with an 8 A current source connected to a node. From that no"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "nr-iteration-trajectory",
+            "type": "plotly",
+            "title": "Newton-Raphson Iteration Trajectory in (x₁, x₂) Space",
+            "description": "A 2D plot with x₁ on the horizontal axis and x₂ on the vertical axis. Two curves are plotted: f₁(x₁, x₂) = 0 and f₂(x₁, x₂) = 0. Their intersection is marked as the solution x*. Three points are plotted and connected by arrows: x⁽⁰⁾ = (6, 2), x⁽¹⁾ = (6.4, 1.6), and x⁽²⁾ = (6.5095, 1.4905). The arrows show the iteration converging toward x*. Each point is labelled with its iteration number.",
+            "traces": [
+                {
+                    "x": [
+                        "Newton-Raphson Iteration Trajectory in (x₁, x₂) Space"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A 2D plot with x₁ on the horizontal axis and x₂ on the vertical axis. Two curves"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "convergence-plot",
+            "type": "plotly",
+            "title": "Convergence of ||f(x⁽ʲ⁾)|| vs. Iteration Number",
+            "description": "A semi-log plot with iteration number j on the horizontal axis (0, 1, 2, 3) and ||f(x⁽ʲ⁾)|| on the vertical axis (log scale). The plot shows a rapidly declining curve — the residual norm drops by roughly an order of magnitude or more each iteration, illustrating quadratic convergence. A horizontal dashed line at ε marks the convergence tolerance. The curve dips below ε after iteration 2, indicating convergence.",
+            "traces": [
+                {
+                    "x": [
+                        "Convergence of ||f(x⁽ʲ⁾)|| vs. Iteration Number"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A semi-log plot with iteration number j on the horizontal axis (0, 1, 2, 3) and "
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "discrete-equivalent-circuit",
+            "type": "plotly",
+            "title": "Discrete Equivalent Circuit — Nonlinear Element Replaced by R⁽ʲ⁾ and E⁽ʲ⁾",
+            "description": "Two side-by-side circuit diagrams. LEFT: The original nonlinear circuit with a nonlinear resistor symbol (resistor with curve) labelled v = v̂(i). RIGHT: The Newton-Raphson discrete equivalent at iteration j, where the nonlinear element is replaced by a linear resistor R⁽ʲ⁾ = v̂'(i⁽ʲ⁾) in series with a voltage source E⁽ʲ⁾ = v̂(i⁽ʲ⁾) − R⁽ʲ⁾·i⁽ʲ⁾. All other (linear) elements remain unchanged between the two diagrams. An equals sign and 'at iteration j' label connect the two diagrams.",
+            "traces": [
+                {
+                    "x": [
+                        "Discrete Equivalent Circuit — Nonlinear Element Replaced by R⁽ʲ⁾ and E⁽ʲ⁾"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "Two side-by-side circuit diagrams. LEFT: The original nonlinear circuit with a n"
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "multi-branch-nonlinear",
+            "type": "plotly",
+            "title": "Multi-Branch Circuit with Voltage- and Current-Controlled Nonlinear Resistors",
+            "description": "A circuit with n = 3 nodes and b = 4 branches. Branch 1 is a voltage-controlled nonlinear resistor (i₁ = î₁(v₁)), Branch 2 is a current-controlled nonlinear resistor (v₂ = v̂₂(i₂)), Branches 3 and 4 are a linear resistor and a voltage/current source respectively. Node voltages e₁, e₂ are labelled. Beside the circuit, two small boxes show the Norton equivalent (G⁽ʲ⁾ ∥ I⁽ʲ⁾) for branch 1 and the Thévenin equivalent (R⁽ʲ⁾ + E⁽ʲ⁾) for branch 2.",
+            "traces": [
+                {
+                    "x": [
+                        "Multi-Branch Circuit with Voltage- and Current-Controlled Nonlinear Resistors"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A circuit with n = 3 nodes and b = 4 branches. Branch 1 is a voltage-controlled "
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "nr-algorithm-flowchart",
+            "type": "plotly",
+            "title": "Newton-Raphson Algorithm Flowchart for Circuit Analysis",
+            "description": "A flowchart with these steps: (1) START → Choose initial guess x⁽⁰⁾, set j = 0. (2) Compute f(x⁽ʲ⁾). (3) Decision: ||f(x⁽ʲ⁾)|| < ε? If YES → STOP, solution found. If NO → continue. (4) Compute Jacobian J(x⁽ʲ⁾). (5) Solve J·Δx = −f for Δx. (6) Update x⁽ʲ⁺¹⁾ = x⁽ʲ⁾ + Δx, j = j + 1. (7) Go to step 2. The decision diamond is highlighted. Side annotation: 'Step 5 is equivalent to solving a LINEAR circuit.'",
+            "traces": [
+                {
+                    "x": [
+                        "Newton-Raphson Algorithm Flowchart for Circuit Analysis"
+                    ],
+                    "y": [
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "A flowchart with these steps: (1) START → Choose initial guess x⁽⁰⁾, set j = 0. "
+                    ],
+                    "textposition": "inside",
+                    "textfont": {
+                        "size": 10,
+                        "color": "#ffffff"
+                    },
+                    "showlegend": false,
+                    "hoverinfo": "none"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        0,
+                        1.3
+                    ]
+                },
+                "showlegend": false
+            },
+            "height": 250
+        },
+        {
+            "id": "falstad-nonlinear-circuit",
+            "type": "falstad-sim",
+            "title": "Interactive: Nonlinear Circuit (Diode + Resistor)",
+            "description": "This circuit requires iterative solution because the diode exponential makes linear algebra insufficient.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 0\nv 160 288 160 96 0 0 40 3 0 0 0.5\nr 160 96 256 96 0 500\nd 256 96 352 96 2 default\nr 352 96 352 288 0 1000\nw 160 288 352 288 0\ng 256 288 256 320 0 0",
+            "height": 450
+        }
+    ]
 }
