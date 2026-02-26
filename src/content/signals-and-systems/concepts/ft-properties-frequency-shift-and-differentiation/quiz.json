@@ -1,0 +1,125 @@
+{
+    "id": "quiz-ft-properties-frequency-shift-and-differentiation",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the Fourier Transform of x(t) = e^{-at}u(t) for a > 0?",
+            "options": [
+                "1/(a + jω)",
+                "a/(a + jω)",
+                "1/(a - jω)",
+                "jω/(a + jω)"
+            ],
+            "correctAnswer": "1/(a + jω)",
+            "explanation": "Apply the FT integral: ∫₀^∞ e^{-at}e^{-jωt}dt = ∫₀^∞ e^{-(a+jω)t}dt = 1/(a+jω). The lower limit is 0 because x(t)=0 for t<0."
+        },
+        {
+            "id": "q2",
+            "prompt": "The FT converts a time-domain signal into which domain?",
+            "options": [
+                "Frequency domain",
+                "Laplace domain",
+                "s-domain",
+                "z-domain"
+            ],
+            "correctAnswer": "Frequency domain",
+            "explanation": "The Fourier Transform maps a time-domain signal x(t) to its frequency-domain representation X(jω), showing its spectral content at each frequency."
+        },
+        {
+            "id": "q3",
+            "prompt": "What does the magnitude spectrum |X(jω)| represent?",
+            "options": [
+                "Energy at each frequency",
+                "Phase at each frequency",
+                "Power at each frequency",
+                "Time delay at each frequency"
+            ],
+            "correctAnswer": "Energy at each frequency",
+            "explanation": "The magnitude spectrum |X(jω)| shows how much of each frequency component is present in the signal. It represents the amplitude of each frequency."
+        },
+        {
+            "id": "q4",
+            "prompt": "If x(t) is shifted by t₀, what happens to X(jω)?",
+            "options": [
+                "Multiplied by e^{-jωt₀}",
+                "Shifted by ω₀",
+                "Magnitude changes",
+                "Becomes zero"
+            ],
+            "correctAnswer": "Multiplied by e^{-jωt₀}",
+            "explanation": "Time shifting x(t-t₀) multiplies the spectrum by e^{-jωt₀}. This adds a linear phase -ωt₀ but does NOT change the magnitude spectrum."
+        },
+        {
+            "id": "q5",
+            "prompt": "The inverse Fourier Transform uses which sign in the exponent?",
+            "options": [
+                "Positive (+jωt)",
+                "Negative (-jωt)",
+                "No exponent",
+                "Depends on the signal"
+            ],
+            "correctAnswer": "Positive (+jωt)",
+            "explanation": "The inverse FT uses e^{+jωt}: x(t) = (1/2π)∫X(jω)e^{+jωt}dω. The positive sign distinguishes it from the forward transform."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the FT of a rectangular pulse of width τ?",
+            "options": [
+                "τ sinc(ωτ/2π)",
+                "sinc(ωτ)",
+                "τ sinc(ωτ/2)",
+                "rect(ω/τ)"
+            ],
+            "correctAnswer": "τ sinc(ωτ/2π)",
+            "explanation": "The FT of rect(t/τ) is τ sinc(ωτ/2π). The sinc function is sin(x)/x, and the first null occurs at ω = 2π/τ."
+        },
+        {
+            "id": "q7",
+            "prompt": "Multiplication by e^{jω₀t} in time causes what in frequency?",
+            "options": [
+                "Frequency shift by ω₀",
+                "Time shift by ω₀",
+                "Amplitude scaling by ω₀",
+                "No change"
+            ],
+            "correctAnswer": "Frequency shift by ω₀",
+            "explanation": "Multiplying by e^{jω₀t} in time shifts the spectrum by ω₀ in frequency. This is the modulation property, fundamental to communications."
+        },
+        {
+            "id": "q8",
+            "prompt": "Differentiation in time corresponds to what in frequency?",
+            "options": [
+                "Multiplication by jω",
+                "Division by jω",
+                "Multiplication by ω²",
+                "Convolution with jω"
+            ],
+            "correctAnswer": "Multiplication by jω",
+            "explanation": "Taking the time derivative corresponds to multiplying by jω in the frequency domain: FT{dx/dt} = jω·X(jω). Each differentiation adds a factor of jω."
+        },
+        {
+            "id": "q9",
+            "prompt": "For a real signal x(t), |X(jω)| is always:",
+            "options": [
+                "Even symmetric",
+                "Odd symmetric",
+                "Always zero",
+                "Always one"
+            ],
+            "correctAnswer": "Even symmetric",
+            "explanation": "For real x(t), the magnitude spectrum is even: |X(-jω)| = |X(jω)|. This is a consequence of conjugate symmetry X*( jω) = X(-jω)."
+        },
+        {
+            "id": "q10",
+            "prompt": "Parseval's theorem relates time-domain energy to:",
+            "options": [
+                "Frequency-domain energy integral",
+                "Fourier coefficients",
+                "Impulse response",
+                "Transfer function"
+            ],
+            "correctAnswer": "Frequency-domain energy integral",
+            "explanation": "Parseval says ∫|x(t)|²dt = (1/2π)∫|X(jω)|²dω. Total energy can be computed from either domain. |X(jω)|² is the energy spectral density."
+        }
+    ]
+}

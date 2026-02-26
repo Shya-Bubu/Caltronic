@@ -1,0 +1,9 @@
+{
+    "id": "parsevals-theorem-for-ft",
+    "title": "Parseval's Theorem for FT",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

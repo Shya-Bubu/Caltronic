@@ -1,0 +1,9 @@
+{
+    "id": "from-fourier-series-to-fourier-transform",
+    "title": "From Fourier Series to Fourier Transform",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

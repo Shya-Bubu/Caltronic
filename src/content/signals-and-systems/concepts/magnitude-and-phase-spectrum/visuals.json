@@ -1,0 +1,211 @@
+{
+    "visuals": [
+        {
+            "id": "complex-spectrum-plane",
+            "type": "plotly",
+            "title": "Complex Spectrum Plane",
+            "description": "Visual representation for Magnitude and Phase Spectrum.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "complex spectrum plane",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "magnitude-spectrum-exp",
+            "type": "plotly",
+            "title": "Magnitude Spectrum Exp",
+            "description": "Visual representation for Magnitude and Phase Spectrum.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "magnitude spectrum exp",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "phase-spectrum-exp",
+            "type": "v3-waveform",
+            "title": "Interactive: Phase Spectrum Exp",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "lowpass-spectrum-shape",
+            "type": "plotly",
+            "title": "Lowpass Spectrum Shape",
+            "description": "Visual representation for Magnitude and Phase Spectrum.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "lowpass spectrum shape",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "magnitude-spectrum-rect",
+            "type": "plotly",
+            "title": "Magnitude Spectrum Rect",
+            "description": "Visual representation for Magnitude and Phase Spectrum.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "magnitude spectrum rect",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "phase-spectrum-rect",
+            "type": "v3-waveform",
+            "title": "Interactive: Phase Spectrum Rect",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "spectrum-interpretation-diagram",
+            "type": "plotly",
+            "title": "Spectrum Interpretation Diagram",
+            "description": "Visual representation for Magnitude and Phase Spectrum.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "spectrum interpretation diagram",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "bandwidth-concept",
+            "type": "plotly",
+            "title": "Bandwidth Concept",
+            "description": "Visual representation for Magnitude and Phase Spectrum.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "bandwidth concept",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "spectrum-explorer-sim",
+            "type": "v3-waveform",
+            "title": "Interactive: Spectrum Explorer Sim",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "3d-spectrum-view",
+            "type": "plotly",
+            "title": "3d Spectrum View",
+            "description": "Visual representation for Magnitude and Phase Spectrum.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "3d spectrum view",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

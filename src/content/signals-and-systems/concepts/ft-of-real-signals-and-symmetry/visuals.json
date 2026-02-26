@@ -1,0 +1,211 @@
+{
+    "visuals": [
+        {
+            "id": "conjugate-symmetry-ft",
+            "type": "plotly",
+            "title": "Conjugate Symmetry Ft",
+            "description": "Visual representation for FT of Real Signals and Symmetry.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "conjugate symmetry ft",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "magnitude-even-symmetry",
+            "type": "plotly",
+            "title": "Magnitude Even Symmetry",
+            "description": "Visual representation for FT of Real Signals and Symmetry.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "magnitude even symmetry",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "phase-odd-symmetry",
+            "type": "v3-waveform",
+            "title": "Interactive: Phase Odd Symmetry",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "real-even-signal-ft",
+            "type": "plotly",
+            "title": "Real Even Signal Ft",
+            "description": "Visual representation for FT of Real Signals and Symmetry.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "real even signal ft",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "real-odd-signal-ft",
+            "type": "plotly",
+            "title": "Real Odd Signal Ft",
+            "description": "Visual representation for FT of Real Signals and Symmetry.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "real odd signal ft",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "symmetry-summary-table",
+            "type": "v3-waveform",
+            "title": "Interactive: Symmetry Summary Table",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "even-odd-decomposition-ft",
+            "type": "plotly",
+            "title": "Even Odd Decomposition Ft",
+            "description": "Visual representation for FT of Real Signals and Symmetry.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "even odd decomposition ft",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "real-signal-spectrum",
+            "type": "plotly",
+            "title": "Real Signal Spectrum",
+            "description": "Visual representation for FT of Real Signals and Symmetry.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "real signal spectrum",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "symmetry-explorer-sim",
+            "type": "v3-waveform",
+            "title": "Interactive: Symmetry Explorer Sim",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "conjugation-property",
+            "type": "plotly",
+            "title": "Conjugation Property",
+            "description": "Visual representation for FT of Real Signals and Symmetry.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "conjugation property",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,211 @@
+{
+    "visuals": [
+        {
+            "id": "modulation-time-domain",
+            "type": "plotly",
+            "title": "Modulation Time Domain",
+            "description": "Visual representation for FT Properties: Frequency Shift and Differentiation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "modulation time domain",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "modulation-freq-shift",
+            "type": "plotly",
+            "title": "Modulation Freq Shift",
+            "description": "Visual representation for FT Properties: Frequency Shift and Differentiation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "modulation freq shift",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "am-modulation-spectrum",
+            "type": "v3-waveform",
+            "title": "Interactive: Am Modulation Spectrum",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "carrier-signal-plot",
+            "type": "plotly",
+            "title": "Carrier Signal Plot",
+            "description": "Visual representation for FT Properties: Frequency Shift and Differentiation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "carrier signal plot",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "differentiation-time-domain",
+            "type": "plotly",
+            "title": "Differentiation Time Domain",
+            "description": "Visual representation for FT Properties: Frequency Shift and Differentiation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "differentiation time domain",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "differentiation-freq-domain",
+            "type": "v3-waveform",
+            "title": "Interactive: Differentiation Freq Domain",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "jomega-multiplication",
+            "type": "plotly",
+            "title": "Jomega Multiplication",
+            "description": "Visual representation for FT Properties: Frequency Shift and Differentiation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "jomega multiplication",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "integration-property",
+            "type": "plotly",
+            "title": "Integration Property",
+            "description": "Visual representation for FT Properties: Frequency Shift and Differentiation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "integration property",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "freq-shift-explorer-sim",
+            "type": "v3-waveform",
+            "title": "Interactive: Freq Shift Explorer Sim",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "differentiation-demo-sim",
+            "type": "plotly",
+            "title": "Differentiation Demo Sim",
+            "description": "Visual representation for FT Properties: Frequency Shift and Differentiation.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "differentiation demo sim",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

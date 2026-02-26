@@ -1,0 +1,9 @@
+{
+    "id": "magnitude-and-phase-spectrum",
+    "title": "Magnitude and Phase Spectrum",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

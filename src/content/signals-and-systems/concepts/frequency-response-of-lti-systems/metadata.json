@@ -1,0 +1,9 @@
+{
+    "id": "frequency-response-of-lti-systems",
+    "title": "Frequency Response of LTI Systems",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

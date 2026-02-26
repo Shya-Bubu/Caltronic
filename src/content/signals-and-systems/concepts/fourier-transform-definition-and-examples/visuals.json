@@ -1,0 +1,211 @@
+{
+    "visuals": [
+        {
+            "id": "ft-analysis-integral",
+            "type": "plotly",
+            "title": "Ft Analysis Integral",
+            "description": "Visual representation for Fourier Transform Definition and Examples.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "ft analysis integral",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "ft-synthesis-integral",
+            "type": "plotly",
+            "title": "Ft Synthesis Integral",
+            "description": "Visual representation for Fourier Transform Definition and Examples.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "ft synthesis integral",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "exponential-signal-plot",
+            "type": "v3-waveform",
+            "title": "Interactive: Exponential Signal Plot",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "ft-of-exponential",
+            "type": "plotly",
+            "title": "Ft Of Exponential",
+            "description": "Visual representation for Fourier Transform Definition and Examples.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "ft of exponential",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "lorentzian-spectrum",
+            "type": "plotly",
+            "title": "Lorentzian Spectrum",
+            "description": "Visual representation for Fourier Transform Definition and Examples.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "lorentzian spectrum",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "rectangular-pulse-plot",
+            "type": "v3-waveform",
+            "title": "Interactive: Rectangular Pulse Plot",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "ft-of-rect-sinc",
+            "type": "plotly",
+            "title": "Ft Of Rect Sinc",
+            "description": "Visual representation for Fourier Transform Definition and Examples.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "ft of rect sinc",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "sinc-function-plot",
+            "type": "plotly",
+            "title": "Sinc Function Plot",
+            "description": "Visual representation for Fourier Transform Definition and Examples.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "sinc function plot",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "ft-pair-table",
+            "type": "v3-waveform",
+            "title": "Interactive: Ft Pair Table",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "ft-calculator-sim",
+            "type": "plotly",
+            "title": "Ft Calculator Sim",
+            "description": "Visual representation for Fourier Transform Definition and Examples.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "ft calculator sim",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

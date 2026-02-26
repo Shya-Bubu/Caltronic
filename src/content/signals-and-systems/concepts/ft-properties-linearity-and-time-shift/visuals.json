@@ -1,0 +1,211 @@
+{
+    "visuals": [
+        {
+            "id": "linearity-time-domain",
+            "type": "plotly",
+            "title": "Linearity Time Domain",
+            "description": "Visual representation for FT Properties: Linearity and Time Shift.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "linearity time domain",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "linearity-freq-domain",
+            "type": "plotly",
+            "title": "Linearity Freq Domain",
+            "description": "Visual representation for FT Properties: Linearity and Time Shift.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "linearity freq domain",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "superposition-spectra",
+            "type": "v3-waveform",
+            "title": "Interactive: Superposition Spectra",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "time-shift-original",
+            "type": "plotly",
+            "title": "Time Shift Original",
+            "description": "Visual representation for FT Properties: Linearity and Time Shift.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "time shift original",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "time-shift-delayed",
+            "type": "plotly",
+            "title": "Time Shift Delayed",
+            "description": "Visual representation for FT Properties: Linearity and Time Shift.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "time shift delayed",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "t"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "phase-linear-tilt",
+            "type": "v3-waveform",
+            "title": "Interactive: Phase Linear Tilt",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "magnitude-unchanged-shift",
+            "type": "plotly",
+            "title": "Magnitude Unchanged Shift",
+            "description": "Visual representation for FT Properties: Linearity and Time Shift.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "magnitude unchanged shift",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "shift-property-diagram",
+            "type": "plotly",
+            "title": "Shift Property Diagram",
+            "description": "Visual representation for FT Properties: Linearity and Time Shift.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "shift property diagram",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "time-shift-explorer-sim",
+            "type": "v3-waveform",
+            "title": "Interactive: Time Shift Explorer Sim",
+            "description": "Explore this concept interactively. Adjust parameters and observe changes in both time and frequency domains."
+        },
+        {
+            "id": "linearity-demo-sim",
+            "type": "plotly",
+            "title": "Linearity Demo Sim",
+            "description": "Visual representation for FT Properties: Linearity and Time Shift.",
+            "traces": [
+                {
+                    "x_expr": "Array.from({length: 400}, (_, i) => -4 + i * 8 / 400)",
+                    "y_expr": "Array.from({length: 400}, (_, i) => { const t = -4 + i * 8 / 400; return Math.exp(-Math.abs(t)) * Math.cos(2*t); })",
+                    "mode": "lines",
+                    "name": "linearity demo sim",
+                    "line": {
+                        "color": "#f5a623",
+                        "width": 2.5
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω"
+                },
+                "yaxis": {
+                    "title": "X(jω)"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

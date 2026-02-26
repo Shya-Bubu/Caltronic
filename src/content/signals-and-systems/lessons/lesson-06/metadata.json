@@ -1,0 +1,21 @@
+{
+    "id": "lesson-06",
+    "title": "Fourier Transform — Part I",
+    "slug": "lesson-06",
+    "description": "Transition from Fourier Series to Fourier Transform for aperiodic signals: the FT as the limiting case of FS, the analysis/synthesis integrals, computing FT of exponential and rectangular signals, magnitude and phase spectra, and key properties including linearity, time shifting, frequency shifting, and differentiation.",
+    "prerequisites": [
+        "lesson-04",
+        "lesson-05"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "lectureWeek": 6,
+    "estimatedMinutes": 120,
+    "concepts": [
+        "from-fourier-series-to-fourier-transform",
+        "fourier-transform-definition-and-examples",
+        "magnitude-and-phase-spectrum",
+        "ft-properties-linearity-and-time-shift",
+        "ft-properties-frequency-shift-and-differentiation"
+    ]
+}

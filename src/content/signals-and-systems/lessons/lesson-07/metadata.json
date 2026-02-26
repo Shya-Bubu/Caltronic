@@ -1,0 +1,20 @@
+{
+    "id": "lesson-07",
+    "title": "Fourier Transform — Part II",
+    "slug": "lesson-07",
+    "description": "Advanced Fourier Transform properties and applications: time scaling and time reversal, symmetry properties for real signals, Parseval's theorem and energy spectral density, the convolution property, and frequency response of LTI systems via the Fourier Transform.",
+    "prerequisites": [
+        "lesson-06"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "lectureWeek": 7,
+    "estimatedMinutes": 120,
+    "concepts": [
+        "ft-time-scaling-and-time-reversal",
+        "ft-of-real-signals-and-symmetry",
+        "parsevals-theorem-for-ft",
+        "convolution-property-of-ft",
+        "frequency-response-of-lti-systems"
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-frequency-response-of-lti-systems",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the Fourier Transform analysis integral?",
+            "back": "X(jω) = ∫_{-∞}^{∞} x(t) e^{-jωt} dt — correlates x(t) with complex exponentials at every frequency",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the inverse Fourier Transform?",
+            "back": "x(t) = (1/2π) ∫_{-∞}^{∞} X(jω) e^{jωt} dω — reconstructs x(t) from its spectrum",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "FT of e^{-at}u(t) = ?",
+            "back": "1/(a + jω) for a > 0 — a Lorentzian (lowpass) spectrum with magnitude 1/√(a² + ω²)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "FT of rect(t/τ) = ?",
+            "back": "τ sinc(ωτ/2π) — a sinc function whose first null is at ω = 2π/τ",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Time shift property: x(t-t₀) ↔ ?",
+            "back": "e^{-jωt₀} X(jω) — delay adds linear phase, magnitude unchanged",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Frequency shift property: e^{jω₀t}x(t) ↔ ?",
+            "back": "X(j(ω - ω₀)) — spectrum shifts right by ω₀ (modulation/AM)",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Differentiation property: dx/dt ↔ ?",
+            "back": "jω X(jω) — differentiation = multiplication by jω in frequency",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is conjugate symmetry for real signals?",
+            "back": "X*(jω) = X(-jω) — magnitude is even, phase is odd for real x(t)",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "State Parseval's theorem for FT.",
+            "back": "∫|x(t)|²dt = (1/2π)∫|X(jω)|²dω — energy from either domain",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Convolution property: x(t)*h(t) ↔ ?",
+            "back": "X(jω)·H(jω) — convolution in time = multiplication in frequency",
+            "difficultyLevel": 5
+        }
+    ]
+}

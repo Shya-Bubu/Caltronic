@@ -250,72 +250,19 @@ Best for: ANY circuit a student should interact with. Lets students change value
 
 **Read `.agent/skills/circuit-diagrams/SKILL.md` for Falstad circuit text generation rules.**
 
-#### Category 4: D3.js Waveforms (type: `d3-waveform`)
-Best for: Signal shapes — sine, square, step, impulse, triangle, ramp.
-```json
-{ "id": "sine-wave", "type": "d3-waveform", "waveType": "sine", "mode": "continuous" }
-```
-Supported waveTypes: `sine`, `cosine`, `square`, `step`, `impulse`, `ramp`, `triangle`, `rect`
+> [!CAUTION]
+> **NEVER use these types — they have NO renderer and WILL break:**
+> `d3-waveform`, `d3-block-diagram`, `d3-simulation`, `d3-vi-curve`, `d3-iv-curve`,
+> `d3-ohms-law-explorer`, `d3-harmonic-builder`, `d3-signal-decomposer`, `d3-fourier-coefficients`,
+> `d3-time-shift`, `d3-sampling`, `diagram`, `circuit-diagram`, `chart`, `flowchart`,
+> `annotated-matrix`, `table-diagram`, `matrix-diagram`, `annotated-circuit`, `comparison-table`,
+> `comparison-diagram`, `split-diagram`, `node-detail-diagram`, `graph-with-matrix`
+>
+> If you need a block diagram → use `plotly` bar chart with annotations.
+> If you need a waveform → use `plotly` with `x_expr`/`y_expr`.
+> If you need an interactive sim → use `v3-waveform` or `v3-load-line`.
 
-#### Category 5: D3.js V-I Curves (type: `d3-vi-curve` or `d3-iv-curve`)
-Best for: Interactive v-i characteristics with multiple overlaid curves.
-```json
-{
-  "id": "resistor-family",
-  "type": "d3-vi-curve",
-  "curves": [
-    { "type": "linear-resistor", "resistance": 100 },
-    { "type": "linear-resistor", "resistance": 500 }
-  ]
-}
-```
-
-#### Category 6: D3.js Block Diagrams (type: `d3-block-diagram`)
-Best for: System interconnections, signal flow, feedback loops.
-```json
-{
-  "id": "feedback-system",
-  "type": "d3-block-diagram",
-  "blocks": [
-    { "id": "input", "label": "x(t)", "x": 50, "y": 80 },
-    { "id": "system", "label": "H(s)", "x": 200, "y": 80 },
-    { "id": "output", "label": "y(t)", "x": 350, "y": 80 }
-  ],
-  "connections": [
-    { "from": "input", "to": "system" },
-    { "from": "system", "to": "output" }
-  ]
-}
-```
-
-#### Category 7: D3.js Interactive Simulations (type: `d3-simulation`)
-Best for: Complex interactive explorations. Use `simulationType` to select:
-
-| simulationType | Component Rendered | Use For |
-|---|---|---|
-| `signal-generator`, `frequency-period` | HarmonicBuilder | Signal parameter exploration |
-| `sampling-demo`, `sampling` | SamplingDemo | Aliasing, Nyquist |
-| `fourier-builder`, `harmonic-builder` | HarmonicBuilder | Fourier series construction |
-| `fourier-coefficients`, `coefficient-calculator` | FourierCoefficientsExplorer | Coefficient visualization |
-| `time-shift` | TimeShiftExplorer | Time domain transformations |
-| `symmetry-explorer`, `convolution-demo` | SignalDecomposer | Signal decomposition |
-| `graphical-convolution`, `convolution` | SignalDecomposer | Convolution visualization |
-| `fourier-synthesis`, `gibbs-phenomenon` | HarmonicBuilder | Fourier synthesis/Gibbs |
-| `linearity`, `time-invariance` | SignalDecomposer | LTI system properties |
-| `system-properties`, `lti-response` | SignalDecomposer | System response |
-| `vi-curve`, `pwl-builder` | VICurvePlot | V-I characteristics |
-| `ohms-law`, `time-varying-resistor` | OhmsLawExplorer | Ohm's law exploration |
-| `energy-power`, `energy-power-calc` | HarmonicBuilder | Energy/power signals |
-| `noise-generator` | Waveform | Noisy signals |
-| `impulse`, `impulse-approximation` | Waveform (impulse) | Impulse functions |
-| `color-code` | OhmsLawExplorer | Resistor color codes |
-
-```json
-{ "id": "sampling-demo", "type": "d3-simulation", "simulationType": "sampling-demo", "title": "Sampling & Aliasing Explorer" }
-```
-
-#### Category 8: v3 Custom Simulators
-Dedicated React+SVG components for specific circuit analysis concepts:
+#### Category 4: v3 Custom Simulators (Interactive React+SVG)
 
 | Type | Component | Use For |
 |---|---|---|
@@ -323,36 +270,43 @@ Dedicated React+SVG components for specific circuit analysis concepts:
 | `v3-load-line` | LoadLineSimulator | Graphical load-line analysis |
 | `v3-diode-circuit` | DiodeCircuitSimulator | Diode circuit operating point |
 | `v3-pwl-explorer` | PWLExplorer | Piecewise-linear approximation |
-| `v3-waveform` | WaveformSimulator | Waveform generation |
+| `v3-waveform` | WaveformSimulator | Waveform generation / interactive |
 | `v3-plot` | EngineeringPlot | Custom engineering curves |
 | `v3-circuit` | CircuitDiagram | Declarative circuit SVGs |
 
-#### Category 9: D3.js Specialized Components
+```json
+{ "id": "waveform-explorer", "type": "v3-waveform", "title": "Interactive: Explore the Waveform" }
+```
 
-| Type | Component | Use For |
-|---|---|---|
-| `d3-ohms-law-explorer` | OhmsLawExplorer | Interactive Ohm's law |
-| `d3-harmonic-builder` | HarmonicBuilder | Fourier harmonic construction |
-| `d3-signal-decomposer` | SignalDecomposer | Signal analysis/decomposition |
-| `d3-fourier-coefficients` | FourierCoefficientsExplorer | Fourier coefficient visualization |
-| `d3-time-shift` | TimeShiftExplorer | Time shift exploration |
-| `d3-sampling` | SamplingDemo | Sampling demonstration |
-
-#### Category 10: Legacy Components (still supported)
+#### Category 5: Legacy Components (still supported)
 
 | Type | Use For |
 |---|---|
-| `block-diagram` | Simple block diagrams |
+| `ohms-law-sim` | Ohm's law simulator |
+| `block-diagram` | Simple block diagrams (legacy) |
+| `time-domain` | Time domain plots |
+| `signal-plot` | Signal plots |
 | `sine-wave` | Basic sine wave |
 | `discrete-stem` | Discrete-time signals |
 | `circuit` | Simple circuits (circuitType: resistor, series, parallel, diode) |
-| `vi-curve` | V-I curves (curveType: linear, diode, tunnel, open, short, glow, pn-junction, bilateral) |
+| `vi-curve` | V-I curves (curveType: linear, diode, tunnel, etc.) |
 | `frequency-spectrum` | Frequency domain |
 | `step-function` | Step function |
-| `time-domain` | Time domain plots |
-| `signal-plot` | Signal plots |
-| `image` | Static images (for lecture note scans ONLY) |
+| `image` | Static images (lecture note scans ONLY) |
 | `image-gallery` | Multiple related images |
+
+### Complete Supported Types Reference
+
+**This is the DEFINITIVE list from `VisualRenderer.tsx`. If a type is NOT in this list, it WILL show "No renderer for visual type" error.**
+
+```
+plotly, circuit-schematic, falstad-sim, ohms-law-sim,
+time-domain, signal-plot, block-diagram, sine-wave,
+discrete-stem, circuit, vi-curve, frequency-spectrum,
+step-function, v3-ohms-law, v3-load-line, v3-diode-circuit,
+v3-pwl-explorer, v3-waveform, v3-plot, v3-circuit,
+image, image-gallery
+```
 
 ### Visual Mix Requirements Per Concept
 
@@ -362,15 +316,14 @@ Dedicated React+SVG components for specific circuit analysis concepts:
 - ≥2 `plotly` charts (v-i curves, transfer characteristics, waveforms)
 - ≥1 `circuit-schematic` (the circuit being discussed)
 - ≥1 `falstad-sim` (interactive version of that circuit)
-- ≥1 interactive simulator (`v3-*` or `d3-simulation`)
-- ≥1 additional (block diagram, waveform, v-i curve explorer)
+- ≥1 interactive simulator (`v3-load-line`, `v3-waveform`, etc.)
+- ≥1 additional (block-diagram, more plotly, etc.)
 
 **Minimum mix for signal-based modules (Signals & Systems):**
-- ≥2 `plotly` charts (signal plots, spectra)
-- ≥1 `d3-waveform` (signal visualization)
-- ≥1 `d3-simulation` (interactive exploration)
-- ≥1 `d3-block-diagram` (system diagram)
-- ≥1 additional (HarmonicBuilder, SamplingDemo, etc.)
+- ≥4 `plotly` charts (signal plots, spectra, waveforms, bar charts for diagrams)
+- ≥2 `v3-waveform` (interactive signal exploration)
+- Block diagrams: use `plotly` bar charts with text annotations
+- Waveforms: use `plotly` with `x_expr`/`y_expr` computed traces
 
 ### Falstad Embed Sizing
 - Default height: `450px`
@@ -664,7 +617,7 @@ The validating agent must check **all** of the following:
 #### 2. Visual ID Alignment
 - [ ] Every `[[visual:id]]` marker in `content.md` has a matching `id` in `visuals.json`
 - [ ] No orphaned visuals in `visuals.json` (IDs that nothing references)
-- [ ] All visual `type` values are supported by `VisualRenderer.tsx` (`plotly`, `circuit-schematic`, `v3-pwl-explorer`, `v3-load-line`, `v3-diode-circuit`, `image`, `image-gallery`, `falstad-sim`)
+- [ ] All visual `type` values are supported by `VisualRenderer.tsx` — see "Complete Supported Types Reference" section above. **NEVER use `d3-waveform`, `d3-block-diagram`, `d3-simulation`, or any `d3-*` type.**
 - [ ] `visuals.json` uses the correct format: `{ "visuals": [...] }`
 
 #### 3. Quiz & Flashcard Contracts
