@@ -1,0 +1,125 @@
+{
+    "id": "quiz-cb-cc",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In the common-base configuration, the input terminal is:",
+            "options": [
+                "Emitter",
+                "Base",
+                "Collector",
+                "Any terminal"
+            ],
+            "correctAnswer": "Emitter",
+            "explanation": "CB: input at emitter, output at collector, base is common (AC grounded)."
+        },
+        {
+            "id": "q2",
+            "prompt": "The voltage gain of a CC (emitter follower) is approximately:",
+            "options": [
+                "1",
+                "β",
+                "g_m × R_C",
+                "-g_m × R_C"
+            ],
+            "correctAnswer": "1",
+            "explanation": "CC is a voltage follower: A_V ≈ 1. It provides current gain (β+1) but not voltage gain."
+        },
+        {
+            "id": "q3",
+            "prompt": "CB has better high-frequency response than CE because:",
+            "options": [
+                "No Miller effect",
+                "Higher gain",
+                "Lower R_out",
+                "Higher R_in"
+            ],
+            "correctAnswer": "No Miller effect",
+            "explanation": "In CE, C_BC is multiplied by (1+|A_V|) due to Miller effect. In CB, C_BC is between output and ground — no multiplication."
+        },
+        {
+            "id": "q4",
+            "prompt": "The input impedance of a CB amplifier is approximately:",
+            "options": [
+                "r_e ≈ 25 Ω",
+                "r_π ≈ 2.5 kΩ",
+                "β × R_E ≈ 100 kΩ",
+                "R_C ≈ 4.7 kΩ"
+            ],
+            "correctAnswer": "r_e ≈ 25 Ω",
+            "explanation": "CB R_in ≈ r_e = V_T/I_C. At I_C = 1mA: r_e ≈ 25mV/1mA = 25Ω. Very low!"
+        },
+        {
+            "id": "q5",
+            "prompt": "The current gain of a CB amplifier is:",
+            "options": [
+                "α ≈ 1",
+                "β ≈ 100",
+                "β + 1 ≈ 101",
+                "g_m × R_C"
+            ],
+            "correctAnswer": "α ≈ 1",
+            "explanation": "CB current gain is α = β/(β+1) ≈ 0.99. Almost unity — CB amplifies voltage, not current."
+        },
+        {
+            "id": "q6",
+            "prompt": "Why is CC (emitter follower) used as a buffer?",
+            "options": [
+                "High R_in, low R_out — impedance transformation",
+                "High voltage gain",
+                "High output impedance",
+                "Low current gain"
+            ],
+            "correctAnswer": "High R_in, low R_out — impedance transformation",
+            "explanation": "CC has R_in ≈ β·R_E (very high) and R_out ≈ r_e (very low). This transforms high-impedance sources to low-impedance outputs."
+        },
+        {
+            "id": "q7",
+            "prompt": "In a cascaded CE + CC design, the CE stage provides:",
+            "options": [
+                "Voltage gain",
+                "Current gain only",
+                "Impedance matching",
+                "DC biasing only"
+            ],
+            "correctAnswer": "Voltage gain",
+            "explanation": "CE provides the voltage gain (-g_m·R_C). CC follows to provide current gain and low R_out for driving loads."
+        },
+        {
+            "id": "q8",
+            "prompt": "The output impedance of a CC amplifier is approximately:",
+            "options": [
+                "r_e ≈ 25 Ω",
+                "R_C ≈ 4.7 kΩ",
+                "r_π ≈ 2.5 kΩ",
+                "Very high (500 kΩ)"
+            ],
+            "correctAnswer": "r_e ≈ 25 Ω",
+            "explanation": "CC R_out ≈ r_e = V_T/I_C. Very low output impedance, ideal for driving loads."
+        },
+        {
+            "id": "q9",
+            "prompt": "Which configuration has the highest current gain?",
+            "options": [
+                "CC (β + 1)",
+                "CE (β)",
+                "CB (α ≈ 1)",
+                "All are equal"
+            ],
+            "correctAnswer": "CC (β + 1)",
+            "explanation": "CC has current gain β+1, CE has β, CB has α ≈ 1. CC wins for current amplification."
+        },
+        {
+            "id": "q10",
+            "prompt": "The CB amplifier is phase:",
+            "options": [
+                "Non-inverting (0°)",
+                "Inverting (180°)",
+                "90° phase shift",
+                "Depends on frequency"
+            ],
+            "correctAnswer": "Non-inverting (0°)",
+            "explanation": "CB is non-inverting. When I_E increases (input), I_C increases, V_RC increases, so V_out increases. Same polarity."
+        }
+    ]
+}

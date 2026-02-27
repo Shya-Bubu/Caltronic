@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-ideal-vs-practical",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What limits the linear range of a real amplifier?",
+            "back": "Supply rail saturation: output clips at ±V_CC. Linear range is V_in < V_CC/A_V.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Input loading formula for voltage amplifier?",
+            "back": "V_in = V_S × R_in/(R_in + R_S). Need R_in >> R_S to minimize signal loss.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Output loading formula for voltage amplifier?",
+            "back": "V_out = A_V·V_in × R_L/(R_L + R_out). Need R_out << R_L.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is gain-bandwidth product?",
+            "back": "GBP ≈ constant. Higher gain → lower bandwidth. BW = GBP/A_V.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Typical R_in of a MOSFET input stage?",
+            "back": "~10⁹ to 10¹² Ω due to insulated gate. Much higher than BJT.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Why is small-signal operation preferred?",
+            "back": "Keeps operation in the linear region, minimizing THD (< 1%). Large signals cause clipping and harmonic distortion.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Max efficiency of Class A with resistive load?",
+            "back": "25%. With transformer-coupled load: 50%. Class B theoretical max: 78.5%.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f8",
+            "front": "Complete voltage gain formula with all loading effects?",
+            "back": "A_total = A_V × [R_in/(R_in+R_S)] × [R_L/(R_L+R_out)]. Three factors multiply.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "What is THD?",
+            "back": "Total Harmonic Distortion: ratio of harmonic power to fundamental power. Small signal → low THD (< 1%).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "R_out of emitter follower vs CE?",
+            "back": "CC (emitter follower): ~10-50 Ω. CE: ~10-100 kΩ. CC is much lower — ideal voltage output.",
+            "difficultyLevel": 4
+        }
+    ]
+}

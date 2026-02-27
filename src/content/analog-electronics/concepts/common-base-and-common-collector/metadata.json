@@ -1,0 +1,9 @@
+{
+    "id": "common-base-and-common-collector",
+    "title": "Common-Base and Common-Collector Configurations",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-two-port",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In h-parameter equations, h_fe represents:",
+            "options": [
+                "Forward current gain (β)",
+                "Input impedance",
+                "Output admittance",
+                "Reverse voltage ratio"
+            ],
+            "correctAnswer": "Forward current gain (β)",
+            "explanation": "h_fe = I_out/I_in with V_out = 0. For CE, h_fe = β."
+        },
+        {
+            "id": "q2",
+            "prompt": "The simplified CE voltage gain using h-parameters is:",
+            "options": [
+                "-h_fe·R_L / h_ie",
+                "-h_ie / h_fe",
+                "h_oe × R_L",
+                "-h_re × h_fe"
+            ],
+            "correctAnswer": "-h_fe·R_L / h_ie",
+            "explanation": "With h_re ≈ 0: A_V = -h_fe·R_L/h_ie = -β·R_L/r_π = -g_m·R_L."
+        },
+        {
+            "id": "q3",
+            "prompt": "h_re is usually neglected because:",
+            "options": [
+                "Its value is ≈ 0 (10⁻⁴)",
+                "It has wrong units",
+                "It only applies at DC",
+                "It equals h_fe"
+            ],
+            "correctAnswer": "Its value is ≈ 0 (10⁻⁴)",
+            "explanation": "h_re is the reverse voltage feedback ratio. For BJTs it is typically 10⁻⁴, small enough to neglect."
+        },
+        {
+            "id": "q4",
+            "prompt": "Which parameter set is best for cascading stages?",
+            "options": [
+                "ABCD (transmission)",
+                "h-parameters",
+                "y-parameters",
+                "z-parameters"
+            ],
+            "correctAnswer": "ABCD (transmission)",
+            "explanation": "ABCD parameters cascade by matrix multiplication: ABCD_total = ABCD₁ × ABCD₂. Very convenient for multi-stage analysis."
+        },
+        {
+            "id": "q5",
+            "prompt": "y-parameters are most useful for:",
+            "options": [
+                "Parallel connections",
+                "Series connections",
+                "Cascade connections",
+                "Any connection"
+            ],
+            "correctAnswer": "Parallel connections",
+            "explanation": "y-parameters add directly for parallel-connected two-ports: Y_total = Y₁ + Y₂."
+        },
+        {
+            "id": "q6",
+            "prompt": "For CE configuration, h_ie equals:",
+            "options": [
+                "r_π",
+                "r_e",
+                "R_C",
+                "R_E"
+            ],
+            "correctAnswer": "r_π",
+            "explanation": "h_ie is the input impedance with output shorted. For CE: h_ie = r_π = β/g_m."
+        },
+        {
+            "id": "q7",
+            "prompt": "The h-parameter subscripts for Common-Base are:",
+            "options": [
+                "h_ib, h_rb, h_fb, h_ob",
+                "h_ie, h_re, h_fe, h_oe",
+                "h_ic, h_rc, h_fc, h_oc",
+                "h_i, h_r, h_f, h_o"
+            ],
+            "correctAnswer": "h_ib, h_rb, h_fb, h_ob",
+            "explanation": "Subscript \"b\" for common-base. \"e\" for CE, \"c\" for CC. The second letter indicates the common terminal."
+        },
+        {
+            "id": "q8",
+            "prompt": "h_oe for a BJT is approximately:",
+            "options": [
+                "1/r_o (output admittance)",
+                "r_π",
+                "β",
+                "g_m"
+            ],
+            "correctAnswer": "1/r_o (output admittance)",
+            "explanation": "h_oe is the output admittance with input open: h_oe = 1/r_o ≈ I_C/V_A (Early effect)."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why are h-parameters called \"hybrid\"?",
+            "options": [
+                "They mix different units",
+                "They work for all configurations",
+                "They are approximate",
+                "They come in pairs"
+            ],
+            "correctAnswer": "They mix different units",
+            "explanation": "h-params have mixed units: h_ie (Ω), h_re (unitless), h_fe (unitless), h_oe (Siemens). No other set has this mix."
+        },
+        {
+            "id": "q10",
+            "prompt": "If h_fe=150, h_ie=3kΩ, R_L=10kΩ, the CE voltage gain is:",
+            "options": [
+                "-500",
+                "-150",
+                "500",
+                "-1500"
+            ],
+            "correctAnswer": "-500",
+            "explanation": "A_V = -h_fe·R_L/h_ie = -150·10k/3k = -500."
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-ce",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The CE amplifier voltage gain A_V equals:",
+            "options": [
+                "-g_m × R_C",
+                "g_m × R_C",
+                "β × R_C",
+                "R_C / r_π"
+            ],
+            "correctAnswer": "-g_m × R_C",
+            "explanation": "A_V = -g_m·R_C. The negative sign indicates phase inversion (180°)."
+        },
+        {
+            "id": "q2",
+            "prompt": "The input impedance of a CE amplifier is:",
+            "options": [
+                "r_π || R₁ || R₂",
+                "R_C",
+                "r_π only",
+                "R₁ + R₂"
+            ],
+            "correctAnswer": "r_π || R₁ || R₂",
+            "explanation": "R_in = r_π || R₁ || R₂. The bias resistors are in parallel with r_π from the small-signal perspective."
+        },
+        {
+            "id": "q3",
+            "prompt": "The CE amplifier output is:",
+            "options": [
+                "Inverted (180° shift)",
+                "Non-inverted (0° shift)",
+                "90° shifted",
+                "45° shifted"
+            ],
+            "correctAnswer": "Inverted (180° shift)",
+            "explanation": "CE inverts: when V_in increases, I_C increases, V_RC increases, so V_CE decreases. Positive input → negative output."
+        },
+        {
+            "id": "q4",
+            "prompt": "Adding unbypassed R_E to a CE amplifier will:",
+            "options": [
+                "Reduce gain but improve stability",
+                "Increase gain",
+                "Have no effect on gain",
+                "Reduce both gain and stability"
+            ],
+            "correctAnswer": "Reduce gain but improve stability",
+            "explanation": "With R_E: A_V = -R_C/(r_e + R_E). Gain drops but linearity and thermal stability improve via negative feedback."
+        },
+        {
+            "id": "q5",
+            "prompt": "If I_C = 1 mA at room temperature, g_m equals:",
+            "options": [
+                "40 mA/V",
+                "25 mA/V",
+                "100 mA/V",
+                "1 mA/V"
+            ],
+            "correctAnswer": "40 mA/V",
+            "explanation": "g_m = I_C/V_T = 1mA/25mV = 40 mA/V. At room temperature V_T ≈ 25 mV."
+        },
+        {
+            "id": "q6",
+            "prompt": "r_π for β=100 and g_m=40mS is:",
+            "options": [
+                "2.5 kΩ",
+                "100 kΩ",
+                "40 kΩ",
+                "250 Ω"
+            ],
+            "correctAnswer": "2.5 kΩ",
+            "explanation": "r_π = β/g_m = 100/0.04 = 2500 Ω = 2.5 kΩ."
+        },
+        {
+            "id": "q7",
+            "prompt": "The output impedance of a CE amplifier (with Early effect neglected) is approximately:",
+            "options": [
+                "R_C",
+                "r_π",
+                "R_E",
+                "β × R_C"
+            ],
+            "correctAnswer": "R_C",
+            "explanation": "R_out ≈ R_C when early effect (r_o) is neglected. With r_o: R_out = R_C || r_o."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why is the CE configuration the most commonly used BJT amplifier?",
+            "options": [
+                "Highest power gain",
+                "Lowest input impedance",
+                "Highest output impedance",
+                "No phase inversion"
+            ],
+            "correctAnswer": "Highest power gain",
+            "explanation": "CE has both high voltage gain and high current gain (β), giving the highest power gain A_P = |A_V| × A_I among all three BJT configs."
+        },
+        {
+            "id": "q9",
+            "prompt": "The bypass capacitor C_E is used to:",
+            "options": [
+                "Short R_E for AC signals",
+                "Short R_C for AC signals",
+                "Block DC from the output",
+                "Set the bias point"
+            ],
+            "correctAnswer": "Short R_E for AC signals",
+            "explanation": "C_E bypasses R_E for AC, restoring the full gain -g_m·R_C. Without C_E, gain is reduced to -R_C/(r_e+R_E)."
+        },
+        {
+            "id": "q10",
+            "prompt": "If R_C = 5kΩ and g_m = 40mS, the CE voltage gain magnitude is:",
+            "options": [
+                "200",
+                "5",
+                "0.008",
+                "40"
+            ],
+            "correctAnswer": "200",
+            "explanation": "|A_V| = g_m × R_C = 0.04 × 5000 = 200."
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "id": "lesson-05",
+    "title": "Amplifier Classification & BJT Configurations",
+    "slug": "lesson-05",
+    "description": "Classify amplifiers by input/output signal type (voltage, current, transconductance, transresistance), understand ideal vs practical parameters, and analyse the three BJT amplifier configurations (CE, CB, CC) using two-port network models.",
+    "prerequisites": [
+        "lesson-04"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "lectureWeek": 5,
+    "estimatedMinutes": 180,
+    "concepts": [
+        "amplifier-classification",
+        "ideal-vs-practical-amplifiers",
+        "common-emitter-amplifier",
+        "common-base-and-common-collector",
+        "bjt-two-port-analysis"
+    ]
+}

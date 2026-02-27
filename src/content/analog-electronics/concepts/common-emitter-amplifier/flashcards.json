@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-ce",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "CE voltage gain formula?",
+            "back": "A_V = -g_m × R_C. Negative = phase inversion. g_m = I_C/V_T.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "CE input impedance?",
+            "back": "R_in = r_π || R₁ || R₂, where r_π = β/g_m.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "CE output impedance?",
+            "back": "R_out ≈ R_C (neglecting r_o). With Early effect: R_out = R_C || r_o.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What does C_E (bypass capacitor) do?",
+            "back": "Shorts R_E for AC signals → restores full gain -g_m·R_C. Without it, gain = -R_C/(r_e+R_E).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Why does CE invert the signal?",
+            "back": "↑V_in → ↑I_C → ↑V_RC → ↓V_CE. More current through R_C drops more voltage, reducing V_CE.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "g_m at I_C = 2mA, room temp?",
+            "back": "g_m = I_C/V_T = 2mA/25mV = 80 mA/V = 80 mS.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "CE current gain?",
+            "back": "A_I ≈ β. The CE configuration provides full current amplification.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Effect of emitter degeneration?",
+            "back": "Unbypassed R_E: A_V = -R_C/(r_e + R_E). Lower gain but better linearity and thermal stability via negative feedback.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "CE power gain compared to CB and CC?",
+            "back": "CE has the HIGHEST power gain (A_P = |A_V| × A_I). CB has lower current gain. CC has lower voltage gain.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What causes thermal runaway and how does R_E prevent it?",
+            "back": "↑T → ↑I_C → ↑power → ↑T (positive feedback). R_E: ↑I_C → ↑V_RE → ↓V_BE → ↓I_C (negative feedback).",
+            "difficultyLevel": 5
+        }
+    ]
+}

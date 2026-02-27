@@ -1,0 +1,9 @@
+{
+    "id": "bjt-two-port-analysis",
+    "title": "BJT Two-Port Network Analysis",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

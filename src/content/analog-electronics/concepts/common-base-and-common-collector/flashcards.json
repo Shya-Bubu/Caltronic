@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-cb-cc",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "CB configuration: which terminal gets input?",
+            "back": "Emitter is input, Collector is output, Base is common (AC ground).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "CC configuration: which terminal gives output?",
+            "back": "Emitter is output, Base is input, Collector is common (to V_CC).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "CB voltage gain?",
+            "back": "A_V ≈ g_m·R_C (non-inverting). Same magnitude as CE but NO sign inversion.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "CC voltage gain?",
+            "back": "A_V ≈ 1 (voltage follower). Output \"follows\" input with slight offset of V_BE.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "CB input impedance?",
+            "back": "R_in ≈ r_e = V_T/I_C ≈ 25Ω at 1mA. Very low — matches low-impedance sources.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "CC output impedance?",
+            "back": "R_out ≈ r_e = V_T/I_C ≈ 25Ω. Very low — drives low-impedance loads easily.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Why does CB have no Miller effect?",
+            "back": "C_BC connects output to ground (base), not input. No feedback capacitance multiplication. Better high-freq response.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f8",
+            "front": "CB current gain?",
+            "back": "A_I = α = β/(β+1) ≈ 0.99. CB provides voltage gain but NOT current amplification.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "CC current gain?",
+            "back": "A_I = β + 1 ≈ 101. Higher than CE (β). CC is the best current amplifier among BJT configs.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "When to use CE vs CB vs CC?",
+            "back": "CE: general-purpose high gain. CB: high-frequency/RF. CC: buffer/impedance matching. Often cascade: CE → CC.",
+            "difficultyLevel": 4
+        }
+    ]
+}

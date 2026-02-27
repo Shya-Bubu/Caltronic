@@ -113,6 +113,11 @@ export const modules: Module[] = [
         title: "BJT Biasing & Small-Signal Models",
         path: "/analog-electronics/lesson-04",
       },
+      {
+        id: "lesson-05",
+        title: "Amplifier Classification & BJT Configurations",
+        path: "/analog-electronics/lesson-05",
+      },
     ],
   },
   {

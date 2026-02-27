@@ -1,0 +1,9 @@
+{
+    "id": "common-emitter-amplifier",
+    "title": "Common-Emitter Amplifier",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

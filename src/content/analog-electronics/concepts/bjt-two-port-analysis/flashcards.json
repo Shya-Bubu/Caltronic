@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-two-port",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are the four h-parameters?",
+            "back": "h_ie (input impedance), h_re (reverse voltage ratio ≈ 0), h_fe (current gain = β), h_oe (output admittance = 1/r_o).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "h-parameter defining equations?",
+            "back": "V₁ = h_ie·I₁ + h_re·V₂. I₂ = h_fe·I₁ + h_oe·V₂. First equation: input loop. Second: output loop.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Simplified CE gain from h-params?",
+            "back": "A_V = -h_fe·R_L/h_ie = -β·R_L/r_π = -g_m·R_L (when h_re ≈ 0).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "When to use y-parameters?",
+            "back": "For parallel-connected two-ports: Y_total = Y₁ + Y₂. All parameters in Siemens.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "When to use z-parameters?",
+            "back": "For series-connected two-ports: Z_total = Z₁ + Z₂. All parameters in Ohms.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "When to use ABCD parameters?",
+            "back": "For cascaded stages: ABCD_total = ABCD₁ × ABCD₂. Matrix multiplication gives overall response.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "h-parameter subscript convention?",
+            "back": "Second letter = common terminal: \"e\" for CE, \"b\" for CB, \"c\" for CC. Example: h_fe = β for CE.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "What is h_oe physically?",
+            "back": "Output admittance with input open = 1/r_o. Due to Early effect: I_C depends slightly on V_CE.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "Inter-stage loading in cascade?",
+            "back": "Stage 1 output impedance and Stage 2 input impedance form a divider. Actual gain = A_V1 × (R_in2/(R_in2+R_out1)) × A_V2.",
+            "difficultyLevel": 5
+        },
+        {
+            "id": "f10",
+            "front": "Typical h_ie for small-signal BJT?",
+            "back": "h_ie = r_π = β/g_m. For β=100, I_C=1mA: h_ie = 100/40mS = 2.5kΩ.",
+            "difficultyLevel": 3
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-ideal-vs-practical",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "If R_in = 10·R_S, what fraction of V_S appears as V_in?",
+            "options": [
+                "10/11 ≈ 91%",
+                "1/11 ≈ 9%",
+                "50%",
+                "100%"
+            ],
+            "correctAnswer": "10/11 ≈ 91%",
+            "explanation": "V_in/V_S = R_in/(R_in+R_S) = 10R_S/(10R_S+R_S) = 10/11 ≈ 91%."
+        },
+        {
+            "id": "q2",
+            "prompt": "An amplifier with A_V=20 and V_CC=±15V will clip when V_in exceeds:",
+            "options": [
+                "±0.75V",
+                "±15V",
+                "±1.5V",
+                "±20V"
+            ],
+            "correctAnswer": "±0.75V",
+            "explanation": "Clipping occurs when A_V×V_in > V_CC. So V_in > 15/20 = 0.75V."
+        },
+        {
+            "id": "q3",
+            "prompt": "If GBP = 1 MHz and gain = 100, the bandwidth is:",
+            "options": [
+                "10 kHz",
+                "100 kHz",
+                "1 kHz",
+                "1 MHz"
+            ],
+            "correctAnswer": "10 kHz",
+            "explanation": "BW = GBP/Gain = 1MHz/100 = 10 kHz."
+        },
+        {
+            "id": "q4",
+            "prompt": "Maximum theoretical efficiency of a Class A amplifier with resistive load:",
+            "options": [
+                "25%",
+                "50%",
+                "78.5%",
+                "100%"
+            ],
+            "correctAnswer": "25%",
+            "explanation": "Class A with resistive load has max η = 25%. With transformer coupling, max is 50%."
+        },
+        {
+            "id": "q5",
+            "prompt": "An amplifier with R_out=1kΩ and R_L=4kΩ delivers what fraction of ideal output?",
+            "options": [
+                "80%",
+                "20%",
+                "50%",
+                "90%"
+            ],
+            "correctAnswer": "80%",
+            "explanation": "R_L/(R_L+R_out) = 4/(4+1) = 0.8 = 80%."
+        },
+        {
+            "id": "q6",
+            "prompt": "Which technology typically has the highest input impedance?",
+            "options": [
+                "Power BJT",
+                "MOSFET",
+                "JFET",
+                "Op-amp with FET input"
+            ],
+            "correctAnswer": "Op-amp with FET input",
+            "explanation": "FET-input op-amps have R_in up to 10¹² Ω. MOSFETs also have very high R_in due to gate insulation."
+        },
+        {
+            "id": "q7",
+            "prompt": "Total gain with R_in=50kΩ, R_S=5kΩ, A_V=100, R_out=2kΩ, R_L=8kΩ is:",
+            "options": [
+                "72.7",
+                "100",
+                "80",
+                "90.9"
+            ],
+            "correctAnswer": "72.7",
+            "explanation": "Total = A_V × [R_in/(R_in+R_S)] × [R_L/(R_L+R_out)] = 100 × 50/55 × 8/10 = 100 × 0.909 × 0.8 = 72.7."
+        },
+        {
+            "id": "q8",
+            "prompt": "Small-signal operation keeps THD below approximately:",
+            "options": [
+                "1%",
+                "10%",
+                "25%",
+                "50%"
+            ],
+            "correctAnswer": "1%",
+            "explanation": "Small-signal operation linearizes the transistor characteristics, keeping total harmonic distortion well under 1%."
+        },
+        {
+            "id": "q9",
+            "prompt": "An emitter follower (CC) typically has R_out of approximately:",
+            "options": [
+                "10 Ω",
+                "1 kΩ",
+                "50 kΩ",
+                "1 MΩ"
+            ],
+            "correctAnswer": "10 Ω",
+            "explanation": "The CC configuration has very low R_out, typically around r_e = V_T/I_C ≈ 25mV/2.5mA = 10Ω."
+        },
+        {
+            "id": "q10",
+            "prompt": "Doubling the gain of an amplifier while maintaining GBP constant will:",
+            "options": [
+                "Halve the bandwidth",
+                "Double the bandwidth",
+                "Not affect bandwidth",
+                "Quadruple the bandwidth"
+            ],
+            "correctAnswer": "Halve the bandwidth",
+            "explanation": "If GBP is constant: BW = GBP/Gain. Doubling gain halves BW."
+        }
+    ]
+}

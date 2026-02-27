@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-amplifier-classification",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are the four amplifier types?",
+            "back": "Voltage (V→V), Current (I→I), Transconductance (V→I), Transresistance (I→V)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Ideal R_in and R_out for a voltage amplifier?",
+            "back": "R_in → ∞ (don't load source), R_out → 0 (all voltage to load)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Ideal R_in and R_out for a current amplifier?",
+            "back": "R_in → 0 (all current through amp), R_out → ∞ (all current to load)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Units of transconductance gain G_M?",
+            "back": "Siemens (S) = 1/Ω = A/V. Because G_M = I_out/V_in",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Units of transresistance gain R_M?",
+            "back": "Ohms (Ω) = V/A. Because R_M = V_out/I_in",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Output loading formula for voltage amplifier?",
+            "back": "V_out = A_V · V_in × R_L/(R_L + R_out). Voltage divider between R_out and R_L.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Output loading formula for current amplifier?",
+            "back": "I_out = A_I · I_in × R_out/(R_out + R_L). Current divider between R_out and R_L.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "When do we use Thévenin vs Norton output model?",
+            "back": "Thévenin for voltage output (voltage + transresistance). Norton for current output (current + transconductance).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What universal requirement must ALL amplifiers satisfy?",
+            "back": "Power gain P_out/P_in > 1. An amplifier must always increase power, even if voltage or current gain is < 1.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Ideal parameters for transconductance amplifier?",
+            "back": "R_in → ∞ (voltage input, don't load), R_out → ∞ (current output, don't shunt). Both infinite!",
+            "difficultyLevel": 4
+        }
+    ]
+}

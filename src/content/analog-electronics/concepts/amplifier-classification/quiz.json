@@ -1,0 +1,125 @@
+{
+    "id": "quiz-amplifier-classification",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "For a voltage amplifier, the ideal input impedance R_in should be:",
+            "options": [
+                "Zero",
+                "Infinity",
+                "50 Ω",
+                "Equal to R_S"
+            ],
+            "correctAnswer": "Infinity",
+            "explanation": "A voltage amplifier needs R_in → ∞ so that no current is drawn from the source, preserving the full source voltage at the input."
+        },
+        {
+            "id": "q2",
+            "prompt": "The gain of a transconductance amplifier G_M has units of:",
+            "options": [
+                "Ohms",
+                "Siemens (1/Ω)",
+                "Dimensionless",
+                "Watts"
+            ],
+            "correctAnswer": "Siemens (1/Ω)",
+            "explanation": "G_M = I_out/V_in. Current ÷ voltage = 1/resistance = conductance, measured in Siemens."
+        },
+        {
+            "id": "q3",
+            "prompt": "For a current amplifier, the ideal output impedance R_out should be:",
+            "options": [
+                "Zero",
+                "Infinity",
+                "1 kΩ",
+                "Equal to R_L"
+            ],
+            "correctAnswer": "Infinity",
+            "explanation": "A current amplifier needs R_out → ∞ so all current flows through R_L rather than being shunted through R_out."
+        },
+        {
+            "id": "q4",
+            "prompt": "The loading effect on a voltage amplifier output is described by:",
+            "options": [
+                "R_L / (R_L + R_out)",
+                "R_out / (R_out + R_L)",
+                "R_in / (R_in + R_S)",
+                "A_V × V_in"
+            ],
+            "correctAnswer": "R_L / (R_L + R_out)",
+            "explanation": "The output voltage divider R_L/(R_L + R_out) determines how much of A_V·V_in actually appears across R_L."
+        },
+        {
+            "id": "q5",
+            "prompt": "A transresistance amplifier converts:",
+            "options": [
+                "Voltage to voltage",
+                "Current to voltage",
+                "Voltage to current",
+                "Current to current"
+            ],
+            "correctAnswer": "Current to voltage",
+            "explanation": "Transresistance: R_M = V_out/I_in. Input is current, output is voltage. Gain has units of Ohms."
+        },
+        {
+            "id": "q6",
+            "prompt": "Which amplifier type uses Norton equivalent for BOTH input and output?",
+            "options": [
+                "Voltage amplifier",
+                "Current amplifier",
+                "Transconductance amplifier",
+                "Transresistance amplifier"
+            ],
+            "correctAnswer": "Current amplifier",
+            "explanation": "Current in, current out — both ports deal with current, so both use Norton equivalents."
+        },
+        {
+            "id": "q7",
+            "prompt": "If a voltage amplifier has A_V = 20, R_out = 2 kΩ, and R_L = 8 kΩ, the actual voltage gain is:",
+            "options": [
+                "16",
+                "20",
+                "15",
+                "10"
+            ],
+            "correctAnswer": "16",
+            "explanation": "Actual gain = A_V × R_L/(R_L + R_out) = 20 × 8/(8+2) = 20 × 0.8 = 16."
+        },
+        {
+            "id": "q8",
+            "prompt": "The fundamental requirement that ALL amplifiers must satisfy is:",
+            "options": [
+                "Voltage gain > 1",
+                "Current gain > 1",
+                "Power gain > 1",
+                "Input impedance > Output impedance"
+            ],
+            "correctAnswer": "Power gain > 1",
+            "explanation": "Every amplifier must provide power gain P_out > P_in, regardless of whether it amplifies voltage or current."
+        },
+        {
+            "id": "q9",
+            "prompt": "For a transconductance amplifier, the ideal R_in and R_out are:",
+            "options": [
+                "R_in = ∞, R_out = ∞",
+                "R_in = 0, R_out = 0",
+                "R_in = ∞, R_out = 0",
+                "R_in = 0, R_out = ∞"
+            ],
+            "correctAnswer": "R_in = ∞, R_out = ∞",
+            "explanation": "Input is voltage (needs R_in → ∞ to not load source), output is current (needs R_out → ∞ so all current goes to R_L)."
+        },
+        {
+            "id": "q10",
+            "prompt": "The Thévenin equivalent circuit is used to model the output of which amplifier types?",
+            "options": [
+                "Voltage and transresistance",
+                "Current and transconductance",
+                "All four types",
+                "Only voltage amplifier"
+            ],
+            "correctAnswer": "Voltage and transresistance",
+            "explanation": "Both voltage and transresistance amplifiers have voltage outputs, so both use Thévenin output models."
+        }
+    ]
+}

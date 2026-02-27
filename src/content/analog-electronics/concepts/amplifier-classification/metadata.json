@@ -1,0 +1,9 @@
+{
+    "id": "amplifier-classification",
+    "title": "Amplifier Classification",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}
