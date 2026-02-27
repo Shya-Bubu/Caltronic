@@ -65,6 +65,16 @@ export const modules: Module[] = [
         title: "Fourier Series — Part II",
         path: "/signals-and-systems/lesson-05",
       },
+      {
+        id: "lesson-06",
+        title: "Fourier Transform — Part I",
+        path: "/signals-and-systems/lesson-06",
+      },
+      {
+        id: "lesson-07",
+        title: "Fourier Transform — Part II",
+        path: "/signals-and-systems/lesson-07",
+      },
     ],
   },
   {
@@ -97,6 +107,11 @@ export const modules: Module[] = [
         id: "lesson-03",
         title: "Modeling Electronic Elements and Circuits",
         path: "/analog-electronics/lesson-03",
+      },
+      {
+        id: "lesson-04",
+        title: "BJT Biasing & Small-Signal Models",
+        path: "/analog-electronics/lesson-04",
       },
     ],
   },
