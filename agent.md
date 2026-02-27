@@ -213,6 +213,14 @@ Best for: v-i curves, transfer characteristics, frequency responses, any data pl
 }
 ```
 
+> [!CAUTION]
+> **`x_expr` and `y_expr` are NOT supported.** `PlotlyChart.tsx` passes traces directly to Plotly.js without evaluating expressions. You MUST provide pre-computed static `x` and `y` arrays with actual numbers. Example:
+> ```json
+> "x": [0, 0.1, 0.2, 0.3, 0.4, 0.5],
+> "y": [0, 0.0998, 0.1987, 0.2955, 0.3894, 0.4794]
+> ```
+> **NEVER DO**: `"x_expr": "Array.from({length: 100}, ...)"` — this will render a blank/broken chart.
+
 #### Category 2: Circuit Schematics (type: `circuit-schematic`)
 Best for: Static circuit diagrams — resistors, diodes, sources, connections.
 ```json
