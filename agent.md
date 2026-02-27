@@ -267,8 +267,8 @@ Best for: ANY circuit a student should interact with. Lets students change value
 > `comparison-diagram`, `split-diagram`, `node-detail-diagram`, `graph-with-matrix`
 >
 > If you need a block diagram → use `plotly` bar chart with annotations.
-> If you need a waveform → use `plotly` with `x_expr`/`y_expr`.
-> If you need an interactive sim → use `v3-waveform` or `v3-load-line`.
+> If you need a waveform → use `plotly` with pre-computed static `x`/`y` arrays.
+> If you need an interactive sim → use `plotly` charts. Do NOT use `v3-waveform` (renders identical generic sim).
 
 #### Category 4: v3 Custom Simulators (Interactive React+SVG)
 
@@ -278,12 +278,15 @@ Best for: ANY circuit a student should interact with. Lets students change value
 | `v3-load-line` | LoadLineSimulator | Graphical load-line analysis |
 | `v3-diode-circuit` | DiodeCircuitSimulator | Diode circuit operating point |
 | `v3-pwl-explorer` | PWLExplorer | Piecewise-linear approximation |
-| `v3-waveform` | WaveformSimulator | Waveform generation / interactive |
+| `v3-waveform` | WaveformSimulator | **⚠️ Generic only** — always renders the same sine wave sim with freq/amp/phase sliders. Cannot be customized per-visual. Use `plotly` instead for unique signal visualizations. |
 | `v3-plot` | EngineeringPlot | Custom engineering curves |
 | `v3-circuit` | CircuitDiagram | Declarative circuit SVGs |
 
+> [!WARNING]
+> **Do NOT use `v3-waveform` for different visuals.** It always renders an identical generic waveform generator regardless of title or description. Use `plotly` with pre-computed static `x`/`y` arrays instead.
+
 ```json
-{ "id": "waveform-explorer", "type": "v3-waveform", "title": "Interactive: Explore the Waveform" }
+{ "id": "waveform-explorer", "type": "plotly", "title": "Interactive: Explore the Waveform", "traces": [{"x": [...], "y": [...], "mode": "lines"}], "layout": {...} }
 ```
 
 #### Category 5: Legacy Components (still supported)
