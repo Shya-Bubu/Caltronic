@@ -30,6 +30,21 @@ C:\Users\ShyaBubu\Desktop\Caltronic app\raw
 
 Subdirectories mirror the module structure (`analog-electronics/`, `signals-and-systems/`, etc.). Each lesson folder contains lecture transcripts, PDFs, and an `instructions.txt` with textbook references. **Cross-reference this material when creating or updating any lesson content.**
 
+> [!CAUTION]
+> **MANDATORY: Read ALL Raw Files COMPLETELY Before Creating Content**
+>
+> When creating or updating ANY lesson, you MUST:
+> 1. **List every file** in the corresponding `raw/` lesson folder
+> 2. **Read EVERY transcript file from start to finish** — no partial reads, no skipping, no "first 800 lines only"
+> 3. **Read the instructions.txt** for textbook references
+> 4. **Read any PDF files** for figures, equations, and worked examples
+> 5. **Extract specific examples, derivations, notation, and terminology** used by the lecturer
+> 6. **Only then** begin writing content that is **faithful to the actual lectures**
+>
+> Content generated from general knowledge instead of the provided raw materials is **UNACCEPTABLE**. The student relies on this platform matching their actual lectures. Skipping raw files = ruining their education.
+>
+> **Files are often 1000-2000+ lines. Read in 800-line chunks until you reach the end. No exceptions.**
+
 ---
 
 ## Teaching Voice

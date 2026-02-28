@@ -1,33 +1,45 @@
 # Ideal vs Practical Amplifiers
 
-> **Why This Matters**: No real amplifier is ideal. Understanding the gap between theory and practice — saturation, finite impedances, bandwidth limits, and distortion — is what separates textbook analysis from real circuit design.
+> **Why This Matters**: No real amplifier is ideal. Understanding the gap between the ideal three-parameter model and real circuits — loading effects, saturation limits, impedance mismatches — is what separates textbook analysis from actual circuit design.
 
-## The Ideal Amplifier
+## Loading at the Input
 
 [[visual:ideal-voltage-transfer]]
 
-An ideal amplifier is a perfect linear machine: $V_{out} = A_V \cdot V_{in}$ for all values, with infinite bandwidth, zero noise, and no distortion. But reality intervenes.
+When you connect a source with internal impedance $R_S$ to an amplifier with finite input impedance $R_{in}$, you get a **potential divider**:
+
+$$V_{in} = V_S \cdot \frac{R_{in}}{R_{in} + R_S}$$
+
+If $R_{in} = R_S$, you lose **half** the signal! This is why voltage amplifiers need $R_{in} \gg R_S$.
+
+[[visual:rin-vs-signal-loss]]
+
+## Loading at the Output
+
+[[visual:rout-vs-output-loss]]
+
+Similarly, the output forms a divider between $R_{out}$ and $R_L$:
+
+$$V_{out} = A_V \cdot V_{in} \cdot \frac{R_L}{R_L + R_{out}}$$
+
+The **complete gain formula** including all loading effects is:
+
+$$A_{total} = A_V \cdot \frac{R_{in}}{R_{in} + R_S} \cdot \frac{R_L}{R_L + R_{out}}$$
+
+<details>
+<summary><strong>Pause & Think</strong>: An amplifier has $R_{in} = 10 \text{ kΩ}$, $R_S = 1 \text{ kΩ}$, $A_V = 100$, $R_{out} = 2 \text{ kΩ}$, $R_L = 8 \text{ kΩ}$. What is the actual gain?</summary>
+
+$A_{total} = 100 \times \frac{10}{10+1} \times \frac{8}{8+2} = 100 \times 0.909 \times 0.8 = 72.7$
+
+You lose about 27% of the gain due to loading! This is why impedance matching matters.
+
+</details>
 
 ## Saturation and Clipping
 
 [[visual:practical-saturation]]
 
-Every amplifier has **supply rails** ($\pm V_{CC}$). When the output tries to exceed these limits, it **clips** — creating severe distortion. The usable linear range is always smaller than the supply range.
-
-## Input and Output Impedance Effects
-
-[[visual:rin-vs-signal-loss]]
-
-[[visual:rout-vs-output-loss]]
-
-The input impedance creates a voltage divider with the source resistance: $V_{in} = V_S \cdot R_{in}/(R_{in} + R_S)$. Similarly, the output impedance creates a divider with the load.
-
-<details>
-<summary><strong>Pause & Think</strong>: What happens if R_in = R_S?</summary>
-
-You lose exactly half the signal voltage! $V_{in}/V_S = R_{in}/(R_{in}+R_S) = 0.5$. This is why we need R_in >> R_S for voltage amplifiers.
-
-</details>
+Every real amplifier has **supply rails** ($\pm V_{CC}$). When the output tries to exceed these limits, it **clips**. The usable linear range is $|V_{in}| < V_{CC}/|A_V|$.
 
 ## Practical Values by Technology
 
@@ -35,15 +47,20 @@ You lose exactly half the signal voltage! $V_{in}/V_S = R_{in}/(R_{in}+R_S) = 0.
 
 [[visual:practical-rout-values]]
 
-## Bandwidth and Distortion
+| Technology | Typical $R_{in}$ | Typical $R_{out}$ |
+|-----------|-----------------|-------------------|
+| BJT (CE) | ~1 kΩ | ~50 kΩ |
+| BJT (CC) | ~100 kΩ | ~100 Ω |
+| MOSFET | ~MΩ range | ~10 kΩ |
+| Op-amp (FET input) | ~10¹² Ω | ~75 Ω |
+
+The key difference: MOSFETs have the insulated gate oxide layer, so gate current is essentially zero → very high $R_{in}$ in the MΩ range. BJTs have a forward-biased base-emitter junction → moderate $R_{in}$.
+
+## Gain-Bandwidth Tradeoff
 
 [[visual:gain-bandwidth-tradeoff]]
 
-[[visual:distortion-comparison]]
-
-All practical amplifiers have a **gain-bandwidth product (GBP)** that's roughly constant. Higher gain → lower bandwidth. This fundamental tradeoff governs every amplifier design.
-
-## Impedance Requirements Summary
+## Impedance Requirements by Amplifier Type
 
 [[visual:input-output-impedance-map]]
 
@@ -51,7 +68,8 @@ All practical amplifiers have a **gain-bandwidth product (GBP)** that's roughly 
 
 ## Summary
 
-- Real amplifiers clip at supply rails, have finite impedances, limited bandwidth, and introduce distortion
-- R_in and R_out create loading effects that reduce actual gain
-- GBP is approximately constant — you trade gain for bandwidth
-- Small-signal operation keeps distortion low
+- Real amplifiers have loading effects: input divider ($R_{in}$ vs $R_S$) and output divider ($R_{out}$ vs $R_L$)
+- Complete gain: $A_{total} = A_V \cdot [R_{in}/(R_{in}+R_S)] \cdot [R_L/(R_L+R_{out})]$
+- Saturation limits the output to $\pm V_{CC}$
+- MOSFETs have much higher $R_{in}$ than BJTs due to insulated gate
+- Each amplifier type has specific $R_{in}$/$R_{out}$ requirements

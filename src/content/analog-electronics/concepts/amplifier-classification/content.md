@@ -1,70 +1,102 @@
-# Amplifier Classification
+# Classification of Amplifiers
 
-> **Why This Matters**: Every electronic system that processes signals uses amplifiers. But not all amplifiers are the same — a microphone pre-amp, a current mirror, and a sensor interface all have fundamentally different architectures. Understanding the four amplifier types is the foundation for all analogue design.
+> **Why This Matters**: Before we analyze any specific amplifier circuit, we need a universal framework. No matter how complicated the internals, every amplifier can be described by just three things: **input impedance, output impedance, and transfer gain**. This classification will be used throughout the rest of this course — in small-signal analysis, feedback amplifiers, and multi-stage amplifiers.
 
-## The Four Types of Amplifiers
+## What Makes an Amplifier?
 
-An amplifier is a two-port network: it has an input port and an output port. The signal at each port can be either a **voltage** or a **current**. This gives us four combinations:
-
-[[visual:voltage-amp-model]]
-
-[[visual:current-amp-model]]
-
-The **voltage amplifier** takes a voltage input and produces a voltage output. Its gain $A_V = V_{out}/V_{in}$ is dimensionless. We model the input as a Thévenin source and the output as a Thévenin equivalent.
-
-The **current amplifier** takes a current input and produces a current output. Its gain $A_I = I_{out}/I_{in}$ is also dimensionless. We use Norton equivalents for both ports.
-
-## Transconductance and Transresistance
-
-[[visual:transconductance-amp]]
-
-[[visual:transresistance-amp]]
-
-The **transconductance amplifier** converts voltage to current: $I_{out} = G_M \cdot V_{in}$. The gain $G_M$ has units of Siemens (1/Ω). The **transresistance amplifier** converts current to voltage: $V_{out} = R_M \cdot I_{in}$. The gain $R_M$ has units of Ohms.
-
-<details>
-<summary><strong>Pause & Think</strong>: Why does G_M have units of conductance?</summary>
-
-Because $G_M = I_{out}/V_{in}$. Current divided by voltage equals 1/resistance = conductance. The name "trans-conductance" literally means "conductance across" (from input to output).
-
-</details>
-
-## Comparing All Four Types
+An amplifier must increase output **power** compared to input power. Since power = voltage × current, and we have two electrical quantities (voltage and current), the input can be either a voltage or a current, and so can the output. This gives us **four types** of amplifiers.
 
 [[visual:four-types-comparison]]
 
-[[visual:gain-definitions-summary]]
-
-## The Loading Effect
-
-When you connect a source to an amplifier, or an amplifier to a load, there's inevitably some signal loss. This is the **loading effect**.
-
-[[visual:loading-effect-voltage]]
-
-For a voltage amplifier, the output voltage divider $R_L/(R_L + R_{out})$ means you lose voltage if $R_{out}$ is significant. That's why ideal voltage amplifiers have $R_{out} = 0$.
-
-[[visual:loading-effect-current]]
-
-For a current amplifier, the current divider $R_{out}/(R_{out} + R_L)$ means you lose current if $R_{out}$ is too small. That's why ideal current amplifiers have $R_{out} = \infty$.
-
-## Ideal Parameters
-
-[[visual:ideal-parameters-table]]
-
-[[visual:power-gain-all-types]]
-
-The key insight: **all amplifiers must provide power gain** $P_{out} > P_{in}$, regardless of whether they amplify voltage, current, or both.
-
 <details>
-<summary><strong>Pause & Think</strong>: Can an amplifier have voltage gain less than 1 and still be useful?</summary>
+<summary><strong>Pause & Think</strong>: Why do we need four types? Can't we just use one?</summary>
 
-Yes! A common-collector (emitter follower) has $A_V \approx 1$ but provides significant current gain and power gain. It's extremely useful as a buffer/impedance transformer.
+The type depends on the physical nature of what you're amplifying. A microphone outputs a voltage — you want a voltage amplifier. A photodiode outputs a current — you want a transresistance amplifier to convert it to voltage. The classification matches the physics of your application.
 
 </details>
 
+## Type 1: Voltage Amplifier
+
+[[visual:voltage-amp-model]]
+
+The voltage amplifier is modeled using **Thévenin equivalent circuits** on both input and output sides. Inside the black box you have:
+- **$R_{in}$** — input impedance
+- **$A_V \cdot V_{in}$** — a dependent voltage source (the gain)
+- **$R_{out}$** — output impedance
+
+The actual output voltage is:
+
+$$V_{out} = A_V \cdot V_{in} - R_{out} \cdot I_{out}$$
+
+And the input voltage suffers a **potential divider loss**:
+
+$$V_{in} = V_S \cdot \frac{R_{in}}{R_{in} + R_S}$$
+
+For the gain to be independent of source and load: we need $R_{in} \gg R_S$ and $R_{out} \ll R_L$.
+
+[[visual:loading-effect-voltage]]
+
+## Type 2: Current Amplifier
+
+[[visual:current-amp-model]]
+
+The current amplifier uses **Norton equivalent circuits**. The output is a dependent current source $A_I \cdot I_{in}$.
+
+Current divider at input: $I_{in} = I_S \cdot \frac{R_S}{R_S + R_{in}}$
+
+Current divider at output: $I_{out} = A_I \cdot I_{in} \cdot \frac{R_{out}}{R_{out} + R_L}$
+
+For ideal operation: $R_{in} \ll R_S$ and $R_{out} \gg R_L$ — the **opposite** of the voltage amplifier!
+
+<details>
+<summary><strong>Pause & Think</strong>: Why are the impedance requirements opposite for current amplifiers?</summary>
+
+For current to flow into the amplifier, the input must look like a short circuit ($R_{in} \approx 0$). For the output current to flow entirely through the load, the internal path must be blocked ($R_{out} \approx \infty$). This is exactly opposite to the voltage case where you want no current drawn at input and no voltage drop at output.
+
+</details>
+
+## Type 3: Transconductance Amplifier
+
+[[visual:transconductance-amp]]
+
+Input is a voltage → Thévenin input. Output is a current → Norton output. The gain $G_M$ converts voltage to current, so it has units of **Siemens (1/Ω)**.
+
+$$I_{out} = G_M \cdot V_{in}$$
+
+For ideal operation: $R_{in} \gg R_S$ (same as voltage amp) and $R_{out} \gg R_L$ (same as current amp).
+
+## Type 4: Transresistance Amplifier
+
+[[visual:transresistance-amp]]
+
+Input is a current → Norton input. Output is a voltage → Thévenin output. The gain $R_M$ converts current to voltage, so it has units of **Ohms**.
+
+$$V_{out} = R_M \cdot I_{in}$$
+
+For ideal operation: $R_{in} \ll R_S$ and $R_{out} \ll R_L$.
+
+## Ideal Characteristics Summary
+
+[[visual:ideal-parameters-table]]
+
+When these ideal conditions are met, the gain becomes **independent of the source resistance $R_S$ and load resistance $R_L$** — which are external things we don't control. As engineers, we design circuits to be as close to these ideal conditions as possible so we don't have to worry about what we connect.
+
+[[visual:gain-definitions-summary]]
+
+## The Key Insight
+
+[[visual:power-gain-all-types]]
+
+> **Take-home message**: If you have a linear amplifier, you don't need too many variables to characterize it. If you can define $R_{in}$, $R_{out}$, and the transfer gain, then you pretty much know everything about the circuit.
+
+[[visual:loading-effect-current]]
+
 ## Summary
 
-- Four amplifier types: voltage, current, transconductance, transresistance
-- Each has different ideal R_in and R_out requirements
-- Loading effects reduce actual gain from the ideal value
-- All amplifiers must provide power gain — that's the fundamental requirement
+- Four amplifier types based on voltage/current input and output
+- Each characterized by just three parameters: $R_{in}$, $R_{out}$, and transfer gain
+- Voltage amp: Thévenin I/O, $R_{in} = \infty$, $R_{out} = 0$ ideally
+- Current amp: Norton I/O, $R_{in} = 0$, $R_{out} = \infty$ ideally
+- Transconductance: mixed Thévenin/Norton, both $R_{in}$ and $R_{out} = \infty$
+- Transresistance: mixed Norton/Thévenin, both $R_{in}$ and $R_{out} = 0$
+- When ideal conditions are met, gain is independent of source and load
