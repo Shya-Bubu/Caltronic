@@ -1,0 +1,15 @@
+differentiation-integration-property
+  count=10 types=[plotly,v3-waveform] bad=[]
+  IDs: 10/10 MATCH
+impulse-and-triangular-pulse-fs
+  count=10 types=[plotly,v3-waveform] bad=[]
+  IDs: 10/10 MATCH
+trigonometric-fs-and-orthogonality
+  count=10 types=[plotly,v3-waveform] bad=[]
+  IDs: 10/10 MATCH
+parsevals-theorem
+  count=10 types=[plotly,v3-waveform] bad=[]
+  IDs: 10/10 MATCH
+lti-systems-and-fourier-series
+  count=10 types=[plotly,v3-waveform] bad=[]
+  IDs: 10/10 MATCH

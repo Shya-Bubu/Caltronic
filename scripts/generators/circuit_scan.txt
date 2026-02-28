@@ -1,0 +1,36 @@
+ac-power-analysis
+  markers: instantaneous-power-waveform, average-power-diagram, rms-comparison, power-factor-diagram, power-triangle, power-conservation-diagram, falstad-power-rl
+  broken: power-conservation-diagram(d3-block-diagram)
+
+complex-numbers-review
+  markers: complex-plane-intro, complex-plane-plot, rectangular-vs-polar, conversion-demo, conjugate-diagram, euler-unit-circle, euler-formula-sim, j-rotation-diagram
+  broken: conversion-demo(d3-simulation), euler-formula-sim(d3-simulation)
+
+impedance-and-admittance
+  markers: ohms-law-ac-analogy, resistor-phasor-diagram, inductor-phasor-diagram, capacitor-phasor-diagram, impedance-summary-table, impedance-plane-plot, admittance-comparison, falstad-rc-phasor
+  broken: ohms-law-ac-analogy(d3-block-diagram), impedance-summary-table(d3-block-diagram), admittance-comparison(d3-block-diagram)
+
+impedance-combinations
+  markers: kvl-kcl-phasor, series-impedance-diagram, parallel-impedance-diagram, voltage-divider-impedance, y-delta-diagram, falstad-series-rlc
+  broken: kvl-kcl-phasor(d3-block-diagram), y-delta-diagram(d3-block-diagram)
+
+introduction-to-phasors
+  markers: sinusoid-to-phasor-concept, phasor-extraction, phasor-transform-table, phasor-diagram-example, rotating-phasor-sim, differentiation-phasor, time-vs-phasor-comparison
+  broken: phasor-extraction(d3-block-diagram), rotating-phasor-sim(d3-simulation), time-vs-phasor-comparison(d3-block-diagram)
+
+newton-raphson-circuits
+  markers: nr-scalar-tangent, jacobian-structure, v3-4i3-cubed-circuit, nr-iteration-trajectory, convergence-plot, discrete-equivalent-circuit, multi-branch-nonlinear, nr-algorithm-flowchart, falstad-nonlinear-circuit
+  broken: nr-scalar-tangent(diagram), jacobian-structure(diagram), v3-4i3-cubed-circuit(circuit-diagram), nr-iteration-trajectory(diagram), convergence-plot(chart), discrete-equivalent-circuit(circuit-diagram), multi-branch-nonlinear(circuit-diagram), nr-algorithm-flowchart(flowchart)
+
+nodal-analysis
+  markers: nodal-analysis-sample-circuit, yn-matrix-structure, kcl-at-node, incidence-matrix-mapping, kcl-kvl-matrix-form, yn-derivation-flow, nonlinear-extension, falstad-two-node-circuit
+  broken: nodal-analysis-sample-circuit(circuit-diagram), yn-matrix-structure(annotated-matrix), incidence-matrix-mapping(graph-with-matrix), kcl-at-node(node-detail-diagram), yn-derivation-flow(flowchart), kcl-kvl-matrix-form(split-diagram), nonlinear-extension(comparison-diagram)
+
+phasor-properties-and-addition
+  markers: phasor-addition-diagram, phasor-addition-worked, derivative-property-visual, cap-current-leads-voltage, graphical-addition
+  broken: graphical-addition(d3-simulation)
+
+tableau-analysis
+  markers: falstad-full-circuit, vis-tableau-nodal-vs-tableau, vis-tableau-equation-structure, vis-tableau-branch-equations, vis-tableau-matrix-blocks, vis-tableau-4branch-circuit, vis-tableau-solved-example, vis-tableau-comparison-table, vis-tableau-nonlinear-iteration, vis-tableau-summary-flowchart
+  broken: vis-tableau-nodal-vs-tableau(diagram), vis-tableau-equation-structure(diagram), vis-tableau-branch-equations(table-diagram), vis-tableau-matrix-blocks(matrix-diagram), vis-tableau-4branch-circuit(circuit-diagram), vis-tableau-solved-example(annotated-circuit), vis-tableau-comparison-table(comparison-table), vis-tableau-nonlinear-iteration(flowchart), vis-tableau-summary-flowchart(flowchart)
+

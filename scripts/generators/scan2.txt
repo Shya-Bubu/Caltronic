@@ -1,0 +1,60 @@
+differentiation-integration-property | diff-int-block-diagram | d3-block-diagram | Differentiation and Integration in the FS Domain
+differentiation-integration-property | highpass-lowpass-bars | plotly | Differentiation (Highpass) vs Integration (Lowpass) Gain
+differentiation-integration-property | sawtooth-original | d3-waveform | Sawtooth Wave: A Signal to Differentiate
+differentiation-integration-property | differentiation-time-domain | plotly | Time Domain: Signal and Its Derivative
+differentiation-integration-property | integration-smoothing-demo | plotly | Integration Smooths: x(t) vs ∫x(t)dt
+differentiation-integration-property | spectrum-sharpening | plotly | Spectrum After Differentiation: High Harmonics Boosted
+differentiation-integration-property | spectrum-smoothing | plotly | Spectrum After Integration: High Harmonics Attenuated
+differentiation-integration-property | diff-int-explorer | d3-simulation | Interactive: Differentiate and Integrate a Signal
+differentiation-integration-property | decay-rate-comparison | d3-simulation | Interactive: Coefficient Decay Before and After Operations
+differentiation-integration-property | phase-shift-diagram | d3-block-diagram | Phase Effects: +90° per Differentiation, −90° per Integration
+  MARKERS=10 IDS=10 MATCH
+
+impulse-and-triangular-pulse-fs | impulse-train-waveform | d3-waveform | The Periodic Impulse Train
+impulse-and-triangular-pulse-fs | impulse-flat-spectrum | plotly | Impulse Train Spectrum: All Harmonics Equal
+impulse-and-triangular-pulse-fs | impulse-derivation-diagram | d3-block-diagram | Deriving the Impulse Train FS
+impulse-and-triangular-pulse-fs | triangular-pulse-waveform | d3-waveform | The Triangular Pulse Train
+impulse-and-triangular-pulse-fs | triangular-spectrum | plotly | Triangular Pulse Spectrum: sinc² Envelope
+impulse-and-triangular-pulse-fs | square-vs-triangle-spectrum | plotly | Decay Comparison: Square (1/k) vs Triangular (1/k²)
+impulse-and-triangular-pulse-fs | integration-chain-diagram | d3-block-diagram | Integration Chain: Impulse → Square → Triangle
+impulse-and-triangular-pulse-fs | triangle-reconstruction-sim | d3-simulation | Interactive: Reconstruct the Triangular Wave from Harmonics
+impulse-and-triangular-pulse-fs | tri-vs-square-convergence | plotly | Convergence: Triangle (5 harmonics) vs Square (5 harmonics)
+impulse-and-triangular-pulse-fs | coefficient-decay-explorer | d3-simulation | Interactive: Compare Coefficient Decay Rates
+  MARKERS=10 IDS=10 MATCH
+
+trigonometric-fs-and-orthogonality | efs-to-tfs-diagram | d3-block-diagram | From Exponential FS to Trigonometric FS
+trigonometric-fs-and-orthogonality | tfs-coefficients-relation | d3-block-diagram | Coefficient Relationships: X_k ↔ a_k, b_k
+trigonometric-fs-and-orthogonality | orthogonal-cosines | plotly | Orthogonal Cosines: cos(ω₀t) and cos(2ω₀t)
+trigonometric-fs-and-orthogonality | orthogonality-grid | plotly | Orthogonality Inner Product Table
+trigonometric-fs-and-orthogonality | cos-sin-orthogonal | plotly | Cosine and Sine Are Always Orthogonal
+trigonometric-fs-and-orthogonality | even-odd-tfs-symmetry | d3-block-diagram | Symmetry in the TFS: Even → Cosines Only, Odd → Sines Only
+trigonometric-fs-and-orthogonality | tfs-square-wave | plotly | TFS of a Standard Square Wave: Only Odd Sine Harmonics
+trigonometric-fs-and-orthogonality | tfs-reconstruction-sim | d3-simulation | Interactive: Build a Signal with Cosines and Sines
+trigonometric-fs-and-orthogonality | orthogonality-explorer-sim | d3-simulation | Interactive: Test Orthogonality by Choosing m and n
+trigonometric-fs-and-orthogonality | efs-vs-tfs-waveform | d3-waveform | Same Signal, Two Representations
+  MARKERS=10 IDS=10 MATCH
+
+parsevals-theorem | parseval-concept-diagram | d3-block-diagram | Parseval's Theorem: Time Domain Power = Frequency Domain Power
+parsevals-theorem | power-spectrum-bars | plotly | Power Spectrum |X_k|² of a Square Pulse Train
+parsevals-theorem | cumulative-power | plotly | Cumulative Power: How Many Harmonics Capture Most Energy?
+parsevals-theorem | power-waveform-area | plotly | Time Domain: |x(t)|² and Its Average
+parsevals-theorem | parseval-verification-sim | d3-simulation | Interactive: Verify Parseval's Theorem
+parsevals-theorem | bandwidth-power-tradeoff | plotly | Bandwidth Estimation: 95% Power Bandwidth
+parsevals-theorem | rms-from-spectrum | d3-block-diagram | RMS Value from Fourier Coefficients
+parsevals-theorem | harmonic-power-pie | plotly | Power Distribution: DC vs 1st vs Higher Harmonics
+parsevals-theorem | signal-power-comparison | d3-simulation | Interactive: Compare RMS of Different Waveforms
+parsevals-theorem | power-in-band | d3-waveform | Waveform View: Signal Reconstructed with Limited Bandwidth
+  MARKERS=10 IDS=10 MATCH
+
+lti-systems-and-fourier-series | lti-eigenfunction-diagram | d3-block-diagram | Complex Exponentials Are Eigenfunctions of LTI Systems
+lti-systems-and-fourier-series | periodic-through-lti | d3-block-diagram | Periodic Signal Through an LTI System
+lti-systems-and-fourier-series | lowpass-magnitude | plotly | Lowpass Filter Magnitude Response |H(jω)|
+lti-systems-and-fourier-series | square-through-lowpass | plotly | Square Wave Through a Lowpass Filter
+lti-systems-and-fourier-series | highpass-effect | plotly | Square Wave Through a Highpass Filter
+lti-systems-and-fourier-series | coeff-modification | plotly | Input vs Output Spectra: Y_k = X_k · H(jkω₀)
+lti-systems-and-fourier-series | rc-lowpass-response | plotly | RC Lowpass Filter: Magnitude and Phase
+lti-systems-and-fourier-series | lti-filter-sim | d3-simulation | Interactive: Pass a Signal Through a Filter
+lti-systems-and-fourier-series | eigenfunction-waveform | d3-waveform | Eigenfunction Property: Input and Output Shape Match
+lti-systems-and-fourier-series | output-power-parseval | d3-simulation | Interactive: Output Power After Filtering
+  MARKERS=10 IDS=10 MATCH
+

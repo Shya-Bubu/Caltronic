@@ -1,0 +1,36 @@
+
+===trigonometric-fs-and-orthogonality===
+efs-to-tfs-diagram|d3-block-diagram|From Exponential FS to Trigonometric FS
+tfs-coefficients-relation|d3-block-diagram|Coefficient Relationships: X_k ↔ a_k, b_k
+orthogonal-cosines|plotly|Orthogonal Cosines: cos(ω₀t) and cos(2ω₀t)
+orthogonality-grid|plotly|Orthogonality Inner Product Table
+cos-sin-orthogonal|plotly|Cosine and Sine Are Always Orthogonal
+even-odd-tfs-symmetry|d3-block-diagram|Symmetry in the TFS: Even → Cosines Only, Odd → Sines Only
+tfs-square-wave|plotly|TFS of a Standard Square Wave: Only Odd Sine Harmonics
+tfs-reconstruction-sim|d3-simulation|Interactive: Build a Signal with Cosines and Sines
+orthogonality-explorer-sim|d3-simulation|Interactive: Test Orthogonality by Choosing m and n
+efs-vs-tfs-waveform|d3-waveform|Same Signal, Two Representations
+
+===parsevals-theorem===
+parseval-concept-diagram|d3-block-diagram|Parseval's Theorem: Time Domain Power = Frequency Domain Power
+power-spectrum-bars|plotly|Power Spectrum |X_k|² of a Square Pulse Train
+cumulative-power|plotly|Cumulative Power: How Many Harmonics Capture Most Energy?
+power-waveform-area|plotly|Time Domain: |x(t)|² and Its Average
+parseval-verification-sim|d3-simulation|Interactive: Verify Parseval's Theorem
+bandwidth-power-tradeoff|plotly|Bandwidth Estimation: 95% Power Bandwidth
+rms-from-spectrum|d3-block-diagram|RMS Value from Fourier Coefficients
+harmonic-power-pie|plotly|Power Distribution: DC vs 1st vs Higher Harmonics
+signal-power-comparison|d3-simulation|Interactive: Compare RMS of Different Waveforms
+power-in-band|d3-waveform|Waveform View: Signal Reconstructed with Limited Bandwidth
+
+===lti-systems-and-fourier-series===
+lti-eigenfunction-diagram|d3-block-diagram|Complex Exponentials Are Eigenfunctions of LTI Systems
+periodic-through-lti|d3-block-diagram|Periodic Signal Through an LTI System
+lowpass-magnitude|plotly|Lowpass Filter Magnitude Response |H(jω)|
+square-through-lowpass|plotly|Square Wave Through a Lowpass Filter
+highpass-effect|plotly|Square Wave Through a Highpass Filter
+coeff-modification|plotly|Input vs Output Spectra: Y_k = X_k · H(jkω₀)
+rc-lowpass-response|plotly|RC Lowpass Filter: Magnitude and Phase
+lti-filter-sim|d3-simulation|Interactive: Pass a Signal Through a Filter
+eigenfunction-waveform|d3-waveform|Eigenfunction Property: Input and Output Shape Match
+output-power-parseval|d3-simulation|Interactive: Output Power After Filtering

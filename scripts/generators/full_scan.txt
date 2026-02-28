@@ -1,0 +1,73 @@
+TOTAL FILES: 49
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\ac-power-analysis\visuals.json
+  types=[plotly,d3-block-diagram,falstad-sim]
+  broken=[d3-block-diagram]
+  ids=power-conservation-diagram(d3-block-diagram)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\complex-numbers-review\visuals.json
+  types=[plotly,d3-simulation]
+  broken=[d3-simulation]
+  ids=conversion-demo(d3-simulation), euler-formula-sim(d3-simulation)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\impedance-and-admittance\visuals.json
+  types=[d3-block-diagram,plotly,falstad-sim]
+  broken=[d3-block-diagram]
+  ids=ohms-law-ac-analogy(d3-block-diagram), impedance-summary-table(d3-block-diagram), admittance-comparison(d3-block-diagram)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\impedance-combinations\visuals.json
+  types=[d3-block-diagram,circuit-schematic,plotly,falstad-sim]
+  broken=[d3-block-diagram]
+  ids=kvl-kcl-phasor(d3-block-diagram), y-delta-diagram(d3-block-diagram)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\introduction-to-phasors\visuals.json
+  types=[plotly,d3-block-diagram,d3-simulation,falstad-sim]
+  broken=[d3-block-diagram,d3-simulation]
+  ids=phasor-extraction(d3-block-diagram), rotating-phasor-sim(d3-simulation), time-vs-phasor-comparison(d3-block-diagram)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\newton-raphson-circuits\visuals.json
+  types=[diagram,circuit-diagram,chart,flowchart,falstad-sim]
+  broken=[diagram,circuit-diagram,chart,flowchart]
+  ids=nr-scalar-tangent(diagram), jacobian-structure(diagram), v3-4i3-cubed-circuit(circuit-diagram), nr-iteration-trajectory(diagram), convergence-plot(chart), discrete-equivalent-circuit(circuit-diagram), multi-branch-nonlinear(circuit-diagram), nr-algorithm-flowchart(flowchart)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\nodal-analysis\visuals.json
+  types=[circuit-diagram,annotated-matrix,graph-with-matrix,node-detail-diagram,flowchart,split-diagram,comparison-diagram,falstad-sim]
+  broken=[circuit-diagram,annotated-matrix,graph-with-matrix,node-detail-diagram,flowchart,split-diagram,comparison-diagram]
+  ids=nodal-analysis-sample-circuit(circuit-diagram), yn-matrix-structure(annotated-matrix), incidence-matrix-mapping(graph-with-matrix), kcl-at-node(node-detail-diagram), yn-derivation-flow(flowchart), kcl-kvl-matrix-form(split-diagram), nonlinear-extension(comparison-diagram)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\phasor-properties-and-addition\visuals.json
+  types=[plotly,d3-simulation,falstad-sim]
+  broken=[d3-simulation]
+  ids=graphical-addition(d3-simulation)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\tableau-analysis\visuals.json
+  types=[diagram,table-diagram,matrix-diagram,circuit-diagram,annotated-circuit,comparison-table,flowchart,falstad-sim]
+  broken=[diagram,table-diagram,matrix-diagram,circuit-diagram,annotated-circuit,comparison-table,flowchart]
+  ids=vis-tableau-nodal-vs-tableau(diagram), vis-tableau-equation-structure(diagram), vis-tableau-branch-equations(table-diagram), vis-tableau-matrix-blocks(matrix-diagram), vis-tableau-4branch-circuit(circuit-diagram), vis-tableau-solved-example(annotated-circuit), vis-tableau-comparison-table(comparison-table), vis-tableau-nonlinear-iteration(flowchart), vis-tableau-summary-flowchart(flowchart)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\signals-and-systems\concepts\exponential-fourier-series\visuals.json
+  types=[d3-block-diagram,plotly,d3-simulation,d3-waveform]
+  broken=[d3-block-diagram,d3-simulation,d3-waveform]
+  ids=efs-block-diagram(d3-block-diagram), frequency-sieve-diagram(d3-block-diagram), efs-step-by-step(d3-block-diagram), harmonic-builder-efs(d3-simulation), gibbs-phenomenon(d3-simulation), coefficient-calculator(d3-simulation), integration-window-choice(d3-waveform)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\signals-and-systems\concepts\fourier-series-of-square-pulse\visuals.json
+  types=[d3-waveform,d3-simulation,plotly,d3-block-diagram]
+  broken=[d3-waveform,d3-simulation,d3-block-diagram]
+  ids=square-pulse-train(d3-waveform), pulse-duty-cycle-sim(d3-simulation), derivation-block-diagram(d3-block-diagram), reconstruction-harmonics(d3-simulation), duty-cycle-spectrum-sim(d3-simulation)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\signals-and-systems\concepts\fourier-series-properties\visuals.json
+  types=[plotly,d3-block-diagram,d3-simulation,d3-waveform]
+  broken=[d3-block-diagram,d3-simulation,d3-waveform]
+  ids=properties-summary-diagram(d3-block-diagram), shift-magnitude-unchanged(d3-simulation), properties-walk-through-sim(d3-simulation), linearity-spectrum-add(d3-waveform), time-scaling-freq-axis(d3-block-diagram)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\signals-and-systems\concepts\periodicity-and-inter-domain-analysis\visuals.json
+  types=[d3-waveform,d3-simulation,plotly,d3-block-diagram]
+  broken=[d3-waveform,d3-simulation,d3-block-diagram]
+  ids=periodic-sine-wave(d3-waveform), signal-generator-explore(d3-simulation), period-frequency-explorer(d3-simulation), inter-domain-block-diagram(d3-block-diagram), harmonic-builder-demo(d3-simulation), fourier-coefficients-explore(d3-simulation)
+
+BAD: c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\signals-and-systems\concepts\symmetry-properties-of-fourier-series\visuals.json
+  types=[d3-block-diagram,d3-waveform,plotly,d3-simulation]
+  broken=[d3-block-diagram,d3-waveform,d3-simulation]
+  ids=conjugate-symmetry-diagram(d3-block-diagram), even-signal-waveform(d3-waveform), odd-signal-waveform(d3-waveform), symmetry-table-diagram(d3-block-diagram), symmetry-explorer-sim(d3-simulation), half-integration-diagram(d3-block-diagram)
+
+BROKEN FILES: 14/49

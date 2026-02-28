@@ -1,0 +1,10 @@
+c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\analog-electronics\concepts\dependent-sources
+  UNUSED: falstad-dependent-source, units-comparison-table
+c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\analog-electronics\concepts\diode-models
+  UNUSED: model-selection-guide, pwl-thevenin-equivalent
+c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\analog-electronics\concepts\nonlinear-elements-and-vi-characteristics
+  UNUSED: falstad-diode-simple, dynamic-resistance-visual
+c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\introduction-to-phasors
+  UNUSED: falstad-ac-resistor
+c:\Users\ShyaBubu\Desktop\Caltronic app\caltronic-v2\src\content\circuit-analysis\concepts\phasor-properties-and-addition
+  UNUSED: falstad-series-rc
