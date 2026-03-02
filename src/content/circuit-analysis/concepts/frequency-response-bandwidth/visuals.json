@@ -1,0 +1,509 @@
+{
+    "visuals": [
+        {
+            "id": "current-frequency-response",
+            "type": "plotly",
+            "title": "Current Magnitude |I| vs Frequency — Resonance Peak",
+            "traces": [
+                {
+                    "x": [
+                        200,
+                        500,
+                        800,
+                        1200,
+                        1600,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2400,
+                        2800,
+                        3200,
+                        4000
+                    ],
+                    "y": [
+                        0.1,
+                        0.25,
+                        0.4,
+                        0.58,
+                        1.14,
+                        1.61,
+                        2.0,
+                        2.27,
+                        2.5,
+                        2.27,
+                        2.0,
+                        1.61,
+                        1.14,
+                        0.58,
+                        0.4,
+                        0.22
+                    ],
+                    "name": "|I(ω)|",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(79,140,255,0.15)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|I| (A)"
+                },
+                "annotations": [
+                    {
+                        "x": 2000,
+                        "y": 2.5,
+                        "text": "Imax = Vm/R",
+                        "showarrow": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": "half-power-frequencies",
+            "type": "plotly",
+            "title": "Half-Power Frequencies: I Drops to Imax/√2",
+            "traces": [
+                {
+                    "x": [
+                        200,
+                        500,
+                        800,
+                        1200,
+                        1600,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2400,
+                        2800,
+                        3200,
+                        4000
+                    ],
+                    "y": [
+                        0.1,
+                        0.25,
+                        0.4,
+                        0.58,
+                        1.14,
+                        1.61,
+                        2.0,
+                        2.27,
+                        2.5,
+                        2.27,
+                        2.0,
+                        1.61,
+                        1.14,
+                        0.58,
+                        0.4,
+                        0.22
+                    ],
+                    "name": "|I(ω)|",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        200,
+                        4000
+                    ],
+                    "y": [
+                        1.77,
+                        1.77
+                    ],
+                    "name": "Imax/√2 = 0.707·Imax",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "dash": "dash",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|I| (A)"
+                },
+                "annotations": [
+                    {
+                        "x": 1900,
+                        "y": 1.77,
+                        "text": "ω₁",
+                        "showarrow": true
+                    },
+                    {
+                        "x": 2100,
+                        "y": 1.77,
+                        "text": "ω₂",
+                        "showarrow": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": "half-power-derivation",
+            "type": "block-diagram",
+            "title": "Half-Power Frequency Derivation Flow",
+            "blocks": [
+                {
+                    "id": "s1",
+                    "label": "|Z| = √2·R",
+                    "position": "left"
+                },
+                {
+                    "id": "s2",
+                    "label": "|ωL−1/ωC| = R",
+                    "position": "center-left"
+                },
+                {
+                    "id": "s3",
+                    "label": "Quadratic in ω",
+                    "position": "center"
+                },
+                {
+                    "id": "s4",
+                    "label": "ω₁, ω₂",
+                    "position": "center-right"
+                },
+                {
+                    "id": "s5",
+                    "label": "B = ω₂−ω₁ = R/L",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "s1",
+                    "to": "s2"
+                },
+                {
+                    "from": "s2",
+                    "to": "s3"
+                },
+                {
+                    "from": "s3",
+                    "to": "s4"
+                },
+                {
+                    "from": "s4",
+                    "to": "s5"
+                }
+            ]
+        },
+        {
+            "id": "bandwidth-illustration",
+            "type": "plotly",
+            "title": "Bandwidth B = ω₂ − ω₁ = R/L",
+            "traces": [
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1960,
+                        2000,
+                        2040,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        1.14,
+                        1.61,
+                        2.0,
+                        2.39,
+                        2.5,
+                        2.39,
+                        2.0,
+                        1.61,
+                        1.14
+                    ],
+                    "name": "|I|",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(79,140,255,0.15)"
+                },
+                {
+                    "x": [
+                        1920,
+                        1920,
+                        2080,
+                        2080,
+                        1920
+                    ],
+                    "y": [
+                        0,
+                        1.77,
+                        1.77,
+                        0,
+                        0
+                    ],
+                    "name": "B = ω₂−ω₁",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "fill": "toself",
+                    "fillcolor": "rgba(255,107,138,0.3)",
+                    "line": {
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|I| (A)"
+                }
+            }
+        },
+        {
+            "id": "q-bandwidth-relationship",
+            "type": "plotly",
+            "title": "Q = ω₀/B: Higher Q = Narrower Bandwidth",
+            "traces": [
+                {
+                    "x": [
+                        5,
+                        10,
+                        25,
+                        50,
+                        100,
+                        200
+                    ],
+                    "y": [
+                        400,
+                        200,
+                        80,
+                        40,
+                        20,
+                        10
+                    ],
+                    "name": "B = ω₀/Q (ω₀=2000)",
+                    "type": "scatter",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Q"
+                },
+                "yaxis": {
+                    "title": "Bandwidth B (rad/s)"
+                }
+            }
+        },
+        {
+            "id": "r-effect-on-response",
+            "type": "plotly",
+            "title": "Effect of R: Small R → Sharp Peak, Large R → Flat Peak",
+            "traces": [
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.25,
+                        0.5,
+                        1.0,
+                        1.5,
+                        5.0,
+                        1.5,
+                        1.0,
+                        0.5,
+                        0.25
+                    ],
+                    "name": "R=1Ω (Q=50)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.5,
+                        0.8,
+                        1.2,
+                        1.5,
+                        2.5,
+                        1.5,
+                        1.2,
+                        0.8,
+                        0.5
+                    ],
+                    "name": "R=2Ω (Q=25)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.6,
+                        0.7,
+                        0.8,
+                        0.9,
+                        1.0,
+                        0.9,
+                        0.8,
+                        0.7,
+                        0.6
+                    ],
+                    "name": "R=5Ω (Q=10)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|I| (A)"
+                }
+            }
+        },
+        {
+            "id": "bandpass-transfer-function",
+            "type": "plotly",
+            "title": "Bandpass Filter: |Gv| = VR/V₁ — Unity at ω₀, −3dB at Edges",
+            "traces": [
+                {
+                    "x": [
+                        500,
+                        1000,
+                        1500,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2500,
+                        3000,
+                        4000
+                    ],
+                    "y": [
+                        0.04,
+                        0.1,
+                        0.28,
+                        0.55,
+                        0.71,
+                        0.83,
+                        1.0,
+                        0.83,
+                        0.71,
+                        0.55,
+                        0.28,
+                        0.1,
+                        0.04
+                    ],
+                    "name": "|Gv(jω)|",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(47,191,143,0.15)"
+                },
+                {
+                    "x": [
+                        500,
+                        4000
+                    ],
+                    "y": [
+                        0.707,
+                        0.707
+                    ],
+                    "name": "−3dB line",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|Gv|"
+                }
+            }
+        }
+    ]
+}

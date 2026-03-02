@@ -48,6 +48,11 @@ export const modules: Module[] = [
         title: "AC Phasors & Impedance",
         path: "/circuit-analysis/lesson-05",
       },
+      {
+        id: "lesson-06",
+        title: "Series and Parallel Resonance",
+        path: "/circuit-analysis/lesson-06",
+      },
     ],
   },
   {

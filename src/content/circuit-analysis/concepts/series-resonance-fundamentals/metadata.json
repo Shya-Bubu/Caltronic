@@ -1,0 +1,11 @@
+{
+    "id": "series-resonance-fundamentals",
+    "title": "Series Resonance: Impedance and Resonant Frequency",
+    "slug": "series-resonance-fundamentals",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

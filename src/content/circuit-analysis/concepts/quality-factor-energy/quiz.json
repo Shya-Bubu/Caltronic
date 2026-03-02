@@ -1,0 +1,125 @@
+{
+    "id": "quiz-quality-factor-energy",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The fundamental definition of Q is:",
+            "options": [
+                "Q = R/L",
+                "Q = 2π × (stored energy / energy dissipated per cycle)",
+                "Q = bandwidth / ω₀",
+                "Q = V_s / V_L"
+            ],
+            "correctAnswer": "Q = 2π × (stored energy / energy dissipated per cycle)",
+            "explanation": "This is the physics-level definition: Q = 2π × wS/wD. All other Q formulas (ωoL/R, ωo/B, etc.) derive from this."
+        },
+        {
+            "id": "q2",
+            "prompt": "At resonance, the total stored energy in L and C is:",
+            "options": [
+                "Zero",
+                "Maximum and constant",
+                "Oscillating between 0 and maximum",
+                "Equal to the dissipated energy"
+            ],
+            "correctAnswer": "Maximum and constant",
+            "explanation": "wL + wC = Vm²L/(2R²) = constant. Energy oscillates between L and C but the sum is always the same."
+        },
+        {
+            "id": "q3",
+            "prompt": "When the inductor energy is maximum, the capacitor energy is:",
+            "options": [
+                "Also maximum",
+                "Zero",
+                "Half of maximum",
+                "Negative"
+            ],
+            "correctAnswer": "Zero",
+            "explanation": "wL ∝ cos²(ωt), wC ∝ sin²(ωt). When wL is max (cos²=1), wC is zero (sin²=0). Energy has fully transferred to the magnetic field."
+        },
+        {
+            "id": "q4",
+            "prompt": "Which of these is NOT an equivalent expression for Q?",
+            "options": [
+                "ωoL/R",
+                "ωo/B",
+                "R/ωoL (series)",
+                "VL/Vs (at resonance)"
+            ],
+            "correctAnswer": "R/ωoL (series)",
+            "explanation": "For series: Q = ωoL/R (not R/ωoL). R/ωoL is the PARALLEL Q formula. Don't mix them up!"
+        },
+        {
+            "id": "q5",
+            "prompt": "If Q=200 and Vs=10V, the voltage across the capacitor at resonance is:",
+            "options": [
+                "10V",
+                "200V",
+                "2000V",
+                "20V"
+            ],
+            "correctAnswer": "2000V",
+            "explanation": "|VC| = Q × Vs = 200 × 10 = 2000V. This is voltage magnification — the capacitor must be rated above this value."
+        },
+        {
+            "id": "q6",
+            "prompt": "A crystal oscillator typically has Q of:",
+            "options": [
+                "5–10",
+                "50–100",
+                "500–1000",
+                "10,000+"
+            ],
+            "correctAnswer": "10,000+",
+            "explanation": "Quartz crystals have Q > 10,000 (sometimes > 100,000). This extreme selectivity enables precise frequency generation for clocks."
+        },
+        {
+            "id": "q7",
+            "prompt": "Higher Q means:",
+            "options": [
+                "Wider bandwidth",
+                "Narrower bandwidth and more selectivity",
+                "Lower resonant frequency",
+                "More energy dissipation"
+            ],
+            "correctAnswer": "Narrower bandwidth and more selectivity",
+            "explanation": "Q = ω₀/B. Higher Q → smaller B → narrower passband → better frequency discrimination."
+        },
+        {
+            "id": "q8",
+            "prompt": "The energy exchange at resonance is analogous to:",
+            "options": [
+                "A pendulum (KE ↔ PE)",
+                "A resistive heater",
+                "A DC battery",
+                "A transformer"
+            ],
+            "correctAnswer": "A pendulum (KE ↔ PE)",
+            "explanation": "Inductor (magnetic energy) ↔ capacitor (electric energy), like kinetic energy ↔ potential energy in a pendulum. Total energy constant."
+        },
+        {
+            "id": "q9",
+            "prompt": "Real inductors reduce Q from the ideal value because:",
+            "options": [
+                "They have internal (wire) resistance",
+                "They have infinite inductance",
+                "They don't store energy",
+                "They're too large"
+            ],
+            "correctAnswer": "They have internal (wire) resistance",
+            "explanation": "Real inductors have parasitic resistance from the wire winding. This adds to R, reducing Q = ωoL/R_total."
+        },
+        {
+            "id": "q10",
+            "prompt": "To achieve high Q in a series RLC circuit, you need:",
+            "options": [
+                "Large R, small L",
+                "Small R, large L",
+                "Large R, large C",
+                "Small L, small C"
+            ],
+            "correctAnswer": "Small R, large L",
+            "explanation": "Q = ωoL/R. To maximise Q: minimise R (less loss) and maximise L (more energy storage per cycle)."
+        }
+    ]
+}

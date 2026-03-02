@@ -1,0 +1,11 @@
+{
+    "id": "quality-factor-energy",
+    "title": "Quality Factor, Energy Exchange, and Selectivity",
+    "slug": "quality-factor-energy",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-frequency-response-bandwidth",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The half-power frequencies are where the power drops to:",
+            "options": [
+                "1/4 of maximum",
+                "1/2 of maximum",
+                "1/√2 of maximum",
+                "Zero"
+            ],
+            "correctAnswer": "1/2 of maximum",
+            "explanation": "Half-power frequencies: P(ω₁) = P(ω₂) = Pmax/2. The current drops to Imax/√2 (since P ∝ I²)."
+        },
+        {
+            "id": "q2",
+            "prompt": "The bandwidth of a series RLC circuit is:",
+            "options": [
+                "B = L/R",
+                "B = R/L",
+                "B = 1/RC",
+                "B = ωL"
+            ],
+            "correctAnswer": "B = R/L",
+            "explanation": "B = ω₂ − ω₁ = R/L rad/s. Alternatively, B = ω₀/Q."
+        },
+        {
+            "id": "q3",
+            "prompt": "The relationship between Q and bandwidth is:",
+            "options": [
+                "Q = B/ω₀",
+                "Q = ω₀/B",
+                "Q = B × ω₀",
+                "Q = ω₀ + B"
+            ],
+            "correctAnswer": "Q = ω₀/B",
+            "explanation": "Q = ω₀/B = centre frequency / bandwidth. Higher Q → narrower bandwidth → sharper resonance."
+        },
+        {
+            "id": "q4",
+            "prompt": "ω₀ is related to ω₁ and ω₂ by:",
+            "options": [
+                "ω₀ = (ω₁+ω₂)/2 (arithmetic mean)",
+                "ω₀ = √(ω₁·ω₂) (geometric mean)",
+                "ω₀ = ω₂ − ω₁",
+                "ω₀ = ω₁ × ω₂"
+            ],
+            "correctAnswer": "ω₀ = √(ω₁·ω₂) (geometric mean)",
+            "explanation": "The resonant frequency is the geometric mean of the half-power frequencies: ω₀² = ω₁·ω₂. This is exact, not an approximation."
+        },
+        {
+            "id": "q5",
+            "prompt": "Increasing R in a series RLC circuit causes bandwidth to:",
+            "options": [
+                "Increase (wider)",
+                "Decrease (narrower)",
+                "Stay the same",
+                "Become infinite"
+            ],
+            "correctAnswer": "Increase (wider)",
+            "explanation": "B = R/L. Increasing R increases bandwidth, making the resonance less sharp (lower Q)."
+        },
+        {
+            "id": "q6",
+            "prompt": "At the half-power frequencies, the impedance magnitude equals:",
+            "options": [
+                "R",
+                "√2·R",
+                "R/√2",
+                "2R"
+            ],
+            "correctAnswer": "√2·R",
+            "explanation": "At half-power: P = Pmax/2 → I = Imax/√2 → |Z| = Vm/I = Vm/(Imax/√2) = √2·R."
+        },
+        {
+            "id": "q7",
+            "prompt": "The bandpass filter transfer function has unity gain at:",
+            "options": [
+                "ω = 0",
+                "ω = ω₀",
+                "ω = ω₁",
+                "ω → ∞"
+            ],
+            "correctAnswer": "ω = ω₀",
+            "explanation": "At resonance, the transfer function Gv = VR/V₁ = 1 (all source voltage drops across R). It rolls off on both sides."
+        },
+        {
+            "id": "q8",
+            "prompt": "For a high-Q circuit (Q >> 1), the half-power frequencies are approximately:",
+            "options": [
+                "ω₁ ≈ ω₀ − B/2, ω₂ ≈ ω₀ + B/2",
+                "ω₁ ≈ ω₀/2, ω₂ ≈ 2ω₀",
+                "ω₁ ≈ 0, ω₂ ≈ ω₀",
+                "ω₁ ≈ ω₂ ≈ ω₀"
+            ],
+            "correctAnswer": "ω₁ ≈ ω₀ − B/2, ω₂ ≈ ω₀ + B/2",
+            "explanation": "For high Q, the response is nearly symmetric around ω₀, so the half-power frequencies are approximately B/2 above and below ω₀."
+        },
+        {
+            "id": "q9",
+            "prompt": "A circuit with ω₀ = 10,000 rad/s and Q = 50 has bandwidth:",
+            "options": [
+                "100 rad/s",
+                "200 rad/s",
+                "500 rad/s",
+                "50,000 rad/s"
+            ],
+            "correctAnswer": "200 rad/s",
+            "explanation": "B = ω₀/Q = 10,000/50 = 200 rad/s."
+        },
+        {
+            "id": "q10",
+            "prompt": "What determines the 'selectivity' of a resonant circuit?",
+            "options": [
+                "The resonant frequency ω₀",
+                "The quality factor Q (or equivalently, bandwidth B)",
+                "The capacitance C",
+                "The source voltage"
+            ],
+            "correctAnswer": "The quality factor Q (or equivalently, bandwidth B)",
+            "explanation": "Selectivity = how sharply the circuit discriminates between frequencies. High Q → narrow B → high selectivity. Low Q → wide B → low selectivity."
+        }
+    ]
+}

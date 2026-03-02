@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-frequency-response",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Half-power frequency definition?",
+            "back": "Frequencies ω₁, ω₂ where P = Pmax/2, equivalently I = Imax/√2 = 0.707·Imax.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Bandwidth formula (series RLC)?",
+            "back": "B = ω₂ − ω₁ = R/L = ω₀/Q (rad/s). Independent of C.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Q and bandwidth relationship?",
+            "back": "Q = ω₀/B. Higher Q = narrower bandwidth = sharper selectivity.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "Geometric mean property?",
+            "back": "ω₀ = √(ω₁·ω₂). The resonant frequency is exactly the geometric mean of the half-power frequencies.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Effect of R on bandwidth?",
+            "back": "B = R/L. Larger R → wider bandwidth → lower Q → less selective. Smaller R → narrower → higher Q.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Impedance at half-power?",
+            "back": "|Z| = √2·R at ω₁ and ω₂. The reactance magnitude equals R at these points.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Bandpass transfer function?",
+            "back": "Gv(jω) = 1/[1 + jQ(ω/ω₀ − ω₀/ω)]. Unity gain at ω₀, −3dB at half-power frequencies.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Phase at half-power frequencies?",
+            "back": "φ = ±45° at ω₁ and ω₂. At resonance φ = 0°. Transitions from −45° through 0° to +45°.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "High-Q approximation for ω₁, ω₂?",
+            "back": "ω₁ ≈ ω₀ − B/2, ω₂ ≈ ω₀ + B/2. Valid when Q >> 1 (response is nearly symmetric).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "What does 'selectivity' mean?",
+            "back": "How well the circuit passes signals at ω₀ while rejecting other frequencies. High Q = high selectivity = narrow bandwidth.",
+            "difficultyLevel": 1
+        }
+    ]
+}

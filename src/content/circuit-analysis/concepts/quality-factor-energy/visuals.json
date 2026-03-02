@@ -1,0 +1,398 @@
+{
+    "visuals": [
+        {
+            "id": "q-energy-definition",
+            "type": "block-diagram",
+            "title": "Q = 2π × (Stored Energy / Energy Dissipated per Cycle)",
+            "blocks": [
+                {
+                    "id": "ws",
+                    "label": "wS: Energy stored\nin L and C",
+                    "position": "left"
+                },
+                {
+                    "id": "q",
+                    "label": "Q = 2π·wS/wD",
+                    "position": "center"
+                },
+                {
+                    "id": "wd",
+                    "label": "wD: Energy dissipated\nin R per cycle",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "ws",
+                    "to": "q"
+                },
+                {
+                    "from": "wd",
+                    "to": "q"
+                }
+            ]
+        },
+        {
+            "id": "energy-exchange",
+            "type": "plotly",
+            "title": "Energy Exchange: wL + wC = Constant at Resonance",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2
+                    ],
+                    "y": [
+                        1,
+                        0.5,
+                        0,
+                        0.5,
+                        1,
+                        0.5,
+                        0,
+                        0.5,
+                        1
+                    ],
+                    "name": "wL (inductor)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2
+                    ],
+                    "y": [
+                        0,
+                        0.5,
+                        1,
+                        0.5,
+                        0,
+                        0.5,
+                        1,
+                        0.5,
+                        0
+                    ],
+                    "name": "wC (capacitor)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "wL+wC (total)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (periods)"
+                },
+                "yaxis": {
+                    "title": "Normalised Energy"
+                }
+            }
+        },
+        {
+            "id": "q-derivation",
+            "type": "block-diagram",
+            "title": "Deriving Q = ωoL/R from Energy Ratio",
+            "blocks": [
+                {
+                    "id": "ws2",
+                    "label": "wS = Vm²L/2R²",
+                    "position": "left"
+                },
+                {
+                    "id": "wd2",
+                    "label": "wD = πVm²/Rωo",
+                    "position": "center-left"
+                },
+                {
+                    "id": "ratio",
+                    "label": "Q = 2π·wS/wD\n= ωoL/R",
+                    "position": "center-right"
+                },
+                {
+                    "id": "confirmed",
+                    "label": "✓ Matches\ncircuit formula",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "ws2",
+                    "to": "ratio"
+                },
+                {
+                    "from": "wd2",
+                    "to": "ratio"
+                },
+                {
+                    "from": "ratio",
+                    "to": "confirmed"
+                }
+            ]
+        },
+        {
+            "id": "q-multiple-forms",
+            "type": "plotly",
+            "title": "Six Equivalent Expressions for Quality Factor Q",
+            "traces": [
+                {
+                    "x": [
+                        "ωoL/R",
+                        "1/ωoCR",
+                        "ωo/B",
+                        "2πwS/wD",
+                        "VL/Vs",
+                        "IL/Is"
+                    ],
+                    "y": [
+                        25,
+                        25,
+                        25,
+                        25,
+                        25,
+                        25
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "Reactance/R",
+                        "Reactance/R",
+                        "Freq/BW",
+                        "Energy ratio",
+                        "Voltage mag.",
+                        "Current mag."
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Q Expression"
+                },
+                "yaxis": {
+                    "title": "Q (all equal)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "capacitor-stress",
+            "type": "plotly",
+            "title": "Capacitor Stress: Q=200 × 10V Source = 2000V Across Capacitor!",
+            "traces": [
+                {
+                    "x": [
+                        "Source Vs",
+                        "Capacitor Rating",
+                        "Actual VC"
+                    ],
+                    "y": [
+                        10,
+                        300,
+                        2000
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "10V",
+                        "300V rating",
+                        "2000V (6.7× over-rated!)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Voltage (V)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "selectivity-q-comparison",
+            "type": "plotly",
+            "title": "Selectivity vs Q: Higher Q = Sharper Response",
+            "traces": [
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1960,
+                        2000,
+                        2040,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.02,
+                        0.1,
+                        0.3,
+                        0.7,
+                        1.0,
+                        0.7,
+                        0.3,
+                        0.1,
+                        0.02
+                    ],
+                    "name": "Q=100",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1960,
+                        2000,
+                        2040,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.1,
+                        0.3,
+                        0.55,
+                        0.8,
+                        1.0,
+                        0.8,
+                        0.55,
+                        0.3,
+                        0.1
+                    ],
+                    "name": "Q=25",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1960,
+                        2000,
+                        2040,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.5,
+                        0.6,
+                        0.75,
+                        0.9,
+                        1.0,
+                        0.9,
+                        0.75,
+                        0.6,
+                        0.5
+                    ],
+                    "name": "Q=5",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "Normalised |I|/Imax"
+                }
+            }
+        },
+        {
+            "id": "falstad-rlc-resonance",
+            "type": "falstad-sim",
+            "title": "Interactive: RLC Resonance — Watch Energy Oscillate",
+            "description": "A series RLC circuit at resonance. Observe the current peaking and the voltage across L and C.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 5 50 43\nv 112 304 112 80 0 1 1000 5 0 0 0.5\nr 112 80 272 80 0 100\nl 272 80 416 80 0 0.1 0\nc 416 80 416 304 0 1e-7 0 0.001\nw 416 304 112 304 0\no 0 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        }
+    ]
+}

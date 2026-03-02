@@ -1,0 +1,11 @@
+{
+    "id": "parallel-resonance",
+    "title": "Parallel Resonance and Duality",
+    "slug": "parallel-resonance",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

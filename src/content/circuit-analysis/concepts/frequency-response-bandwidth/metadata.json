@@ -1,0 +1,11 @@
+{
+    "id": "frequency-response-bandwidth",
+    "title": "Frequency Response, Bandwidth, and Half-Power Frequencies",
+    "slug": "frequency-response-bandwidth",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-series-resonance",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The resonant frequency of a series RLC circuit is:",
+            "options": [
+                "ω₀ = R/L",
+                "ω₀ = 1/√LC",
+                "ω₀ = RC",
+                "ω₀ = L/R"
+            ],
+            "correctAnswer": "ω₀ = 1/√LC",
+            "explanation": "At resonance, ωL = 1/ωC → ω² = 1/LC → ω₀ = 1/√LC. This depends only on L and C, not R."
+        },
+        {
+            "id": "q2",
+            "prompt": "At resonance, the impedance of a series RLC circuit equals:",
+            "options": [
+                "0",
+                "R (purely resistive)",
+                "∞",
+                "jωL"
+            ],
+            "correctAnswer": "R (purely resistive)",
+            "explanation": "At resonance, the reactive parts cancel (ωL = 1/ωC), leaving Z = R. This is the minimum impedance."
+        },
+        {
+            "id": "q3",
+            "prompt": "At resonance, the series LC combination acts as:",
+            "options": [
+                "An open circuit",
+                "A short circuit",
+                "A pure resistor",
+                "A pure inductor"
+            ],
+            "correctAnswer": "A short circuit",
+            "explanation": "XL = XC at resonance → their impedances cancel → jωL + 1/jωC = 0. The LC pair acts as a short, leaving only R."
+        },
+        {
+            "id": "q4",
+            "prompt": "The power factor at resonance is:",
+            "options": [
+                "0",
+                "0.5",
+                "0.707",
+                "1 (unity)"
+            ],
+            "correctAnswer": "1 (unity)",
+            "explanation": "At resonance, voltage and current are in phase (φ = 0°). Power factor = cos(0°) = 1, meaning maximum power transfer."
+        },
+        {
+            "id": "q5",
+            "prompt": "Below the resonant frequency, a series RLC circuit behaves as:",
+            "options": [
+                "Inductive (XL > XC)",
+                "Capacitive (XC > XL)",
+                "Purely resistive",
+                "An open circuit"
+            ],
+            "correctAnswer": "Capacitive (XC > XL)",
+            "explanation": "Below ω₀, the capacitive reactance 1/ωC exceeds the inductive reactance ωL, making the net reactance negative (capacitive)."
+        },
+        {
+            "id": "q6",
+            "prompt": "If R=2Ω, L=25mH, C=10μF, the resonant frequency is:",
+            "options": [
+                "1000 rad/s",
+                "2000 rad/s",
+                "4000 rad/s",
+                "500 rad/s"
+            ],
+            "correctAnswer": "2000 rad/s",
+            "explanation": "ω₀ = 1/√(LC) = 1/√(25×10⁻³ × 10×10⁻⁶) = 1/√(2.5×10⁻⁷) = 2000 rad/s."
+        },
+        {
+            "id": "q7",
+            "prompt": "At resonance in the lecture example (Q=25, Vs=10V), the inductor voltage is:",
+            "options": [
+                "10V",
+                "25V",
+                "100V",
+                "250V"
+            ],
+            "correctAnswer": "250V",
+            "explanation": "|VL| = Q × Vm = 25 × 10 = 250V. This voltage magnification (25×) is a key feature of resonance."
+        },
+        {
+            "id": "q8",
+            "prompt": "The resonant frequency depends on:",
+            "options": [
+                "R only",
+                "L and C only",
+                "R, L, and C",
+                "R and L only"
+            ],
+            "correctAnswer": "L and C only",
+            "explanation": "ω₀ = 1/√LC. R affects the sharpness (Q factor) but not the frequency of resonance."
+        },
+        {
+            "id": "q9",
+            "prompt": "The phase angle of impedance at resonance is:",
+            "options": [
+                "+90°",
+                "−90°",
+                "0°",
+                "45°"
+            ],
+            "correctAnswer": "0°",
+            "explanation": "At resonance, Z = R (real), so φ = tan⁻¹(0/R) = 0°. Voltage and current are perfectly in phase."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why can the voltage across L or C exceed the source voltage at resonance?",
+            "options": [
+                "Due to voltage magnification (Q > 1)",
+                "Due to transformer action",
+                "The source increases its voltage",
+                "It cannot — this violates KVL"
+            ],
+            "correctAnswer": "Due to voltage magnification (Q > 1)",
+            "explanation": "VL and VC each equal Q×Vs but are 180° out of phase, so they cancel in KVL. Each individually can far exceed Vs when Q > 1."
+        }
+    ]
+}

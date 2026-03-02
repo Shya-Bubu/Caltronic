@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-quality-factor-energy",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Fundamental Q definition?",
+            "back": "Q = 2π × (energy stored in circuit) / (energy dissipated per cycle). Universal for any resonant system.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Energy in inductor at resonance?",
+            "back": "wL(t) = (Vm²L/2R²)cos²(ωot). Maximum at t=0, zero at t=T/4.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f3",
+            "front": "Energy in capacitor at resonance?",
+            "back": "wC(t) = (Vm²L/2R²)sin²(ωot). Maximum at t=T/4, zero at t=0.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "Total stored energy at resonance?",
+            "back": "wS = wL + wC = Vm²L/(2R²) = CONSTANT. cos² + sin² = 1.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Six equivalent Q expressions?",
+            "back": "ωoL/R, 1/ωoCR, ωo/B, 2πwS/wD, VL/Vs (series), IL/Is (parallel). All equal.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Voltage magnification danger?",
+            "back": "VC = Q × Vs. With Q=200, Vs=10V → VC=2000V. Components must be rated for Q×Vs, not just Vs.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Why does real inductor reduce Q?",
+            "back": "Wire resistance adds to total R. Q = ωoL/R_total < ωoL/R_external. Parasitic R always degrades Q.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Energy analogy: inductor ↔ capacitor?",
+            "back": "Like pendulum: inductor = kinetic energy (current), capacitor = potential energy (voltage). Total constant at resonance.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Selectivity vs Q?",
+            "back": "Q=5-10: broad/unselective. Q=50-100: moderate. Q=200-500: radio receivers. Q>10000: crystal oscillators.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f10",
+            "front": "How to increase Q (series)?",
+            "back": "Decrease R (less loss), increase L (more stored energy), or use higher-quality components. ω₀ doesn't change.",
+            "difficultyLevel": 2
+        }
+    ]
+}

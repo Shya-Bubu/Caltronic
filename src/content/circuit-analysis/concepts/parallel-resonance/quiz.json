@@ -1,0 +1,125 @@
+{
+    "id": "quiz-parallel-resonance",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The admittance of a parallel RLC circuit is:",
+            "options": [
+                "Y = R + jωL + 1/jωC",
+                "Y = 1/R + j(ωC − 1/ωL)",
+                "Y = 1/R + jωL",
+                "Y = jωC − 1/jωL"
+            ],
+            "correctAnswer": "Y = 1/R + j(ωC − 1/ωL)",
+            "explanation": "Parallel elements: admittances add. Y = G + jBC + jBL = 1/R + jωC + 1/jωL = 1/R + j(ωC − 1/ωL)."
+        },
+        {
+            "id": "q2",
+            "prompt": "At parallel resonance, the impedance is:",
+            "options": [
+                "Z = 0 (minimum)",
+                "Z = R (maximum)",
+                "Z = ∞",
+                "Z = jωL"
+            ],
+            "correctAnswer": "Z = R (maximum)",
+            "explanation": "At resonance, Y = 1/R (minimum), so Z = 1/Y = R (maximum). Opposite of series, where Z = R is minimum."
+        },
+        {
+            "id": "q3",
+            "prompt": "The parallel LC combination at resonance acts as:",
+            "options": [
+                "A short circuit",
+                "An open circuit",
+                "A pure resistor",
+                "A pure capacitor"
+            ],
+            "correctAnswer": "An open circuit",
+            "explanation": "Susceptances cancel (BC + BL = 0), total admittance of LC = 0, impedance = ∞ → open circuit. Called a 'tank circuit.'"
+        },
+        {
+            "id": "q4",
+            "prompt": "The resonant frequency of a parallel RLC circuit is:",
+            "options": [
+                "Different from series: ω₀ = R/L",
+                "Same as series: ω₀ = 1/√LC",
+                "ω₀ = 1/RC",
+                "ω₀ = RC"
+            ],
+            "correctAnswer": "Same as series: ω₀ = 1/√LC",
+            "explanation": "ω₀ = 1/√LC for both series and parallel. The resonant frequency depends only on L and C."
+        },
+        {
+            "id": "q5",
+            "prompt": "The bandwidth of a parallel RLC circuit is:",
+            "options": [
+                "B = R/L",
+                "B = 1/RC",
+                "B = ωL",
+                "B = RC"
+            ],
+            "correctAnswer": "B = 1/RC",
+            "explanation": "Parallel bandwidth B = 1/RC (dual of series B = R/L). Also B = ω₀/Q."
+        },
+        {
+            "id": "q6",
+            "prompt": "In the duality mapping, series L maps to parallel:",
+            "options": [
+                "L",
+                "C",
+                "R",
+                "1/L"
+            ],
+            "correctAnswer": "C",
+            "explanation": "Duality swaps L ↔ C and R ↔ 1/R. Series inductor maps to parallel capacitor."
+        },
+        {
+            "id": "q7",
+            "prompt": "Current magnification in parallel resonance means:",
+            "options": [
+                "Source current increases",
+                "IL and IC can be Q times the source current",
+                "No current flows",
+                "Current is zero"
+            ],
+            "correctAnswer": "IL and IC can be Q times the source current",
+            "explanation": "Dual of voltage magnification in series. At parallel resonance, IL = IC = Q × Is, circulating internally in the tank."
+        },
+        {
+            "id": "q8",
+            "prompt": "The quality factor of a parallel RLC circuit is:",
+            "options": [
+                "Q = ωoL/R",
+                "Q = ωoRC = R/ωoL",
+                "Q = R/ωoC",
+                "Q = 1/ωoRC"
+            ],
+            "correctAnswer": "Q = ωoRC = R/ωoL",
+            "explanation": "By duality: series Q = ωoL/R → parallel Q = ωoC·(1/(1/R)) = ωoRC. Also Q = R/ωoL."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why is a parallel LC circuit called a 'tank circuit'?",
+            "options": [
+                "It stores water",
+                "Energy oscillates (tanks) between L and C at resonance",
+                "It has a tank-shaped symbol",
+                "It filters out all frequencies"
+            ],
+            "correctAnswer": "Energy oscillates (tanks) between L and C at resonance",
+            "explanation": "At resonance, current circulates between L and C internally. Energy 'tanks' — oscillates back and forth — without external dissipation (ideally)."
+        },
+        {
+            "id": "q10",
+            "prompt": "The normalised transfer function 1/[1+jQ(ω/ω₀−ω₀/ω)] applies to:",
+            "options": [
+                "Only series RLC",
+                "Only parallel RLC",
+                "Both series and parallel (universal second-order form)",
+                "Neither"
+            ],
+            "correctAnswer": "Both series and parallel (universal second-order form)",
+            "explanation": "This bandpass form is universal for any second-order resonant system — series, parallel, mechanical, or acoustic."
+        }
+    ]
+}

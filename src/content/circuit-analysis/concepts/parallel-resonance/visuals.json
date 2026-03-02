@@ -1,0 +1,380 @@
+{
+    "visuals": [
+        {
+            "id": "parallel-rlc-circuit",
+            "type": "circuit-schematic",
+            "title": "Parallel RLC Circuit Driven by AC Current Source",
+            "elements": [
+                {
+                    "type": "current-source",
+                    "id": "Is",
+                    "from": [
+                        0,
+                        256
+                    ],
+                    "to": [
+                        0,
+                        0
+                    ],
+                    "label": "Is"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        0,
+                        0
+                    ],
+                    "to": [
+                        128,
+                        0
+                    ],
+                    "label": "R"
+                },
+                {
+                    "type": "inductor",
+                    "id": "L",
+                    "from": [
+                        128,
+                        0
+                    ],
+                    "to": [
+                        128,
+                        256
+                    ],
+                    "label": "L"
+                },
+                {
+                    "type": "capacitor",
+                    "id": "C",
+                    "from": [
+                        256,
+                        0
+                    ],
+                    "to": [
+                        256,
+                        256
+                    ],
+                    "label": "C"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        0
+                    ],
+                    "to": [
+                        256,
+                        0
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        256
+                    ],
+                    "to": [
+                        256,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "series-parallel-duality-table",
+            "type": "plotly",
+            "title": "Duality: Series Z vs Parallel Y — Same Mathematical Structure",
+            "traces": [
+                {
+                    "x": [
+                        "Z = R + j(ωL−1/ωC)",
+                        "Y = G + j(ωC−1/ωL)"
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Series: Impedance",
+                        "Parallel: Admittance"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "parallel-resonance-properties",
+            "type": "plotly",
+            "title": "At Parallel Resonance: Z=R (Max), LC=Open, Current Magnification",
+            "traces": [
+                {
+                    "x": [
+                        "Z = R (max)",
+                        "Y = 1/R (min)",
+                        "LC → open",
+                        "IL = Q·Is",
+                        "IC = Q·Is"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#6b62ff",
+                            "#f0a03a"
+                        ]
+                    },
+                    "text": [
+                        "Max impedance",
+                        "Min admittance",
+                        "Tank circuit",
+                        "Current magnif.",
+                        "Current magnif."
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "duality-mapping",
+            "type": "block-diagram",
+            "title": "Duality Mapping: Series ↔ Parallel Substitutions",
+            "blocks": [
+                {
+                    "id": "s",
+                    "label": "Series\nR, L, C, V, Z\nQ = ωL/R\nB = R/L",
+                    "position": "left"
+                },
+                {
+                    "id": "arrow",
+                    "label": "↔ Swap:\nR↔1/R\nL↔C\nV↔I\nZ↔Y",
+                    "position": "center"
+                },
+                {
+                    "id": "p",
+                    "label": "Parallel\n1/R, C, L, I, Y\nQ = ωRC\nB = 1/RC",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "s",
+                    "to": "arrow"
+                },
+                {
+                    "from": "arrow",
+                    "to": "p"
+                }
+            ]
+        },
+        {
+            "id": "parallel-frequency-response",
+            "type": "plotly",
+            "title": "Parallel RLC: Voltage |V| vs ω — Same Bandpass Shape",
+            "traces": [
+                {
+                    "x": [
+                        500,
+                        1000,
+                        1500,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2500,
+                        3000,
+                        4000
+                    ],
+                    "y": [
+                        0.04,
+                        0.1,
+                        0.28,
+                        0.55,
+                        0.71,
+                        0.83,
+                        1.0,
+                        0.83,
+                        0.71,
+                        0.55,
+                        0.28,
+                        0.1,
+                        0.04
+                    ],
+                    "name": "|V/Vmax|",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    },
+                    "fill": "tozeroy",
+                    "fillcolor": "rgba(47,191,143,0.15)"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|V/Vmax|"
+                }
+            }
+        },
+        {
+            "id": "parallel-bandwidth",
+            "type": "plotly",
+            "title": "Parallel Bandwidth: B = 1/RC = ω₀/Q",
+            "traces": [
+                {
+                    "x": [
+                        "B = 1/RC",
+                        "B = ω₀/Q",
+                        "ω₀² = ω₁·ω₂"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#4f8cff",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "From admittance",
+                        "From quality factor",
+                        "Geometric mean (exact)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "selectivity-comparison",
+            "type": "plotly",
+            "title": "Selectivity: High Q (Narrow) vs Low Q (Broad)",
+            "traces": [
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.1,
+                        0.3,
+                        0.6,
+                        0.85,
+                        1.0,
+                        0.85,
+                        0.6,
+                        0.3,
+                        0.1
+                    ],
+                    "name": "Q=50 (selective)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1600,
+                        1800,
+                        1900,
+                        1950,
+                        2000,
+                        2050,
+                        2100,
+                        2200,
+                        2400
+                    ],
+                    "y": [
+                        0.5,
+                        0.65,
+                        0.8,
+                        0.92,
+                        1.0,
+                        0.92,
+                        0.8,
+                        0.65,
+                        0.5
+                    ],
+                    "name": "Q=10 (broad)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ω (rad/s)"
+                },
+                "yaxis": {
+                    "title": "|V/Vmax|"
+                }
+            }
+        }
+    ]
+}

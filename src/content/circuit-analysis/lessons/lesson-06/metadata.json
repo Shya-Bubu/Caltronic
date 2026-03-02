@@ -1,0 +1,15 @@
+{
+    "id": "lesson-06",
+    "title": "Series and Parallel Resonance",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "prerequisites": [
+        "lesson-05"
+    ],
+    "concepts": [
+        "series-resonance-fundamentals",
+        "frequency-response-bandwidth",
+        "parallel-resonance",
+        "quality-factor-energy"
+    ]
+}

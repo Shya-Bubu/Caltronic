@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-parallel-resonance",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Parallel RLC admittance?",
+            "back": "Y = 1/R + j(ωC − 1/ωL). Dual of series Z = R + j(ωL − 1/ωC).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "At parallel resonance?",
+            "back": "Y = 1/R (min), Z = R (max), LC = open circuit, PF = 1. All source current through R.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Duality mapping: R, L, C?",
+            "back": "R ↔ 1/R, L ↔ C, C ↔ L, V ↔ I, Z ↔ Y. Apply to any series formula to get parallel version.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Parallel Q factor?",
+            "back": "Q = ωoRC = R/ωoL. Dual of series Q = ωoL/R.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Parallel bandwidth?",
+            "back": "B = 1/RC = ω₀/Q. Dual of series B = R/L.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Tank circuit?",
+            "back": "Parallel LC at resonance: energy oscillates between L and C. Current circulates internally. External impedance = R (max).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Current magnification?",
+            "back": "IL = IC = Q × Is at resonance. Dual of voltage magnification in series (VL = VC = Q × Vs).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Series Z minimum ↔ Parallel Z maximum?",
+            "back": "Series: Z = R is minimum (max current). Parallel: Z = R is maximum (max voltage). Dual behaviours.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Is ω₀ the same for series and parallel?",
+            "back": "Yes! ω₀ = 1/√LC for both. Only Q and B differ (because they depend on R which enters differently).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f10",
+            "front": "Parallel resonance applications?",
+            "back": "Tank circuits in oscillators, bandpass filters, impedance matching, RF tuned amplifiers.",
+            "difficultyLevel": 1
+        }
+    ]
+}

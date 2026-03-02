@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-series-resonance",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Series RLC impedance formula?",
+            "back": "Z = R + j(ωL − 1/ωC). Real part R, imaginary part is net reactance X = XL − XC.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Resonance condition (series)?",
+            "back": "ωL = 1/ωC → net reactance = 0 → Z = R. Reactances cancel each other.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Resonant frequency formula?",
+            "back": "ω₀ = 1/√LC rad/s, f₀ = 1/(2π√LC) Hz. Depends only on L and C, not R.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "Properties at resonance?",
+            "back": "Z = R (min), I = Vm/R (max), φ = 0°, PF = 1, LC = short circuit.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Voltage magnification at resonance?",
+            "back": "|VL| = |VC| = Q × Vs. Can be many times the source voltage. VL and VC are 180° apart (cancel in KVL).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Below resonance: inductive or capacitive?",
+            "back": "Capacitive. XC > XL → net reactance negative → impedance phase negative → current leads voltage.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Above resonance: inductive or capacitive?",
+            "back": "Inductive. XL > XC → net reactance positive → impedance phase positive → current lags voltage.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Phasor diagram at resonance?",
+            "back": "VR = Vs (horizontal). VL points up, VC points down, both magnitude Q×Vs. VL + VC = 0.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why is resonance dangerous?",
+            "back": "Component voltages (VL, VC) can far exceed source voltage. A 10V source with Q=25 creates 250V across L and C.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "|Z| vs ω shape?",
+            "back": "V-shaped curve: high at low ω (capacitive), minimum R at ω₀, high again at high ω (inductive).",
+            "difficultyLevel": 2
+        }
+    ]
+}
