@@ -1,0 +1,11 @@
+{
+    "id": "landau-symbols-advanced",
+    "title": "Landau Symbols: The Complete Asymptotic Toolkit",
+    "slug": "landau-symbols-advanced",
+    "estimatedMinutes": 12,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

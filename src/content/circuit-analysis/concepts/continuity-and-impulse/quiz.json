@@ -1,0 +1,125 @@
+{
+    "id": "quiz-continuity-and-impulse",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The capacitor voltage continuity property states that:",
+            "options": [
+                "v_C always equals the source voltage",
+                "v_C(T⁺) = v_C(T⁻) when current is bounded",
+                "v_C can jump at any time",
+                "v_C equals zero at switching instants"
+            ],
+            "correctAnswer": "v_C(T⁺) = v_C(T⁻) when current is bounded",
+            "explanation": "When the current through a capacitor remains bounded (finite), the voltage cannot change instantaneously. This follows from v(T+dt)−v(T) = (1/C)∫i·dt → 0 as dt → 0."
+        },
+        {
+            "id": "q2",
+            "prompt": "An inductor carrying 3A has its circuit switched at t=0. The current i_L(0⁺) is:",
+            "options": [
+                "0 A (resets to zero)",
+                "3 A (continuity)",
+                "Depends on the new circuit",
+                "Infinite (impulse)"
+            ],
+            "correctAnswer": "3 A (continuity)",
+            "explanation": "By inductor current continuity: i_L(0⁺) = i_L(0⁻) = 3A. The current cannot jump. The new circuit determines how i_L changes FOR t > 0, but at t = 0⁺, it equals its pre-switch value."
+        },
+        {
+            "id": "q3",
+            "prompt": "The unit impulse function δ(t) has:",
+            "options": [
+                "Unit height and unit width",
+                "Infinite height, zero width, unit area",
+                "Zero height and infinite area",
+                "Unit height and zero width"
+            ],
+            "correctAnswer": "Infinite height, zero width, unit area",
+            "explanation": "The impulse δ(t) is the limit of progressively narrower, taller pulses whose area remains exactly 1. It's zero everywhere except t=0 where it's singular, and ∫δ(t)dt = 1."
+        },
+        {
+            "id": "q4",
+            "prompt": "A current impulse i(t) = Aδ(t) applied to a capacitor C produces:",
+            "options": [
+                "An exponential voltage",
+                "A voltage step of magnitude A/C",
+                "No change in voltage",
+                "An oscillating voltage"
+            ],
+            "correctAnswer": "A voltage step of magnitude A/C",
+            "explanation": "v_C = (1/C)∫Aδ(τ)dτ = A/C for t > 0. The impulse deposits charge A instantaneously, raising the voltage by A/C = q/C."
+        },
+        {
+            "id": "q5",
+            "prompt": "In the impulse derivation, what stays constant as Δ → 0?",
+            "options": [
+                "The pulse height",
+                "The pulse width",
+                "The pulse area (= CE)",
+                "The pulse energy"
+            ],
+            "correctAnswer": "The pulse area (= CE)",
+            "explanation": "The height goes to infinity and width to zero, but their product (the area = CE) stays constant. This constant area becomes the 'strength' of the impulse."
+        },
+        {
+            "id": "q6",
+            "prompt": "Which quantities CAN jump discontinuously at a switching instant?",
+            "options": [
+                "v_C and i_L",
+                "Resistor voltage and source current",
+                "Only inductor current",
+                "Nothing can jump"
+            ],
+            "correctAnswer": "Resistor voltage and source current",
+            "explanation": "Only state variables (v_C and i_L) are guaranteed continuous. Resistor voltages, capacitor currents, and other non-state quantities CAN and often DO jump at switching instants."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why does opening a switch on an inductor carrying current cause arcing?",
+            "options": [
+                "The inductor stores charge",
+                "v = L·di/dt becomes very large when i changes rapidly",
+                "The inductor acts as a voltage source",
+                "Capacitive coupling"
+            ],
+            "correctAnswer": "v = L·di/dt becomes very large when i changes rapidly",
+            "explanation": "When a switch opens, di/dt is extremely large (current forced to zero quickly). v = L·di/dt produces a very high voltage spike across the switch gap, ionizing the air and causing an arc."
+        },
+        {
+            "id": "q8",
+            "prompt": "The substitution theorem allows you to:",
+            "options": [
+                "Replace any element with a short circuit",
+                "Replace a capacitor/inductor with an equivalent voltage or current source",
+                "Eliminate all sources from the circuit",
+                "Combine capacitors in parallel"
+            ],
+            "correctAnswer": "Replace a capacitor/inductor with an equivalent voltage or current source",
+            "explanation": "If the circuit has a unique solution v̂(t) across a port, the element at that port can be replaced by a source v̂(t) without affecting the rest of the circuit. This is essential for solving first-order circuits."
+        },
+        {
+            "id": "q9",
+            "prompt": "If a 10μF capacitor has v_C(0⁻) = 3V and a bounded current flows, v_C(0⁺) equals:",
+            "options": [
+                "0 V",
+                "3 V",
+                "10 V",
+                "Cannot determine"
+            ],
+            "correctAnswer": "3 V",
+            "explanation": "By the continuity property, v_C(0⁺) = v_C(0⁻) = 3V. The capacitor voltage at the instant just after switching equals the voltage just before switching, regardless of the new circuit topology."
+        },
+        {
+            "id": "q10",
+            "prompt": "The integral ∫₋₁¹ 5δ(t) dt equals:",
+            "options": [
+                "0",
+                "1",
+                "5",
+                "∞"
+            ],
+            "correctAnswer": "5",
+            "explanation": "By the defining property: ∫₋ε^ε Aδ(t)dt = A for any ε > 0. So ∫₋₁¹ 5δ(t)dt = 5. The coefficient A scales the impulse strength."
+        }
+    ]
+}

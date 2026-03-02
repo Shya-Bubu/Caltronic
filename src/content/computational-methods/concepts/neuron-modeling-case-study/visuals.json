@@ -1,0 +1,811 @@
+{
+    "visuals": [
+        {
+            "id": "action-potential-phases",
+            "type": "plotly",
+            "title": "Action Potential: The Neuron's Electrical Spike (~1 ms Duration)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.4,
+                        0.5,
+                        0.6,
+                        0.7,
+                        0.8,
+                        0.9,
+                        1.0,
+                        1.2,
+                        1.5,
+                        2.0,
+                        2.5,
+                        3.0
+                    ],
+                    "y": [
+                        -70,
+                        -70,
+                        -55,
+                        -20,
+                        20,
+                        40,
+                        30,
+                        0,
+                        -70,
+                        -80,
+                        -75,
+                        -70,
+                        -70,
+                        -70
+                    ],
+                    "name": "Membrane potential (mV)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0.4,
+                        0.4
+                    ],
+                    "y": [
+                        -90,
+                        50
+                    ],
+                    "name": "Threshold (−55 mV)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "Membrane potential (mV)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0.6,
+                        "y": 35,
+                        "text": "Na⁺ influx",
+                        "showarrow": true,
+                        "arrowhead": 2
+                    },
+                    {
+                        "x": 0.9,
+                        "y": -10,
+                        "text": "K⁺ efflux",
+                        "showarrow": true,
+                        "arrowhead": 2
+                    }
+                ]
+            }
+        },
+        {
+            "id": "neuron-equivalent-circuit",
+            "type": "circuit-schematic",
+            "title": "Neuron as an Equivalent Circuit (Hodgkin-Huxley Topology)",
+            "elements": [
+                {
+                    "type": "capacitor",
+                    "id": "Cm",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        224
+                    ],
+                    "label": "C_m (membrane)"
+                },
+                {
+                    "type": "resistor",
+                    "id": "gNa",
+                    "from": [
+                        320,
+                        64
+                    ],
+                    "to": [
+                        320,
+                        224
+                    ],
+                    "label": "g_Na·m³h"
+                },
+                {
+                    "type": "resistor",
+                    "id": "gK",
+                    "from": [
+                        448,
+                        64
+                    ],
+                    "to": [
+                        448,
+                        224
+                    ],
+                    "label": "g_K·n⁴"
+                },
+                {
+                    "type": "resistor",
+                    "id": "gL",
+                    "from": [
+                        576,
+                        64
+                    ],
+                    "to": [
+                        576,
+                        224
+                    ],
+                    "label": "g_L (leak)"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        576,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        224
+                    ],
+                    "to": [
+                        576,
+                        224
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "poisson-spike-train",
+            "type": "plotly",
+            "title": "Poisson Model: Random Spikes at Constant Rate λ",
+            "traces": [
+                {
+                    "x": [
+                        0.5,
+                        0.5,
+                        0.5,
+                        1.3,
+                        1.3,
+                        1.3,
+                        1.8,
+                        1.8,
+                        1.8,
+                        2.6,
+                        2.6,
+                        2.6,
+                        3.1,
+                        3.1,
+                        3.1,
+                        4.2,
+                        4.2,
+                        4.2,
+                        4.9,
+                        4.9,
+                        4.9,
+                        5.7,
+                        5.7,
+                        5.7
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    "name": "Spike train (λ ≈ 1.3 Hz)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (s)",
+                    "range": [
+                        0,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "title": "Spike",
+                    "range": [
+                        -0.2,
+                        1.3
+                    ],
+                    "tickvals": [
+                        0,
+                        1
+                    ],
+                    "ticktext": [
+                        "rest",
+                        "fire"
+                    ]
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "markov-state-transitions",
+            "type": "plotly",
+            "title": "Two-State Markov Model: Resting ↔ Firing Probabilities",
+            "traces": [
+                {
+                    "x": [
+                        "Resting\n(state r)",
+                        "Firing\n(state f)"
+                    ],
+                    "y": [
+                        0.85,
+                        0.15
+                    ],
+                    "name": "Steady-state probability",
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "P(rest) ≈ 85%\nMost likely state",
+                        "P(fire) ≈ 15%\nTransient state"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Probability"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "ornstein-uhlenbeck-trajectories",
+            "type": "plotly",
+            "title": "Ornstein-Uhlenbeck: Noisy Membrane Potential with Leaky Decay",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        -70,
+                        -65,
+                        -60,
+                        -62,
+                        -58,
+                        -55,
+                        -70,
+                        -68,
+                        -63,
+                        -59,
+                        -56
+                    ],
+                    "name": "Trial 1",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        -70,
+                        -67,
+                        -64,
+                        -59,
+                        -55,
+                        -70,
+                        -66,
+                        -61,
+                        -63,
+                        -60,
+                        -55
+                    ],
+                    "name": "Trial 2",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1.5
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        10
+                    ],
+                    "y": [
+                        -55,
+                        -55
+                    ],
+                    "name": "Threshold",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "V (mV)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "lif-neuron-simulation",
+            "type": "plotly",
+            "title": "Leaky Integrate-and-Fire: Charge → Threshold → Spike → Reset",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        10,
+                        10.1,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20,
+                        20,
+                        20.1,
+                        22,
+                        24,
+                        26,
+                        28
+                    ],
+                    "y": [
+                        -70,
+                        -65,
+                        -60,
+                        -58,
+                        -56,
+                        -55,
+                        40,
+                        -70,
+                        -65,
+                        -60,
+                        -58,
+                        -56,
+                        -55,
+                        40,
+                        -70,
+                        -66,
+                        -62,
+                        -59,
+                        -56
+                    ],
+                    "name": "V_m (mV)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        28
+                    ],
+                    "y": [
+                        -55,
+                        -55
+                    ],
+                    "name": "Threshold (−55 mV)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "V_m (mV)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "lif-interactive",
+            "type": "v3-plot",
+            "title": "LIF Response: How Input Current Affects Firing Rate",
+            "config": {
+                "xLabel": "Input current I (nA)",
+                "yLabel": "Firing rate (Hz)",
+                "curves": [
+                    {
+                        "label": "f-I curve (LIF)",
+                        "data": [
+                            [
+                                0,
+                                0
+                            ],
+                            [
+                                0.5,
+                                0
+                            ],
+                            [
+                                1.0,
+                                5
+                            ],
+                            [
+                                1.5,
+                                25
+                            ],
+                            [
+                                2.0,
+                                50
+                            ],
+                            [
+                                2.5,
+                                75
+                            ],
+                            [
+                                3.0,
+                                95
+                            ],
+                            [
+                                4.0,
+                                120
+                            ],
+                            [
+                                5.0,
+                                140
+                            ]
+                        ],
+                        "color": "#6b62ff"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "hodgkin-huxley-action-potential",
+            "type": "plotly",
+            "title": "Hodgkin-Huxley: Realistic Action Potential with Gating Variables m, n, h",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        -65,
+                        -65,
+                        -55,
+                        -10,
+                        30,
+                        40,
+                        20,
+                        -10,
+                        -65,
+                        -80,
+                        -75,
+                        -72,
+                        -70,
+                        -65,
+                        -65,
+                        -65,
+                        -65
+                    ],
+                    "name": "V (mV)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        0.05,
+                        0.05,
+                        0.1,
+                        0.7,
+                        0.95,
+                        0.98,
+                        0.9,
+                        0.5,
+                        0.1,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05
+                    ],
+                    "name": "m (Na⁺ activation)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    },
+                    "yaxis": "y2"
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        4.5,
+                        5,
+                        5.5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        0.3,
+                        0.3,
+                        0.32,
+                        0.4,
+                        0.6,
+                        0.75,
+                        0.85,
+                        0.9,
+                        0.85,
+                        0.7,
+                        0.5,
+                        0.4,
+                        0.35,
+                        0.32,
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "name": "n (K⁺ activation)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "V (mV)"
+                },
+                "yaxis2": {
+                    "title": "Gating vars (0-1)",
+                    "side": "right",
+                    "overlaying": "y",
+                    "range": [
+                        0,
+                        1
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "model-hierarchy-summary",
+            "type": "plotly",
+            "title": "Neuron Model Hierarchy: 6 Categories Compared",
+            "traces": [
+                {
+                    "x": [
+                        "Poisson",
+                        "Markov",
+                        "OU/SDE",
+                        "LIF",
+                        "FHN",
+                        "HH"
+                    ],
+                    "y": [
+                        1,
+                        1.5,
+                        3,
+                        2,
+                        3.5,
+                        5
+                    ],
+                    "name": "Computational cost (1-5)",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                },
+                {
+                    "x": [
+                        "Poisson",
+                        "Markov",
+                        "OU/SDE",
+                        "LIF",
+                        "FHN",
+                        "HH"
+                    ],
+                    "y": [
+                        1,
+                        1.5,
+                        3,
+                        2.5,
+                        3,
+                        5
+                    ],
+                    "name": "Biophysical fidelity (1-5)",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Level (1-5)"
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "complexity-fidelity-tradeoff",
+            "type": "v3-plot",
+            "title": "The Fundamental Trade-Off: Fidelity vs. Scalability",
+            "config": {
+                "xLabel": "Biophysical fidelity (1-5)",
+                "yLabel": "Max neurons in real-time (log scale)",
+                "curves": [
+                    {
+                        "label": "Scalability frontier",
+                        "data": [
+                            [
+                                1,
+                                1000000
+                            ],
+                            [
+                                1.5,
+                                500000
+                            ],
+                            [
+                                2.5,
+                                100000
+                            ],
+                            [
+                                3,
+                                10000
+                            ],
+                            [
+                                3.5,
+                                5000
+                            ],
+                            [
+                                5,
+                                100
+                            ]
+                        ],
+                        "color": "#6b62ff"
+                    }
+                ]
+            }
+        }
+    ]
+}

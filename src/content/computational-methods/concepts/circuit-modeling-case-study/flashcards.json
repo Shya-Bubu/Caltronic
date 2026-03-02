@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-circuit-modeling-case-study",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are the 4 diode models in order of increasing complexity?",
+            "back": "1. Ideal (perfect switch, V_D = 0). 2. Constant drop (V_D = Vγ ≈ 0.7V). 3. Piecewise linear (V_D = Vγ + Iρ). 4. Shockley (I = Is·e^(qV/kT) − 1).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "Write the load line equation for a diode circuit.",
+            "back": "I = (−1/(r+R))·V_D + Vs/(r+R). Intercepts: (Vs, 0) on V-axis and (0, Vs/(r+R)) on I-axis.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "With the ideal diode model, what is the operating point?",
+            "back": "V_D = 0, I = Vs/(r+R). Maximum current, zero diode voltage. Trivial — just inspect the load line at V_D = 0.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "With the constant-drop model, what is the operating point?",
+            "back": "V_D = Vγ ≈ 0.7V, I = (Vs − Vγ)/(r+R). Simple algebra — just substitute Vγ into the load line equation.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What does the piecewise-linear model add?",
+            "back": "Forward resistance ρ in series with Vγ. The diode has I = (V_D − Vγ)/ρ. Operating point: I = (Vs − Vγ)/(r + R + ρ). Still linear algebra.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Why can't the Shockley operating point be solved algebraically?",
+            "back": "Because the intersection of the exponential I = Is·e^(qV/kT) and the linear load line is a transcendental equation. No closed-form solution exists — must use Newton-Raphson iteration.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is the thermal voltage Vt at room temperature?",
+            "back": "Vt = kT/q ≈ 26 mV at T = 300K. The natural voltage scale of semiconductor junctions. Appears in the Shockley equation denominator.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "When is the Shockley equation necessary?",
+            "back": "Only when the exponential behavior matters: log amplifiers, exponential function generators, temperature analysis, and multiplication circuits using op-amps. Not needed for standard rectifier analysis.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "How does increasing R affect the operating point?",
+            "back": "Steeper load line → lower current, higher V_D. The current intercept Vs/(r+R) decreases and the operating point moves down the diode curve.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What is the typical reverse saturation current Is?",
+            "back": "Is ≈ 10⁻¹² A (1 pA) for a silicon diode. This tiny current determines the I-V curve scale in the Shockley equation.",
+            "difficultyLevel": 3
+        }
+    ]
+}

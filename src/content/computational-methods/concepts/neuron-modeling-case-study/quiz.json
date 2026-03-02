@@ -1,0 +1,125 @@
+{
+    "id": "quiz-neuron-modeling-case-study",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A neuron's resting membrane potential is approximately:",
+            "options": [
+                "+40 mV",
+                "0 mV",
+                "−55 mV",
+                "−70 mV"
+            ],
+            "correctAnswer": "−70 mV",
+            "explanation": "At rest, the neuron maintains about −70 mV (inside negative relative to outside) due to the Na⁺/K⁺ pump and ion channel equilibria. The threshold for firing is about −55 mV, and the peak of the action potential reaches about +40 mV."
+        },
+        {
+            "id": "q2",
+            "prompt": "In the Poisson spike model, the probability of k spikes in time t is:",
+            "options": [
+                "P(k) = λt",
+                "P(k) = (λt)^k e^(−λt) / k!",
+                "P(k) = k/t",
+                "P(k) = e^(−k)"
+            ],
+            "correctAnswer": "P(k) = (λt)^k e^(−λt) / k!",
+            "explanation": "The Poisson distribution models random, independent events at constant rate λ. The parameter λt is the expected number of spikes. This model has no voltage dynamics — spikes are purely random events."
+        },
+        {
+            "id": "q3",
+            "prompt": "The Leaky Integrate-and-Fire (LIF) equation Cm·dVm/dt = I(t) − Vm/Rm represents:",
+            "options": [
+                "A random process",
+                "A capacitor being charged by input current with a parallel resistive leak",
+                "The Hodgkin-Huxley model",
+                "An exponential diode"
+            ],
+            "correctAnswer": "A capacitor being charged by input current with a parallel resistive leak",
+            "explanation": "The LIF is an RC circuit: Cm is the membrane capacitance, Rm is the leak resistance. Input current I(t) charges the capacitor, while the leak term Vm/Rm continuously discharges it. When V reaches threshold, a spike is registered and V resets."
+        },
+        {
+            "id": "q4",
+            "prompt": "The Hodgkin-Huxley model is fundamentally:",
+            "options": [
+                "A 1st-order linear ODE",
+                "A 4th-order nonlinear ODE system with voltage-dependent conductances",
+                "A Poisson process",
+                "A 2-state Markov chain"
+            ],
+            "correctAnswer": "A 4th-order nonlinear ODE system with voltage-dependent conductances",
+            "explanation": "The HH model has 4 state variables: V (voltage), m (Na⁺ activation), h (Na⁺ inactivation), and n (K⁺ activation). The conductances g_Na·m³h and g_K·n⁴ are nonlinear functions of these gating variables, making the system 4th-order and nonlinear."
+        },
+        {
+            "id": "q5",
+            "prompt": "The FitzHugh-Nagumo model is:",
+            "options": [
+                "A full biophysical model",
+                "A 2D reduction of Hodgkin-Huxley with a fast activator and slow inhibitor",
+                "A random spiking model",
+                "An integrate-and-fire model"
+            ],
+            "correctAnswer": "A 2D reduction of Hodgkin-Huxley with a fast activator and slow inhibitor",
+            "explanation": "FHN reduces HH's 4 variables to 2: V (fast activator, captures the spike) and W (slow inhibitor/recovery variable). It captures excitability and oscillations qualitatively but not the exact spike shape or channel-level details."
+        },
+        {
+            "id": "q6",
+            "prompt": "Why is the LIF model the 'workhorse' of computational neuroscience?",
+            "options": [
+                "It's the most accurate",
+                "It balances simplicity with realism — efficient enough for million-neuron simulations",
+                "It uses random sampling",
+                "It has the most parameters"
+            ],
+            "correctAnswer": "It balances simplicity with realism — efficient enough for million-neuron simulations",
+            "explanation": "The LIF captures the essential integrate-leak-spike behavior with just a few parameters (Cm, Rm, Vth, Vreset). It's computationally cheap enough to simulate networks of millions of neurons in real-time, yet reproduces realistic firing statistics."
+        },
+        {
+            "id": "q7",
+            "prompt": "The Ornstein-Uhlenbeck model dV = (−(V−μ)/τ)dt + σdW differs from pure diffusion by:",
+            "options": [
+                "It has no noise",
+                "It includes mean reversion (leak toward resting potential)",
+                "It's deterministic",
+                "It has more dimensions"
+            ],
+            "correctAnswer": "It includes mean reversion (leak toward resting potential)",
+            "explanation": "The OU process adds a drift term −(V−μ)/τ that pulls V back toward the mean μ with time constant τ. This mimics the passive membrane leak: without input, the voltage decays back to rest. Pure diffusion (dV = μdt + σdW) has no such restoring force."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the Hodgkin-Huxley model, g_Na·m³h represents:",
+            "options": [
+                "A constant conductance",
+                "The voltage-dependent sodium conductance with activation (m³) and inactivation (h)",
+                "The potassium channel",
+                "The leak conductance"
+            ],
+            "correctAnswer": "The voltage-dependent sodium conductance with activation (m³) and inactivation (h)",
+            "explanation": "g_Na is the maximum sodium conductance. m is the activation gate (opens rapidly during depolarization, cubed because 3 subunits must activate). h is the inactivation gate (closes more slowly, shutting off Na⁺ current). Together, m³h gives the transient Na⁺ current responsible for the spike's rising phase."
+        },
+        {
+            "id": "q9",
+            "prompt": "The key ECE insight about the Hodgkin-Huxley model is:",
+            "options": [
+                "It uses random numbers",
+                "It's essentially a nonlinear RLC equivalent circuit",
+                "It only works for squid neurons",
+                "It has no practical applications"
+            ],
+            "correctAnswer": "It's essentially a nonlinear RLC equivalent circuit",
+            "explanation": "The HH model maps directly to circuit theory: membrane = capacitor C, each ion channel = voltage-dependent conductance, reversal potentials = voltage sources. An ECE engineer recognizes this as a nonlinear circuit analysis problem."
+        },
+        {
+            "id": "q10",
+            "prompt": "The Spike Response Model V(t) = Ση(t−tf) + ∫κ(τ)I(t−τ)dτ + Vres is described as:",
+            "options": [
+                "Conductance-based",
+                "Kernel-based (convolutional)",
+                "Random",
+                "Linear algebra"
+            ],
+            "correctAnswer": "Kernel-based (convolutional)",
+            "explanation": "The SRM expresses voltage as a convolution of the input current with a kernel κ(τ), plus refractory contributions η(t−tf) from past spikes. This is a signal processing perspective — the neuron is a filter! The kernels can be fitted to data without needing explicit ion channel models."
+        }
+    ]
+}

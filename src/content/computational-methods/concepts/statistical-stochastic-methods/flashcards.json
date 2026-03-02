@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-statistical-stochastic-methods",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is Monte Carlo analysis?",
+            "back": "A method that randomly samples component values from their tolerance distributions, simulates each, and estimates statistical quantities like yield. 1000-10000 samples give ~1% accuracy.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What mathematical law makes Monte Carlo work?",
+            "back": "The Law of Large Numbers — the sample average converges to the true average as the number of samples grows. More samples = more accurate estimate.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is computational simulation?",
+            "back": "Imitating a real-world process step by step using a mathematical model. Example: SPICE simulates circuit behavior by discretizing time, modeling devices, and solving equations at each step.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "What principles does SPICE transient analysis combine?",
+            "back": "Discretization (time stepping), approximation (device models), iterative algorithms (Newton-Raphson), and adaptive methods (variable step size).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "When is exhaustive search practical?",
+            "back": "Only for small search spaces. For N=4 taps with B=3 bits: 2^12 = 4096 combinations (feasible). For N=16, B=8: 2^128 ≈ 10^38 (impossible).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is a metaheuristic?",
+            "back": "A high-level, problem-independent strategy for finding near-optimal solutions in complex, non-convex spaces. Examples: genetic algorithms, simulated annealing, particle swarm optimization.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "List the 5 steps of a genetic algorithm.",
+            "back": "1. Encode parameters as chromosomes. 2. Create random initial population. 3. Evaluate fitness. 4. Select parents, apply crossover and mutation. 5. Repeat for many generations.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the role of mutation in a genetic algorithm?",
+            "back": "Mutation introduces random diversity, preventing the population from converging prematurely to a local optimum. It enables exploration of new regions of the design space.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is uncertainty quantification (UQ)?",
+            "back": "Rigorously characterizing how input uncertainties propagate to output distributions. Goes beyond yield — computes the full probability distribution p(output) given input distributions.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Why is the distribution of fc = 1/(2πRC) skewed even when R and C are Gaussian?",
+            "back": "Because fc is a nonlinear function (reciprocal) of R and C. Nonlinear transformations of symmetric distributions produce asymmetric distributions. The nominal fc may not be the most probable value.",
+            "difficultyLevel": 5
+        }
+    ]
+}

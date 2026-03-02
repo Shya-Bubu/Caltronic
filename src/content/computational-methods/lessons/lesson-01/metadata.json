@@ -1,0 +1,12 @@
+{
+    "id": "lesson-01",
+    "title": "Core Principles of Computational Methods",
+    "prerequisites": [],
+    "concepts": [
+        "foundations-representation-transformation",
+        "algorithmic-strategies",
+        "modeling-and-solution-strategies",
+        "statistical-stochastic-methods",
+        "verification-efficiency-implementation"
+    ]
+}

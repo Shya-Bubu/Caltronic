@@ -1,0 +1,125 @@
+{
+    "id": "quiz-landau-symbols-advanced",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Big-Ω(g(n)) means:",
+            "options": [
+                "f grows at most as fast as g",
+                "f grows at least as fast as g",
+                "f grows exactly as fast as g",
+                "f grows strictly slower than g"
+            ],
+            "correctAnswer": "f grows at least as fast as g",
+            "explanation": "Ω is the lower bound: f(n) = Ω(g(n)) means ∃ C > 0 such that |f(n)| ≥ C|g(n)| for large n. Big-O is 'at most', Big-Ω is 'at least', Big-Θ is 'exactly'."
+        },
+        {
+            "id": "q2",
+            "prompt": "Big-Θ(g(n)) requires:",
+            "options": [
+                "Only O(g(n))",
+                "Only Ω(g(n))",
+                "Both O(g(n)) AND Ω(g(n))",
+                "Neither O nor Ω"
+            ],
+            "correctAnswer": "Both O(g(n)) AND Ω(g(n))",
+            "explanation": "Θ is the tight bound: f = Θ(g) iff f = O(g) AND f = Ω(g). This means C₁|g| ≤ |f| ≤ C₂|g| — f is sandwiched between two constant multiples of g."
+        },
+        {
+            "id": "q3",
+            "prompt": "Little-o means f(n) = o(g(n)) if:",
+            "options": [
+                "lim |f/g| ≤ C",
+                "lim |f/g| = 0",
+                "lim |f/g| = 1",
+                "lim |f/g| = ∞"
+            ],
+            "correctAnswer": "lim |f/g| = 0",
+            "explanation": "Little-o is stricter than Big-O. f = o(g) means f grows strictly slower — the ratio f/g → 0. For example, n = o(n²) because n/n² = 1/n → 0."
+        },
+        {
+            "id": "q4",
+            "prompt": "Comparison-based sorting requires Ω(n log n) comparisons. This means:",
+            "options": [
+                "Every sorting algorithm takes exactly n log n steps",
+                "No comparison-based sorting algorithm can use fewer than cn log n comparisons for some c > 0",
+                "Merge sort is the fastest possible",
+                "Quick sort is always O(n log n)"
+            ],
+            "correctAnswer": "No comparison-based sorting algorithm can use fewer than cn log n comparisons for some c > 0",
+            "explanation": "Ω(n log n) is an information-theoretic lower bound: n! possible orderings require log₂(n!) ≈ n log n comparisons to distinguish. No algorithm can beat this — merge sort achieves this bound, so it's optimal."
+        },
+        {
+            "id": "q5",
+            "prompt": "Soft-O notation Õ(g(n)) means:",
+            "options": [
+                "O(g(n)) ignoring logarithmic factors",
+                "O(g(n)) without constants",
+                "Exactly g(n)",
+                "Strictly less than g(n)"
+            ],
+            "correctAnswer": "O(g(n)) ignoring logarithmic factors",
+            "explanation": "Õ(g(n)) means f(n) = O(g(n)·log^ℓ(n)) for some ℓ. It's used when logarithmic factors are practically irrelevant — log(10⁶) ≈ 20, so absorbed into the constant for practical purposes."
+        },
+        {
+            "id": "q6",
+            "prompt": "Monte Carlo error is O_P(1/√n). The 'P' means:",
+            "options": [
+                "Polynomial",
+                "Probabilistic — stochastic boundedness",
+                "Perfect",
+                "Power"
+            ],
+            "correctAnswer": "Probabilistic — stochastic boundedness",
+            "explanation": "O_P is Big-O in probability. It means the random variable X_n/a_n is bounded in probability — the error doesn't exceed M/√n with high probability. Since Monte Carlo produces random estimates, the deterministic Big-O doesn't apply directly."
+        },
+        {
+            "id": "q7",
+            "prompt": "f ~ g means:",
+            "options": [
+                "f = O(g)",
+                "f/g → 1",
+                "f = g for all n",
+                "f/g → 0"
+            ],
+            "correctAnswer": "f/g → 1",
+            "explanation": "Asymptotic equivalence: f ~ g means lim |f/g| = 1. This is the strongest statement — f and g become proportionally identical for large n. For example, n² + n ~ n² because (n² + n)/n² = 1 + 1/n → 1."
+        },
+        {
+            "id": "q8",
+            "prompt": "Which is the STRONGEST statement?",
+            "options": [
+                "f = O(g)",
+                "f = Θ(g)",
+                "f ~ g",
+                "f = Ω(g)"
+            ],
+            "correctAnswer": "f ~ g",
+            "explanation": "f ~ g (ratio → 1) implies f = Θ(g) (tight bound), which implies both f = O(g) and f = Ω(g). So ~ is strongest, then Θ, then O and Ω individually."
+        },
+        {
+            "id": "q9",
+            "prompt": "If f(n) = 3n² + 5n + 2, which statements are true?",
+            "options": [
+                "f = O(n³) only",
+                "f = O(n²) and f = Θ(n²)",
+                "f = o(n²)",
+                "f = Ω(n³)"
+            ],
+            "correctAnswer": "f = O(n²) and f = Θ(n²)",
+            "explanation": "f = 3n² + 5n + 2. Upper bound: |f| ≤ 10n² for large n → f = O(n²). Lower bound: |f| ≥ 3n² → f = Ω(n²). Both → f = Θ(n²). It's also O(n³) but that's a weaker statement."
+        },
+        {
+            "id": "q10",
+            "prompt": "Little-omega ω(g(n)) means f(n)/g(n) → :",
+            "options": [
+                "0",
+                "1",
+                "C (finite constant)",
+                "∞"
+            ],
+            "correctAnswer": "∞",
+            "explanation": "f = ω(g) means f grows strictly faster than g — the ratio |f/g| → ∞. It's the opposite of little-o. For example, n² = ω(n) because n²/n = n → ∞."
+        }
+    ]
+}

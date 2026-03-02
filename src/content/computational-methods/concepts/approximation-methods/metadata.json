@@ -1,0 +1,11 @@
+{
+    "id": "approximation-methods",
+    "title": "Approximation: Replacing the Complex with the Simple",
+    "slug": "approximation-methods",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-exponential-waveform",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Rise time t_r for first-order circuit?",
+            "back": "t_r = 2.2τ. Time from 10% to 90% of steady state. Derives from t_r = τ·ln(9).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "63% rule?",
+            "back": "After 1τ: 63.2% complete. After 3τ: 95%. After 5τ: 99.3%. Uses e⁻¹ = 0.368.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Tangent rule for exponential?",
+            "back": "Tangent at t₀ reaches x(∞) at time t₀ + τ. Graphical method to find τ: draw tangent, see where it hits steady-state level.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Elapsed time formula?",
+            "back": "t_k − t_j = τ·ln[(x(t_j)−x(∞))/(x(t_k)−x(∞))]. Finds time between any two points on the exponential curve.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "What determines stability?",
+            "back": "Sign of τ. τ > 0: stable (decays to x(∞)). τ < 0: unstable (grows exponentially). Negative τ = positive feedback = runaway.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Bandwidth × rise time ≈ ?",
+            "back": "BW × t_r ≈ 0.35 for first-order systems. Knowing one gives the other. f_3dB = 0.35/t_r.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "5τ rule?",
+            "back": "After 5τ, response within 0.7% of steady state. Used as practical settling time in circuit design.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f8",
+            "front": "How to handle piecewise-constant inputs?",
+            "back": "Solve segment by segment. Each segment: new x(t₀) = final value of previous segment, new x(∞) from new source value, same τ.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Inspection method: what guarantees all branches share τ?",
+            "back": "Substitution theorem. Replacing C with source v̂(t) shows all quantities are linear functions of the exponential with the SAME time constant.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Unstable circuit example?",
+            "back": "Op-amp with positive feedback. R_TH becomes negative → τ = R_TH·C < 0 → exponential growth → output saturates at supply rails.",
+            "difficultyLevel": 4
+        }
+    ]
+}

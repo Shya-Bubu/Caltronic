@@ -1,0 +1,11 @@
+{
+    "id": "asymptotic-growth-big-o",
+    "title": "Asymptotic Growth and Big-O Notation",
+    "slug": "asymptotic-growth-big-o",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

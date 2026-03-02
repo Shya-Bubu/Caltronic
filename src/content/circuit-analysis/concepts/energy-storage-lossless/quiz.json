@@ -1,0 +1,125 @@
+{
+    "id": "quiz-energy-storage-lossless",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The energy stored in a 10μF capacitor at 5V is:",
+            "options": [
+                "25 μJ",
+                "50 μJ",
+                "125 μJ",
+                "250 μJ"
+            ],
+            "correctAnswer": "125 μJ",
+            "explanation": "E = ½CV² = ½ × 10×10⁻⁶ × 25 = 125 μJ. Remember the ½ factor!"
+        },
+        {
+            "id": "q2",
+            "prompt": "The energy stored in a 2mH inductor carrying 3A is:",
+            "options": [
+                "3 mJ",
+                "6 mJ",
+                "9 mJ",
+                "18 mJ"
+            ],
+            "correctAnswer": "9 mJ",
+            "explanation": "E = ½Li² = ½ × 2×10⁻³ × 9 = 9 mJ. Energy is proportional to current squared."
+        },
+        {
+            "id": "q3",
+            "prompt": "The lossless property states that over one period of periodic excitation:",
+            "options": [
+                "Energy doubles",
+                "Net energy entering C or L is zero",
+                "All energy is dissipated",
+                "Energy is stored permanently"
+            ],
+            "correctAnswer": "Net energy entering C or L is zero",
+            "explanation": "Since q(t) = q(t+T), the integral ∫v·dq from q₁ to q₁ = 0. Energy is borrowed and returned each cycle — no net consumption."
+        },
+        {
+            "id": "q4",
+            "prompt": "Path independence of capacitor energy means:",
+            "options": [
+                "Energy depends on the charging waveform shape",
+                "Energy depends only on initial and final charge (or voltage)",
+                "Energy is always the same regardless of capacitance",
+                "The path through the circuit doesn't matter"
+            ],
+            "correctAnswer": "Energy depends only on initial and final charge (or voltage)",
+            "explanation": "w_C = ∫v(q)dq depends only on q₁ and q₂, not on v(t) or i(t). This is the mathematical essence of being lossless."
+        },
+        {
+            "id": "q5",
+            "prompt": "In steady-state AC, the average power consumed by an ideal capacitor is:",
+            "options": [
+                "½CV²",
+                "CV²f",
+                "Zero",
+                "V²/Xc"
+            ],
+            "correctAnswer": "Zero",
+            "explanation": "The lossless property ensures zero average power. V and I are 90° out of phase, so average P = VIcos(90°) = 0."
+        },
+        {
+            "id": "q6",
+            "prompt": "A relaxation point q* is defined as a charge where:",
+            "options": [
+                "Energy is maximum",
+                "Current is zero",
+                "Stored energy is zero",
+                "Voltage is maximum"
+            ],
+            "correctAnswer": "Stored energy is zero",
+            "explanation": "E(q*) = 0 and E(q) = ∫_{q*}^{q} v(q')dq' ≥ 0 for all q. The capacitor is 'fully relaxed' at q*."
+        },
+        {
+            "id": "q7",
+            "prompt": "The three equivalent forms of capacitor energy are:",
+            "options": [
+                "½CV², ½Q²/C, ½QV",
+                "CV², Q²/C, QV",
+                "½CV, ½Q/C, ½Qv",
+                "CV², Q²C, QVC"
+            ],
+            "correctAnswer": "½CV², ½Q²/C, ½QV",
+            "explanation": "E = ½CV² = ½Q²/C = ½QV, using Q = CV. All three are equivalent — choose whichever uses the given quantities."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why do real capacitors heat up slightly?",
+            "options": [
+                "Ideal capacitor behavior",
+                "Equivalent series resistance (ESR) dissipates I²·ESR",
+                "Dielectric breakdown",
+                "Mutual inductance"
+            ],
+            "correctAnswer": "Equivalent series resistance (ESR) dissipates I²·ESR",
+            "explanation": "Real capacitors have parasitic resistance (ESR) in leads and dielectric. This small resistance dissipates power as heat, especially at high ripple currents."
+        },
+        {
+            "id": "q9",
+            "prompt": "The instantaneous power into a capacitor p_C(t) equals:",
+            "options": [
+                "½CV²",
+                "v·i = d/dt[½Cv²]",
+                "V²/R",
+                "Constant"
+            ],
+            "correctAnswer": "v·i = d/dt[½Cv²]",
+            "explanation": "p = v_C · i_C = v_C · C·dv_C/dt = d/dt[½Cv²]. Power is the rate of change of stored energy — positive when charging, negative when discharging."
+        },
+        {
+            "id": "q10",
+            "prompt": "A camera flash capacitor (100μF, 400V) stores:",
+            "options": [
+                "0.8 J",
+                "2 J",
+                "8 J",
+                "16 J"
+            ],
+            "correctAnswer": "8 J",
+            "explanation": "E = ½ × 100×10⁻⁶ × 400² = ½ × 10⁻⁴ × 160000 = 8 J. Released in ~1ms, that's ~8kW peak power."
+        }
+    ]
+}

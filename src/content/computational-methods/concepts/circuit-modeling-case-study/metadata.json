@@ -1,0 +1,11 @@
+{
+    "id": "circuit-modeling-case-study",
+    "title": "Case Study: Diode Circuit Modeling",
+    "slug": "circuit-modeling-case-study",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

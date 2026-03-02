@@ -1,0 +1,125 @@
+{
+    "id": "quiz-exponential-waveform",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The rise time t_r of a first-order circuit with τ = 5ms is:",
+            "options": [
+                "5 ms",
+                "10 ms",
+                "11 ms",
+                "25 ms"
+            ],
+            "correctAnswer": "11 ms",
+            "explanation": "t_r = 2.2τ = 2.2 × 5 = 11 ms. Rise time is from 10% to 90% of steady state."
+        },
+        {
+            "id": "q2",
+            "prompt": "After 3τ, the response is approximately:",
+            "options": [
+                "63% complete",
+                "86.5% complete",
+                "95% complete",
+                "99.3% complete"
+            ],
+            "correctAnswer": "95% complete",
+            "explanation": "e⁻³ = 0.050, so 1−0.05 = 95% complete. After 3τ, only 5% remains."
+        },
+        {
+            "id": "q3",
+            "prompt": "The tangent rule states that the tangent at t₀:",
+            "options": [
+                "Is horizontal",
+                "Passes through x(∞) at t₀ + τ",
+                "Passes through zero",
+                "Has slope = 1/τ"
+            ],
+            "correctAnswer": "Passes through x(∞) at t₀ + τ",
+            "explanation": "The tangent line from any point on the exponential extrapolates to the steady-state value exactly one time constant later. This is a graphical way to find τ."
+        },
+        {
+            "id": "q4",
+            "prompt": "The inspection method needs which three quantities?",
+            "options": [
+                "R, C, V",
+                "x(t₀), x(∞), τ",
+                "v, i, P",
+                "CF, PI, IC"
+            ],
+            "correctAnswer": "x(t₀), x(∞), τ",
+            "explanation": "These three numbers completely determine the exponential waveform. No differential equations needed — apply the general formula x(t) = x(∞) + [x(t₀)−x(∞)]e^(−t/τ)."
+        },
+        {
+            "id": "q5",
+            "prompt": "A negative time constant (τ < 0) means:",
+            "options": [
+                "Slower response",
+                "Faster response",
+                "Unstable (exponential growth)",
+                "Impossible"
+            ],
+            "correctAnswer": "Unstable (exponential growth)",
+            "explanation": "τ < 0 makes e^(−t/τ) = e^(+t/|τ|), which grows without bound. The circuit is unstable — typically caused by positive feedback."
+        },
+        {
+            "id": "q6",
+            "prompt": "The elapsed time from x = 2V to x = 8V when x(∞) = 10V and τ = 1ms is:",
+            "options": [
+                "0.69 ms",
+                "1.39 ms",
+                "2.08 ms",
+                "2.20 ms"
+            ],
+            "correctAnswer": "1.39 ms",
+            "explanation": "Δt = τ·ln[(2−10)/(8−10)] = 1·ln(8/2) = ln(4) = 1.39 ms. Using the elapsed time formula with x(∞) = 10."
+        },
+        {
+            "id": "q7",
+            "prompt": "The bandwidth-rise time product for a first-order system is approximately:",
+            "options": [
+                "0.1",
+                "0.35",
+                "1.0",
+                "2.2"
+            ],
+            "correctAnswer": "0.35",
+            "explanation": "BW × t_r ≈ 0.35. Since t_r = 2.2τ and f_3dB = 1/(2πτ), the product is 2.2/(2π) ≈ 0.35."
+        },
+        {
+            "id": "q8",
+            "prompt": "For piecewise-constant inputs, the exponential formula is applied:",
+            "options": [
+                "Once for the entire waveform",
+                "Segment by segment, chaining initial conditions",
+                "Only on the first segment",
+                "Only at the switching instants"
+            ],
+            "correctAnswer": "Segment by segment, chaining initial conditions",
+            "explanation": "Each segment gets its own x(t₀), x(∞), τ. The final value of one segment becomes the initial value of the next. τ stays the same if the circuit topology doesn't change."
+        },
+        {
+            "id": "q9",
+            "prompt": "The substitution theorem guarantees that ALL branch quantities:",
+            "options": [
+                "Have the same initial condition",
+                "Have the same steady-state value",
+                "Follow the same τ in a first-order circuit",
+                "Are identical"
+            ],
+            "correctAnswer": "Follow the same τ in a first-order circuit",
+            "explanation": "Every voltage and current in a first-order circuit follows x(t) = x(∞)+[x(0)−x(∞)]e^(−t/τ) with the SAME τ. Only x(0) and x(∞) differ from branch to branch."
+        },
+        {
+            "id": "q10",
+            "prompt": "The '5τ rule' states that:",
+            "options": [
+                "τ = 5RC",
+                "The circuit settles to within ~1% after 5τ",
+                "Rise time is 5τ",
+                "5 capacitors are needed"
+            ],
+            "correctAnswer": "The circuit settles to within ~1% after 5τ",
+            "explanation": "e⁻⁵ = 0.0067 ≈ 0.7%. After 5τ, the response is 99.3% complete — essentially at steady state for engineering purposes."
+        }
+    ]
+}

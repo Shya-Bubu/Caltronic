@@ -1,0 +1,125 @@
+{
+    "id": "quiz-approximation-methods",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What defines an approximation in computational methods?",
+            "options": [
+                "Using randomness to estimate a value",
+                "Replacing complex quantities with simpler ones while accepting some error",
+                "Converting continuous quantities to discrete points",
+                "Making a nonlinear system linear"
+            ],
+            "correctAnswer": "Replacing complex quantities with simpler ones while accepting some error",
+            "explanation": "Approximation is about trading accuracy for tractability. You replace something complex (infinite series, detailed physical model) with something simpler (truncated polynomial, ideal model), accepting that the result won't be exact."
+        },
+        {
+            "id": "q2",
+            "prompt": "The 3rd-order Taylor approximation of sin(x) is:",
+            "options": [
+                "sin(x) ≈ x",
+                "sin(x) ≈ x − x³/6",
+                "sin(x) ≈ x − x³/6 + x⁵/120",
+                "sin(x) ≈ 1 − x²/2"
+            ],
+            "correctAnswer": "sin(x) ≈ x − x³/6",
+            "explanation": "The Taylor series of sin(x) around x = 0 is x − x³/3! + x⁵/5! − ... The 3rd-order approximation keeps terms up to x³: sin(x) ≈ x − x³/6. This is significantly more accurate than the 1st-order (x) for larger values of x."
+        },
+        {
+            "id": "q3",
+            "prompt": "Why is the piecewise-linear diode model (Von ≈ 0.7V) an example of approximation?",
+            "options": [
+                "Because it discretizes the voltage",
+                "Because it uses random values",
+                "Because it ignores the exponential I-V relationship for a simpler model",
+                "Because it linearizes around a bias point"
+            ],
+            "correctAnswer": "Because it ignores the exponential I-V relationship for a simpler model",
+            "explanation": "The piecewise-linear model replaces the actual exponential I-V relationship with two simple rules: I = 0 for V < 0.7V, and I = (V − 0.7)/R for V ≥ 0.7V. This ignores the smooth exponential transition. It's model simplification — discarding physical detail for analytical tractability."
+        },
+        {
+            "id": "q4",
+            "prompt": "The Leibniz formula for π converges with error proportional to:",
+            "options": [
+                "1/N²",
+                "1/N",
+                "1/√N",
+                "e^(-N)"
+            ],
+            "correctAnswer": "1/N",
+            "explanation": "The Leibniz alternating series π/4 = 1 − 1/3 + 1/5 − 1/7 + ... has error bounded by the first omitted term, which is approximately 1/N after N terms. This is very slow convergence — 1000 terms for 3 correct digits."
+        },
+        {
+            "id": "q5",
+            "prompt": "Is 'linearization' a form of approximation?",
+            "options": [
+                "No, they are completely unrelated",
+                "Yes, linearization is a special case of approximation",
+                "No, approximation is a special case of linearization",
+                "They are the same concept"
+            ],
+            "correctAnswer": "Yes, linearization is a special case of approximation",
+            "explanation": "All linearizations are approximations (you're replacing a nonlinear function with a simpler linear one). But not all approximations are linearizations — truncating a Taylor series to 5th order, rounding a number, or simplifying a model are approximations but not linearizations."
+        },
+        {
+            "id": "q6",
+            "prompt": "A bridge designer uses π ≈ 3.14159 while a GPS satellite uses π to 15 digits. Both are using approximation because:",
+            "options": [
+                "They're both rounding π",
+                "They're both truncating an infinite quantity, but with different error tolerances",
+                "GPS doesn't use approximation",
+                "Bridge design doesn't need π"
+            ],
+            "correctAnswer": "They're both truncating an infinite quantity, but with different error tolerances",
+            "explanation": "π has infinitely many digits. Any finite representation is an approximation. The difference is the error tolerance — a bridge can tolerate 10⁻⁶ relative error, while GPS positioning requires 10⁻¹⁵. Same concept, different acceptable error."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why does adding more Taylor series terms NOT always improve accuracy on a computer?",
+            "options": [
+                "Taylor series are always inaccurate",
+                "Beyond a certain order, the approximation error becomes smaller than floating-point rounding error",
+                "More terms always improve accuracy",
+                "The series diverges"
+            ],
+            "correctAnswer": "Beyond a certain order, the approximation error becomes smaller than floating-point rounding error",
+            "explanation": "Computers use finite-precision arithmetic (typically 64-bit doubles with ~16 significant digits). Once the Taylor truncation error drops below ~10⁻¹⁶, adding more terms contributes nothing because the result is limited by floating-point representation error."
+        },
+        {
+            "id": "q8",
+            "prompt": "Which of the following is NOT primarily an approximation?",
+            "options": [
+                "Truncating a Fourier series to 10 harmonics",
+                "Replacing a transistor with its hybrid-π small-signal model",
+                "Sampling an audio signal at 44.1 kHz",
+                "Using π ≈ 22/7"
+            ],
+            "correctAnswer": "Sampling an audio signal at 44.1 kHz",
+            "explanation": "Sampling at 44.1 kHz is primarily discretization — converting a continuous-time signal into discrete samples. The other three are approximations: truncating an infinite series, simplifying a device model, and representing an irrational number with a rational one."
+        },
+        {
+            "id": "q9",
+            "prompt": "The error in an N-term Taylor approximation of sin(x) around x = 0 is bounded by:",
+            "options": [
+                "|x|^N/N",
+                "|x|^(N+1)/(N+1)!",
+                "|x|/N",
+                "1/√N"
+            ],
+            "correctAnswer": "|x|^(N+1)/(N+1)!",
+            "explanation": "The Taylor remainder theorem states that the error after N terms is at most |x|^(N+1)/(N+1)! for the sin(x) series. The factorial in the denominator is why higher-order Taylor approximations converge so rapidly — factorial growth dominates polynomial growth."
+        },
+        {
+            "id": "q10",
+            "prompt": "When approximating the exact diode equation for forward bias as I ≈ Is·e^(V/Vt), what physical behavior is ignored?",
+            "options": [
+                "The reverse saturation current Is",
+                "The −1 term, which matters only near V = 0",
+                "The voltage dependence",
+                "Temperature effects"
+            ],
+            "correctAnswer": "The −1 term, which matters only near V = 0",
+            "explanation": "The exact equation is I = Is(e^(V/Vt) − 1). For V >> Vt (about 26 mV at room temperature), e^(V/Vt) >> 1, so the −1 is negligible. Dropping it simplifies the math. But near V = 0, the −1 ensures I = 0 when V = 0, which the approximation gets wrong."
+        }
+    ]
+}

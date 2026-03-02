@@ -1,0 +1,125 @@
+{
+    "id": "quiz-asymptotic-growth-big-o",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Matrix-vector multiplication (N×N matrix, N×1 vector) requires FLOPs of order:",
+            "options": [
+                "O(N)",
+                "O(N²)",
+                "O(N³)",
+                "O(N log N)"
+            ],
+            "correctAnswer": "O(N²)",
+            "explanation": "Each of the N output elements requires N multiplications and N−1 additions = 2N−1 ops. Total: N(2N−1) = 2N²−N = O(N²)."
+        },
+        {
+            "id": "q2",
+            "prompt": "Matrix-matrix multiplication (N×N × N×N) requires FLOPs of order:",
+            "options": [
+                "O(N²)",
+                "O(N³)",
+                "O(N⁴)",
+                "O(N² log N)"
+            ],
+            "correctAnswer": "O(N³)",
+            "explanation": "Each of the N² output elements requires N multiplications and N−1 additions. Total: N²(2N−1) = 2N³−N² = O(N³). Doubling N means 8× more work."
+        },
+        {
+            "id": "q3",
+            "prompt": "Big-O notation formally says f(N) = O(g(N)) if:",
+            "options": [
+                "f(N) = g(N)",
+                "f(N) < g(N) for all N",
+                "There exists C > 0 such that |f(N)| ≤ C|g(N)| for large N",
+                "f(N)/g(N) → 0"
+            ],
+            "correctAnswer": "There exists C > 0 such that |f(N)| ≤ C|g(N)| for large N",
+            "explanation": "Big-O is an upper bound: f grows no faster than g, up to a constant factor C. For example, 2N³ − N² = O(N³) because |2N³−N²| ≤ 3|N³| for N ≥ 1."
+        },
+        {
+            "id": "q4",
+            "prompt": "For 2N³ − N², what constant C proves it is O(N³)?",
+            "options": [
+                "C = 1",
+                "C = 2",
+                "C = 3",
+                "C = N"
+            ],
+            "correctAnswer": "C = 3",
+            "explanation": "|2N³ − N²| ≤ 2N³ + N² ≤ 2N³ + N³ = 3N³ for N ≥ 1. So C = 3 works. Note that C must be a constant, not a function of N."
+        },
+        {
+            "id": "q5",
+            "prompt": "An indexed array lookup is O(1) because:",
+            "options": [
+                "Arrays are small",
+                "The access time is constant regardless of array size",
+                "It uses no memory",
+                "It requires sorting first"
+            ],
+            "correctAnswer": "The access time is constant regardless of array size",
+            "explanation": "With direct indexing, the computer can jump directly to any element's memory address in a fixed number of clock cycles, regardless of whether the array has 10 or 10 million elements."
+        },
+        {
+            "id": "q6",
+            "prompt": "If N = 100 takes 1 ms at O(N³), how long does N = 1000 take?",
+            "options": [
+                "10 ms",
+                "100 ms",
+                "1 second",
+                "1000 seconds"
+            ],
+            "correctAnswer": "1 second",
+            "explanation": "Scaling: (1000/100)³ = 10³ = 1000. So 1 ms × 1000 = 1000 ms = 1 second. Cubic algorithms quickly become expensive for large N."
+        },
+        {
+            "id": "q7",
+            "prompt": "Memory for storing two N×N matrices and the result in IEEE double precision is:",
+            "options": [
+                "8N bytes",
+                "24N bytes",
+                "24N² bytes",
+                "8N³ bytes"
+            ],
+            "correctAnswer": "24N² bytes",
+            "explanation": "Three N×N matrices: 3N² elements × 8 bytes/element (IEEE 64-bit double) = 24N² bytes. At N = 1000, that's 24 MB — manageable. At N = 10000, it's 2.4 GB."
+        },
+        {
+            "id": "q8",
+            "prompt": "O(N log N) is the complexity of:",
+            "options": [
+                "Array lookup",
+                "Linear search",
+                "FFT and efficient sorting algorithms",
+                "Matrix multiplication"
+            ],
+            "correctAnswer": "FFT and efficient sorting algorithms",
+            "explanation": "The Fast Fourier Transform (FFT) is O(N log N) vs. the naive DFT at O(N²). Merge sort and heapsort are also O(N log N). This complexity class is 'almost linear' — much better than O(N²)."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why does Big-O drop the constant factor? (e.g., 2N³ → O(N³))",
+            "options": [
+                "Constants are always 1",
+                "We only care about how cost scales with N, not the exact count",
+                "Constants depend on the language",
+                "It's a mathematical convention"
+            ],
+            "correctAnswer": "We only care about how cost scales with N, not the exact count",
+            "explanation": "Big-O captures the scaling behavior — how does cost change when N doubles? The constant factor depends on hardware, implementation, and other details that don't affect the fundamental scaling law."
+        },
+        {
+            "id": "q10",
+            "prompt": "O(2^N) at N = 30 with 10⁹ ops/sec takes approximately:",
+            "options": [
+                "1 ns",
+                "1 ms",
+                "1 second",
+                "Never terminates"
+            ],
+            "correctAnswer": "1 second",
+            "explanation": "2³⁰ ≈ 10⁹ operations. At 10⁹ ops/sec, that's ~1 second. But at N = 50: 2⁵⁰ ≈ 10¹⁵ → ~10⁶ seconds ≈ 12 days. At N = 100: 2¹⁰⁰ ≈ 10³⁰ seconds — longer than the age of the universe."
+        }
+    ]
+}

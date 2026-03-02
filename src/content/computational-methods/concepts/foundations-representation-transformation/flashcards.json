@@ -1,0 +1,71 @@
+{
+    "id": "flashcards-foundations-representation-transformation",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is approximation in computational methods?",
+            "back": "Replacing complex, intractable quantities with simpler, tractable ones. Example: linearizing the diode equation around a bias point.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is discretization?",
+            "back": "Converting continuous-domain problems into discrete-point problems for digital processing. Example: sampling x(t) at intervals Ts to get x[n] = x(nTs).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "State the Nyquist-Shannon sampling theorem.",
+            "back": "To avoid aliasing, the sampling frequency must be at least twice the highest frequency component: fs ≥ 2·fmax.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is aliasing?",
+            "back": "When a signal is sampled below the Nyquist rate, high-frequency components fold back and appear as false lower frequencies. This is irreversible.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What does transformation mean in computational methods?",
+            "back": "Mapping a problem into a different domain where it becomes simpler. Example: Laplace transform converts differential equations into algebraic equations.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "How does the Laplace transform simplify differential equations?",
+            "back": "It converts differentiation to multiplication by s and integration to division by s, turning differential equations into algebraic equations.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is linearization?",
+            "back": "Approximating a nonlinear system with a linear one around an operating point using the Jacobian: ẋ̃ ≈ Aẋ̃ + Bũ, where A = ∂f/∂x and B = ∂f/∂u.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the key limitation of linearization?",
+            "back": "It is only valid for small perturbations around the operating point. Large deviations cause the linear model to diverge from reality.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is PCA (Principal Component Analysis)?",
+            "back": "A dimension reduction technique that finds orthogonal directions of maximum variance, allowing high-dimensional data to be represented with fewer coefficients: x ≈ x̄ + Σ ak·vk.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What common trade-off do all five foundational principles share?",
+            "back": "They all trade some form of accuracy or information for tractability. Approximation loses exactness, discretization loses resolution, transformation may lose intuition, linearization loses range, dimension reduction loses minor variation.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "Give an ECE example that combines multiple foundational principles.",
+            "back": "SPICE simulation uses discretization (time stepping), approximation (device model simplification), linearization (Newton-Raphson for nonlinear equations), and transformation (frequency-domain AC analysis).",
+            "difficultyLevel": 5
+        }
+    ]
+}

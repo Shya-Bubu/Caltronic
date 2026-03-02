@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-linearization-methods",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Define linearization.",
+            "back": "Approximating a nonlinear system with a linear one around an operating point using first-order Taylor expansion. Valid only for small variations near the operating point.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the diode small-signal conductance gd?",
+            "back": "gd = (Is/Vt)·e^(V₀/Vt) ≈ I₀/Vt. At I₀ = 1 mA: gd = 1/26 S, so rd = 26 Ω. Depends on the DC bias current.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is the small-angle approximation for a pendulum?",
+            "back": "sin(θ) ≈ θ, giving θ̈ + (g/L)θ = 0 — simple harmonic motion with period T = 2π√(L/g). Valid for θ < ~20° with <1% error.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Write the Jacobian linearization formulas.",
+            "back": "ẋ̃ ≈ Aẋ̃ + Bũ where A = ∂f/∂x|₍ₓ₀,ᵤ₀₎ and B = ∂f/∂u|₍ₓ₀,ᵤ₀₎, evaluated at the equilibrium point where f(x₀, u₀) = 0.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Why is linearization a special case of approximation?",
+            "back": "Because it IS a first-order Taylor approximation at a point. What makes it special: the result is LINEAR, unlocking superposition, transfer functions, Bode plots, and state-space control theory.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What limits the validity of linearization?",
+            "back": "Distance from the operating point. Linearization is only valid for SMALL perturbations. Large signals cause the linear model to diverge from reality because ignored higher-order terms become significant.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Why is the linearized pendulum period constant, but the real one isn't?",
+            "back": "The linearized model (sin θ ≈ θ) removes the amplitude dependence from the equation. In reality, sin θ < θ for θ > 0, so the real restoring force is weaker, making the period longer for larger amplitudes.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f8",
+            "front": "At what maximum angle is the pendulum linearization error < 5%?",
+            "back": "About 35° (0.6 radians). Beyond this, the sin(θ) ≈ θ approximation introduces significant error in the predicted period.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why must linearized controllers be verified on the full nonlinear system?",
+            "back": "Because real disturbances may push the system outside the small-signal operating region. A controller designed for small perturbations might fail under large disturbances (saturation, instability).",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Name 3 linear analysis tools that become available ONLY after linearization.",
+            "back": "1. Superposition (add solutions). 2. Transfer functions / Bode plots (frequency response). 3. Eigenvalue analysis (stability from eigenvalues of A). None of these work for nonlinear systems.",
+            "difficultyLevel": 5
+        }
+    ]
+}

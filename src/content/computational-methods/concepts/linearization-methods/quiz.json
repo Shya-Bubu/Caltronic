@@ -1,0 +1,125 @@
+{
+    "id": "quiz-linearization-methods",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Linearization uses which mathematical tool?",
+            "options": [
+                "Fourier transform",
+                "First-order Taylor expansion around an operating point",
+                "Random sampling",
+                "Integration by parts"
+            ],
+            "correctAnswer": "First-order Taylor expansion around an operating point",
+            "explanation": "Linearization is the first-order Taylor expansion of a nonlinear function at a specific operating point. It keeps only the constant and linear terms, discarding all higher-order (quadratic, cubic, etc.) terms."
+        },
+        {
+            "id": "q2",
+            "prompt": "For the diode equation I = Is(e^(V/Vt) − 1), linearizing at V₀ gives small-signal conductance:",
+            "options": [
+                "gd = Is",
+                "gd = Is/Vt · e^(V₀/Vt)",
+                "gd = Vt",
+                "gd = V₀/Is"
+            ],
+            "correctAnswer": "gd = Is/Vt · e^(V₀/Vt)",
+            "explanation": "The small-signal conductance is the derivative dI/dV at V₀: gd = (Is/Vt)·e^(V₀/Vt). This is the slope of the I-V curve at the operating point. For I₀ >> Is, this simplifies to gd ≈ I₀/Vt."
+        },
+        {
+            "id": "q3",
+            "prompt": "At I₀ = 1 mA and Vt = 26 mV, the small-signal resistance rd is:",
+            "options": [
+                "1 kΩ",
+                "260 Ω",
+                "26 Ω",
+                "2.6 Ω"
+            ],
+            "correctAnswer": "26 Ω",
+            "explanation": "rd = Vt/I₀ = 26 mV / 1 mA = 26 Ω. This is the dynamic resistance of the diode at the 1 mA bias point. Note how it depends on the DC current — at 0.1 mA, rd = 260 Ω."
+        },
+        {
+            "id": "q4",
+            "prompt": "For a pendulum, sin(θ) ≈ θ is valid for:",
+            "options": [
+                "All angles",
+                "Large angles only",
+                "Small angles (θ << 1 radian)",
+                "Only θ = 0"
+            ],
+            "correctAnswer": "Small angles (θ << 1 radian)",
+            "explanation": "The error in sin(θ) ≈ θ is approximately θ³/6. At θ = 5° (0.087 rad), the error is 0.06%. At θ = 20° (0.35 rad), it's ~1%. At θ = 60° (1.05 rad), it's ~18%. 'Small' typically means less than ~20° for engineering purposes."
+        },
+        {
+            "id": "q5",
+            "prompt": "In the linearized pendulum θ̈ + (g/L)θ = 0, the period is:",
+            "options": [
+                "T = 2π√(g/L)",
+                "T = 2π√(L/g)",
+                "T = √(L/g)",
+                "T = 2π·L/g"
+            ],
+            "correctAnswer": "T = 2π√(L/g)",
+            "explanation": "The linearized pendulum equation is a simple harmonic oscillator θ̈ + ω₀²θ = 0 with ω₀ = √(g/L). The period is T = 2π/ω₀ = 2π√(L/g). This is constant — independent of amplitude — which is an artifact of linearization. The real pendulum has amplitude-dependent period."
+        },
+        {
+            "id": "q6",
+            "prompt": "The Jacobian matrix A = ∂f/∂x in system linearization represents:",
+            "options": [
+                "The input",
+                "The partial derivatives of the system dynamics with respect to state variables at equilibrium",
+                "The output",
+                "The noise"
+            ],
+            "correctAnswer": "The partial derivatives of the system dynamics with respect to state variables at equilibrium",
+            "explanation": "A is the matrix of partial derivatives ∂fi/∂xj evaluated at the equilibrium point. Each entry tells you how sensitive the i-th state derivative is to the j-th state variable. This matrix completely characterizes the linearized dynamics near equilibrium."
+        },
+        {
+            "id": "q7",
+            "prompt": "Is linearization a form of approximation?",
+            "options": [
+                "No, they are unrelated",
+                "Yes — it is specifically the first-order Taylor approximation",
+                "No, approximation is a form of linearization",
+                "Only sometimes"
+            ],
+            "correctAnswer": "Yes — it is specifically the first-order Taylor approximation",
+            "explanation": "Linearization IS a special case of approximation. Specifically, it's the 1st-order Taylor expansion at an operating point. What makes it special is that the result is LINEAR, which enables superposition, transfer functions, and all of linear systems theory."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why must a linear controller designed from linearization be verified on the full nonlinear system?",
+            "options": [
+                "Because linear controllers never work",
+                "Because linearization is only valid for small perturbations near the operating point",
+                "Because computers can't simulate nonlinear systems",
+                "Because the equilibrium point might move"
+            ],
+            "correctAnswer": "Because linearization is only valid for small perturbations near the operating point",
+            "explanation": "The linearized model is accurate only for small deviations from the operating point. During normal operation, the system may experience large disturbances that take it outside the linear region. Simulation of the full nonlinear system verifies the controller handles realistic (not just infinitesimal) perturbations."
+        },
+        {
+            "id": "q9",
+            "prompt": "The pendulum linearization error reaches 5% at approximately:",
+            "options": [
+                "5°",
+                "15°",
+                "35°",
+                "90°"
+            ],
+            "correctAnswer": "35°",
+            "explanation": "The linearization sin(θ) ≈ θ causes the predicted period to differ from the true period by about 5% when θmax ≈ 35°. This is the practical limit of the small-angle approximation for many engineering applications."
+        },
+        {
+            "id": "q10",
+            "prompt": "What makes linearization UNIQUELY powerful compared to other forms of approximation?",
+            "options": [
+                "It's more accurate",
+                "The result is linear, enabling superposition, transfer functions, and state-space control",
+                "It works for large signals",
+                "It requires no operating point"
+            ],
+            "correctAnswer": "The result is linear, enabling superposition, transfer functions, and state-space control",
+            "explanation": "Other approximations (e.g., 5th-order Taylor) might be more accurate, but they don't produce a LINEAR model. Linearity is the key because it unlocks superposition (add solutions freely), transfer functions (Bode plots), eigenvalue analysis (stability), and the entire toolkit of linear control theory."
+        }
+    ]
+}

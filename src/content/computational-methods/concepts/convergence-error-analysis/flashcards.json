@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-convergence-error-analysis",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the order of the Taylor series error for e^x using k terms?",
+            "back": "O(x^(k+1)) as x → 0. The leading error term is x^(k+1)/(k+1)!. Adding one more term gains one power of x in the error bound.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "How do you read convergence order from a log-log plot?",
+            "back": "The slope m of the log-log plot gives the convergence order: log(error) = log(C) + m·log(x). Slope m = Δ(log error)/Δ(log x).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f3",
+            "front": "State the practical convergence criterion.",
+            "back": "|f_k − f_{k−1}| < ε. Used because the true value P is unknown. Based on Cauchy sequence theory — if successive terms get close, the sequence converges.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Define convergence rate m.",
+            "back": "|P − f_{k+1}| ≤ C|P − f_k|^m as k → ∞. m = 1: linear (error multiplied by C). m = 2: quadratic (digits double each step).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "State the analytic error bound for E_k approximating e^x.",
+            "back": "|ε_k| ≤ (2/(k+1)!) · |x|^(k+1). Derived using geometric series bound: 1 + 1/2 + 1/4 + ... = 2.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f6",
+            "front": "Why does k! eventually dominate |x|^k for any fixed x?",
+            "back": "k! grows superexponentially (each factor increases by 1), while |x|^k grows at most exponentially (same factor x each time). By Stirling: k! ~ √(2πk)(k/e)^k >> |x|^k.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f7",
+            "front": "With quadratic convergence, if error is 10⁻³, what is it after 2 more steps?",
+            "back": "Step 1: ~C·(10⁻³)² = ~10⁻⁶. Step 2: ~C·(10⁻⁶)² = ~10⁻¹². Digits: 3 → 6 → 12. This explosive accuracy gain is why Newton-Raphson is powerful.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the convergence rate of the Taylor series for e^x?",
+            "back": "Linear (m = 1). The ratio |ε_{k+1}/ε_k| → |x|/(k+2) ≤ C as k → ∞. Despite being 'linear', the shrinking constant makes practical convergence fast.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "For e^0.5, how many Taylor terms are needed for 10⁻³ accuracy?",
+            "back": "5 terms (k = 5). The MATLAB code converges in 5 iterations with error 2.3×10⁻⁵, well below the 10⁻³ threshold.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Why is |x| < 1 especially good for Taylor convergence?",
+            "back": "Both |x|^k → 0 (numerator shrinks) and 1/k! → 0 (denominator grows), so |x|^k/k! converges superexponentially. At |x| > 1, |x|^k grows initially but k! always wins eventually.",
+            "difficultyLevel": 5
+        }
+    ]
+}

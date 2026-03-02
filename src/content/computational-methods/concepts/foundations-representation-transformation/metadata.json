@@ -1,0 +1,11 @@
+{
+    "id": "foundations-representation-transformation",
+    "title": "Foundations: Representation and Transformation",
+    "slug": "foundations-representation-transformation",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

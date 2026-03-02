@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-continuity-and-impulse",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the capacitor voltage continuity property.",
+            "back": "If i(t) is bounded in [t_a, t_b], then v_C(T⁺) = v_C(T⁻) for any T in that interval. Capacitor voltage cannot jump with finite current.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "State the inductor current continuity property.",
+            "back": "If v_L(t) is bounded in [t_a, t_b], then i_L(T⁺) = i_L(T⁻). Inductor current cannot jump with finite voltage. Dual of capacitor property.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Define the unit impulse function δ(t).",
+            "back": "δ(t) = 0 for t ≠ 0, singular at t = 0, and ∫₋ε¹ε² δ(t)dt = 1 for any ε₁,ε₂ > 0. Infinite height, zero width, unit area.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What produces an impulse of current in a capacitor?",
+            "back": "A step (discontinuous) change in voltage: i = C·dv/dt → ∞ when dv/dt → ∞. Arises when voltage source is connected directly (zero resistance) to capacitor.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "What does a current impulse Aδ(t) do to a capacitor?",
+            "back": "Produces a voltage step of magnitude A/C. The impulse deposits charge A instantaneously: ΔV = A/C from q = CV.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "How to find initial conditions at a switching instant?",
+            "back": "1. Find v_C(0⁻) or i_L(0⁻) from the old circuit. 2. Apply continuity: v_C(0⁺) = v_C(0⁻), i_L(0⁺) = i_L(0⁻). 3. Use these as initial conditions in the new circuit.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Can resistor voltage jump at a switching instant?",
+            "back": "YES. Only state variables (v_C, i_L) are continuous. Resistor voltages, capacitor currents, and other quantities CAN jump discontinuously at switching instants.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why do inductors cause arcing when switches open?",
+            "back": "i_L must remain continuous, so di/dt is enormous when current is forced to zero quickly. v = L·di/dt → very large, creating an arc across the switch gap.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "State the substitution theorem.",
+            "back": "If circuit N has unique solution v̂(t) at port, the port element can be replaced by source v̂(t) (or î(t)) without affecting rest of circuit, provided substituted circuit also has unique solution.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Relationship between impulse and step functions?",
+            "back": "δ(t) = d/dt[u(t)] and u(t) = ∫₋∞ᵗ δ(τ)dτ. The impulse is the derivative of the step; the step is the integral of the impulse.",
+            "difficultyLevel": 3
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "discretization-methods",
+    "title": "Discretization: From Continuous to Discrete",
+    "slug": "discretization-methods",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

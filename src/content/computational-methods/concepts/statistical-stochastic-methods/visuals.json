@@ -1,0 +1,788 @@
+{
+    "visuals": [
+        {
+            "id": "monte-carlo-resistor-sampling",
+            "type": "plotly",
+            "title": "Monte Carlo: Random Resistor Samples from ±5% Tolerance",
+            "traces": [
+                {
+                    "x": [
+                        850,
+                        870,
+                        890,
+                        910,
+                        920,
+                        930,
+                        940,
+                        950,
+                        960,
+                        970,
+                        980,
+                        990,
+                        1000,
+                        1010,
+                        1020,
+                        1030,
+                        1040,
+                        1050,
+                        1060,
+                        1070,
+                        1080,
+                        1090,
+                        1100,
+                        1120,
+                        1150
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        5,
+                        10,
+                        18,
+                        30,
+                        50,
+                        75,
+                        100,
+                        120,
+                        135,
+                        145,
+                        148,
+                        145,
+                        135,
+                        120,
+                        100,
+                        75,
+                        50,
+                        30,
+                        18,
+                        10,
+                        5,
+                        2,
+                        1
+                    ],
+                    "name": "R ~ N(1000, 50²) distribution",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Resistance (Ω)"
+                },
+                "yaxis": {
+                    "title": "Count (out of 1500 samples)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "monte-carlo-yield-histogram",
+            "type": "plotly",
+            "title": "Monte Carlo Result: Cutoff Frequency Distribution",
+            "traces": [
+                {
+                    "x": [
+                        800,
+                        850,
+                        900,
+                        920,
+                        940,
+                        960,
+                        980,
+                        1000,
+                        1020,
+                        1040,
+                        1060,
+                        1080,
+                        1100,
+                        1150,
+                        1200
+                    ],
+                    "y": [
+                        5,
+                        15,
+                        45,
+                        80,
+                        130,
+                        180,
+                        200,
+                        195,
+                        175,
+                        125,
+                        70,
+                        35,
+                        15,
+                        8,
+                        2
+                    ],
+                    "name": "fc distribution",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                },
+                {
+                    "x": [
+                        900,
+                        900
+                    ],
+                    "y": [
+                        0,
+                        210
+                    ],
+                    "name": "Lower spec (900 Hz)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        1100,
+                        1100
+                    ],
+                    "y": [
+                        0,
+                        210
+                    ],
+                    "name": "Upper spec (1100 Hz)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Cutoff frequency (Hz)"
+                },
+                "yaxis": {
+                    "title": "Count"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "spice-transient-simulation",
+            "type": "plotly",
+            "title": "SPICE Transient Analysis: CMOS Inverter Switching",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        0
+                    ],
+                    "name": "Vin (input pulse)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        4.5,
+                        5,
+                        5.3,
+                        5.5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        9.5,
+                        10,
+                        10.3,
+                        10.5,
+                        11,
+                        12,
+                        13,
+                        14,
+                        14.5,
+                        15,
+                        15.3,
+                        15.5,
+                        16,
+                        17,
+                        18,
+                        19,
+                        19.5,
+                        20
+                    ],
+                    "y": [
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.1,
+                        1.65,
+                        0.4,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.2,
+                        1.65,
+                        2.9,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.1,
+                        1.65,
+                        0.4,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.2,
+                        1.65
+                    ],
+                    "name": "Vout (inverter output)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ns)"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "simulation-workflow",
+            "type": "plotly",
+            "title": "Simulation Workflow: Model → Discretize → Solve → Analyze",
+            "traces": [
+                {
+                    "x": [
+                        "Physical\nSystem",
+                        "Mathematical\nModel",
+                        "Discrete\nEquations",
+                        "Numerical\nSolution",
+                        "Analysis &\nVisualization"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "Real circuit\nor system",
+                        "ODEs/PDEs\nconstraints",
+                        "Finite diff\ntime stepping",
+                        "Newton-Raphson\nat each step",
+                        "Plots, specs\nyield analysis"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Pipeline stage",
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "fir-filter-search",
+            "type": "plotly",
+            "title": "Search Space Size for Quantized FIR Filter Design",
+            "traces": [
+                {
+                    "x": [
+                        2,
+                        4,
+                        8,
+                        12,
+                        16,
+                        24,
+                        32
+                    ],
+                    "y": [
+                        256,
+                        65536,
+                        4294967296,
+                        281474976710656,
+                        18446744073709552000,
+                        7.9e34,
+                        3.4e77
+                    ],
+                    "name": "Combinations (N taps × 8 bits)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        2,
+                        32
+                    ],
+                    "y": [
+                        1000000000,
+                        1000000000
+                    ],
+                    "name": "Feasible search limit (~10⁹)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Number of filter taps N"
+                },
+                "yaxis": {
+                    "title": "Search space size",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "search-space-scaling",
+            "type": "plotly",
+            "title": "Exhaustive Search: Feasible vs. Infeasible Problem Sizes",
+            "traces": [
+                {
+                    "x": [
+                        "N=4, B=3\n(4096)",
+                        "N=8, B=4\n(4.3B)",
+                        "N=16, B=8\n(3.4×10³⁸)",
+                        "N=32, B=8\n(3.4×10⁷⁷)"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#ff6b8a",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Feasible\n< 1 sec",
+                        "Borderline\nminutes",
+                        "Infeasible\n> age of universe",
+                        "Utterly\nimpossible"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "genetic-algorithm-evolution",
+            "type": "plotly",
+            "title": "Genetic Algorithm: Fitness Improvement Over Generations",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        80,
+                        100,
+                        150,
+                        200,
+                        300,
+                        500
+                    ],
+                    "y": [
+                        20,
+                        35,
+                        50,
+                        65,
+                        72,
+                        77,
+                        81,
+                        84,
+                        88,
+                        91,
+                        94,
+                        96,
+                        97.5,
+                        98.5
+                    ],
+                    "name": "Best fitness in population",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        80,
+                        100,
+                        150,
+                        200,
+                        300,
+                        500
+                    ],
+                    "y": [
+                        10,
+                        20,
+                        30,
+                        40,
+                        50,
+                        58,
+                        64,
+                        70,
+                        76,
+                        81,
+                        86,
+                        90,
+                        93,
+                        96
+                    ],
+                    "name": "Average fitness",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Generation"
+                },
+                "yaxis": {
+                    "title": "Fitness (%)",
+                    "range": [
+                        0,
+                        100
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "metaheuristic-landscape-search",
+            "type": "plotly",
+            "title": "Metaheuristic Search: Exploring a Complex Landscape",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        8,
+                        5,
+                        7,
+                        3,
+                        6,
+                        2,
+                        5,
+                        1,
+                        4,
+                        3,
+                        6
+                    ],
+                    "name": "Objective landscape",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        2,
+                        5,
+                        7
+                    ],
+                    "y": [
+                        8,
+                        7,
+                        2,
+                        1
+                    ],
+                    "name": "GA search path",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 10,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Design parameter"
+                },
+                "yaxis": {
+                    "title": "Objective (lower = better)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "uq-filter-cutoff",
+            "type": "plotly",
+            "title": "UQ: How Component Tolerances Affect Cutoff Frequency",
+            "traces": [
+                {
+                    "x": [
+                        850,
+                        870,
+                        890,
+                        910,
+                        930,
+                        950,
+                        970,
+                        990,
+                        1010,
+                        1030,
+                        1050,
+                        1070,
+                        1090,
+                        1110,
+                        1130,
+                        1150
+                    ],
+                    "y": [
+                        1,
+                        3,
+                        8,
+                        20,
+                        45,
+                        80,
+                        120,
+                        155,
+                        165,
+                        140,
+                        100,
+                        60,
+                        30,
+                        12,
+                        4,
+                        1
+                    ],
+                    "name": "Input: R distribution",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff",
+                        "opacity": 0.6
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Resistance (Ω)"
+                },
+                "yaxis": {
+                    "title": "Frequency"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "uq-output-distribution",
+            "type": "plotly",
+            "title": "UQ Output: Probability Distribution of fc",
+            "traces": [
+                {
+                    "x": [
+                        800,
+                        840,
+                        880,
+                        920,
+                        940,
+                        960,
+                        980,
+                        1000,
+                        1020,
+                        1040,
+                        1060,
+                        1080,
+                        1100,
+                        1140,
+                        1180,
+                        1220
+                    ],
+                    "y": [
+                        2,
+                        8,
+                        25,
+                        65,
+                        100,
+                        150,
+                        185,
+                        190,
+                        175,
+                        140,
+                        95,
+                        55,
+                        25,
+                        10,
+                        5,
+                        1
+                    ],
+                    "name": "p(fc) from Monte Carlo",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                },
+                {
+                    "x": [
+                        1000
+                    ],
+                    "y": [
+                        195
+                    ],
+                    "name": "Nominal fc = 1 kHz",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "size": 14,
+                        "symbol": "diamond"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Cutoff frequency fc (Hz)"
+                },
+                "yaxis": {
+                    "title": "Probability density"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

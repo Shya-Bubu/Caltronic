@@ -1,0 +1,125 @@
+{
+    "id": "quiz-statistical-stochastic-methods",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Monte Carlo analysis estimates circuit yield by:",
+            "options": [
+                "Solving analytical equations",
+                "Randomly sampling component values and simulating each",
+                "Using the nominal values only",
+                "Measuring physical prototypes"
+            ],
+            "correctAnswer": "Randomly sampling component values and simulating each",
+            "explanation": "Monte Carlo randomly samples component values from their tolerance distributions, simulates the circuit for each sample, and counts how many meet specification. The yield is the fraction meeting spec. This captures the effect of random manufacturing variations."
+        },
+        {
+            "id": "q2",
+            "prompt": "How many Monte Carlo samples are typically needed for ~1% yield accuracy?",
+            "options": [
+                "10-50",
+                "100-500",
+                "1,000-10,000",
+                "1,000,000+"
+            ],
+            "correctAnswer": "1,000-10,000",
+            "explanation": "The standard error of a proportion estimate is √(p(1-p)/N). For p = 0.95 and N = 10000, this is about 0.002 (0.2%), giving ~1% confidence. 1000-10000 samples balance accuracy with computation time for most practical applications."
+        },
+        {
+            "id": "q3",
+            "prompt": "In SPICE transient simulation, what numerical method solves the nonlinear equations at each time step?",
+            "options": [
+                "Fast Fourier Transform",
+                "Newton-Raphson iteration",
+                "Gaussian elimination only",
+                "Monte Carlo sampling"
+            ],
+            "correctAnswer": "Newton-Raphson iteration",
+            "explanation": "At each time step, SPICE must solve a set of nonlinear algebraic equations (from discretizing the circuit's differential equations). Newton-Raphson linearizes these equations around the current guess and iteratively refines the solution. Gaussian elimination is used as a sub-step within Newton-Raphson to solve the linearized system."
+        },
+        {
+            "id": "q4",
+            "prompt": "Why does SPICE use variable time steps instead of fixed steps?",
+            "options": [
+                "To make the simulation longer",
+                "To balance accuracy during fast transitions with speed during steady state",
+                "To avoid using mathematical models",
+                "Variable steps are always less accurate"
+            ],
+            "correctAnswer": "To balance accuracy during fast transitions with speed during steady state",
+            "explanation": "During fast switching transitions, small time steps are needed for accuracy. During steady state, large steps save computation without loss of accuracy. Adaptive step sizing automatically detects when the solution is changing rapidly and adjusts accordingly."
+        },
+        {
+            "id": "q5",
+            "prompt": "For an FIR filter with N = 16 taps and B = 8 bits, how large is the exhaustive search space?",
+            "options": [
+                "128 combinations",
+                "4096 combinations",
+                "About 3.4 × 10^38 combinations",
+                "About 10^6 combinations"
+            ],
+            "correctAnswer": "About 3.4 × 10^38 combinations",
+            "explanation": "With N taps and B bits each, there are 2^(NB) = 2^(16×8) = 2^128 ≈ 3.4 × 10^38 possible combinations. This is astronomically large — far beyond what any computer can exhaustively search. You need smarter strategies like metaheuristics."
+        },
+        {
+            "id": "q6",
+            "prompt": "A genetic algorithm uses crossover and mutation. What do these operations achieve?",
+            "options": [
+                "Crossover explores new combinations; mutation provides random diversity",
+                "Both do the same thing",
+                "Crossover eliminates bad designs; mutation creates perfect ones",
+                "They have no effect on the search"
+            ],
+            "correctAnswer": "Crossover explores new combinations; mutation provides random diversity",
+            "explanation": "Crossover recombines genes from two successful parents, exploring combinations of known good features. Mutation introduces small random changes, preventing the population from getting stuck at local optima. Together, they balance exploitation (refining good solutions) and exploration (discovering new regions)."
+        },
+        {
+            "id": "q7",
+            "prompt": "Genetic algorithms are inspired by:",
+            "options": [
+                "Chemical reactions",
+                "Electrical circuits",
+                "Biological evolution and natural selection",
+                "Fluid dynamics"
+            ],
+            "correctAnswer": "Biological evolution and natural selection",
+            "explanation": "GAs borrow from Darwinian evolution: chromosomes (design encodings), fitness (objective function), selection (survival of the fittest), crossover (recombination), and mutation (random variation). This biological analogy gives GAs their ability to discover novel solutions in complex spaces."
+        },
+        {
+            "id": "q8",
+            "prompt": "Uncertainty quantification differs from simple Monte Carlo yield estimation because:",
+            "options": [
+                "It uses fewer samples",
+                "It computes the full probability distribution of the output, not just pass/fail",
+                "It only works for linear systems",
+                "It doesn't use random sampling"
+            ],
+            "correctAnswer": "It computes the full probability distribution of the output, not just pass/fail",
+            "explanation": "Monte Carlo yield gives a single number (e.g., 95% yield). UQ goes further — it provides the complete probability distribution p(fc) of the output. This tells you not just the probability of meeting spec, but the expected value, variance, percentiles, and shape of the distribution."
+        },
+        {
+            "id": "q9",
+            "prompt": "For fc = 1/(2πRC) with R and C both Gaussian-distributed, the distribution of fc is:",
+            "options": [
+                "Also Gaussian",
+                "Uniform",
+                "Asymmetric (skewed) because fc is nonlinear in R and C",
+                "Always constant"
+            ],
+            "correctAnswer": "Asymmetric (skewed) because fc is nonlinear in R and C",
+            "explanation": "Even though R and C are symmetric (Gaussian), fc = 1/(2πRC) is a nonlinear function of both. The reciprocal operation creates asymmetry — the distribution of fc is skewed. This is exactly why UQ is important: the nominal value alone doesn't capture the asymmetric spread of possible outcomes."
+        },
+        {
+            "id": "q10",
+            "prompt": "Which of these is NOT a metaheuristic?",
+            "options": [
+                "Genetic algorithm",
+                "Simulated annealing",
+                "Gaussian elimination",
+                "Particle swarm optimization"
+            ],
+            "correctAnswer": "Gaussian elimination",
+            "explanation": "Gaussian elimination is a procedural (direct) algorithm for solving linear systems. It's deterministic and always gives the exact answer. Metaheuristics (GA, SA, PSO) are stochastic, approximate, and designed for complex optimization problems where exact methods fail."
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "id": "lesson-04",
+    "title": "Complexity Analysis and Convergence",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03"
+    ],
+    "concepts": [
+        "asymptotic-growth-big-o",
+        "convergence-error-analysis",
+        "landau-symbols-advanced"
+    ]
+}

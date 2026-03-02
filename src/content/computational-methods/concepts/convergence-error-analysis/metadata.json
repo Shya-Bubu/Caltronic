@@ -1,0 +1,11 @@
+{
+    "id": "convergence-error-analysis",
+    "title": "Convergence and Error Analysis",
+    "slug": "convergence-error-analysis",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

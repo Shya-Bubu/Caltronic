@@ -1,0 +1,125 @@
+{
+    "id": "quiz-random-sampling-methods",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What defines random sampling as a computational method?",
+            "options": [
+                "Using systematic grid points",
+                "Using deliberate randomness to estimate properties",
+                "Solving exact equations",
+                "Making nonlinear systems linear"
+            ],
+            "correctAnswer": "Using deliberate randomness to estimate properties",
+            "explanation": "Random sampling uses probability and statistics — not systematic grids — to learn about a system. You randomly choose representative samples, evaluate them, and use the statistics to estimate population-level properties."
+        },
+        {
+            "id": "q2",
+            "prompt": "In Monte Carlo integration, the error decreases proportional to:",
+            "options": [
+                "1/N",
+                "1/N²",
+                "1/√N",
+                "e^(-N)"
+            ],
+            "correctAnswer": "1/√N",
+            "explanation": "By the Central Limit Theorem, the standard error of the Monte Carlo estimate is σ/√N. This 1/√N convergence is independent of the dimension of the integral — making Monte Carlo the only practical method for high-dimensional integrals."
+        },
+        {
+            "id": "q3",
+            "prompt": "Why is Monte Carlo superior to grid-based methods for high-dimensional integration?",
+            "options": [
+                "It's more accurate",
+                "Grid methods need N^d points in d dimensions, while Monte Carlo needs only ~N points regardless of d",
+                "It's deterministic",
+                "It doesn't require function evaluation"
+            ],
+            "correctAnswer": "Grid methods need N^d points in d dimensions, while Monte Carlo needs only ~N points regardless of d",
+            "explanation": "In d dimensions with N points per dimension, a grid has N^d total points — exponential in d. For d = 10 and N = 100, that's 10^20 points! Monte Carlo uses ~10000 random points for 1% accuracy in ANY dimension. This 'curse of dimensionality' immunity is Monte Carlo's superpower."
+        },
+        {
+            "id": "q4",
+            "prompt": "In yield analysis, 'yield' is defined as:",
+            "options": [
+                "The total number of circuits",
+                "The fraction of manufactured circuits meeting specifications",
+                "The average component value",
+                "The profit margin"
+            ],
+            "correctAnswer": "The fraction of manufactured circuits meeting specifications",
+            "explanation": "Yield = (number of circuits meeting spec) / (total circuits tested) × 100%. Monte Carlo estimates this by randomly sampling component values from their tolerance distributions, simulating each, and counting how many meet the specification."
+        },
+        {
+            "id": "q5",
+            "prompt": "With N = 1000 Monte Carlo trials, the yield estimate has 95% confidence interval of approximately:",
+            "options": [
+                "±0.1%",
+                "±1%",
+                "±3%",
+                "±10%"
+            ],
+            "correctAnswer": "±3%",
+            "explanation": "The standard error of a proportion is √(p(1−p)/N). For p ≈ 0.95 and N = 1000: SE ≈ √(0.95×0.05/1000) ≈ 0.007. The 95% CI is ±2SE ≈ ±1.4%, but with the commonly cited rule of thumb and accounting for variation, about ±3% is typical."
+        },
+        {
+            "id": "q6",
+            "prompt": "Brownian motion via random walk uses: x_{n+1} = x_n + √Δt · Z_n. What is Z_n?",
+            "options": [
+                "A constant",
+                "A uniformly distributed random variable",
+                "A standard normal random variable N(0,1)",
+                "The time step"
+            ],
+            "correctAnswer": "A standard normal random variable N(0,1)",
+            "explanation": "Z_n is drawn from the standard normal distribution (mean 0, variance 1) at each step. The √Δt factor scales the step size appropriately so that the variance of position grows linearly with time, matching the physics of diffusion."
+        },
+        {
+            "id": "q7",
+            "prompt": "How is random sampling fundamentally different from discretization?",
+            "options": [
+                "Random sampling is more accurate",
+                "Random sampling gives statistical results with confidence intervals; discretization gives deterministic results",
+                "They are the same",
+                "Discretization uses randomness too"
+            ],
+            "correctAnswer": "Random sampling gives statistical results with confidence intervals; discretization gives deterministic results",
+            "explanation": "Discretization is systematic, deterministic, grid-based — run it twice and you get the same answer. Random sampling is stochastic — each run gives a slightly different answer, but the statistical properties converge. Results include confidence intervals, not exact values."
+        },
+        {
+            "id": "q8",
+            "prompt": "Monte Carlo simulations are 'embarrassingly parallel' because:",
+            "options": [
+                "They're embarrassingly slow",
+                "Each trial is independent of all others",
+                "They need embarrassingly large amounts of memory",
+                "Parallel computing is embarrassing"
+            ],
+            "correctAnswer": "Each trial is independent of all others",
+            "explanation": "In Monte Carlo, each random trial runs its own simulation independently. No trial needs results from any other trial. This means millions of trials can run on thousands of processors simultaneously with zero communication overhead — perfect parallelism."
+        },
+        {
+            "id": "q9",
+            "prompt": "Random sampling can be combined with linearization by:",
+            "options": [
+                "They can't be combined",
+                "Linearizing a system, then using random sampling for uncertainty analysis",
+                "Random sampling replaces linearization",
+                "Linearization replaces random sampling"
+            ],
+            "correctAnswer": "Linearizing a system, then using random sampling for uncertainty analysis",
+            "explanation": "You might linearize a circuit's nonlinear equations (for speed), then use Monte Carlo sampling to vary component values and estimate yield or output distributions. This combines the speed of linear analysis with the statistical power of random sampling."
+        },
+        {
+            "id": "q10",
+            "prompt": "To halve the Monte Carlo error, you must:",
+            "options": [
+                "Double the number of samples",
+                "Quadruple the number of samples",
+                "Use a finer grid",
+                "Linearize the system"
+            ],
+            "correctAnswer": "Quadruple the number of samples",
+            "explanation": "Since error ∝ 1/√N, halving the error requires multiplying N by 4: 1/√(4N) = (1/2) × 1/√N. This is the weakness of Monte Carlo — slow convergence. Going from 1% to 0.5% error requires 4× more computation."
+        }
+    ]
+}

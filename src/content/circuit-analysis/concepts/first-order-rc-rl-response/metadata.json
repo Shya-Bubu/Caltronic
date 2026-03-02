@@ -1,0 +1,11 @@
+{
+    "id": "first-order-rc-rl-response",
+    "title": "First-Order RC and RL Circuits: The Exponential Response",
+    "slug": "first-order-rc-rl-response",
+    "estimatedMinutes": 25,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

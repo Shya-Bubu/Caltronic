@@ -1,0 +1,125 @@
+{
+    "id": "quiz-algorithmic-strategies",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Which type of algorithm always terminates in a fixed number of steps?",
+            "options": [
+                "Iterative",
+                "Procedural",
+                "Recursive",
+                "Greedy"
+            ],
+            "correctAnswer": "Procedural",
+            "explanation": "Procedural algorithms follow a predetermined sequence of steps and always terminate. The number of steps is fixed by the problem size, not by convergence behavior. Gaussian elimination is the classic example — you know exactly how many row operations you'll perform."
+        },
+        {
+            "id": "q2",
+            "prompt": "What is the key update formula in the Newton-Raphson method?",
+            "options": [
+                "x_{n+1} = x_n + f(x_n)",
+                "x_{n+1} = x_n - f(x_n)/f'(x_n)",
+                "x_{n+1} = f(x_n)",
+                "x_{n+1} = x_n/2"
+            ],
+            "correctAnswer": "x_{n+1} = x_n - f(x_n)/f'(x_n)",
+            "explanation": "Newton-Raphson uses the tangent line at the current point to predict where the function crosses zero. The formula x_{n+1} = x_n - f(x_n)/f'(x_n) computes the x-intercept of the tangent line. This requires both the function value and its derivative at each iteration."
+        },
+        {
+            "id": "q3",
+            "prompt": "Newton-Raphson convergence is described as 'quadratic.' This means:",
+            "options": [
+                "It takes exactly 2 iterations",
+                "The error is squared at each step",
+                "The number of correct digits roughly doubles each iteration",
+                "It converges at rate O(n²)"
+            ],
+            "correctAnswer": "The number of correct digits roughly doubles each iteration",
+            "explanation": "Quadratic convergence means the error at step n+1 is proportional to the square of the error at step n: |e_{n+1}| ≈ C·|e_n|². If you have 2 correct digits, the next iteration gives ~4, then ~8, then ~16. This rapid convergence is the main advantage of Newton-Raphson."
+        },
+        {
+            "id": "q4",
+            "prompt": "The FFT reduces the DFT computation from O(N²) to:",
+            "options": [
+                "O(N)",
+                "O(N log N)",
+                "O(N²/2)",
+                "O(log N)"
+            ],
+            "correctAnswer": "O(N log N)",
+            "explanation": "The FFT exploits the symmetry of the DFT kernel (the twiddle factors) to recursively split an N-point DFT into two N/2-point DFTs. This recursive halving creates log₂(N) levels, each requiring O(N) work, giving O(N log N) total. For N = 1024, this is ~100× faster than the direct O(N²) method."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the base case in the FFT recursion?",
+            "options": [
+                "N = 0 (empty array)",
+                "N = 1 (single element, which is its own DFT)",
+                "N = 2 (butterfly operation)",
+                "The recursion has no base case"
+            ],
+            "correctAnswer": "N = 1 (single element, which is its own DFT)",
+            "explanation": "When N = 1, the DFT of a single element is just that element itself: X[0] = x[0]. This is the trivial base case. In practice, many FFT implementations stop recursion at N = 2 or N = 4 and compute those small DFTs directly for efficiency."
+        },
+        {
+            "id": "q6",
+            "prompt": "The three phases of divide and conquer are:",
+            "options": [
+                "Input, Process, Output",
+                "Divide, Conquer, Combine",
+                "Initialize, Iterate, Terminate",
+                "Sample, Analyze, Reconstruct"
+            ],
+            "correctAnswer": "Divide, Conquer, Combine",
+            "explanation": "Divide and conquer has three distinct phases: (1) Divide the problem into smaller sub-problems, (2) Conquer each sub-problem (often recursively), (3) Combine the sub-problem solutions into the final answer. The combine step is often the trickiest part to implement efficiently."
+        },
+        {
+            "id": "q7",
+            "prompt": "Merge sort has complexity O(n log n). What makes this better than bubble sort's O(n²)?",
+            "options": [
+                "It uses less memory",
+                "For n = 10000, it does ~133000 vs ~100000000 operations",
+                "It handles negative numbers",
+                "It preserves the original order"
+            ],
+            "correctAnswer": "For n = 10000, it does ~133000 vs ~100000000 operations",
+            "explanation": "For n = 10000: O(n log n) ≈ 10000 × 13.3 ≈ 133000 operations. O(n²) ≈ 10000² = 100,000,000 operations. That's ~750× fewer operations. As n grows, this gap widens dramatically — O(n²) becomes impractical for large datasets while O(n log n) remains feasible."
+        },
+        {
+            "id": "q8",
+            "prompt": "In Huffman coding, why does the greedy strategy produce an optimal code?",
+            "options": [
+                "Because it always gives the shortest codes",
+                "Because combining the two least frequent symbols first always leads to minimum average code length",
+                "Because it considers all possible encodings",
+                "Because binary codes are inherently optimal"
+            ],
+            "correctAnswer": "Because combining the two least frequent symbols first always leads to minimum average code length",
+            "explanation": "Huffman coding has the greedy choice property: at each step, combining the two least frequent symbols is provably optimal. This works because rare symbols end up deep in the tree (long codes) and common symbols stay near the top (short codes), minimizing the weighted average code length."
+        },
+        {
+            "id": "q9",
+            "prompt": "Which strategy would you use for solving a nonlinear circuit with diodes and transistors?",
+            "options": [
+                "Procedural (Gaussian elimination)",
+                "Greedy",
+                "Iterative (Newton-Raphson)",
+                "Divide and conquer"
+            ],
+            "correctAnswer": "Iterative (Newton-Raphson)",
+            "explanation": "Nonlinear circuit equations have no closed-form solution, so procedural methods like Gaussian elimination can't solve them directly. Newton-Raphson iterates: linearize the nonlinear equations at the current guess, solve the linear system (Gaussian elimination for this sub-step), update the guess, repeat until convergence. This is exactly what SPICE does."
+        },
+        {
+            "id": "q10",
+            "prompt": "An algorithm uses recursion but the sub-problems overlap heavily. This is a sign that:",
+            "options": [
+                "The algorithm is optimally efficient",
+                "Pure divide-and-conquer will waste work; dynamic programming may be better",
+                "The algorithm will always diverge",
+                "Greedy is the right approach"
+            ],
+            "correctAnswer": "Pure divide-and-conquer will waste work; dynamic programming may be better",
+            "explanation": "When sub-problems overlap, pure divide-and-conquer solves the same sub-problem many times. Dynamic programming avoids this by storing (memoizing) solutions to solved sub-problems. The classic example is computing Fibonacci numbers: naive recursion is O(2^n) but dynamic programming is O(n)."
+        }
+    ]
+}

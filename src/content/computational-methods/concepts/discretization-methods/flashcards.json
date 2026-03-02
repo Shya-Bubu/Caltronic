@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-discretization-methods",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Define discretization.",
+            "back": "Converting continuous-domain problems (time, space, frequency) into discrete-point problems for digital processing. Core idea: sample at specific points, losing information between samples.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Write the ADC sampling equation.",
+            "back": "x[n] = x(nTs) for n = 0, 1, 2, ... where Ts is the sampling period. Converts continuous x(t) to discrete x[n].",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is the forward finite difference formula?",
+            "back": "df/dx ≈ (f(x+h) − f(x))/h. Error: O(h) — first-order accurate. Halving h halves the error.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the central second difference formula?",
+            "back": "d²f/dx² ≈ (f(x+h) − 2f(x) + f(x−h))/h². Error: O(h²) — second-order accurate. Used for Laplace's equation.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Why is central difference more accurate than forward difference?",
+            "back": "Central differences use symmetric information (both sides of x), which cancels the leading O(h) error term by symmetry. Result: O(h²) accuracy vs O(h).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What does the DFT discretize?",
+            "back": "Both time and frequency. x(t) → x[n] (time sampling) and X(f) → X[k] (frequency sampling). N time samples ↔ N frequency bins.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What is the frequency resolution of an N-point DFT?",
+            "back": "Δf = fs/N. More samples (larger N) = finer frequency resolution. Example: fs = 1000 Hz, N = 1000 → Δf = 1 Hz.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "How does Laplace's equation ∇²V = 0 get discretized on a 2D grid?",
+            "back": "[V(i+1,j) − 2V(i,j) + V(i-1,j)]/Δx² + [V(i,j+1) − 2V(i,j) + V(i,j-1)]/Δy² = 0. Uses the 5-point stencil.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "Where do discretization and approximation overlap?",
+            "back": "When replacing derivatives with finite differences: the grid is discretization (continuous → discrete domain), but the finite difference formula is also an approximation (exact derivative → approximate formula).",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What error types does discretization introduce?",
+            "back": "Aliasing (sampling below Nyquist) and discretization error (replacing continuous operations with discrete approximations, e.g., finite differences). Distinct from statistical or linearization error.",
+            "difficultyLevel": 3
+        }
+    ]
+}

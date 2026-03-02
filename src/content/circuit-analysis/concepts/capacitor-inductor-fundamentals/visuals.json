@@ -1,0 +1,584 @@
+{
+    "visuals": [
+        {
+            "id": "capacitor-vi-relationship",
+            "type": "plotly",
+            "title": "Capacitor V-I: Current is Proportional to Rate of Voltage Change",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        0.95,
+                        1.81,
+                        2.59,
+                        3.30,
+                        3.93,
+                        4.51,
+                        5.03,
+                        5.51,
+                        5.93,
+                        6.32
+                    ],
+                    "name": "v(t) = 10(1−e^(−t/5)) V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        2.0,
+                        1.64,
+                        1.34,
+                        1.10,
+                        0.90,
+                        0.74,
+                        0.60,
+                        0.49,
+                        0.40,
+                        0.33,
+                        0.27
+                    ],
+                    "name": "i(t) = C·dv/dt (mA)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "Value"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "capacitor-circuit-schematic",
+            "type": "circuit-schematic",
+            "title": "Capacitor Circuit: i = C·dv/dt",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Vs",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "Vs"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        256,
+                        64
+                    ],
+                    "label": "R"
+                },
+                {
+                    "type": "capacitor",
+                    "id": "C",
+                    "from": [
+                        256,
+                        64
+                    ],
+                    "to": [
+                        256,
+                        256
+                    ],
+                    "label": "C"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        256,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "inductor-vi-relationship",
+            "type": "plotly",
+            "title": "Inductor V-I: Voltage is Proportional to Rate of Current Change",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        0.95,
+                        1.81,
+                        2.59,
+                        3.30,
+                        3.93,
+                        4.51,
+                        5.03,
+                        5.51,
+                        5.93,
+                        6.32
+                    ],
+                    "name": "i(t) = (V/R)(1−e^(−t·R/L)) mA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        10,
+                        8.19,
+                        6.70,
+                        5.49,
+                        4.49,
+                        3.68,
+                        3.01,
+                        2.47,
+                        2.02,
+                        1.65,
+                        1.35
+                    ],
+                    "name": "v(t) = L·di/dt (V)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "Value"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "inductor-circuit-schematic",
+            "type": "circuit-schematic",
+            "title": "Inductor Circuit: v = L·di/dt",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Vs",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "Vs"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        256,
+                        64
+                    ],
+                    "label": "R"
+                },
+                {
+                    "type": "inductor",
+                    "id": "L",
+                    "from": [
+                        256,
+                        64
+                    ],
+                    "to": [
+                        256,
+                        256
+                    ],
+                    "label": "L"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        256,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "duality-comparison",
+            "type": "plotly",
+            "title": "Duality: Capacitor (v→i) vs. Inductor (i→v)",
+            "traces": [
+                {
+                    "x": [
+                        "V-I law",
+                        "DC\nbehavior",
+                        "Stores",
+                        "State\nvariable",
+                        "Energy"
+                    ],
+                    "y": [
+                        5,
+                        5,
+                        5,
+                        5,
+                        5
+                    ],
+                    "name": "Capacitor",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    },
+                    "text": [
+                        "i = C·dv/dt",
+                        "Open\ncircuit",
+                        "Electric\nfield",
+                        "Voltage\nv_C",
+                        "½Cv²"
+                    ],
+                    "textposition": "auto"
+                },
+                {
+                    "x": [
+                        "V-I law",
+                        "DC\nbehavior",
+                        "Stores",
+                        "State\nvariable",
+                        "Energy"
+                    ],
+                    "y": [
+                        5,
+                        5,
+                        5,
+                        5,
+                        5
+                    ],
+                    "name": "Inductor",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    },
+                    "text": [
+                        "v = L·di/dt",
+                        "Short\ncircuit",
+                        "Magnetic\nfield",
+                        "Current\ni_L",
+                        "½Li²"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "showticklabels": false
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "qv-characteristic",
+            "type": "plotly",
+            "title": "Linear Capacitor: q-v Characteristic (Straight Line, Slope = C)",
+            "traces": [
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -50,
+                        -40,
+                        -30,
+                        -20,
+                        -10,
+                        0,
+                        10,
+                        20,
+                        30,
+                        40,
+                        50
+                    ],
+                    "name": "Linear: q = Cv (C = 10μF)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -25,
+                        -24,
+                        -21,
+                        -16,
+                        -9,
+                        0,
+                        9,
+                        16,
+                        21,
+                        24,
+                        25
+                    ],
+                    "name": "Nonlinear: q = 5·tanh(v)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage v (V)"
+                },
+                "yaxis": {
+                    "title": "Charge q (μC)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "nonlinear-characteristics",
+            "type": "plotly",
+            "title": "Small-Signal Capacitance C(v) = dq/dv at Operating Point",
+            "traces": [
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        10,
+                        10,
+                        10,
+                        10,
+                        10,
+                        10,
+                        10,
+                        10,
+                        10,
+                        10
+                    ],
+                    "name": "Linear: C(v) = constant",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        -5,
+                        -4,
+                        -3,
+                        -2,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0.18,
+                        0.34,
+                        0.95,
+                        2.63,
+                        4.20,
+                        5.0,
+                        4.20,
+                        2.63,
+                        0.95,
+                        0.34,
+                        0.18
+                    ],
+                    "name": "Nonlinear: C(v) = 5·sech²(v)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Voltage v (V)"
+                },
+                "yaxis": {
+                    "title": "C(v) (μF)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "four-elements-map",
+            "type": "plotly",
+            "title": "The Four Basic Circuit Elements: Symmetry of v, i, q, Φ",
+            "traces": [
+                {
+                    "x": [
+                        "Resistor\nv↔i",
+                        "Capacitor\nq↔v",
+                        "Inductor\nΦ↔i",
+                        "Memristor\nΦ↔q"
+                    ],
+                    "y": [
+                        4,
+                        4,
+                        4,
+                        4
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a"
+                        ]
+                    },
+                    "text": [
+                        "f_R(v,i)=0\nOhm's law",
+                        "f_C(q,v)=0\nCharge↔Voltage",
+                        "f_L(Φ,i)=0\nFlux↔Current",
+                        "f_M(Φ,q)=0\nChua 1971"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "falstad-rc-charging",
+            "type": "falstad-sim",
+            "title": "Interactive: RC Charging Circuit — Watch the Capacitor Charge",
+            "description": "Observe how the capacitor voltage rises exponentially. Probe different points to see voltage and current waveforms.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 96 160 288 0 2 1.0 5.0 0.0 0.0 0.5\nr 160 96 304 96 0 1000\nc 304 96 304 288 0 1e-6 0\nw 304 288 160 288 0\ng 160 288 160 320 0\no 2 128 0 4099 10 0.05 0 -1\n",
+            "height": 450
+        }
+    ]
+}

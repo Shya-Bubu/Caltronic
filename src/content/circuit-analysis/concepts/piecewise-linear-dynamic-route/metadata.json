@@ -1,0 +1,11 @@
+{
+    "id": "piecewise-linear-dynamic-route",
+    "title": "Piecewise-Linear First-Order Circuits",
+    "slug": "piecewise-linear-dynamic-route",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

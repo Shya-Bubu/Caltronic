@@ -1,0 +1,13 @@
+{
+    "id": "lesson-03",
+    "title": "Mathematical Modeling in EEE",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02"
+    ],
+    "concepts": [
+        "mathematical-modeling-principles",
+        "circuit-modeling-case-study",
+        "neuron-modeling-case-study"
+    ]
+}

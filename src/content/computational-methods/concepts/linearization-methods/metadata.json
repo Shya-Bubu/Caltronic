@@ -1,0 +1,11 @@
+{
+    "id": "linearization-methods",
+    "title": "Linearization: Making Nonlinear Systems Linear",
+    "slug": "linearization-methods",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

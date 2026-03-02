@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-first-order-rc-rl",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the general solution for first-order DC circuits.",
+            "back": "x(t) = x(∞) + [x(t₀) − x(∞)]·e^(−(t−t₀)/τ). Works for v_C (RC) or i_L (RL). The circuit exponentially relaxes from initial state toward steady state.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Time constant for RC and RL?",
+            "back": "RC: τ = R_TH·C. RL: τ = L/R_TH. Where R_TH is Thevenin resistance seen by C or L.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Three-step inspection method?",
+            "back": "1. x(t₀): initial value from continuity. 2. x(∞): steady state (C→open, L→short). 3. τ: time constant. Plug into general formula. No ODEs needed.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is x(∞) physically?",
+            "back": "Steady-state value after all transients die. For RC: v_oc (open-circuit voltage at C terminals). For RL: i_sc (short-circuit current at L terminals).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "After 1τ, how complete is the response?",
+            "back": "63.2%. e⁻¹ = 0.368, so 1−0.368 = 0.632 = 63.2% of the distance from x(t₀) to x(∞) is covered.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "After 5τ, how complete?",
+            "back": "99.3%. e⁻⁵ = 0.0067. Practically at steady state. The '5τ rule' is used in circuit design.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "How to find R_TH for time constant?",
+            "back": "Turn off all independent sources (V→short, I→open). Find resistance looking into the C or L terminals. Keep dependent sources active.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "RC charging from 0 to V: what's v_C(t)?",
+            "back": "v_C(t) = V(1 − e^(−t/τ)). Starts at 0, exponentially approaches V. τ = RC.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "RC discharging from V to 0: what's v_C(t)?",
+            "back": "v_C(t) = V·e^(−t/τ). Pure exponential decay. τ = RC.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Duality between RC and RL?",
+            "back": "Same formula: swap v_C ↔ i_L, R_TH·C ↔ L/R_TH, v_oc ↔ i_sc, open ↔ short. Every RC result has an RL dual.",
+            "difficultyLevel": 3
+        }
+    ]
+}

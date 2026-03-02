@@ -1,0 +1,11 @@
+{
+    "id": "random-sampling-methods",
+    "title": "Random Sampling: Using Randomness to Understand Systems",
+    "slug": "random-sampling-methods",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

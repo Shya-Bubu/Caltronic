@@ -1,0 +1,125 @@
+{
+    "id": "quiz-circuit-modeling-case-study",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The ideal diode model treats the diode as:",
+            "options": [
+                "A resistor",
+                "A perfect switch with V_D = 0 when conducting",
+                "An exponential element",
+                "A capacitor"
+            ],
+            "correctAnswer": "A perfect switch with V_D = 0 when conducting",
+            "explanation": "The ideal diode is the simplest model: it's a short circuit (V_D = 0) when forward-biased and an open circuit (I = 0) when reverse-biased. No voltage drop, no resistance, no exponential — just on/off."
+        },
+        {
+            "id": "q2",
+            "prompt": "Using the constant-drop model (Vγ = 0.7V) and a circuit with Vs = 5V, r + R = 1kΩ, the current is:",
+            "options": [
+                "5 mA",
+                "4.3 mA",
+                "0.7 mA",
+                "3.6 mA"
+            ],
+            "correctAnswer": "4.3 mA",
+            "explanation": "I = (Vs − Vγ)/(r + R) = (5 − 0.7)/1000 = 4.3/1000 = 4.3 mA. The constant drop model simply subtracts the 0.7V diode drop from the source voltage."
+        },
+        {
+            "id": "q3",
+            "prompt": "The piecewise linear model adds what to the constant-drop model?",
+            "options": [
+                "Temperature dependence",
+                "A forward resistance ρ in series with Vγ",
+                "An exponential term",
+                "Reverse breakdown voltage"
+            ],
+            "correctAnswer": "A forward resistance ρ in series with Vγ",
+            "explanation": "The piecewise-linear model represents the diode as Vγ in series with ρ: I = (V_D − Vγ)/ρ for V_D > Vγ. This captures the slope of the I-V curve in forward bias, giving the diode a dynamic resistance."
+        },
+        {
+            "id": "q4",
+            "prompt": "Why does the Shockley equation require Newton-Raphson instead of simple algebra?",
+            "options": [
+                "It has too many variables",
+                "The intersection of an exponential and a linear load line is a transcendental equation with no closed-form solution",
+                "It's more accurate",
+                "It uses differential equations"
+            ],
+            "correctAnswer": "The intersection of an exponential and a linear load line is a transcendental equation with no closed-form solution",
+            "explanation": "Setting Is(e^(qV/kT)−1) = (−1/(r+R))V_D + Vs/(r+R) creates an equation mixing exponentials and polynomials. This is transcendental — no rearrangement gives V_D = [explicit formula]. Iterative methods like Newton-Raphson are required."
+        },
+        {
+            "id": "q5",
+            "prompt": "The operating point of a diode circuit is:",
+            "options": [
+                "The maximum current",
+                "The intersection of the load line and the diode I-V characteristic",
+                "The voltage at which the diode breaks down",
+                "The point where power is maximum"
+            ],
+            "correctAnswer": "The intersection of the load line and the diode I-V characteristic",
+            "explanation": "The operating point Q is where the circuit constraint (load line from KVL) and the device constraint (diode I-V model) are simultaneously satisfied. Graphically, it's the intersection of these two curves."
+        },
+        {
+            "id": "q6",
+            "prompt": "The Shockley equation I = Is(e^(qV/kT) − 1) captures which physical effect that simpler models don't?",
+            "options": [
+                "Wire resistance",
+                "The exponential dependence of current on voltage and temperature",
+                "Load resistance",
+                "Source voltage"
+            ],
+            "correctAnswer": "The exponential dependence of current on voltage and temperature",
+            "explanation": "The Shockley equation derives from semiconductor physics (Boltzmann statistics). It naturally captures temperature via kT, the exponential I-V relationship that simpler models linearize or ignore, and the reverse saturation current Is."
+        },
+        {
+            "id": "q7",
+            "prompt": "For a half-wave rectifier, the load line intercepts are:",
+            "options": [
+                "(0, Vs/R) and (Vs, 0)",
+                "(0, Vs/(r+R)) and (Vs, 0)",
+                "(0, 0) and (Vs, Vs)",
+                "(Vs, Vs/(r+R)) and (0, 0)"
+            ],
+            "correctAnswer": "(0, Vs/(r+R)) and (Vs, 0)",
+            "explanation": "From I = (−1/(r+R))V_D + Vs/(r+R): when V_D = 0, I = Vs/(r+R). When I = 0, V_D = Vs. These are the two intercepts of the load line on the V_D-I axes."
+        },
+        {
+            "id": "q8",
+            "prompt": "When should the Shockley equation be used instead of the constant-drop model?",
+            "options": [
+                "Always — it's more accurate",
+                "When designing log/exponential circuits or analyzing temperature sensitivity",
+                "For DC analysis only",
+                "For quick back-of-envelope calculations"
+            ],
+            "correctAnswer": "When designing log/exponential circuits or analyzing temperature sensitivity",
+            "explanation": "The PDF explicitly states the Shockley equation 'is not used unless explicitly necessary' — for example, in op-amp circuits that exploit the exponential relationship (log amplifiers, multipliers). The constant-drop model is sufficient for standard rectifier analysis."
+        },
+        {
+            "id": "q9",
+            "prompt": "In the Shockley equation, the thermal voltage Vt = kT/q at room temperature (T = 300K) is approximately:",
+            "options": [
+                "0.7V",
+                "26 mV",
+                "0.3V",
+                "1V"
+            ],
+            "correctAnswer": "26 mV",
+            "explanation": "Vt = kT/q = (1.38×10⁻²³ × 300)/(1.602×10⁻¹⁹) ≈ 25.8 mV ≈ 26 mV. This is the natural voltage scale of a semiconductor junction at room temperature and appears throughout device physics."
+        },
+        {
+            "id": "q10",
+            "prompt": "What happens to the operating point if the load resistance R increases (steeper load line)?",
+            "options": [
+                "Current increases, V_D decreases",
+                "Current decreases, V_D increases",
+                "Both increase",
+                "Both decrease"
+            ],
+            "correctAnswer": "Current decreases, V_D increases",
+            "explanation": "Increasing R makes the load line steeper (lower slope magnitude = smaller |m| = −1/(r+R)). The y-intercept Vs/(r+R) decreases, pushing the operating point lower on the diode curve: less current, more voltage across the diode."
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-first-order-rc-rl",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The general solution for a first-order DC circuit is:",
+            "options": [
+                "x(t) = x(0)·e^(−t/τ)",
+                "x(t) = x(∞) + [x(t₀)−x(∞)]·e^(−(t−t₀)/τ)",
+                "x(t) = x(∞)·(1 + e^(−t/τ))",
+                "x(t) = x(0) + x(∞)"
+            ],
+            "correctAnswer": "x(t) = x(∞) + [x(t₀)−x(∞)]·e^(−(t−t₀)/τ)",
+            "explanation": "This formula combines the transient (exponential decay from initial condition) with steady state. As t→∞, the exponential dies and x→x(∞)."
+        },
+        {
+            "id": "q2",
+            "prompt": "The time constant of an RC circuit with R=2kΩ and C=5μF is:",
+            "options": [
+                "0.4 ms",
+                "2.5 ms",
+                "10 ms",
+                "100 ms"
+            ],
+            "correctAnswer": "10 ms",
+            "explanation": "τ = RC = 2000 × 5×10⁻⁶ = 0.01 s = 10 ms. This means 63.2% of the transition completes in 10 ms."
+        },
+        {
+            "id": "q3",
+            "prompt": "The time constant of an RL circuit with R=100Ω and L=50mH is:",
+            "options": [
+                "0.5 μs",
+                "5 ms",
+                "0.5 ms",
+                "50 ms"
+            ],
+            "correctAnswer": "0.5 ms",
+            "explanation": "τ = L/R = 50×10⁻³/100 = 5×10⁻⁴ s = 0.5 ms. Note: for RL, τ = L/R (not R·L)."
+        },
+        {
+            "id": "q4",
+            "prompt": "To find x(∞) in a DC circuit, you replace C with:",
+            "options": [
+                "Short circuit and L with open",
+                "Open circuit and L with short",
+                "Remove all sources",
+                "Replace with 1Ω resistor"
+            ],
+            "correctAnswer": "Open circuit and L with short",
+            "explanation": "At DC steady state: capacitor current = 0 (open circuit), inductor voltage = 0 (short circuit). This gives a purely resistive circuit to solve for x(∞)."
+        },
+        {
+            "id": "q5",
+            "prompt": "After 5τ, the response is approximately:",
+            "options": [
+                "50% complete",
+                "63.2% complete",
+                "95% complete",
+                "99.3% complete"
+            ],
+            "correctAnswer": "99.3% complete",
+            "explanation": "e⁻⁵ = 0.0067, so the response is 1−0.0067 = 99.3% complete. The '5τ rule' says the circuit is essentially at steady state after 5 time constants."
+        },
+        {
+            "id": "q6",
+            "prompt": "In the three-step inspection method, the three quantities are:",
+            "options": [
+                "R, C, V",
+                "x(t₀), x(∞), τ",
+                "v, i, P",
+                "CF, PI, IC"
+            ],
+            "correctAnswer": "x(t₀), x(∞), τ",
+            "explanation": "x(t₀) = initial value (from continuity), x(∞) = steady state (from DC analysis), τ = time constant (R_TH·C or L/R_TH). These three numbers completely determine the exponential response."
+        },
+        {
+            "id": "q7",
+            "prompt": "An RC circuit has v_C(0) = 5V, v_oc = 12V, τ = 3ms. What is v_C(3ms)?",
+            "options": [
+                "5.00 V",
+                "7.57 V",
+                "9.42 V",
+                "12.0 V"
+            ],
+            "correctAnswer": "9.42 V",
+            "explanation": "v_C(τ) = 12 + (5−12)e⁻¹ = 12 − 7×0.368 = 12 − 2.58 = 9.42 V. After one τ, 63.2% of the gap is closed: 63.2% of 7 = 4.42, so 5 + 4.42 = 9.42 V."
+        },
+        {
+            "id": "q8",
+            "prompt": "The duality between RC and RL circuits means:",
+            "options": [
+                "They have identical time constants",
+                "They produce the same waveform swap v↔i, RC↔L/R",
+                "They require different formulas",
+                "RL circuits have no exponential response"
+            ],
+            "correctAnswer": "They produce the same waveform swap v↔i, RC↔L/R",
+            "explanation": "v_C in RC ↔ i_L in RL, τ=RC ↔ τ=L/R. The formula x(t) = x(∞)+[x(0)−x(∞)]e^(−t/τ) works for both with appropriate substitutions."
+        },
+        {
+            "id": "q9",
+            "prompt": "R_TH in the time constant formula is the Thevenin resistance:",
+            "options": [
+                "Of the entire circuit",
+                "Seen by the capacitor/inductor with all independent sources turned off",
+                "Of the voltage source",
+                "Across the output terminals"
+            ],
+            "correctAnswer": "Seen by the capacitor/inductor with all independent sources turned off",
+            "explanation": "Turn off all independent sources (voltage→short, current→open) and find the resistance looking into the terminals where C or L is connected. This is R_TH for the time constant calculation."
+        },
+        {
+            "id": "q10",
+            "prompt": "A discharging RC circuit has v_C(0) = 10V and v_oc = 0V. The solution is:",
+            "options": [
+                "v_C = 10(1−e^(−t/τ))",
+                "v_C = 10e^(−t/τ)",
+                "v_C = −10e^(−t/τ)",
+                "v_C = 10"
+            ],
+            "correctAnswer": "v_C = 10e^(−t/τ)",
+            "explanation": "x(∞) = 0, x(0) = 10. So v_C = 0 + (10−0)e^(−t/τ) = 10e^(−t/τ). Pure exponential decay from 10V to 0V."
+        }
+    ]
+}

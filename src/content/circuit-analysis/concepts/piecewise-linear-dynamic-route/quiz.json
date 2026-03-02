@@ -1,0 +1,125 @@
+{
+    "id": "quiz-piecewise-linear-dynamic-route",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The 'dynamic route' in PWL circuits refers to:",
+            "options": [
+                "The circuit's power consumption",
+                "The path traced by the operating point on the PWL characteristic",
+                "The direction of current flow",
+                "The switching sequence"
+            ],
+            "correctAnswer": "The path traced by the operating point on the PWL characteristic",
+            "explanation": "The dynamic route includes both the path (which segment) and direction (which way the operating point moves) on the piecewise-linear characteristic."
+        },
+        {
+            "id": "q2",
+            "prompt": "Step 1 of the PWL solution method is:",
+            "options": [
+                "Find the time constant",
+                "Solve the differential equation",
+                "Identify the initial operating point on the characteristic",
+                "Replace N with Thevenin equivalent"
+            ],
+            "correctAnswer": "Identify the initial operating point on the characteristic",
+            "explanation": "You first locate where the operating point starts on the PWL characteristic using v_C(t₀). This determines which segment is initially active."
+        },
+        {
+            "id": "q3",
+            "prompt": "The direction of motion along the characteristic is determined by:",
+            "options": [
+                "The voltage polarity",
+                "The sign of dv_C/dt = i_C/C",
+                "The resistance value",
+                "The source frequency"
+            ],
+            "correctAnswer": "The sign of dv_C/dt = i_C/C",
+            "explanation": "If i_C > 0, then dv_C/dt > 0 and v_C increases (moves right). If i_C < 0, v_C decreases (moves left). The current tells you the direction."
+        },
+        {
+            "id": "q4",
+            "prompt": "Each PWL segment is replaced by:",
+            "options": [
+                "A short circuit",
+                "Its Thevenin equivalent (source + resistor)",
+                "A current source",
+                "An open circuit"
+            ],
+            "correctAnswer": "Its Thevenin equivalent (source + resistor)",
+            "explanation": "Each straight-line segment of the PWL characteristic corresponds to a linear circuit — a Thevenin equivalent with its own v_oc and R_TH. Then you solve the standard first-order problem."
+        },
+        {
+            "id": "q5",
+            "prompt": "The jump phenomenon occurs at:",
+            "options": [
+                "Any time the switch opens",
+                "Impasse points on the characteristic",
+                "Every segment boundary",
+                "When the source changes"
+            ],
+            "correctAnswer": "Impasse points on the characteristic",
+            "explanation": "An impasse is a point where the operating point cannot continue along the current segment. It jumps horizontally (preserving v_C) to another point on the characteristic."
+        },
+        {
+            "id": "q6",
+            "prompt": "During a jump, which quantity is preserved?",
+            "options": [
+                "Current i",
+                "Power P",
+                "Capacitor voltage v_C (or inductor current i_L)",
+                "Resistor voltage"
+            ],
+            "correctAnswer": "Capacitor voltage v_C (or inductor current i_L)",
+            "explanation": "By the continuity property, v_C(T⁺) = v_C(T⁻). The jump is horizontal on the v-i plane (same v, different i). For RL circuits, i_L is preserved."
+        },
+        {
+            "id": "q7",
+            "prompt": "An ideal diode creates how many operating regions?",
+            "options": [
+                "1",
+                "2 (on/off)",
+                "3",
+                "Infinite"
+            ],
+            "correctAnswer": "2 (on/off)",
+            "explanation": "An ideal diode is the simplest PWL element: forward-biased (short circuit, i > 0) or reverse-biased (open circuit, v < 0). Two segments → two operating regions."
+        },
+        {
+            "id": "q8",
+            "prompt": "The zero-input response of a first-order circuit is:",
+            "options": [
+                "The response to the driving signal only",
+                "x(t₀)·e^(−t/τ) — the initial condition decaying exponentially",
+                "The steady-state value",
+                "Always zero"
+            ],
+            "correctAnswer": "x(t₀)·e^(−t/τ) — the initial condition decaying exponentially",
+            "explanation": "With zero input (x_s = 0), the circuit's response is purely the decay of its initial stored energy: x(t) = x(t₀)·e^(−(t−t₀)/τ). This is the 'natural response.'"
+        },
+        {
+            "id": "q9",
+            "prompt": "The impulse response h(t) of a first-order circuit with time constant τ is:",
+            "options": [
+                "e^(−t/τ)",
+                "(1/τ)·e^(−t/τ) for t > 0",
+                "τ·e^(−t/τ)",
+                "δ(t)"
+            ],
+            "correctAnswer": "(1/τ)·e^(−t/τ) for t > 0",
+            "explanation": "h(t) = (1/τ)e^(−t/τ) for t > 0, zero for t < 0. This is the system's response to a unit impulse δ(t). All other responses can be built from h(t) via convolution."
+        },
+        {
+            "id": "q10",
+            "prompt": "If τ < 0 in one PWL segment, that segment is:",
+            "options": [
+                "Stable — decays",
+                "Unstable — grows exponentially",
+                "Oscillatory",
+                "Impossible"
+            ],
+            "correctAnswer": "Unstable — grows exponentially",
+            "explanation": "Negative τ means e^(−t/τ) = e^(+t/|τ|) → exponential growth. The operating point is repelled from equilibrium and reaches the segment boundary quickly. This is common in circuits with negative resistance regions (tunnel diodes, positive-feedback op-amps)."
+        }
+    ]
+}

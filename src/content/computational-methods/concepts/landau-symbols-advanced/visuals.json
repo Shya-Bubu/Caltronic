@@ -1,0 +1,563 @@
+{
+    "visuals": [
+        {
+            "id": "landau-symbols-overview",
+            "type": "plotly",
+            "title": "The 7 Landau Symbols: Your Complete Asymptotic Toolkit",
+            "traces": [
+                {
+                    "x": [
+                        "O(·)\nUpper\nbound",
+                        "Ω(·)\nLower\nbound",
+                        "Θ(·)\nTight\nbound",
+                        "o(·)\nStrictly\nsmaller",
+                        "ω(·)\nStrictly\nlarger",
+                        "Õ(·)\nIgnore\nlogs",
+                        "Op(·)\nProbab-\nlistic"
+                    ],
+                    "y": [
+                        5,
+                        5,
+                        5,
+                        4,
+                        4,
+                        3,
+                        3
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff",
+                            "#ff99cc",
+                            "#99ccff"
+                        ]
+                    },
+                    "text": [
+                        "|f|≤C|g|",
+                        "|f|≥C|g|",
+                        "C₁|g|≤|f|≤C₂|g|",
+                        "f/g→0",
+                        "f/g→∞",
+                        "O(g·logˡn)",
+                        "Stochastic\nboundedness"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Frequency of use (1-5)",
+                    "range": [
+                        0,
+                        6
+                    ]
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "omega-sorting-bound",
+            "type": "plotly",
+            "title": "Ω(n log n) Sorting Bound: No Algorithm Can Beat This",
+            "traces": [
+                {
+                    "x": [
+                        10,
+                        100,
+                        1000,
+                        10000,
+                        100000
+                    ],
+                    "y": [
+                        33,
+                        664,
+                        9966,
+                        132877,
+                        1661000
+                    ],
+                    "name": "Lower bound: n·log₂(n)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        10,
+                        100,
+                        1000,
+                        10000,
+                        100000
+                    ],
+                    "y": [
+                        35,
+                        700,
+                        10000,
+                        135000,
+                        1700000
+                    ],
+                    "name": "Merge sort (optimal)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                },
+                {
+                    "x": [
+                        10,
+                        100,
+                        1000,
+                        10000,
+                        100000
+                    ],
+                    "y": [
+                        100,
+                        10000,
+                        1000000,
+                        100000000,
+                        10000000000
+                    ],
+                    "name": "Bubble sort O(n²)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "n",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Comparisons",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "theta-sandwich",
+            "type": "plotly",
+            "title": "Big-Θ: The Sandwich — C₁·g(n) ≤ f(n) ≤ C₂·g(n)",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        10,
+                        50,
+                        100,
+                        200
+                    ],
+                    "y": [
+                        10,
+                        350,
+                        12502,
+                        50102,
+                        200202
+                    ],
+                    "name": "f(n) = 3n² + 5n + 2",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        10,
+                        50,
+                        100,
+                        200
+                    ],
+                    "y": [
+                        10,
+                        1000,
+                        25000,
+                        100000,
+                        400000
+                    ],
+                    "name": "C₂·n² = 10n² (upper)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        10,
+                        50,
+                        100,
+                        200
+                    ],
+                    "y": [
+                        3,
+                        300,
+                        7500,
+                        30000,
+                        120000
+                    ],
+                    "name": "C₁·n² = 3n² (lower)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "n"
+                },
+                "yaxis": {
+                    "title": "Value",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "little-o-vs-big-o",
+            "type": "plotly",
+            "title": "Little-o vs Big-O: n = o(n²) but n ≠ o(n)",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1,
+                        0.2,
+                        0.1,
+                        0.05,
+                        0.02,
+                        0.01
+                    ],
+                    "name": "n/n² = 1/n → 0 ✓ (so n = o(n²))",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "n/n = 1 → 1 ✗ (so n ≠ o(n))",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "n"
+                },
+                "yaxis": {
+                    "title": "|f(n)/g(n)|"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "soft-o-example",
+            "type": "v3-plot",
+            "title": "Soft-O: Why Logarithmic Factors Are Often Negligible",
+            "config": {
+                "xLabel": "n",
+                "yLabel": "Value",
+                "curves": [
+                    {
+                        "label": "n² (pure quadratic)",
+                        "data": [
+                            [
+                                10,
+                                100
+                            ],
+                            [
+                                100,
+                                10000
+                            ],
+                            [
+                                1000,
+                                1000000
+                            ],
+                            [
+                                10000,
+                                100000000
+                            ]
+                        ],
+                        "color": "#6b62ff"
+                    },
+                    {
+                        "label": "n²·log(n) (with log factor)",
+                        "data": [
+                            [
+                                10,
+                                332
+                            ],
+                            [
+                                100,
+                                66400
+                            ],
+                            [
+                                1000,
+                                9969000
+                            ],
+                            [
+                                10000,
+                                1329000000
+                            ]
+                        ],
+                        "color": "#ff6b8a"
+                    },
+                    {
+                        "label": "log factor alone",
+                        "data": [
+                            [
+                                10,
+                                3.32
+                            ],
+                            [
+                                100,
+                                6.64
+                            ],
+                            [
+                                1000,
+                                9.97
+                            ],
+                            [
+                                10000,
+                                13.29
+                            ]
+                        ],
+                        "color": "#2fbf8f"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "symbol-relationships",
+            "type": "plotly",
+            "title": "Strength Hierarchy: From Weakest to Strongest Statement",
+            "traces": [
+                {
+                    "x": [
+                        "f = O(g)\n(upper\nbound)",
+                        "f = Ω(g)\n(lower\nbound)",
+                        "f = o(g)\n(strictly\nsmaller)",
+                        "f = Θ(g)\n(tight\nbound)",
+                        "f ~ g\n(asymptotic\nequivalence)"
+                    ],
+                    "y": [
+                        2,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#f0a03a",
+                            "#2fbf8f",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "|f/g| ≤ C",
+                        "|f/g| ≥ C",
+                        "|f/g| → 0",
+                        "C₁ ≤ |f/g| ≤ C₂",
+                        "|f/g| → 1"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Precision level"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "practical-usage-guide",
+            "type": "plotly",
+            "title": "When to Use Each Symbol: Practical Scenarios",
+            "traces": [
+                {
+                    "x": [
+                        "Worst-case\nalgorithm\ncost",
+                        "Proving\nimpossibility\nresults",
+                        "Exact\nalgorithm\nscaling",
+                        "Taylor\ntruncation\nerror",
+                        "Monte Carlo\nsampling\nerror"
+                    ],
+                    "y": [
+                        5,
+                        4,
+                        4.5,
+                        4,
+                        3.5
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "Use O(·)",
+                        "Use Ω(·)",
+                        "Use Θ(·)",
+                        "Use O(·)\nor o(·)",
+                        "Use Op(·)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Frequency",
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "asymptotic-equivalence-demo",
+            "type": "v3-plot",
+            "title": "~ (Asymptotic Equivalence): f/g → 1 for Large n",
+            "config": {
+                "xLabel": "n",
+                "yLabel": "f(n)/g(n) ratio",
+                "curves": [
+                    {
+                        "label": "(n²+n)/n² → 1 (f ~ g)",
+                        "data": [
+                            [
+                                1,
+                                2
+                            ],
+                            [
+                                5,
+                                1.2
+                            ],
+                            [
+                                10,
+                                1.1
+                            ],
+                            [
+                                50,
+                                1.02
+                            ],
+                            [
+                                100,
+                                1.01
+                            ],
+                            [
+                                500,
+                                1.002
+                            ]
+                        ],
+                        "color": "#2fbf8f"
+                    },
+                    {
+                        "label": "3n²/n² → 3 (f ≠ g, but f = Θ(g))",
+                        "data": [
+                            [
+                                1,
+                                3
+                            ],
+                            [
+                                5,
+                                3
+                            ],
+                            [
+                                10,
+                                3
+                            ],
+                            [
+                                50,
+                                3
+                            ],
+                            [
+                                100,
+                                3
+                            ],
+                            [
+                                500,
+                                3
+                            ]
+                        ],
+                        "color": "#ff6b8a"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,611 @@
+{
+    "visuals": [
+        {
+            "id": "dynamic-route-illustration",
+            "type": "plotly",
+            "title": "Dynamic Route: Operating Point Traces a Path on the PWL Characteristic",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        0,
+                        2,
+                        4,
+                        6
+                    ],
+                    "y": [
+                        -3,
+                        -1,
+                        1,
+                        0.5,
+                        -0.5
+                    ],
+                    "name": "PWL characteristic (v-i)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        2.5,
+                        2,
+                        1,
+                        0
+                    ],
+                    "y": [
+                        0.75,
+                        1,
+                        0,
+                        -1
+                    ],
+                    "name": "Dynamic route →",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    },
+                    "marker": {
+                        "size": 10,
+                        "symbol": "arrow-right"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "v_C (V)"
+                },
+                "yaxis": {
+                    "title": "i (mA)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "pwl-element-examples",
+            "type": "plotly",
+            "title": "Piecewise-Linear Models: Ideal Diode, Zener, Op-Amp",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        0,
+                        0,
+                        2
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        5,
+                        5
+                    ],
+                    "name": "Ideal diode",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        -5,
+                        -3,
+                        -3,
+                        0,
+                        0.7,
+                        0.7,
+                        3
+                    ],
+                    "y": [
+                        -5,
+                        -5,
+                        0,
+                        0,
+                        0,
+                        5,
+                        5
+                    ],
+                    "name": "Zener diode (3V)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "v (V)"
+                },
+                "yaxis": {
+                    "title": "i (mA)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "initial-point-identification",
+            "type": "plotly",
+            "title": "Step 1: Locate Initial Point v_C(t₀) on the Characteristic",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        2,
+                        5
+                    ],
+                    "y": [
+                        -1,
+                        1,
+                        0.5,
+                        -1
+                    ],
+                    "name": "PWL characteristic",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        2.5
+                    ],
+                    "y": [
+                        0.25
+                    ],
+                    "name": "Initial: v_C(t₀) = 2.5V",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "v (V)"
+                },
+                "yaxis": {
+                    "title": "i (mA)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "dynamic-route-direction",
+            "type": "plotly",
+            "title": "Step 2: Direction from dv_C/dt = i_C/C (i>0 → right, i<0 → left)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        2,
+                        5
+                    ],
+                    "y": [
+                        -1,
+                        1,
+                        0.5,
+                        -1
+                    ],
+                    "name": "Characteristic",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        2.5,
+                        3,
+                        3.5,
+                        4
+                    ],
+                    "y": [
+                        0.25,
+                        0,
+                        -0.25,
+                        -0.5
+                    ],
+                    "name": "Route: i<0, moving left ←",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "v_C (V)"
+                },
+                "yaxis": {
+                    "title": "i (mA)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "segment-by-segment-solution",
+            "type": "plotly",
+            "title": "Step 3: Each PWL Segment = Different Thevenin → Different τ and v_oc",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        32,
+                        32,
+                        100,
+                        200
+                    ],
+                    "y": [
+                        2.5,
+                        2.0,
+                        2.0,
+                        0.74,
+                        0.27
+                    ],
+                    "name": "v_C(t): segment 1 then segment 2",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (μs)"
+                },
+                "yaxis": {
+                    "title": "v_C (V)"
+                },
+                "showlegend": true,
+                "shapes": [
+                    {
+                        "type": "line",
+                        "x0": 32,
+                        "x1": 32,
+                        "y0": 0,
+                        "y1": 3,
+                        "line": {
+                            "color": "#ff6b8a",
+                            "dash": "dot"
+                        }
+                    }
+                ],
+                "annotations": [
+                    {
+                        "x": 16,
+                        "y": 2.8,
+                        "text": "Seg 1: τ=−62.5μs",
+                        "showarrow": false
+                    },
+                    {
+                        "x": 80,
+                        "y": 1.5,
+                        "text": "Seg 2: τ=100μs",
+                        "showarrow": false
+                    }
+                ]
+            }
+        },
+        {
+            "id": "pwl-worked-example",
+            "type": "circuit-schematic",
+            "title": "RC Circuit with Piecewise-Linear Network N",
+            "elements": [
+                {
+                    "type": "capacitor",
+                    "id": "C",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        224
+                    ],
+                    "label": "C"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ],
+                    "label": "R₁"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        64,
+                        224
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        224
+                    ],
+                    "to": [
+                        192,
+                        224
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "pwl-waveform-result",
+            "type": "plotly",
+            "title": "Complete Waveform: Unstable Growth → Breakpoint → Stable Decay",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        15,
+                        20,
+                        25,
+                        31.9
+                    ],
+                    "y": [
+                        2.5,
+                        2.44,
+                        2.37,
+                        2.29,
+                        2.19,
+                        2.09,
+                        2.0
+                    ],
+                    "name": "Segment 1: unstable growth",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        31.9,
+                        50,
+                        80,
+                        120,
+                        200,
+                        300
+                    ],
+                    "y": [
+                        2.0,
+                        1.67,
+                        1.21,
+                        0.83,
+                        0.37,
+                        0.14
+                    ],
+                    "name": "Segment 2: stable decay",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        31.9
+                    ],
+                    "y": [
+                        2.0
+                    ],
+                    "name": "Breakpoint at t₁ = 31.9 μs",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 12,
+                        "symbol": "circle"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (μs)"
+                },
+                "yaxis": {
+                    "title": "v_C (V)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "jump-phenomenon",
+            "type": "plotly",
+            "title": "Jump Phenomenon: Operating Point Jumps Horizontally (v_C Preserved)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        2,
+                        4,
+                        6
+                    ],
+                    "y": [
+                        -2,
+                        1,
+                        -1,
+                        0,
+                        2
+                    ],
+                    "name": "PWL characteristic",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        2,
+                        2
+                    ],
+                    "y": [
+                        1,
+                        -1
+                    ],
+                    "name": "Jump: Q → Q' (same v_C!)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3,
+                        "dash": "dash"
+                    },
+                    "marker": {
+                        "size": 12,
+                        "symbol": "circle"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "v (V)"
+                },
+                "yaxis": {
+                    "title": "i (mA)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 2.3,
+                        "y": 1,
+                        "text": "Q (impasse)",
+                        "showarrow": true,
+                        "arrowhead": 2
+                    },
+                    {
+                        "x": 2.3,
+                        "y": -1,
+                        "text": "Q'",
+                        "showarrow": true,
+                        "arrowhead": 2
+                    }
+                ]
+            }
+        },
+        {
+            "id": "zero-input-zero-state",
+            "type": "plotly",
+            "title": "General Response = Zero-Input + Zero-State Components",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        1.84,
+                        0.68,
+                        0.25,
+                        0.09,
+                        0.03
+                    ],
+                    "name": "Zero-input: x(t₀)·e^(−t/τ)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        3.16,
+                        5.32,
+                        6.75,
+                        7.73,
+                        8.40
+                    ],
+                    "name": "Zero-state: ∫h(t−t')·x_s(t')dt'",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        5.0,
+                        6.0,
+                        7.0,
+                        7.82,
+                        8.43
+                    ],
+                    "name": "Total: x(t) = ZI + ZS",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "falstad-pwl-circuit",
+            "type": "falstad-sim",
+            "title": "Interactive: RC Circuit with Diode (Simplest Piecewise-Linear Element)",
+            "description": "A diode creates two operating regions. Watch how the capacitor charges asymmetrically through the diode.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 96 160 288 0 1 50.0 5.0 0.0 0.0 0.5\nr 160 96 304 96 0 1000\nd 304 96 304 192 2 default\nc 304 192 304 288 0 10e-6 0\nw 304 288 160 288 0\ng 160 288 160 320 0\no 3 64 0 4099 5 0.05 0 -1\n",
+            "height": 450
+        }
+    ]
+}

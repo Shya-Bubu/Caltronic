@@ -1,0 +1,125 @@
+{
+    "id": "quiz-capacitor-inductor-fundamentals",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The voltage-current relationship for a capacitor is:",
+            "options": [
+                "v = Ri",
+                "i = C·dv/dt",
+                "v = L·di/dt",
+                "P = IV"
+            ],
+            "correctAnswer": "i = C·dv/dt",
+            "explanation": "The capacitor current is proportional to the rate of change of voltage. If voltage is constant, no current flows — the capacitor is an open circuit at DC. This is the fundamental equation for capacitive circuits."
+        },
+        {
+            "id": "q2",
+            "prompt": "At DC steady state, a capacitor behaves as:",
+            "options": [
+                "A short circuit",
+                "An open circuit",
+                "A resistor",
+                "A voltage source"
+            ],
+            "correctAnswer": "An open circuit",
+            "explanation": "At DC, dv/dt = 0, so i = C·0 = 0. No current flows — the capacitor acts as an open circuit. This is how you find steady-state values: replace C with open circuit."
+        },
+        {
+            "id": "q3",
+            "prompt": "At DC steady state, an inductor behaves as:",
+            "options": [
+                "An open circuit",
+                "A short circuit",
+                "A capacitor",
+                "A current source"
+            ],
+            "correctAnswer": "A short circuit",
+            "explanation": "At DC, di/dt = 0, so v = L·0 = 0. Zero voltage across it — the inductor acts as a short circuit (a wire). Replace L with short circuit for steady-state analysis."
+        },
+        {
+            "id": "q4",
+            "prompt": "The energy stored in a capacitor with C = 10 μF and v = 5 V is:",
+            "options": [
+                "25 μJ",
+                "50 μJ",
+                "125 μJ",
+                "250 μJ"
+            ],
+            "correctAnswer": "125 μJ",
+            "explanation": "E = ½Cv² = ½ × 10×10⁻⁶ × 5² = ½ × 10⁻⁵ × 25 = 125 × 10⁻⁶ J = 125 μJ. Energy is proportional to the square of voltage."
+        },
+        {
+            "id": "q5",
+            "prompt": "The 'memory' property of capacitors and inductors means:",
+            "options": [
+                "They store data like RAM",
+                "Their state depends on the entire past current/voltage history",
+                "They remember the last circuit they were in",
+                "Their capacitance changes over time"
+            ],
+            "correctAnswer": "Their state depends on the entire past current/voltage history",
+            "explanation": "v(t) = v(t₀) + (1/C)∫i·dτ — the voltage depends on the integral of all past current. Unlike a resistor (v depends only on current NOW), capacitors and inductors have memory via integration."
+        },
+        {
+            "id": "q6",
+            "prompt": "The dual of a capacitor is:",
+            "options": [
+                "A resistor",
+                "An inductor",
+                "A voltage source",
+                "A memristor"
+            ],
+            "correctAnswer": "An inductor",
+            "explanation": "Duality swaps v↔i, C↔L, series↔parallel. The capacitor equation i = C·dv/dt becomes v = L·di/dt (the inductor equation) under this swap. Every capacitor theorem has a dual inductor theorem."
+        },
+        {
+            "id": "q7",
+            "prompt": "For a nonlinear capacitor, the small-signal capacitance C(v) is:",
+            "options": [
+                "q/v",
+                "dq/dv at the operating point v",
+                "Always constant",
+                "Undefined"
+            ],
+            "correctAnswer": "dq/dv at the operating point v",
+            "explanation": "C(v) ≜ dq̂(v)/dv is the slope of the q-v characteristic at operating point v. For linear capacitors this is constant; for nonlinear ones (like varactors), it varies with voltage."
+        },
+        {
+            "id": "q8",
+            "prompt": "A capacitor with v(t) = 3cos(100t) V and C = 1 μF has current:",
+            "options": [
+                "3cos(100t) μA",
+                "−300sin(100t) μA",
+                "300cos(100t) μA",
+                "3sin(100t) mA"
+            ],
+            "correctAnswer": "−300sin(100t) μA",
+            "explanation": "i = C·dv/dt = 10⁻⁶ × d/dt[3cos(100t)] = 10⁻⁶ × (−300sin(100t)) = −300sin(100t) μA. Current leads voltage by 90° in a capacitor."
+        },
+        {
+            "id": "q9",
+            "prompt": "The memristor relates which two circuit variables?",
+            "options": [
+                "v and i",
+                "q and v",
+                "Φ and i",
+                "Φ and q"
+            ],
+            "correctAnswer": "Φ and q",
+            "explanation": "The memristor (postulated by Chua in 1971) links flux Φ and charge q — the 'missing' relationship. Resistor: v↔i, Capacitor: q↔v, Inductor: Φ↔i, Memristor: Φ↔q. This completes the symmetry."
+        },
+        {
+            "id": "q10",
+            "prompt": "If you connect a 5V DC source directly across an ideal capacitor (no resistance), the current is:",
+            "options": [
+                "5/C amps",
+                "Zero",
+                "Infinite (impulse)",
+                "C × 5 amps"
+            ],
+            "correctAnswer": "Infinite (impulse)",
+            "explanation": "The voltage would step from 0 to 5V instantaneously, so dv/dt → ∞ and i = C·dv/dt → ∞. This physical impossibility (in real circuits, wire resistance limits the current) leads to the impulse function δ(t) — studied in the next concept."
+        }
+    ]
+}

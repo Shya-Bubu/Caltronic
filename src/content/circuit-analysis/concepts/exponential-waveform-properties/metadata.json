@@ -1,0 +1,11 @@
+{
+    "id": "exponential-waveform-properties",
+    "title": "Properties of the Exponential Waveform",
+    "slug": "exponential-waveform-properties",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

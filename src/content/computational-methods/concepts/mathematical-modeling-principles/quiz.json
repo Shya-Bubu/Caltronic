@@ -1,0 +1,125 @@
+{
+    "id": "quiz-mathematical-modeling-principles",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is mathematical modeling?",
+            "options": [
+                "Writing code to solve equations",
+                "Translating real-world phenomena into equations balancing accuracy and tractability",
+                "Measuring physical systems",
+                "Running simulations"
+            ],
+            "correctAnswer": "Translating real-world phenomena into equations balancing accuracy and tractability",
+            "explanation": "Mathematical modeling is the essential first step before any computation. It involves deciding what physics to include, what assumptions to make, and translating the result into mathematical equations that can be solved computationally."
+        },
+        {
+            "id": "q2",
+            "prompt": "Which of these is NOT an elementary assumption for a simple rectifier circuit?",
+            "options": [
+                "Wires have no parasitic capacitance",
+                "Operating frequency is low",
+                "The diode is modeled using quantum mechanics",
+                "Resistance is fixed"
+            ],
+            "correctAnswer": "The diode is modeled using quantum mechanics",
+            "explanation": "Quantum mechanical models are far too detailed for standard circuit analysis. The elementary assumptions listed in the PDF include: zero parasitic L/C/R in wires, low frequency operation, no EMI, reasonable voltage/current range, and fixed resistance values."
+        },
+        {
+            "id": "q3",
+            "prompt": "The load line equation for a resistive circuit with source Vs and total resistance (r+R) is:",
+            "options": [
+                "I = Vs/R",
+                "I = (−1/(r+R))V_D + Vs/(r+R)",
+                "V_D = IR",
+                "I = Is·e^(V/Vt)"
+            ],
+            "correctAnswer": "I = (−1/(r+R))V_D + Vs/(r+R)",
+            "explanation": "From KVL: Vs = Ir + V_D + IR, giving I = (−1/(r+R))V_D + Vs/(r+R). This is a straight line (y = mx + c) in the V_D-I plane: slope m = −1/(r+R), intercept c = Vs/(r+R)."
+        },
+        {
+            "id": "q4",
+            "prompt": "On the load line, when I = 0:",
+            "options": [
+                "V_D = 0",
+                "V_D = Vs",
+                "V_D = IR",
+                "V_D = −Vs"
+            ],
+            "correctAnswer": "V_D = Vs",
+            "explanation": "Setting I = 0 in the load line equation: I = (−1/(r+R))V_D + Vs/(r+R) = 0, gives V_D = Vs. This is the open-circuit condition — no current flows, so the diode sees the full source voltage."
+        },
+        {
+            "id": "q5",
+            "prompt": "A simple model is preferred over an elaborate model when:",
+            "options": [
+                "Always",
+                "You need quick insights and the dominant phenomena are captured",
+                "You need exact predictions matching measurements exactly",
+                "Never — always use the most detailed model"
+            ],
+            "correctAnswer": "You need quick insights and the dominant phenomena are captured",
+            "explanation": "Simple models are appropriate for design exploration, back-of-envelope calculations, and early-stage analysis where speed matters more than precision. Elaborate models are needed for final verification and predictive accuracy."
+        },
+        {
+            "id": "q6",
+            "prompt": "What does model validation involve?",
+            "options": [
+                "Making the model more complex",
+                "Comparing model predictions against measurements or reference solutions",
+                "Running the model faster",
+                "Adding more parameters"
+            ],
+            "correctAnswer": "Comparing model predictions against measurements or reference solutions",
+            "explanation": "Validation checks whether the model accurately represents reality. You compare predictions against measurements, higher-fidelity models, or known analytical solutions. If the model fails validation, you refine the assumptions — not the algorithm."
+        },
+        {
+            "id": "q7",
+            "prompt": "The assumption 'wires have zero parasitic capacitance' fails when:",
+            "options": [
+                "The circuit is DC only",
+                "The operating frequency is very high (>>100 MHz)",
+                "The resistor value is large",
+                "The voltage is small"
+            ],
+            "correctAnswer": "The operating frequency is very high (>>100 MHz)",
+            "explanation": "At high frequencies, wire inductance (~1 nH/mm) and capacitance create significant impedances. A 1 cm wire at 1 GHz has reactance of ~60 Ω from its ~10 nH inductance. PCB traces become transmission lines above ~100 MHz."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the modeling pipeline: Physical System → ? → Mathematical Model → Algorithm → Solution",
+            "options": [
+                "Measurement",
+                "Validation",
+                "Assumptions",
+                "Simulation"
+            ],
+            "correctAnswer": "Assumptions",
+            "explanation": "Assumptions are the bridge between the physical system and the mathematical model. They determine which effects to include (e.g., resistance) and which to ignore (e.g., parasitic capacitance). The entire model's validity depends on these assumptions."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why is 'the best model is the simplest one that answers your question' a good engineering principle?",
+            "options": [
+                "Because simple models are always correct",
+                "Because unnecessary complexity wastes computation and can introduce errors without improving answers",
+                "Because elaborate models don't work",
+                "Because physicists prefer simple models"
+            ],
+            "correctAnswer": "Because unnecessary complexity wastes computation and can introduce errors without improving answers",
+            "explanation": "Adding unnecessary detail increases computation time, requires more parameters (which may be uncertain), and can introduce numerical difficulties — all without improving the answer to the actual question. Occam's razor applies to engineering models."
+        },
+        {
+            "id": "q10",
+            "prompt": "If a model fails validation, the correct response is to:",
+            "options": [
+                "Use a more powerful computer",
+                "Run more iterations",
+                "Refine the model assumptions and re-derive",
+                "Ignore the discrepancy"
+            ],
+            "correctAnswer": "Refine the model assumptions and re-derive",
+            "explanation": "A validation failure means the model doesn't accurately represent reality. No amount of computational power or algorithmic sophistication can fix a wrong model. You must revisit the assumptions, identify which physics was incorrectly omitted or simplified, and refine the model."
+        }
+    ]
+}

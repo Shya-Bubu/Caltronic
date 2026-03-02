@@ -1,0 +1,11 @@
+{
+    "id": "energy-storage-lossless",
+    "title": "Energy Storage and the Lossless Property",
+    "slug": "energy-storage-lossless",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

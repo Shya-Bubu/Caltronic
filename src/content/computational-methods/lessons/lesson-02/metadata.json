@@ -1,0 +1,13 @@
+{
+    "id": "lesson-02",
+    "title": "Distinguishing Core Computational Concepts",
+    "prerequisites": [
+        "lesson-01"
+    ],
+    "concepts": [
+        "approximation-methods",
+        "discretization-methods",
+        "linearization-methods",
+        "random-sampling-methods"
+    ]
+}

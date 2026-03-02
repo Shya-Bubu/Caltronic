@@ -1,0 +1,588 @@
+{
+    "visuals": [
+        {
+            "id": "continuity-illustration",
+            "type": "plotly",
+            "title": "Continuity: Capacitor Voltage Cannot Jump at Switching Instant",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        -1,
+                        0,
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.63,
+                        0.86,
+                        0.95
+                    ],
+                    "name": "v_C(t): continuous across t=0",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        -2,
+                        -1,
+                        0,
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        1,
+                        0.37,
+                        0.14,
+                        0.05
+                    ],
+                    "name": "i(t): can jump at t=0",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "name": "v_C(0⁻) = v_C(0⁺) = 0",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "Value (normalized)"
+                },
+                "showlegend": true,
+                "shapes": [
+                    {
+                        "type": "line",
+                        "x0": 0,
+                        "x1": 0,
+                        "y0": -0.2,
+                        "y1": 1.1,
+                        "line": {
+                            "color": "gray",
+                            "dash": "dot"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "capacitor-continuity-proof",
+            "type": "plotly",
+            "title": "Proof: |v(T+dt) − v(T)| ≤ M·dt/C → 0 as dt → 0",
+            "traces": [
+                {
+                    "x": [
+                        0.01,
+                        0.05,
+                        0.1,
+                        0.2,
+                        0.5,
+                        1.0
+                    ],
+                    "y": [
+                        0.01,
+                        0.05,
+                        0.1,
+                        0.2,
+                        0.5,
+                        1.0
+                    ],
+                    "name": "Upper bound M·dt/C",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        0.01,
+                        0.05,
+                        0.1,
+                        0.2,
+                        0.5,
+                        1.0
+                    ],
+                    "y": [
+                        0.005,
+                        0.03,
+                        0.07,
+                        0.15,
+                        0.4,
+                        0.9
+                    ],
+                    "name": "Actual |Δv|",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "dt (interval width)"
+                },
+                "yaxis": {
+                    "title": "|v(T+dt) − v(T)|"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "inductor-continuity",
+            "type": "plotly",
+            "title": "Inductor Current Continuity: i_L(T⁻) = i_L(T⁺)",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        -1,
+                        0,
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "y": [
+                        2,
+                        2,
+                        2,
+                        2,
+                        1.26,
+                        0.74,
+                        0.54
+                    ],
+                    "name": "i_L(t): continuous, decays after switch",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        2
+                    ],
+                    "name": "i_L(0⁺) = i_L(0⁻) = 2A",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "i_L (A)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "switching-example",
+            "type": "circuit-schematic",
+            "title": "RC Switching Circuit: Switch Closes at t = 0",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Vs",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "10V"
+                },
+                {
+                    "type": "switch",
+                    "id": "S",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        160,
+                        64
+                    ],
+                    "label": "S (t=0)"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        160,
+                        64
+                    ],
+                    "to": [
+                        288,
+                        64
+                    ],
+                    "label": "1kΩ"
+                },
+                {
+                    "type": "capacitor",
+                    "id": "C",
+                    "from": [
+                        288,
+                        64
+                    ],
+                    "to": [
+                        288,
+                        256
+                    ],
+                    "label": "1μF"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        288,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "falstad-switch-rc",
+            "type": "falstad-sim",
+            "title": "Interactive: Watch v_C Stay Continuous When Switch Flips",
+            "description": "Click the switch to observe that capacitor voltage changes smoothly — it never jumps.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 96 160 288 0 0 40.0 10.0 0.0 0.0 0.5\ns 160 96 304 96 0 0 false\nr 304 96 304 192 0 1000\nc 304 192 304 288 0 1e-6 0\nw 304 288 160 288 0\ng 160 288 160 320 0\no 3 128 0 4099 10 0.05 0 -1\n",
+            "height": 450
+        },
+        {
+            "id": "impulse-derivation",
+            "type": "plotly",
+            "title": "Impulse Derivation: Rectangular Pulse → Δ→0 → δ(t)",
+            "traces": [
+                {
+                    "x": [
+                        -0.5,
+                        0,
+                        0,
+                        0.5,
+                        0.5,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        2,
+                        2,
+                        0,
+                        0
+                    ],
+                    "name": "Δ = 0.5: height = 2",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#62c6ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        -0.5,
+                        0,
+                        0,
+                        0.2,
+                        0.2,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        5,
+                        5,
+                        0,
+                        0
+                    ],
+                    "name": "Δ = 0.2: height = 5",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        -0.5,
+                        0,
+                        0,
+                        0.05,
+                        0.05,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        20,
+                        20,
+                        0,
+                        0
+                    ],
+                    "name": "Δ = 0.05: height = 20",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time"
+                },
+                "yaxis": {
+                    "title": "Current (area = 1 always)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0.25,
+                        "y": 18,
+                        "text": "Area = 1 (constant)",
+                        "showarrow": false
+                    }
+                ]
+            }
+        },
+        {
+            "id": "impulse-limiting-process",
+            "type": "plotly",
+            "title": "As Δ → 0: Width → 0, Height → ∞, Area = CE = Constant",
+            "traces": [
+                {
+                    "x": [
+                        0.01,
+                        0.05,
+                        0.1,
+                        0.2,
+                        0.5,
+                        1.0
+                    ],
+                    "y": [
+                        100,
+                        20,
+                        10,
+                        5,
+                        2,
+                        1
+                    ],
+                    "name": "Pulse height = CE/Δ",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        0.01,
+                        0.05,
+                        0.1,
+                        0.2,
+                        0.5,
+                        1.0
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "Area = CE = constant",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Δ (pulse width)"
+                },
+                "yaxis": {
+                    "title": "Value",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "impulse-to-step",
+            "type": "plotly",
+            "title": "Impulse → Step: Current Impulse Produces Voltage Step on Capacitor",
+            "traces": [
+                {
+                    "x": [
+                        -1,
+                        -0.01,
+                        0,
+                        0.01,
+                        1,
+                        2,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        10,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "name": "i(t) = Aδ(t) (current impulse)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        -1,
+                        -0.01,
+                        0,
+                        0.01,
+                        1,
+                        2,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        5,
+                        5,
+                        5,
+                        5
+                    ],
+                    "name": "v_C(t) = (A/C)·u(t) (voltage step)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time"
+                },
+                "yaxis": {
+                    "title": "Value"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "impulse-response-falstad",
+            "type": "falstad-sim",
+            "title": "Interactive: Narrow Pulse Approximation of Impulse → Capacitor Step",
+            "description": "A very short pulse of current charges the capacitor almost instantaneously, approximating an impulse response.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 96 160 288 0 2 100000.0 5.0 0.0 0.0 0.001\nr 160 96 304 96 0 100\nc 304 96 304 288 0 1e-6 0\nw 304 288 160 288 0\ng 160 288 160 320 0\no 2 128 0 4099 10 0.05 0 -1\n",
+            "height": 450
+        },
+        {
+            "id": "substitution-theorem",
+            "type": "block-diagram",
+            "title": "Substitution Theorem: Replace Element with Equivalent Source",
+            "blocks": [
+                {
+                    "id": "nr",
+                    "label": "Resistive\nNetwork N_R",
+                    "position": "left"
+                },
+                {
+                    "id": "nl",
+                    "label": "Any Element\nN_L (C or L)",
+                    "position": "center-left"
+                },
+                {
+                    "id": "arrow",
+                    "label": "→",
+                    "position": "center"
+                },
+                {
+                    "id": "nr2",
+                    "label": "Same N_R",
+                    "position": "center-right"
+                },
+                {
+                    "id": "vs",
+                    "label": "Source\nv̂(t) or î(t)",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "nr",
+                    "to": "nl"
+                },
+                {
+                    "from": "nr2",
+                    "to": "vs"
+                }
+            ]
+        }
+    ]
+}

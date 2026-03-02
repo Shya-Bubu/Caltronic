@@ -1,0 +1,615 @@
+{
+    "visuals": [
+        {
+            "id": "tangent-rule",
+            "type": "plotly",
+            "title": "Tangent Rule: Tangent at t₀ Reaches x(∞) at Exactly t₀ + τ",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "x(t) = 10(1−e^(−t/τ))",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        10
+                    ],
+                    "name": "Tangent at t=0: slope = [x(∞)−x(0)]/τ",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        1
+                    ],
+                    "y": [
+                        10
+                    ],
+                    "name": "Tangent hits x(∞) at t = τ",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 12,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "sixty-three-percent-rule",
+            "type": "plotly",
+            "title": "63% Rule: Distance Remaining Drops by Factor e⁻¹ ≈ 0.368 Each τ",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        100,
+                        36.8,
+                        13.5,
+                        5.0,
+                        1.8,
+                        0.7
+                    ],
+                    "name": "% remaining",
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ff6b8a",
+                            "#f0a03a",
+                            "#2fbf8f",
+                            "#62c6ff",
+                            "#6b62ff",
+                            "#99ccff"
+                        ]
+                    },
+                    "text": [
+                        "100%",
+                        "36.8%",
+                        "13.5%",
+                        "5.0%",
+                        "1.8%",
+                        "0.7%"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (multiples of τ)"
+                },
+                "yaxis": {
+                    "title": "Distance remaining (%)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "elapsed-time-formula",
+            "type": "plotly",
+            "title": "Elapsed Time: t_k − t_j = τ·ln[(x(t_j)−x(∞))/(x(t_k)−x(∞))]",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "x(t)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        1
+                    ],
+                    "y": [
+                        0,
+                        6.32
+                    ],
+                    "name": "",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1,
+                        "dash": "dot"
+                    }
+                },
+                {
+                    "x": [
+                        3,
+                        3
+                    ],
+                    "y": [
+                        0,
+                        9.50
+                    ],
+                    "name": "",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1,
+                        "dash": "dot"
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        3
+                    ],
+                    "y": [
+                        6.32,
+                        9.50
+                    ],
+                    "name": "Elapsed: Δt = τ·ln(3.68/0.50) = 2τ",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 12,
+                        "symbol": "circle"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "rise-time",
+            "type": "plotly",
+            "title": "Rise Time: t_r = 2.2τ (from 10% to 90% of Steady State)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        3.93,
+                        6.32,
+                        7.77,
+                        8.65,
+                        9.18,
+                        9.50,
+                        9.70,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "x(t)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
+                    "name": "10% level",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        9,
+                        9
+                    ],
+                    "name": "90% level",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "x(t) (V)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 1.1,
+                        "y": 5,
+                        "text": "t_r = 2.2τ",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 50,
+                        "ay": -30
+                    }
+                ]
+            }
+        },
+        {
+            "id": "inspection-method-demo",
+            "type": "plotly",
+            "title": "Three Parameters Determine Everything: x(t₀), x(∞), and τ",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        3,
+                        5.58,
+                        7.47,
+                        8.78,
+                        9.69,
+                        10.3
+                    ],
+                    "name": "x(0)=3, x(∞)=12, τ=2ms",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        8,
+                        6.53,
+                        5.47,
+                        4.69,
+                        4.12,
+                        3.72
+                    ],
+                    "name": "x(0)=8, x(∞)=3, τ=2ms",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "substitution-theorem-all-branches",
+            "type": "plotly",
+            "title": "All Branch Quantities Follow Same τ (Different x₀ and x∞)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "v_C(t)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        3.68,
+                        1.35,
+                        0.50,
+                        0.18,
+                        0.07
+                    ],
+                    "name": "v_R(t)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        3.68,
+                        1.35,
+                        0.50,
+                        0.18,
+                        0.07
+                    ],
+                    "name": "i(t)×R",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "Value (V)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "stable-vs-unstable",
+            "type": "plotly",
+            "title": "Stable (τ>0) vs. Unstable (τ<0): Converge vs. Diverge",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        3.68,
+                        1.35,
+                        0.50,
+                        0.18,
+                        0.07
+                    ],
+                    "name": "Stable: τ > 0 (decays)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0.07,
+                        0.18,
+                        0.50,
+                        1.35,
+                        3.68,
+                        10
+                    ],
+                    "name": "Unstable: τ < 0 (grows)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (|τ|)"
+                },
+                "yaxis": {
+                    "title": "|x(t) − x(∞)|"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "falstad-stable-opamp",
+            "type": "falstad-sim",
+            "title": "Interactive: Stable vs. Unstable Op-Amp Circuit",
+            "description": "Negative feedback creates stability. Change to positive feedback to see instability (output saturates).",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 96 160 288 0 0 40.0 1.0 0.0 0.0 0.5\nr 160 96 304 96 0 10000\nc 304 96 304 288 0 3e-6 0\nw 304 288 160 288 0\ng 160 288 160 320 0\no 2 128 0 4099 5 0.05 0 -1\n",
+            "height": 450
+        },
+        {
+            "id": "piecewise-constant-response",
+            "type": "plotly",
+            "title": "Piecewise-Constant Input: Chain Solutions Segment by Segment",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.50,
+                        6.01,
+                        3.73,
+                        2.37,
+                        2.37
+                    ],
+                    "name": "v_C(t): chains across intervals",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0,
+                        3,
+                        3,
+                        6,
+                        6,
+                        8,
+                        8
+                    ],
+                    "y": [
+                        0,
+                        10,
+                        10,
+                        2,
+                        2,
+                        2,
+                        2,
+                        2
+                    ],
+                    "name": "v_in(t): piecewise-constant",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "Voltage (V)"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

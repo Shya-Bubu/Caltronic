@@ -1,0 +1,16 @@
+{
+    "id": "lesson-03",
+    "title": "First-Order Circuits",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02"
+    ],
+    "concepts": [
+        "capacitor-inductor-fundamentals",
+        "continuity-and-impulse",
+        "energy-storage-lossless",
+        "first-order-rc-rl-response",
+        "exponential-waveform-properties",
+        "piecewise-linear-dynamic-route"
+    ]
+}

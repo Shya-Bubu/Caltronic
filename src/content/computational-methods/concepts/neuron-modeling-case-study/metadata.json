@@ -1,0 +1,11 @@
+{
+    "id": "neuron-modeling-case-study",
+    "title": "Case Study: Biological Neuron Modeling",
+    "slug": "neuron-modeling-case-study",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,616 @@
+{
+    "visuals": [
+        {
+            "id": "gaussian-elimination-steps",
+            "type": "plotly",
+            "title": "Gaussian Elimination: Procedural Steps",
+            "traces": [
+                {
+                    "x": [
+                        "Original\nSystem",
+                        "Row\nOperations",
+                        "Upper\nTriangular",
+                        "Back\nSubstitution",
+                        "Solution"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#6b62ff",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Ax = b",
+                        "R2 ← R2 - (a21/a11)R1",
+                        "Upper △ form",
+                        "Solve xn, then xn-1, ...",
+                        "x = [x1, x2, ..., xn]"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Step sequence",
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "newton-raphson-convergence",
+            "type": "plotly",
+            "title": "Newton-Raphson Method: Tangent Line Iteration",
+            "traces": [
+                {
+                    "x": [
+                        -1,
+                        -0.5,
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4
+                    ],
+                    "y": [
+                        -2,
+                        -1.25,
+                        -1,
+                        -0.75,
+                        0,
+                        1.25,
+                        3,
+                        5.25,
+                        8,
+                        11.25,
+                        15
+                    ],
+                    "name": "f(x) = x² - 1",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        3,
+                        1.667
+                    ],
+                    "y": [
+                        8,
+                        0
+                    ],
+                    "name": "Tangent at x₀ = 3",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        1.667,
+                        1.1
+                    ],
+                    "y": [
+                        1.779,
+                        0
+                    ],
+                    "name": "Tangent at x₁ = 1.667",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        3,
+                        1.667,
+                        1.1,
+                        1.005
+                    ],
+                    "y": [
+                        8,
+                        1.779,
+                        0.21,
+                        0.01
+                    ],
+                    "name": "Iterates",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "size": 10,
+                        "symbol": "diamond"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "x"
+                },
+                "yaxis": {
+                    "title": "f(x)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "newton-raphson-iteration-trace",
+            "type": "plotly",
+            "title": "Newton-Raphson: Convergence Speed (Quadratic)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        2.0,
+                        0.667,
+                        0.1,
+                        0.005,
+                        0.000012,
+                        0.0000000001
+                    ],
+                    "name": "Error |xn - root|",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Iteration number"
+                },
+                "yaxis": {
+                    "title": "Error",
+                    "type": "log"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "fft-recursion-tree",
+            "type": "plotly",
+            "title": "FFT Recursion: 8-Point DFT Split into Smaller DFTs",
+            "traces": [
+                {
+                    "x": [
+                        "8-pt DFT"
+                    ],
+                    "y": [
+                        3
+                    ],
+                    "text": [
+                        "N=8"
+                    ],
+                    "mode": "markers+text",
+                    "textposition": "top center",
+                    "marker": {
+                        "color": "#6b62ff",
+                        "size": 20
+                    }
+                },
+                {
+                    "x": [
+                        "4-pt Even",
+                        "4-pt Odd"
+                    ],
+                    "y": [
+                        2,
+                        2
+                    ],
+                    "text": [
+                        "N=4 (even)",
+                        "N=4 (odd)"
+                    ],
+                    "mode": "markers+text",
+                    "textposition": "top center",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "size": 16
+                    }
+                },
+                {
+                    "x": [
+                        "2-pt",
+                        "2-pt ",
+                        "2-pt  ",
+                        "2-pt   "
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "text": [
+                        "N=2",
+                        "N=2",
+                        "N=2",
+                        "N=2"
+                    ],
+                    "mode": "markers+text",
+                    "textposition": "top center",
+                    "marker": {
+                        "color": "#2fbf8f",
+                        "size": 12
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "showticklabels": false
+                },
+                "yaxis": {
+                    "title": "Recursion depth",
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "fft-complexity-comparison",
+            "type": "plotly",
+            "title": "FFT vs Direct DFT: Operation Count",
+            "traces": [
+                {
+                    "x": [
+                        8,
+                        16,
+                        32,
+                        64,
+                        128,
+                        256,
+                        512,
+                        1024
+                    ],
+                    "y": [
+                        64,
+                        256,
+                        1024,
+                        4096,
+                        16384,
+                        65536,
+                        262144,
+                        1048576
+                    ],
+                    "name": "Direct DFT: O(N²)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        8,
+                        16,
+                        32,
+                        64,
+                        128,
+                        256,
+                        512,
+                        1024
+                    ],
+                    "y": [
+                        24,
+                        64,
+                        160,
+                        384,
+                        896,
+                        2048,
+                        4608,
+                        10240
+                    ],
+                    "name": "FFT: O(N log N)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Signal length N",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Multiplications",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "merge-sort-visualization",
+            "type": "plotly",
+            "title": "Merge Sort: Divide and Conquer in Action",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "y": [
+                        38,
+                        27,
+                        43,
+                        3,
+                        9,
+                        82,
+                        10,
+                        15
+                    ],
+                    "name": "Unsorted",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Index"
+                },
+                "yaxis": {
+                    "title": "Value"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "divide-conquer-structure",
+            "type": "plotly",
+            "title": "Divide and Conquer: Three Phases",
+            "traces": [
+                {
+                    "x": [
+                        "Divide",
+                        "Conquer",
+                        "Combine"
+                    ],
+                    "y": [
+                        3,
+                        3,
+                        3
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Split problem\ninto subproblems",
+                        "Solve each\nsubproblem",
+                        "Merge solutions\ninto final answer"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "huffman-coding-tree",
+            "type": "plotly",
+            "title": "Huffman Coding: Greedy Symbol Merging",
+            "traces": [
+                {
+                    "x": [
+                        "A (45%)",
+                        "B (25%)",
+                        "C (15%)",
+                        "D (10%)",
+                        "E (5%)"
+                    ],
+                    "y": [
+                        45,
+                        25,
+                        15,
+                        10,
+                        5
+                    ],
+                    "name": "Symbol frequencies",
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "Code: 0\n(1 bit)",
+                        "Code: 10\n(2 bits)",
+                        "Code: 110\n(3 bits)",
+                        "Code: 1110\n(4 bits)",
+                        "Code: 1111\n(4 bits)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Symbol"
+                },
+                "yaxis": {
+                    "title": "Frequency (%)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "greedy-vs-optimal-path",
+            "type": "plotly",
+            "title": "Greedy Doesn't Always Find the Global Optimum",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        3,
+                        1,
+                        4,
+                        2,
+                        5
+                    ],
+                    "name": "Greedy path (local best)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 10
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "name": "Optimal path (global best)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3,
+                        "dash": "dash"
+                    },
+                    "marker": {
+                        "size": 10
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Step"
+                },
+                "yaxis": {
+                    "title": "Cumulative cost"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "strategy-decision-flowchart",
+            "type": "plotly",
+            "title": "Choosing an Algorithmic Strategy",
+            "traces": [
+                {
+                    "x": [
+                        "Procedural",
+                        "Iterative",
+                        "Recursive",
+                        "Divide &\nConquer",
+                        "Greedy"
+                    ],
+                    "y": [
+                        5,
+                        4,
+                        3,
+                        3,
+                        2
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "Exact solution\nformula exists",
+                        "Nonlinear or\ntoo large",
+                        "Self-similar\nstructure",
+                        "Independent\nsub-problems",
+                        "Local optimality\n= global"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Reliability",
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        }
+    ]
+}

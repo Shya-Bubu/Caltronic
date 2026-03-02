@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-energy-storage-lossless",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Energy stored in capacitor?",
+            "back": "E = ½CV² = ½Q²/C = ½QV. Always non-negative. Stored in the electric field.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Energy stored in inductor?",
+            "back": "E = ½Li². Always non-negative. Stored in the magnetic field.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "State the lossless property.",
+            "back": "Over one period of periodic excitation, net energy entering a capacitor or inductor is zero. Energy is borrowed and returned, never dissipated.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is path independence of energy?",
+            "back": "w_C(t₁,t₂) = ∫_{q₁}^{q₂} v̂(q)dq depends only on q₁ and q₂, not on the waveform shape. This means energy is determined by endpoints alone.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Average power consumed by ideal C/L in AC?",
+            "back": "Zero. V and I are 90° out of phase → P_avg = VI·cos(90°) = 0. Only resistors consume real power.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is a relaxation point?",
+            "back": "A charge q* where stored energy E(q*) = 0 and E(q) ≥ 0 for all q. The capacitor is 'fully relaxed' — no stored energy. For linear C, q* = 0.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f7",
+            "front": "Why does energy depend on v² (not v)?",
+            "back": "E = ∫₀^Q v·dq = ∫₀^V Cv·dv = ½CV². The v in the integrand makes energy quadratic. Doubling voltage quadruples stored energy.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Instantaneous power into a capacitor?",
+            "back": "p_C = v_C · i_C = d/dt[½Cv²]. Positive → charging (absorbing). Negative → discharging (delivering stored energy).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is ESR in real capacitors?",
+            "back": "Equivalent Series Resistance — parasitic resistance of leads and dielectric. Causes real power dissipation I²·ESR, making real capacitors slightly lossy.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Energy balance in a circuit?",
+            "back": "∑P_sources = ∑P_R + d/dt[∑E_C + ∑E_L]. Sources deliver, resistors dissipate, C/L store/return. At steady state, d/dt[E] averages to zero.",
+            "difficultyLevel": 5
+        }
+    ]
+}

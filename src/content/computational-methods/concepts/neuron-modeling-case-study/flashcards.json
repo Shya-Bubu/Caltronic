@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-neuron-modeling-case-study",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the resting membrane potential?",
+            "back": "About −70 mV (inside negative). Maintained by Na⁺/K⁺ pump. Threshold for firing: ~−55 mV. Spike peak: ~+40 mV.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Describe the action potential sequence.",
+            "back": "1. Na⁺ channels open → depolarization (−55 → +40 mV). 2. K⁺ channels open → repolarization (+40 → −70 mV). 3. Brief hyperpolarization (~−80 mV). Duration: ~1 ms. All-or-none.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is the Poisson spike model?",
+            "back": "P(k spikes in t) = (λt)^k · e^(−λt) / k!. Constant rate λ. No voltage dynamics. Memoryless. Used for large population statistics.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Write the Leaky Integrate-and-Fire equation.",
+            "back": "Cm·dVm/dt = I(t) − Vm/Rm. Spike when V > Vth, then reset. RC circuit: Cm charges via I(t), leaks via Rm. Workhorse of computational neuroscience.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Write the Hodgkin-Huxley equation.",
+            "back": "C·dV/dt = −gNa·m³h·(V−ENa) − gK·n⁴·(V−EK) − gL·(V−EL) + I. Plus 3 gating ODEs for m, n, h. 4th-order nonlinear system.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f6",
+            "front": "What is the FitzHugh-Nagumo model?",
+            "back": "2D reduction of HH: ε·dV/dt = V − V³/3 − W + I, τ·dW/dt = V + a − bW. Fast activator (V) + slow inhibitor (W). Captures excitability qualitatively.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f7",
+            "front": "Why is HH described as 'an equivalent circuit'?",
+            "back": "Membrane = capacitor C. Each ion channel = voltage-dependent conductance (gNa·m³h, gK·n⁴). Reversal potentials = voltage sources. It IS a nonlinear circuit.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What does the Ornstein-Uhlenbeck model add to pure diffusion?",
+            "back": "Mean reversion: dV = −(V−μ)/τ dt + σdW. The −(V−μ)/τ term pulls voltage back toward rest with time constant τ, mimicking passive membrane leak.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "List the 6 neuron model categories in order of increasing fidelity.",
+            "back": "1. Random spiking (Poisson). 2. State transition (Markov). 3. Stochastic (OU/diffusion). 4. Integrate-and-Fire (LIF). 5. Reduced HH (FHN, Theta). 6. Bio-realistic (Hodgkin-Huxley).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What is the Spike Response Model?",
+            "back": "Kernel-based: V(t) = Ση(t−tf) + ∫κ(τ)I(t−τ)dτ + Vres. The neuron as a filter — convolves input with kernel κ(τ) plus refractory contributions η from past spikes.",
+            "difficultyLevel": 5
+        }
+    ]
+}

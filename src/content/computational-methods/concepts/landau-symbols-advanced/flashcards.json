@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-landau-symbols-advanced",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are the 7 Landau symbols?",
+            "back": "O (upper bound), Ω (lower bound), Θ (tight), Õ (ignore logs), Op (probabilistic), o (strictly smaller), ω (strictly larger). Plus ~ (asymptotic equivalence).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "Define Big-Ω formally.",
+            "back": "f(n) = Ω(g(n)) if ∃ C > 0, n₀ such that |f(n)| ≥ C|g(n)| for all n ≥ n₀. It's the lower bound: 'f grows at least as fast as g'.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f3",
+            "front": "What does Big-Θ require?",
+            "back": "f(n) = Θ(g(n)) iff f = O(g) AND f = Ω(g). Equivalent to: ∃ C₁, C₂ > 0 such that C₁|g| ≤ |f| ≤ C₂|g| for large n. 'Exact order.'",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "Distinguish little-o from Big-O.",
+            "back": "O: |f/g| ≤ C (bounded ratio). o: |f/g| → 0 (ratio vanishes). Little-o is strictly stronger — f = o(g) implies f = O(g) but not vice versa.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f5",
+            "front": "What is asymptotic equivalence (f ~ g)?",
+            "back": "f ~ g means lim |f/g| = 1. The strongest statement — f and g become proportionally identical. Example: n² + n ~ n² because (n² + n)/n² → 1.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Give the classic Ω(n log n) example.",
+            "back": "Comparison-based sorting requires Ω(n log n) comparisons — information-theoretic lower bound from log₂(n!). No algorithm can beat it. Merge sort achieves this, so it's optimal.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is Soft-O (Õ)?",
+            "back": "Õ(g(n)) means O(g(n)·logℓ(n)) for some ℓ. Ignores logarithmic factors. Used when logs are practically insignificant.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f8",
+            "front": "Why does Monte Carlo use Op instead of O?",
+            "back": "Monte Carlo produces random estimates, so the error is a random variable. Op(1/√n) means the error is stochastically bounded by 1/√n — bounded with high probability, not deterministically.",
+            "difficultyLevel": 5
+        },
+        {
+            "id": "f9",
+            "front": "Strength ordering of Landau symbols?",
+            "back": "Strongest to weakest: f ~ g → f = Θ(g) → f = O(g) or f = Ω(g) → f = o(g) or f = ω(g). Note: o and ω are strict (no equality allowed).",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Is 3n² + 5n + 2 = O(n²), Θ(n²), or both?",
+            "back": "Both! O(n²): |3n²+5n+2| ≤ 10n² for n ≥ 1. Ω(n²): |3n²+5n+2| ≥ 3n². Combined: Θ(n²). Also O(n³) but that's weaker.",
+            "difficultyLevel": 3
+        }
+    ]
+}

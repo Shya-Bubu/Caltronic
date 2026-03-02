@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-piecewise-linear",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is a dynamic route?",
+            "back": "The path + direction traced by the operating point on the PWL characteristic of a nonlinear element. Tells you which segment is active and which way the state is evolving.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "Three steps for PWL circuit analysis?",
+            "back": "1. Identify initial point on characteristic. 2. Determine route/direction (sign of dv_C/dt = i_C/C). 3. Replace each segment by its Thevenin equivalent and solve.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What changes between PWL segments?",
+            "back": "Each segment has its own R_TH, v_oc, and therefore τ = R_TH·C and x(∞) = v_oc. The general formula applies in each segment with different parameters.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "What is the jump phenomenon?",
+            "back": "At impasse points, the operating point jumps instantaneously to another point on the characteristic. v_C is preserved (continuity). Appears in Schmitt triggers, oscillators, flip-flops.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Why is v_C preserved during a jump?",
+            "back": "Continuity property: capacitor voltage cannot change instantaneously with bounded current. The jump is horizontal on v-i plane (same v, different i).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Zero-input response?",
+            "back": "x_ZI(t) = x(t₀)·e^(−(t−t₀)/τ). Response due to initial stored energy only (no driving signal). Represents the circuit's 'memory decay.'",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Zero-state response?",
+            "back": "x_ZS(t) = ∫ h(t−t')·x_s(t')dt'. Response to driving signal x_s(t) starting from zero initial energy. Convolution of input with impulse response.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f8",
+            "front": "Impulse response of first-order circuit?",
+            "back": "h(t) = (1/τ)e^(−t/τ) for t > 0, zero for t < 0. Building block for computing response to any input via convolution.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What does negative τ in a PWL segment mean?",
+            "back": "Unstable segment — exponential growth. Operating point moves away from segment's equilibrium. Caused by negative R_TH (negative resistance region).",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Name three PWL circuit applications.",
+            "back": "1. Schmitt trigger (hysteresis comparator). 2. Relaxation oscillator (astable multivibrator). 3. Diode clipping/clamping circuits. All exploiting multiple operating regions.",
+            "difficultyLevel": 4
+        }
+    ]
+}

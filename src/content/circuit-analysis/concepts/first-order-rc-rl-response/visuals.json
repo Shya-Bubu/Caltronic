@@ -1,0 +1,636 @@
+{
+    "visuals": [
+        {
+            "id": "canonical-rc-rl",
+            "type": "circuit-schematic",
+            "title": "Canonical Forms: Thevenin + C (RC) and Norton + L (RL)",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Voc",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "v_oc"
+                },
+                {
+                    "type": "resistor",
+                    "id": "Rth",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        224,
+                        64
+                    ],
+                    "label": "R_TH"
+                },
+                {
+                    "type": "capacitor",
+                    "id": "C",
+                    "from": [
+                        224,
+                        64
+                    ],
+                    "to": [
+                        224,
+                        256
+                    ],
+                    "label": "C"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        224,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "rc-differential-equation",
+            "type": "plotly",
+            "title": "RC ODE: dv/dt = −v/(RC) + v_oc/(RC)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        3.68,
+                        1.35,
+                        0.50,
+                        0.18,
+                        0.07
+                    ],
+                    "name": "dv/dt (rate of change)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "v_C(t)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "Value"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "cf-plus-pi",
+            "type": "plotly",
+            "title": "Solution = CF + PI: Transient Dies Away, Steady State Remains",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        -10,
+                        -3.68,
+                        -1.35,
+                        -0.50,
+                        -0.18,
+                        -0.07
+                    ],
+                    "name": "CF = Ae^(−t/τ) (transient)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        10
+                    ],
+                    "name": "PI = v_oc (steady state)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2,
+                        "dash": "dot"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "v_C = CF + PI (total)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "v_C (V)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "general-solution-plot",
+            "type": "plotly",
+            "title": "General Solution: x(t) = x(∞) + [x(0)−x(∞)]·e^(−t/τ)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "Charging: x(0)=0, x(∞)=10",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        3.68,
+                        1.35,
+                        0.50,
+                        0.18,
+                        0.07
+                    ],
+                    "name": "Discharging: x(0)=10, x(∞)=0",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        8,
+                        5.66,
+                        4.50,
+                        3.68,
+                        3.25,
+                        3.07
+                    ],
+                    "name": "Partial: x(0)=8, x(∞)=3",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "x(t)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "general-formula-annotated",
+            "type": "plotly",
+            "title": "Anatomy of the Exponential Response: Initial → Transient → Steady State",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        6.32,
+                        8.65,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "x(t)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        10,
+                        10
+                    ],
+                    "name": "x(∞) = steady state",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ)"
+                },
+                "yaxis": {
+                    "title": "x(t) (V or A)"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 0,
+                        "text": "x(t₀)",
+                        "showarrow": true,
+                        "arrowhead": 2
+                    },
+                    {
+                        "x": 3,
+                        "y": 10,
+                        "text": "x(∞)",
+                        "showarrow": true,
+                        "arrowhead": 2
+                    },
+                    {
+                        "x": 1,
+                        "y": 6.32,
+                        "text": "63.2% at t=τ",
+                        "showarrow": true,
+                        "arrowhead": 2
+                    }
+                ]
+            }
+        },
+        {
+            "id": "time-constant-meaning",
+            "type": "plotly",
+            "title": "Time Constant τ: Smaller τ = Faster Response",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        8.65,
+                        9.82,
+                        9.97,
+                        10,
+                        10,
+                        10,
+                        10,
+                        10
+                    ],
+                    "name": "τ = 0.5 ms (fast)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        3.93,
+                        6.32,
+                        7.77,
+                        8.65,
+                        9.18,
+                        9.50,
+                        9.82,
+                        9.93
+                    ],
+                    "name": "τ = 1 ms (medium)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        2.21,
+                        3.93,
+                        5.28,
+                        6.32,
+                        7.13,
+                        7.77,
+                        8.65,
+                        9.18
+                    ],
+                    "name": "τ = 2 ms (slow)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "v_C (V)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "rc-step-example",
+            "type": "circuit-schematic",
+            "title": "RC Step Response: R=1kΩ, C=1μF, V=10V Step at t=0",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Vs",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "10V step"
+                },
+                {
+                    "type": "switch",
+                    "id": "S",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        160,
+                        64
+                    ],
+                    "label": "S(t=0)"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        160,
+                        64
+                    ],
+                    "to": [
+                        288,
+                        64
+                    ],
+                    "label": "1kΩ"
+                },
+                {
+                    "type": "capacitor",
+                    "id": "C",
+                    "from": [
+                        288,
+                        64
+                    ],
+                    "to": [
+                        288,
+                        256
+                    ],
+                    "label": "1μF"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        256
+                    ],
+                    "to": [
+                        288,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "falstad-rc-step-response",
+            "type": "falstad-sim",
+            "title": "Interactive: RC Step Response — Watch the Exponential Charging",
+            "description": "Observe how v_C rises exponentially toward 5V after the square wave switches. Measure the time constant from the waveform.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 96 160 288 0 2 1.0 5.0 0.0 0.0 0.5\nr 160 96 304 96 0 1000\nc 304 96 304 288 0 1e-6 0\nw 304 288 160 288 0\ng 160 288 160 320 0\no 2 128 0 4099 10 0.05 0 -1\n",
+            "height": 450
+        },
+        {
+            "id": "rl-response-plot",
+            "type": "plotly",
+            "title": "RL Step Response: i_L = (V/R)(1−e^(−t/τ)) with τ = L/R",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        0,
+                        0.79,
+                        1.26,
+                        1.56,
+                        1.73,
+                        1.84,
+                        1.90,
+                        1.96,
+                        1.99
+                    ],
+                    "name": "i_L(t) = 2(1−e^(−t/τ)) A",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        2,
+                        2
+                    ],
+                    "name": "i_L(∞) = V/R = 2A",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (τ units)"
+                },
+                "yaxis": {
+                    "title": "i_L (A)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "falstad-rl-step-response",
+            "type": "falstad-sim",
+            "title": "Interactive: RL Step Response — Watch Current Build Through Inductor",
+            "description": "The inductor resists changes in current. Watch i_L build up exponentially as the magnetic field grows.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nv 160 96 160 288 0 0 40.0 5.0 0.0 0.0 0.5\nr 160 96 304 96 0 100\nl 304 96 304 288 0 0.1 0\nw 304 288 160 288 0\ng 160 288 160 320 0\no 2 128 0 4099 0.1 0.05 0 -1\n",
+            "height": 450
+        }
+    ]
+}

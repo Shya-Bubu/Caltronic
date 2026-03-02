@@ -1,0 +1,125 @@
+{
+    "id": "quiz-verification-efficiency-implementation",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The SNR of an N-bit ADC with a full-scale sinusoidal input is approximately:",
+            "options": [
+                "N × 3 dB",
+                "6.02N + 1.76 dB",
+                "20 log₁₀(N) dB",
+                "N² dB"
+            ],
+            "correctAnswer": "6.02N + 1.76 dB",
+            "explanation": "The SNR formula for uniform quantization of a full-scale sinusoid is SNR ≈ 6.02N + 1.76 dB, where N is the number of bits. Each additional bit adds about 6 dB of SNR. This comes from the fact that quantization noise power is Δ²/12 where Δ is the step size."
+        },
+        {
+            "id": "q2",
+            "prompt": "The forward Euler method yn+1 = (1 + hλ)yn is stable when:",
+            "options": [
+                "|hλ| > 1",
+                "|1 + hλ| ≤ 1",
+                "h > 2/|λ|",
+                "λ > 0"
+            ],
+            "correctAnswer": "|1 + hλ| ≤ 1",
+            "explanation": "Stability requires the amplification factor |1 + hλ| ≤ 1. For λ < 0 (stable continuous system), this gives h ≤ 2/|λ|. If h is too large, the numerical solution oscillates and explodes even though the exact solution decays."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the time complexity of naive matrix multiplication for n × n matrices?",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n³)",
+                "O(n log n)"
+            ],
+            "correctAnswer": "O(n³)",
+            "explanation": "Naive matrix multiplication computes each element of the result as a dot product of a row and column (n multiplications). With n² elements, the total is n × n × n = n³ operations. Strassen's algorithm reduces this to O(n^2.81) by clever decomposition."
+        },
+        {
+            "id": "q4",
+            "prompt": "What does 'adaptive' mean in the context of Runge-Kutta-Fehlberg (RKF45)?",
+            "options": [
+                "It adapts to different programming languages",
+                "It automatically adjusts the step size based on local error estimates",
+                "It changes the differential equation",
+                "It uses machine learning"
+            ],
+            "correctAnswer": "It automatically adjusts the step size based on local error estimates",
+            "explanation": "RKF45 computes two solutions (4th and 5th order) simultaneously. The difference estimates the local error. If the error is too large, it reduces the step size. If the error is very small, it increases the step size. This maintains accuracy while minimizing computation."
+        },
+        {
+            "id": "q5",
+            "prompt": "Why are Monte Carlo simulations described as 'embarrassingly parallel'?",
+            "options": [
+                "They're embarrassingly slow",
+                "Each trial is completely independent — no inter-trial communication needed",
+                "They require embarrassingly large datasets",
+                "The results are embarrassing"
+            ],
+            "correctAnswer": "Each trial is completely independent — no inter-trial communication needed",
+            "explanation": "In Monte Carlo, each random trial generates its own random inputs, runs its own simulation, and produces its own result. No trial depends on any other trial. This means you can distribute millions of trials across thousands of processors with zero coordination overhead — ideal for parallelization."
+        },
+        {
+            "id": "q6",
+            "prompt": "The sinc function used in ideal signal reconstruction is sinc(x) = sin(πx)/(πx). What is sinc(0)?",
+            "options": [
+                "0",
+                "1",
+                "∞",
+                "Undefined"
+            ],
+            "correctAnswer": "1",
+            "explanation": "Although sin(0)/0 appears to be 0/0, applying L'Hôpital's rule (or recognizing the limit) gives sinc(0) = 1. This is necessary for reconstruction: at sample points t = nTs, the sinc function equals 1, reproducing the original sample value exactly."
+        },
+        {
+            "id": "q7",
+            "prompt": "Verification asks 'Did I build the model right?' and validation asks:",
+            "options": [
+                "Did I use enough memory?",
+                "Did I build the right model?",
+                "Is the code efficient?",
+                "Are the inputs correct?"
+            ],
+            "correctAnswer": "Did I build the right model?",
+            "explanation": "Verification checks that the mathematical equations are solved correctly (code correctness, numerical accuracy). Validation checks that the model itself accurately represents reality (comparison with experimental data). Both are necessary — a perfectly solved wrong model gives wrong answers."
+        },
+        {
+            "id": "q8",
+            "prompt": "In electro-thermal simulation of a power MOSFET, why must the electrical and thermal models be solved together?",
+            "options": [
+                "For faster computation",
+                "Because temperature affects electrical parameters (mobility, Vth) and power dissipation generates heat",
+                "Because they use the same equations",
+                "They don't need to be coupled"
+            ],
+            "correctAnswer": "Because temperature affects electrical parameters (mobility, Vth) and power dissipation generates heat",
+            "explanation": "This is a feedback loop: current flow causes power dissipation (P = ID·VDS), which heats the device (thermal model), which changes the transistor parameters (mobility ↓, threshold ↓), which changes the current, which changes the power. This coupling can lead to thermal runaway if not properly designed."
+        },
+        {
+            "id": "q9",
+            "prompt": "Caching device model evaluations in circuit simulation provides speedup because:",
+            "options": [
+                "The device model is always the same",
+                "Near-identical bias points are evaluated thousands of times during optimization",
+                "Caching uses less memory",
+                "It makes the transistors smaller"
+            ],
+            "correctAnswer": "Near-identical bias points are evaluated thousands of times during optimization",
+            "explanation": "During optimization, the circuit is simulated many times with slightly different parameters. The bias points at most transistors change very little between iterations. By caching evaluations at rounded (quantized) bias points, redundant expensive BSIM model evaluations are avoided, giving 10-100× speedup."
+        },
+        {
+            "id": "q10",
+            "prompt": "An algorithm with O(n log n) complexity will be faster than O(n²) when:",
+            "options": [
+                "Always, for any n",
+                "Only for very large n (when constant factors don't dominate)",
+                "Never",
+                "Only when n = 1"
+            ],
+            "correctAnswer": "Only for very large n (when constant factors don't dominate)",
+            "explanation": "Big-O hides constant factors. An O(n log n) algorithm with constant factor 100 might be slower than O(n²) for small n. But as n grows, the n log n term eventually dominates because n² grows faster. The crossover point depends on the specific algorithms' hidden constants."
+        }
+    ]
+}

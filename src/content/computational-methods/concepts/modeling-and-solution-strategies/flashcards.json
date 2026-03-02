@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-modeling-and-solution-strategies",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is modeling/abstraction in computational methods?",
+            "back": "Creating a simplified mathematical representation of a physical system. Example: ideal op-amp (V⁺ = V⁻, Iin = 0) simplifies analysis while capturing essential behavior.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is optimization?",
+            "back": "Finding the best solution by minimizing/maximizing an objective function. Example: least-squares (min Σ(yi - ŷi)²) finds the best-fit line through noisy data.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What makes least-squares optimization well-behaved?",
+            "back": "The objective function is convex — it has a single minimum with no local traps. Any local minimum is the global minimum, so gradient descent always finds the best answer.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "What is relaxation as a problem-solving strategy?",
+            "back": "Starting with a simplified version of the problem and gradually adding complexity. Example: ideal components → nominal values → tolerances → parasitics.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is regularization?",
+            "back": "Adding a penalty term (like λ‖w‖²) to prevent overfitting in ill-posed problems. It trades slightly worse fit on training data for much better generalization.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What happens when λ → 0 in Ridge regression?",
+            "back": "The penalty vanishes; you get ordinary least-squares. Best fit to training data but potentially overfitted — sensitive to noise.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What happens when λ → ∞ in Ridge regression?",
+            "back": "The penalty dominates, forcing all weights to zero. The model just predicts the mean — maximally underfitted, ignoring all patterns.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Write the standard state-space form.",
+            "back": "ẋ = Ax + Bu (state equation), y = Cx + Du (output equation). A = state matrix, B = input matrix, C = output matrix, D = feedthrough.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "What do the eigenvalues of the state matrix A tell you?",
+            "back": "The system's natural frequencies and stability. Negative real parts → stable poles. Imaginary parts → oscillation frequency. These are the same as the poles of the transfer function.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "State the bias-variance tradeoff.",
+            "back": "Total error = bias² + variance. More complex models have lower bias but higher variance. The optimal model minimizes total error at intermediate complexity. Regularization controls this tradeoff.",
+            "difficultyLevel": 5
+        }
+    ]
+}

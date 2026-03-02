@@ -1,0 +1,533 @@
+{
+    "visuals": [
+        {
+            "id": "modeling-pipeline",
+            "type": "plotly",
+            "title": "Mathematical Modeling Pipeline",
+            "traces": [
+                {
+                    "x": [
+                        "Physical\nSystem",
+                        "Assumptions",
+                        "Mathematical\nModel",
+                        "Algorithm",
+                        "Solution",
+                        "Validation"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "Real circuit,\nsignal, field",
+                        "What to\ninclude/ignore",
+                        "Equations,\nvariables",
+                        "Discretization,\niteration",
+                        "Numbers,\nwaveforms",
+                        "Compare to\nreality"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "modeling-pipeline-flowchart",
+            "type": "block-diagram",
+            "title": "From Reality to Prediction: The Modeling Pipeline",
+            "blocks": [
+                {
+                    "id": "phys",
+                    "label": "Physical System",
+                    "position": "left"
+                },
+                {
+                    "id": "assume",
+                    "label": "State Assumptions",
+                    "position": "center-left"
+                },
+                {
+                    "id": "model",
+                    "label": "Mathematical Model",
+                    "position": "center"
+                },
+                {
+                    "id": "solve",
+                    "label": "Compute Solution",
+                    "position": "center-right"
+                },
+                {
+                    "id": "valid",
+                    "label": "Validate",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "phys",
+                    "to": "assume"
+                },
+                {
+                    "from": "assume",
+                    "to": "model"
+                },
+                {
+                    "from": "model",
+                    "to": "solve"
+                },
+                {
+                    "from": "solve",
+                    "to": "valid"
+                }
+            ]
+        },
+        {
+            "id": "model-complexity-spectrum",
+            "type": "plotly",
+            "title": "Model Complexity Spectrum: Simple vs. Elaborate",
+            "traces": [
+                {
+                    "x": [
+                        "Ideal\nDiode",
+                        "Constant\nDrop",
+                        "Piecewise\nLinear",
+                        "Shockley\nEquation",
+                        "SPICE\nBSIM"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "name": "Complexity",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                },
+                {
+                    "x": [
+                        "Ideal\nDiode",
+                        "Constant\nDrop",
+                        "Piecewise\nLinear",
+                        "Shockley\nEquation",
+                        "SPICE\nBSIM"
+                    ],
+                    "y": [
+                        2,
+                        3,
+                        3.5,
+                        4.5,
+                        5
+                    ],
+                    "name": "Accuracy",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Level (1-5)"
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "simple-vs-elaborate",
+            "type": "v3-plot",
+            "title": "Computation Cost vs. Model Error: The Engineering Trade-Off",
+            "config": {
+                "xLabel": "Model complexity level",
+                "yLabel": "Value",
+                "curves": [
+                    {
+                        "label": "Computation time (relative)",
+                        "data": [
+                            [
+                                1,
+                                0.01
+                            ],
+                            [
+                                2,
+                                0.1
+                            ],
+                            [
+                                3,
+                                1
+                            ],
+                            [
+                                4,
+                                10
+                            ],
+                            [
+                                5,
+                                100
+                            ]
+                        ],
+                        "color": "#ff6b8a"
+                    },
+                    {
+                        "label": "Model error (%)",
+                        "data": [
+                            [
+                                1,
+                                50
+                            ],
+                            [
+                                2,
+                                20
+                            ],
+                            [
+                                3,
+                                5
+                            ],
+                            [
+                                4,
+                                1
+                            ],
+                            [
+                                5,
+                                0.1
+                            ]
+                        ],
+                        "color": "#2fbf8f"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "assumptions-impact",
+            "type": "plotly",
+            "title": "Five Elementary Assumptions: When Each One Fails",
+            "traces": [
+                {
+                    "x": [
+                        "Zero\nparasitics",
+                        "Low\nfrequency",
+                        "No EMI",
+                        "Safe\nvoltages",
+                        "Fixed R"
+                    ],
+                    "y": [
+                        100,
+                        10,
+                        0.1,
+                        0.001,
+                        50
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "Fails at\n>100 MHz",
+                        "Fails at\n>10 MHz",
+                        "Fails near\nRF sources",
+                        "Fails at\nextreme V",
+                        "Fails at\nhigh power"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Assumption"
+                },
+                "yaxis": {
+                    "title": "Typical failure threshold (MHz or equivalent)",
+                    "type": "log"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "assumption-failure-scenarios",
+            "type": "plotly",
+            "title": "Assumption Validity Zones: Frequency vs. Signal Level",
+            "traces": [
+                {
+                    "x": [
+                        0.001,
+                        0.01,
+                        0.1,
+                        1,
+                        10,
+                        100,
+                        1000
+                    ],
+                    "y": [
+                        5,
+                        5,
+                        5,
+                        5,
+                        4,
+                        2,
+                        0.5
+                    ],
+                    "name": "Max safe voltage (V) before parasitic effects dominate",
+                    "mode": "lines+markers",
+                    "fill": "tozeroy",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                },
+                {
+                    "x": [
+                        0.001,
+                        0.01,
+                        0.1,
+                        1,
+                        10,
+                        100,
+                        1000
+                    ],
+                    "y": [
+                        5,
+                        5,
+                        5,
+                        5,
+                        5,
+                        5,
+                        5
+                    ],
+                    "name": "Absolute max rating",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Frequency (MHz)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Signal level (V)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "load-line-geometry",
+            "type": "plotly",
+            "title": "Load Line: The Circuit's Constraint on V_D and I",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        4,
+                        3,
+                        2,
+                        1,
+                        0
+                    ],
+                    "name": "Load line: I = −V/(r+R) + Vs/(r+R)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        5
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "name": "V_D intercept = V_S (open circuit)",
+                    "mode": "markers+text",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "size": 14
+                    },
+                    "text": [
+                        "(Vs, 0)"
+                    ],
+                    "textposition": "top left"
+                },
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        5
+                    ],
+                    "name": "I intercept = V_S/(r+R) (short circuit)",
+                    "mode": "markers+text",
+                    "marker": {
+                        "color": "#2fbf8f",
+                        "size": 14
+                    },
+                    "text": [
+                        "(0, Vs/(r+R))"
+                    ],
+                    "textposition": "bottom right"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)"
+                },
+                "yaxis": {
+                    "title": "I (mA)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "load-line-interactive",
+            "type": "v3-load-line",
+            "title": "Interactive: Explore How R Changes the Load Line",
+            "description": "Drag the resistance slider to see how the load line slope and intercepts change.",
+            "config": {}
+        },
+        {
+            "id": "validation-cycle",
+            "type": "plotly",
+            "title": "Model Validation: Predict → Compare → Refine",
+            "traces": [
+                {
+                    "x": [
+                        "Model\nPrediction",
+                        "Measurement\nor Reference",
+                        "Compare\n(Error)",
+                        "Refine\nModel",
+                        "Next\nIteration"
+                    ],
+                    "y": [
+                        4,
+                        4,
+                        3,
+                        2,
+                        4
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#f0a03a",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "Compute\noutput",
+                        "Real data or\nhigher-fidelity",
+                        "Acceptable?\nYes → done",
+                        "Adjust\nassumptions",
+                        "Repeat if\nneeded"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "validation-feedback-loop",
+            "type": "block-diagram",
+            "title": "The Iterative Validation Loop",
+            "blocks": [
+                {
+                    "id": "model",
+                    "label": "Model",
+                    "position": "left"
+                },
+                {
+                    "id": "predict",
+                    "label": "Predict",
+                    "position": "center-left"
+                },
+                {
+                    "id": "compare",
+                    "label": "Compare\nvs Reality",
+                    "position": "center"
+                },
+                {
+                    "id": "refine",
+                    "label": "Refine\nAssumptions",
+                    "position": "center-right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "model",
+                    "to": "predict"
+                },
+                {
+                    "from": "predict",
+                    "to": "compare"
+                },
+                {
+                    "from": "compare",
+                    "to": "refine"
+                },
+                {
+                    "from": "refine",
+                    "to": "model"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "mathematical-modeling-principles",
+    "title": "Mathematical Modeling: From Reality to Equations",
+    "slug": "mathematical-modeling-principles",
+    "estimatedMinutes": 12,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

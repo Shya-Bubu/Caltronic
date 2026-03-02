@@ -1,0 +1,11 @@
+{
+    "id": "capacitor-inductor-fundamentals",
+    "title": "Capacitors and Inductors: Energy Storage Elements",
+    "slug": "capacitor-inductor-fundamentals",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

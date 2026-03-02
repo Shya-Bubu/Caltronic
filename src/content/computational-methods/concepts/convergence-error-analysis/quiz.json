@@ -1,0 +1,125 @@
+{
+    "id": "quiz-convergence-error-analysis",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The Taylor series error for e^x using k terms is:",
+            "options": [
+                "O(x^k)",
+                "O(x^(k+1))",
+                "O(1/k)",
+                "O(k!)"
+            ],
+            "correctAnswer": "O(x^(k+1))",
+            "explanation": "The error ε_k starts with x^(k+1)/(k+1)!, so the leading error term is proportional to x^(k+1). As x → 0, this is the dominant term, giving O(x^(k+1))."
+        },
+        {
+            "id": "q2",
+            "prompt": "On a log-log plot of error vs. x, the convergence order m appears as:",
+            "options": [
+                "The y-intercept",
+                "The slope",
+                "The area under the curve",
+                "The curvature"
+            ],
+            "correctAnswer": "The slope",
+            "explanation": "If error = C·x^m, then log(error) = log(C) + m·log(x). This is a straight line on a log-log plot with slope m. Measuring the slope directly gives the convergence order."
+        },
+        {
+            "id": "q3",
+            "prompt": "The practical convergence criterion |f_k − f_{k−1}| < ε is used because:",
+            "options": [
+                "It's more accurate than |P − f_k| < ε",
+                "We rarely know the true value P",
+                "It converges faster",
+                "It's a mathematical requirement"
+            ],
+            "correctAnswer": "We rarely know the true value P",
+            "explanation": "The ideal criterion |P − f_k| < ε requires knowing P (the answer we're trying to compute). Since we don't know P, we check whether successive approximations are getting close to each other — if they are, the sequence is Cauchy and converges."
+        },
+        {
+            "id": "q4",
+            "prompt": "Linear convergence (m = 1) means:",
+            "options": [
+                "The error doubles each step",
+                "Each step reduces the error by a constant factor",
+                "Digits of accuracy double each step",
+                "The error is always 1"
+            ],
+            "correctAnswer": "Each step reduces the error by a constant factor",
+            "explanation": "|P − f_{k+1}| ≤ C|P − f_k|¹ means the error is multiplied by C < 1 each step. For C = 0.5: errors go 1, 0.5, 0.25, 0.125, ... — halving each time. Slow but steady."
+        },
+        {
+            "id": "q5",
+            "prompt": "Quadratic convergence (m = 2) means:",
+            "options": [
+                "Error halves each step",
+                "The number of correct digits approximately doubles each step",
+                "It converges in exactly 2 steps",
+                "Error is always squared"
+            ],
+            "correctAnswer": "The number of correct digits approximately doubles each step",
+            "explanation": "|P − f_{k+1}| ≤ C|P − f_k|². If ε_k ≈ 10⁻³, then ε_{k+1} ≈ C·10⁻⁶: 3 digits → 6 digits → 12 digits. This dramatic speedup is why Newton-Raphson is so popular."
+        },
+        {
+            "id": "q6",
+            "prompt": "For e^0.5, the MATLAB code converges in 5 iterations with threshold 10⁻³ because:",
+            "options": [
+                "x is small, so the series converges quickly",
+                "The computer is fast",
+                "5 is always enough",
+                "The loop runs exactly 5 times"
+            ],
+            "correctAnswer": "x is small, so the series converges quickly",
+            "explanation": "At x = 0.5, each Taylor term x^n/n! shrinks rapidly. By k = 5, the added term x⁵/5! = 0.5⁵/120 ≈ 2.6×10⁻⁴ < 10⁻³ = threshold, triggering convergence. At x = 2, more iterations would be needed."
+        },
+        {
+            "id": "q7",
+            "prompt": "The analytic error bound proves |ε_k| ≤ (2/(k+1)!)·|x|^(k+1). The key step uses:",
+            "options": [
+                "Integration by parts",
+                "The geometric series bound 1 + 1/2 + 1/4 + ... = 2",
+                "L'Hôpital's rule",
+                "Matrix factorization"
+            ],
+            "correctAnswer": "The geometric series bound 1 + 1/2 + 1/4 + ... = 2",
+            "explanation": "Each ratio |x|/(k+j) ≤ 1/2 for j ≥ 2, creating a geometric series 1 + 1/2 + 1/4 + ... = 2. This bounds the infinite tail of the Taylor series, giving the clean result ε_k ≤ (2/(k+1)!) |x|^(k+1)."
+        },
+        {
+            "id": "q8",
+            "prompt": "For fixed x, the Taylor series error as k → ∞ is O(|x|^k/k!). This converges rapidly because:",
+            "options": [
+                "|x|^k grows",
+                "k! grows much faster than |x|^k",
+                "The constant is small",
+                "x is always less than 1"
+            ],
+            "correctAnswer": "k! grows much faster than |x|^k",
+            "explanation": "k! (factorial) grows superexponentially while |x|^k (power) grows at most exponentially. Eventually k! dominates, making |x|^k/k! → 0 for any fixed x, no matter how large. This is sometimes called 'superfactorial convergence'."
+        },
+        {
+            "id": "q9",
+            "prompt": "The estimated convergence order from two data points is:",
+            "options": [
+                "m ≈ f(z₂)/f(z₁)",
+                "m ≈ log(f(z₂)/f(z₁)) / log(z₂/z₁)",
+                "m ≈ z₂/z₁",
+                "m ≈ (f(z₂) − f(z₁))/(z₂ − z₁)"
+            ],
+            "correctAnswer": "m ≈ log(f(z₂)/f(z₁)) / log(z₂/z₁)",
+            "explanation": "From log f(z) = log C + m log z, the slope m = Δ(log f) / Δ(log z) = log(f(z₂)/f(z₁)) / log(z₂/z₁). This is the standard formula for estimating convergence order from numerical data."
+        },
+        {
+            "id": "q10",
+            "prompt": "The Taylor series for e^x has rate of convergence m = 1 (linear). Despite this, it converges 'rapidly' because:",
+            "options": [
+                "The constant C decreases with k",
+                "Quadratic is always faster",
+                "x must be zero",
+                "The series only works for integers"
+            ],
+            "correctAnswer": "The constant C decreases with k",
+            "explanation": "While m = 1 (linear), the effective constant C = |x|/(k+2) → 0 as k grows. So even though the convergence is technically linear by the strict definition, the shrinking constant makes each successive step more effective, giving practically fast convergence."
+        }
+    ]
+}

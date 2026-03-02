@@ -1,0 +1,125 @@
+{
+    "id": "quiz-modeling-and-solution-strategies",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The ideal op-amp model assumes V⁺ = V⁻ and I_in = 0. What principle is this?",
+            "options": [
+                "Optimization",
+                "Modeling and abstraction",
+                "Regularization",
+                "Linearization"
+            ],
+            "correctAnswer": "Modeling and abstraction",
+            "explanation": "The ideal op-amp model is a simplification (abstraction) of the real device. It keeps only the essential behavior (virtual short, zero input current) and discards details like finite gain, bandwidth, and offset voltage to make circuit analysis tractable."
+        },
+        {
+            "id": "q2",
+            "prompt": "In least-squares fitting, what does the objective function Σ(yi - ŷi)² measure?",
+            "options": [
+                "The average of the data points",
+                "The total squared error between observed and predicted values",
+                "The slope of the best-fit line",
+                "The number of data points"
+            ],
+            "correctAnswer": "The total squared error between observed and predicted values",
+            "explanation": "The sum of squared residuals measures how far the predictions (ŷi) are from the actual data (yi). Squaring ensures all errors are positive and penalizes large errors more heavily. Minimizing this gives the best-fit line in the least-squares sense."
+        },
+        {
+            "id": "q3",
+            "prompt": "A convex optimization problem guarantees that:",
+            "options": [
+                "It cannot be solved analytically",
+                "Any local minimum is also the global minimum",
+                "There are always multiple solutions",
+                "The objective function is linear"
+            ],
+            "correctAnswer": "Any local minimum is also the global minimum",
+            "explanation": "Convexity means the optimization landscape has a single 'bowl' shape — no local traps. Any downhill path eventually leads to the same minimum. This is why convex problems (like least squares) are well-behaved, while non-convex problems (like neural network training) may get stuck in local minima."
+        },
+        {
+            "id": "q4",
+            "prompt": "In the relaxation approach to circuit design, what is the correct order of refinement?",
+            "options": [
+                "Parasitics → Tolerances → Nominal → Ideal",
+                "Ideal → Nominal → Tolerances → Parasitics",
+                "Nominal → Ideal → Parasitics → Tolerances",
+                "Random order doesn't matter"
+            ],
+            "correctAnswer": "Ideal → Nominal → Tolerances → Parasitics",
+            "explanation": "Relaxation starts with the simplest version (ideal components) and progressively adds complexity. You first get the design concept right with ideal components, then check with real values, then add manufacturing tolerances, and finally account for parasitic effects. Each step refines the previous solution."
+        },
+        {
+            "id": "q5",
+            "prompt": "Ridge regression adds λ‖w‖² to the objective. What does this term do?",
+            "options": [
+                "It makes the model more complex",
+                "It penalizes large weights to prevent overfitting",
+                "It increases the training error",
+                "It removes noisy data points"
+            ],
+            "correctAnswer": "It penalizes large weights to prevent overfitting",
+            "explanation": "The penalty term λ‖w‖² discourages the model from assigning very large weights to any feature. Without it, the model might assign extreme weights to fit noise in the training data. The penalty constrains the solution to be simpler and more robust, at the cost of slightly worse fit on training data."
+        },
+        {
+            "id": "q6",
+            "prompt": "As the regularization parameter λ increases:",
+            "options": [
+                "The model becomes more complex",
+                "The model becomes simpler (approaches the mean)",
+                "Training error decreases",
+                "Overfitting increases"
+            ],
+            "correctAnswer": "The model becomes simpler (approaches the mean)",
+            "explanation": "Larger λ makes the penalty term dominate, forcing weights toward zero. In the extreme (λ → ∞), all weights become zero and the model just predicts the mean value. This is underfitting — too simple to capture the pattern. The optimal λ balances fit quality and model simplicity."
+        },
+        {
+            "id": "q7",
+            "prompt": "In the state-space model ẋ = Ax + Bu, the eigenvalues of matrix A determine:",
+            "options": [
+                "The input signals",
+                "The system's natural frequencies and stability",
+                "The output voltage",
+                "The feedthrough gain"
+            ],
+            "correctAnswer": "The system's natural frequencies and stability",
+            "explanation": "The eigenvalues of A are the poles of the system. Their real parts determine stability (negative = stable, positive = unstable) and their imaginary parts determine oscillation frequency. This is equivalent to finding the roots of the characteristic equation in transfer function analysis."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why is state-space representation preferred over transfer functions for MIMO systems?",
+            "options": [
+                "Transfer functions are more accurate",
+                "State-space naturally handles multiple inputs and outputs",
+                "Transfer functions can't represent dynamic systems",
+                "State-space is always simpler"
+            ],
+            "correctAnswer": "State-space naturally handles multiple inputs and outputs",
+            "explanation": "Transfer functions relate one output to one input (SISO). For systems with multiple inputs and outputs, you'd need a matrix of transfer functions. State-space representation handles MIMO naturally with matrices A, B, C, D — all inputs and outputs are captured in a single, unified model."
+        },
+        {
+            "id": "q9",
+            "prompt": "The bias-variance tradeoff says that as model complexity increases:",
+            "options": [
+                "Both bias and variance decrease",
+                "Bias decreases but variance increases",
+                "Both increase proportionally",
+                "Variance decreases but bias increases"
+            ],
+            "correctAnswer": "Bias decreases but variance increases",
+            "explanation": "More complex models can fit the training data more closely (lower bias) but become more sensitive to noise and specific training data (higher variance). Total error = bias² + variance, which has a minimum at intermediate complexity. This is the fundamental reason regularization works."
+        },
+        {
+            "id": "q10",
+            "prompt": "What distinguishes a good model from a complex model?",
+            "options": [
+                "A good model has more parameters",
+                "A good model captures essential behavior for the specific purpose",
+                "A good model includes all physical effects",
+                "A good model is always linear"
+            ],
+            "correctAnswer": "A good model captures essential behavior for the specific purpose",
+            "explanation": "A good model is purpose-fit, not exhaustive. The ideal op-amp model is excellent for understanding topology but inadequate for noise analysis. A SPICE-level model captures nonlinearities but is overkill for back-of-envelope calculations. Choose abstraction level to match your question."
+        }
+    ]
+}

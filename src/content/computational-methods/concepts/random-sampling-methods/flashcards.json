@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-random-sampling-methods",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Define random sampling in computational methods.",
+            "back": "Using randomness to select representatives from a population or distribution to estimate properties. Answers are statistical (with confidence intervals), not deterministic.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Write the Monte Carlo integration formula.",
+            "back": "∫₀¹ f(x)dx ≈ (1/N) Σᵢ₌₁ᴺ f(xᵢ) where xᵢ ~ Uniform(0,1). Error ∝ 1/√N.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Why is Monte Carlo's 1/√N convergence powerful?",
+            "back": "It's dimension-independent. Grid methods need N^d points for d dimensions (cursed), but Monte Carlo needs ~N points regardless of d. For d = 10: grid needs 10²⁰ points vs. Monte Carlo's ~10⁴.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "How is circuit yield estimated via Monte Carlo?",
+            "back": "Randomly sample component values from tolerance distributions, simulate each, count fraction meeting specs. Yield = (passing/total) × 100%. N = 10000 gives ~±1% accuracy.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is the random walk equation for Brownian motion?",
+            "back": "x_{n+1} = x_n + √Δt · Z_n where Z_n ~ N(0,1). Each run gives one path; many runs give statistics (mean, variance, probabilities).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "How is random sampling different from discretization?",
+            "back": "Discretization: systematic, deterministic, grid-based (same result every run). Random sampling: stochastic, scatter-based (statistical result with confidence interval, different each run).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "To halve Monte Carlo error, how many more samples?",
+            "back": "4× more samples, because error ∝ 1/√N. So 1/√(4N) = ½ · 1/√N. This slow convergence is Monte Carlo's main weakness.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why are Monte Carlo simulations embarrassingly parallel?",
+            "back": "Each trial is completely independent — no inter-trial communication needed. Millions of trials can run on thousands of processors simultaneously with zero overhead.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Name 3 applications of random sampling in ECE.",
+            "back": "1. Monte Carlo integration (estimating intractable integrals). 2. Circuit yield analysis (estimating manufacturing yield). 3. Noise modeling (simulating thermal noise, shot noise via stochastic processes).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "How can random sampling be combined with the other 3 concepts?",
+            "back": "Approx + Random: simplify distribution, then sample. Discretize + Random: sample from discrete set. Linearize + Random: linearize system, sample for uncertainty. RS is orthogonal — combinable with all.",
+            "difficultyLevel": 4
+        }
+    ]
+}

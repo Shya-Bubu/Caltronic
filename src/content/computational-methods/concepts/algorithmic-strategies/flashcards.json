@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-algorithmic-strategies",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is a procedural algorithm?",
+            "back": "A finite sequence of well-defined, deterministic steps that always terminates with an exact answer. Example: Gaussian elimination for Ax = b.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is an iterative algorithm?",
+            "back": "A method that generates a sequence of improving approximations until convergence. Example: Newton-Raphson — xₙ₊₁ = xₙ − f(xₙ)/f'(xₙ).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What does 'quadratic convergence' mean for Newton-Raphson?",
+            "back": "The number of correct digits approximately doubles with each iteration: |eₙ₊₁| ≈ C·|eₙ|². If you have 2 correct digits, the next iteration gives ~4, then ~8.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "What is recursion in algorithmic terms?",
+            "back": "An algorithm that calls itself with progressively simpler inputs until a base case is reached. Example: FFT splits N-point DFT into two N/2-point DFTs.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What complexity does the FFT achieve vs. the direct DFT?",
+            "back": "FFT: O(N log N) vs. direct DFT: O(N²). For N = 1024, this is ~100× fewer operations.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Name the three phases of divide and conquer.",
+            "back": "Divide (split into sub-problems), Conquer (solve each), Combine (merge solutions). Example: merge sort — split array, sort halves, merge.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What is a greedy algorithm?",
+            "back": "An algorithm that makes the locally optimal choice at each step. Works when local optimality guarantees global optimality (greedy choice property). Example: Huffman coding.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "When does a greedy algorithm fail to find the global optimum?",
+            "back": "When the problem lacks the greedy choice property — when the locally best choice at each step doesn't lead to the overall best solution. Example: traveling salesman problem.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why does SPICE use Newton-Raphson (iterative) rather than Gaussian elimination (procedural)?",
+            "back": "Because circuit equations with diodes/transistors are nonlinear. There's no closed-form solution, so you must iterate: linearize → solve linear system → update → repeat.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What is the relationship between recursion and divide-and-conquer?",
+            "back": "Divide-and-conquer is a specific pattern that uses recursion. It has three phases (divide/conquer/combine). Not all recursive algorithms are divide-and-conquer (some don't have independent sub-problems).",
+            "difficultyLevel": 4
+        }
+    ]
+}

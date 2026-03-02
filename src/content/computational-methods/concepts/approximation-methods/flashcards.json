@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-approximation-methods",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Define approximation in computational methods.",
+            "back": "Replacing complex, intractable, or unknown quantities with simpler, tractable ones while accepting some error. The core trade-off: accuracy ↔ tractability.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the 1st-order Taylor approximation of sin(x)?",
+            "back": "sin(x) ≈ x, with error ~x³/6 for small x. Used when x is very small (e.g., small-angle approximation in pendulums).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is the 3rd-order Taylor approximation of sin(x)?",
+            "back": "sin(x) ≈ x − x³/6. Much better than 1st order for larger x values. Error ~x⁵/120.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Give an ECE example of model simplification as approximation.",
+            "back": "The piecewise-linear diode model (I = 0 for V < 0.7V, linear above) replaces the exact exponential I = Is(e^(V/Vt) − 1) for easier circuit analysis.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "How fast does the Leibniz series for π converge?",
+            "back": "Error ~1/N after N terms. Very slow: need N = 1000 for 3 correct digits. Modern algorithms (Chudnovsky) converge exponentially faster.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What is the key trade-off in every approximation?",
+            "back": "Accuracy ↔ Tractability (simplicity, speed, cost). More effort (terms, complexity) = more accuracy but more computation. The engineer finds the sweet spot.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Is linearization a form of approximation?",
+            "back": "Yes — linearization is a SPECIAL CASE of approximation. All linearizations are approximations, but not all approximations are linearizations (e.g., 5th-order Taylor is not linear).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why don't calculators use 100+ Taylor terms for sin(x)?",
+            "back": "Because beyond ~9th order, the truncation error is smaller than machine epsilon (~10⁻¹⁶ for doubles). More terms add zero additional accuracy due to floating-point precision limits.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "What is the Taylor remainder bound for sin(x)?",
+            "back": "Error ≤ |x|^(N+1)/(N+1)! after N terms. The factorial denominator causes rapid convergence — each additional term dramatically reduces error.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Distinguish approximation from discretization with one example each.",
+            "back": "Approximation: sin(x) ≈ x (replacing complex with simple). Discretization: x[n] = x(nTs) (converting continuous time to discrete samples). Different goals, different error types.",
+            "difficultyLevel": 3
+        }
+    ]
+}

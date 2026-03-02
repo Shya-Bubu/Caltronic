@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-capacitor-inductor-fundamentals",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the capacitor V-I relationship.",
+            "back": "i = C·dv/dt. Current flows only when voltage changes. At DC: i = 0, capacitor is an open circuit.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "State the inductor V-I relationship.",
+            "back": "v = L·di/dt. Voltage appears only when current changes. At DC: v = 0, inductor is a short circuit.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What does 'memory' mean for capacitors/inductors?",
+            "back": "Their state (v_C or i_L) depends on the integral of past current/voltage — the entire history from −∞ to t — unlike resistors which are memoryless (v = Ri depends only on current NOW).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Energy stored in a capacitor and inductor?",
+            "back": "E_C = ½Cv² (electrostatic). E_L = ½Li² (magnetic). Both always ≥ 0, stored not dissipated (lossless elements).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is the duality principle for C and L?",
+            "back": "Swap v↔i, C↔L, R↔G, series↔parallel. Every capacitor theorem has a dual inductor theorem. E.g., i=C·dv/dt ↔ v=L·di/dt.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What is the small-signal capacitance C(v)?",
+            "back": "C(v) = dq̂(v)/dv — the slope of the q-v characteristic at operating point v. Constant for linear capacitors; varies with v for nonlinear (e.g., varactors).",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f7",
+            "front": "Integral form of capacitor voltage.",
+            "back": "v(t) = v(t₀) + (1/C)∫_{t₀}^{t} i(τ)dτ. The voltage depends on the accumulated charge from t₀ to t plus the initial condition.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What are the four basic circuit elements?",
+            "back": "Resistor (v↔i), Capacitor (q↔v), Inductor (Φ↔i), Memristor (Φ↔q). Together they link all four pairings of v, i, q, Φ.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What happens if you connect a DC source directly to an ideal capacitor?",
+            "back": "dv/dt → ∞ implies i → ∞ (impulse). Physically impossible without resistance. This motivates the delta function δ(t) concept.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Phase relationship between v and i in a capacitor (AC)?",
+            "back": "Current LEADS voltage by 90°. i = C·dv/dt means when v = sin(ωt), i = ωC·cos(ωt). Peak current occurs at zero voltage crossing (maximum dv/dt).",
+            "difficultyLevel": 3
+        }
+    ]
+}

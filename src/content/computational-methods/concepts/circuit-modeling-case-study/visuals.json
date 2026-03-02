@@ -1,0 +1,604 @@
+{
+    "visuals": [
+        {
+            "id": "rectifier-circuit-schematic",
+            "type": "circuit-schematic",
+            "title": "Half-Wave Rectifier Circuit",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Vs",
+                    "from": [
+                        64,
+                        288
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "Vs"
+                },
+                {
+                    "type": "resistor",
+                    "id": "r",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ],
+                    "label": "r (source)"
+                },
+                {
+                    "type": "diode",
+                    "id": "D",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ],
+                    "label": "D"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        320,
+                        64
+                    ],
+                    "to": [
+                        320,
+                        288
+                    ],
+                    "label": "R (load)"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        64,
+                        288
+                    ],
+                    "to": [
+                        320,
+                        288
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "load-line-basic",
+            "type": "plotly",
+            "title": "Load Line on the V_D–I Plane",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        0
+                    ],
+                    "name": "Load line: I = −V_D/(r+R) + V_S/(r+R)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        5
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "name": "V_D = V_S (open circuit)",
+                    "mode": "markers+text",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "size": 12
+                    },
+                    "text": [
+                        "(V_S, 0)"
+                    ],
+                    "textposition": "top left"
+                },
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        5
+                    ],
+                    "name": "I = V_S/(r+R) (short circuit)",
+                    "mode": "markers+text",
+                    "marker": {
+                        "color": "#2fbf8f",
+                        "size": 12
+                    },
+                    "text": [
+                        "(0, V_S/(r+R))"
+                    ],
+                    "textposition": "bottom right"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)"
+                },
+                "yaxis": {
+                    "title": "I (mA)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "ideal-diode-iv",
+            "type": "plotly",
+            "title": "Model 1: Ideal Diode I-V Characteristic + Load Line",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        0,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        10
+                    ],
+                    "name": "Ideal diode I-V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        0
+                    ],
+                    "name": "Load line",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        5
+                    ],
+                    "name": "Operating point Q₁",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -2,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "title": "I (mA)",
+                    "range": [
+                        -1,
+                        11
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "constant-drop-model",
+            "type": "plotly",
+            "title": "Model 2: Constant Drop (Vγ = 0.7V) + Load Line",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        0.7,
+                        0.7
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        10
+                    ],
+                    "name": "Constant-drop diode",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        0
+                    ],
+                    "name": "Load line",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0.7
+                    ],
+                    "y": [
+                        4.3
+                    ],
+                    "name": "Q₂: V_D = 0.7V, I = 4.3 mA",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -2,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "title": "I (mA)",
+                    "range": [
+                        -1,
+                        11
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "piecewise-linear-model",
+            "type": "plotly",
+            "title": "Model 3: Piecewise Linear (Vγ + ρ) + Load Line",
+            "traces": [
+                {
+                    "x": [
+                        -2,
+                        0.7,
+                        1.5,
+                        2.5
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        4,
+                        9
+                    ],
+                    "name": "Piecewise linear: I = (V−Vγ)/ρ",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        0
+                    ],
+                    "name": "Load line",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1.1
+                    ],
+                    "y": [
+                        3.9
+                    ],
+                    "name": "Q₃: intersection",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -2,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "title": "I (mA)",
+                    "range": [
+                        -1,
+                        11
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "piecewise-linear-interactive",
+            "type": "v3-pwl-explorer",
+            "title": "Interactive: Explore Piecewise-Linear Approximation",
+            "description": "Adjust Vγ and ρ to see how the piecewise-linear characteristic changes.",
+            "config": {}
+        },
+        {
+            "id": "shockley-vs-loadline",
+            "type": "plotly",
+            "title": "Model 4: Shockley Exponential + Load Line → Numerical Methods Required",
+            "traces": [
+                {
+                    "x": [
+                        -0.5,
+                        0,
+                        0.3,
+                        0.5,
+                        0.55,
+                        0.6,
+                        0.65,
+                        0.7,
+                        0.75,
+                        0.8
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0.001,
+                        0.01,
+                        0.05,
+                        0.2,
+                        0.8,
+                        3,
+                        12,
+                        40
+                    ],
+                    "name": "Shockley: I_S(e^(V/V_T)−1)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        0
+                    ],
+                    "name": "Load line",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0.68
+                    ],
+                    "y": [
+                        3.32
+                    ],
+                    "name": "Q₄: requires Newton-Raphson",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#f0a03a",
+                        "size": 14,
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_D (V)",
+                    "range": [
+                        -0.5,
+                        5.5
+                    ]
+                },
+                "yaxis": {
+                    "title": "I (mA)",
+                    "range": [
+                        -1,
+                        10
+                    ]
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "newton-raphson-convergence",
+            "type": "v3-plot",
+            "title": "Newton-Raphson Convergence for the Shockley Operating Point",
+            "config": {
+                "xLabel": "Iteration k",
+                "yLabel": "|Error| = |V_D,k − V_D*|",
+                "curves": [
+                    {
+                        "label": "Newton-Raphson error",
+                        "data": [
+                            [
+                                0,
+                                0.5
+                            ],
+                            [
+                                1,
+                                0.12
+                            ],
+                            [
+                                2,
+                                0.008
+                            ],
+                            [
+                                3,
+                                0.00004
+                            ],
+                            [
+                                4,
+                                0.0000000001
+                            ]
+                        ],
+                        "color": "#6b62ff"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "four-models-comparison",
+            "type": "plotly",
+            "title": "All Four Models Side-by-Side: Accuracy vs. Computational Effort",
+            "traces": [
+                {
+                    "x": [
+                        "1. Ideal",
+                        "2. Constant\nDrop",
+                        "3. Piecewise\nLinear",
+                        "4. Shockley"
+                    ],
+                    "y": [
+                        17,
+                        7,
+                        3,
+                        0.5
+                    ],
+                    "name": "Typical error (%)",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                },
+                {
+                    "x": [
+                        "1. Ideal",
+                        "2. Constant\nDrop",
+                        "3. Piecewise\nLinear",
+                        "4. Shockley"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        2,
+                        4
+                    ],
+                    "name": "Computational complexity (1-5)",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Value"
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "accuracy-vs-complexity",
+            "type": "v3-plot",
+            "title": "The Fundamental Trade-Off: More Parameters → Better Accuracy → Harder Math",
+            "config": {
+                "xLabel": "Number of model parameters",
+                "yLabel": "Value",
+                "curves": [
+                    {
+                        "label": "Error (%)",
+                        "data": [
+                            [
+                                0,
+                                17
+                            ],
+                            [
+                                1,
+                                7
+                            ],
+                            [
+                                2,
+                                3
+                            ],
+                            [
+                                3,
+                                0.5
+                            ]
+                        ],
+                        "color": "#ff6b8a"
+                    },
+                    {
+                        "label": "Computational effort (1-5)",
+                        "data": [
+                            [
+                                0,
+                                1
+                            ],
+                            [
+                                1,
+                                1
+                            ],
+                            [
+                                2,
+                                2
+                            ],
+                            [
+                                3,
+                                4
+                            ]
+                        ],
+                        "color": "#6b62ff"
+                    }
+                ]
+            }
+        }
+    ]
+}

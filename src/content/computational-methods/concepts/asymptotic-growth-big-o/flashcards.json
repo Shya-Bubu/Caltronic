@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-asymptotic-growth-big-o",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Define Big-O notation formally.",
+            "back": "f(z) = O(α(z)) if ∃ C > 0 such that |f(z)| ≤ C|α(z)| for sufficiently large z. It's an asymptotic upper bound that drops constants and lower-order terms.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "What is the FLOP count for N×N matrix multiplication?",
+            "back": "2N³ − N² FLOPs = O(N³). Each of N² elements needs N multiplications + (N−1) additions.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is the FLOP count for matrix-vector multiplication?",
+            "back": "2N² − N FLOPs = O(N²). Each of N output elements needs N multiplications + (N−1) additions.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is O(1)?",
+            "back": "Constant time — independent of input size. Example: indexed array lookup takes a fixed number of clock cycles regardless of array size.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "If algorithm is O(N³) and N doubles, how much more work?",
+            "back": "2³ = 8× more work. Cubic scaling: N=100→N=200 means 8× longer. This is why matrix operations for large N require special algorithms.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Memory for 3 N×N matrices in IEEE double precision?",
+            "back": "3N² × 8 bytes = 24N² bytes. At N=1000: 24 MB. At N=10000: 2.4 GB. Memory is O(N²) for matrix storage.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Why is O(N log N) considered 'almost linear'?",
+            "back": "Because log N grows very slowly: for N = 10⁶, log₂N ≈ 20. So N log N ≈ 20N, which is only 20× more than O(N). Compare with O(N²) = 10⁶N at the same size.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Where is the 'exponential wall' in complexity?",
+            "back": "Between polynomial (N², N³) and exponential (2^N). At N=30, O(N³) = 27000 ops vs O(2^N) ≈ 10⁹ ops. At N=100, O(N³) = 10⁶ vs O(2^N) ≈ 10³⁰ — universe-age computation time.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "Prove that 2N³ − N² = O(N³).",
+            "back": "|2N³ − N²| ≤ 2N³ + N² ≤ 2N³ + N³ = 3N³ for N ≥ 1. So C = 3, and f(N) ≤ 3·N³ = O(N³). QED.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What is the complexity of the FFT?",
+            "back": "O(N log N), compared to the naive DFT at O(N²). For N = 10⁶: FFT ≈ 2×10⁷ ops vs DFT ≈ 10¹² ops — a 50,000× speedup.",
+            "difficultyLevel": 3
+        }
+    ]
+}

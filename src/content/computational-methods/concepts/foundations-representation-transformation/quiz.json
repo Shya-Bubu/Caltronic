@@ -1,0 +1,137 @@
+{
+    "id": "quiz-foundations-representation-transformation",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the primary purpose of approximation in computational methods?",
+            "options": [
+                "To make results more accurate",
+                "To replace complex quantities with simpler, tractable ones",
+                "To convert continuous signals to discrete ones",
+                "To change the mathematical domain"
+            ],
+            "correctAnswer": "To replace complex quantities with simpler, tractable ones",
+            "explanation": "Approximation trades exactness for tractability. You replace something complex (like an exponential diode equation) with something simpler (like a linear model) that you can actually solve. It doesn't make results more accurate — it deliberately sacrifices some accuracy for solvability."
+        },
+        {
+            "id": "q2",
+            "prompt": "When linearizing a diode's I-V curve around a bias point V₀, the small-signal conductance gd represents:",
+            "options": [
+                "The DC resistance at V₀",
+                "The slope of the I-V curve at V₀ (dI/dV)",
+                "The total current at V₀",
+                "The reverse saturation current"
+            ],
+            "correctAnswer": "The slope of the I-V curve at V₀ (dI/dV)",
+            "explanation": "The small-signal conductance gd = dI/dV evaluated at V₀ is the derivative (slope) of the I-V curve at the operating point. It tells you how much the current changes per unit change in voltage around that point. This is the key parameter in the linear approximation I ≈ I₀ + gd(V - V₀)."
+        },
+        {
+            "id": "q3",
+            "prompt": "According to the Nyquist-Shannon theorem, what is the minimum sampling frequency to avoid aliasing for a signal with maximum frequency component of 4 kHz?",
+            "options": [
+                "2 kHz",
+                "4 kHz",
+                "8 kHz",
+                "16 kHz"
+            ],
+            "correctAnswer": "8 kHz",
+            "explanation": "The Nyquist-Shannon theorem requires fs ≥ 2·fmax. For fmax = 4 kHz, you need fs ≥ 8 kHz. Sampling at exactly 8 kHz is the theoretical minimum; in practice, you'd sample faster (like 44.1 kHz for CD audio) to provide a margin."
+        },
+        {
+            "id": "q4",
+            "prompt": "What happens when you sample a signal below the Nyquist rate?",
+            "options": [
+                "The signal is amplified",
+                "Aliasing occurs — high frequencies masquerade as lower ones",
+                "The signal is perfectly reconstructed",
+                "Only the DC component survives"
+            ],
+            "correctAnswer": "Aliasing occurs — high frequencies masquerade as lower ones",
+            "explanation": "Under-sampling causes aliasing: frequency components above fs/2 fold back into the lower frequency range, creating false signals that are indistinguishable from legitimate low-frequency content. This is irreversible — once aliased, the original information is lost."
+        },
+        {
+            "id": "q5",
+            "prompt": "Why does the Laplace transform convert the differential equation Ldi/dt + Ri = v(t) into an algebraic equation?",
+            "options": [
+                "It removes the resistance term",
+                "Differentiation becomes multiplication by s in the s-domain",
+                "It eliminates the inductor",
+                "It converts DC to AC"
+            ],
+            "correctAnswer": "Differentiation becomes multiplication by s in the s-domain",
+            "explanation": "The Laplace transform maps d/dt → multiplication by s. So Ldi/dt becomes sLI(s), and the differential equation LsI(s) + RI(s) = V(s) is algebraic in I(s). You can solve it by simple algebra: I(s) = V(s)/(sL + R). This is the core power of transformation."
+        },
+        {
+            "id": "q6",
+            "prompt": "When linearizing f(x) = x² around x₀ = 3, the linearized model is:",
+            "options": [
+                "f(x) ≈ 9",
+                "f(x) ≈ 9 + 6(x - 3)",
+                "f(x) ≈ 6x",
+                "f(x) ≈ x²"
+            ],
+            "correctAnswer": "f(x) ≈ 9 + 6(x - 3)",
+            "explanation": "Linearization uses the first-order Taylor expansion: f(x) ≈ f(x₀) + f'(x₀)(x - x₀). Here f(3) = 9 and f'(x) = 2x so f'(3) = 6. Thus f(x) ≈ 9 + 6(x - 3). This is a tangent line that matches both the value and slope of x² at x = 3."
+        },
+        {
+            "id": "q7",
+            "prompt": "What does the Jacobian matrix A = ∂f/∂x represent in linearization of ẋ = f(x, u)?",
+            "options": [
+                "The input matrix",
+                "The state transition matrix of the linearized system",
+                "The output equation",
+                "The nonlinear dynamics"
+            ],
+            "correctAnswer": "The state transition matrix of the linearized system",
+            "explanation": "The Jacobian A = ∂f/∂x evaluated at the equilibrium point gives the state matrix of the linearized system ẋ̃ = Aẋ̃ + Bũ. It captures how small perturbations in the state variables evolve over time. The eigenvalues of A determine the stability of the equilibrium."
+        },
+        {
+            "id": "q8",
+            "prompt": "In PCA, keeping only K principal components out of P (where K ≪ P) means:",
+            "options": [
+                "All information is preserved",
+                "Only the K directions of maximum variance are retained",
+                "The data becomes more noisy",
+                "Computation time increases"
+            ],
+            "correctAnswer": "Only the K directions of maximum variance are retained",
+            "explanation": "PCA identifies the orthogonal directions (principal components) along which the data has the most variance. Keeping K components retains the K most informative directions and discards the rest. The discarded dimensions typically contain noise, so this often improves rather than degrades performance."
+        },
+        {
+            "id": "q9",
+            "prompt": "Which foundational principle is at work when you use finite differences to solve a partial differential equation numerically?",
+            "options": [
+                "Transformation",
+                "Approximation only",
+                "Discretization combined with approximation",
+                "Dimension reduction"
+            ],
+            "correctAnswer": "Discretization combined with approximation",
+            "explanation": "Finite differences involve both discretization (replacing the continuous spatial/temporal domain with a grid of discrete points) and approximation (replacing derivatives with finite difference quotients like (f(x+h) - f(x))/h). Both principles work together to create a solvable system."
+        },
+        {
+            "id": "q10",
+            "prompt": "The key limitation shared by all five foundational principles is:",
+            "options": [
+                "They only work for linear systems",
+                "They all introduce some form of error or information loss",
+                "They require powerful computers",
+                "They can only be applied once"
+            ],
+            "correctAnswer": "They all introduce some form of error or information loss",
+            "explanation": "Every foundational principle trades something for tractability. Approximation loses exactness. Discretization loses continuous resolution. Transformation may lose intuition. Linearization loses validity range. Dimension reduction loses minor variation. The art is managing these trade-offs appropriately."
+        },
+        {
+            "id": "q11",
+            "prompt": "Which transformation converts multiplication into addition, making it useful for analyzing signals with wide dynamic range?",
+            "options": [
+                "Fourier transform",
+                "Laplace transform",
+                "Logarithmic scaling",
+                "Z-transform"
+            ],
+            "correctAnswer": "Logarithmic scaling",
+            "explanation": "The logarithm converts multiplication to addition: log(ab) = log(a) + log(b). This is why decibels (dB) are used in signal processing — they convert power ratios spanning many orders of magnitude into manageable additive quantities. The Fourier and Laplace transforms convert convolution to multiplication, which is different."
+        }
+    ]
+}

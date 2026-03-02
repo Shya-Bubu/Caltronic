@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-mathematical-modeling-principles",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Define mathematical modeling.",
+            "back": "Translating real-world phenomena into equations, variables, and assumptions. Balances accuracy with computational tractability. The essential first step before any computation.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the modeling pipeline?",
+            "back": "Physical System →(assumptions)→ Mathematical Model →(algorithm)→ Computational Solution →(validation)→ Prediction. Each arrow involves choices.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Simple model vs. elaborate model — when to use each?",
+            "back": "Simple: few parameters, fast, approximate — good for quick insights and design exploration. Elaborate: many parameters, slow, high fidelity — good for final verification and predictive simulation.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "List 5 elementary assumptions for a simple rectifier circuit.",
+            "back": "1. Zero parasitic L/C/R in wires. 2. Low frequency. 3. No EMI. 4. Reasonable voltage/current range. 5. Fixed resistance (no thermal variation).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Write the load line equation for a circuit with source Vs and resistance (r+R).",
+            "back": "I = (−1/(r+R))·V_D + V_S/(r+R). When I = 0: V_D = Vs. When V_D = 0: I = Vs/(r+R). Straight line in V_D-I plane.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What determines the operating point in a diode circuit?",
+            "back": "The intersection of the load line (circuit constraint) and the diode I-V characteristic (device model). Different diode models give different operating points.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is model validation?",
+            "back": "Comparing model predictions against measurements, higher-fidelity models, or known analytical solutions. If validation fails, refine the model (not the algorithm).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Why can a perfect algorithm give wrong answers?",
+            "back": "Because the algorithm solves the model, not reality. If the model is wrong (bad assumptions, missing physics), the perfectly computed answer to the wrong equation is still wrong.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "State the golden rule of mathematical modeling.",
+            "back": "The best model is the simplest one that answers your question accurately enough. Unnecessary complexity wastes computation and can introduce errors without improving answers.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "At what frequency do wire parasitics become significant?",
+            "back": "Above ~100 MHz for typical PCB traces. A 1 cm wire at 1 GHz has ~60 Ω of inductive reactance. At DC/low frequency, this is negligible.",
+            "difficultyLevel": 4
+        }
+    ]
+}

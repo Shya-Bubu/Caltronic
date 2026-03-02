@@ -1,0 +1,71 @@
+{
+    "id": "flashcards-verification-efficiency-implementation",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the SNR formula for an N-bit ADC?",
+            "back": "SNR ≈ 6.02N + 1.76 dB. Each additional bit adds ~6 dB of SNR. For 12-bit: SNR ≈ 74 dB.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "When is the forward Euler method stable?",
+            "back": "When |1 + hλ| ≤ 1. For λ < 0, this requires h ≤ 2/|λ|. Step too large → numerical explosion even if the true solution is stable.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f3",
+            "front": "What does O(n³) mean for matrix multiplication?",
+            "back": "The number of operations grows as the cube of matrix size. For n = 1000, that's ~10⁹ operations. Strassen reduces to O(n^2.81) — about 4× fewer operations for n = 1000.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is decomposition in computational methods?",
+            "back": "Breaking a complex system into simpler, independent subsystems. Example: nodal analysis decomposes a circuit into KCL equations at each node → linear system YV = I.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "How does sinc interpolation reconstruct a sampled signal?",
+            "back": "x(t) = Σ x[n]·sinc((t-nTs)/Ts). Each sample contributes a sinc pulse; they superimpose to recreate the continuous signal. Works perfectly for bandlimited signals.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "How do adaptive methods like RKF45 adjust step size?",
+            "back": "By comparing 4th and 5th order solutions to estimate local error. h_new = h_old × (ε_tol/ε_est)^(1/5). Small error → larger steps; large error → smaller steps.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f7",
+            "front": "Why are Monte Carlo simulations 'embarrassingly parallel'?",
+            "back": "Each trial is completely independent — no communication between trials. Millions of trials can run on thousands of cores with zero coordination overhead.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "What is the difference between verification and validation?",
+            "back": "Verification: 'Did I build the model right?' (code correctness, conservation laws). Validation: 'Did I build the right model?' (comparison with physical measurements).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Why does electro-thermal simulation require coupled models?",
+            "back": "Feedback loop: current → power → heat → temperature changes electrical parameters (mobility, Vth) → changes current. Must iterate until self-consistent. Predicts thermal runaway.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What is caching/memoization in computation?",
+            "back": "Storing results of expensive function calls to avoid redundant computation. Example: caching BSIM device model evaluations at quantized bias points → 10-100× speedup.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f11",
+            "front": "Why is extrapolation riskier than interpolation?",
+            "back": "Interpolation estimates within known data (neighboring points constrain the estimate). Extrapolation estimates beyond data — no constraints, so a perfectly fitting polynomial can diverge wildly.",
+            "difficultyLevel": 3
+        }
+    ]
+}

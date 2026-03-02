@@ -39,6 +39,11 @@ export const modules: Module[] = [
         path: "/circuit-analysis/lesson-02",
       },
       {
+        id: "lesson-03",
+        title: "First-Order Circuits",
+        path: "/circuit-analysis/lesson-03",
+      },
+      {
         id: "lesson-05",
         title: "AC Phasors & Impedance",
         path: "/circuit-analysis/lesson-05",
@@ -139,7 +144,28 @@ export const modules: Module[] = [
     description: "Numerical methods and computation as an engineering tool.",
     category: "Computational",
     accent: "#62c6ff",
-    updatedToWeek: 0,
-    lectures: [],
+    updatedToWeek: 4,
+    lectures: [
+      {
+        id: "lesson-01",
+        title: "Core Principles of Computational Methods",
+        path: "/computational-methods/lesson-01",
+      },
+      {
+        id: "lesson-02",
+        title: "Distinguishing Core Computational Concepts",
+        path: "/computational-methods/lesson-02",
+      },
+      {
+        id: "lesson-03",
+        title: "Mathematical Modeling in EEE",
+        path: "/computational-methods/lesson-03",
+      },
+      {
+        id: "lesson-04",
+        title: "Complexity Analysis and Convergence",
+        path: "/computational-methods/lesson-04",
+      },
+    ],
   },
 ];

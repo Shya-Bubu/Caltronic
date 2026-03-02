@@ -1,0 +1,613 @@
+{
+    "visuals": [
+        {
+            "id": "growth-functions-plot",
+            "type": "plotly",
+            "title": "Prototype Growth Functions: How Different Complexities Scale",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "O(1)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        0,
+                        2.32,
+                        3.32,
+                        4.32,
+                        5.64,
+                        6.64
+                    ],
+                    "name": "O(log N)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#62c6ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "name": "O(N)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        0,
+                        11.6,
+                        33.2,
+                        86.4,
+                        282,
+                        664
+                    ],
+                    "name": "O(N log N)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1,
+                        25,
+                        100,
+                        400,
+                        2500,
+                        10000
+                    ],
+                    "name": "O(N²)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1,
+                        125,
+                        1000,
+                        8000,
+                        125000,
+                        1000000
+                    ],
+                    "name": "O(N³)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff3366",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Problem size N"
+                },
+                "yaxis": {
+                    "title": "Operations",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "operations-comparison-table",
+            "type": "plotly",
+            "title": "FLOPs for ECE Operations: N = 100 vs. N = 1000",
+            "traces": [
+                {
+                    "x": [
+                        "Array\nlookup",
+                        "Array\naddition",
+                        "Matrix-\nvector",
+                        "Matrix-\nmatrix"
+                    ],
+                    "y": [
+                        0,
+                        100,
+                        20000,
+                        2000000
+                    ],
+                    "name": "N = 100",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                },
+                {
+                    "x": [
+                        "Array\nlookup",
+                        "Array\naddition",
+                        "Matrix-\nvector",
+                        "Matrix-\nmatrix"
+                    ],
+                    "y": [
+                        0,
+                        1000,
+                        2000000,
+                        2000000000
+                    ],
+                    "name": "N = 1000",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "FLOPs",
+                    "type": "log"
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "cubic-scaling-demo",
+            "type": "v3-plot",
+            "title": "Cubic Scaling in Action: Matrix Multiply Cost vs. N",
+            "config": {
+                "xLabel": "Matrix dimension N",
+                "yLabel": "FLOPs (2N³−N²)",
+                "curves": [
+                    {
+                        "label": "FLOPs = 2N³ − N²",
+                        "data": [
+                            [
+                                10,
+                                1900
+                            ],
+                            [
+                                20,
+                                15600
+                            ],
+                            [
+                                50,
+                                247500
+                            ],
+                            [
+                                100,
+                                1990000
+                            ],
+                            [
+                                200,
+                                15960000
+                            ],
+                            [
+                                500,
+                                249750000
+                            ]
+                        ],
+                        "color": "#ff6b8a"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "big-o-definition-visual",
+            "type": "plotly",
+            "title": "Big-O Proven: |2N³ − N²| ≤ 3N³ for All N ≥ 1",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1,
+                        225,
+                        1900,
+                        15200,
+                        247500,
+                        1990000
+                    ],
+                    "name": "f(N) = 2N³ − N²",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        3,
+                        375,
+                        3000,
+                        24000,
+                        375000,
+                        3000000
+                    ],
+                    "name": "C·g(N) = 3N³ (upper bound)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "N"
+                },
+                "yaxis": {
+                    "title": "Value",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "big-o-constant-irrelevance",
+            "type": "plotly",
+            "title": "Why Constants Don't Matter: All O(N³) Curves Scale the Same Way",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        10,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        0.5,
+                        500,
+                        62500,
+                        500000
+                    ],
+                    "name": "0.5N³",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        10,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        2,
+                        2000,
+                        250000,
+                        2000000
+                    ],
+                    "name": "2N³",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        10,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        10,
+                        10000,
+                        1250000,
+                        10000000
+                    ],
+                    "name": "10N³",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "N"
+                },
+                "yaxis": {
+                    "title": "Value",
+                    "type": "log"
+                },
+                "showlegend": true,
+                "annotations": [
+                    {
+                        "x": 2,
+                        "y": 6.5,
+                        "text": "Same slope = same Big-O",
+                        "showarrow": false
+                    }
+                ]
+            }
+        },
+        {
+            "id": "complexity-classes-hierarchy",
+            "type": "plotly",
+            "title": "Time to Process N = 10⁶ at 10⁹ ops/sec",
+            "traces": [
+                {
+                    "x": [
+                        "O(1)",
+                        "O(log N)",
+                        "O(N)",
+                        "O(N log N)",
+                        "O(N²)",
+                        "O(N³)"
+                    ],
+                    "y": [
+                        1e-9,
+                        20e-9,
+                        1e-3,
+                        20e-3,
+                        1000,
+                        1e9
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#62c6ff",
+                            "#6b62ff",
+                            "#f0a03a",
+                            "#ff6b8a",
+                            "#ff3366"
+                        ]
+                    },
+                    "text": [
+                        "1 ns",
+                        "20 ns",
+                        "1 ms",
+                        "20 ms",
+                        "17 min",
+                        "32 years"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Time (seconds)",
+                    "type": "log"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "exponential-vs-polynomial",
+            "type": "plotly",
+            "title": "The Exponential Wall: Polynomial Growth vs. Exponential Growth",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        15,
+                        20,
+                        25,
+                        30
+                    ],
+                    "y": [
+                        1,
+                        25,
+                        100,
+                        225,
+                        400,
+                        625,
+                        900
+                    ],
+                    "name": "O(N²)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        15,
+                        20,
+                        25,
+                        30
+                    ],
+                    "y": [
+                        1,
+                        125,
+                        1000,
+                        3375,
+                        8000,
+                        15625,
+                        27000
+                    ],
+                    "name": "O(N³)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 6
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        5,
+                        10,
+                        15,
+                        20,
+                        25,
+                        30
+                    ],
+                    "y": [
+                        2,
+                        32,
+                        1024,
+                        32768,
+                        1048576,
+                        33554432,
+                        1073741824
+                    ],
+                    "name": "O(2^N)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "N"
+                },
+                "yaxis": {
+                    "title": "Operations",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "fft-speedup",
+            "type": "v3-plot",
+            "title": "FFT vs. Naive DFT: The Speedup Factor at Different N",
+            "config": {
+                "xLabel": "Signal length N",
+                "yLabel": "Speedup (N/log₂N)",
+                "curves": [
+                    {
+                        "label": "FFT speedup factor",
+                        "data": [
+                            [
+                                64,
+                                10.7
+                            ],
+                            [
+                                256,
+                                32
+                            ],
+                            [
+                                1024,
+                                102.4
+                            ],
+                            [
+                                4096,
+                                341.3
+                            ],
+                            [
+                                16384,
+                                1170
+                            ],
+                            [
+                                65536,
+                                4096
+                            ]
+                        ],
+                        "color": "#2fbf8f"
+                    }
+                ]
+            }
+        }
+    ]
+}

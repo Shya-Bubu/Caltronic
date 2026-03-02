@@ -1,0 +1,910 @@
+{
+    "visuals": [
+        {
+            "id": "adc-quantization-error",
+            "type": "plotly",
+            "title": "ADC Quantization: SNR vs. Number of Bits",
+            "traces": [
+                {
+                    "x": [
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20,
+                        24
+                    ],
+                    "y": [
+                        25.84,
+                        37.88,
+                        49.92,
+                        61.96,
+                        74.0,
+                        86.04,
+                        98.08,
+                        110.12,
+                        122.16,
+                        146.24
+                    ],
+                    "name": "SNR = 6.02N + 1.76 dB",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        4,
+                        24
+                    ],
+                    "y": [
+                        90,
+                        90
+                    ],
+                    "name": "90 dB requirement",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "ADC resolution (bits)"
+                },
+                "yaxis": {
+                    "title": "SNR (dB)"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "error-propagation-chain",
+            "type": "plotly",
+            "title": "Error Propagation Through Computation Steps",
+            "traces": [
+                {
+                    "x": [
+                        "Input",
+                        "Step 1",
+                        "Step 2",
+                        "Step 3",
+                        "Step 4",
+                        "Output"
+                    ],
+                    "y": [
+                        0.01,
+                        0.015,
+                        0.025,
+                        0.04,
+                        0.07,
+                        0.12
+                    ],
+                    "name": "Accumulated error (well-conditioned)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                },
+                {
+                    "x": [
+                        "Input",
+                        "Step 1",
+                        "Step 2",
+                        "Step 3",
+                        "Step 4",
+                        "Output"
+                    ],
+                    "y": [
+                        0.01,
+                        0.03,
+                        0.1,
+                        0.35,
+                        1.2,
+                        4.5
+                    ],
+                    "name": "Accumulated error (ill-conditioned)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Computation step"
+                },
+                "yaxis": {
+                    "title": "Relative error (%)",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "euler-stability-region",
+            "type": "plotly",
+            "title": "Forward Euler Stability: |1 + hλ| ≤ 1",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        1,
+                        0.5,
+                        0.25,
+                        0.125,
+                        0.0625,
+                        0.031,
+                        0.016,
+                        0.008,
+                        0.004,
+                        0.002,
+                        0.001
+                    ],
+                    "name": "Stable (h = 0.05, λ = -10)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        1,
+                        -0.5,
+                        0.25,
+                        -0.125,
+                        0.0625,
+                        -0.031,
+                        0.016,
+                        -0.008,
+                        0.004,
+                        -0.002,
+                        0.001
+                    ],
+                    "name": "Marginally stable (h = 0.15)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ],
+                    "y": [
+                        1,
+                        -2,
+                        4,
+                        -8,
+                        16,
+                        -32,
+                        64
+                    ],
+                    "name": "Unstable (h = 0.3)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time step n"
+                },
+                "yaxis": {
+                    "title": "y_n"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "convergence-vs-divergence",
+            "type": "plotly",
+            "title": "Convergence vs. Divergence of Iterative Methods",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "y": [
+                        5,
+                        2.5,
+                        1.25,
+                        1.06,
+                        1.002,
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "name": "Convergent (→ true solution)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "y": [
+                        5,
+                        3,
+                        9,
+                        27,
+                        81,
+                        243
+                    ],
+                    "name": "Divergent (→ ∞)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Iteration"
+                },
+                "yaxis": {
+                    "title": "Approximate solution",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "complexity-comparison-chart",
+            "type": "plotly",
+            "title": "Algorithm Complexity: How Costs Scale with n",
+            "traces": [
+                {
+                    "x": [
+                        10,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000
+                    ],
+                    "y": [
+                        1000,
+                        125000,
+                        1000000,
+                        125000000,
+                        1000000000,
+                        125000000000
+                    ],
+                    "name": "O(n³) — naive matrix mult",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        10,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000
+                    ],
+                    "y": [
+                        646,
+                        50822,
+                        328256,
+                        16795968,
+                        108475392,
+                        5554968064
+                    ],
+                    "name": "O(n^2.81) — Strassen",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        10,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000
+                    ],
+                    "y": [
+                        100,
+                        2500,
+                        10000,
+                        250000,
+                        1000000,
+                        25000000
+                    ],
+                    "name": "O(n²) — matrix-vector",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Problem size n",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Operations",
+                    "type": "log"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "nodal-analysis-decomposition",
+            "type": "plotly",
+            "title": "Decomposition: Circuit Nodes → YV = I System",
+            "traces": [
+                {
+                    "x": [
+                        "Node 1",
+                        "Node 2",
+                        "Node 3",
+                        "Node 4",
+                        "Node 5"
+                    ],
+                    "y": [
+                        3,
+                        4,
+                        5,
+                        3,
+                        2
+                    ],
+                    "name": "Connections per node",
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "KCL eq 1",
+                        "KCL eq 2",
+                        "KCL eq 3",
+                        "KCL eq 4",
+                        "KCL eq 5"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Branch connections"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "sinc-interpolation",
+            "type": "plotly",
+            "title": "Sinc Interpolation: Reconstructing Continuous Signal from Samples",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2,
+                        2.25,
+                        2.5,
+                        2.75,
+                        3,
+                        3.25,
+                        3.5,
+                        3.75,
+                        4
+                    ],
+                    "y": [
+                        0,
+                        0.707,
+                        1,
+                        0.707,
+                        0,
+                        -0.707,
+                        -1,
+                        -0.707,
+                        0,
+                        0.707,
+                        1,
+                        0.707,
+                        0,
+                        -0.707,
+                        -1,
+                        -0.707,
+                        0
+                    ],
+                    "name": "Reconstructed continuous signal",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.5,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        0,
+                        -1,
+                        0,
+                        1,
+                        0,
+                        -1,
+                        0
+                    ],
+                    "name": "Original samples",
+                    "mode": "markers",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "size": 12
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (normalized)"
+                },
+                "yaxis": {
+                    "title": "Amplitude"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "adaptive-step-size",
+            "type": "plotly",
+            "title": "Adaptive Step Size: Small Steps Where Needed, Large Where Not",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.2,
+                        1.3,
+                        1.35,
+                        1.4,
+                        1.45,
+                        1.5,
+                        1.55,
+                        1.6,
+                        1.65,
+                        1.7,
+                        1.8,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0.1,
+                        0.5,
+                        1.5,
+                        3.0,
+                        3.2,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3,
+                        3.3
+                    ],
+                    "name": "Signal (step response)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        1.2,
+                        1.3,
+                        1.35,
+                        1.4,
+                        1.45,
+                        1.5,
+                        1.55,
+                        1.6,
+                        1.65,
+                        1.7,
+                        1.8,
+                        2,
+                        2.5,
+                        3,
+                        3.5,
+                        4
+                    ],
+                    "y": [
+                        0.5,
+                        0.5,
+                        0.2,
+                        0.1,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.05,
+                        0.1,
+                        0.2,
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5,
+                        0.5
+                    ],
+                    "name": "Step size h (adaptive)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time"
+                },
+                "yaxis": {
+                    "title": "Signal"
+                },
+                "yaxis2": {
+                    "title": "Step size h",
+                    "side": "right",
+                    "overlaying": "y"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "parallel-fft-speedup",
+            "type": "plotly",
+            "title": "Parallelization: GPU FFT Speedup Over CPU",
+            "traces": [
+                {
+                    "x": [
+                        256,
+                        1024,
+                        4096,
+                        16384,
+                        65536,
+                        262144,
+                        1048576
+                    ],
+                    "y": [
+                        1.5,
+                        3,
+                        8,
+                        20,
+                        45,
+                        80,
+                        110
+                    ],
+                    "name": "GPU/CPU speedup ratio",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "FFT size N",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Speedup (GPU/CPU)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "symbolic-vs-numerical",
+            "type": "plotly",
+            "title": "Symbolic vs. Numerical: When to Use Each",
+            "traces": [
+                {
+                    "x": [
+                        "Exact\nFormula",
+                        "Sensitivity\nAnalysis",
+                        "Parameter\nSweep",
+                        "Real-Time\nComputation",
+                        "Large-Scale\nSimulation"
+                    ],
+                    "y": [
+                        5,
+                        5,
+                        3,
+                        1,
+                        1
+                    ],
+                    "name": "Symbolic strength",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                },
+                {
+                    "x": [
+                        "Exact\nFormula",
+                        "Sensitivity\nAnalysis",
+                        "Parameter\nSweep",
+                        "Real-Time\nComputation",
+                        "Large-Scale\nSimulation"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        5,
+                        5,
+                        5
+                    ],
+                    "name": "Numerical strength",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Suitability (1-5)"
+                },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "verification-validation-difference",
+            "type": "plotly",
+            "title": "Verification vs. Validation: Two Different Questions",
+            "traces": [
+                {
+                    "x": [
+                        "Verification",
+                        "Validation"
+                    ],
+                    "y": [
+                        3,
+                        3
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#6b62ff",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Did I build the\nmodel RIGHT?\n\n• Equations solved correctly?\n• Conservation laws satisfied?\n• Residuals small?",
+                        "Did I build the\nRIGHT model?\n\n• Matches measurements?\n• Correct physics?\n• Valid assumptions?"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "showticklabels": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "electrothermal-coupling",
+            "type": "plotly",
+            "title": "Multi-Physics: Electro-Thermal Coupling in Power MOSFET",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        25,
+                        30,
+                        38,
+                        48,
+                        60,
+                        72,
+                        82,
+                        90,
+                        95,
+                        98,
+                        100
+                    ],
+                    "name": "Junction temperature T (°C)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "y": [
+                        2.0,
+                        2.1,
+                        2.25,
+                        2.4,
+                        2.6,
+                        2.8,
+                        3.0,
+                        3.15,
+                        3.25,
+                        3.3,
+                        3.35
+                    ],
+                    "name": "Drain current ID (A)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (ms)"
+                },
+                "yaxis": {
+                    "title": "Temperature (°C)"
+                },
+                "yaxis2": {
+                    "title": "Current (A)",
+                    "side": "right",
+                    "overlaying": "y"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}
