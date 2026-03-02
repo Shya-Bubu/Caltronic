@@ -1,6 +1,8 @@
 {
     "id": "lesson-02",
     "title": "Distinguishing Core Computational Concepts",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
     "prerequisites": [
         "lesson-01"
     ],

@@ -1,6 +1,8 @@
 {
     "id": "lesson-01",
     "title": "Core Principles of Computational Methods",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
     "prerequisites": [],
     "concepts": [
         "foundations-representation-transformation",

@@ -1,6 +1,8 @@
 {
     "id": "lesson-03",
     "title": "First-Order Circuits",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
     "prerequisites": [
         "lesson-01",
         "lesson-02"
