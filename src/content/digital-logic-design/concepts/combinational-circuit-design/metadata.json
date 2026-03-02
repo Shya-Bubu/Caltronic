@@ -1,0 +1,11 @@
+{
+    "id": "combinational-circuit-design",
+    "title": "Designing Combinational Logic Circuits",
+    "slug": "combinational-circuit-design",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

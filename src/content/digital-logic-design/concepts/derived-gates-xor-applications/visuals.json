@@ -1,0 +1,439 @@
+{
+    "visuals": [
+        {
+            "id": "xor-truth-table-derivation",
+            "type": "plotly",
+            "title": "XOR Truth Table: Output 1 When Inputs Differ",
+            "traces": [
+                {
+                    "x": [
+                        "0,0",
+                        "0,1",
+                        "1,0",
+                        "1,1"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        1,
+                        0
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#6b62ff",
+                            "#6b62ff",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Same→0",
+                        "Differ→1",
+                        "Differ→1",
+                        "Same→0"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "X₀, X₁"
+                },
+                "yaxis": {
+                    "title": "Z"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "xor-from-basic-gates",
+            "type": "block-diagram",
+            "title": "XOR Built from Basic Gates: Z = X̄₀·X₁ + X₀·X̄₁",
+            "blocks": [
+                {
+                    "id": "x0",
+                    "label": "X₀",
+                    "position": "left"
+                },
+                {
+                    "id": "x1",
+                    "label": "X₁",
+                    "position": "left"
+                },
+                {
+                    "id": "not0",
+                    "label": "NOT",
+                    "position": "center-left"
+                },
+                {
+                    "id": "not1",
+                    "label": "NOT",
+                    "position": "center-left"
+                },
+                {
+                    "id": "and0",
+                    "label": "AND",
+                    "position": "center"
+                },
+                {
+                    "id": "and1",
+                    "label": "AND",
+                    "position": "center"
+                },
+                {
+                    "id": "or",
+                    "label": "OR",
+                    "position": "center-right"
+                },
+                {
+                    "id": "z",
+                    "label": "Z",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x0",
+                    "to": "not0"
+                },
+                {
+                    "from": "not0",
+                    "to": "and0"
+                },
+                {
+                    "from": "x1",
+                    "to": "and0"
+                },
+                {
+                    "from": "x0",
+                    "to": "and1"
+                },
+                {
+                    "from": "x1",
+                    "to": "not1"
+                },
+                {
+                    "from": "not1",
+                    "to": "and1"
+                },
+                {
+                    "from": "and0",
+                    "to": "or"
+                },
+                {
+                    "from": "and1",
+                    "to": "or"
+                },
+                {
+                    "from": "or",
+                    "to": "z"
+                }
+            ]
+        },
+        {
+            "id": "falstad-xor-circuit",
+            "type": "falstad-sim",
+            "title": "Interactive: XOR Gate from Basic Gates",
+            "description": "Toggle X₀ and X₁ to see XOR behavior. Output is 1 only when inputs differ.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\n150 240 160 336 160 0 2 0 5\n150 240 288 336 288 0 2 0 5\nI 160 144 240 144 0 0.5 5\nI 160 176 240 176 0 0.5 5\nI 160 272 240 272 0 0.5 5\nI 160 304 240 304 0 0.5 5\n150 400 224 496 224 0 2 5 5\nw 336 160 400 208 0\nw 336 288 400 240 0\nw 496 224 560 224 0\no 11 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        },
+        {
+            "id": "half-adder-circuit",
+            "type": "block-diagram",
+            "title": "Half Adder: Sum = XOR, Carry = AND",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "position": "left"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "position": "left"
+                },
+                {
+                    "id": "xor",
+                    "label": "⊕ XOR",
+                    "position": "center"
+                },
+                {
+                    "id": "and",
+                    "label": "& AND",
+                    "position": "center"
+                },
+                {
+                    "id": "sum",
+                    "label": "Sum",
+                    "position": "right"
+                },
+                {
+                    "id": "carry",
+                    "label": "Carry",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "xor"
+                },
+                {
+                    "from": "b",
+                    "to": "xor"
+                },
+                {
+                    "from": "xor",
+                    "to": "sum"
+                },
+                {
+                    "from": "a",
+                    "to": "and"
+                },
+                {
+                    "from": "b",
+                    "to": "and"
+                },
+                {
+                    "from": "and",
+                    "to": "carry"
+                }
+            ]
+        },
+        {
+            "id": "binary-comparator",
+            "type": "block-diagram",
+            "title": "N-Bit Comparator: XNOR Each Bit Pair, Then AND All",
+            "blocks": [
+                {
+                    "id": "x0y0",
+                    "label": "X₀⊕Y₀",
+                    "position": "left"
+                },
+                {
+                    "id": "x1y1",
+                    "label": "X₁⊕Y₁",
+                    "position": "left"
+                },
+                {
+                    "id": "xnyn",
+                    "label": "Xₙ⊕Yₙ",
+                    "position": "left"
+                },
+                {
+                    "id": "nor",
+                    "label": "NOR (all zero?)",
+                    "position": "center"
+                },
+                {
+                    "id": "eq",
+                    "label": "EQUAL",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x0y0",
+                    "to": "nor"
+                },
+                {
+                    "from": "x1y1",
+                    "to": "nor"
+                },
+                {
+                    "from": "xnyn",
+                    "to": "nor"
+                },
+                {
+                    "from": "nor",
+                    "to": "eq"
+                }
+            ]
+        },
+        {
+            "id": "controlled-not",
+            "type": "plotly",
+            "title": "Controlled NOT: A=0 → Pass-Through, A=1 → Invert",
+            "traces": [
+                {
+                    "x": [
+                        "A=0,B=0",
+                        "A=0,B=1",
+                        "A=1,B=0",
+                        "A=1,B=1"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        1,
+                        0
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#2fbf8f",
+                            "#6b62ff",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "Z=B=0",
+                        "Z=B=1",
+                        "Z=B̄=1",
+                        "Z=B̄=0"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Inputs"
+                },
+                "yaxis": {
+                    "title": "Z"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "two-way-switches",
+            "type": "plotly",
+            "title": "Staircase Lighting: XOR of N Switches",
+            "traces": [
+                {
+                    "x": [
+                        "0,0",
+                        "0,1",
+                        "1,0",
+                        "1,1"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        1,
+                        0
+                    ],
+                    "name": "Bulb state (S₁⊕S₂)",
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#2fbf8f",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "OFF",
+                        "ON",
+                        "ON",
+                        "OFF"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "S₁, S₂"
+                },
+                "yaxis": {
+                    "title": "Bulb"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "nand-nor-xnor-symbols",
+            "type": "block-diagram",
+            "title": "Derived Gate Symbols: NAND, NOR, XNOR",
+            "blocks": [
+                {
+                    "id": "nand",
+                    "label": "NAND\n(AND + bubble)",
+                    "position": "left"
+                },
+                {
+                    "id": "nor",
+                    "label": "NOR\n(OR + bubble)",
+                    "position": "center"
+                },
+                {
+                    "id": "xnor",
+                    "label": "XNOR\n(XOR + bubble)",
+                    "position": "right"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "or-from-nands",
+            "type": "block-diagram",
+            "title": "OR from NAND Gates: NOT inputs, then NAND",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "A",
+                    "position": "left"
+                },
+                {
+                    "id": "b",
+                    "label": "B",
+                    "position": "left"
+                },
+                {
+                    "id": "na",
+                    "label": "NAND (NOT A)",
+                    "position": "center-left"
+                },
+                {
+                    "id": "nb",
+                    "label": "NAND (NOT B)",
+                    "position": "center-left"
+                },
+                {
+                    "id": "nand",
+                    "label": "NAND",
+                    "position": "center-right"
+                },
+                {
+                    "id": "z",
+                    "label": "Z = A+B",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "na"
+                },
+                {
+                    "from": "b",
+                    "to": "nb"
+                },
+                {
+                    "from": "na",
+                    "to": "nand"
+                },
+                {
+                    "from": "nb",
+                    "to": "nand"
+                },
+                {
+                    "from": "nand",
+                    "to": "z"
+                }
+            ]
+        },
+        {
+            "id": "falstad-nand-to-not",
+            "type": "falstad-sim",
+            "title": "Interactive: Single-Input NAND = NOT Gate",
+            "description": "Both NAND inputs tied together. Toggle the switch to see NOT behavior.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\n151 240 192 336 192 0 2 5 5\ns 128 176 192 176 0 0 false\nR 128 176 96 176 0 0 40 5 0 0 0.5\nw 192 176 240 176 0\nw 192 176 192 208 0\nw 192 208 240 208 0\nw 336 192 400 192 0\no 5 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        }
+    ]
+}

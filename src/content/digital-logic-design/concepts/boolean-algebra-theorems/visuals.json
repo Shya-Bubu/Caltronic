@@ -1,0 +1,361 @@
+{
+    "visuals": [
+        {
+            "id": "identity-laws",
+            "type": "plotly",
+            "title": "Identity & Annulment Laws: How 0 and 1 Interact with Variables",
+            "traces": [
+                {
+                    "x": [
+                        "A·1",
+                        "A·0",
+                        "A+0",
+                        "A+1"
+                    ],
+                    "y": [
+                        1,
+                        0,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "= A",
+                        "= 0",
+                        "= A",
+                        "= 1"
+                    ],
+                    "textposition": "auto",
+                    "name": "Result when A=1"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Expression"
+                },
+                "yaxis": {
+                    "title": "Result"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "complement-laws",
+            "type": "plotly",
+            "title": "Complement Laws: A Combined with Ā",
+            "traces": [
+                {
+                    "x": [
+                        "A=0",
+                        "A=1"
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "A · Ā = 0",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                },
+                {
+                    "x": [
+                        "A=0",
+                        "A=1"
+                    ],
+                    "y": [
+                        1,
+                        1
+                    ],
+                    "name": "A + Ā = 1",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Result"
+                },
+                "barmode": "group"
+            }
+        },
+        {
+            "id": "distributive-law",
+            "type": "block-diagram",
+            "title": "Distributive Law: A(B+C) = AB + AC",
+            "blocks": [
+                {
+                    "id": "left",
+                    "label": "A·(B+C)",
+                    "position": "left"
+                },
+                {
+                    "id": "eq",
+                    "label": "=",
+                    "position": "center"
+                },
+                {
+                    "id": "right",
+                    "label": "A·B + A·C",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "left",
+                    "to": "eq"
+                },
+                {
+                    "from": "eq",
+                    "to": "right"
+                }
+            ]
+        },
+        {
+            "id": "demorgans-theorems",
+            "type": "plotly",
+            "title": "De Morgan's Theorems: Verification by Truth Table",
+            "traces": [
+                {
+                    "x": [
+                        "A=0,B=0",
+                        "A=0,B=1",
+                        "A=1,B=0",
+                        "A=1,B=1"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "name": "(A·B)̄ = Ā+B̄",
+                    "type": "scatter",
+                    "mode": "markers+lines",
+                    "marker": {
+                        "color": "#6b62ff",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": [
+                        "A=0,B=0",
+                        "A=0,B=1",
+                        "A=1,B=0",
+                        "A=1,B=1"
+                    ],
+                    "y": [
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "name": "(A+B)̄ = Ā·B̄",
+                    "type": "scatter",
+                    "mode": "markers+lines",
+                    "marker": {
+                        "color": "#ff6b8a",
+                        "size": 12
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Inputs"
+                },
+                "yaxis": {
+                    "title": "Output"
+                }
+            }
+        },
+        {
+            "id": "demorgans-venn",
+            "type": "block-diagram",
+            "title": "De Morgan's Intuition: NOT(AND) = OR(NOTs)",
+            "blocks": [
+                {
+                    "id": "nand",
+                    "label": "NOT(A·B)\n= NAND",
+                    "position": "left"
+                },
+                {
+                    "id": "eq1",
+                    "label": "≡",
+                    "position": "center-left"
+                },
+                {
+                    "id": "ornot",
+                    "label": "Ā + B̄\n= OR of NOTs",
+                    "position": "center"
+                },
+                {
+                    "id": "nor",
+                    "label": "NOT(A+B)\n= NOR",
+                    "position": "center-right"
+                },
+                {
+                    "id": "eq2",
+                    "label": "≡",
+                    "position": "right-center"
+                },
+                {
+                    "id": "andnot",
+                    "label": "Ā · B̄\n= AND of NOTs",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "nand",
+                    "to": "eq1"
+                },
+                {
+                    "from": "eq1",
+                    "to": "ornot"
+                },
+                {
+                    "from": "nor",
+                    "to": "eq2"
+                },
+                {
+                    "from": "eq2",
+                    "to": "andnot"
+                }
+            ]
+        },
+        {
+            "id": "simplification-steps",
+            "type": "plotly",
+            "title": "SOP Simplification: 4 Minterms → 3 Terms (50% Fewer Gates)",
+            "traces": [
+                {
+                    "x": [
+                        "Before",
+                        "After"
+                    ],
+                    "y": [
+                        4,
+                        3
+                    ],
+                    "name": "Terms",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                },
+                {
+                    "x": [
+                        "Before",
+                        "After"
+                    ],
+                    "y": [
+                        12,
+                        6
+                    ],
+                    "name": "Gate inputs",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Count"
+                },
+                "barmode": "group",
+                "title": "ĀBC+AB̄C+ABC̄+ABC → AB+BC+AC"
+            }
+        },
+        {
+            "id": "falstad-simplified-majority",
+            "type": "falstad-sim",
+            "title": "Interactive: Simplified Majority Voter — Z = AB+BC+AC",
+            "description": "Three switches for A, B, C. Simplified circuit using only 3 AND gates and 1 OR gate.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\ns 64 96 128 96 0 0 false\nR 64 96 32 96 0 0 40 5 0 0 0.5\ns 64 192 128 192 0 0 false\nR 64 192 32 192 0 0 40 5 0 0 0.5\ns 64 288 128 288 0 0 false\nR 64 288 32 288 0 0 40 5 0 0 0.5\n150 224 144 320 144 0 2 0 5\n150 224 240 320 240 0 2 0 5\n150 224 336 320 336 0 2 0 5\n152 384 240 480 240 0 2 0 5\nw 128 96 224 128 0\nw 128 192 224 160 0\nw 128 192 224 224 0\nw 128 288 224 256 0\nw 128 96 224 320 0\nw 128 288 224 352 0\nw 320 144 384 224 0\nw 320 240 384 240 0\nw 320 336 384 256 0\nw 480 240 544 240 0\no 18 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        },
+        {
+            "id": "boolean-cheatsheet",
+            "type": "plotly",
+            "title": "10 Boolean Algebra Rules — Quick Reference",
+            "traces": [
+                {
+                    "x": [
+                        "Identity",
+                        "Annulment",
+                        "Complement",
+                        "Idempotent",
+                        "Commutative",
+                        "Associative",
+                        "Distributive",
+                        "Absorption",
+                        "DeMorgan 1",
+                        "DeMorgan 2"
+                    ],
+                    "y": [
+                        10,
+                        9,
+                        8,
+                        7,
+                        6,
+                        5,
+                        4,
+                        3,
+                        2,
+                        1
+                    ],
+                    "type": "scatter",
+                    "mode": "text",
+                    "text": [
+                        "A·1=A, A+0=A",
+                        "A·0=0, A+1=1",
+                        "A·Ā=0, A+Ā=1",
+                        "A·A=A, A+A=A",
+                        "AB=BA, A+B=B+A",
+                        "(AB)C=A(BC)",
+                        "A(B+C)=AB+AC",
+                        "A+AB=A",
+                        "(AB)̄=Ā+B̄",
+                        "(A+B)̄=Ā·B̄"
+                    ],
+                    "textposition": "right",
+                    "marker": {
+                        "size": 8,
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false,
+                "margin": {
+                    "l": 20,
+                    "r": 200
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-derived-gates",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "XOR expression and behavior?",
+            "back": "Z = X₀ ⊕ X₁ = X̄₀X₁ + X₀X̄₁. Output 1 when inputs DIFFER. The 'difference detector.'",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Half adder outputs?",
+            "back": "Sum = A ⊕ B (XOR). Carry = A · B (AND). Two gates for 1-bit addition without carry-in.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "NAND expression and truth table?",
+            "back": "Z = (X₀·X₁)̄. Output 0 ONLY when both inputs are 1. Output 1 otherwise. Universal gate.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "NOR expression and truth table?",
+            "back": "Z = (X₀+X₁)̄. Output 1 ONLY when both inputs are 0. Output 0 otherwise. Universal gate.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "XNOR behavior?",
+            "back": "Z = (X₀⊕X₁)̄. Output 1 when inputs are SAME. The 'equality detector.' Complement of XOR.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What makes a gate 'universal'?",
+            "back": "It can implement NOT, AND, and OR by itself. Only NAND and NOR are universal. XOR is not.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Controlled NOT gate?",
+            "back": "Z = A ⊕ B. When A=0: Z=B (pass). When A=1: Z=B̄ (invert). A controls whether B is inverted.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "XOR for parity checking?",
+            "back": "XOR all bits: result = 1 if odd number of 1s, 0 if even. Used for single-bit error detection.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "NOT from NAND?",
+            "back": "Tie both NAND inputs together: Z = (A·A)̄ = Ā. Single-input NAND = NOT.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "OR from NANDs?",
+            "back": "3 NAND gates: NOT A, NOT B (2 single-input NANDs), then NAND(Ā,B̄) = A+B by De Morgan's.",
+            "difficultyLevel": 3
+        }
+    ]
+}

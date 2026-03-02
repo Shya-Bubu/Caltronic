@@ -1,0 +1,11 @@
+{
+    "id": "circuit-minimization-intro",
+    "title": "Circuit Minimization and Hamming Distance",
+    "slug": "circuit-minimization-intro",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

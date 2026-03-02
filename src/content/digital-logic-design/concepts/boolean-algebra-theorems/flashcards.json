@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-boolean-algebra",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Identity laws?",
+            "back": "A·1 = A, A+0 = A. The 1 and 0 of each operation pass the variable through unchanged.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Annulment laws?",
+            "back": "A·0 = 0, A+1 = 1. Zero kills AND; one forces OR to always-1.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Complement laws?",
+            "back": "A·Ā = 0 (never both 1), A+Ā = 1 (always one is 1). Key elimination tool.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "De Morgan's Theorem 1?",
+            "back": "(A·B)̄ = Ā + B̄. NOT-AND = OR-NOTs. Push NOT through AND → swap to OR.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "De Morgan's Theorem 2?",
+            "back": "(A+B)̄ = Ā · B̄. NOT-OR = AND-NOTs. Push NOT through OR → swap to AND.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Absorption law?",
+            "back": "A + AB = A and A(A+B) = A. Redundant terms get absorbed by simpler terms.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Distributive law (standard)?",
+            "back": "A(B+C) = AB + AC. AND distributes over OR. Same as arithmetic: a(b+c) = ab+ac.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f8",
+            "front": "Distributive law (uniquely Boolean)?",
+            "back": "A + BC = (A+B)(A+C). OR distributes over AND. NOT valid in regular arithmetic!",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Idempotent law?",
+            "back": "A·A = A, A+A = A. Combining a variable with itself gives itself. Allows term duplication for grouping.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "SOP simplification strategy?",
+            "back": "Duplicate terms (idempotent), pair minterms differing in 1 variable (complement + identity to eliminate that variable). Repeat until no more pairing possible.",
+            "difficultyLevel": 3
+        }
+    ]
+}

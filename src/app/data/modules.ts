@@ -90,8 +90,14 @@ export const modules: Module[] = [
     description: "Boolean reasoning, combinational/sequential design, and synthesis fundamentals.",
     category: "Foundational",
     accent: "#2fbf8f",
-    updatedToWeek: 0,
-    lectures: [],
+    updatedToWeek: 1,
+    lectures: [
+      {
+        id: "lesson-01",
+        title: "Processing of Logical Information",
+        path: "/digital-logic-design/lesson-01",
+      },
+    ],
   },
   {
     id: "EE2040",

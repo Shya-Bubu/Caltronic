@@ -1,0 +1,531 @@
+{
+    "visuals": [
+        {
+            "id": "voltage-logic-mapping",
+            "type": "plotly",
+            "title": "Digital Voltage Levels: 0V = Logic 0, 5V = Logic 1",
+            "traces": [
+                {
+                    "x": [
+                        "Logic 0",
+                        "Forbidden Zone",
+                        "Logic 1"
+                    ],
+                    "y": [
+                        0,
+                        2.5,
+                        5
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#6b62ff"
+                        ]
+                    },
+                    "text": [
+                        "0V (GND)",
+                        "Noise Margin",
+                        "5V (V_CC)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Voltage (V)",
+                    "range": [
+                        0,
+                        6
+                    ]
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "not-gate-symbol",
+            "type": "block-diagram",
+            "title": "NOT Gate: Symbol and Truth Table",
+            "blocks": [
+                {
+                    "id": "in",
+                    "label": "X",
+                    "position": "left"
+                },
+                {
+                    "id": "gate",
+                    "label": "▷○ NOT",
+                    "position": "center"
+                },
+                {
+                    "id": "out",
+                    "label": "Z = X̄",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "in",
+                    "to": "gate"
+                },
+                {
+                    "from": "gate",
+                    "to": "out"
+                }
+            ]
+        },
+        {
+            "id": "transistor-inverter-circuit",
+            "type": "circuit-schematic",
+            "title": "NOT Gate: BJT Transistor Inverter Circuit",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Vcc",
+                    "from": [
+                        192,
+                        32
+                    ],
+                    "to": [
+                        192,
+                        0
+                    ],
+                    "label": "5V (Vcc)"
+                },
+                {
+                    "type": "resistor",
+                    "id": "Rc",
+                    "from": [
+                        192,
+                        32
+                    ],
+                    "to": [
+                        192,
+                        128
+                    ],
+                    "label": "Rc"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        128
+                    ],
+                    "to": [
+                        192,
+                        160
+                    ],
+                    "label": "Z (output)"
+                },
+                {
+                    "type": "resistor",
+                    "id": "Rb",
+                    "from": [
+                        32,
+                        192
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ],
+                    "label": "Rb"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        192
+                    ],
+                    "to": [
+                        32,
+                        192
+                    ],
+                    "label": "X (input)"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        288
+                    ],
+                    "to": [
+                        192,
+                        320
+                    ],
+                    "label": "GND"
+                }
+            ]
+        },
+        {
+            "id": "falstad-not-inverter",
+            "type": "falstad-sim",
+            "title": "Interactive: Toggle Input to See NOT Gate Invert",
+            "description": "Click the switch to change the input between 0V and 5V. Watch the output toggle to the opposite state.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nI 208 192 272 192 0 0.5 5\nr 272 192 272 128 0 1000\nR 272 64 272 32 0 0 40 5 0 0 0.5\nw 272 64 272 128 0\ng 272 256 272 288 0 0\nt 208 192 272 192 0 1 0.6217836256048453 -4.325855697750929 100 default\nw 272 224 272 256 0\ns 128 192 208 192 0 0 false\nR 128 192 96 192 0 0 40 5 0 0 0.5\no 6 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        },
+        {
+            "id": "or-gate-symbol",
+            "type": "block-diagram",
+            "title": "OR Gate: Symbol and Expression",
+            "blocks": [
+                {
+                    "id": "x0",
+                    "label": "X₀",
+                    "position": "top-left"
+                },
+                {
+                    "id": "x1",
+                    "label": "X₁",
+                    "position": "bottom-left"
+                },
+                {
+                    "id": "gate",
+                    "label": "≥1 OR",
+                    "position": "center"
+                },
+                {
+                    "id": "out",
+                    "label": "Z = X₀+X₁",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x0",
+                    "to": "gate"
+                },
+                {
+                    "from": "x1",
+                    "to": "gate"
+                },
+                {
+                    "from": "gate",
+                    "to": "out"
+                }
+            ]
+        },
+        {
+            "id": "diode-or-circuit",
+            "type": "circuit-schematic",
+            "title": "OR Gate: Diode Implementation",
+            "elements": [
+                {
+                    "type": "diode",
+                    "id": "D1",
+                    "from": [
+                        64,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        128
+                    ],
+                    "label": "D₁"
+                },
+                {
+                    "type": "diode",
+                    "id": "D2",
+                    "from": [
+                        64,
+                        192
+                    ],
+                    "to": [
+                        192,
+                        128
+                    ],
+                    "label": "D₂"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        64
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "X₀"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        192
+                    ],
+                    "to": [
+                        64,
+                        192
+                    ],
+                    "label": "X₁"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        128
+                    ],
+                    "to": [
+                        288,
+                        128
+                    ],
+                    "label": "Z"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        192,
+                        128
+                    ],
+                    "to": [
+                        192,
+                        256
+                    ],
+                    "label": "R (pull-down)"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        256
+                    ],
+                    "to": [
+                        192,
+                        288
+                    ],
+                    "label": "GND"
+                }
+            ]
+        },
+        {
+            "id": "falstad-or-diode",
+            "type": "falstad-sim",
+            "title": "Interactive: Diode OR Gate — Toggle Inputs",
+            "description": "Two switches control X₀ and X₁. Output goes HIGH when either input is HIGH.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\ns 128 96 192 96 0 0 false\nR 128 96 96 96 0 0 40 5 0 0 0.5\nd 192 96 288 192 2 default\ns 128 288 192 288 0 0 false\nR 128 288 96 288 0 0 40 5 0 0 0.5\nd 192 288 288 192 2 default\nr 288 192 288 320 0 10000\ng 288 320 288 352 0 0\nw 288 192 368 192 0\no 8 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        },
+        {
+            "id": "and-gate-symbol",
+            "type": "block-diagram",
+            "title": "AND Gate: Symbol and Expression",
+            "blocks": [
+                {
+                    "id": "x0",
+                    "label": "X₀",
+                    "position": "top-left"
+                },
+                {
+                    "id": "x1",
+                    "label": "X₁",
+                    "position": "bottom-left"
+                },
+                {
+                    "id": "gate",
+                    "label": "& AND",
+                    "position": "center"
+                },
+                {
+                    "id": "out",
+                    "label": "Z = X₀·X₁",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "x0",
+                    "to": "gate"
+                },
+                {
+                    "from": "x1",
+                    "to": "gate"
+                },
+                {
+                    "from": "gate",
+                    "to": "out"
+                }
+            ]
+        },
+        {
+            "id": "diode-and-circuit",
+            "type": "circuit-schematic",
+            "title": "AND Gate: Diode Implementation with Pull-Up",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "Vcc",
+                    "from": [
+                        192,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        32
+                    ],
+                    "label": "5V"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R",
+                    "from": [
+                        192,
+                        32
+                    ],
+                    "to": [
+                        192,
+                        128
+                    ],
+                    "label": "R (pull-up)"
+                },
+                {
+                    "type": "diode",
+                    "id": "D1",
+                    "from": [
+                        192,
+                        128
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "D₁"
+                },
+                {
+                    "type": "diode",
+                    "id": "D2",
+                    "from": [
+                        192,
+                        128
+                    ],
+                    "to": [
+                        64,
+                        192
+                    ],
+                    "label": "D₂"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        64
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "X₀"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        192
+                    ],
+                    "to": [
+                        64,
+                        192
+                    ],
+                    "label": "X₁"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        128
+                    ],
+                    "to": [
+                        288,
+                        128
+                    ],
+                    "label": "Z"
+                }
+            ]
+        },
+        {
+            "id": "falstad-and-diode",
+            "type": "falstad-sim",
+            "title": "Interactive: Diode AND Gate — Both Inputs Must Be HIGH",
+            "description": "Output only goes HIGH when BOTH switches are closed (both inputs = 5V).",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\nR 288 64 288 32 0 0 40 5 0 0 0.5\nr 288 64 288 192 0 10000\ns 128 96 192 96 0 0 false\nR 128 96 96 96 0 0 40 5 0 0 0.5\nd 288 192 192 96 2 default\ns 128 288 192 288 0 0 false\nR 128 288 96 288 0 0 40 5 0 0 0.5\nd 288 192 192 288 2 default\nw 288 192 368 192 0\no 7 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        },
+        {
+            "id": "three-gates-comparison",
+            "type": "plotly",
+            "title": "Truth Table Comparison: NOT vs OR vs AND",
+            "traces": [
+                {
+                    "x": [
+                        "0→?",
+                        "1→?"
+                    ],
+                    "y": [
+                        1,
+                        0
+                    ],
+                    "name": "NOT",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                },
+                {
+                    "x": [
+                        "0,0",
+                        "0,1",
+                        "1,0",
+                        "1,1"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "OR",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    },
+                    "xaxis": "x2",
+                    "yaxis": "y2"
+                },
+                {
+                    "x": [
+                        "0,0",
+                        "0,1",
+                        "1,0",
+                        "1,1"
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ],
+                    "name": "AND",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    },
+                    "xaxis": "x3",
+                    "yaxis": "y3"
+                }
+            ],
+            "layout": {
+                "grid": {
+                    "rows": 1,
+                    "columns": 3,
+                    "pattern": "independent"
+                },
+                "showlegend": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "derived-gates-xor-applications",
+    "title": "Derived Gates: XOR, NAND, NOR, XNOR and Applications",
+    "slug": "derived-gates-xor-applications",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

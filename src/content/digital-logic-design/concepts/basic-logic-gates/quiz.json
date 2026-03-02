@@ -1,0 +1,125 @@
+{
+    "id": "quiz-basic-logic-gates",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The NOT gate performs:",
+            "options": [
+                "Logical addition",
+                "Logical multiplication",
+                "Logical inversion (complement)",
+                "Logical subtraction"
+            ],
+            "correctAnswer": "Logical inversion (complement)",
+            "explanation": "NOT flips the input: Z = X̄. If X=0, Z=1; if X=1, Z=0. Also called negation or inversion."
+        },
+        {
+            "id": "q2",
+            "prompt": "A 2-input OR gate outputs 0 only when:",
+            "options": [
+                "Both inputs are 1",
+                "Both inputs are 0",
+                "Any input is 0",
+                "Any input is 1"
+            ],
+            "correctAnswer": "Both inputs are 0",
+            "explanation": "OR outputs 1 if ANY input is 1. The only case producing 0 is when ALL inputs are 0."
+        },
+        {
+            "id": "q3",
+            "prompt": "A 2-input AND gate outputs 1 only when:",
+            "options": [
+                "Both inputs are 1",
+                "Both inputs are 0",
+                "Any input is 1",
+                "Any input is 0"
+            ],
+            "correctAnswer": "Both inputs are 1",
+            "explanation": "AND outputs 1 only when ALL inputs are 1. Any single 0 input forces the output to 0."
+        },
+        {
+            "id": "q4",
+            "prompt": "In a BJT transistor inverter, when the input is 0V:",
+            "options": [
+                "Transistor is ON, output is 0V",
+                "Transistor is OFF, output is 5V",
+                "Transistor is damaged",
+                "Output is floating"
+            ],
+            "correctAnswer": "Transistor is OFF, output is 5V",
+            "explanation": "With 0V input, the base-emitter junction is not forward biased, so the transistor is in cutoff. No collector current flows, and the output is pulled to V_CC (5V) through the collector resistor."
+        },
+        {
+            "id": "q5",
+            "prompt": "The diode OR circuit has an output of ~4.3V instead of 5V because:",
+            "options": [
+                "The resistor drops voltage",
+                "The diode has a ~0.7V forward voltage drop",
+                "The power supply is 4.3V",
+                "There's a short circuit"
+            ],
+            "correctAnswer": "The diode has a ~0.7V forward voltage drop",
+            "explanation": "A silicon diode drops ~0.7V when forward biased. So 5V input → 5V – 0.7V = 4.3V at the output. This is a limitation of simple diode logic."
+        },
+        {
+            "id": "q6",
+            "prompt": "The expression Z = X₀ + X₁ represents:",
+            "options": [
+                "Arithmetic addition",
+                "OR operation",
+                "AND operation",
+                "XOR operation"
+            ],
+            "correctAnswer": "OR operation",
+            "explanation": "In Boolean algebra, '+' means logical OR, not arithmetic addition. Z = X₀ + X₁ means Z is 1 if X₀ OR X₁ (or both) is 1."
+        },
+        {
+            "id": "q7",
+            "prompt": "The expression Z = X₀ · X₁ represents:",
+            "options": [
+                "Arithmetic multiplication",
+                "OR operation",
+                "AND operation",
+                "NAND operation"
+            ],
+            "correctAnswer": "AND operation",
+            "explanation": "In Boolean algebra, '·' (dot) means logical AND. Z = X₀ · X₁ means Z is 1 only when BOTH X₀ AND X₁ are 1."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why is diode-only logic not used for more than 1-2 stages?",
+            "options": [
+                "Diodes are too expensive",
+                "Signal degradation — each stage loses ~0.7V",
+                "Diodes can only handle one input",
+                "Speed is too slow"
+            ],
+            "correctAnswer": "Signal degradation — each stage loses ~0.7V",
+            "explanation": "Each diode stage loses ~0.7V. After several stages, the voltage degrades below the logic threshold. Real logic families use transistors for signal restoration at every gate."
+        },
+        {
+            "id": "q9",
+            "prompt": "In TTL logic, the typical HIGH voltage is:",
+            "options": [
+                "1.0 V",
+                "2.5 V",
+                "3.3 V",
+                "5.0 V"
+            ],
+            "correctAnswer": "5.0 V",
+            "explanation": "Standard TTL uses 5V for logic HIGH and 0V for logic LOW. Though modern systems use 3.3V or 1.8V, the original TTL standard is 5V."
+        },
+        {
+            "id": "q10",
+            "prompt": "The three basic logic operations are:",
+            "options": [
+                "ADD, SUB, MUL",
+                "NOT, OR, AND",
+                "XOR, NAND, NOR",
+                "SHIFT, ROTATE, COMPARE"
+            ],
+            "correctAnswer": "NOT, OR, AND",
+            "explanation": "NOT (complement), OR (disjunction), and AND (conjunction) are the three primitive operations. All other logic functions can be built from these three."
+        }
+    ]
+}

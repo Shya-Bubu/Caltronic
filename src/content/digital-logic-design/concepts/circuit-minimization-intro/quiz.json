@@ -1,0 +1,125 @@
+{
+    "id": "quiz-circuit-minimization",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the Hamming distance between ABC̄ and ABC?",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "3"
+            ],
+            "correctAnswer": "1",
+            "explanation": "Only the third variable differs (C̄ vs C). HD = 1, so these terms can be merged: ABC̄ + ABC = AB."
+        },
+        {
+            "id": "q2",
+            "prompt": "Two minterms can be merged (one variable eliminated) when their HD is:",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "Any value"
+            ],
+            "correctAnswer": "1",
+            "explanation": "HD = 1 means exactly one variable differs. That variable can be eliminated: PX̄ + PX = P. HD > 1 cannot be directly merged."
+        },
+        {
+            "id": "q3",
+            "prompt": "A canonical SOP expression is one where:",
+            "options": [
+                "Every term uses all input variables",
+                "Terms have been simplified",
+                "Only 2 variables appear per term",
+                "No complements are used"
+            ],
+            "correctAnswer": "Every term uses all input variables",
+            "explanation": "Canonical = every term is a full minterm containing ALL variables (complemented or not). Non-canonical = simplified with some variables missing from some terms."
+        },
+        {
+            "id": "q4",
+            "prompt": "The expression A + ĀB simplifies to:",
+            "options": [
+                "AB",
+                "A + B",
+                "ĀB",
+                "1"
+            ],
+            "correctAnswer": "A + B",
+            "explanation": "Using the second distributive law: A + ĀB = (A+Ā)(A+B) = 1·(A+B) = A+B."
+        },
+        {
+            "id": "q5",
+            "prompt": "The Hamming distance between ĀB̄C̄ and ABC is:",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "3"
+            ],
+            "correctAnswer": "3",
+            "explanation": "All three variables differ: Ā→A, B̄→B, C̄→C. HD = 3. These terms have nothing in common and cannot be directly merged."
+        },
+        {
+            "id": "q6",
+            "prompt": "After minimizing ĀBC + AB̄C + ABC̄ + ABC, the result is:",
+            "options": [
+                "ABC",
+                "A + B + C",
+                "AB + BC + AC",
+                "ĀB̄C̄"
+            ],
+            "correctAnswer": "AB + BC + AC",
+            "explanation": "Three HD-1 pairs: ĀBC+ABC→BC, AB̄C+ABC→AC, ABC̄+ABC→AB. Result: AB+BC+AC (using idempotent law to reuse ABC)."
+        },
+        {
+            "id": "q7",
+            "prompt": "Minimization reduces gate count from 8 to 4 in the majority voter. The percentage reduction is:",
+            "options": [
+                "25%",
+                "33%",
+                "50%",
+                "75%"
+            ],
+            "correctAnswer": "50%",
+            "explanation": "(8-4)/8 × 100 = 50%. The minimised circuit uses exactly half the gates of the canonical SOP."
+        },
+        {
+            "id": "q8",
+            "prompt": "Which minimization method is best for machine implementation?",
+            "options": [
+                "Boolean algebra",
+                "Karnaugh map",
+                "Quine-McCluskey",
+                "Guess and check"
+            ],
+            "correctAnswer": "Quine-McCluskey",
+            "explanation": "Quine-McCluskey is a tabular algorithm that can be programmed. K-maps are visual (hard to automate). Boolean algebra is informal."
+        },
+        {
+            "id": "q9",
+            "prompt": "The Karnaugh map method is practical for up to:",
+            "options": [
+                "2 variables",
+                "4 variables",
+                "5-6 variables",
+                "Any number"
+            ],
+            "correctAnswer": "5-6 variables",
+            "explanation": "K-maps work best for 2-5 variables. Beyond 6, the map becomes too complex to read visually. Use Quine-McCluskey for larger circuits."
+        },
+        {
+            "id": "q10",
+            "prompt": "What does circuit minimization optimise?",
+            "options": [
+                "Only area",
+                "Only speed",
+                "Only cost",
+                "Area, cost, power, speed, and debuggability"
+            ],
+            "correctAnswer": "Area, cost, power, speed, and debuggability",
+            "explanation": "Fewer gates → smaller area (chip real estate), lower cost (fewer components), lower power (fewer switching transistors), higher speed (fewer gate delays), and easier troubleshooting."
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "boolean-algebra-theorems",
+    "title": "Boolean Algebra Rules and Theorems",
+    "slug": "boolean-algebra-theorems",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

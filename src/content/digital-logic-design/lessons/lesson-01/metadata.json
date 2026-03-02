@@ -1,0 +1,14 @@
+{
+    "id": "lesson-01",
+    "title": "Processing of Logical Information",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "prerequisites": [],
+    "concepts": [
+        "basic-logic-gates",
+        "derived-gates-xor-applications",
+        "combinational-circuit-design",
+        "boolean-algebra-theorems",
+        "circuit-minimization-intro"
+    ]
+}

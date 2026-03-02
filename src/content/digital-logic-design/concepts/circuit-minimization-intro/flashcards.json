@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-circuit-minimization",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Hamming distance (HD) definition?",
+            "back": "Number of variables that differ between two minterms. ABC̄ vs ABC → HD=1 (only C differs).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "When can two minterms be merged?",
+            "back": "When HD = 1. The differing variable is eliminated: PX̄ + PX = P. HD > 1 → cannot directly merge.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Canonical vs non-canonical form?",
+            "back": "Canonical: every term uses ALL variables (full minterms/maxterms). Non-canonical: simplified with fewer variables per term.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Three minimization methods?",
+            "back": "1. Boolean algebra (hand rules) 2. Karnaugh maps (graphical, ≤5 vars) 3. Quine-McCluskey (algorithmic, any size).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "A + ĀB simplifies to?",
+            "back": "A + B. Proof: (A+Ā)(A+B) = 1·(A+B) = A+B. Uses the uniquely-Boolean distributive law.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Gate count: canonical vs minimised majority voter?",
+            "back": "Canonical: 8 gates (3 NOT, 4 AND, 1 OR). Minimised: 4 gates (3 AND, 1 OR). 50% reduction.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Why can you reuse terms (idempotent) for merging?",
+            "back": "A + A = A. Adding duplicate of any term doesn't change the function. Allows pairing one minterm with multiple neighbors.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "HD of ĀB̄C̄ and ABC?",
+            "back": "HD = 3. All variables differ. No direct merging possible. Maximum HD for 3-variable terms.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "What does minimization optimise?",
+            "back": "Area ↓, Cost ↓, Power ↓, Speed ↑, Debuggability ↑. Fewer gates = better on every metric.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f10",
+            "front": "How does K-map relate to Hamming distance?",
+            "back": "K-map arranges minterms so HD-1 neighbors are physically adjacent. Finding groups on the map = finding HD-1 pairs automatically.",
+            "difficultyLevel": 3
+        }
+    ]
+}

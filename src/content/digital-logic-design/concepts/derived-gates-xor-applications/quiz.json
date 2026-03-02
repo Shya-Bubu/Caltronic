@@ -1,0 +1,125 @@
+{
+    "id": "quiz-derived-gates",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "XOR outputs 1 when:",
+            "options": [
+                "Both inputs are 1",
+                "Both inputs are 0",
+                "Inputs are different",
+                "Any input is 1"
+            ],
+            "correctAnswer": "Inputs are different",
+            "explanation": "XOR = Exclusive OR. Output is 1 when inputs DIFFER (0,1 or 1,0) and 0 when inputs are the same (0,0 or 1,1)."
+        },
+        {
+            "id": "q2",
+            "prompt": "The Sum output of a half adder is:",
+            "options": [
+                "AND",
+                "OR",
+                "XOR",
+                "NAND"
+            ],
+            "correctAnswer": "XOR",
+            "explanation": "Sum = A ⊕ B. The XOR truth table exactly matches the sum digit of binary addition. Carry = A · B (AND)."
+        },
+        {
+            "id": "q3",
+            "prompt": "NAND is called 'universal' because:",
+            "options": [
+                "It's the fastest gate",
+                "Any logic function can be built from NAND alone",
+                "It uses the least power",
+                "It has the most inputs"
+            ],
+            "correctAnswer": "Any logic function can be built from NAND alone",
+            "explanation": "NAND can implement NOT (single-input), AND (NAND + NOT), and OR (De Morgan's). Since NOT/AND/OR can build anything, NAND alone is sufficient."
+        },
+        {
+            "id": "q4",
+            "prompt": "A single-input NAND gate (inputs tied together) acts as:",
+            "options": [
+                "AND gate",
+                "OR gate",
+                "NOT gate (inverter)",
+                "Buffer"
+            ],
+            "correctAnswer": "NOT gate (inverter)",
+            "explanation": "NAND with A tied to both inputs: Z = NOT(A·A) = NOT(A) = Ā. This is why NAND is universal — it can make NOT."
+        },
+        {
+            "id": "q5",
+            "prompt": "The XOR expression in terms of basic gates is:",
+            "options": [
+                "X₀ + X₁",
+                "X₀ · X₁",
+                "X̄₀·X₁ + X₀·X̄₁",
+                "X̄₀ + X̄₁"
+            ],
+            "correctAnswer": "X̄₀·X₁ + X₀·X̄₁",
+            "explanation": "XOR = 1 when (X₀=0 AND X₁=1) OR (X₀=1 AND X₁=0). Written as: X̄₀·X₁ + X₀·X̄₁."
+        },
+        {
+            "id": "q6",
+            "prompt": "XNOR outputs 1 when:",
+            "options": [
+                "Inputs are different",
+                "Inputs are the same",
+                "Any input is 1",
+                "All inputs are 0"
+            ],
+            "correctAnswer": "Inputs are the same",
+            "explanation": "XNOR = NOT(XOR). It outputs 1 when inputs are EQUAL (both 0 or both 1). It's the equality detector."
+        },
+        {
+            "id": "q7",
+            "prompt": "In a controlled NOT (A,B→Z), what happens when A=0?",
+            "options": [
+                "Z = 0 always",
+                "Z = 1 always",
+                "Z = B (pass-through)",
+                "Z = B̄ (invert)"
+            ],
+            "correctAnswer": "Z = B (pass-through)",
+            "explanation": "A=0: Z = 0⊕B = B (XOR with 0 passes through). A=1: Z = 1⊕B = B̄ (XOR with 1 inverts). A controls whether B is inverted."
+        },
+        {
+            "id": "q8",
+            "prompt": "XOR of all bits in a number gives:",
+            "options": [
+                "The largest bit",
+                "The smallest bit",
+                "The parity bit (odd/even number of 1s)",
+                "The carry bit"
+            ],
+            "correctAnswer": "The parity bit (odd/even number of 1s)",
+            "explanation": "XOR all bits: result is 1 if odd number of 1s (odd parity), 0 if even number (even parity). Used for error detection."
+        },
+        {
+            "id": "q9",
+            "prompt": "Is XOR a universal gate?",
+            "options": [
+                "Yes",
+                "No — cannot implement AND from XOR alone",
+                "Only for 2-input functions",
+                "Yes, but only with 3 inputs"
+            ],
+            "correctAnswer": "No — cannot implement AND from XOR alone",
+            "explanation": "XOR preserves parity (mod-2 property). AND doesn't have this property, so AND cannot be built from XOR alone. Only NAND and NOR are universal."
+        },
+        {
+            "id": "q10",
+            "prompt": "OR built from NANDs requires:",
+            "options": [
+                "1 NAND gate",
+                "2 NAND gates",
+                "3 NAND gates (NOT each input, then NAND)",
+                "4 NAND gates"
+            ],
+            "correctAnswer": "3 NAND gates (NOT each input, then NAND)",
+            "explanation": "By De Morgan's: A+B = NOT(NOT(A)·NOT(B)). Use 2 NANDs as NOT gates (inputs tied), then 1 NAND on results. Total: 3 NAND gates."
+        }
+    ]
+}

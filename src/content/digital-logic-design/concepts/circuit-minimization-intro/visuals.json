@@ -1,0 +1,326 @@
+{
+    "visuals": [
+        {
+            "id": "minimization-methods",
+            "type": "block-diagram",
+            "title": "Three Minimization Methods: Algebra → K-Map → Algorithm",
+            "blocks": [
+                {
+                    "id": "ba",
+                    "label": "Boolean Algebra\n(hand rules)",
+                    "position": "left"
+                },
+                {
+                    "id": "km",
+                    "label": "Karnaugh Map\n(graphical, ≤5 vars)",
+                    "position": "center"
+                },
+                {
+                    "id": "qm",
+                    "label": "Quine-McCluskey\n(algorithmic, any size)",
+                    "position": "right"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "canonical-vs-noncanonical",
+            "type": "plotly",
+            "title": "Canonical vs Non-Canonical: Same Function, Different Complexity",
+            "traces": [
+                {
+                    "x": [
+                        "Canonical SOP",
+                        "Non-Canonical"
+                    ],
+                    "y": [
+                        4,
+                        3
+                    ],
+                    "name": "# Terms",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#6b62ff"
+                    }
+                },
+                {
+                    "x": [
+                        "Canonical SOP",
+                        "Non-Canonical"
+                    ],
+                    "y": [
+                        3,
+                        2
+                    ],
+                    "name": "Variables/term",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "barmode": "group",
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Count"
+                }
+            }
+        },
+        {
+            "id": "noncanonical-verification",
+            "type": "plotly",
+            "title": "Verifying A + ĀB = A + B via Truth Table",
+            "traces": [
+                {
+                    "x": [
+                        "A=0,B=0",
+                        "A=0,B=1",
+                        "A=1,B=0",
+                        "A=1,B=1"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "A + ĀB",
+                    "type": "scatter",
+                    "mode": "markers+lines",
+                    "marker": {
+                        "color": "#6b62ff",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": [
+                        "A=0,B=0",
+                        "A=0,B=1",
+                        "A=1,B=0",
+                        "A=1,B=1"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        1,
+                        1
+                    ],
+                    "name": "A + B",
+                    "type": "scatter",
+                    "mode": "markers+lines",
+                    "marker": {
+                        "color": "#2fbf8f",
+                        "size": 8
+                    },
+                    "line": {
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Inputs"
+                },
+                "yaxis": {
+                    "title": "Output"
+                },
+                "title": "Both curves match → equivalent functions"
+            }
+        },
+        {
+            "id": "hamming-distance-examples",
+            "type": "plotly",
+            "title": "Hamming Distance: Count How Many Variables Differ",
+            "traces": [
+                {
+                    "x": [
+                        "ABC̄ vs ABC",
+                        "AB̄C̄ vs ABC",
+                        "ĀB̄C̄ vs ABC"
+                    ],
+                    "y": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "HD=1 (can merge!)",
+                        "HD=2 (cannot merge)",
+                        "HD=3 (nothing in common)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Term Pair"
+                },
+                "yaxis": {
+                    "title": "Hamming Distance"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "hd1-merging",
+            "type": "block-diagram",
+            "title": "HD=1 Merging Rule: PX̄ + PX = P",
+            "blocks": [
+                {
+                    "id": "t1",
+                    "label": "ABC̄\n(term 1)",
+                    "position": "left"
+                },
+                {
+                    "id": "t2",
+                    "label": "ABC\n(term 2)",
+                    "position": "left"
+                },
+                {
+                    "id": "diff",
+                    "label": "HD=1\nC̄ vs C",
+                    "position": "center"
+                },
+                {
+                    "id": "result",
+                    "label": "AB\n(C eliminated!)",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "t1",
+                    "to": "diff"
+                },
+                {
+                    "from": "t2",
+                    "to": "diff"
+                },
+                {
+                    "from": "diff",
+                    "to": "result"
+                }
+            ]
+        },
+        {
+            "id": "hd-pair-analysis",
+            "type": "plotly",
+            "title": "Checking All 6 Minterm Pairs for HD=1 Mergeability",
+            "traces": [
+                {
+                    "x": [
+                        "ĀBC-AB̄C",
+                        "ĀBC-ABC̄",
+                        "ĀBC-ABC",
+                        "AB̄C-ABC̄",
+                        "AB̄C-ABC",
+                        "ABC̄-ABC"
+                    ],
+                    "y": [
+                        2,
+                        2,
+                        1,
+                        2,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ff6b8a",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "✗ HD=2",
+                        "✗ HD=2",
+                        "✓ →BC",
+                        "✗ HD=2",
+                        "✓ →AC",
+                        "✓ →AB"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Term Pair",
+                    "tickangle": -45
+                },
+                "yaxis": {
+                    "title": "HD"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "gate-count-comparison",
+            "type": "plotly",
+            "title": "Gate Count: Canonical (8 gates) vs Minimised (4 gates)",
+            "traces": [
+                {
+                    "x": [
+                        "AND gates",
+                        "OR gates",
+                        "NOT gates",
+                        "TOTAL"
+                    ],
+                    "y": [
+                        4,
+                        1,
+                        3,
+                        8
+                    ],
+                    "name": "Canonical SOP",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    }
+                },
+                {
+                    "x": [
+                        "AND gates",
+                        "OR gates",
+                        "NOT gates",
+                        "TOTAL"
+                    ],
+                    "y": [
+                        3,
+                        1,
+                        0,
+                        4
+                    ],
+                    "name": "Minimised",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#2fbf8f"
+                    }
+                }
+            ],
+            "layout": {
+                "barmode": "group",
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Gate Count"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-basic-logic-gates",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "NOT gate expression and truth table?",
+            "back": "Z = X̄. Input 0→1, Input 1→0. Inverts/complements the input. One input, one output.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "OR gate expression?",
+            "back": "Z = X₀ + X₁. Output 1 when ANY input is 1. Only 0 when ALL inputs are 0.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "AND gate expression?",
+            "back": "Z = X₀ · X₁. Output 1 ONLY when ALL inputs are 1. Any 0 input forces output to 0.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "How does a transistor inverter work?",
+            "back": "Input 0V → transistor OFF → output pulled to V_CC (5V). Input 5V → transistor ON (saturated) → output ≈ 0V. Implements NOT.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "How does a diode OR gate work?",
+            "back": "Each input connects to output through a forward diode. Any HIGH input forward-biases its diode, pulling output HIGH. Output ≈ V_in – 0.7V (diode drop).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "How does a diode AND gate work?",
+            "back": "Output pulled HIGH via resistor to V_CC. Each input connected through diode. Any LOW input forward-biases diode, pulling output LOW. All HIGH → no conduction → output stays HIGH.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is signal restoration?",
+            "back": "Using transistors (not just diodes) to restore signal to full rail voltage (0V or 5V) at each gate. Prevents signal degradation through cascaded stages.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Standard TTL voltage levels?",
+            "back": "Logic 0 = 0V (GND). Logic 1 = 5V (V_CC). Forbidden zone in between. Modern variants: 3.3V, 1.8V logic.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "What is V_CE(sat)?",
+            "back": "Collector-emitter saturation voltage: ~0.1–0.3V when BJT is fully ON. Close to 0V but not exactly zero. Still registers as logic 0.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Duality between AND and OR?",
+            "back": "Swap 0↔1 in all inputs/outputs: AND becomes OR and vice versa. This is De Morgan's duality and runs through all Boolean algebra.",
+            "difficultyLevel": 3
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-combinational-circuit-design",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Combinational design pipeline?",
+            "back": "Requirement → Truth Table → Boolean Expression → Gate Circuit. Universal 3-step process.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "How many rows in a truth table with N inputs?",
+            "back": "2^N rows. 3 inputs → 8 rows. 10 inputs → 1024 rows. Grows exponentially.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is a minterm?",
+            "back": "AND of ALL variables (complemented if 0 in row, uncomplemented if 1). Each row has a unique minterm.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "How to write SOP expression?",
+            "back": "Find rows where Z=1. Write minterm for each. OR them all together. Z = Σ(minterms where Z=1).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is a maxterm?",
+            "back": "OR of ALL variables (complemented if 1 in row, uncomplemented if 0). Complement of the minterm.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "How to write POS expression?",
+            "back": "Find rows where Z=0. Write maxterm for each. AND them all together. Z = Π(maxterms where Z=0).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "SOP vs POS: when to use which?",
+            "back": "Use SOP when fewer Z=1 rows (fewer minterms). Use POS when fewer Z=0 rows (fewer maxterms).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "SOP circuit structure?",
+            "back": "Three layers: NOT (inverters) → AND (one per minterm) → OR (combine all). Also called two-level logic.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Why minimise circuits?",
+            "back": "Fewer gates → smaller area, lower cost, lower power, higher speed, easier to troubleshoot.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f10",
+            "front": "What is two-level logic?",
+            "back": "AND-OR (SOP) or OR-AND (POS) implementation. Fixed propagation delay regardless of complexity: t = t_AND + t_OR.",
+            "difficultyLevel": 3
+        }
+    ]
+}

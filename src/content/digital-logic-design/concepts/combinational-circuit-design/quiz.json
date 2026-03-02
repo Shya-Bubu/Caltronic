@@ -1,0 +1,125 @@
+{
+    "id": "quiz-combinational-circuit-design",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The design pipeline for combinational circuits is:",
+            "options": [
+                "Circuit → Truth Table → Requirement",
+                "Requirement → Truth Table → Logic Circuit",
+                "Truth Table → Karnaugh Map → Circuit",
+                "Logic Circuit → Simulation → Test"
+            ],
+            "correctAnswer": "Requirement → Truth Table → Logic Circuit",
+            "explanation": "The standard design flow: (1) state the requirement, (2) build the truth table for all input combinations, (3) derive the Boolean expression and implement as gates."
+        },
+        {
+            "id": "q2",
+            "prompt": "A truth table for N inputs has:",
+            "options": [
+                "N rows",
+                "2N rows",
+                "2^N rows",
+                "N^2 rows"
+            ],
+            "correctAnswer": "2^N rows",
+            "explanation": "Each input can be 0 or 1, giving 2^N possible input combinations. For 3 inputs: 2^3 = 8 rows. For 10 inputs: 2^10 = 1024 rows."
+        },
+        {
+            "id": "q3",
+            "prompt": "A minterm is:",
+            "options": [
+                "A sum (OR) of all variables",
+                "A product (AND) of all variables, each complemented or not",
+                "Any simplified expression",
+                "A single variable"
+            ],
+            "correctAnswer": "A product (AND) of all variables, each complemented or not",
+            "explanation": "A minterm includes EVERY input variable in a product (AND) term. Variables appear complemented if their value is 0 in that row, uncomplemented if 1."
+        },
+        {
+            "id": "q4",
+            "prompt": "SOP stands for:",
+            "options": [
+                "Sequential OR Protocol",
+                "Sum of Products",
+                "Standard Operating Procedure",
+                "Series of Parameters"
+            ],
+            "correctAnswer": "Sum of Products",
+            "explanation": "SOP = Sum (OR) of Products (AND terms). You OR together the minterms for rows where the output is 1."
+        },
+        {
+            "id": "q5",
+            "prompt": "To write a POS expression, you focus on rows where:",
+            "options": [
+                "Z = 1",
+                "Z = 0",
+                "All inputs are 1",
+                "All inputs are 0"
+            ],
+            "correctAnswer": "Z = 0",
+            "explanation": "POS uses maxterms from rows where Z = 0. SOP uses minterms from rows where Z = 1. They are dual approaches."
+        },
+        {
+            "id": "q6",
+            "prompt": "A maxterm is:",
+            "options": [
+                "A product of all variables",
+                "A sum (OR) of all variables, each complemented or not",
+                "The complement of a minterm",
+                "Both B and C"
+            ],
+            "correctAnswer": "Both B and C",
+            "explanation": "A maxterm is a sum (OR) of all variables, with complementation opposite to the minterm. It IS the complement of the corresponding minterm."
+        },
+        {
+            "id": "q7",
+            "prompt": "The SOP circuit has how many gate layers?",
+            "options": [
+                "1 — just OR",
+                "2 — AND then OR",
+                "3 — NOT then AND then OR",
+                "4 layers"
+            ],
+            "correctAnswer": "3 — NOT then AND then OR",
+            "explanation": "Three layers: (1) NOT to generate complements, (2) AND gates for minterms, (3) OR gate to combine minterms. This is called two-level logic (NOT layer doesn't count)."
+        },
+        {
+            "id": "q8",
+            "prompt": "For the majority voter (Z=1 when ≥2 of 3 inputs are 1), how many minterms are in the SOP?",
+            "options": [
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "correctAnswer": "4",
+            "explanation": "Z=1 for rows: 011, 101, 110, 111. That's 4 minterms. The SOP is: Ā·B·C + A·B̄·C + A·B·C̄ + A·B·C."
+        },
+        {
+            "id": "q9",
+            "prompt": "When should you prefer POS over SOP?",
+            "options": [
+                "Always",
+                "Never",
+                "When there are fewer 0s than 1s in the output",
+                "When there are fewer 1s than 0s"
+            ],
+            "correctAnswer": "When there are fewer 0s than 1s in the output",
+            "explanation": "POS focuses on rows where Z=0. If there are fewer such rows, POS gives a shorter expression. If there are fewer Z=1 rows, SOP is shorter."
+        },
+        {
+            "id": "q10",
+            "prompt": "Two-level logic is the fastest combinational implementation because:",
+            "options": [
+                "It uses fewer gates",
+                "Every signal passes through exactly 2 gate layers (AND+OR)",
+                "It doesn't need NOT gates",
+                "It only works for small circuits"
+            ],
+            "correctAnswer": "Every signal passes through exactly 2 gate layers (AND+OR)",
+            "explanation": "Regardless of the number of terms, every signal goes: input → AND → OR → output. Fixed 2-gate delay. Adding more minterms adds fan-in but not depth."
+        }
+    ]
+}

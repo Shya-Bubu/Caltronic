@@ -1,0 +1,11 @@
+{
+    "id": "basic-logic-gates",
+    "title": "Basic Logic Gates: NOT, OR, AND",
+    "slug": "basic-logic-gates",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

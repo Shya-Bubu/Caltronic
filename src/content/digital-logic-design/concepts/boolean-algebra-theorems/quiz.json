@@ -1,0 +1,125 @@
+{
+    "id": "quiz-boolean-algebra",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A + 1 equals:",
+            "options": [
+                "A",
+                "0",
+                "1",
+                "Ā"
+            ],
+            "correctAnswer": "1",
+            "explanation": "This is the annulment law for OR. ORing any variable with 1 gives 1. In Boolean algebra: A + 1 = 1 (not A + 1 like arithmetic)."
+        },
+        {
+            "id": "q2",
+            "prompt": "A · Ā equals:",
+            "options": [
+                "A",
+                "1",
+                "0",
+                "Ā"
+            ],
+            "correctAnswer": "0",
+            "explanation": "Complement law for AND: a variable AND its complement is always 0. They can never both be 1 at the same time."
+        },
+        {
+            "id": "q3",
+            "prompt": "De Morgan's theorem states (AB)̄ =",
+            "options": [
+                "Ā · B̄",
+                "Ā + B̄",
+                "A + B",
+                "A · B"
+            ],
+            "correctAnswer": "Ā + B̄",
+            "explanation": "De Morgan's Theorem 1: NOT of a product = sum of the complements. (AB)̄ = Ā + B̄."
+        },
+        {
+            "id": "q4",
+            "prompt": "De Morgan's theorem states (A+B)̄ =",
+            "options": [
+                "Ā · B̄",
+                "Ā + B̄",
+                "A · B",
+                "A + B"
+            ],
+            "correctAnswer": "Ā · B̄",
+            "explanation": "De Morgan's Theorem 2: NOT of a sum = product of the complements. (A+B)̄ = Ā · B̄."
+        },
+        {
+            "id": "q5",
+            "prompt": "A + AB simplifies to:",
+            "options": [
+                "AB",
+                "A + B",
+                "A",
+                "B"
+            ],
+            "correctAnswer": "A",
+            "explanation": "Absorption law: A + AB = A(1 + B) = A·1 = A. The term AB is absorbed by A."
+        },
+        {
+            "id": "q6",
+            "prompt": "A(B + C) expands to:",
+            "options": [
+                "AB + C",
+                "AB + AC",
+                "A + BC",
+                "(A+B)(A+C)"
+            ],
+            "correctAnswer": "AB + AC",
+            "explanation": "Distributive law: AND distributes over OR, just like multiplication distributes over addition."
+        },
+        {
+            "id": "q7",
+            "prompt": "The unique Boolean distributive law A + BC equals:",
+            "options": [
+                "AB + AC",
+                "(A+B)(A+C)",
+                "A + B + C",
+                "ABC"
+            ],
+            "correctAnswer": "(A+B)(A+C)",
+            "explanation": "This is the second distributive law unique to Boolean algebra. OR distributes over AND: A + BC = (A+B)(A+C). Not true in regular arithmetic!"
+        },
+        {
+            "id": "q8",
+            "prompt": "A + A equals:",
+            "options": [
+                "2A",
+                "A",
+                "0",
+                "1"
+            ],
+            "correctAnswer": "A",
+            "explanation": "Idempotent law: A + A = A. In Boolean algebra, 1 + 1 = 1 (not 2). ORing a variable with itself gives the same variable."
+        },
+        {
+            "id": "q9",
+            "prompt": "If Z = ĀBC + AB̄C + ABC̄ + ABC, the simplified form is:",
+            "options": [
+                "ABC",
+                "AB + BC + AC",
+                "A + B + C",
+                "Ā + B̄ + C̄"
+            ],
+            "correctAnswer": "AB + BC + AC",
+            "explanation": "Duplicate ABC three times (idempotent), pair with each other term using complement law: ĀBC+ABC=BC, AB̄C+ABC=AC, ABC̄+ABC=AB. Result: AB+BC+AC."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why can we 'use' the same term multiple times in Boolean simplification?",
+            "options": [
+                "We can't — it's incorrect",
+                "Idempotent law: A + A = A, so duplicating a term doesn't change the expression",
+                "Only in POS form",
+                "Only for 2-variable expressions"
+            ],
+            "correctAnswer": "Idempotent law: A + A = A, so duplicating a term doesn't change the expression",
+            "explanation": "A + A = A (idempotent). Adding a duplicate of any term doesn't change the function. This trick is essential for pairing terms with all possible neighbors."
+        }
+    ]
+}

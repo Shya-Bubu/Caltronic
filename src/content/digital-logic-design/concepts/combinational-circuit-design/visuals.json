@@ -1,0 +1,479 @@
+{
+    "visuals": [
+        {
+            "id": "design-flow",
+            "type": "block-diagram",
+            "title": "The Universal Design Pipeline: Requirement → Truth Table → Circuit",
+            "blocks": [
+                {
+                    "id": "req",
+                    "label": "Requirement\n(plain English)",
+                    "position": "left"
+                },
+                {
+                    "id": "tt",
+                    "label": "Truth Table\n(all 2^N rows)",
+                    "position": "center"
+                },
+                {
+                    "id": "expr",
+                    "label": "Boolean\nExpression",
+                    "position": "center-right"
+                },
+                {
+                    "id": "ckt",
+                    "label": "Gate\nCircuit",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "req",
+                    "to": "tt"
+                },
+                {
+                    "from": "tt",
+                    "to": "expr"
+                },
+                {
+                    "from": "expr",
+                    "to": "ckt"
+                }
+            ]
+        },
+        {
+            "id": "majority-voter-scenario",
+            "type": "block-diagram",
+            "title": "Majority Voter: 3 Switches → Bulb ON When ≥2 Are ON",
+            "blocks": [
+                {
+                    "id": "a",
+                    "label": "Person A\n(switch)",
+                    "position": "left"
+                },
+                {
+                    "id": "b",
+                    "label": "Person B\n(switch)",
+                    "position": "left"
+                },
+                {
+                    "id": "c",
+                    "label": "Person C\n(switch)",
+                    "position": "left"
+                },
+                {
+                    "id": "voter",
+                    "label": "Majority\nVoter",
+                    "position": "center"
+                },
+                {
+                    "id": "bulb",
+                    "label": "Bulb Z\n(ON if ≥2)",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "a",
+                    "to": "voter"
+                },
+                {
+                    "from": "b",
+                    "to": "voter"
+                },
+                {
+                    "from": "c",
+                    "to": "voter"
+                },
+                {
+                    "from": "voter",
+                    "to": "bulb"
+                }
+            ]
+        },
+        {
+            "id": "three-variable-truth-table",
+            "type": "plotly",
+            "title": "3-Variable Truth Table: Rows Where Z=1 Highlighted",
+            "traces": [
+                {
+                    "x": [
+                        "000",
+                        "001",
+                        "010",
+                        "011",
+                        "100",
+                        "101",
+                        "110",
+                        "111"
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ff6b8a",
+                            "#ff6b8a",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#2fbf8f",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "Z=0",
+                        "Z=0",
+                        "Z=0",
+                        "Z=1 ←",
+                        "Z=0",
+                        "Z=1 ←",
+                        "Z=1 ←",
+                        "Z=1 ←"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "A B C"
+                },
+                "yaxis": {
+                    "title": "Z"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "minterm-maxterm-table",
+            "type": "plotly",
+            "title": "Minterms (SOP) vs Maxterms (POS) for 3 Variables",
+            "traces": [
+                {
+                    "x": [
+                        "Row 0",
+                        "Row 1",
+                        "Row 2",
+                        "Row 3",
+                        "Row 4",
+                        "Row 5",
+                        "Row 6",
+                        "Row 7"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "text": [
+                        "Ā·B̄·C̄",
+                        "Ā·B̄·C",
+                        "Ā·B·C̄",
+                        "Ā·B·C",
+                        "A·B̄·C̄",
+                        "A·B̄·C",
+                        "A·B·C̄",
+                        "A·B·C"
+                    ],
+                    "type": "scatter",
+                    "mode": "markers+text",
+                    "textposition": "right",
+                    "name": "Minterms",
+                    "marker": {
+                        "color": "#6b62ff",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": [
+                        "Row 0",
+                        "Row 1",
+                        "Row 2",
+                        "Row 3",
+                        "Row 4",
+                        "Row 5",
+                        "Row 6",
+                        "Row 7"
+                    ],
+                    "y": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7
+                    ],
+                    "text": [
+                        "A+B+C",
+                        "A+B+C̄",
+                        "A+B̄+C",
+                        "A+B̄+C̄",
+                        "Ā+B+C",
+                        "Ā+B+C̄",
+                        "Ā+B̄+C",
+                        "Ā+B̄+C̄"
+                    ],
+                    "type": "scatter",
+                    "mode": "text",
+                    "textposition": "left",
+                    "name": "Maxterms"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Row #"
+                },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "sop-circuit-implementation",
+            "type": "circuit-schematic",
+            "title": "SOP Implementation: NOT → AND → OR (Three Layers)",
+            "elements": [
+                {
+                    "type": "label",
+                    "text": "Layer 1: NOT",
+                    "position": [
+                        32,
+                        16
+                    ]
+                },
+                {
+                    "type": "label",
+                    "text": "Layer 2: AND (4 gates)",
+                    "position": [
+                        160,
+                        16
+                    ]
+                },
+                {
+                    "type": "label",
+                    "text": "Layer 3: OR",
+                    "position": [
+                        320,
+                        16
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        64
+                    ],
+                    "to": [
+                        64,
+                        64
+                    ],
+                    "label": "A"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        128
+                    ],
+                    "to": [
+                        64,
+                        128
+                    ],
+                    "label": "B"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        192
+                    ],
+                    "to": [
+                        64,
+                        192
+                    ],
+                    "label": "C"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        384,
+                        128
+                    ],
+                    "to": [
+                        448,
+                        128
+                    ],
+                    "label": "Z"
+                }
+            ]
+        },
+        {
+            "id": "falstad-sop-majority",
+            "type": "falstad-sim",
+            "title": "Interactive: Majority Voter — Toggle A, B, C",
+            "description": "Three switches for A, B, C. Output Z is ON when 2 or more switches are ON.",
+            "circuitText": "$ 1 5e-6 10.20027730826997 64 0 0 43\ns 64 96 128 96 0 0 false\nR 64 96 32 96 0 0 40 5 0 0 0.5\ns 64 192 128 192 0 0 false\nR 64 192 32 192 0 0 40 5 0 0 0.5\ns 64 288 128 288 0 0 false\nR 64 288 32 288 0 0 40 5 0 0 0.5\n150 224 144 320 144 0 2 0 5\n150 224 240 320 240 0 2 0 5\n150 224 336 320 336 0 2 0 5\n152 384 240 480 240 0 2 0 5\nw 128 96 224 128 0\nw 128 192 224 160 0\nw 128 192 224 224 0\nw 128 288 224 256 0\nw 128 96 224 320 0\nw 128 288 224 352 0\nw 320 144 384 224 0\nw 320 240 384 240 0\nw 320 336 384 256 0\nw 480 240 544 240 0\no 18 64 0 4099 5 0.1 0 1\n",
+            "height": 400
+        },
+        {
+            "id": "pos-expression",
+            "type": "plotly",
+            "title": "POS: AND the Maxterms for Rows Where Z=0",
+            "traces": [
+                {
+                    "x": [
+                        "Row 0",
+                        "Row 1",
+                        "Row 2",
+                        "Row 4"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b8a"
+                    },
+                    "text": [
+                        "(A+B+C)",
+                        "(A+B+C̄)",
+                        "(A+B̄+C)",
+                        "(Ā+B+C)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Rows where Z=0"
+                },
+                "yaxis": {
+                    "title": "",
+                    "visible": false
+                },
+                "showlegend": false,
+                "title": "POS = (A+B+C)(A+B+C̄)(A+B̄+C)(Ā+B+C)"
+            }
+        },
+        {
+            "id": "three-layer-circuit",
+            "type": "block-diagram",
+            "title": "Three-Layer Circuit Architecture: NOT → AND → OR",
+            "blocks": [
+                {
+                    "id": "inputs",
+                    "label": "Inputs\nA, B, C",
+                    "position": "left"
+                },
+                {
+                    "id": "not",
+                    "label": "Layer 1\nNOT\n(3 inverters)",
+                    "position": "center-left"
+                },
+                {
+                    "id": "and",
+                    "label": "Layer 2\nAND\n(4 gates × 3-in)",
+                    "position": "center"
+                },
+                {
+                    "id": "or",
+                    "label": "Layer 3\nOR\n(1 gate × 4-in)",
+                    "position": "center-right"
+                },
+                {
+                    "id": "output",
+                    "label": "Output\nZ",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "inputs",
+                    "to": "not"
+                },
+                {
+                    "from": "not",
+                    "to": "and"
+                },
+                {
+                    "from": "and",
+                    "to": "or"
+                },
+                {
+                    "from": "or",
+                    "to": "output"
+                }
+            ]
+        },
+        {
+            "id": "optimization-goals",
+            "type": "plotly",
+            "title": "Why Minimise? Optimisation Goals for Circuit Design",
+            "traces": [
+                {
+                    "x": [
+                        "Area",
+                        "Cost",
+                        "Power",
+                        "Speed",
+                        "Debug"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#6b62ff",
+                            "#ff6b8a",
+                            "#f0a03a",
+                            "#62c6ff"
+                        ]
+                    },
+                    "text": [
+                        "↓ Fewer gates",
+                        "↓ Fewer components",
+                        "↓ Less switching",
+                        "↑ Fewer delays",
+                        "↑ Simpler circuits"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false
+            }
+        }
+    ]
+}
