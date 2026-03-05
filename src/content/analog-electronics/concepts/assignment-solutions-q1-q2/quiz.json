@@ -1,0 +1,125 @@
+{
+    "id": "quiz-solutions-q1-q2",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In Q1, RE = VE/IE = 2/0.2mA gives:",
+            "options": [
+                "1 kΩ",
+                "10 kΩ",
+                "20 kΩ",
+                "100 kΩ"
+            ],
+            "correctAnswer": "10 kΩ",
+            "explanation": "RE = 2V / (0.2×10⁻³ A) = 10,000 Ω = 10 kΩ."
+        },
+        {
+            "id": "q2",
+            "prompt": "In Q1, VB equals:",
+            "options": [
+                "2 V",
+                "2.7 V",
+                "5 V",
+                "9 V"
+            ],
+            "correctAnswer": "2.7 V",
+            "explanation": "VB = VE + VBE = 2 + 0.7 = 2.7 V."
+        },
+        {
+            "id": "q3",
+            "prompt": "Q2 uses which BJT configuration?",
+            "options": [
+                "Common-Emitter",
+                "Common-Base",
+                "Common-Collector",
+                "Differential"
+            ],
+            "correctAnswer": "Common-Base",
+            "explanation": "Signal enters at emitter (via RE1), base is AC-grounded through R1||R2 → Common-Base."
+        },
+        {
+            "id": "q4",
+            "prompt": "Q2 Thevenin voltage VTh equals:",
+            "options": [
+                "10 V",
+                "1.429 V",
+                "5 V",
+                "0.64 V"
+            ],
+            "correctAnswer": "1.429 V",
+            "explanation": "VTh = R2·VCC/(R1+R2) = 30×10/210 = 1.429 V."
+        },
+        {
+            "id": "q5",
+            "prompt": "Q2 Q-point: ICQ ≈",
+            "options": [
+                "0.43 mA",
+                "4.3 mA",
+                "43 mA",
+                "2.15 μA"
+            ],
+            "correctAnswer": "0.43 mA",
+            "explanation": "IC = βIB = 200 × 2.148μA = 429.5 μA ≈ 0.43 mA."
+        },
+        {
+            "id": "q6",
+            "prompt": "In Q2 AC model, C3 bypasses RE2. What remains in emitter path?",
+            "options": [
+                "RE2 = 1.5 kΩ",
+                "RE1 = 200 Ω only",
+                "Both RE1 and RE2",
+                "Nothing"
+            ],
+            "correctAnswer": "RE1 = 200 Ω only",
+            "explanation": "C3 shorts RE2 for AC. Only RE1 = 200Ω remains between the coupling cap and the emitter terminal."
+        },
+        {
+            "id": "q7",
+            "prompt": "Q2 input impedance (looking into C1) is approximately:",
+            "options": [
+                "5 Ω",
+                "333 Ω",
+                "1 kΩ",
+                "25 kΩ"
+            ],
+            "correctAnswer": "333 Ω",
+            "explanation": "Rin = RE1 + (hie + R1||R2)/(1+hfe) = 200 + (1000+25710)/201 ≈ 200 + 133 = 333 Ω."
+        },
+        {
+            "id": "q8",
+            "prompt": "Q2 voltage gain (without source/load) is approximately:",
+            "options": [
+                "940",
+                "22.8",
+                "200",
+                "1"
+            ],
+            "correctAnswer": "22.8",
+            "explanation": "Av = hfe·RC / (hie + (1+hfe)RE1) = 200×4700 / (1000+201×200) = 940000/41200 ≈ 22.8."
+        },
+        {
+            "id": "q9",
+            "prompt": "Q2 output voltage when vs=100mV is approximately:",
+            "options": [
+                "0.1 V",
+                "1.19 V",
+                "9.4 V",
+                "22.8 V"
+            ],
+            "correctAnswer": "1.19 V",
+            "explanation": "vo = vs × [Rin/(Rin+Rs)] × Av(with RL) ≈ 100mV × 0.769 × 15.52 ≈ 1.19 V."
+        },
+        {
+            "id": "q10",
+            "prompt": "In Q1, the standard 5% value closest to 61.78 kΩ is:",
+            "options": [
+                "56 kΩ",
+                "62 kΩ",
+                "68 kΩ",
+                "60 kΩ"
+            ],
+            "correctAnswer": "62 kΩ",
+            "explanation": "E24 series: 62 kΩ is the closest. Error: (62−61.78)/61.78 = 0.35%."
+        }
+    ]
+}

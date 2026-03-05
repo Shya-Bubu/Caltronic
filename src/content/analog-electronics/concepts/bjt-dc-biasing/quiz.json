@@ -1,0 +1,125 @@
+{
+    "id": "quiz-bjt-dc-biasing",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The purpose of biasing a BJT is to:",
+            "options": [
+                "Increase β",
+                "Set the DC operating point (Q-point) in the active region",
+                "Make the transistor oscillate",
+                "Reduce power dissipation"
+            ],
+            "correctAnswer": "Set the DC operating point (Q-point) in the active region",
+            "explanation": "Biasing establishes the Q-point so the transistor operates in the active region, ready to amplify AC signals without distortion."
+        },
+        {
+            "id": "q2",
+            "prompt": "In voltage-divider bias, the Thevenin voltage is:",
+            "options": [
+                "VTh = R1·VCC/(R1+R2)",
+                "VTh = R2·VCC/(R1+R2)",
+                "VTh = VCC/2",
+                "VTh = VCC − VBE"
+            ],
+            "correctAnswer": "VTh = R2·VCC/(R1+R2)",
+            "explanation": "R2 is the bottom resistor (to ground). By voltage divider: VTh = VCC × R2/(R1+R2)."
+        },
+        {
+            "id": "q3",
+            "prompt": "The Thevenin resistance of the voltage divider is:",
+            "options": [
+                "RTh = R1 + R2",
+                "RTh = R1·R2/(R1+R2)",
+                "RTh = R1 − R2",
+                "RTh = R2/R1"
+            ],
+            "correctAnswer": "RTh = R1·R2/(R1+R2)",
+            "explanation": "Thevenin resistance = R1 in parallel with R2 (with VCC shorted). RTh = R1||R2 = R1R2/(R1+R2)."
+        },
+        {
+            "id": "q4",
+            "prompt": "The main problem with fixed bias is:",
+            "options": [
+                "It's too complex",
+                "IC depends strongly on β (unstable)",
+                "VCE is always zero",
+                "It uses too many resistors"
+            ],
+            "correctAnswer": "IC depends strongly on β (unstable)",
+            "explanation": "Fixed bias: IC = βIB, and IB = (VCC−VBE)/RB. If β varies (which it does), IC varies proportionally. Unacceptable for amplifier design."
+        },
+        {
+            "id": "q5",
+            "prompt": "For bias stability in voltage-divider bias, we need:",
+            "options": [
+                "(β+1)RE >> RTh",
+                "RTh >> (β+1)RE",
+                "RE = 0",
+                "R1 = R2"
+            ],
+            "correctAnswer": "(β+1)RE >> RTh",
+            "explanation": "When (β+1)RE >> RTh, the IB term becomes negligible, and IE ≈ (VTh−VBE)/RE, which is independent of β."
+        },
+        {
+            "id": "q6",
+            "prompt": "The emitter resistor RE provides:",
+            "options": [
+                "Positive feedback",
+                "Negative feedback (stabilises Q-point)",
+                "No feedback",
+                "AC gain boost"
+            ],
+            "correctAnswer": "Negative feedback (stabilises Q-point)",
+            "explanation": "If IC increases → IE increases → IERE increases → VBE decreases → IB decreases → IC decreases. This self-correction is negative feedback."
+        },
+        {
+            "id": "q7",
+            "prompt": "In Q1 of the tutorial, IB2 = 0.1mA is specified. This is:",
+            "options": [
+                "The base current",
+                "The collector current",
+                "The current through the bottom divider resistor RB2",
+                "The emitter current"
+            ],
+            "correctAnswer": "The current through the bottom divider resistor RB2",
+            "explanation": "IB2 is the current through RB2 (the bottom resistor). It's designed to be >> IB for bias stability."
+        },
+        {
+            "id": "q8",
+            "prompt": "In voltage-divider bias, KVL around the base loop gives:",
+            "options": [
+                "VTh = IB·RTh + VBE + IE·RE",
+                "VCC = IC·RC + VCE",
+                "VBE = VCC − IB·RB",
+                "IE = IC + IB"
+            ],
+            "correctAnswer": "VTh = IB·RTh + VBE + IE·RE",
+            "explanation": "From VTh through RTh, across VBE, and through RE to ground: VTh = IB·RTh + VBE + IE·RE."
+        },
+        {
+            "id": "q9",
+            "prompt": "If β=100, RE=1kΩ, and RTh=8kΩ, then (β+1)RE/RTh ≈:",
+            "options": [
+                "0.8",
+                "8",
+                "12.6",
+                "100"
+            ],
+            "correctAnswer": "12.6",
+            "explanation": "(β+1)RE = 101×1000 = 101kΩ. RTh = 8kΩ. Ratio = 101/8 = 12.6. Since 12.6 >> 1, the bias is stable."
+        },
+        {
+            "id": "q10",
+            "prompt": "Which biasing configuration is used in Q1-Q6 of the tutorial?",
+            "options": [
+                "Fixed bias",
+                "Voltage-divider bias",
+                "Collector feedback",
+                "Emitter bias"
+            ],
+            "correctAnswer": "Voltage-divider bias",
+            "explanation": "All six tutorial questions use voltage-divider bias with R1, R2, RC, and RE. This is the industry-standard configuration."
+        }
+    ]
+}

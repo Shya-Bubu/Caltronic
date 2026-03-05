@@ -1,0 +1,11 @@
+{
+    "id": "small-signal-equivalent-circuits",
+    "title": "Drawing AC Small-Signal Equivalent Circuits",
+    "slug": "small-signal-equivalent-circuits",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

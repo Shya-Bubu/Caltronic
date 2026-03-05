@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-bjt-structure",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Three BJT terminals?",
+            "back": "Base (B) — control, Collector (C) — output, Emitter (E) — common terminal. IE = IC + IB always.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "NPN vs PNP: how to tell from symbol?",
+            "back": "NPN: emitter arrow points OUT ('Not Pointing iN'). PNP: arrow points IN. Arrow shows conventional current direction.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "β (beta) definition?",
+            "back": "β = IC/IB = DC current gain (also called hFE). Typical range: 50-200. Small IB controls large IC.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "α (alpha) definition and formula?",
+            "back": "α = IC/IE = β/(β+1). For β=100: α=0.99. Nearly all emitter current reaches the collector.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Active region conditions?",
+            "back": "BE junction: forward biased (VBE ≈ 0.7V). BC junction: reverse biased. Result: IC = βIB (amplification).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Saturation region?",
+            "back": "Both BE and BC forward biased. VCE ≈ 0.2V. Transistor acts as closed switch. Cannot amplify.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Cutoff region?",
+            "back": "Both BE and BC reverse biased. IC ≈ 0, IB ≈ 0. Transistor acts as open switch.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Why is emitter heavily doped?",
+            "back": "To supply many majority carriers (electrons in NPN) for injection into the thin, lightly doped base.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "BJT in active region = what model?",
+            "back": "Current-controlled current source (CCCS): BE = diode (VBE≈0.7V), collector = current source (IC = βIB).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "IE in terms of IB?",
+            "back": "IE = (β+1)·IB. Since β >> 1, IE ≈ IC. Example: β=100 → IE = 101·IB.",
+            "difficultyLevel": 2
+        }
+    ]
+}

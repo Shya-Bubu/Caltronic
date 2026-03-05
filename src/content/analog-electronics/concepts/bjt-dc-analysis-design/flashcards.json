@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-bjt-dc-analysis",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "DC equivalent circuit rule for capacitors?",
+            "back": "All capacitors → open circuits at DC. Remove coupling caps (C1, C2), bypass caps (CE), AC source, and load.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Q-point analysis Step 1?",
+            "back": "Find Thevenin: VTh = R2·VCC/(R1+R2), RTh = R1||R2.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Q-point analysis Step 2?",
+            "back": "KVL base loop: VTh = IB·RTh + VBE + (β+1)IB·RE → solve for IB.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Q-point analysis Step 3?",
+            "back": "IC = βIB, IE = (β+1)IB. Then KVL collector: VCE = VCC − IC·RC − IE·RE.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "How to verify active region?",
+            "back": "Check VCE > VCE(sat) ≈ 0.2V. If VCE is too small, transistor is saturated — redo with saturation model.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Design: how to find RE?",
+            "back": "RE = VE/IE. The emitter voltage VE appears directly across RE (emitter to ground).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Design: how to find RC?",
+            "back": "RC = (VCC − VC)/IC. The collector resistor drops VCC − VC with current IC flowing through it.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Design: how to find VB?",
+            "back": "VB = VE + VBE. The base is always one BE junction drop above the emitter.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f9",
+            "front": "Standard 5% resistor series?",
+            "back": "E24: 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 (×10ⁿ).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Approximation: IC ≈ IE when?",
+            "back": "When β >> 1 (which is usually true, β=100-200). Then IE = (β+1)IB ≈ βIB = IC.",
+            "difficultyLevel": 2
+        }
+    ]
+}

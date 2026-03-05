@@ -1,0 +1,11 @@
+{
+    "id": "multistage-amplifiers-feedback",
+    "title": "Multi-Stage Amplifiers and Feedback",
+    "slug": "multistage-amplifiers-feedback",
+    "estimatedMinutes": 25,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

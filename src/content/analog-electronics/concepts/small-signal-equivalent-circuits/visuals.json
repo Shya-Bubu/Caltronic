@@ -1,0 +1,419 @@
+{
+    "visuals": [
+        {
+            "id": "ac-rules",
+            "type": "block-diagram",
+            "title": "AC Analysis Rules: Capacitors→Short, VCC→Ground, BJT→h-Param",
+            "blocks": [
+                {
+                    "id": "caps",
+                    "label": "Coupling/Bypass Caps\n→ Short Circuit\n(XC ≈ 0 at fSIG)",
+                    "position": "left"
+                },
+                {
+                    "id": "vcc",
+                    "label": "VCC (DC supply)\n→ AC Ground\n(zero impedance)",
+                    "position": "center"
+                },
+                {
+                    "id": "bjt",
+                    "label": "BJT\n→ h-Parameter\nModel",
+                    "position": "right"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "procedure-flowchart",
+            "type": "block-diagram",
+            "title": "5-Step Procedure for Drawing AC Small-Signal Equivalent",
+            "blocks": [
+                {
+                    "id": "s1",
+                    "label": "1. VCC → Ground",
+                    "position": "left"
+                },
+                {
+                    "id": "s2",
+                    "label": "2. Short all caps",
+                    "position": "center-left"
+                },
+                {
+                    "id": "s3",
+                    "label": "3. Redraw circuit\n(R1,RC → GND)",
+                    "position": "center"
+                },
+                {
+                    "id": "s4",
+                    "label": "4. BJT → h-param\nmodel",
+                    "position": "center-right"
+                },
+                {
+                    "id": "s5",
+                    "label": "5. Add source\n(vs + Rs)",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "s1",
+                    "to": "s2"
+                },
+                {
+                    "from": "s2",
+                    "to": "s3"
+                },
+                {
+                    "from": "s3",
+                    "to": "s4"
+                },
+                {
+                    "from": "s4",
+                    "to": "s5"
+                }
+            ]
+        },
+        {
+            "id": "q2-full-to-ac",
+            "type": "circuit-schematic",
+            "title": "Q2: From Full Circuit to AC Equivalent — Identifying Ground Points",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "vs",
+                    "from": [
+                        0,
+                        128
+                    ],
+                    "to": [
+                        0,
+                        192
+                    ],
+                    "label": "vs"
+                },
+                {
+                    "type": "resistor",
+                    "id": "Rs",
+                    "from": [
+                        0,
+                        128
+                    ],
+                    "to": [
+                        96,
+                        128
+                    ],
+                    "label": "Rs=100Ω"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RE1",
+                    "from": [
+                        96,
+                        128
+                    ],
+                    "to": [
+                        192,
+                        128
+                    ],
+                    "label": "RE1=200Ω"
+                },
+                {
+                    "type": "npn",
+                    "id": "Q1",
+                    "position": [
+                        192,
+                        128
+                    ],
+                    "label": "Q"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RC",
+                    "from": [
+                        192,
+                        32
+                    ],
+                    "to": [
+                        192,
+                        80
+                    ],
+                    "label": "RC=4.7k"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RL",
+                    "from": [
+                        288,
+                        80
+                    ],
+                    "to": [
+                        288,
+                        192
+                    ],
+                    "label": "RL=10k"
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        192,
+                        32
+                    ]
+                },
+                {
+                    "type": "label",
+                    "text": "VCC=GND (AC)",
+                    "position": [
+                        192,
+                        16
+                    ]
+                },
+                {
+                    "type": "label",
+                    "text": "R1||R2 to GND",
+                    "position": [
+                        160,
+                        160
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "q2-ac-equivalent",
+            "type": "circuit-schematic",
+            "title": "Q2 AC Equivalent: Common-Base with Simplified h-Parameters",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "vs",
+                    "from": [
+                        0,
+                        96
+                    ],
+                    "to": [
+                        0,
+                        160
+                    ],
+                    "label": "vs"
+                },
+                {
+                    "type": "resistor",
+                    "id": "Rs",
+                    "from": [
+                        0,
+                        96
+                    ],
+                    "to": [
+                        64,
+                        96
+                    ],
+                    "label": "100Ω"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RE1",
+                    "from": [
+                        64,
+                        96
+                    ],
+                    "to": [
+                        128,
+                        96
+                    ],
+                    "label": "200Ω"
+                },
+                {
+                    "type": "resistor",
+                    "id": "hie",
+                    "from": [
+                        128,
+                        96
+                    ],
+                    "to": [
+                        128,
+                        160
+                    ],
+                    "label": "hie=1k"
+                },
+                {
+                    "type": "current-source",
+                    "id": "hfe",
+                    "from": [
+                        256,
+                        160
+                    ],
+                    "to": [
+                        256,
+                        96
+                    ],
+                    "label": "hfe·ib"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RC",
+                    "from": [
+                        256,
+                        96
+                    ],
+                    "to": [
+                        256,
+                        32
+                    ],
+                    "label": "4.7k"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RL",
+                    "from": [
+                        320,
+                        32
+                    ],
+                    "to": [
+                        320,
+                        160
+                    ],
+                    "label": "10k"
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        128,
+                        160
+                    ]
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        256,
+                        32
+                    ]
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        0,
+                        160
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "assumptions-checklist",
+            "type": "plotly",
+            "title": "Standard Assumptions for Simplified h-Parameter Model",
+            "traces": [
+                {
+                    "x": [
+                        "hre ≈ 0",
+                        "hoe ≈ 0",
+                        "XC ≈ 0",
+                        "VCC = AC GND"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#ff6b8a",
+                            "#f0a03a"
+                        ]
+                    },
+                    "text": [
+                        "Rev feedback\nnegligible",
+                        "Output R\nvery large",
+                        "Caps short\nat f_sig",
+                        "Zero AC\nimpedance"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "three-configs-ac",
+            "type": "block-diagram",
+            "title": "Three BJT Configurations in AC Equivalent",
+            "blocks": [
+                {
+                    "id": "ce",
+                    "label": "Common-Emitter (CE)\nInput: Base\nOutput: Collector\nEmitter: GND/RE",
+                    "position": "left"
+                },
+                {
+                    "id": "cc",
+                    "label": "Common-Collector (CC)\nInput: Base\nOutput: Emitter\nCollector: GND",
+                    "position": "center"
+                },
+                {
+                    "id": "cb",
+                    "label": "Common-Base (CB)\nInput: Emitter\nOutput: Collector\nBase: GND",
+                    "position": "right"
+                }
+            ],
+            "connections": []
+        },
+        {
+            "id": "bypass-cap-effect",
+            "type": "plotly",
+            "title": "Bypass Capacitor Effect on AC Gain",
+            "traces": [
+                {
+                    "x": [
+                        "Fully Bypassed\n(CE shorts RE)",
+                        "Partially Bypassed\n(Q5: Re1 shorted, Re2 stays)",
+                        "No Bypass\n(RE stays)"
+                    ],
+                    "y": [
+                        200,
+                        20,
+                        5
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#2fbf8f",
+                            "#f0a03a",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Av ≈ −hfe·RC/hie\n= −200×4.7k/1k\n= −940",
+                        "Av ≈ −hfe·RC/(hie+hfe·Re2)\n= moderate",
+                        "Av ≈ −hfe·RC/(hie+(1+hfe)RE)\n= very small"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "|Av| (Voltage Gain Magnitude)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "falstad-ce-ac",
+            "type": "falstad-sim",
+            "title": "Interactive: CE Amplifier — Toggle Bypass Capacitor to See Gain Change",
+            "description": "This CE amplifier has a bypass cap across RE. Watch the output amplitude change dramatically with/without bypass.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 272 48 272 16 0 0 40 15 0 0 0.5\nr 272 48 272 112 0 22000\nr 272 208 272 304 0 1000\nt 272 160 336 160 0 1 -11.362474826958736 0.6594853999780009 100 default\nr 336 48 336 144 0 4700\nR 336 48 336 16 0 0 40 15 0 0 0.5\nw 272 112 272 160 0\nr 272 160 272 208 0 4700\ng 272 304 272 336 0 0\ng 336 176 336 208 0 0\nc 272 208 336 176 0 0.0001 0 0.001\nv 176 208 176 112 0 1 1000 0.01 0 0 0.5\nc 176 112 272 112 0 0.00001 0 0.001\nw 176 208 272 208 0\no 4 64 0 4099 2.5 0.00009765625 0 2 4 3\no 2 64 0 4099 10 0.0125 0 2 2 3\n",
+            "height": 400
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "bjt-structure-operation",
+    "title": "BJT Structure and Regions of Operation",
+    "slug": "bjt-structure-operation",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

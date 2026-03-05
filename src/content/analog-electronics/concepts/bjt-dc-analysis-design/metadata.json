@@ -1,0 +1,11 @@
+{
+    "id": "bjt-dc-analysis-design",
+    "title": "DC Analysis and Circuit Design",
+    "slug": "bjt-dc-analysis-design",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

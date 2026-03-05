@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-bjt-dc-biasing",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Purpose of biasing?",
+            "back": "Set the DC operating point (Q-point) in the active region so the BJT can amplify AC signals without distortion.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Fixed bias formula for IB?",
+            "back": "IB = (VCC − VBE)/RB. Problem: IC = βIB depends directly on β — unstable.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Voltage-divider bias VTh?",
+            "back": "VTh = R2·VCC/(R1+R2). R2 is the bottom resistor connected to ground.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "Voltage-divider bias RTh?",
+            "back": "RTh = R1||R2 = R1·R2/(R1+R2). Found by shorting VCC and looking into the divider.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "KVL base loop (voltage-divider)?",
+            "back": "VTh = IB·RTh + VBE + IE·RE. Solve for IB using IE = (β+1)IB.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Stability condition?",
+            "back": "(β+1)RE >> RTh. When true, IE ≈ (VTh−VBE)/RE, independent of β.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "How does RE stabilise bias?",
+            "back": "Negative feedback: IC↑ → IE↑ → VE=IERE↑ → VBE↓ → IB↓ → IC↓. Self-correcting.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Divider current design rule?",
+            "back": "I_divider >> IB (typically ≥10×). Ensures VB isn't affected by IB variations.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "What is collector feedback bias?",
+            "back": "RB connects collector to base. If IC↑ → VC↓ → IB↓ → IC↓. Moderate stability, simpler than voltage-divider.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Which bias config used in all tutorial Qs?",
+            "back": "Voltage-divider bias with R1, R2, RC, RE. Industry standard. Excellent β-independence.",
+            "difficultyLevel": 1
+        }
+    ]
+}

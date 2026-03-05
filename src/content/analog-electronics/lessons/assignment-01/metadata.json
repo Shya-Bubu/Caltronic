@@ -1,0 +1,23 @@
+{
+    "id": "assignment-01",
+    "title": "BJT Tutorial — Complete Guide & Solutions",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "prerequisites": [
+        "lesson-04",
+        "lesson-05"
+    ],
+    "concepts": [
+        "bjt-structure-operation",
+        "bjt-dc-biasing",
+        "bjt-dc-analysis-design",
+        "h-parameter-model",
+        "small-signal-equivalent-circuits",
+        "single-stage-amplifier-analysis",
+        "load-lines-graphical-analysis",
+        "multistage-amplifiers-feedback",
+        "assignment-solutions-q1-q2",
+        "assignment-solutions-q3-q4",
+        "assignment-solutions-q5-q6"
+    ]
+}

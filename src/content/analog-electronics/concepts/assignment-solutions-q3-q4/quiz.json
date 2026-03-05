@@ -1,0 +1,125 @@
+{
+    "id": "quiz-solutions-q3-q4",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Q3: hfe is found from output characteristics by measuring:",
+            "options": [
+                "ΔIC/ΔVCE at constant IB",
+                "ΔIC/ΔIB at constant VCE",
+                "ΔVCE/ΔIB at constant IC",
+                "VCE/IC at Q-point"
+            ],
+            "correctAnswer": "ΔIC/ΔIB at constant VCE",
+            "explanation": "hfe = ΔIC/ΔIB with VCE held constant. Read IC at two adjacent IB curves at the Q-point VCE."
+        },
+        {
+            "id": "q2",
+            "prompt": "Q3: The DC load line x-intercept is:",
+            "options": [
+                "0 V",
+                "8 V",
+                "13.44 V",
+                "15 V (= VCC)"
+            ],
+            "correctAnswer": "15 V (= VCC)",
+            "explanation": "DC x-intercept: when IC=0, VCE = VCC = 15V. All supply voltage appears across the transistor."
+        },
+        {
+            "id": "q3",
+            "prompt": "Q3: The AC load line is steeper than DC because:",
+            "options": [
+                "RAC > RDC",
+                "RAC < RDC",
+                "They're equal",
+                "The Q-point shifts"
+            ],
+            "correctAnswer": "RAC < RDC",
+            "explanation": "AC: RAC = RC (CE bypasses RE). DC: RDC = RC+RE. Since RC < RC+RE, the AC slope is steeper."
+        },
+        {
+            "id": "q4",
+            "prompt": "Q4: Stage 1 uses which configuration?",
+            "options": [
+                "CE",
+                "CC",
+                "CB",
+                "Cascode"
+            ],
+            "correctAnswer": "CE",
+            "explanation": "Q4 states: 'Common-Emitter h-parameter model for Q1'. CE provides voltage gain."
+        },
+        {
+            "id": "q5",
+            "prompt": "Q4: Stage 2 (CC) voltage gain Av2 ≈:",
+            "options": [
+                "50",
+                "−51",
+                "1",
+                "0"
+            ],
+            "correctAnswer": "1",
+            "explanation": "CC (emitter follower) has Av ≈ 1. It's a buffer — it preserves voltage while providing impedance transformation."
+        },
+        {
+            "id": "q6",
+            "prompt": "Q4: Stage 2 (CC) input resistance is:",
+            "options": [
+                "Very low (∼20 Ω)",
+                "Very high (∼228 kΩ)",
+                "Moderate (∼1 kΩ)",
+                "Infinite"
+            ],
+            "correctAnswer": "Very high (∼228 kΩ)",
+            "explanation": "CC has Rin = hic + (1+|hfc|)RE ≈ 1100 + 52×5000 ≈ 228 kΩ. Very high — barely loads stage 1."
+        },
+        {
+            "id": "q7",
+            "prompt": "Q4: Stage 2 (CC) output resistance is:",
+            "options": [
+                "Very low (∼22 Ω)",
+                "Very high (∼228 kΩ)",
+                "Moderate (∼1 kΩ)",
+                "Equal to RL"
+            ],
+            "correctAnswer": "Very low (∼22 Ω)",
+            "explanation": "CC has Rout ≈ hic/(1+|hfc|) = 1100/51 ≈ 22 Ω. Very low — can drive low-impedance loads."
+        },
+        {
+            "id": "q8",
+            "prompt": "Q4: Overall input impedance is determined by:",
+            "options": [
+                "Stage 2",
+                "Stage 1 (the first stage)",
+                "Both stages",
+                "The source"
+            ],
+            "correctAnswer": "Stage 1 (the first stage)",
+            "explanation": "Overall Rin = Rin of the first stage = Rin1 = 1 kΩ. The source sees only stage 1's input."
+        },
+        {
+            "id": "q9",
+            "prompt": "Q4: Overall output impedance is determined by:",
+            "options": [
+                "Stage 1",
+                "Stage 2 (the last stage)",
+                "Both stages",
+                "The load"
+            ],
+            "correctAnswer": "Stage 2 (the last stage)",
+            "explanation": "Overall Rout = Rout of the last stage = Rout2 ≈ 22 Ω. The load sees only stage 2's output."
+        },
+        {
+            "id": "q10",
+            "prompt": "Q3.4: When IB swings below 0 (cutoff), what happens?",
+            "options": [
+                "IC becomes negative",
+                "IC = 0 and VCE = VCC",
+                "IC = 0 and VCE = VCEQ + ICQ·RAC",
+                "Nothing changes"
+            ],
+            "correctAnswer": "IC = 0 and VCE = VCEQ + ICQ·RAC",
+            "explanation": "At cutoff: IC=0. VCE rises to the AC load line x-intercept = VCEQ + ICQ×RAC = 8 + 5.44 = 13.44V."
+        }
+    ]
+}

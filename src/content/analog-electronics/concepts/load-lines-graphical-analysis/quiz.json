@@ -1,0 +1,125 @@
+{
+    "id": "quiz-load-lines",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The DC load line x-intercept (IC=0) is at VCE =",
+            "options": [
+                "0",
+                "VCC",
+                "VCC/(RC+RE)",
+                "VCEQ"
+            ],
+            "correctAnswer": "VCC",
+            "explanation": "When IC=0: VCE = VCC − 0 = VCC. All supply voltage appears across the transistor."
+        },
+        {
+            "id": "q2",
+            "prompt": "The DC load line y-intercept (VCE=0) is at IC =",
+            "options": [
+                "0",
+                "VCC",
+                "VCC/(RC+RE)",
+                "βIB"
+            ],
+            "correctAnswer": "VCC/(RC+RE)",
+            "explanation": "When VCE=0: IC = VCC/(RC+RE). All supply voltage drops across the resistors."
+        },
+        {
+            "id": "q3",
+            "prompt": "The DC load line uses total resistance:",
+            "options": [
+                "RC only",
+                "RE only",
+                "RC + RE",
+                "RC || RL"
+            ],
+            "correctAnswer": "RC + RE",
+            "explanation": "DC equivalent: caps open, so both RC and RE carry the full DC current. Total R = RC + RE."
+        },
+        {
+            "id": "q4",
+            "prompt": "The AC load line slope is −1/RAC where RAC =",
+            "options": [
+                "RC + RE",
+                "RC || RL",
+                "RC + RL",
+                "RE || RL"
+            ],
+            "correctAnswer": "RC || RL",
+            "explanation": "For AC: bypass cap shorts RE, coupling cap connects RL. Effective AC load = RC || RL."
+        },
+        {
+            "id": "q5",
+            "prompt": "The AC load line is steeper than the DC load line because:",
+            "options": [
+                "RAC > RDC",
+                "RAC < RDC (so 1/RAC is larger)",
+                "They have the same slope",
+                "The Q-point shifts"
+            ],
+            "correctAnswer": "RAC < RDC (so 1/RAC is larger)",
+            "explanation": "RAC = RC||RL < RC+RE = RDC. Steeper slope = larger magnitude = −1/(smaller R)."
+        },
+        {
+            "id": "q6",
+            "prompt": "Both DC and AC load lines pass through:",
+            "options": [
+                "The origin",
+                "The x-intercept",
+                "The Q-point",
+                "VCC"
+            ],
+            "correctAnswer": "The Q-point",
+            "explanation": "The Q-point is the DC operating point where both lines intersect. It's the centre of the AC swing."
+        },
+        {
+            "id": "q7",
+            "prompt": "To construct the output waveform graphically, you read VCE at:",
+            "options": [
+                "Random IB values",
+                "IB extremes (max and min) along the AC load line",
+                "Only the Q-point",
+                "The DC load line x-intercept"
+            ],
+            "correctAnswer": "IB extremes (max and min) along the AC load line",
+            "explanation": "The AC signal swings IB above and below IBQ. Read VCE where these IB curves intersect the AC load line."
+        },
+        {
+            "id": "q8",
+            "prompt": "Clipping at saturation occurs when VCE drops to:",
+            "options": [
+                "0 V",
+                "VCC",
+                "≈ 0.2 V (VCE,sat)",
+                "VBE"
+            ],
+            "correctAnswer": "≈ 0.2 V (VCE,sat)",
+            "explanation": "In saturation, both junctions are forward-biased and VCE ≈ 0.2V. The output can't go lower than this."
+        },
+        {
+            "id": "q9",
+            "prompt": "Clipping at cutoff occurs when IC drops to:",
+            "options": [
+                "βIB",
+                "VCC/RC",
+                "0 (IC = 0)",
+                "ICQ"
+            ],
+            "correctAnswer": "0 (IC = 0)",
+            "explanation": "In cutoff, IC ≈ 0 and VCE swings up to VCC (DC) or VCEQ + ICQ·RAC (AC). No further swing possible."
+        },
+        {
+            "id": "q10",
+            "prompt": "The AC load line x-intercept (iC=0) equals:",
+            "options": [
+                "VCC",
+                "VCEQ + ICQ × RAC",
+                "VCEQ",
+                "VCC/(RC+RE)"
+            ],
+            "correctAnswer": "VCEQ + ICQ × RAC",
+            "explanation": "Starting from Q-point, when IC drops to 0: VCE increases by ICQ × RAC. So x-intercept = VCEQ + ICQ × RAC."
+        }
+    ]
+}

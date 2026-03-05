@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-h-parameter",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are h-parameters?",
+            "back": "A linear two-port model of the BJT for small-signal (AC) analysis. Four parameters: hie, hre, hfe, hoe.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "hie definition and typical value?",
+            "back": "Input impedance: hie = v1/i1 (v2=0). Typically 1-2 kΩ. Resistance looking into the base.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "hfe definition?",
+            "back": "Forward current gain: hfe = i2/i1 (v2=0). AC β. Typically 50-200.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "hre and hoe — when to include?",
+            "back": "hre ≈ 10⁻⁴ (usually negligible). hoe: include if 1/hoe ≈ RC; ignore if 1/hoe >> 10·RC.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Simplified model includes?",
+            "back": "Only hie (input R) and hfe (current source). hre=0, hoe=0. Used when told 'simplified' model.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Full model circuit?",
+            "back": "Input: hie + hre·v2 source. Output: hfe·i1 source || 1/hoe resistor.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "CE vs CC subscripts?",
+            "back": "CE: hie, hre, hfe, hoe. CC: hic, hrc, hfc, hoc. Relationship: hfc = −(1+hfe).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Find hfe from output curves?",
+            "back": "hfe = ΔIC/ΔIB at constant VCE. Read IC at two adjacent IB curves at the same VCE.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Find hoe from output curves?",
+            "back": "hoe = ΔIC/ΔVCE at constant IB. It's the slope of one IB curve at the Q-point.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "1/hoe physical meaning?",
+            "back": "Output resistance of the transistor. Appears in parallel with RC. Large (10-100kΩ) means nearly ideal current source.",
+            "difficultyLevel": 2
+        }
+    ]
+}

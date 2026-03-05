@@ -1,0 +1,538 @@
+{
+    "visuals": [
+        {
+            "id": "why-biasing-matters",
+            "type": "plotly",
+            "title": "Why Biasing: Q-Point Sets the Amplifier's 'Sweet Spot'",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0.5,
+                        2,
+                        5,
+                        8,
+                        9,
+                        9.5
+                    ],
+                    "name": "IC vs VCE (IB fixed)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        14,
+                        0
+                    ],
+                    "y": [
+                        0,
+                        9.5
+                    ],
+                    "name": "DC Load Line",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                },
+                "annotations": [
+                    {
+                        "x": 7,
+                        "y": 5,
+                        "text": "Q-point<br>(sweet spot)",
+                        "showarrow": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": "fixed-bias-circuit",
+            "type": "circuit-schematic",
+            "title": "Fixed Bias Circuit: Single RB from VCC to Base",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "VCC",
+                    "from": [
+                        192,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        0
+                    ],
+                    "label": "+VCC"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RB",
+                    "from": [
+                        0,
+                        0
+                    ],
+                    "to": [
+                        128,
+                        0
+                    ],
+                    "label": "RB"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RC",
+                    "from": [
+                        192,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ],
+                    "label": "RC"
+                },
+                {
+                    "type": "npn",
+                    "id": "Q1",
+                    "position": [
+                        192,
+                        128
+                    ],
+                    "label": "Q"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        0
+                    ],
+                    "to": [
+                        160,
+                        128
+                    ]
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        192,
+                        192
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "beta-sensitivity",
+            "type": "plotly",
+            "title": "Fixed Bias Flaw: IC Depends Directly on β",
+            "traces": [
+                {
+                    "x": [
+                        50,
+                        100,
+                        150,
+                        200,
+                        250,
+                        300
+                    ],
+                    "y": [
+                        2.5,
+                        5,
+                        7.5,
+                        10,
+                        12.5,
+                        15
+                    ],
+                    "name": "IC = β × IB (IB fixed)",
+                    "type": "scatter",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        50,
+                        300
+                    ],
+                    "y": [
+                        5,
+                        5
+                    ],
+                    "name": "Desired IC",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "β (varies with transistor)"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                },
+                "annotations": [
+                    {
+                        "x": 200,
+                        "y": 10,
+                        "text": "β doubles → IC doubles!",
+                        "showarrow": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": "voltage-divider-bias-circuit",
+            "type": "circuit-schematic",
+            "title": "Voltage-Divider Bias: R1, R2, RC, RE (The Standard Configuration)",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "VCC",
+                    "from": [
+                        192,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        0
+                    ],
+                    "label": "+VCC"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R1",
+                    "from": [
+                        0,
+                        0
+                    ],
+                    "to": [
+                        0,
+                        96
+                    ],
+                    "label": "R1"
+                },
+                {
+                    "type": "resistor",
+                    "id": "R2",
+                    "from": [
+                        0,
+                        96
+                    ],
+                    "to": [
+                        0,
+                        192
+                    ],
+                    "label": "R2"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RC",
+                    "from": [
+                        192,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ],
+                    "label": "RC"
+                },
+                {
+                    "type": "npn",
+                    "id": "Q1",
+                    "position": [
+                        192,
+                        128
+                    ],
+                    "label": "Q"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RE",
+                    "from": [
+                        192,
+                        192
+                    ],
+                    "to": [
+                        192,
+                        256
+                    ],
+                    "label": "RE"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        96
+                    ],
+                    "to": [
+                        160,
+                        128
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        0,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        0
+                    ]
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        192,
+                        256
+                    ]
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        0,
+                        192
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "thevenin-equivalent",
+            "type": "block-diagram",
+            "title": "Thevenin Equivalent: Replace R1||R2 Divider with VTh and RTh",
+            "blocks": [
+                {
+                    "id": "divider",
+                    "label": "R1, R2 Divider\nVCC to GND",
+                    "position": "left"
+                },
+                {
+                    "id": "arrow",
+                    "label": "→ Thevenin\nVTh = R2·VCC/(R1+R2)\nRTh = R1||R2",
+                    "position": "center"
+                },
+                {
+                    "id": "equiv",
+                    "label": "VTh + RTh\nin series",
+                    "position": "right"
+                }
+            ],
+            "connections": [
+                {
+                    "from": "divider",
+                    "to": "arrow"
+                },
+                {
+                    "from": "arrow",
+                    "to": "equiv"
+                }
+            ]
+        },
+        {
+            "id": "stability-comparison",
+            "type": "plotly",
+            "title": "Stability: Voltage-Divider (Stable) vs Fixed Bias (Unstable)",
+            "traces": [
+                {
+                    "x": [
+                        50,
+                        100,
+                        150,
+                        200,
+                        250,
+                        300
+                    ],
+                    "y": [
+                        2.5,
+                        5,
+                        7.5,
+                        10,
+                        12.5,
+                        15
+                    ],
+                    "name": "Fixed Bias (IC ∝ β)",
+                    "type": "scatter",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        50,
+                        100,
+                        150,
+                        200,
+                        250,
+                        300
+                    ],
+                    "y": [
+                        4.8,
+                        4.9,
+                        4.95,
+                        4.97,
+                        4.98,
+                        4.99
+                    ],
+                    "name": "Voltage-Divider (IC ≈ const)",
+                    "type": "scatter",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "β"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                }
+            }
+        },
+        {
+            "id": "collector-feedback-circuit",
+            "type": "circuit-schematic",
+            "title": "Collector Feedback Bias: RB from Collector to Base",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "VCC",
+                    "from": [
+                        192,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        0
+                    ],
+                    "label": "+VCC"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RC",
+                    "from": [
+                        192,
+                        0
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ],
+                    "label": "RC"
+                },
+                {
+                    "type": "resistor",
+                    "id": "RB",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        96,
+                        128
+                    ],
+                    "label": "RB"
+                },
+                {
+                    "type": "npn",
+                    "id": "Q1",
+                    "position": [
+                        192,
+                        128
+                    ],
+                    "label": "Q"
+                },
+                {
+                    "type": "ground",
+                    "from": [
+                        192,
+                        192
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "divider-current-rule",
+            "type": "plotly",
+            "title": "Design Rule: Divider Current Should Be >> Base Current",
+            "traces": [
+                {
+                    "x": [
+                        "IB (base)",
+                        "I_div (divider)",
+                        "Ratio"
+                    ],
+                    "y": [
+                        0.002,
+                        0.1,
+                        50
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#4f8cff"
+                        ]
+                    },
+                    "text": [
+                        "≈2μA",
+                        "0.1mA",
+                        "50:1 ✓ Stable!"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Current (mA)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "falstad-voltage-divider-bias",
+            "type": "falstad-sim",
+            "title": "Interactive: Voltage-Divider Bias — Change R1/R2 and Watch Q-Point",
+            "description": "Vary the divider resistors to see how VB and IC change. Notice how stable the Q-point is.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 272 48 272 16 0 0 40 15 0 0 0.5\nr 272 48 272 112 0 22000\nr 272 208 272 304 0 1000\nt 272 160 336 160 0 1 -11.362474826958736 0.6594853999780009 100 default\nr 336 48 336 144 0 4700\nR 336 48 336 16 0 0 40 15 0 0 0.5\nw 272 112 272 160 0\nr 272 160 272 208 0 4700\ng 272 304 272 336 0 0\ng 336 176 336 208 0 0\no 2 64 0 4099 10 0.0125 0 2 2 3\n",
+            "height": 400
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-single-stage",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The voltage gain of a CE amplifier with fully bypassed RE is:",
+            "options": [
+                "Av = −hfe·RC/hie",
+                "Av = 1",
+                "Av = hfe·RC/hie (positive)",
+                "Av = −hie/RC"
+            ],
+            "correctAnswer": "Av = −hfe·RC/hie",
+            "explanation": "With RE=0 (bypassed): Av = −hfe·RC/hie. The negative sign indicates 180° phase inversion, characteristic of CE."
+        },
+        {
+            "id": "q2",
+            "prompt": "Adding un-bypassed RE to a CE amplifier does what to the gain?",
+            "options": [
+                "Increases it",
+                "Decreases it (but improves stability)",
+                "Has no effect",
+                "Doubles it"
+            ],
+            "correctAnswer": "Decreases it (but improves stability)",
+            "explanation": "With RE: Av = −hfe·RC/(hie + hfe·RE). Since hfe·RE >> hie, gain ≈ −RC/RE which is smaller but very stable."
+        },
+        {
+            "id": "q3",
+            "prompt": "The input impedance of a CE amplifier (looking into the base) with RE is:",
+            "options": [
+                "Rin = hie",
+                "Rin = hie + (1+hfe)RE",
+                "Rin = RE",
+                "Rin = RC"
+            ],
+            "correctAnswer": "Rin = hie + (1+hfe)RE",
+            "explanation": "RE appears (1+hfe) times larger when seen from the base. This 'impedance reflection' is a fundamental BJT property."
+        },
+        {
+            "id": "q4",
+            "prompt": "The Common-Collector (emitter follower) has Av ≈:",
+            "options": [
+                "−100",
+                "1 (unity gain, no inversion)",
+                "0",
+                "∞"
+            ],
+            "correctAnswer": "1 (unity gain, no inversion)",
+            "explanation": "CC is a voltage follower: vo ≈ vin. It provides current gain and impedance transformation but not voltage gain."
+        },
+        {
+            "id": "q5",
+            "prompt": "The CC configuration is used primarily for:",
+            "options": [
+                "High voltage gain",
+                "Impedance matching (high Rin, low Rout)",
+                "Phase inversion",
+                "High output impedance"
+            ],
+            "correctAnswer": "Impedance matching (high Rin, low Rout)",
+            "explanation": "CC has very high Rin and very low Rout, making it ideal as a buffer between a high-impedance source and a low-impedance load."
+        },
+        {
+            "id": "q6",
+            "prompt": "The Common-Base input impedance is approximately:",
+            "options": [
+                "hie (medium)",
+                "hie/(1+hfe) (very small, ~5-20 Ω)",
+                "(1+hfe)RE (very large)",
+                "RC (large)"
+            ],
+            "correctAnswer": "hie/(1+hfe) (very small, ~5-20 Ω)",
+            "explanation": "CB input R = hie/(1+hfe) ≈ 1000/101 ≈ 10 Ω. Very low — good for current-mode signals."
+        },
+        {
+            "id": "q7",
+            "prompt": "The effect of RL on voltage gain is:",
+            "options": [
+                "RL increases gain",
+                "RL decreases gain (appears in parallel with RC)",
+                "RL has no effect",
+                "RL eliminates gain"
+            ],
+            "correctAnswer": "RL decreases gain (appears in parallel with RC)",
+            "explanation": "RL || RC is smaller than RC alone, so the effective load (and hence gain) decreases when RL is connected."
+        },
+        {
+            "id": "q8",
+            "prompt": "The overall gain Avs (from vs to vo) includes:",
+            "options": [
+                "Only the intrinsic gain Av",
+                "Av × input divider × output divider",
+                "Av × Rs",
+                "Only the load effect"
+            ],
+            "correctAnswer": "Av × input divider × output divider",
+            "explanation": "Avs = Av × [Rin/(Rin+Rs)] × [RL/(RL+Rout)]. Both source and load resistances reduce the overall gain."
+        },
+        {
+            "id": "q9",
+            "prompt": "The CE amplifier produces:",
+            "options": [
+                "0° phase shift (in-phase)",
+                "90° phase shift",
+                "180° phase shift (inversion)",
+                "360° phase shift"
+            ],
+            "correctAnswer": "180° phase shift (inversion)",
+            "explanation": "CE inverts: the negative sign in Av = −hfe·RC/(hie+hfe·RE). When input goes up, output goes down."
+        },
+        {
+            "id": "q10",
+            "prompt": "The output impedance Rout of a CE amplifier (simplified) is:",
+            "options": [
+                "hie",
+                "RC",
+                "RE",
+                "RL"
+            ],
+            "correctAnswer": "RC",
+            "explanation": "With hoe=0 (simplified model), Rout = RC. With hoe: Rout = RC || (1/hoe)."
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-h-parameter",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The h-parameter model represents the BJT as:",
+            "options": [
+                "A nonlinear device",
+                "A linear two-port network (for small signals)",
+                "A DC voltage source",
+                "A transformer"
+            ],
+            "correctAnswer": "A linear two-port network (for small signals)",
+            "explanation": "h-parameters linearise the BJT's behaviour around the Q-point. The model is valid only for small signals where the linear approximation holds."
+        },
+        {
+            "id": "q2",
+            "prompt": "hie represents:",
+            "options": [
+                "Output admittance",
+                "Input impedance (looking into the base)",
+                "Forward current gain",
+                "Reverse voltage ratio"
+            ],
+            "correctAnswer": "Input impedance (looking into the base)",
+            "explanation": "hie = v1/i1 with v2=0 (output AC-shorted). It's the resistance seen looking into the base, typically 1-2 kΩ."
+        },
+        {
+            "id": "q3",
+            "prompt": "hfe represents:",
+            "options": [
+                "DC current gain β",
+                "AC (small-signal) forward current gain",
+                "Output conductance",
+                "Input voltage"
+            ],
+            "correctAnswer": "AC (small-signal) forward current gain",
+            "explanation": "hfe = i2/i1 with v2=0. It's the small-signal current gain, similar to (but not identical to) the DC β = hFE."
+        },
+        {
+            "id": "q4",
+            "prompt": "In the simplified h-parameter model, which parameters are ignored?",
+            "options": [
+                "hie and hfe",
+                "hre and hoe",
+                "hfe and hoe",
+                "All four"
+            ],
+            "correctAnswer": "hre and hoe",
+            "explanation": "hre ≈ 10⁻⁴ (negligible feedback) and hoe ≈ 10⁻⁴ S (output R very large). Simplified model uses only hie and hfe."
+        },
+        {
+            "id": "q5",
+            "prompt": "If hoe = 0.1 mΩ⁻¹, the output resistance 1/hoe equals:",
+            "options": [
+                "100 Ω",
+                "1 kΩ",
+                "10 kΩ",
+                "100 kΩ"
+            ],
+            "correctAnswer": "10 kΩ",
+            "explanation": "1/hoe = 1/(0.1×10⁻³) = 10,000 Ω = 10 kΩ. This resistance appears in parallel with RC."
+        },
+        {
+            "id": "q6",
+            "prompt": "The subscript 'e' in hie stands for:",
+            "options": [
+                "Emitter",
+                "Common-Emitter configuration",
+                "External",
+                "Effective"
+            ],
+            "correctAnswer": "Common-Emitter configuration",
+            "explanation": "The second subscript indicates the configuration: 'e' = Common-Emitter, 'c' = Common-Collector, 'b' = Common-Base."
+        },
+        {
+            "id": "q7",
+            "prompt": "For Common-Collector: hfc = −(1+hfe). If hfe = 50, then hfc =",
+            "options": [
+                "50",
+                "−50",
+                "−51",
+                "51"
+            ],
+            "correctAnswer": "−51",
+            "explanation": "hfc = −(1+50) = −51. The negative sign is a convention; the magnitude 51 is the actual current amplification."
+        },
+        {
+            "id": "q8",
+            "prompt": "To find hfe from output characteristics, measure:",
+            "options": [
+                "ΔIC/ΔVCE at constant IB",
+                "ΔIC/ΔIB at constant VCE",
+                "ΔVBE/ΔIB at constant VCE",
+                "ΔIC/ΔVBE at constant VCE"
+            ],
+            "correctAnswer": "ΔIC/ΔIB at constant VCE",
+            "explanation": "hfe = ΔIC/ΔIB with VCE held constant. Draw a vertical line at the Q-point's VCE and read IC at two adjacent IB curves."
+        },
+        {
+            "id": "q9",
+            "prompt": "To find hoe from output characteristics, measure:",
+            "options": [
+                "ΔIC/ΔIB at constant VCE",
+                "ΔIC/ΔVCE at constant IB (slope of the curve)",
+                "ΔVBE/ΔVCE at constant IB",
+                "ΔVCE/ΔIB at constant IC"
+            ],
+            "correctAnswer": "ΔIC/ΔVCE at constant IB (slope of the curve)",
+            "explanation": "hoe = ΔIC/ΔVCE along one IB curve. It's the slope of the output characteristic at the Q-point."
+        },
+        {
+            "id": "q10",
+            "prompt": "When should you include hoe in your analysis?",
+            "options": [
+                "Always",
+                "Never",
+                "When 1/hoe is comparable to RC (within ~10×)",
+                "Only for PNP transistors"
+            ],
+            "correctAnswer": "When 1/hoe is comparable to RC (within ~10×)",
+            "explanation": "If 1/hoe >> RC (say, >10×), hoe is negligible. If 1/hoe ≈ RC, including it significantly changes the gain calculation."
+        }
+    ]
+}

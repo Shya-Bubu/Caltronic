@@ -1,0 +1,11 @@
+{
+    "id": "bjt-dc-biasing",
+    "title": "DC Biasing Configurations",
+    "slug": "bjt-dc-biasing",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-multistage",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "The overall voltage gain of two cascaded stages is:",
+            "options": [
+                "Av1 + Av2",
+                "Av1 × Av2",
+                "Av1 / Av2",
+                "Av1 − Av2"
+            ],
+            "correctAnswer": "Av1 × Av2",
+            "explanation": "Cascaded gains multiply: Av = Av1 × Av2. If both are CE with gain −50 each, total = (−50)(−50) = +2500."
+        },
+        {
+            "id": "q2",
+            "prompt": "Inter-stage loading means:",
+            "options": [
+                "Stage 2's Rin acts as a load on stage 1's output",
+                "Both stages share the same power supply",
+                "The stages operate at different frequencies",
+                "The feedback resistor loads the input"
+            ],
+            "correctAnswer": "Stage 2's Rin acts as a load on stage 1's output",
+            "explanation": "Stage 2's input impedance appears in parallel with stage 1's RC, reducing the effective load and hence the gain of stage 1."
+        },
+        {
+            "id": "q3",
+            "prompt": "A CC (emitter follower) as stage 2 is ideal because:",
+            "options": [
+                "It has high voltage gain",
+                "Its high Rin barely loads stage 1, and low Rout drives the load",
+                "It inverts the signal",
+                "It provides maximum current"
+            ],
+            "correctAnswer": "Its high Rin barely loads stage 1, and low Rout drives the load",
+            "explanation": "CC has Rin ≈ (1+hfe)RE (very high → minimal loading) and Rout ≈ hie/(1+hfe) (very low → drives low-impedance loads)."
+        },
+        {
+            "id": "q4",
+            "prompt": "Negative feedback in an amplifier:",
+            "options": [
+                "Increases gain",
+                "Decreases gain but improves stability and bandwidth",
+                "Has no effect",
+                "Causes oscillation"
+            ],
+            "correctAnswer": "Decreases gain but improves stability and bandwidth",
+            "explanation": "Negative feedback trades gain for desirable properties: stable gain, wider bandwidth, reduced distortion, improved linearity."
+        },
+        {
+            "id": "q5",
+            "prompt": "The four feedback topologies are distinguished by:",
+            "options": [
+                "The number of stages",
+                "How the output is sampled (V or I) and how the feedback is mixed at the input (series or shunt)",
+                "The type of transistor used",
+                "The frequency range"
+            ],
+            "correctAnswer": "How the output is sampled (V or I) and how the feedback is mixed at the input (series or shunt)",
+            "explanation": "Two choices: sample voltage or current at output, mix in series or shunt at input. This gives 2×2 = 4 topologies."
+        },
+        {
+            "id": "q6",
+            "prompt": "Voltage-Shunt (Shunt-Shunt) feedback does what to Rin and Rout?",
+            "options": [
+                "Rin↑, Rout↓",
+                "Rin↓, Rout↓",
+                "Rin↑, Rout↑",
+                "Rin↓, Rout↑"
+            ],
+            "correctAnswer": "Rin↓, Rout↓",
+            "explanation": "Shunt mixing at input → Rin decreases. Voltage sampling at output → Rout decreases. Both go down."
+        },
+        {
+            "id": "q7",
+            "prompt": "In Q6, Rf connects from Q2 collector to Q1 base. The sampling is:",
+            "options": [
+                "Current (from emitter)",
+                "Voltage (from collector)",
+                "Both",
+                "Neither"
+            ],
+            "correctAnswer": "Voltage (from collector)",
+            "explanation": "Rf is connected to the collector — it senses the output voltage. This is voltage sampling."
+        },
+        {
+            "id": "q8",
+            "prompt": "The overall input impedance of a cascaded amplifier is determined by:",
+            "options": [
+                "The last stage",
+                "The first stage",
+                "The average of all stages",
+                "The feedback network"
+            ],
+            "correctAnswer": "The first stage",
+            "explanation": "Rin,total = Rin of the first stage. The source sees only the first stage's input."
+        },
+        {
+            "id": "q9",
+            "prompt": "The overall output impedance is determined by:",
+            "options": [
+                "The first stage",
+                "The last stage",
+                "VCC/IC",
+                "RL"
+            ],
+            "correctAnswer": "The last stage",
+            "explanation": "Rout,total = Rout of the last stage. The load sees only the last stage's output impedance."
+        },
+        {
+            "id": "q10",
+            "prompt": "Feedback loading (Q6.4c) means:",
+            "options": [
+                "The feedback signal modifies gain",
+                "Rf acts as a passive load at input and output even without feedback",
+                "The amplifier oscillates",
+                "The stages decouple"
+            ],
+            "correctAnswer": "Rf acts as a passive load at input and output even without feedback",
+            "explanation": "Even if feedback is ignored, Rf physically loads both the input node (parallel with base) and output node (parallel with collector)."
+        }
+    ]
+}

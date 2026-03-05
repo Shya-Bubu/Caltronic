@@ -1,0 +1,583 @@
+{
+    "visuals": [
+        {
+            "id": "dc-load-line",
+            "type": "plotly",
+            "title": "DC Load Line: IC = (VCC − VCE)/(RC + RE)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        8,
+                        10,
+                        15
+                    ],
+                    "y": [
+                        15,
+                        10,
+                        7,
+                        5,
+                        0
+                    ],
+                    "name": "DC Load Line",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        8
+                    ],
+                    "y": [
+                        7
+                    ],
+                    "name": "Q-point",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ff6b8a",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)",
+                    "range": [
+                        0,
+                        16
+                    ]
+                },
+                "yaxis": {
+                    "title": "IC (mA)",
+                    "range": [
+                        0,
+                        16
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 15,
+                        "y": 0,
+                        "text": "x-int: VCC",
+                        "showarrow": true
+                    },
+                    {
+                        "x": 0,
+                        "y": 15,
+                        "text": "y-int: VCC/(RC+RE)",
+                        "showarrow": true
+                    },
+                    {
+                        "x": 8,
+                        "y": 7,
+                        "text": "Q-point",
+                        "showarrow": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": "ac-load-line",
+            "type": "plotly",
+            "title": "AC Load Line: Steeper Slope −1/RAC, Through Q-Point",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        8,
+                        10,
+                        15
+                    ],
+                    "y": [
+                        15,
+                        10,
+                        7,
+                        5,
+                        0
+                    ],
+                    "name": "DC Load Line",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        2,
+                        5,
+                        8,
+                        11,
+                        12.5
+                    ],
+                    "y": [
+                        17,
+                        12,
+                        7,
+                        2,
+                        0
+                    ],
+                    "name": "AC Load Line (steeper)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        8
+                    ],
+                    "y": [
+                        7
+                    ],
+                    "name": "Q-point",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ff6b8a",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)",
+                    "range": [
+                        0,
+                        16
+                    ]
+                },
+                "yaxis": {
+                    "title": "IC (mA)",
+                    "range": [
+                        0,
+                        18
+                    ]
+                }
+            }
+        },
+        {
+            "id": "dc-vs-ac-loadlines",
+            "type": "plotly",
+            "title": "DC vs AC Load Lines: Different Slopes, Same Q-Point",
+            "traces": [
+                {
+                    "x": [
+                        "DC Load Line",
+                        "AC Load Line"
+                    ],
+                    "y": [
+                        1000,
+                        600
+                    ],
+                    "name": "Effective Resistance",
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f"
+                        ]
+                    },
+                    "text": [
+                        "RC+RE\n(caps open)",
+                        "RC||RL\n(caps short)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Effective R (Ω)"
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "waveform-construction",
+            "type": "plotly",
+            "title": "Graphical Waveform Construction: Read VCE at IB Extremes",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14
+                    ],
+                    "y": [
+                        0,
+                        8,
+                        8.5,
+                        9,
+                        9.5,
+                        10,
+                        10.5,
+                        11
+                    ],
+                    "name": "IB=100μA",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#62c6ff",
+                        "width": 1
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14
+                    ],
+                    "y": [
+                        0,
+                        6.4,
+                        6.8,
+                        7.2,
+                        7.6,
+                        8,
+                        8.4,
+                        8.8
+                    ],
+                    "name": "IB=80μA (Q)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14
+                    ],
+                    "y": [
+                        0,
+                        4.8,
+                        5.1,
+                        5.4,
+                        5.7,
+                        6,
+                        6.3,
+                        6.6
+                    ],
+                    "name": "IB=60μA",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 1
+                    }
+                },
+                {
+                    "x": [
+                        2,
+                        5,
+                        8,
+                        11,
+                        12.5
+                    ],
+                    "y": [
+                        17,
+                        12,
+                        7,
+                        2,
+                        0
+                    ],
+                    "name": "AC Load Line",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        8
+                    ],
+                    "y": [
+                        7.6
+                    ],
+                    "name": "Q-point",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ff6b8a",
+                        "symbol": "star"
+                    }
+                },
+                {
+                    "x": [
+                        6.5
+                    ],
+                    "y": [
+                        9.2
+                    ],
+                    "name": "IB max → VCE min",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#f0a03a",
+                        "symbol": "diamond"
+                    }
+                },
+                {
+                    "x": [
+                        9.5
+                    ],
+                    "y": [
+                        5.8
+                    ],
+                    "name": "IB min → VCE max",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 10,
+                        "color": "#f0a03a",
+                        "symbol": "diamond"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                }
+            }
+        },
+        {
+            "id": "output-waveform",
+            "type": "plotly",
+            "title": "Output Waveform: VCE Swings as Inverted Sinusoid",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2
+                    ],
+                    "y": [
+                        8,
+                        6.5,
+                        8,
+                        9.5,
+                        8,
+                        6.5,
+                        8,
+                        9.5,
+                        8
+                    ],
+                    "name": "vCE(t)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        2
+                    ],
+                    "y": [
+                        8,
+                        8
+                    ],
+                    "name": "VCEQ",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.25,
+                        0.5,
+                        0.75,
+                        1,
+                        1.25,
+                        1.5,
+                        1.75,
+                        2
+                    ],
+                    "y": [
+                        0,
+                        0.09,
+                        0,
+                        -0.09,
+                        0,
+                        0.09,
+                        0,
+                        -0.09,
+                        0
+                    ],
+                    "name": "vs(t) (input)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    },
+                    "yaxis": "y2"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Time (periods)"
+                },
+                "yaxis": {
+                    "title": "VCE (V)",
+                    "side": "left"
+                },
+                "yaxis2": {
+                    "title": "vs (V)",
+                    "side": "right",
+                    "overlaying": "y"
+                }
+            }
+        },
+        {
+            "id": "clipping-limits",
+            "type": "plotly",
+            "title": "Clipping: Saturation and Cutoff Limits on the AC Load Line",
+            "traces": [
+                {
+                    "x": [
+                        0.2,
+                        5,
+                        8,
+                        11,
+                        12.5
+                    ],
+                    "y": [
+                        17,
+                        12,
+                        7,
+                        2,
+                        0
+                    ],
+                    "name": "AC Load Line",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0.2,
+                        0.2
+                    ],
+                    "y": [
+                        0,
+                        17
+                    ],
+                    "name": "Sat limit (VCE≈0.2V)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        16
+                    ],
+                    "y": [
+                        0,
+                        0
+                    ],
+                    "name": "Cutoff (IC=0)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        8
+                    ],
+                    "y": [
+                        7
+                    ],
+                    "name": "Q-point",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#4f8cff",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                }
+            }
+        },
+        {
+            "id": "falstad-loadline",
+            "type": "falstad-sim",
+            "title": "Interactive: CE Amplifier — Watch VCE Swing Along the Load Line",
+            "description": "Observe how VCE swings as the input signal varies IB. The output is an inverted, amplified sinusoid.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 272 48 272 16 0 0 40 15 0 0 0.5\nr 272 48 272 112 0 22000\nt 272 160 336 160 0 1 -11.362474826958736 0.6594853999780009 100 default\nr 336 48 336 144 0 4700\nR 336 48 336 16 0 0 40 15 0 0 0.5\nw 272 112 272 160 0\nr 272 160 272 208 0 4700\ng 272 208 272 240 0 0\nr 336 176 336 240 0 1000\ng 336 240 336 272 0 0\nc 336 176 400 176 0 0.0001 0 0.001\nr 400 176 400 240 0 10000\ng 400 240 400 272 0 0\nv 192 208 192 128 0 1 1000 0.01 0 0 0.5\nc 192 128 272 128 0 0.00001 0 0.001\nw 192 208 272 208 0\no 4 64 0 4099 2.5 0.00009765625 0 2 4 3\no 6 64 0 4099 10 0.0125 0 2 6 3\n",
+            "height": 400
+        }
+    ]
+}

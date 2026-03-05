@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-solutions-q1-q2",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Q1: How to find RE?",
+            "back": "RE = VE/IE = 2V/0.2mA = 10 kΩ. Voltage across RE equals the emitter voltage (emitter to ground).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Q1: How to find RC?",
+            "back": "RC = (VCC−VC)/IC = (9−5)/0.198mA = 20.2 kΩ → 20 kΩ (standard 5%).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Q1: How to find RB2?",
+            "back": "VB = VE + VBE = 2.7V. RB2 = VB/IB2 = 2.7/0.1mA = 27 kΩ (exact standard value).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Q1: How to find RB1?",
+            "back": "IB1 = IB2 + IB ≈ 0.102mA. RB1 = (VCC−VB)/IB1 = 6.3/0.102mA = 61.78 kΩ → 62 kΩ.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Q2: What configuration is Figure 2?",
+            "back": "Common-Base (CB). Signal enters at emitter through RE1, base is AC-grounded via R1||R2.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Q2: VTh and RTh?",
+            "back": "VTh = 30×10/210 = 1.429V. RTh = 180k||30k = 25.71 kΩ.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Q2: Q-point values?",
+            "back": "IB = 2.148μA, ICQ = 0.43mA, VCEQ = 7.25V.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Q2: Input impedance (looking into C1)?",
+            "back": "Rin = RE1 + (hie+R1||R2)/(1+hfe) = 200 + 26710/201 ≈ 333 Ω.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Q2: Voltage gain (no source/load)?",
+            "back": "Av = hfe·RC/(hie+(1+hfe)RE1) = 200×4700/(1000+40200) = 22.8.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Q2: Output voltage for vs=100mV?",
+            "back": "vo = vs×[Rin/(Rin+Rs)]×Av(loaded) = 0.1×0.769×15.52 ≈ 1.19 V.",
+            "difficultyLevel": 3
+        }
+    ]
+}

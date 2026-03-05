@@ -134,6 +134,11 @@ export const modules: Module[] = [
         title: "Amplifier Classification & BJT Configurations",
         path: "/analog-electronics/lesson-05",
       },
+      {
+        id: "assignment-01",
+        title: "BJT Tutorial — Complete Guide & Solutions",
+        path: "/analog-electronics/assignment-01",
+      },
     ],
   },
   {

@@ -1,0 +1,125 @@
+{
+    "id": "quiz-bjt-structure",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "A BJT has three terminals. They are:",
+            "options": [
+                "Anode, Cathode, Gate",
+                "Base, Collector, Emitter",
+                "Source, Drain, Gate",
+                "Input, Output, Ground"
+            ],
+            "correctAnswer": "Base, Collector, Emitter",
+            "explanation": "BJT terminals are Base (control), Collector (output), and Emitter (common). FETs have Source/Drain/Gate; diodes have Anode/Cathode."
+        },
+        {
+            "id": "q2",
+            "prompt": "In an NPN transistor, the emitter arrow on the circuit symbol points:",
+            "options": [
+                "Into the base",
+                "Away from the base (outward)",
+                "Toward the collector",
+                "There is no arrow"
+            ],
+            "correctAnswer": "Away from the base (outward)",
+            "explanation": "NPN: arrow points OUT ('Not Pointing iN'). The arrow shows conventional current direction through the emitter."
+        },
+        {
+            "id": "q3",
+            "prompt": "The relationship IE = IC + IB comes from:",
+            "options": [
+                "Ohm's Law",
+                "Kirchhoff's Current Law (KCL)",
+                "Kirchhoff's Voltage Law (KVL)",
+                "Thevenin's Theorem"
+            ],
+            "correctAnswer": "Kirchhoff's Current Law (KCL)",
+            "explanation": "KCL at the transistor node: all current entering (IC + IB) must equal current leaving (IE). This is always true regardless of operating region."
+        },
+        {
+            "id": "q4",
+            "prompt": "If β = 100, then α equals:",
+            "options": [
+                "100",
+                "0.99",
+                "1.01",
+                "0.5"
+            ],
+            "correctAnswer": "0.99",
+            "explanation": "α = β/(β+1) = 100/101 ≈ 0.99. This means 99% of emitter current reaches the collector; only 1% is base current."
+        },
+        {
+            "id": "q5",
+            "prompt": "In the active region, the base-emitter junction is:",
+            "options": [
+                "Reverse biased",
+                "Forward biased (VBE ≈ 0.7V)",
+                "Short circuited",
+                "Open circuited"
+            ],
+            "correctAnswer": "Forward biased (VBE ≈ 0.7V)",
+            "explanation": "Active region requires BE forward-biased (like a diode, VBE ≈ 0.7V for silicon) and BC reverse-biased. This is the amplifier operating mode."
+        },
+        {
+            "id": "q6",
+            "prompt": "In the active region, IC is related to IB by:",
+            "options": [
+                "IC = IB",
+                "IC = β × IB",
+                "IC = α × IB",
+                "IC = IB / β"
+            ],
+            "correctAnswer": "IC = β × IB",
+            "explanation": "IC = βIB is the fundamental active-region relationship. β (or hFE) is the DC current gain, typically 50-200."
+        },
+        {
+            "id": "q7",
+            "prompt": "In saturation, both junctions of the BJT are:",
+            "options": [
+                "Reverse biased",
+                "Forward biased",
+                "One forward, one reverse",
+                "Neither biased"
+            ],
+            "correctAnswer": "Forward biased",
+            "explanation": "Saturation: both BE and BC forward-biased. The transistor acts like a closed switch with VCE ≈ 0.2V. It cannot amplify in this state."
+        },
+        {
+            "id": "q8",
+            "prompt": "The emitter of an NPN is doped:",
+            "options": [
+                "Lightly (N−)",
+                "Heavily (N+)",
+                "Not doped (intrinsic)",
+                "P-type"
+            ],
+            "correctAnswer": "Heavily (N+)",
+            "explanation": "The emitter is heavily doped (N+) to supply plenty of majority carriers (electrons in NPN) for injection into the base. The base is thin and lightly doped."
+        },
+        {
+            "id": "q9",
+            "prompt": "A transistor with β = 200 and IB = 50 μA has IC equal to:",
+            "options": [
+                "10 mA",
+                "0.25 mA",
+                "200 mA",
+                "1 mA"
+            ],
+            "correctAnswer": "10 mA",
+            "explanation": "IC = βIB = 200 × 50μA = 200 × 0.05mA = 10 mA. Then IE = IC + IB = 10 + 0.05 = 10.05 mA."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why is the BJT called a 'current-controlled current source' in the active region?",
+            "options": [
+                "Because voltage controls current",
+                "Because a small base CURRENT controls a large collector CURRENT",
+                "Because it generates DC voltage",
+                "Because it stores charge"
+            ],
+            "correctAnswer": "Because a small base CURRENT controls a large collector CURRENT",
+            "explanation": "In the active region, IC = βIB. The collector current (output) is controlled by the base current (input). This is why it's a current-controlled current source (CCCS)."
+        }
+    ]
+}

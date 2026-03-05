@@ -1,0 +1,125 @@
+{
+    "id": "quiz-small-signal",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In the AC equivalent circuit, VCC is treated as:",
+            "options": [
+                "An open circuit",
+                "AC ground (short to ground)",
+                "A current source",
+                "Unchanged"
+            ],
+            "correctAnswer": "AC ground (short to ground)",
+            "explanation": "VCC is an ideal DC voltage source with zero AC impedance. For small signals, it's equivalent to a short to ground."
+        },
+        {
+            "id": "q2",
+            "prompt": "Coupling capacitors in the AC equivalent are:",
+            "options": [
+                "Open circuits",
+                "Short circuits",
+                "Replaced by resistors",
+                "Removed entirely"
+            ],
+            "correctAnswer": "Short circuits",
+            "explanation": "At signal frequencies, coupling capacitors have XC ≈ 0. They pass AC signals freely — modelled as short circuits."
+        },
+        {
+            "id": "q3",
+            "prompt": "After applying AC rules, RC connects from collector to:",
+            "options": [
+                "VCC",
+                "Ground (because VCC = AC ground)",
+                "The load",
+                "The base"
+            ],
+            "correctAnswer": "Ground (because VCC = AC ground)",
+            "explanation": "Since VCC is AC ground, the top of RC (which connects to VCC) goes to ground. So RC appears between collector and ground."
+        },
+        {
+            "id": "q4",
+            "prompt": "R1 and R2 in the voltage divider both connect to AC ground. In the AC model they appear as:",
+            "options": [
+                "R1 + R2 (series)",
+                "R1 || R2 (parallel, both to ground)",
+                "Only R1",
+                "Only R2"
+            ],
+            "correctAnswer": "R1 || R2 (parallel, both to ground)",
+            "explanation": "R1 connects from base to VCC (= GND), R2 from base to GND. Both go from base to ground, so they're in parallel."
+        },
+        {
+            "id": "q5",
+            "prompt": "A bypass capacitor CE across RE causes RE in the AC circuit to:",
+            "options": [
+                "Double",
+                "Disappear (shorted out)",
+                "Triple",
+                "Stay the same"
+            ],
+            "correctAnswer": "Disappear (shorted out)",
+            "explanation": "CE shorts RE for AC signals. In the AC equivalent, RE is replaced by a wire to ground. This maximises the AC gain."
+        },
+        {
+            "id": "q6",
+            "prompt": "In Q2, with C3 bypassing RE2=1.5kΩ, the AC equivalent includes:",
+            "options": [
+                "RE1=200Ω only (RE2 shorted)",
+                "RE2=1.5kΩ only (RE1 stays)",
+                "Both RE1 and RE2",
+                "Neither (both shorted)"
+            ],
+            "correctAnswer": "RE1=200Ω only (RE2 shorted)",
+            "explanation": "C3 shorts RE2, so only RE1=200Ω remains in the AC emitter path. This is the effective emitter resistance for AC."
+        },
+        {
+            "id": "q7",
+            "prompt": "After drawing the AC equivalent of Q2, the configuration is:",
+            "options": [
+                "Common-Emitter",
+                "Common-Base (emitter input, base grounded)",
+                "Common-Collector",
+                "Differential"
+            ],
+            "correctAnswer": "Common-Base (emitter input, base grounded)",
+            "explanation": "In Q2, the signal enters through the emitter (via RE1) and the base is AC-grounded through R1||R2. This is common-base."
+        },
+        {
+            "id": "q8",
+            "prompt": "When asked to state assumptions for the simplified model, you should include:",
+            "options": [
+                "Only hre ≈ 0",
+                "Only hoe ≈ 0",
+                "hre ≈ 0 AND hoe ≈ 0 AND caps have negligible impedance",
+                "No assumptions needed"
+            ],
+            "correctAnswer": "hre ≈ 0 AND hoe ≈ 0 AND caps have negligible impedance",
+            "explanation": "Three key assumptions: negligible reverse feedback, negligible output conductance, and capacitors as ideal shorts at the signal frequency."
+        },
+        {
+            "id": "q9",
+            "prompt": "In Q5 with Re1 bypassed and Re2=220Ω unbypassed, the AC equivalent has:",
+            "options": [
+                "No emitter resistance",
+                "Re2=220Ω in the emitter path",
+                "Re1=1kΩ in the emitter path",
+                "Both in series"
+            ],
+            "correctAnswer": "Re2=220Ω in the emitter path",
+            "explanation": "Re1 is bypassed (shorted by C1), so only Re2=220Ω remains in the AC emitter path. This partial degeneration trades gain for stability."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why does RL appear in the AC equivalent connected to the collector?",
+            "options": [
+                "It was always there",
+                "The coupling capacitor C2 shorts, connecting RL to the collector output",
+                "VCC drives RL",
+                "RL replaces RC"
+            ],
+            "correctAnswer": "The coupling capacitor C2 shorts, connecting RL to the collector output",
+            "explanation": "The coupling cap C2 between the collector (or RC) and RL is a short at signal frequencies, effectively connecting RL to the collector node."
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-load-lines",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "DC load line equation?",
+            "back": "IC = (VCC − VCE)/(RC + RE). Straight line on IC vs VCE. x-int: VCC. y-int: VCC/(RC+RE).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "DC load line x-intercept?",
+            "back": "VCE = VCC (when IC = 0). All supply voltage across the transistor.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "DC load line y-intercept?",
+            "back": "IC = VCC/(RC + RE) (when VCE = 0). Maximum possible DC current.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "AC load line slope?",
+            "back": "Slope = −1/RAC where RAC = RC || RL. Steeper than DC line because RAC < RC+RE.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "AC load line x-intercept?",
+            "back": "VCE = VCEQ + ICQ × RAC. This is the maximum VCE during AC swing.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "How to construct output waveform?",
+            "back": "1. Find IB swing from input. 2. Mark IB max/min on output chars. 3. Read VCE at AC load line intersections. 4. Plot VCE(t).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Clipping at saturation?",
+            "back": "VCE drops to ≈0.2V. Output waveform is flattened at the bottom. Can't go lower.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Clipping at cutoff?",
+            "back": "IC drops to 0. VCE rises to VCEQ + ICQ·RAC. Output flattened at the top.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "Why is AC load line for AC, not DC?",
+            "back": "AC: caps short (RE bypassed, RL connected). Different constraints than DC (caps open).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Both load lines pass through?",
+            "back": "The Q-point (VCEQ, ICQ). It's the DC operating point and the centre of AC swing.",
+            "difficultyLevel": 1
+        }
+    ]
+}

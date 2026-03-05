@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-small-signal",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "AC rule for capacitors?",
+            "back": "All coupling and bypass capacitors → short circuit. They pass AC freely (XC ≈ 0 at signal freq).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "AC rule for VCC?",
+            "back": "VCC → AC ground. Ideal DC source has zero AC impedance. Top of RC and R1 connect to ground.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "After AC rules: R1 and R2 appear as?",
+            "back": "R1 || R2 (parallel). Both connect from base to ground (R1 via VCC=GND, R2 directly).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "After AC rules: RC appears as?",
+            "back": "RC from collector to ground (via VCC=GND). Often in parallel with RL if coupling cap connects them.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Bypass cap across RE effect?",
+            "back": "RE → short (removed from AC). Maximises gain: Av = −hfe·RC/hie. Less stable.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Partial bypass (Q5 split RE)?",
+            "back": "Re1 bypassed → shorted. Re2 stays. Gain = −hfe·Rout/(hie + hfe·Re2). Compromise gain/stability.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "5-step AC equivalent procedure?",
+            "back": "1. VCC→GND, 2. Caps→short, 3. Redraw, 4. BJT→h-param, 5. Add source+Rs.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Standard simplification assumptions?",
+            "back": "hre ≈ 0 (no feedback), hoe ≈ 0 (infinite output R), caps have negligible XC, VCC ideal.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "How to identify CB configuration?",
+            "back": "Base is AC-grounded (connected to GND through R1||R2 or bypass). Emitter = input. Collector = output.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Where does source vs connect in AC?",
+            "back": "Through coupling cap (now short) and source resistance Rs to the input terminal (base for CE, emitter for CB).",
+            "difficultyLevel": 2
+        }
+    ]
+}

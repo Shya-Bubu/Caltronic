@@ -1,0 +1,11 @@
+{
+    "id": "h-parameter-model",
+    "title": "The h-Parameter Two-Port Model",
+    "slug": "h-parameter-model",
+    "estimatedMinutes": 25,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-multistage",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Cascaded gain formula?",
+            "back": "Av = Av1 × Av2 (loaded gains). Gains multiply for cascaded stages.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Inter-stage loading?",
+            "back": "Stage 2's Rin appears in || with stage 1's RC. Effective load = RC1 || Rin2. Reduces stage 1 gain.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "Why use CC as buffer stage?",
+            "back": "CC: Av≈1, very high Rin (minimal loading), very low Rout (drives loads). Ideal impedance matcher.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Overall Rin of cascade?",
+            "back": "= Rin of first stage. Source only sees stage 1's input.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "Overall Rout of cascade?",
+            "back": "= Rout of last stage. Load only sees the final stage's output.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f6",
+            "front": "Negative feedback effect?",
+            "back": "Gain↓, stability↑, bandwidth↑, distortion↓. Trades gain for quality.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Four feedback topologies?",
+            "back": "Series-Shunt (Rin↑Rout↓), Shunt-Series (Rin↓Rout↑), Series-Series (Rin↑Rout↑), Shunt-Shunt (Rin↓Rout↓).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "How to identify feedback topology?",
+            "back": "1. Where is Rf connected at output? (collector=voltage, emitter=current). 2. How does Rf connect at input? (series=adds voltage, shunt=adds current).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Q6 feedback topology?",
+            "back": "Rf from Q2 collector (voltage sampling) to Q1 base (shunt mixing) → Voltage-Shunt (Shunt-Shunt). Rin↓, Rout↓.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Feedback loading vs feedback signal?",
+            "back": "Loading: Rf as passive resistor in || at input/output. Signal: modification of gain by feedback loop. Separate effects.",
+            "difficultyLevel": 3
+        }
+    ]
+}

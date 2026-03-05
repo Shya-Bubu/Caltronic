@@ -1,0 +1,125 @@
+{
+    "id": "quiz-bjt-dc-analysis",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In the DC equivalent circuit, capacitors are treated as:",
+            "options": [
+                "Short circuits",
+                "Open circuits",
+                "Resistors",
+                "Current sources"
+            ],
+            "correctAnswer": "Open circuits",
+            "explanation": "Capacitors block DC current — impedance 1/jωC → ∞ at ω=0. They're modelled as open circuits for DC analysis."
+        },
+        {
+            "id": "q2",
+            "prompt": "The first step in Q-point analysis is:",
+            "options": [
+                "Find VCE",
+                "Draw the AC model",
+                "Find the Thevenin equivalent of the base circuit",
+                "Calculate voltage gain"
+            ],
+            "correctAnswer": "Find the Thevenin equivalent of the base circuit",
+            "explanation": "Step 1: VTh = R2·VCC/(R1+R2), RTh = R1||R2. This simplifies the base circuit for KVL."
+        },
+        {
+            "id": "q3",
+            "prompt": "After finding IB, how do you find ICQ?",
+            "options": [
+                "ICQ = IB/β",
+                "ICQ = βIB",
+                "ICQ = αIB",
+                "ICQ = VCC/RC"
+            ],
+            "correctAnswer": "ICQ = βIB",
+            "explanation": "In the active region, IC = βIB. This is the fundamental relationship used after solving for IB from the base loop KVL."
+        },
+        {
+            "id": "q4",
+            "prompt": "VCE is found from KVL as:",
+            "options": [
+                "VCE = VCC − IC·RC − IE·RE",
+                "VCE = VCC − IB·RB",
+                "VCE = VBE + IE·RE",
+                "VCE = VCC"
+            ],
+            "correctAnswer": "VCE = VCC − IC·RC − IE·RE",
+            "explanation": "Collector loop KVL: VCC = IC·RC + VCE + IE·RE, so VCE = VCC − IC·RC − IE·RE."
+        },
+        {
+            "id": "q5",
+            "prompt": "To verify the BJT is in the active region, check:",
+            "options": [
+                "VCE > VCE(sat) ≈ 0.2V",
+                "VCE = 0",
+                "IC = 0",
+                "VBE > VCC"
+            ],
+            "correctAnswer": "VCE > VCE(sat) ≈ 0.2V",
+            "explanation": "Active region requires VCE > VCE(sat). If VCE < 0.2V, the BJT is in saturation and IC = βIB doesn't apply."
+        },
+        {
+            "id": "q6",
+            "prompt": "In circuit design (Q1), RE is found from:",
+            "options": [
+                "RE = VCC/IE",
+                "RE = VE/IE",
+                "RE = (VCC−VE)/IC",
+                "RE = R1||R2"
+            ],
+            "correctAnswer": "RE = VE/IE",
+            "explanation": "The voltage across RE is VE (since the bottom of RE is grounded). So RE = VE/IE."
+        },
+        {
+            "id": "q7",
+            "prompt": "The base voltage VB in terms of VE is:",
+            "options": [
+                "VB = VE − VBE",
+                "VB = VE + VBE",
+                "VB = VE × β",
+                "VB = VCC − VE"
+            ],
+            "correctAnswer": "VB = VE + VBE",
+            "explanation": "The base is one VBE drop above the emitter: VB = VE + VBE. This is because the BE junction is forward biased."
+        },
+        {
+            "id": "q8",
+            "prompt": "Standard 5% resistor values follow the E24 series. The value closest to 61.76 kΩ is:",
+            "options": [
+                "56 kΩ",
+                "62 kΩ",
+                "68 kΩ",
+                "60 kΩ"
+            ],
+            "correctAnswer": "62 kΩ",
+            "explanation": "The E24 series includes 62 (but not 60). 62kΩ is only 0.4% from 61.76kΩ — well within tolerance."
+        },
+        {
+            "id": "q9",
+            "prompt": "If VTh=1.429V, VBE=0.64V, RTh=25.71kΩ, RE=1.7kΩ, β=200, then IB equals:",
+            "options": [
+                "≈ 2.15 μA",
+                "≈ 0.43 mA",
+                "≈ 30.7 μA",
+                "≈ 5 mA"
+            ],
+            "correctAnswer": "≈ 2.15 μA",
+            "explanation": "IB = (VTh−VBE)/(RTh+(β+1)RE) = (1.429−0.64)/(25710+201×1700) = 0.789/367410 = 2.15 μA."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why does the DC equivalent circuit remove the load resistor?",
+            "options": [
+                "The load draws too much current",
+                "The coupling capacitor blocks DC from reaching the load",
+                "The load is always zero ohms",
+                "It simplifies the math"
+            ],
+            "correctAnswer": "The coupling capacitor blocks DC from reaching the load",
+            "explanation": "The coupling capacitor C2 (between RC and RL) is an open circuit at DC, so RL is disconnected from the bias circuit."
+        }
+    ]
+}

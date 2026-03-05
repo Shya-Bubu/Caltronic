@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-single-stage",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "CE voltage gain with RE?",
+            "back": "Av = −hfe·RC/(hie + hfe·RE). Negative = inversion. With RE bypassed: Av = −hfe·RC/hie.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "CE input impedance?",
+            "back": "Rin,base = hie + (1+hfe)RE. Total: Rin = R1||R2||Rin,base. RE is 'reflected' (1+hfe) times.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "CE output impedance?",
+            "back": "Rout = RC (simplified) or RC || (1/hoe) (full model).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "CC (emitter follower) properties?",
+            "back": "Av ≈ 1 (no inversion), Rin very high, Rout very low ≈ hie/(1+hfe). Buffer/impedance matcher.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "CB properties?",
+            "back": "Av = hfe·RC/hie (positive, no inversion). Rin ≈ hie/(1+hfe) ≈ 10Ω (very low). Ai ≈ −1.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Source loading effect?",
+            "back": "Actual input = vs × Rin/(Rin+Rs). Source resistance reduces effective input signal.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Load effect on gain?",
+            "back": "Replace RC with RC||RL in gain formula. RL in parallel reduces effective output resistance and gain.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Overall gain formula?",
+            "back": "Avs = [Rin/(Rin+Rs)] × Av × [RL/(RL+Rout)] if source and load resistance are given.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "CE phase inversion — why?",
+            "back": "When ib increases, ic=hfe·ib increases, more current through RC, VRC increases, so VC drops. Output goes opposite to input.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Why use CC as second stage (Q4)?",
+            "back": "CC has very high Rin (doesn't load stage 1), Av≈1 (preserves voltage), very low Rout (drives low-impedance loads).",
+            "difficultyLevel": 2
+        }
+    ]
+}

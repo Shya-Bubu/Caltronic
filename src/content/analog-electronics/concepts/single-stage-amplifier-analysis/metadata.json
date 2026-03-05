@@ -1,0 +1,11 @@
+{
+    "id": "single-stage-amplifier-analysis",
+    "title": "Single-Stage Amplifier Analysis",
+    "slug": "single-stage-amplifier-analysis",
+    "estimatedMinutes": 25,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}
