@@ -1,580 +1,604 @@
 {
-    "visuals": [
+  "visuals": [
+    {
+      "id": "four-quantities",
+      "type": "plotly",
+      "title": "Four Key Amplifier Quantities: Av, Ai, Rin, Rout",
+      "traces": [
         {
-            "id": "four-quantities",
-            "type": "block-diagram",
-            "title": "Four Key Amplifier Quantities: Av, Ai, Rin, Rout",
-            "blocks": [
-                {
-                    "id": "av",
-                    "label": "Av = vo/vin\nVoltage Gain",
-                    "position": "left"
-                },
-                {
-                    "id": "ai",
-                    "label": "Ai = io/iin\nCurrent Gain",
-                    "position": "center-left"
-                },
-                {
-                    "id": "rin",
-                    "label": "Rin = vin/iin\nInput Impedance",
-                    "position": "center-right"
-                },
-                {
-                    "id": "rout",
-                    "label": "Rout = vtest/itest\nOutput Impedance",
-                    "position": "right"
-                }
-            ],
-            "connections": []
-        },
-        {
-            "id": "ce-with-re-circuit",
-            "type": "circuit-schematic",
-            "title": "CE Amplifier AC Model with Emitter Degeneration RE",
-            "elements": [
-                {
-                    "type": "voltage-source",
-                    "id": "vs",
-                    "from": [
-                        0,
-                        96
-                    ],
-                    "to": [
-                        0,
-                        192
-                    ],
-                    "label": "vin"
-                },
-                {
-                    "type": "resistor",
-                    "id": "hie",
-                    "from": [
-                        64,
-                        96
-                    ],
-                    "to": [
-                        128,
-                        96
-                    ],
-                    "label": "hie"
-                },
-                {
-                    "type": "current-source",
-                    "id": "hfe",
-                    "from": [
-                        256,
-                        192
-                    ],
-                    "to": [
-                        256,
-                        96
-                    ],
-                    "label": "hfe·ib"
-                },
-                {
-                    "type": "resistor",
-                    "id": "RC",
-                    "from": [
-                        256,
-                        96
-                    ],
-                    "to": [
-                        256,
-                        32
-                    ],
-                    "label": "RC"
-                },
-                {
-                    "type": "resistor",
-                    "id": "RE",
-                    "from": [
-                        128,
-                        192
-                    ],
-                    "to": [
-                        128,
-                        256
-                    ],
-                    "label": "RE"
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        0,
-                        192
-                    ]
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        256,
-                        32
-                    ]
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        128,
-                        256
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "vo",
-                    "position": [
-                        288,
-                        128
-                    ]
-                }
+          "x": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
             ]
-        },
-        {
-            "id": "ce-gain-vs-re",
-            "type": "plotly",
-            "title": "CE Voltage Gain vs Emitter Resistance RE",
-            "traces": [
-                {
-                    "x": [
-                        0,
-                        50,
-                        100,
-                        220,
-                        500,
-                        1000,
-                        2000
-                    ],
-                    "y": [
-                        200,
-                        80,
-                        50,
-                        21,
-                        10,
-                        5,
-                        2.5
-                    ],
-                    "name": "|Av| = hfe·RC/(hie + hfe·RE)",
-                    "type": "scatter",
-                    "mode": "lines+markers",
-                    "line": {
-                        "color": "#4f8cff",
-                        "width": 3
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "RE (Ω)"
-                },
-                "yaxis": {
-                    "title": "|Av| (hfe=100, hie=1k, RC=5k)"
-                },
-                "annotations": [
-                    {
-                        "x": 0,
-                        "y": 200,
-                        "text": "RE=0: max gain"
-                    },
-                    {
-                        "x": 220,
-                        "y": 21,
-                        "text": "Q5: Re2=220Ω",
-                        "showarrow": true
-                    }
-                ]
-            }
-        },
-        {
-            "id": "rin-derivation",
-            "type": "plotly",
-            "title": "Input Impedance Rin vs RE: (1+hfe)RE Dominates",
-            "traces": [
-                {
-                    "x": [
-                        0,
-                        100,
-                        220,
-                        500,
-                        1000,
-                        2000
-                    ],
-                    "y": [
-                        1,
-                        11.1,
-                        23.2,
-                        51.5,
-                        102,
-                        203
-                    ],
-                    "name": "Rin,base = hie + (1+hfe)RE (kΩ)",
-                    "type": "scatter",
-                    "mode": "lines+markers",
-                    "line": {
-                        "color": "#2fbf8f",
-                        "width": 3
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "RE (Ω)"
-                },
-                "yaxis": {
-                    "title": "Rin,base (kΩ) — hfe=100, hie=1k"
-                }
-            }
-        },
-        {
-            "id": "cc-emitter-follower",
-            "type": "circuit-schematic",
-            "title": "Common-Collector (Emitter Follower): Av ≈ 1, Very High Rin, Very Low Rout",
-            "elements": [
-                {
-                    "type": "voltage-source",
-                    "id": "vin",
-                    "from": [
-                        0,
-                        96
-                    ],
-                    "to": [
-                        0,
-                        192
-                    ],
-                    "label": "vin"
-                },
-                {
-                    "type": "resistor",
-                    "id": "hie",
-                    "from": [
-                        64,
-                        96
-                    ],
-                    "to": [
-                        128,
-                        96
-                    ],
-                    "label": "hie"
-                },
-                {
-                    "type": "current-source",
-                    "id": "hfe",
-                    "from": [
-                        128,
-                        192
-                    ],
-                    "to": [
-                        128,
-                        96
-                    ],
-                    "label": "hfe·ib"
-                },
-                {
-                    "type": "resistor",
-                    "id": "RE",
-                    "from": [
-                        128,
-                        192
-                    ],
-                    "to": [
-                        128,
-                        256
-                    ],
-                    "label": "RE"
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        0,
-                        192
-                    ]
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        128,
-                        256
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "vo (at emitter)",
-                    "position": [
-                        160,
-                        192
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "cb-configuration",
-            "type": "circuit-schematic",
-            "title": "Common-Base: Low Rin, No Phase Inversion, Ai ≈ −1",
-            "elements": [
-                {
-                    "type": "voltage-source",
-                    "id": "vin",
-                    "from": [
-                        0,
-                        96
-                    ],
-                    "to": [
-                        0,
-                        192
-                    ],
-                    "label": "vin"
-                },
-                {
-                    "type": "resistor",
-                    "id": "re",
-                    "from": [
-                        0,
-                        96
-                    ],
-                    "to": [
-                        64,
-                        96
-                    ],
-                    "label": "RE1"
-                },
-                {
-                    "type": "resistor",
-                    "id": "hie",
-                    "from": [
-                        64,
-                        96
-                    ],
-                    "to": [
-                        64,
-                        192
-                    ],
-                    "label": "hie"
-                },
-                {
-                    "type": "current-source",
-                    "id": "hfe",
-                    "from": [
-                        192,
-                        192
-                    ],
-                    "to": [
-                        192,
-                        96
-                    ],
-                    "label": "hfe·ib"
-                },
-                {
-                    "type": "resistor",
-                    "id": "RC",
-                    "from": [
-                        192,
-                        96
-                    ],
-                    "to": [
-                        192,
-                        32
-                    ],
-                    "label": "RC"
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        0,
-                        192
-                    ]
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        64,
-                        192
-                    ]
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        192,
-                        32
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "Base = GND",
-                    "position": [
-                        64,
-                        210
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "source-load-effects",
-            "type": "block-diagram",
-            "title": "Complete Signal Chain: Source → Rin → Amplifier → Rout → Load",
-            "blocks": [
-                {
-                    "id": "src",
-                    "label": "vs\n+ Rs",
-                    "position": "left"
-                },
-                {
-                    "id": "rin",
-                    "label": "Rin\n(input loading)",
-                    "position": "center-left"
-                },
-                {
-                    "id": "amp",
-                    "label": "Av\n(intrinsic gain)",
-                    "position": "center"
-                },
-                {
-                    "id": "rout",
-                    "label": "Rout\n(output loading)",
-                    "position": "center-right"
-                },
-                {
-                    "id": "load",
-                    "label": "RL\n(load)",
-                    "position": "right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "src",
-                    "to": "rin"
-                },
-                {
-                    "from": "rin",
-                    "to": "amp"
-                },
-                {
-                    "from": "amp",
-                    "to": "rout"
-                },
-                {
-                    "from": "rout",
-                    "to": "load"
-                }
-            ]
-        },
-        {
-            "id": "overall-gain-chain",
-            "type": "plotly",
-            "title": "Overall Gain = Rin/(Rin+Rs) × Av × Rout/(Rout+RL)",
-            "traces": [
-                {
-                    "x": [
-                        "Source\nDivider",
-                        "Intrinsic\nGain",
-                        "Load\nDivider",
-                        "Overall"
-                    ],
-                    "y": [
-                        0.9,
-                        100,
-                        0.7,
-                        63
-                    ],
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#4f8cff",
-                            "#2fbf8f",
-                            "#ff6b8a",
-                            "#f0a03a"
-                        ]
-                    },
-                    "text": [
-                        "Rin/(Rin+Rs)\n≈ 0.9",
-                        "Av = −100",
-                        "RL/(RL+Rout)\n≈ 0.7",
-                        "Avs ≈ 63"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": ""
-                },
-                "yaxis": {
-                    "title": "Magnitude"
-                },
-                "showlegend": false
-            }
-        },
-        {
-            "id": "config-comparison",
-            "type": "plotly",
-            "title": "CE vs CC vs CB: Comparing Key Properties",
-            "traces": [
-                {
-                    "x": [
-                        "Voltage Gain",
-                        "Input R (kΩ)",
-                        "Output R (kΩ)",
-                        "Current Gain"
-                    ],
-                    "y": [
-                        100,
-                        1,
-                        5,
-                        100
-                    ],
-                    "name": "CE",
-                    "type": "bar",
-                    "marker": {
-                        "color": "#4f8cff"
-                    }
-                },
-                {
-                    "x": [
-                        "Voltage Gain",
-                        "Input R (kΩ)",
-                        "Output R (kΩ)",
-                        "Current Gain"
-                    ],
-                    "y": [
-                        1,
-                        100,
-                        0.05,
-                        101
-                    ],
-                    "name": "CC",
-                    "type": "bar",
-                    "marker": {
-                        "color": "#2fbf8f"
-                    }
-                },
-                {
-                    "x": [
-                        "Voltage Gain",
-                        "Input R (kΩ)",
-                        "Output R (kΩ)",
-                        "Current Gain"
-                    ],
-                    "y": [
-                        100,
-                        0.01,
-                        5,
-                        1
-                    ],
-                    "name": "CB",
-                    "type": "bar",
-                    "marker": {
-                        "color": "#ff6b8a"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": ""
-                },
-                "yaxis": {
-                    "title": "Typical Value",
-                    "type": "log"
-                },
-                "barmode": "group"
-            }
+          },
+          "text": [
+            "Av = vo/vin<br>Voltage Gain",
+            "Ai = io/iin<br>Current Gain",
+            "Rin = vin/iin<br>Input Impedance",
+            "Rout = vtest/itest<br>Output Impedance"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
         }
-    ]
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "ce-with-re-circuit",
+      "type": "circuit-schematic",
+      "title": "CE Amplifier AC Model with Emitter Degeneration RE",
+      "elements": [
+        {
+          "type": "voltage-source",
+          "id": "vs",
+          "from": [
+            0,
+            96
+          ],
+          "to": [
+            0,
+            192
+          ],
+          "label": "vin"
+        },
+        {
+          "type": "resistor",
+          "id": "hie",
+          "from": [
+            64,
+            96
+          ],
+          "to": [
+            128,
+            96
+          ],
+          "label": "hie"
+        },
+        {
+          "type": "current-source",
+          "id": "hfe",
+          "from": [
+            256,
+            192
+          ],
+          "to": [
+            256,
+            96
+          ],
+          "label": "hfe·ib"
+        },
+        {
+          "type": "resistor",
+          "id": "RC",
+          "from": [
+            256,
+            96
+          ],
+          "to": [
+            256,
+            32
+          ],
+          "label": "RC"
+        },
+        {
+          "type": "resistor",
+          "id": "RE",
+          "from": [
+            128,
+            192
+          ],
+          "to": [
+            128,
+            256
+          ],
+          "label": "RE"
+        },
+        {
+          "type": "ground",
+          "from": [
+            0,
+            192
+          ]
+        },
+        {
+          "type": "ground",
+          "from": [
+            256,
+            32
+          ]
+        },
+        {
+          "type": "ground",
+          "from": [
+            128,
+            256
+          ]
+        },
+        {
+          "type": "label",
+          "text": "vo",
+          "position": [
+            288,
+            128
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce-gain-vs-re",
+      "type": "plotly",
+      "title": "CE Voltage Gain vs Emitter Resistance RE",
+      "traces": [
+        {
+          "x": [
+            0,
+            50,
+            100,
+            220,
+            500,
+            1000,
+            2000
+          ],
+          "y": [
+            200,
+            80,
+            50,
+            21,
+            10,
+            5,
+            2.5
+          ],
+          "name": "|Av| = hfe·RC/(hie + hfe·RE)",
+          "type": "scatter",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#4f8cff",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "RE (Ω)"
+        },
+        "yaxis": {
+          "title": "|Av| (hfe=100, hie=1k, RC=5k)"
+        },
+        "annotations": [
+          {
+            "x": 0,
+            "y": 200,
+            "text": "RE=0: max gain"
+          },
+          {
+            "x": 220,
+            "y": 21,
+            "text": "Q5: Re2=220Ω",
+            "showarrow": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "rin-derivation",
+      "type": "plotly",
+      "title": "Input Impedance Rin vs RE: (1+hfe)RE Dominates",
+      "traces": [
+        {
+          "x": [
+            0,
+            100,
+            220,
+            500,
+            1000,
+            2000
+          ],
+          "y": [
+            1,
+            11.1,
+            23.2,
+            51.5,
+            102,
+            203
+          ],
+          "name": "Rin,base = hie + (1+hfe)RE (kΩ)",
+          "type": "scatter",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#2fbf8f",
+            "width": 3
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "RE (Ω)"
+        },
+        "yaxis": {
+          "title": "Rin,base (kΩ) — hfe=100, hie=1k"
+        }
+      }
+    },
+    {
+      "id": "cc-emitter-follower",
+      "type": "circuit-schematic",
+      "title": "Common-Collector (Emitter Follower): Av ≈ 1, Very High Rin, Very Low Rout",
+      "elements": [
+        {
+          "type": "voltage-source",
+          "id": "vin",
+          "from": [
+            0,
+            96
+          ],
+          "to": [
+            0,
+            192
+          ],
+          "label": "vin"
+        },
+        {
+          "type": "resistor",
+          "id": "hie",
+          "from": [
+            64,
+            96
+          ],
+          "to": [
+            128,
+            96
+          ],
+          "label": "hie"
+        },
+        {
+          "type": "current-source",
+          "id": "hfe",
+          "from": [
+            128,
+            192
+          ],
+          "to": [
+            128,
+            96
+          ],
+          "label": "hfe·ib"
+        },
+        {
+          "type": "resistor",
+          "id": "RE",
+          "from": [
+            128,
+            192
+          ],
+          "to": [
+            128,
+            256
+          ],
+          "label": "RE"
+        },
+        {
+          "type": "ground",
+          "from": [
+            0,
+            192
+          ]
+        },
+        {
+          "type": "ground",
+          "from": [
+            128,
+            256
+          ]
+        },
+        {
+          "type": "label",
+          "text": "vo (at emitter)",
+          "position": [
+            160,
+            192
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb-configuration",
+      "type": "circuit-schematic",
+      "title": "Common-Base: Low Rin, No Phase Inversion, Ai ≈ −1",
+      "elements": [
+        {
+          "type": "voltage-source",
+          "id": "vin",
+          "from": [
+            0,
+            96
+          ],
+          "to": [
+            0,
+            192
+          ],
+          "label": "vin"
+        },
+        {
+          "type": "resistor",
+          "id": "re",
+          "from": [
+            0,
+            96
+          ],
+          "to": [
+            64,
+            96
+          ],
+          "label": "RE1"
+        },
+        {
+          "type": "resistor",
+          "id": "hie",
+          "from": [
+            64,
+            96
+          ],
+          "to": [
+            64,
+            192
+          ],
+          "label": "hie"
+        },
+        {
+          "type": "current-source",
+          "id": "hfe",
+          "from": [
+            192,
+            192
+          ],
+          "to": [
+            192,
+            96
+          ],
+          "label": "hfe·ib"
+        },
+        {
+          "type": "resistor",
+          "id": "RC",
+          "from": [
+            192,
+            96
+          ],
+          "to": [
+            192,
+            32
+          ],
+          "label": "RC"
+        },
+        {
+          "type": "ground",
+          "from": [
+            0,
+            192
+          ]
+        },
+        {
+          "type": "ground",
+          "from": [
+            64,
+            192
+          ]
+        },
+        {
+          "type": "ground",
+          "from": [
+            192,
+            32
+          ]
+        },
+        {
+          "type": "label",
+          "text": "Base = GND",
+          "position": [
+            64,
+            210
+          ]
+        }
+      ]
+    },
+    {
+      "id": "source-load-effects",
+      "type": "plotly",
+      "title": "Complete Signal Chain: Source → Rin → Amplifier → Rout → Load",
+      "traces": [
+        {
+          "x": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a",
+              "#6b62ff"
+            ]
+          },
+          "text": [
+            "vs<br>+ Rs",
+            "Rin<br>(input loading)",
+            "Av<br>(intrinsic gain)",
+            "Rout<br>(output loading)",
+            "RL<br>(load)"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "overall-gain-chain",
+      "type": "plotly",
+      "title": "Overall Gain = Rin/(Rin+Rs) × Av × Rout/(Rout+RL)",
+      "traces": [
+        {
+          "x": [
+            "Source\nDivider",
+            "Intrinsic\nGain",
+            "Load\nDivider",
+            "Overall"
+          ],
+          "y": [
+            0.9,
+            100,
+            0.7,
+            63
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "Rin/(Rin+Rs)\n≈ 0.9",
+            "Av = −100",
+            "RL/(RL+Rout)\n≈ 0.7",
+            "Avs ≈ 63"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "title": "Magnitude"
+        },
+        "showlegend": false
+      }
+    },
+    {
+      "id": "config-comparison",
+      "type": "plotly",
+      "title": "CE vs CC vs CB: Comparing Key Properties",
+      "traces": [
+        {
+          "x": [
+            "Voltage Gain",
+            "Input R (kΩ)",
+            "Output R (kΩ)",
+            "Current Gain"
+          ],
+          "y": [
+            100,
+            1,
+            5,
+            100
+          ],
+          "name": "CE",
+          "type": "bar",
+          "marker": {
+            "color": "#4f8cff"
+          }
+        },
+        {
+          "x": [
+            "Voltage Gain",
+            "Input R (kΩ)",
+            "Output R (kΩ)",
+            "Current Gain"
+          ],
+          "y": [
+            1,
+            100,
+            0.05,
+            101
+          ],
+          "name": "CC",
+          "type": "bar",
+          "marker": {
+            "color": "#2fbf8f"
+          }
+        },
+        {
+          "x": [
+            "Voltage Gain",
+            "Input R (kΩ)",
+            "Output R (kΩ)",
+            "Current Gain"
+          ],
+          "y": [
+            100,
+            0.01,
+            5,
+            1
+          ],
+          "name": "CB",
+          "type": "bar",
+          "marker": {
+            "color": "#ff6b8a"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "title": "Typical Value",
+          "type": "log"
+        },
+        "barmode": "group"
+      }
+    }
+  ]
 }

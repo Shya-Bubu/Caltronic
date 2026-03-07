@@ -1,482 +1,516 @@
 {
-    "visuals": [
+  "visuals": [
+    {
+      "id": "bjt-water-analogy",
+      "type": "plotly",
+      "title": "BJT as a Water Valve: Small Control → Large Flow",
+      "traces": [
         {
-            "id": "bjt-water-analogy",
-            "type": "block-diagram",
-            "title": "BJT as a Water Valve: Small Control → Large Flow",
-            "blocks": [
-                {
-                    "id": "base",
-                    "label": "Base Current (IB)\n= Valve Handle\n(small control signal)",
-                    "position": "left"
-                },
-                {
-                    "id": "valve",
-                    "label": "BJT\n= Water Valve\nSmall twist → big flow",
-                    "position": "center"
-                },
-                {
-                    "id": "flow",
-                    "label": "Collector Current (IC)\n= Water Flow\n(IC = β × IB)",
-                    "position": "right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "base",
-                    "to": "valve"
-                },
-                {
-                    "from": "valve",
-                    "to": "flow"
-                }
+          "x": [
+            1,
+            2,
+            3
+          ],
+          "y": [
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a"
             ]
-        },
-        {
-            "id": "npn-pnp-structure",
-            "type": "plotly",
-            "title": "NPN vs PNP: Semiconductor Layer Structure",
-            "traces": [
-                {
-                    "x": [
-                        "Emitter\n(N+)",
-                        "Base\n(P, thin)",
-                        "Collector\n(N)"
-                    ],
-                    "y": [
-                        3,
-                        1,
-                        2
-                    ],
-                    "name": "NPN Doping",
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#4f8cff",
-                            "#ff6b8a",
-                            "#4f8cff"
-                        ]
-                    }
-                },
-                {
-                    "x": [
-                        "Emitter\n(P+)",
-                        "Base\n(N, thin)",
-                        "Collector\n(P)"
-                    ],
-                    "y": [
-                        3,
-                        1,
-                        2
-                    ],
-                    "name": "PNP Doping",
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#ff6b8a",
-                            "#4f8cff",
-                            "#ff6b8a"
-                        ]
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "Terminal"
-                },
-                "yaxis": {
-                    "title": "Relative Doping Level",
-                    "range": [
-                        0,
-                        4
-                    ]
-                },
-                "barmode": "group"
-            }
-        },
-        {
-            "id": "bjt-circuit-symbols",
-            "type": "circuit-schematic",
-            "title": "NPN and PNP Circuit Symbols",
-            "elements": [
-                {
-                    "type": "npn",
-                    "id": "Q1",
-                    "position": [
-                        96,
-                        96
-                    ],
-                    "label": "NPN"
-                },
-                {
-                    "type": "label",
-                    "text": "B →",
-                    "position": [
-                        32,
-                        96
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "C ↑",
-                    "position": [
-                        96,
-                        32
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "E ↓ (arrow OUT)",
-                    "position": [
-                        96,
-                        160
-                    ]
-                },
-                {
-                    "type": "pnp",
-                    "id": "Q2",
-                    "position": [
-                        288,
-                        96
-                    ],
-                    "label": "PNP"
-                },
-                {
-                    "type": "label",
-                    "text": "B →",
-                    "position": [
-                        224,
-                        96
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "C ↓",
-                    "position": [
-                        288,
-                        160
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "E ↑ (arrow IN)",
-                    "position": [
-                        288,
-                        32
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "current-flow-diagram",
-            "type": "block-diagram",
-            "title": "KCL at the BJT: IE = IC + IB",
-            "blocks": [
-                {
-                    "id": "ib",
-                    "label": "IB (Base)\nSmall control\ncurrent",
-                    "position": "left"
-                },
-                {
-                    "id": "bjt",
-                    "label": "BJT\nIE = IC + IB",
-                    "position": "center"
-                },
-                {
-                    "id": "ic",
-                    "label": "IC = β·IB\n(Collector)\nLarge controlled\ncurrent",
-                    "position": "top-right"
-                },
-                {
-                    "id": "ie",
-                    "label": "IE = (β+1)·IB\n(Emitter)\nTotal current",
-                    "position": "bottom-right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "ib",
-                    "to": "bjt"
-                },
-                {
-                    "from": "bjt",
-                    "to": "ic"
-                },
-                {
-                    "from": "bjt",
-                    "to": "ie"
-                }
-            ]
-        },
-        {
-            "id": "beta-alpha-relationship",
-            "type": "plotly",
-            "title": "β vs α: As β Increases, α Approaches 1",
-            "traces": [
-                {
-                    "x": [
-                        10,
-                        20,
-                        50,
-                        100,
-                        150,
-                        200,
-                        300,
-                        500
-                    ],
-                    "y": [
-                        0.909,
-                        0.952,
-                        0.98,
-                        0.99,
-                        0.993,
-                        0.995,
-                        0.997,
-                        0.998
-                    ],
-                    "name": "α = β/(β+1)",
-                    "type": "scatter",
-                    "mode": "lines+markers",
-                    "line": {
-                        "color": "#2fbf8f",
-                        "width": 3
-                    }
-                },
-                {
-                    "x": [
-                        10,
-                        500
-                    ],
-                    "y": [
-                        1,
-                        1
-                    ],
-                    "name": "α = 1 (ideal)",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#ff6b8a",
-                        "dash": "dash"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "β (Current Gain)"
-                },
-                "yaxis": {
-                    "title": "α",
-                    "range": [
-                        0.85,
-                        1.01
-                    ]
-                }
-            }
-        },
-        {
-            "id": "operating-regions",
-            "type": "plotly",
-            "title": "Three BJT Operating Regions",
-            "traces": [
-                {
-                    "x": [
-                        "Active\n(Amplifier)",
-                        "Saturation\n(Switch ON)",
-                        "Cutoff\n(Switch OFF)"
-                    ],
-                    "y": [
-                        1,
-                        1,
-                        1
-                    ],
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#2fbf8f",
-                            "#f0a03a",
-                            "#ff6b8a"
-                        ]
-                    },
-                    "text": [
-                        "BE: Fwd, BC: Rev\nIC = βIB",
-                        "BE: Fwd, BC: Fwd\nVCE ≈ 0.2V",
-                        "BE: Rev, BC: Rev\nIC ≈ 0"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": ""
-                },
-                "yaxis": {
-                    "visible": false
-                },
-                "showlegend": false
-            }
-        },
-        {
-            "id": "active-region-model",
-            "type": "circuit-schematic",
-            "title": "Active Region Model: BE Diode + Controlled Current Source",
-            "elements": [
-                {
-                    "type": "label",
-                    "text": "B",
-                    "position": [
-                        0,
-                        64
-                    ]
-                },
-                {
-                    "type": "diode",
-                    "id": "D_BE",
-                    "from": [
-                        32,
-                        64
-                    ],
-                    "to": [
-                        128,
-                        64
-                    ],
-                    "label": "VBE ≈ 0.7V"
-                },
-                {
-                    "type": "label",
-                    "text": "E",
-                    "position": [
-                        128,
-                        128
-                    ]
-                },
-                {
-                    "type": "current-source",
-                    "id": "Ic",
-                    "from": [
-                        128,
-                        0
-                    ],
-                    "to": [
-                        128,
-                        64
-                    ],
-                    "label": "βIB"
-                },
-                {
-                    "type": "label",
-                    "text": "C",
-                    "position": [
-                        128,
-                        0
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        128,
-                        64
-                    ],
-                    "to": [
-                        128,
-                        128
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "bjt-current-source-model",
-            "type": "block-diagram",
-            "title": "BJT in Active Region = Current-Controlled Current Source",
-            "blocks": [
-                {
-                    "id": "input",
-                    "label": "Input:\nIB (small base current)",
-                    "position": "left"
-                },
-                {
-                    "id": "control",
-                    "label": "BJT (Active)\nVBE ≈ 0.7V\nIC = β × IB",
-                    "position": "center"
-                },
-                {
-                    "id": "output",
-                    "label": "Output:\nIC (large collector current)\nControlled by IB",
-                    "position": "right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "input",
-                    "to": "control"
-                },
-                {
-                    "from": "control",
-                    "to": "output"
-                }
-            ]
-        },
-        {
-            "id": "assignment-parameters",
-            "type": "plotly",
-            "title": "Tutorial Questions: BJT Parameters at a Glance",
-            "traces": [
-                {
-                    "x": [
-                        "Q1: β=100",
-                        "Q2: β=200",
-                        "Q3: from graph",
-                        "Q4: hfe=50/−51",
-                        "Q5: hfe=100",
-                        "Q6: hfe=100"
-                    ],
-                    "y": [
-                        0.7,
-                        0.64,
-                        0.64,
-                        0.7,
-                        0.7,
-                        0.65
-                    ],
-                    "type": "bar",
-                    "name": "VBE (V)",
-                    "marker": {
-                        "color": [
-                            "#4f8cff",
-                            "#2fbf8f",
-                            "#6b62ff",
-                            "#ff6b8a",
-                            "#f0a03a",
-                            "#62c6ff"
-                        ]
-                    },
-                    "text": [
-                        "DC only",
-                        "DC + AC",
-                        "Graphical",
-                        "Two-stage",
-                        "CE + Re2",
-                        "Two-stage + FB"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "Question"
-                },
-                "yaxis": {
-                    "title": "VBE (V)"
-                },
-                "showlegend": false
-            }
-        },
-        {
-            "id": "falstad-npn-basic",
-            "type": "falstad-sim",
-            "title": "Interactive: NPN BJT — Vary Base Current, Watch Collector Current",
-            "description": "Adjust the base resistor to change IB. Observe how IC = β × IB in the active region.",
-            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 176 64 176 16 0 0 40 9 0 0 0.5\nr 176 64 176 160 0 100000\nt 176 160 240 160 0 1 -4.321738518498038 0.6654090862714429 100 default\nr 240 64 240 144 0 1000\nR 240 64 240 16 0 0 40 9 0 0 0.5\ng 240 176 240 208 0 0\no 2 64 0 4099 5 0.0125 0 2 2 3\n",
-            "height": 400
+          },
+          "text": [
+            "Base Current (IB)<br>= Valve Handle<br>(small control signal)",
+            "BJT<br>= Water Valve<br>Small twist → big flow",
+            "Collector Current (IC)<br>= Water Flow<br>(IC = β × IB)"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
         }
-    ]
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "npn-pnp-structure",
+      "type": "plotly",
+      "title": "NPN vs PNP: Semiconductor Layer Structure",
+      "traces": [
+        {
+          "x": [
+            "Emitter\n(N+)",
+            "Base\n(P, thin)",
+            "Collector\n(N)"
+          ],
+          "y": [
+            3,
+            1,
+            2
+          ],
+          "name": "NPN Doping",
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#ff6b8a",
+              "#4f8cff"
+            ]
+          }
+        },
+        {
+          "x": [
+            "Emitter\n(P+)",
+            "Base\n(N, thin)",
+            "Collector\n(P)"
+          ],
+          "y": [
+            3,
+            1,
+            2
+          ],
+          "name": "PNP Doping",
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#ff6b8a",
+              "#4f8cff",
+              "#ff6b8a"
+            ]
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Terminal"
+        },
+        "yaxis": {
+          "title": "Relative Doping Level",
+          "range": [
+            0,
+            4
+          ]
+        },
+        "barmode": "group"
+      }
+    },
+    {
+      "id": "bjt-circuit-symbols",
+      "type": "circuit-schematic",
+      "title": "NPN and PNP Circuit Symbols",
+      "elements": [
+        {
+          "type": "npn",
+          "id": "Q1",
+          "position": [
+            96,
+            96
+          ],
+          "label": "NPN"
+        },
+        {
+          "type": "label",
+          "text": "B →",
+          "position": [
+            32,
+            96
+          ]
+        },
+        {
+          "type": "label",
+          "text": "C ↑",
+          "position": [
+            96,
+            32
+          ]
+        },
+        {
+          "type": "label",
+          "text": "E ↓ (arrow OUT)",
+          "position": [
+            96,
+            160
+          ]
+        },
+        {
+          "type": "pnp",
+          "id": "Q2",
+          "position": [
+            288,
+            96
+          ],
+          "label": "PNP"
+        },
+        {
+          "type": "label",
+          "text": "B →",
+          "position": [
+            224,
+            96
+          ]
+        },
+        {
+          "type": "label",
+          "text": "C ↓",
+          "position": [
+            288,
+            160
+          ]
+        },
+        {
+          "type": "label",
+          "text": "E ↑ (arrow IN)",
+          "position": [
+            288,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "id": "current-flow-diagram",
+      "type": "plotly",
+      "title": "KCL at the BJT: IE = IC + IB",
+      "traces": [
+        {
+          "x": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "IB (Base)<br>Small control<br>current",
+            "BJT<br>IE = IC + IB",
+            "IC = β·IB<br>(Collector)<br>Large controlled<br>current",
+            "IE = (β+1)·IB<br>(Emitter)<br>Total current"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "beta-alpha-relationship",
+      "type": "plotly",
+      "title": "β vs α: As β Increases, α Approaches 1",
+      "traces": [
+        {
+          "x": [
+            10,
+            20,
+            50,
+            100,
+            150,
+            200,
+            300,
+            500
+          ],
+          "y": [
+            0.909,
+            0.952,
+            0.98,
+            0.99,
+            0.993,
+            0.995,
+            0.997,
+            0.998
+          ],
+          "name": "α = β/(β+1)",
+          "type": "scatter",
+          "mode": "lines+markers",
+          "line": {
+            "color": "#2fbf8f",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            10,
+            500
+          ],
+          "y": [
+            1,
+            1
+          ],
+          "name": "α = 1 (ideal)",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#ff6b8a",
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "β (Current Gain)"
+        },
+        "yaxis": {
+          "title": "α",
+          "range": [
+            0.85,
+            1.01
+          ]
+        }
+      }
+    },
+    {
+      "id": "operating-regions",
+      "type": "plotly",
+      "title": "Three BJT Operating Regions",
+      "traces": [
+        {
+          "x": [
+            "Active\n(Amplifier)",
+            "Saturation\n(Switch ON)",
+            "Cutoff\n(Switch OFF)"
+          ],
+          "y": [
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#2fbf8f",
+              "#f0a03a",
+              "#ff6b8a"
+            ]
+          },
+          "text": [
+            "BE: Fwd, BC: Rev\nIC = βIB",
+            "BE: Fwd, BC: Fwd\nVCE ≈ 0.2V",
+            "BE: Rev, BC: Rev\nIC ≈ 0"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false
+      }
+    },
+    {
+      "id": "active-region-model",
+      "type": "circuit-schematic",
+      "title": "Active Region Model: BE Diode + Controlled Current Source",
+      "elements": [
+        {
+          "type": "label",
+          "text": "B",
+          "position": [
+            0,
+            64
+          ]
+        },
+        {
+          "type": "diode",
+          "id": "D_BE",
+          "from": [
+            32,
+            64
+          ],
+          "to": [
+            128,
+            64
+          ],
+          "label": "VBE ≈ 0.7V"
+        },
+        {
+          "type": "label",
+          "text": "E",
+          "position": [
+            128,
+            128
+          ]
+        },
+        {
+          "type": "current-source",
+          "id": "Ic",
+          "from": [
+            128,
+            0
+          ],
+          "to": [
+            128,
+            64
+          ],
+          "label": "βIB"
+        },
+        {
+          "type": "label",
+          "text": "C",
+          "position": [
+            128,
+            0
+          ]
+        },
+        {
+          "type": "wire",
+          "from": [
+            128,
+            64
+          ],
+          "to": [
+            128,
+            128
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bjt-current-source-model",
+      "type": "plotly",
+      "title": "BJT in Active Region = Current-Controlled Current Source",
+      "traces": [
+        {
+          "x": [
+            1,
+            2,
+            3
+          ],
+          "y": [
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a"
+            ]
+          },
+          "text": [
+            "Input:<br>IB (small base current)",
+            "BJT (Active)<br>VBE ≈ 0.7V<br>IC = β × IB",
+            "Output:<br>IC (large collector current)<br>Controlled by IB"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "assignment-parameters",
+      "type": "plotly",
+      "title": "Tutorial Questions: BJT Parameters at a Glance",
+      "traces": [
+        {
+          "x": [
+            "Q1: β=100",
+            "Q2: β=200",
+            "Q3: from graph",
+            "Q4: hfe=50/−51",
+            "Q5: hfe=100",
+            "Q6: hfe=100"
+          ],
+          "y": [
+            0.7,
+            0.64,
+            0.64,
+            0.7,
+            0.7,
+            0.65
+          ],
+          "type": "bar",
+          "name": "VBE (V)",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#6b62ff",
+              "#ff6b8a",
+              "#f0a03a",
+              "#62c6ff"
+            ]
+          },
+          "text": [
+            "DC only",
+            "DC + AC",
+            "Graphical",
+            "Two-stage",
+            "CE + Re2",
+            "Two-stage + FB"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Question"
+        },
+        "yaxis": {
+          "title": "VBE (V)"
+        },
+        "showlegend": false
+      }
+    },
+    {
+      "id": "falstad-npn-basic",
+      "type": "falstad-sim",
+      "title": "Interactive: NPN BJT — Vary Base Current, Watch Collector Current",
+      "description": "Adjust the base resistor to change IB. Observe how IC = β × IB in the active region.",
+      "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 176 64 176 16 0 0 40 9 0 0 0.5\nr 176 64 176 160 0 100000\nt 176 160 240 160 0 1 -4.321738518498038 0.6654090862714429 100 default\nr 240 64 240 144 0 1000\nR 240 64 240 16 0 0 40 9 0 0 0.5\ng 240 176 240 208 0 0\no 2 64 0 4099 5 0.0125 0 2 2 3\n",
+      "height": 400
+    }
+  ]
 }

@@ -1,674 +1,682 @@
 {
-    "visuals": [
+  "visuals": [
+    {
+      "id": "q3-output-chars",
+      "type": "plotly",
+      "title": "Q3: Output Characteristics with Q-Point and hfe/hoe Readings",
+      "traces": [
         {
-            "id": "q3-output-chars",
-            "type": "plotly",
-            "title": "Q3: Output Characteristics with Q-Point and hfe/hoe Readings",
-            "traces": [
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        15.5,
-                        15.8,
-                        16,
-                        16.2,
-                        16.3,
-                        16.5,
-                        16.6,
-                        16.8
-                    ],
-                    "name": "IB=160μA",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#62c6ff",
-                        "width": 1
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        13,
-                        13.5,
-                        13.8,
-                        14,
-                        14.2,
-                        14.4,
-                        14.5,
-                        14.6
-                    ],
-                    "name": "IB=140μA",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#4fc3f7",
-                        "width": 1
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        11,
-                        11.5,
-                        11.8,
-                        12,
-                        12.2,
-                        12.4,
-                        12.5,
-                        12.6
-                    ],
-                    "name": "IB=120μA",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#42a5f5",
-                        "width": 1
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        9,
-                        9.5,
-                        9.8,
-                        10,
-                        10.2,
-                        10.4,
-                        10.5,
-                        10.6
-                    ],
-                    "name": "IB=100μA",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#2196f3",
-                        "width": 1
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        7.2,
-                        7.5,
-                        7.8,
-                        8,
-                        8.2,
-                        8.5,
-                        8.7,
-                        8.8
-                    ],
-                    "name": "IB=80μA (Q)",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#4f8cff",
-                        "width": 2
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        5.5,
-                        5.8,
-                        6,
-                        6.2,
-                        6.4,
-                        6.6,
-                        6.7,
-                        6.8
-                    ],
-                    "name": "IB=60μA",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#6b62ff",
-                        "width": 1
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        3.8,
-                        4,
-                        4.2,
-                        4.4,
-                        4.5,
-                        4.6,
-                        4.7,
-                        4.8
-                    ],
-                    "name": "IB=40μA",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#9575cd",
-                        "width": 1
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        2,
-                        4,
-                        6,
-                        8,
-                        10,
-                        12,
-                        14,
-                        16
-                    ],
-                    "y": [
-                        0,
-                        1.8,
-                        2,
-                        2.1,
-                        2.2,
-                        2.3,
-                        2.4,
-                        2.4,
-                        2.5
-                    ],
-                    "name": "IB=20μA",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#ce93d8",
-                        "width": 1
-                    }
-                },
-                {
-                    "x": [
-                        8
-                    ],
-                    "y": [
-                        8
-                    ],
-                    "name": "Q-point",
-                    "type": "scatter",
-                    "mode": "markers",
-                    "marker": {
-                        "size": 15,
-                        "color": "#ff6b8a",
-                        "symbol": "star"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "VCE (V)",
-                    "range": [
-                        0,
-                        17
-                    ]
-                },
-                "yaxis": {
-                    "title": "IC (mA)",
-                    "range": [
-                        0,
-                        18
-                    ]
-                },
-                "annotations": [
-                    {
-                        "x": 8,
-                        "y": 8,
-                        "text": "Q-point<br>(8V, 8mA, 80μA)",
-                        "showarrow": true
-                    }
-                ]
-            }
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            15.5,
+            15.8,
+            16,
+            16.2,
+            16.3,
+            16.5,
+            16.6,
+            16.8
+          ],
+          "name": "IB=160μA",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#62c6ff",
+            "width": 1
+          }
         },
         {
-            "id": "q3-re-rc-result",
-            "type": "plotly",
-            "title": "Q3.2: Calculated RE ≈ 200Ω, RC ≈ 680Ω",
-            "traces": [
-                {
-                    "x": [
-                        "RE",
-                        "RC"
-                    ],
-                    "y": [
-                        209,
-                        664
-                    ],
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#4f8cff",
-                            "#2fbf8f"
-                        ]
-                    },
-                    "text": [
-                        "≈200Ω",
-                        "≈680Ω"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "Resistor"
-                },
-                "yaxis": {
-                    "title": "Value (Ω)"
-                },
-                "showlegend": false
-            }
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            13,
+            13.5,
+            13.8,
+            14,
+            14.2,
+            14.4,
+            14.5,
+            14.6
+          ],
+          "name": "IB=140μA",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#4fc3f7",
+            "width": 1
+          }
         },
         {
-            "id": "q3-load-lines",
-            "type": "plotly",
-            "title": "Q3.3: DC and AC Load Lines with x-Intercepts",
-            "traces": [
-                {
-                    "x": [
-                        0,
-                        8,
-                        15
-                    ],
-                    "y": [
-                        16.87,
-                        8,
-                        0
-                    ],
-                    "name": "DC Load Line",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#4f8cff",
-                        "width": 3
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        8,
-                        13.44
-                    ],
-                    "y": [
-                        19.76,
-                        8,
-                        0
-                    ],
-                    "name": "AC Load Line",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#2fbf8f",
-                        "width": 3
-                    }
-                },
-                {
-                    "x": [
-                        8
-                    ],
-                    "y": [
-                        8
-                    ],
-                    "name": "Q-point",
-                    "type": "scatter",
-                    "mode": "markers",
-                    "marker": {
-                        "size": 15,
-                        "color": "#ff6b8a",
-                        "symbol": "star"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "VCE (V)",
-                    "range": [
-                        0,
-                        17
-                    ]
-                },
-                "yaxis": {
-                    "title": "IC (mA)",
-                    "range": [
-                        0,
-                        21
-                    ]
-                },
-                "annotations": [
-                    {
-                        "x": 15,
-                        "y": 0,
-                        "text": "DC x-int: 15V",
-                        "showarrow": true
-                    },
-                    {
-                        "x": 13.44,
-                        "y": 0,
-                        "text": "AC x-int: 13.44V",
-                        "showarrow": true
-                    }
-                ]
-            }
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            11,
+            11.5,
+            11.8,
+            12,
+            12.2,
+            12.4,
+            12.5,
+            12.6
+          ],
+          "name": "IB=120μA",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#42a5f5",
+            "width": 1
+          }
         },
         {
-            "id": "q3-waveform",
-            "type": "plotly",
-            "title": "Q3.4: Output Waveform (Asymmetric Swing)",
-            "traces": [
-                {
-                    "x": [
-                        0,
-                        0.125,
-                        0.25,
-                        0.375,
-                        0.5,
-                        0.625,
-                        0.75,
-                        0.875,
-                        1
-                    ],
-                    "y": [
-                        8,
-                        3.9,
-                        8,
-                        13.4,
-                        8,
-                        3.9,
-                        8,
-                        13.4,
-                        8
-                    ],
-                    "name": "vCE(t)",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#4f8cff",
-                        "width": 3
-                    }
-                },
-                {
-                    "x": [
-                        0,
-                        1
-                    ],
-                    "y": [
-                        8,
-                        8
-                    ],
-                    "name": "VCEQ=8V",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#ff6b8a",
-                        "dash": "dash"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "Time (periods)"
-                },
-                "yaxis": {
-                    "title": "VCE (V)",
-                    "range": [
-                        0,
-                        16
-                    ]
-                }
-            }
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            9,
+            9.5,
+            9.8,
+            10,
+            10.2,
+            10.4,
+            10.5,
+            10.6
+          ],
+          "name": "IB=100μA",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#2196f3",
+            "width": 1
+          }
         },
         {
-            "id": "q4-small-signal",
-            "type": "block-diagram",
-            "title": "Q4.1: Two-Stage Small Signal Model (CE + CC)",
-            "blocks": [
-                {
-                    "id": "src",
-                    "label": "vs + Rs=1kΩ",
-                    "position": "left"
-                },
-                {
-                    "id": "q1",
-                    "label": "Q1 (CE h-param)\nhie=1100Ω, hfe=50\nhre=2.5×10⁻⁴, hoe=1/40k",
-                    "position": "center-left"
-                },
-                {
-                    "id": "q2",
-                    "label": "Q2 (CC h-param)\nhic=1100Ω, hfc=−51\nhrc=1, hoc=1/40k",
-                    "position": "center-right"
-                },
-                {
-                    "id": "load",
-                    "label": "Rload=5kΩ",
-                    "position": "right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "src",
-                    "to": "q1"
-                },
-                {
-                    "from": "q1",
-                    "to": "q2"
-                },
-                {
-                    "from": "q2",
-                    "to": "load"
-                }
-            ]
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            7.2,
+            7.5,
+            7.8,
+            8,
+            8.2,
+            8.5,
+            8.7,
+            8.8
+          ],
+          "name": "IB=80μA (Q)",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#4f8cff",
+            "width": 2
+          }
         },
         {
-            "id": "q4-stage1-results",
-            "type": "plotly",
-            "title": "Q4.2: Stage 1 (CE) Results — Without Stage 2 Effects",
-            "traces": [
-                {
-                    "x": [
-                        "Ai1",
-                        "Av1",
-                        "Rin1 (Ω)",
-                        "Rout1 (kΩ)"
-                    ],
-                    "y": [
-                        -40,
-                        -363.6,
-                        1000,
-                        52.5
-                    ],
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#4f8cff",
-                            "#2fbf8f",
-                            "#ff6b8a",
-                            "#f0a03a"
-                        ]
-                    },
-                    "text": [
-                        "−40",
-                        "−363.6",
-                        "1 kΩ",
-                        "52.5 kΩ"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": ""
-                },
-                "yaxis": {
-                    "title": "Value"
-                },
-                "showlegend": false
-            }
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            5.5,
+            5.8,
+            6,
+            6.2,
+            6.4,
+            6.6,
+            6.7,
+            6.8
+          ],
+          "name": "IB=60μA",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#6b62ff",
+            "width": 1
+          }
         },
         {
-            "id": "q4-stage2-results",
-            "type": "plotly",
-            "title": "Q4.3: Stage 2 (CC) Results — Without Stage 1 and Load",
-            "traces": [
-                {
-                    "x": [
-                        "Ai2",
-                        "Av2",
-                        "Rin2 (kΩ)",
-                        "Rout2 (Ω)"
-                    ],
-                    "y": [
-                        45.33,
-                        0.995,
-                        227.8,
-                        21.6
-                    ],
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#4f8cff",
-                            "#2fbf8f",
-                            "#ff6b8a",
-                            "#f0a03a"
-                        ]
-                    },
-                    "text": [
-                        "45.33",
-                        "≈1.0",
-                        "228 kΩ",
-                        "21.6 Ω"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": ""
-                },
-                "yaxis": {
-                    "title": "Value"
-                },
-                "showlegend": false
-            }
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            3.8,
+            4,
+            4.2,
+            4.4,
+            4.5,
+            4.6,
+            4.7,
+            4.8
+          ],
+          "name": "IB=40μA",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#9575cd",
+            "width": 1
+          }
         },
         {
-            "id": "q4-combined-results",
-            "type": "plotly",
-            "title": "Q4.4: Combined Circuit Results",
-            "traces": [
-                {
-                    "x": [
-                        "Overall Av",
-                        "Overall Ai",
-                        "Rin (Ω)",
-                        "Rout (Ω)"
-                    ],
-                    "y": [
-                        -216.7,
-                        -1813,
-                        1000,
-                        21.6
-                    ],
-                    "type": "bar",
-                    "marker": {
-                        "color": [
-                            "#4f8cff",
-                            "#2fbf8f",
-                            "#ff6b8a",
-                            "#f0a03a"
-                        ]
-                    },
-                    "text": [
-                        "−216.7",
-                        "−1813",
-                        "1 kΩ",
-                        "21.6 Ω"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": ""
-                },
-                "yaxis": {
-                    "title": "Value"
-                },
-                "showlegend": false
-            }
+          "x": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16
+          ],
+          "y": [
+            0,
+            1.8,
+            2,
+            2.1,
+            2.2,
+            2.3,
+            2.4,
+            2.4,
+            2.5
+          ],
+          "name": "IB=20μA",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#ce93d8",
+            "width": 1
+          }
+        },
+        {
+          "x": [
+            8
+          ],
+          "y": [
+            8
+          ],
+          "name": "Q-point",
+          "type": "scatter",
+          "mode": "markers",
+          "marker": {
+            "size": 15,
+            "color": "#ff6b8a",
+            "symbol": "star"
+          }
         }
-    ]
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "VCE (V)",
+          "range": [
+            0,
+            17
+          ]
+        },
+        "yaxis": {
+          "title": "IC (mA)",
+          "range": [
+            0,
+            18
+          ]
+        },
+        "annotations": [
+          {
+            "x": 8,
+            "y": 8,
+            "text": "Q-point<br>(8V, 8mA, 80μA)",
+            "showarrow": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "q3-re-rc-result",
+      "type": "plotly",
+      "title": "Q3.2: Calculated RE ≈ 200Ω, RC ≈ 680Ω",
+      "traces": [
+        {
+          "x": [
+            "RE",
+            "RC"
+          ],
+          "y": [
+            209,
+            664
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f"
+            ]
+          },
+          "text": [
+            "≈200Ω",
+            "≈680Ω"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Resistor"
+        },
+        "yaxis": {
+          "title": "Value (Ω)"
+        },
+        "showlegend": false
+      }
+    },
+    {
+      "id": "q3-load-lines",
+      "type": "plotly",
+      "title": "Q3.3: DC and AC Load Lines with x-Intercepts",
+      "traces": [
+        {
+          "x": [
+            0,
+            8,
+            15
+          ],
+          "y": [
+            16.87,
+            8,
+            0
+          ],
+          "name": "DC Load Line",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#4f8cff",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            0,
+            8,
+            13.44
+          ],
+          "y": [
+            19.76,
+            8,
+            0
+          ],
+          "name": "AC Load Line",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#2fbf8f",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            8
+          ],
+          "y": [
+            8
+          ],
+          "name": "Q-point",
+          "type": "scatter",
+          "mode": "markers",
+          "marker": {
+            "size": 15,
+            "color": "#ff6b8a",
+            "symbol": "star"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "VCE (V)",
+          "range": [
+            0,
+            17
+          ]
+        },
+        "yaxis": {
+          "title": "IC (mA)",
+          "range": [
+            0,
+            21
+          ]
+        },
+        "annotations": [
+          {
+            "x": 15,
+            "y": 0,
+            "text": "DC x-int: 15V",
+            "showarrow": true
+          },
+          {
+            "x": 13.44,
+            "y": 0,
+            "text": "AC x-int: 13.44V",
+            "showarrow": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "q3-waveform",
+      "type": "plotly",
+      "title": "Q3.4: Output Waveform (Asymmetric Swing)",
+      "traces": [
+        {
+          "x": [
+            0,
+            0.125,
+            0.25,
+            0.375,
+            0.5,
+            0.625,
+            0.75,
+            0.875,
+            1
+          ],
+          "y": [
+            8,
+            3.9,
+            8,
+            13.4,
+            8,
+            3.9,
+            8,
+            13.4,
+            8
+          ],
+          "name": "vCE(t)",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#4f8cff",
+            "width": 3
+          }
+        },
+        {
+          "x": [
+            0,
+            1
+          ],
+          "y": [
+            8,
+            8
+          ],
+          "name": "VCEQ=8V",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#ff6b8a",
+            "dash": "dash"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Time (periods)"
+        },
+        "yaxis": {
+          "title": "VCE (V)",
+          "range": [
+            0,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "id": "q4-small-signal",
+      "type": "plotly",
+      "title": "Q4.1: Two-Stage Small Signal Model (CE + CC)",
+      "traces": [
+        {
+          "x": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "vs + Rs=1kΩ",
+            "Q1 (CE h-param)<br>hie=1100Ω, hfe=50<br>hre=2.5×10⁻⁴, hoe=1/40k",
+            "Q2 (CC h-param)<br>hic=1100Ω, hfc=−51<br>hrc=1, hoc=1/40k",
+            "Rload=5kΩ"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "q4-stage1-results",
+      "type": "plotly",
+      "title": "Q4.2: Stage 1 (CE) Results — Without Stage 2 Effects",
+      "traces": [
+        {
+          "x": [
+            "Ai1",
+            "Av1",
+            "Rin1 (Ω)",
+            "Rout1 (kΩ)"
+          ],
+          "y": [
+            -40,
+            -363.6,
+            1000,
+            52.5
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "−40",
+            "−363.6",
+            "1 kΩ",
+            "52.5 kΩ"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "title": "Value"
+        },
+        "showlegend": false
+      }
+    },
+    {
+      "id": "q4-stage2-results",
+      "type": "plotly",
+      "title": "Q4.3: Stage 2 (CC) Results — Without Stage 1 and Load",
+      "traces": [
+        {
+          "x": [
+            "Ai2",
+            "Av2",
+            "Rin2 (kΩ)",
+            "Rout2 (Ω)"
+          ],
+          "y": [
+            45.33,
+            0.995,
+            227.8,
+            21.6
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "45.33",
+            "≈1.0",
+            "228 kΩ",
+            "21.6 Ω"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "title": "Value"
+        },
+        "showlegend": false
+      }
+    },
+    {
+      "id": "q4-combined-results",
+      "type": "plotly",
+      "title": "Q4.4: Combined Circuit Results",
+      "traces": [
+        {
+          "x": [
+            "Overall Av",
+            "Overall Ai",
+            "Rin (Ω)",
+            "Rout (Ω)"
+          ],
+          "y": [
+            -216.7,
+            -1813,
+            1000,
+            21.6
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "−216.7",
+            "−1813",
+            "1 kΩ",
+            "21.6 Ω"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "title": "Value"
+        },
+        "showlegend": false
+      }
+    }
+  ]
 }

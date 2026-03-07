@@ -1,433 +1,462 @@
 {
-    "visuals": [
+  "visuals": [
+    {
+      "id": "dc-equivalent-concept",
+      "type": "plotly",
+      "title": "DC Equivalent: Capacitors → Open, AC Source → Remove",
+      "traces": [
         {
-            "id": "dc-equivalent-concept",
-            "type": "block-diagram",
-            "title": "DC Equivalent: Capacitors → Open, AC Source → Remove",
-            "blocks": [
-                {
-                    "id": "full",
-                    "label": "Full Circuit\n(with caps, source, load)",
-                    "position": "left"
-                },
-                {
-                    "id": "rules",
-                    "label": "DC Rules:\n• Caps → open\n• AC source → 0\n• Load → disconnected",
-                    "position": "center"
-                },
-                {
-                    "id": "dc",
-                    "label": "DC Equivalent\n(bias circuit only)",
-                    "position": "right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "full",
-                    "to": "rules"
-                },
-                {
-                    "from": "rules",
-                    "to": "dc"
-                }
+          "x": [
+            1,
+            2,
+            3
+          ],
+          "y": [
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a"
             ]
-        },
-        {
-            "id": "dc-equivalent-example",
-            "type": "circuit-schematic",
-            "title": "DC Equivalent of a Voltage-Divider Biased Amplifier",
-            "elements": [
-                {
-                    "type": "voltage-source",
-                    "id": "VCC",
-                    "from": [
-                        256,
-                        0
-                    ],
-                    "to": [
-                        256,
-                        0
-                    ],
-                    "label": "+VCC"
-                },
-                {
-                    "type": "resistor",
-                    "id": "R1",
-                    "from": [
-                        0,
-                        0
-                    ],
-                    "to": [
-                        0,
-                        96
-                    ],
-                    "label": "R1"
-                },
-                {
-                    "type": "resistor",
-                    "id": "R2",
-                    "from": [
-                        0,
-                        96
-                    ],
-                    "to": [
-                        0,
-                        192
-                    ],
-                    "label": "R2"
-                },
-                {
-                    "type": "resistor",
-                    "id": "RC",
-                    "from": [
-                        256,
-                        0
-                    ],
-                    "to": [
-                        256,
-                        64
-                    ],
-                    "label": "RC"
-                },
-                {
-                    "type": "npn",
-                    "id": "Q",
-                    "position": [
-                        256,
-                        128
-                    ],
-                    "label": "Q"
-                },
-                {
-                    "type": "resistor",
-                    "id": "RE",
-                    "from": [
-                        256,
-                        192
-                    ],
-                    "to": [
-                        256,
-                        256
-                    ],
-                    "label": "RE"
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        96
-                    ],
-                    "to": [
-                        224,
-                        128
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        0
-                    ],
-                    "to": [
-                        256,
-                        0
-                    ]
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        256,
-                        256
-                    ]
-                },
-                {
-                    "type": "ground",
-                    "from": [
-                        0,
-                        192
-                    ]
-                },
-                {
-                    "type": "label",
-                    "text": "No caps, no source, no load",
-                    "position": [
-                        128,
-                        280
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "qpoint-procedure",
-            "type": "block-diagram",
-            "title": "Systematic Q-Point Procedure (4 Steps)",
-            "blocks": [
-                {
-                    "id": "s1",
-                    "label": "Step 1:\nFind VTh, RTh",
-                    "position": "left"
-                },
-                {
-                    "id": "s2",
-                    "label": "Step 2:\nKVL base loop\n→ IB",
-                    "position": "center-left"
-                },
-                {
-                    "id": "s3",
-                    "label": "Step 3:\nIC = βIB\nIE = (β+1)IB",
-                    "position": "center-right"
-                },
-                {
-                    "id": "s4",
-                    "label": "Step 4:\nKVL collector\n→ VCE",
-                    "position": "right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "s1",
-                    "to": "s2"
-                },
-                {
-                    "from": "s2",
-                    "to": "s3"
-                },
-                {
-                    "from": "s3",
-                    "to": "s4"
-                }
-            ]
-        },
-        {
-            "id": "kvl-loops",
-            "type": "plotly",
-            "title": "Two KVL Loops in Voltage-Divider Bias Circuit",
-            "traces": [
-                {
-                    "x": [
-                        "Base Loop: VTh=IB·RTh+VBE+IE·RE"
-                    ],
-                    "y": [
-                        1
-                    ],
-                    "type": "bar",
-                    "name": "Base Loop",
-                    "marker": {
-                        "color": "#4f8cff"
-                    },
-                    "text": [
-                        "Finds IB"
-                    ],
-                    "textposition": "auto"
-                },
-                {
-                    "x": [
-                        "Collector Loop: VCC=IC·RC+VCE+IE·RE"
-                    ],
-                    "y": [
-                        1
-                    ],
-                    "type": "bar",
-                    "name": "Collector Loop",
-                    "marker": {
-                        "color": "#2fbf8f"
-                    },
-                    "text": [
-                        "Finds VCE"
-                    ],
-                    "textposition": "auto"
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": ""
-                },
-                "yaxis": {
-                    "visible": false
-                },
-                "barmode": "group"
-            }
-        },
-        {
-            "id": "q2-worked-example",
-            "type": "plotly",
-            "title": "Q2 Q-Point: ICQ ≈ 0.43 mA, VCEQ ≈ 7.25 V",
-            "traces": [
-                {
-                    "x": [
-                        0,
-                        7.25,
-                        10
-                    ],
-                    "y": [
-                        5.88,
-                        0.43,
-                        0
-                    ],
-                    "name": "DC Load Line",
-                    "type": "scatter",
-                    "mode": "lines",
-                    "line": {
-                        "color": "#4f8cff",
-                        "width": 2
-                    }
-                },
-                {
-                    "x": [
-                        7.25
-                    ],
-                    "y": [
-                        0.43
-                    ],
-                    "name": "Q-point",
-                    "type": "scatter",
-                    "mode": "markers",
-                    "marker": {
-                        "size": 12,
-                        "color": "#ff6b8a",
-                        "symbol": "star"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "VCE (V)"
-                },
-                "yaxis": {
-                    "title": "IC (mA)"
-                },
-                "annotations": [
-                    {
-                        "x": 7.25,
-                        "y": 0.43,
-                        "text": "Q(7.25V, 0.43mA)",
-                        "showarrow": true
-                    }
-                ]
-            }
-        },
-        {
-            "id": "design-procedure",
-            "type": "block-diagram",
-            "title": "Circuit Design Procedure (Q1 Approach)",
-            "blocks": [
-                {
-                    "id": "d1",
-                    "label": "Given:\nIE, VE, VC\nVCC, β, VBE",
-                    "position": "left"
-                },
-                {
-                    "id": "d2",
-                    "label": "RE = VE/IE\nRC = (VCC−VC)/IC",
-                    "position": "center-left"
-                },
-                {
-                    "id": "d3",
-                    "label": "VB = VE+VBE\nRB2 = VB/IB2",
-                    "position": "center-right"
-                },
-                {
-                    "id": "d4",
-                    "label": "RB1 = (VCC−VB)/IB1\nRound to 5%",
-                    "position": "right"
-                }
-            ],
-            "connections": [
-                {
-                    "from": "d1",
-                    "to": "d2"
-                },
-                {
-                    "from": "d2",
-                    "to": "d3"
-                },
-                {
-                    "from": "d3",
-                    "to": "d4"
-                }
-            ]
-        },
-        {
-            "id": "standard-resistors",
-            "type": "plotly",
-            "title": "Standard 5% Resistor Values (E24 Series)",
-            "traces": [
-                {
-                    "x": [
-                        "10",
-                        "11",
-                        "12",
-                        "13",
-                        "15",
-                        "16",
-                        "18",
-                        "20",
-                        "22",
-                        "24",
-                        "27",
-                        "30",
-                        "33",
-                        "36",
-                        "39",
-                        "43",
-                        "47",
-                        "51",
-                        "56",
-                        "62",
-                        "68",
-                        "75",
-                        "82",
-                        "91"
-                    ],
-                    "y": [
-                        10,
-                        11,
-                        12,
-                        13,
-                        15,
-                        16,
-                        18,
-                        20,
-                        22,
-                        24,
-                        27,
-                        30,
-                        33,
-                        36,
-                        39,
-                        43,
-                        47,
-                        51,
-                        56,
-                        62,
-                        68,
-                        75,
-                        82,
-                        91
-                    ],
-                    "type": "bar",
-                    "marker": {
-                        "color": "#2fbf8f"
-                    }
-                }
-            ],
-            "layout": {
-                "xaxis": {
-                    "title": "Standard Value (× 10ⁿ)"
-                },
-                "yaxis": {
-                    "title": "Value"
-                },
-                "showlegend": false
-            }
-        },
-        {
-            "id": "falstad-qpoint-dc",
-            "type": "falstad-sim",
-            "title": "Interactive: Find the Q-Point — Measure IC and VCE",
-            "description": "This is a voltage-divider biased NPN. Use the scopes to measure IC and VCE at the Q-point.",
-            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 272 48 272 16 0 0 40 9 0 0 0.5\nr 272 48 272 112 0 180000\nw 272 112 272 128 0\nr 272 128 272 224 0 30000\ng 272 224 272 256 0 0\nt 272 128 336 128 0 1 -0.5783397982064478 0.6576785671620476 200 default\nr 336 48 336 112 0 4700\nR 336 48 336 16 0 0 40 10 0 0 0.5\nr 336 144 336 224 0 1700\ng 336 224 336 256 0 0\no 2 64 0 4099 5 0.0125 0 2 2 3\n",
-            "height": 400
+          },
+          "text": [
+            "Full Circuit<br>(with caps, source, load)",
+            "DC Rules:<br>• Caps → open<br>• AC source → 0<br>• Load → disconnected",
+            "DC Equivalent<br>(bias circuit only)"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
         }
-    ]
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "dc-equivalent-example",
+      "type": "circuit-schematic",
+      "title": "DC Equivalent of a Voltage-Divider Biased Amplifier",
+      "elements": [
+        {
+          "type": "voltage-source",
+          "id": "VCC",
+          "from": [
+            256,
+            0
+          ],
+          "to": [
+            256,
+            0
+          ],
+          "label": "+VCC"
+        },
+        {
+          "type": "resistor",
+          "id": "R1",
+          "from": [
+            0,
+            0
+          ],
+          "to": [
+            0,
+            96
+          ],
+          "label": "R1"
+        },
+        {
+          "type": "resistor",
+          "id": "R2",
+          "from": [
+            0,
+            96
+          ],
+          "to": [
+            0,
+            192
+          ],
+          "label": "R2"
+        },
+        {
+          "type": "resistor",
+          "id": "RC",
+          "from": [
+            256,
+            0
+          ],
+          "to": [
+            256,
+            64
+          ],
+          "label": "RC"
+        },
+        {
+          "type": "npn",
+          "id": "Q",
+          "position": [
+            256,
+            128
+          ],
+          "label": "Q"
+        },
+        {
+          "type": "resistor",
+          "id": "RE",
+          "from": [
+            256,
+            192
+          ],
+          "to": [
+            256,
+            256
+          ],
+          "label": "RE"
+        },
+        {
+          "type": "wire",
+          "from": [
+            0,
+            96
+          ],
+          "to": [
+            224,
+            128
+          ]
+        },
+        {
+          "type": "wire",
+          "from": [
+            0,
+            0
+          ],
+          "to": [
+            256,
+            0
+          ]
+        },
+        {
+          "type": "ground",
+          "from": [
+            256,
+            256
+          ]
+        },
+        {
+          "type": "ground",
+          "from": [
+            0,
+            192
+          ]
+        },
+        {
+          "type": "label",
+          "text": "No caps, no source, no load",
+          "position": [
+            128,
+            280
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qpoint-procedure",
+      "type": "plotly",
+      "title": "Systematic Q-Point Procedure (4 Steps)",
+      "traces": [
+        {
+          "x": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "Step 1:<br>Find VTh, RTh",
+            "Step 2:<br>KVL base loop<br>→ IB",
+            "Step 3:<br>IC = βIB<br>IE = (β+1)IB",
+            "Step 4:<br>KVL collector<br>→ VCE"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "kvl-loops",
+      "type": "plotly",
+      "title": "Two KVL Loops in Voltage-Divider Bias Circuit",
+      "traces": [
+        {
+          "x": [
+            "Base Loop: VTh=IB·RTh+VBE+IE·RE"
+          ],
+          "y": [
+            1
+          ],
+          "type": "bar",
+          "name": "Base Loop",
+          "marker": {
+            "color": "#4f8cff"
+          },
+          "text": [
+            "Finds IB"
+          ],
+          "textposition": "auto"
+        },
+        {
+          "x": [
+            "Collector Loop: VCC=IC·RC+VCE+IE·RE"
+          ],
+          "y": [
+            1
+          ],
+          "type": "bar",
+          "name": "Collector Loop",
+          "marker": {
+            "color": "#2fbf8f"
+          },
+          "text": [
+            "Finds VCE"
+          ],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": ""
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "barmode": "group"
+      }
+    },
+    {
+      "id": "q2-worked-example",
+      "type": "plotly",
+      "title": "Q2 Q-Point: ICQ ≈ 0.43 mA, VCEQ ≈ 7.25 V",
+      "traces": [
+        {
+          "x": [
+            0,
+            7.25,
+            10
+          ],
+          "y": [
+            5.88,
+            0.43,
+            0
+          ],
+          "name": "DC Load Line",
+          "type": "scatter",
+          "mode": "lines",
+          "line": {
+            "color": "#4f8cff",
+            "width": 2
+          }
+        },
+        {
+          "x": [
+            7.25
+          ],
+          "y": [
+            0.43
+          ],
+          "name": "Q-point",
+          "type": "scatter",
+          "mode": "markers",
+          "marker": {
+            "size": 12,
+            "color": "#ff6b8a",
+            "symbol": "star"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "VCE (V)"
+        },
+        "yaxis": {
+          "title": "IC (mA)"
+        },
+        "annotations": [
+          {
+            "x": 7.25,
+            "y": 0.43,
+            "text": "Q(7.25V, 0.43mA)",
+            "showarrow": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "design-procedure",
+      "type": "plotly",
+      "title": "Circuit Design Procedure (Q1 Approach)",
+      "traces": [
+        {
+          "x": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "y": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "type": "bar",
+          "marker": {
+            "color": [
+              "#4f8cff",
+              "#2fbf8f",
+              "#ff6b8a",
+              "#f0a03a"
+            ]
+          },
+          "text": [
+            "Given:<br>IE, VE, VC<br>VCC, β, VBE",
+            "RE = VE/IE<br>RC = (VCC−VC)/IC",
+            "VB = VE+VBE<br>RB2 = VB/IB2",
+            "RB1 = (VCC−VB)/IB1<br>Round to 5%"
+          ],
+          "textposition": "auto",
+          "hoverinfo": "text"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "",
+          "showticklabels": false
+        },
+        "yaxis": {
+          "visible": false
+        },
+        "showlegend": false,
+        "bargap": 0.15
+      }
+    },
+    {
+      "id": "standard-resistors",
+      "type": "plotly",
+      "title": "Standard 5% Resistor Values (E24 Series)",
+      "traces": [
+        {
+          "x": [
+            "10",
+            "11",
+            "12",
+            "13",
+            "15",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "27",
+            "30",
+            "33",
+            "36",
+            "39",
+            "43",
+            "47",
+            "51",
+            "56",
+            "62",
+            "68",
+            "75",
+            "82",
+            "91"
+          ],
+          "y": [
+            10,
+            11,
+            12,
+            13,
+            15,
+            16,
+            18,
+            20,
+            22,
+            24,
+            27,
+            30,
+            33,
+            36,
+            39,
+            43,
+            47,
+            51,
+            56,
+            62,
+            68,
+            75,
+            82,
+            91
+          ],
+          "type": "bar",
+          "marker": {
+            "color": "#2fbf8f"
+          }
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "Standard Value (× 10ⁿ)"
+        },
+        "yaxis": {
+          "title": "Value"
+        },
+        "showlegend": false
+      }
+    },
+    {
+      "id": "falstad-qpoint-dc",
+      "type": "falstad-sim",
+      "title": "Interactive: Find the Q-Point — Measure IC and VCE",
+      "description": "This is a voltage-divider biased NPN. Use the scopes to measure IC and VCE at the Q-point.",
+      "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 272 48 272 16 0 0 40 9 0 0 0.5\nr 272 48 272 112 0 180000\nw 272 112 272 128 0\nr 272 128 272 224 0 30000\ng 272 224 272 256 0 0\nt 272 128 336 128 0 1 -0.5783397982064478 0.6576785671620476 200 default\nr 336 48 336 112 0 4700\nR 336 48 336 16 0 0 40 10 0 0 0.5\nr 336 144 336 224 0 1700\ng 336 224 336 256 0 0\no 2 64 0 4099 5 0.0125 0 2 2 3\n",
+      "height": 400
+    }
+  ]
 }
