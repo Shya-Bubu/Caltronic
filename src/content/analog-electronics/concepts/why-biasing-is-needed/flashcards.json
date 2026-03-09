@@ -1,5 +1,6 @@
 {
-    "flashcards": [
+    "id": "flashcards-why-biasing-is-needed",
+    "cards": [
         {
             "id": "wbin-fc1",
             "front": "What happens to a sinusoidal signal fed into an unbiased BJT common-emitter circuit?",

@@ -1,5 +1,6 @@
 {
-    "flashcards": [
+    "id": "flashcards-dc-and-ac-load-lines",
+    "cards": [
         {
             "id": "dcac-fc1",
             "front": "What is a load line?",

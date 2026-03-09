@@ -1,5 +1,6 @@
 {
-    "flashcards": [
+    "id": "flashcards-bjt-hybrid-pi-model",
+    "cards": [
         {
             "id": "hpi-fc1",
             "front": "What is the hybrid-π model?",

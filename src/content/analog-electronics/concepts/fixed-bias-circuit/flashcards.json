@@ -1,5 +1,6 @@
 {
-    "flashcards": [
+    "id": "flashcards-fixed-bias-circuit",
+    "cards": [
         {
             "id": "fbc-fc1",
             "front": "What is the fixed bias circuit?",
