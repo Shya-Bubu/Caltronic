@@ -774,4 +774,36 @@ jq '.visuals[].id' visuals.json                 # Extract JSON IDs
 
 ---
 
+---
+
+## 🔴 Deployment Safeguards — MANDATORY
+
+> [!CAUTION]
+> **NEVER delete a lesson or concept directory without updating ALL references to it.** Failure to do this WILL break the Vercel build. This rule is non-negotiable.
+
+### When REMOVING a lesson:
+1. Delete the lesson directory (`src/content/[module]/lessons/[lesson-id]/`)
+2. **Delete ALL orphaned concept directories** that were only referenced by that lesson
+3. **Remove the lecture entry from `src/app/data/modules.ts`** — the validator checks every entry here against the filesystem
+4. Run `npm run validate-content` locally to confirm zero errors BEFORE committing
+
+### When REMOVING a concept:
+1. Delete the concept directory (`src/content/[module]/concepts/[concept-id]/`)
+2. **Remove the concept ID from the lesson's `metadata.json` `concepts` array**
+3. Run `npm run validate-content` locally to confirm zero errors BEFORE committing
+
+### When ADDING a lesson:
+1. Create the lesson directory with all required files (`metadata.json`, `overview.md`, `synthesis.md`)
+2. **Add the lecture entry to `src/app/data/modules.ts`**
+3. Create ALL concept directories referenced in `metadata.json`
+4. Run `npm run validate-content` locally to confirm zero errors BEFORE committing
+
+### Pre-Push Checklist
+Before EVERY `git push`:
+- [ ] `npm run validate-content` passes (exit code 0)
+- [ ] Every entry in `modules.ts` has a corresponding lesson directory
+- [ ] Every concept in every lesson's `metadata.json` has a corresponding concept directory
+
+---
+
 **This document is the single source of truth. All agents must follow these instructions exactly.**
