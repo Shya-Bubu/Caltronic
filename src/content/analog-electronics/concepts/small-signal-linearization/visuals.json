@@ -332,147 +332,264 @@
         },
         {
             "id": "linear-ac-model",
-            "type": "circuit-schematic",
+            "type": "plotly",
             "title": "Linearised AC Model: BJT as Two-Port Device",
-            "elements": [
+            "traces": [
                 {
-                    "type": "resistor",
-                    "id": "rpi",
-                    "from": [
-                        96,
-                        64
+                    "x": [
+                        0
                     ],
-                    "to": [
-                        96,
-                        192
+                    "y": [
+                        0
                     ],
-                    "label": "I_BQ/V_T"
-                },
-                {
-                    "type": "current-source",
-                    "id": "gm",
-                    "from": [
-                        288,
-                        192
+                    "mode": "text",
+                    "text": [
+                        ""
                     ],
-                    "to": [
-                        288,
-                        64
-                    ],
-                    "label": "g_m·v_be"
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        32,
-                        64
-                    ],
-                    "to": [
-                        96,
-                        64
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        96,
-                        64
-                    ],
-                    "to": [
-                        288,
-                        64
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        32,
-                        192
-                    ],
-                    "to": [
-                        96,
-                        192
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        96,
-                        192
-                    ],
-                    "to": [
-                        288,
-                        192
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        288,
-                        64
-                    ],
-                    "to": [
-                        352,
-                        64
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        288,
-                        192
-                    ],
-                    "to": [
-                        352,
-                        192
-                    ]
-                },
-                {
-                    "type": "label",
-                    "position": [
-                        32,
-                        128
-                    ],
-                    "text": "v_be",
-                    "anchor": "end"
-                },
-                {
-                    "type": "label",
-                    "position": [
-                        352,
-                        128
-                    ],
-                    "text": "v_ce",
-                    "anchor": "start"
-                },
-                {
-                    "type": "label",
-                    "position": [
-                        50,
-                        48
-                    ],
-                    "text": "B",
-                    "anchor": "middle"
-                },
-                {
-                    "type": "label",
-                    "position": [
-                        340,
-                        48
-                    ],
-                    "text": "C",
-                    "anchor": "middle"
-                },
-                {
-                    "type": "label",
-                    "position": [
-                        192,
-                        208
-                    ],
-                    "text": "E",
-                    "anchor": "middle"
+                    "showlegend": false
                 }
-            ]
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -1,
+                        9
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        4
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 0.5,
+                        "y": 3.3,
+                        "text": "<b>B</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#4ecdc4"
+                        }
+                    },
+                    {
+                        "x": 7.5,
+                        "y": 3.3,
+                        "text": "<b>C</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#ff6b6b"
+                        }
+                    },
+                    {
+                        "x": 4,
+                        "y": -0.2,
+                        "text": "<b>E</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14
+                        }
+                    },
+                    {
+                        "x": 0,
+                        "y": 1.7,
+                        "text": "v_be",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        }
+                    },
+                    {
+                        "x": 8,
+                        "y": 1.7,
+                        "text": "v_ce",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        }
+                    },
+                    {
+                        "x": 2.2,
+                        "y": 1.7,
+                        "text": "<b>r_π</b><br>(= V_T/I_BQ)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(78,205,196,0.15)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 5.8,
+                        "y": 1.7,
+                        "text": "<b>g_m·v_be</b><br>(current source)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(255,107,107,0.15)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 1,
+                        "y": 3.6,
+                        "text": "i_b →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11
+                        }
+                    },
+                    {
+                        "x": 7,
+                        "y": 3.6,
+                        "text": "→ i_c",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11
+                        }
+                    }
+                ],
+                "shapes": [
+                    {
+                        "type": "rect",
+                        "x0": 1.5,
+                        "x1": 3,
+                        "y0": 1.0,
+                        "y1": 2.4,
+                        "line": {
+                            "color": "#4ecdc4",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 5,
+                        "x1": 6.6,
+                        "y0": 1.0,
+                        "y1": 2.4,
+                        "line": {
+                            "color": "#ff6b6b",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 0.5,
+                        "x1": 1.5,
+                        "y0": 3,
+                        "y1": 3,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 0.5,
+                        "x1": 1.5,
+                        "y0": 0.4,
+                        "y1": 0.4,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 1.5,
+                        "x1": 2.2,
+                        "y0": 3,
+                        "y1": 2.4,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 1.5,
+                        "x1": 2.2,
+                        "y0": 0.4,
+                        "y1": 1.0,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 3,
+                        "x1": 5,
+                        "y0": 0.4,
+                        "y1": 0.4,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 3,
+                        "x1": 5,
+                        "y0": 3,
+                        "y1": 3,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 5,
+                        "x1": 5.8,
+                        "y0": 3,
+                        "y1": 2.4,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 5,
+                        "x1": 5.8,
+                        "y0": 0.4,
+                        "y1": 1.0,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 6.6,
+                        "x1": 7.5,
+                        "y0": 3,
+                        "y1": 3,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 6.6,
+                        "x1": 7.5,
+                        "y0": 0.4,
+                        "y1": 0.4,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 2
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
         },
         {
             "id": "ac-dc-separation",

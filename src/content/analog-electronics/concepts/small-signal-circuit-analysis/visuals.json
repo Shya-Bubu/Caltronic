@@ -95,194 +95,283 @@
         },
         {
             "id": "general-h-param-circuit",
-            "type": "circuit-schematic",
+            "type": "plotly",
             "title": "General Analysis Circuit: Source → h-Model → Load",
-            "elements": [
+            "traces": [
                 {
-                    "type": "voltage-source",
-                    "id": "vs",
-                    "from": [
-                        32,
-                        192
+                    "x": [
+                        0
                     ],
-                    "to": [
-                        32,
-                        64
+                    "y": [
+                        0
                     ],
-                    "label": "V_S"
-                },
-                {
-                    "type": "resistor",
-                    "id": "rs",
-                    "from": [
-                        32,
-                        64
+                    "mode": "text",
+                    "text": [
+                        ""
                     ],
-                    "to": [
-                        128,
-                        64
-                    ],
-                    "label": "R_S"
-                },
-                {
-                    "type": "resistor",
-                    "id": "hi",
-                    "from": [
-                        192,
-                        64
-                    ],
-                    "to": [
-                        192,
-                        192
-                    ],
-                    "label": "h_i"
-                },
-                {
-                    "type": "current-source",
-                    "id": "hf",
-                    "from": [
-                        320,
-                        192
-                    ],
-                    "to": [
-                        320,
-                        64
-                    ],
-                    "label": "h_f·I₁"
-                },
-                {
-                    "type": "resistor",
-                    "id": "ho",
-                    "from": [
-                        384,
-                        64
-                    ],
-                    "to": [
-                        384,
-                        192
-                    ],
-                    "label": "1/h_o"
-                },
-                {
-                    "type": "resistor",
-                    "id": "zl",
-                    "from": [
-                        448,
-                        64
-                    ],
-                    "to": [
-                        448,
-                        192
-                    ],
-                    "label": "Z_L"
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        128,
-                        64
-                    ],
-                    "to": [
-                        192,
-                        64
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        128,
-                        192
-                    ],
-                    "to": [
-                        192,
-                        192
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        32,
-                        192
-                    ],
-                    "to": [
-                        128,
-                        192
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        192
-                    ],
-                    "to": [
-                        320,
-                        192
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        320,
-                        192
-                    ],
-                    "to": [
-                        384,
-                        192
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        384,
-                        192
-                    ],
-                    "to": [
-                        448,
-                        192
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        320,
-                        64
-                    ],
-                    "to": [
-                        384,
-                        64
-                    ]
-                },
-                {
-                    "type": "wire",
-                    "from": [
-                        384,
-                        64
-                    ],
-                    "to": [
-                        448,
-                        64
-                    ]
-                },
-                {
-                    "type": "label",
-                    "position": [
-                        160,
-                        128
-                    ],
-                    "text": "V₁",
-                    "anchor": "middle"
-                },
-                {
-                    "type": "label",
-                    "position": [
-                        416,
-                        128
-                    ],
-                    "text": "V₂",
-                    "anchor": "middle"
+                    "showlegend": false
                 }
-            ]
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -1,
+                        13
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        4.5
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 0.5,
+                        "y": 2,
+                        "text": "<b>V_S</b><br>(source)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        },
+                        "bgcolor": "rgba(78,205,196,0.15)",
+                        "borderpad": 5
+                    },
+                    {
+                        "x": 2.2,
+                        "y": 2,
+                        "text": "<b>R_S</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        },
+                        "bgcolor": "rgba(78,205,196,0.15)",
+                        "borderpad": 5
+                    },
+                    {
+                        "x": 4.2,
+                        "y": 2,
+                        "text": "<b>h_i</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        },
+                        "bgcolor": "rgba(240,160,58,0.15)",
+                        "borderpad": 5
+                    },
+                    {
+                        "x": 7,
+                        "y": 2,
+                        "text": "<b>h_f·I₁</b><br>(CCCS)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        },
+                        "bgcolor": "rgba(255,107,107,0.15)",
+                        "borderpad": 5
+                    },
+                    {
+                        "x": 9,
+                        "y": 2,
+                        "text": "<b>1/h_o</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        },
+                        "bgcolor": "rgba(150,120,220,0.15)",
+                        "borderpad": 5
+                    },
+                    {
+                        "x": 11,
+                        "y": 2,
+                        "text": "<b>Z_L</b><br>(load)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        },
+                        "bgcolor": "rgba(255,107,107,0.15)",
+                        "borderpad": 5
+                    },
+                    {
+                        "x": 3.2,
+                        "y": 4,
+                        "text": "V₁",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#4ecdc4"
+                        }
+                    },
+                    {
+                        "x": 10,
+                        "y": 4,
+                        "text": "V₂",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#ff6b6b"
+                        }
+                    },
+                    {
+                        "x": 3.2,
+                        "y": 4.3,
+                        "text": "I₁ →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11
+                        }
+                    },
+                    {
+                        "x": 10,
+                        "y": 4.3,
+                        "text": "→ I₂",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11
+                        }
+                    }
+                ],
+                "shapes": [
+                    {
+                        "type": "rect",
+                        "x0": 0,
+                        "x1": 1,
+                        "y0": 1.2,
+                        "y1": 2.8,
+                        "line": {
+                            "color": "#4ecdc4",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 1.7,
+                        "x1": 2.7,
+                        "y0": 1.2,
+                        "y1": 2.8,
+                        "line": {
+                            "color": "#4ecdc4",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 3.7,
+                        "x1": 4.7,
+                        "y0": 1.2,
+                        "y1": 2.8,
+                        "line": {
+                            "color": "#f0a03a",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 6.2,
+                        "x1": 7.8,
+                        "y0": 1.2,
+                        "y1": 2.8,
+                        "line": {
+                            "color": "#ff6b6b",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 8.4,
+                        "x1": 9.6,
+                        "y0": 1.2,
+                        "y1": 2.8,
+                        "line": {
+                            "color": "#9b59b6",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 10.4,
+                        "x1": 11.6,
+                        "y0": 1.2,
+                        "y1": 2.8,
+                        "line": {
+                            "color": "#ff6b6b",
+                            "width": 2
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 1,
+                        "x1": 1.7,
+                        "y0": 2,
+                        "y1": 2,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 1
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 2.7,
+                        "x1": 3.7,
+                        "y0": 2,
+                        "y1": 2,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 1
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 4.7,
+                        "x1": 6.2,
+                        "y0": 2,
+                        "y1": 2,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 1
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 7.8,
+                        "x1": 8.4,
+                        "y0": 2,
+                        "y1": 2,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 1
+                        }
+                    },
+                    {
+                        "type": "line",
+                        "x0": 9.6,
+                        "x1": 10.4,
+                        "y0": 2,
+                        "y1": 2,
+                        "line": {
+                            "color": "#aaa",
+                            "width": 1
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 3.5,
+                        "x1": 9.8,
+                        "y0": 0.5,
+                        "y1": 3.5,
+                        "line": {
+                            "color": "#f0a03a",
+                            "width": 1,
+                            "dash": "dot"
+                        },
+                        "fillcolor": "rgba(240,160,58,0.05)"
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
         },
         {
             "id": "current-gain-derivation",
