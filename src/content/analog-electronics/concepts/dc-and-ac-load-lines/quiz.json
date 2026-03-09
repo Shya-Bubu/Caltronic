@@ -1,125 +1,125 @@
-﻿{
-    "id":  "quiz-dc-and-ac-load-lines",
-    "questions":  [
-                      {
-                          "id":  "dcac-q1",
-                          "options":  [
-                                          "−1/R_C",
-                                          "−1/(R_C + R_E)",
-                                          "−R_C/(R_C + R_E)",
-                                          "+1/(R_C + R_E)"
-                                      ],
-                          "correctAnswer":  "−1/(R_C + R_E)",
-                          "explanation":  "From KVL: V_CC = I_C(R_C + R_E) + V_CE. Rearranging: I_C = −V_CE/(R_C+R_E) + V_CC/(R_C+R_E). The slope is −1/(R_C+R_E), which is negative because increasing V_CE decreases I_C along the line.",
-                          "prompt":  "The DC load line on the I_C vs V_CE plane has a slope of:"
-                      },
-                      {
-                          "id":  "dcac-q2",
-                          "options":  [
-                                          "V_CE = V_CC (at I_C=0) and I_C = V_CC/R_C (at V_CE=0)",
-                                          "V_CE = V_CC (at I_C=0) and I_C = V_CC/(R_C+R_E) (at V_CE=0)",
-                                          "V_CE = 0.7 V (at I_C=0) and I_C = V_CC/R_E (at V_CE=0)",
-                                          "V_CE = V_CC/2 and I_C = V_CC/(2R_C)"
-                                      ],
-                          "correctAnswer":  "V_CE = V_CC (at I_C=0) and I_C = V_CC/(R_C+R_E) (at V_CE=0)",
-                          "explanation":  "At I_C = 0: V_CE = V_CC (all supply voltage appears across the transistor). At V_CE = 0: I_C = V_CC/(R_C+R_E) (maximum possible current through the resistors). Connect these two points with a straight line.",
-                          "prompt":  "To draw the DC load line, you need two points. What are the V_CE-intercept and I_C-intercept?"
-                      },
-                      {
-                          "id":  "dcac-q3",
-                          "options":  [
-                                          "The DC load line and the base current I_BQ characteristic curve",
-                                          "The DC load line and the AC load line",
-                                          "The saturation line and the cutoff line",
-                                          "The DC load line and the V_CE axis"
-                                      ],
-                          "correctAnswer":  "The DC load line and the base current I_BQ characteristic curve",
-                          "explanation":  "The Q-point satisfies both constraints simultaneously: the circuit constraint (DC load line) and the transistor\u0027s physics (I_BQ characteristic curve). Their intersection gives (V_CEQ, I_CQ).",
-                          "prompt":  "The Q-point on the output characteristics is the intersection of:"
-                      },
-                      {
-                          "id":  "dcac-q4",
-                          "options":  [
-                                          "Open-circuit all capacitors and keep V_CC",
-                                          "Short-circuit all capacitors, short V_CC to ground, and open any DC current sources",
-                                          "Remove all resistors and keep only the BJT",
-                                          "Replace the BJT with its DC model"
-                                      ],
-                          "correctAnswer":  "Short-circuit all capacitors, short V_CC to ground, and open any DC current sources",
-                          "explanation":  "At signal frequencies: capacitors → short (X_C ≈ 0), DC voltage sources → short to ground (they have no AC content), DC current sources → open (no AC content). This leaves only the AC signal path and the AC impedances.",
-                          "prompt":  "To obtain the AC equivalent circuit, you should:"
-                      },
-                      {
-                          "id":  "dcac-q5",
-                          "options":  [
-                                          "Because V_CC is larger for AC signals",
-                                          "Because the bypass capacitor shorts part of R_E, so the AC sees a smaller total resistance (R_C + r_e1 \u003c R_C + R_E)",
-                                          "Because β is larger at AC frequencies",
-                                          "Because the coupling capacitor adds impedance"
-                                      ],
-                          "correctAnswer":  "Because the bypass capacitor shorts part of R_E, so the AC sees a smaller total resistance (R_C + r_e1 \u003c R_C + R_E)",
-                          "explanation":  "The DC load line has slope −1/(R_C+R_E) including all of R_E. The bypass capacitor across R_E2 shorts it at AC frequencies, so the AC load line has slope −1/(R_C+r_e1) where r_e1 \u003c R_E. Smaller denominator → steeper slope.",
-                          "prompt":  "Why is the AC load line steeper than the DC load line?"
-                      },
-                      {
-                          "id":  "dcac-q6",
-                          "options":  [
-                                          "The DC load line",
-                                          "The AC load line",
-                                          "The I_BQ characteristic curve",
-                                          "A path between both load lines"
-                                      ],
-                          "correctAnswer":  "The AC load line",
-                          "explanation":  "The signal creates small variations around the Q-point. At signal frequencies, the effective resistance is the AC resistance (with bypass caps shorted), so the operating point traces the AC load line, not the DC load line.",
-                          "prompt":  "When a signal is applied, the operating point moves along which line?"
-                      },
-                      {
-                          "id":  "dcac-q7",
-                          "options":  [
-                                          "The supply voltage V_CC only",
-                                          "The distance from the Q-point to whichever limit (saturation or cutoff) is closer along the AC load line",
-                                          "The beta of the transistor",
-                                          "The coupling capacitor\u0027s reactance"
-                                      ],
-                          "correctAnswer":  "The distance from the Q-point to whichever limit (saturation or cutoff) is closer along the AC load line",
-                          "explanation":  "The signal swings along the AC load line from the Q-point towards saturation (V_CE ≈ 0.2 V) in one direction and cutoff (I_C = 0) in the other. The maximum symmetric swing is limited by whichever boundary is closer. If clipping occurs in one direction first, the output is asymmetrically distorted.",
-                          "prompt":  "What limits the maximum undistorted output signal swing?"
-                      },
-                      {
-                          "id":  "dcac-q8",
-                          "options":  [
-                                          "3 mA",
-                                          "2 mA",
-                                          "6 mA",
-                                          "4 mA"
-                                      ],
-                          "correctAnswer":  "2 mA",
-                          "explanation":  "I_C-intercept = V_CC/(R_C + R_E) = 12/(4k + 2k) = 12/6k = 2 mA. This is the maximum possible DC collector current in this circuit (when V_CE = 0).",
-                          "prompt":  "For V_CC = 12 V, R_C = 4 kΩ, R_E = 2 kΩ, what is the I_C-intercept of the DC load line?"
-                      },
-                      {
-                          "id":  "dcac-q9",
-                          "options":  [
-                                          "7.8 V",
-                                          "8 V",
-                                          "4 V",
-                                          "11.8 V"
-                                      ],
-                          "correctAnswer":  "7.8 V",
-                          "explanation":  "V_CE can decrease from V_CEQ = 8 V down to V_CE(sat) ≈ 0.2 V before the transistor saturates. That\u0027s a swing of 8 − 0.2 = 7.8 V towards saturation. Towards cutoff, V_CE can increase to V_CC = 12 V, a swing of 12 − 8 = 4 V. The maximum symmetric swing is the smaller: 4 V.",
-                          "prompt":  "If the Q-point is at (V_CEQ = 8 V, I_CQ = 0.67 mA) on a DC load line from (12V, 0) to (0, 2mA), how far can V_CE swing towards saturation?"
-                      },
-                      {
-                          "id":  "dcac-q10",
-                          "options":  [
-                                          "The line shifts to the right with the same slope",
-                                          "The V_CE-intercept stays at V_CC, the I_C-intercept decreases, and the slope becomes less steep",
-                                          "Both intercepts double",
-                                          "The load line doesn\u0027t change because it depends only on V_CC"
-                                      ],
-                          "correctAnswer":  "The V_CE-intercept stays at V_CC, the I_C-intercept decreases, and the slope becomes less steep",
-                          "explanation":  "V_CE-intercept = V_CC (unchanged — doesn\u0027t depend on R_C). I_C-intercept = V_CC/(R_C+R_E) decreases because the denominator increases. Slope = −1/(R_C+R_E) becomes less steep (smaller magnitude). The line effectively pivots around the V_CC point on the V_CE axis.",
-                          "prompt":  "What happens to the DC load line if R_C is doubled (R_E unchanged)?"
-                      }
-                  ]
+{
+    "id": "quiz-dc-and-ac-load-lines",
+    "questions": [
+        {
+            "id": "dcac-q1",
+            "options": [
+                "−1/R_C",
+                "−1/(R_C + R_E)",
+                "−R_C/(R_C + R_E)",
+                "+1/(R_C + R_E)"
+            ],
+            "correctAnswer": "−1/(R_C + R_E)",
+            "explanation": "From KVL: V_CC = I_C(R_C + R_E) + V_CE. Rearranging: I_C = −V_CE/(R_C+R_E) + V_CC/(R_C+R_E). The slope is −1/(R_C+R_E), which is negative because increasing V_CE decreases I_C along the line.",
+            "prompt": "The DC load line on the I_C vs V_CE plane has a slope of:"
+        },
+        {
+            "id": "dcac-q2",
+            "options": [
+                "V_CE = V_CC (at I_C=0) and I_C = V_CC/R_C (at V_CE=0)",
+                "V_CE = V_CC (at I_C=0) and I_C = V_CC/(R_C+R_E) (at V_CE=0)",
+                "V_CE = 0.7 V (at I_C=0) and I_C = V_CC/R_E (at V_CE=0)",
+                "V_CE = V_CC/2 and I_C = V_CC/(2R_C)"
+            ],
+            "correctAnswer": "V_CE = V_CC (at I_C=0) and I_C = V_CC/(R_C+R_E) (at V_CE=0)",
+            "explanation": "At I_C = 0: V_CE = V_CC (all supply voltage appears across the transistor). At V_CE = 0: I_C = V_CC/(R_C+R_E) (maximum possible current through the resistors). Connect these two points with a straight line.",
+            "prompt": "To draw the DC load line, you need two points. What are the V_CE-intercept and I_C-intercept?"
+        },
+        {
+            "id": "dcac-q3",
+            "options": [
+                "The DC load line and the base current I_BQ characteristic curve",
+                "The DC load line and the AC load line",
+                "The saturation line and the cutoff line",
+                "The DC load line and the V_CE axis"
+            ],
+            "correctAnswer": "The DC load line and the base current I_BQ characteristic curve",
+            "explanation": "The Q-point satisfies both constraints simultaneously: the circuit constraint (DC load line) and the transistor's physics (I_BQ characteristic curve). Their intersection gives (V_CEQ, I_CQ).",
+            "prompt": "The Q-point on the output characteristics is the intersection of:"
+        },
+        {
+            "id": "dcac-q4",
+            "options": [
+                "Open-circuit all capacitors and keep V_CC",
+                "Short-circuit all capacitors, short V_CC to ground, and open any DC current sources",
+                "Remove all resistors and keep only the BJT",
+                "Replace the BJT with its DC model"
+            ],
+            "correctAnswer": "Short-circuit all capacitors, short V_CC to ground, and open any DC current sources",
+            "explanation": "At signal frequencies: capacitors → short (X_C ≈ 0), DC voltage sources → short to ground (they have no AC content), DC current sources → open (no AC content). This leaves only the AC signal path and the AC impedances.",
+            "prompt": "To obtain the AC equivalent circuit, you should:"
+        },
+        {
+            "id": "dcac-q5",
+            "options": [
+                "Because V_CC is larger for AC signals",
+                "Because the bypass capacitor shorts part of R_E, so the AC sees a smaller total resistance (R_C + r_e1 < R_C + R_E)",
+                "Because β is larger at AC frequencies",
+                "Because the coupling capacitor adds impedance"
+            ],
+            "correctAnswer": "Because the bypass capacitor shorts part of R_E, so the AC sees a smaller total resistance (R_C + r_e1 < R_C + R_E)",
+            "explanation": "The DC load line has slope −1/(R_C+R_E) including all of R_E. The bypass capacitor across R_E2 shorts it at AC frequencies, so the AC load line has slope −1/(R_C+r_e1) where r_e1 < R_E. Smaller denominator → steeper slope.",
+            "prompt": "Why is the AC load line steeper than the DC load line?"
+        },
+        {
+            "id": "dcac-q6",
+            "options": [
+                "The DC load line",
+                "The AC load line",
+                "The I_BQ characteristic curve",
+                "A path between both load lines"
+            ],
+            "correctAnswer": "The AC load line",
+            "explanation": "The signal creates small variations around the Q-point. At signal frequencies, the effective resistance is the AC resistance (with bypass caps shorted), so the operating point traces the AC load line, not the DC load line.",
+            "prompt": "When a signal is applied, the operating point moves along which line?"
+        },
+        {
+            "id": "dcac-q7",
+            "options": [
+                "The supply voltage V_CC only",
+                "The distance from the Q-point to whichever limit (saturation or cutoff) is closer along the AC load line",
+                "The beta of the transistor",
+                "The coupling capacitor's reactance"
+            ],
+            "correctAnswer": "The distance from the Q-point to whichever limit (saturation or cutoff) is closer along the AC load line",
+            "explanation": "The signal swings along the AC load line from the Q-point towards saturation (V_CE ≈ 0.2 V) in one direction and cutoff (I_C = 0) in the other. The maximum symmetric swing is limited by whichever boundary is closer. If clipping occurs in one direction first, the output is asymmetrically distorted.",
+            "prompt": "What limits the maximum undistorted output signal swing?"
+        },
+        {
+            "id": "dcac-q8",
+            "options": [
+                "3 mA",
+                "2 mA",
+                "6 mA",
+                "4 mA"
+            ],
+            "correctAnswer": "2 mA",
+            "explanation": "I_C-intercept = V_CC/(R_C + R_E) = 12/(4k + 2k) = 12/6k = 2 mA. This is the maximum possible DC collector current in this circuit (when V_CE = 0).",
+            "prompt": "For V_CC = 12 V, R_C = 4 kΩ, R_E = 2 kΩ, what is the I_C-intercept of the DC load line?"
+        },
+        {
+            "id": "dcac-q9",
+            "options": [
+                "7.8 V",
+                "8 V",
+                "4 V",
+                "11.8 V"
+            ],
+            "correctAnswer": "7.8 V",
+            "explanation": "V_CE can decrease from V_CEQ = 8 V down to V_CE(sat) ≈ 0.2 V before the transistor saturates. That's a swing of 8 − 0.2 = 7.8 V towards saturation. Towards cutoff, V_CE can increase to V_CC = 12 V, a swing of 12 − 8 = 4 V. The maximum symmetric swing is the smaller: 4 V.",
+            "prompt": "If the Q-point is at (V_CEQ = 8 V, I_CQ = 0.67 mA) on a DC load line from (12V, 0) to (0, 2mA), how far can V_CE swing towards saturation?"
+        },
+        {
+            "id": "dcac-q10",
+            "options": [
+                "The line shifts to the right with the same slope",
+                "The V_CE-intercept stays at V_CC, the I_C-intercept decreases, and the slope becomes less steep",
+                "Both intercepts double",
+                "The load line doesn't change because it depends only on V_CC"
+            ],
+            "correctAnswer": "The V_CE-intercept stays at V_CC, the I_C-intercept decreases, and the slope becomes less steep",
+            "explanation": "V_CE-intercept = V_CC (unchanged — doesn't depend on R_C). I_C-intercept = V_CC/(R_C+R_E) decreases because the denominator increases. Slope = −1/(R_C+R_E) becomes less steep (smaller magnitude). The line effectively pivots around the V_CC point on the V_CE axis.",
+            "prompt": "What happens to the DC load line if R_C is doubled (R_E unchanged)?"
+        }
+    ]
 }
