@@ -251,76 +251,59 @@
             "title": "SOP Implementation: NOT → AND → OR (Three Layers)",
             "elements": [
                 {
-                    "type": "label",
+                    "component": "text",
+                    "x": 32,
+                    "y": 16,
                     "text": "Layer 1: NOT",
-                    "position": [
-                        32,
-                        16
-                    ]
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
                 },
                 {
-                    "type": "label",
+                    "component": "text",
+                    "x": 160,
+                    "y": 16,
                     "text": "Layer 2: AND (4 gates)",
-                    "position": [
-                        160,
-                        16
-                    ]
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
                 },
                 {
-                    "type": "label",
+                    "component": "text",
+                    "x": 320,
+                    "y": 16,
                     "text": "Layer 3: OR",
-                    "position": [
-                        320,
-                        16
-                    ]
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        64
-                    ],
-                    "to": [
-                        64,
-                        64
-                    ],
-                    "label": "A"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 64,
+                    "x2": 64,
+                    "y2": 64
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        128
-                    ],
-                    "to": [
-                        64,
-                        128
-                    ],
-                    "label": "B"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 128,
+                    "x2": 64,
+                    "y2": 128
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        192
-                    ],
-                    "to": [
-                        64,
-                        192
-                    ],
-                    "label": "C"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 192,
+                    "x2": 64,
+                    "y2": 192
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        384,
-                        128
-                    ],
-                    "to": [
-                        448,
-                        128
-                    ],
-                    "label": "Z"
+                    "component": "wire",
+                    "x1": 384,
+                    "y1": 128,
+                    "x2": 448,
+                    "y2": 128
                 }
             ]
         },

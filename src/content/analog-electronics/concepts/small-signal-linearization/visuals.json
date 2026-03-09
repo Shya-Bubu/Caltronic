@@ -332,264 +332,151 @@
         },
         {
             "id": "linear-ac-model",
-            "type": "plotly",
+            "type": "circuit-schematic",
             "title": "Linearised AC Model: BJT as Two-Port Device",
-            "traces": [
+            "description": "Input port has r_π (= V_T/I_BQ), output port has dependent current source g_m·v_be.",
+            "width": 420,
+            "height": 220,
+            "elements": [
                 {
-                    "x": [
-                        0
-                    ],
-                    "y": [
-                        0
-                    ],
-                    "mode": "text",
-                    "text": [
-                        ""
-                    ],
-                    "showlegend": false
+                    "component": "wire",
+                    "x1": 20,
+                    "y1": 60,
+                    "x2": 100,
+                    "y2": 60
+                },
+                {
+                    "component": "resistor",
+                    "x": 130,
+                    "y": 110,
+                    "rotation": 90,
+                    "label": "r_π",
+                    "value": "V_T/I_BQ"
+                },
+                {
+                    "component": "wire",
+                    "x1": 130,
+                    "y1": 60,
+                    "x2": 130,
+                    "y2": 80
+                },
+                {
+                    "component": "wire",
+                    "x1": 130,
+                    "y1": 140,
+                    "x2": 130,
+                    "y2": 170
+                },
+                {
+                    "component": "wire",
+                    "x1": 20,
+                    "y1": 170,
+                    "x2": 130,
+                    "y2": 170
+                },
+                {
+                    "component": "wire",
+                    "x1": 130,
+                    "y1": 60,
+                    "x2": 290,
+                    "y2": 60
+                },
+                {
+                    "component": "wire",
+                    "x1": 130,
+                    "y1": 170,
+                    "x2": 290,
+                    "y2": 170
+                },
+                {
+                    "component": "current-source",
+                    "x": 290,
+                    "y": 110,
+                    "rotation": 90,
+                    "label": "g_m·v_be"
+                },
+                {
+                    "component": "wire",
+                    "x1": 290,
+                    "y1": 60,
+                    "x2": 290,
+                    "y2": 80
+                },
+                {
+                    "component": "wire",
+                    "x1": 290,
+                    "y1": 140,
+                    "x2": 290,
+                    "y2": 170
+                },
+                {
+                    "component": "wire",
+                    "x1": 290,
+                    "y1": 60,
+                    "x2": 400,
+                    "y2": 60
+                },
+                {
+                    "component": "wire",
+                    "x1": 290,
+                    "y1": 170,
+                    "x2": 400,
+                    "y2": 170
+                },
+                {
+                    "component": "text",
+                    "x": 50,
+                    "y": 45,
+                    "text": "B",
+                    "fontSize": 13,
+                    "color": "#4ecdc4"
+                },
+                {
+                    "component": "text",
+                    "x": 370,
+                    "y": 45,
+                    "text": "C",
+                    "fontSize": 13,
+                    "color": "#ff6b6b"
+                },
+                {
+                    "component": "text",
+                    "x": 210,
+                    "y": 195,
+                    "text": "E",
+                    "fontSize": 13
+                },
+                {
+                    "component": "text",
+                    "x": 10,
+                    "y": 120,
+                    "text": "v_be",
+                    "fontSize": 11,
+                    "fontStyle": "italic",
+                    "textAnchor": "end"
+                },
+                {
+                    "component": "text",
+                    "x": 410,
+                    "y": 120,
+                    "text": "v_ce",
+                    "fontSize": 11,
+                    "fontStyle": "italic",
+                    "textAnchor": "start"
+                },
+                {
+                    "component": "current-arrow",
+                    "x": 60,
+                    "y": 45,
+                    "label": "i_b"
+                },
+                {
+                    "component": "current-arrow",
+                    "x": 350,
+                    "y": 45,
+                    "label": "i_c"
                 }
-            ],
-            "layout": {
-                "xaxis": {
-                    "visible": false,
-                    "range": [
-                        -1,
-                        9
-                    ]
-                },
-                "yaxis": {
-                    "visible": false,
-                    "range": [
-                        -0.5,
-                        4
-                    ]
-                },
-                "annotations": [
-                    {
-                        "x": 0.5,
-                        "y": 3.3,
-                        "text": "<b>B</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 14,
-                            "color": "#4ecdc4"
-                        }
-                    },
-                    {
-                        "x": 7.5,
-                        "y": 3.3,
-                        "text": "<b>C</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 14,
-                            "color": "#ff6b6b"
-                        }
-                    },
-                    {
-                        "x": 4,
-                        "y": -0.2,
-                        "text": "<b>E</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 14
-                        }
-                    },
-                    {
-                        "x": 0,
-                        "y": 1.7,
-                        "text": "v_be",
-                        "showarrow": false,
-                        "font": {
-                            "size": 12
-                        }
-                    },
-                    {
-                        "x": 8,
-                        "y": 1.7,
-                        "text": "v_ce",
-                        "showarrow": false,
-                        "font": {
-                            "size": 12
-                        }
-                    },
-                    {
-                        "x": 2.2,
-                        "y": 1.7,
-                        "text": "<b>r_π</b><br>(= V_T/I_BQ)",
-                        "showarrow": false,
-                        "font": {
-                            "size": 13
-                        },
-                        "bgcolor": "rgba(78,205,196,0.15)",
-                        "borderpad": 6
-                    },
-                    {
-                        "x": 5.8,
-                        "y": 1.7,
-                        "text": "<b>g_m·v_be</b><br>(current source)",
-                        "showarrow": false,
-                        "font": {
-                            "size": 13
-                        },
-                        "bgcolor": "rgba(255,107,107,0.15)",
-                        "borderpad": 6
-                    },
-                    {
-                        "x": 1,
-                        "y": 3.6,
-                        "text": "i_b →",
-                        "showarrow": false,
-                        "font": {
-                            "size": 11
-                        }
-                    },
-                    {
-                        "x": 7,
-                        "y": 3.6,
-                        "text": "→ i_c",
-                        "showarrow": false,
-                        "font": {
-                            "size": 11
-                        }
-                    }
-                ],
-                "shapes": [
-                    {
-                        "type": "rect",
-                        "x0": 1.5,
-                        "x1": 3,
-                        "y0": 1.0,
-                        "y1": 2.4,
-                        "line": {
-                            "color": "#4ecdc4",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "rect",
-                        "x0": 5,
-                        "x1": 6.6,
-                        "y0": 1.0,
-                        "y1": 2.4,
-                        "line": {
-                            "color": "#ff6b6b",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 0.5,
-                        "x1": 1.5,
-                        "y0": 3,
-                        "y1": 3,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 0.5,
-                        "x1": 1.5,
-                        "y0": 0.4,
-                        "y1": 0.4,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 1.5,
-                        "x1": 2.2,
-                        "y0": 3,
-                        "y1": 2.4,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 1.5,
-                        "x1": 2.2,
-                        "y0": 0.4,
-                        "y1": 1.0,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 3,
-                        "x1": 5,
-                        "y0": 0.4,
-                        "y1": 0.4,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 3,
-                        "x1": 5,
-                        "y0": 3,
-                        "y1": 3,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 5,
-                        "x1": 5.8,
-                        "y0": 3,
-                        "y1": 2.4,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 5,
-                        "x1": 5.8,
-                        "y0": 0.4,
-                        "y1": 1.0,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 6.6,
-                        "x1": 7.5,
-                        "y0": 3,
-                        "y1": 3,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 6.6,
-                        "x1": 7.5,
-                        "y0": 0.4,
-                        "y1": 0.4,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    }
-                ],
-                "paper_bgcolor": "rgba(0,0,0,0)",
-                "plot_bgcolor": "rgba(0,0,0,0)"
-            }
+            ]
         },
         {
             "id": "ac-dc-separation",

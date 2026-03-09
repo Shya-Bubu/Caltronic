@@ -6,67 +6,37 @@
             "title": "Half-Wave Rectifier Circuit",
             "elements": [
                 {
-                    "type": "voltage-source",
-                    "id": "Vs",
-                    "from": [
-                        64,
-                        288
-                    ],
-                    "to": [
-                        64,
-                        64
-                    ],
+                    "component": "voltage-source",
+                    "x": 64,
+                    "y": 176,
+                    "rotation": 90,
                     "label": "Vs"
                 },
                 {
-                    "type": "resistor",
-                    "id": "r",
-                    "from": [
-                        64,
-                        64
-                    ],
-                    "to": [
-                        192,
-                        64
-                    ],
+                    "component": "resistor",
+                    "x": 128,
+                    "y": 64,
                     "label": "r (source)"
                 },
                 {
-                    "type": "diode",
-                    "id": "D",
-                    "from": [
-                        192,
-                        64
-                    ],
-                    "to": [
-                        320,
-                        64
-                    ],
+                    "component": "diode",
+                    "x": 256,
+                    "y": 64,
                     "label": "D"
                 },
                 {
-                    "type": "resistor",
-                    "id": "R",
-                    "from": [
-                        320,
-                        64
-                    ],
-                    "to": [
-                        320,
-                        288
-                    ],
+                    "component": "resistor",
+                    "x": 320,
+                    "y": 176,
+                    "rotation": 90,
                     "label": "R (load)"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        64,
-                        288
-                    ],
-                    "to": [
-                        320,
-                        288
-                    ]
+                    "component": "wire",
+                    "x1": 64,
+                    "y1": 288,
+                    "x2": 320,
+                    "y2": 288
                 }
             ]
         },
@@ -482,7 +452,7 @@
                             ],
                             [
                                 4,
-                                0.0000000001
+                                1e-10
                             ]
                         ],
                         "color": "#6b62ff"

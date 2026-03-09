@@ -109,7 +109,7 @@
                         0.1,
                         0.2,
                         0.5,
-                        1.0
+                        1
                     ],
                     "y": [
                         0.01,
@@ -117,7 +117,7 @@
                         0.1,
                         0.2,
                         0.5,
-                        1.0
+                        1
                     ],
                     "name": "Upper bound M·dt/C",
                     "mode": "lines+markers",
@@ -136,7 +136,7 @@
                         0.1,
                         0.2,
                         0.5,
-                        1.0
+                        1
                     ],
                     "y": [
                         0.005,
@@ -230,67 +230,37 @@
             "title": "RC Switching Circuit: Switch Closes at t = 0",
             "elements": [
                 {
-                    "type": "voltage-source",
-                    "id": "Vs",
-                    "from": [
-                        64,
-                        256
-                    ],
-                    "to": [
-                        64,
-                        64
-                    ],
+                    "component": "voltage-source",
+                    "x": 64,
+                    "y": 160,
+                    "rotation": 90,
                     "label": "10V"
                 },
                 {
-                    "type": "switch",
-                    "id": "S",
-                    "from": [
-                        64,
-                        64
-                    ],
-                    "to": [
-                        160,
-                        64
-                    ],
+                    "component": "switch",
+                    "x": 112,
+                    "y": 64,
                     "label": "S (t=0)"
                 },
                 {
-                    "type": "resistor",
-                    "id": "R",
-                    "from": [
-                        160,
-                        64
-                    ],
-                    "to": [
-                        288,
-                        64
-                    ],
+                    "component": "resistor",
+                    "x": 224,
+                    "y": 64,
                     "label": "1kΩ"
                 },
                 {
-                    "type": "capacitor",
-                    "id": "C",
-                    "from": [
-                        288,
-                        64
-                    ],
-                    "to": [
-                        288,
-                        256
-                    ],
+                    "component": "capacitor",
+                    "x": 288,
+                    "y": 160,
+                    "rotation": 90,
                     "label": "1μF"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        64,
-                        256
-                    ],
-                    "to": [
-                        288,
-                        256
-                    ]
+                    "component": "wire",
+                    "x1": 64,
+                    "y1": 256,
+                    "x2": 288,
+                    "y2": 256
                 }
             ]
         },
@@ -410,7 +380,7 @@
                         0.1,
                         0.2,
                         0.5,
-                        1.0
+                        1
                     ],
                     "y": [
                         100,
@@ -437,7 +407,7 @@
                         0.1,
                         0.2,
                         0.5,
-                        1.0
+                        1
                     ],
                     "y": [
                         1,

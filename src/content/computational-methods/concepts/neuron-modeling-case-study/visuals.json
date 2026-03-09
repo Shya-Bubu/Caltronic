@@ -15,12 +15,12 @@
                         0.7,
                         0.8,
                         0.9,
-                        1.0,
+                        1,
                         1.2,
                         1.5,
-                        2.0,
+                        2,
                         2.5,
-                        3.0
+                        3
                     ],
                     "y": [
                         -70,
@@ -95,78 +95,46 @@
             "title": "Neuron as an Equivalent Circuit (Hodgkin-Huxley Topology)",
             "elements": [
                 {
-                    "type": "capacitor",
-                    "id": "Cm",
-                    "from": [
-                        192,
-                        64
-                    ],
-                    "to": [
-                        192,
-                        224
-                    ],
+                    "component": "capacitor",
+                    "x": 192,
+                    "y": 144,
+                    "rotation": 90,
                     "label": "C_m (membrane)"
                 },
                 {
-                    "type": "resistor",
-                    "id": "gNa",
-                    "from": [
-                        320,
-                        64
-                    ],
-                    "to": [
-                        320,
-                        224
-                    ],
+                    "component": "resistor",
+                    "x": 320,
+                    "y": 144,
+                    "rotation": 90,
                     "label": "g_Na·m³h"
                 },
                 {
-                    "type": "resistor",
-                    "id": "gK",
-                    "from": [
-                        448,
-                        64
-                    ],
-                    "to": [
-                        448,
-                        224
-                    ],
+                    "component": "resistor",
+                    "x": 448,
+                    "y": 144,
+                    "rotation": 90,
                     "label": "g_K·n⁴"
                 },
                 {
-                    "type": "resistor",
-                    "id": "gL",
-                    "from": [
-                        576,
-                        64
-                    ],
-                    "to": [
-                        576,
-                        224
-                    ],
+                    "component": "resistor",
+                    "x": 576,
+                    "y": 144,
+                    "rotation": 90,
                     "label": "g_L (leak)"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        64
-                    ],
-                    "to": [
-                        576,
-                        64
-                    ]
+                    "component": "wire",
+                    "x1": 192,
+                    "y1": 64,
+                    "x2": 576,
+                    "y2": 64
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        224
-                    ],
-                    "to": [
-                        576,
-                        224
-                    ]
+                    "component": "wire",
+                    "x1": 192,
+                    "y1": 224,
+                    "x2": 576,
+                    "y2": 224
                 }
             ]
         },
@@ -505,7 +473,7 @@
                                 0
                             ],
                             [
-                                1.0,
+                                1,
                                 5
                             ],
                             [
@@ -513,7 +481,7 @@
                                 25
                             ],
                             [
-                                2.0,
+                                2,
                                 50
                             ],
                             [
@@ -521,15 +489,15 @@
                                 75
                             ],
                             [
-                                3.0,
+                                3,
                                 95
                             ],
                             [
-                                4.0,
+                                4,
                                 120
                             ],
                             [
-                                5.0,
+                                5,
                                 140
                             ]
                         ],

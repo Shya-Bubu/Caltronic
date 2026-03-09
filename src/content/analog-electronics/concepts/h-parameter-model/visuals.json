@@ -1,586 +1,538 @@
 {
-  "visuals": [
-    {
-      "id": "small-signal-linearisation",
-      "type": "plotly",
-      "title": "Small-Signal: Zooming In on the Nonlinear Curve Makes It Linear",
-      "traces": [
+    "visuals": [
         {
-          "x": [
-            0,
-            0.1,
-            0.2,
-            0.3,
-            0.4,
-            0.5,
-            0.55,
-            0.6,
-            0.62,
-            0.64,
-            0.66,
-            0.68,
-            0.7,
-            0.72
-          ],
-          "y": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0.01,
-            0.03,
-            0.1,
-            0.2,
-            0.4,
-            0.8,
-            1.6,
-            3.2,
-            6.4
-          ],
-          "name": "IC vs VBE (exponential)",
-          "type": "scatter",
-          "mode": "lines",
-          "line": {
-            "color": "#4f8cff",
-            "width": 3
-          }
+            "id": "small-signal-linearisation",
+            "type": "plotly",
+            "title": "Small-Signal: Zooming In on the Nonlinear Curve Makes It Linear",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.5,
+                        0.55,
+                        0.6,
+                        0.62,
+                        0.64,
+                        0.66,
+                        0.68,
+                        0.7,
+                        0.72
+                    ],
+                    "y": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.01,
+                        0.03,
+                        0.1,
+                        0.2,
+                        0.4,
+                        0.8,
+                        1.6,
+                        3.2,
+                        6.4
+                    ],
+                    "name": "IC vs VBE (exponential)",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0.62,
+                        0.66
+                    ],
+                    "y": [
+                        0.2,
+                        0.8
+                    ],
+                    "name": "Linear approximation at Q",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 3,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0.64
+                    ],
+                    "y": [
+                        0.4
+                    ],
+                    "name": "Q-point",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 12,
+                        "color": "#2fbf8f",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VBE (V)"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                }
+            }
         },
         {
-          "x": [
-            0.62,
-            0.66
-          ],
-          "y": [
-            0.2,
-            0.8
-          ],
-          "name": "Linear approximation at Q",
-          "type": "scatter",
-          "mode": "lines",
-          "line": {
-            "color": "#ff6b8a",
-            "width": 3,
-            "dash": "dash"
-          }
+            "id": "two-port-concept",
+            "type": "plotly",
+            "title": "BJT as a Two-Port Network: Input (B-E) and Output (C-E)",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Input Port<br>(Base-Emitter)<br>v1, i1",
+                        "BJT<br>h-Parameter<br>Two-Port",
+                        "Output Port<br>(Collector-Emitter)<br>v2, i2"
+                    ],
+                    "textposition": "auto",
+                    "hoverinfo": "text"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "",
+                    "showticklabels": false
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false,
+                "bargap": 0.15
+            }
         },
         {
-          "x": [
-            0.64
-          ],
-          "y": [
-            0.4
-          ],
-          "name": "Q-point",
-          "type": "scatter",
-          "mode": "markers",
-          "marker": {
-            "size": 12,
-            "color": "#2fbf8f",
-            "symbol": "star"
-          }
-        }
-      ],
-      "layout": {
-        "xaxis": {
-          "title": "VBE (V)"
+            "id": "h-parameter-definitions",
+            "type": "plotly",
+            "title": "Four h-Parameters: What Each One Measures",
+            "traces": [
+                {
+                    "x": [
+                        "hie\n(Input R)",
+                        "hre\n(Rev. Feedback)",
+                        "hfe\n(Current Gain)",
+                        "hoe\n(Output G)"
+                    ],
+                    "y": [
+                        1000,
+                        0.00024,
+                        100,
+                        0.0001
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#ff6b8a",
+                            "#2fbf8f",
+                            "#f0a03a"
+                        ]
+                    },
+                    "text": [
+                        "~1kΩ",
+                        "~10⁻⁴",
+                        "~100",
+                        "~10⁻⁴ S"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "title": "Typical Value",
+                    "type": "log"
+                },
+                "showlegend": false
+            }
         },
-        "yaxis": {
-          "title": "IC (mA)"
-        }
-      }
-    },
-    {
-      "id": "two-port-concept",
-      "type": "plotly",
-      "title": "BJT as a Two-Port Network: Input (B-E) and Output (C-E)",
-      "traces": [
         {
-          "x": [
-            1,
-            2,
-            3
-          ],
-          "y": [
-            1,
-            1,
-            1
-          ],
-          "type": "bar",
-          "marker": {
-            "color": [
-              "#4f8cff",
-              "#2fbf8f",
-              "#ff6b8a"
+            "id": "full-h-param-circuit",
+            "type": "circuit-schematic",
+            "title": "Full h-Parameter Equivalent Circuit",
+            "elements": [
+                {
+                    "component": "text",
+                    "x": 0,
+                    "y": 64,
+                    "text": "B",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
+                },
+                {
+                    "component": "resistor",
+                    "x": 80,
+                    "y": 64,
+                    "label": "hie"
+                },
+                {
+                    "component": "voltage-source",
+                    "x": 128,
+                    "y": 96,
+                    "rotation": 90,
+                    "label": "hre·v2"
+                },
+                {
+                    "component": "text",
+                    "x": 128,
+                    "y": 160,
+                    "text": "E",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
+                },
+                {
+                    "component": "current-source",
+                    "x": 256,
+                    "y": 96,
+                    "rotation": 90,
+                    "label": "hfe·i1"
+                },
+                {
+                    "component": "resistor",
+                    "x": 320,
+                    "y": 96,
+                    "rotation": 90,
+                    "label": "1/hoe"
+                },
+                {
+                    "component": "text",
+                    "x": 288,
+                    "y": 32,
+                    "text": "C",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
+                },
+                {
+                    "component": "wire",
+                    "x1": 128,
+                    "y1": 128,
+                    "x2": 320,
+                    "y2": 128
+                },
+                {
+                    "component": "wire",
+                    "x1": 256,
+                    "y1": 64,
+                    "x2": 320,
+                    "y2": 64
+                }
             ]
-          },
-          "text": [
-            "Input Port<br>(Base-Emitter)<br>v1, i1",
-            "BJT<br>h-Parameter<br>Two-Port",
-            "Output Port<br>(Collector-Emitter)<br>v2, i2"
-          ],
-          "textposition": "auto",
-          "hoverinfo": "text"
-        }
-      ],
-      "layout": {
-        "xaxis": {
-          "title": "",
-          "showticklabels": false
         },
-        "yaxis": {
-          "visible": false
-        },
-        "showlegend": false,
-        "bargap": 0.15
-      }
-    },
-    {
-      "id": "h-parameter-definitions",
-      "type": "plotly",
-      "title": "Four h-Parameters: What Each One Measures",
-      "traces": [
         {
-          "x": [
-            "hie\n(Input R)",
-            "hre\n(Rev. Feedback)",
-            "hfe\n(Current Gain)",
-            "hoe\n(Output G)"
-          ],
-          "y": [
-            1000,
-            0.00024,
-            100,
-            0.0001
-          ],
-          "type": "bar",
-          "marker": {
-            "color": [
-              "#4f8cff",
-              "#ff6b8a",
-              "#2fbf8f",
-              "#f0a03a"
+            "id": "simplified-h-param-circuit",
+            "type": "circuit-schematic",
+            "title": "Simplified h-Parameter Model: Only hie and hfe",
+            "elements": [
+                {
+                    "component": "text",
+                    "x": 0,
+                    "y": 64,
+                    "text": "B",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
+                },
+                {
+                    "component": "resistor",
+                    "x": 80,
+                    "y": 64,
+                    "label": "hie"
+                },
+                {
+                    "component": "text",
+                    "x": 128,
+                    "y": 128,
+                    "text": "E",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
+                },
+                {
+                    "component": "current-source",
+                    "x": 256,
+                    "y": 96,
+                    "rotation": 90,
+                    "label": "hfe·ib"
+                },
+                {
+                    "component": "text",
+                    "x": 256,
+                    "y": 32,
+                    "text": "C",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
+                },
+                {
+                    "component": "wire",
+                    "x1": 128,
+                    "y1": 64,
+                    "x2": 128,
+                    "y2": 128
+                },
+                {
+                    "component": "wire",
+                    "x1": 128,
+                    "y1": 128,
+                    "x2": 256,
+                    "y2": 128
+                }
             ]
-          },
-          "text": [
-            "~1kΩ",
-            "~10⁻⁴",
-            "~100",
-            "~10⁻⁴ S"
-          ],
-          "textposition": "auto"
+        },
+        {
+            "id": "ce-cc-cb-params",
+            "type": "plotly",
+            "title": "Three Configurations: CE, CC, CB — Different h-Parameter Sets",
+            "traces": [
+                {
+                    "x": [
+                        "CE: hie,hre,hfe,hoe",
+                        "CC: hic,hrc,hfc,hoc",
+                        "CB: hib,hrb,hfb,hob"
+                    ],
+                    "y": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4f8cff",
+                            "#2fbf8f",
+                            "#ff6b8a"
+                        ]
+                    },
+                    "text": [
+                        "Q2-Q6 (most common)",
+                        "Q4 (stage 2)",
+                        "Q2 (CB amp)"
+                    ],
+                    "textposition": "auto"
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": ""
+                },
+                "yaxis": {
+                    "visible": false
+                },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "parameter-conversion",
+            "type": "plotly",
+            "title": "CE ↔ CC Conversion: hfc = −(1 + hfe)",
+            "traces": [
+                {
+                    "x": [
+                        10,
+                        20,
+                        50,
+                        100,
+                        150,
+                        200
+                    ],
+                    "y": [
+                        -11,
+                        -21,
+                        -51,
+                        -101,
+                        -151,
+                        -201
+                    ],
+                    "name": "hfc = −(1+hfe)",
+                    "type": "scatter",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#6b62ff",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "hfe (CE)"
+                },
+                "yaxis": {
+                    "title": "hfc (CC)"
+                }
+            }
+        },
+        {
+            "id": "reading-h-from-curves",
+            "type": "plotly",
+            "title": "Reading hfe and hoe from Output Characteristics",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14
+                    ],
+                    "y": [
+                        0,
+                        6,
+                        6.5,
+                        7,
+                        7.5,
+                        8,
+                        8.5,
+                        9
+                    ],
+                    "name": "IB = 80μA",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4f8cff",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14
+                    ],
+                    "y": [
+                        0,
+                        5,
+                        5.4,
+                        5.8,
+                        6.2,
+                        6.5,
+                        6.8,
+                        7
+                    ],
+                    "name": "IB = 60μA",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#2fbf8f",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14
+                    ],
+                    "y": [
+                        0,
+                        4,
+                        4.3,
+                        4.6,
+                        4.9,
+                        5.2,
+                        5.4,
+                        5.6
+                    ],
+                    "name": "IB = 40μA",
+                    "type": "scatter",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b8a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        8
+                    ],
+                    "y": [
+                        7.5
+                    ],
+                    "name": "Q-point",
+                    "type": "scatter",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#f0a03a",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "VCE (V)"
+                },
+                "yaxis": {
+                    "title": "IC (mA)"
+                },
+                "annotations": [
+                    {
+                        "x": 8,
+                        "y": 7.5,
+                        "text": "Q-point<br>hfe=ΔIC/ΔIB here",
+                        "showarrow": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": "falstad-bjt-ac",
+            "type": "falstad-sim",
+            "title": "Interactive: BJT Amplifier — AC Signal on DC Bias",
+            "description": "A voltage-divider biased NPN with an AC signal. Watch how the small AC input creates a larger AC output.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 272 48 272 16 0 0 40 15 0 0 0.5\nr 272 48 272 112 0 22000\nr 272 208 272 304 0 1000\nt 272 160 336 160 0 1 -11.362474826958736 0.6594853999780009 100 default\nr 336 48 336 144 0 4700\nR 336 48 336 16 0 0 40 15 0 0 0.5\nw 272 112 272 160 0\nr 272 160 272 208 0 4700\ng 272 304 272 336 0 0\ng 336 176 336 208 0 0\nv 176 208 176 112 0 1 1000 0.01 0 0 0.5\nc 176 112 272 112 0 0.00001 0.6594853999780009 0.001\nw 176 208 272 208 0\no 4 64 0 4099 2.5 0.00009765625 0 2 4 3\no 2 64 0 4099 10 0.0125 0 2 2 3\n",
+            "height": 400
         }
-      ],
-      "layout": {
-        "xaxis": {
-          "title": ""
-        },
-        "yaxis": {
-          "title": "Typical Value",
-          "type": "log"
-        },
-        "showlegend": false
-      }
-    },
-    {
-      "id": "full-h-param-circuit",
-      "type": "circuit-schematic",
-      "title": "Full h-Parameter Equivalent Circuit",
-      "elements": [
-        {
-          "type": "label",
-          "text": "B",
-          "position": [
-            0,
-            64
-          ]
-        },
-        {
-          "type": "resistor",
-          "id": "hie",
-          "from": [
-            32,
-            64
-          ],
-          "to": [
-            128,
-            64
-          ],
-          "label": "hie"
-        },
-        {
-          "type": "voltage-source",
-          "id": "hre",
-          "from": [
-            128,
-            64
-          ],
-          "to": [
-            128,
-            128
-          ],
-          "label": "hre·v2"
-        },
-        {
-          "type": "label",
-          "text": "E",
-          "position": [
-            128,
-            160
-          ]
-        },
-        {
-          "type": "current-source",
-          "id": "hfe",
-          "from": [
-            256,
-            128
-          ],
-          "to": [
-            256,
-            64
-          ],
-          "label": "hfe·i1"
-        },
-        {
-          "type": "resistor",
-          "id": "1/hoe",
-          "from": [
-            320,
-            64
-          ],
-          "to": [
-            320,
-            128
-          ],
-          "label": "1/hoe"
-        },
-        {
-          "type": "label",
-          "text": "C",
-          "position": [
-            288,
-            32
-          ]
-        },
-        {
-          "type": "wire",
-          "from": [
-            128,
-            128
-          ],
-          "to": [
-            320,
-            128
-          ]
-        },
-        {
-          "type": "wire",
-          "from": [
-            256,
-            64
-          ],
-          "to": [
-            320,
-            64
-          ]
-        }
-      ]
-    },
-    {
-      "id": "simplified-h-param-circuit",
-      "type": "circuit-schematic",
-      "title": "Simplified h-Parameter Model: Only hie and hfe",
-      "elements": [
-        {
-          "type": "label",
-          "text": "B",
-          "position": [
-            0,
-            64
-          ]
-        },
-        {
-          "type": "resistor",
-          "id": "hie",
-          "from": [
-            32,
-            64
-          ],
-          "to": [
-            128,
-            64
-          ],
-          "label": "hie"
-        },
-        {
-          "type": "label",
-          "text": "E",
-          "position": [
-            128,
-            128
-          ]
-        },
-        {
-          "type": "current-source",
-          "id": "hfe",
-          "from": [
-            256,
-            128
-          ],
-          "to": [
-            256,
-            64
-          ],
-          "label": "hfe·ib"
-        },
-        {
-          "type": "label",
-          "text": "C",
-          "position": [
-            256,
-            32
-          ]
-        },
-        {
-          "type": "wire",
-          "from": [
-            128,
-            64
-          ],
-          "to": [
-            128,
-            128
-          ]
-        },
-        {
-          "type": "wire",
-          "from": [
-            128,
-            128
-          ],
-          "to": [
-            256,
-            128
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ce-cc-cb-params",
-      "type": "plotly",
-      "title": "Three Configurations: CE, CC, CB — Different h-Parameter Sets",
-      "traces": [
-        {
-          "x": [
-            "CE: hie,hre,hfe,hoe",
-            "CC: hic,hrc,hfc,hoc",
-            "CB: hib,hrb,hfb,hob"
-          ],
-          "y": [
-            1,
-            1,
-            1
-          ],
-          "type": "bar",
-          "marker": {
-            "color": [
-              "#4f8cff",
-              "#2fbf8f",
-              "#ff6b8a"
-            ]
-          },
-          "text": [
-            "Q2-Q6 (most common)",
-            "Q4 (stage 2)",
-            "Q2 (CB amp)"
-          ],
-          "textposition": "auto"
-        }
-      ],
-      "layout": {
-        "xaxis": {
-          "title": ""
-        },
-        "yaxis": {
-          "visible": false
-        },
-        "showlegend": false
-      }
-    },
-    {
-      "id": "parameter-conversion",
-      "type": "plotly",
-      "title": "CE ↔ CC Conversion: hfc = −(1 + hfe)",
-      "traces": [
-        {
-          "x": [
-            10,
-            20,
-            50,
-            100,
-            150,
-            200
-          ],
-          "y": [
-            -11,
-            -21,
-            -51,
-            -101,
-            -151,
-            -201
-          ],
-          "name": "hfc = −(1+hfe)",
-          "type": "scatter",
-          "mode": "lines+markers",
-          "line": {
-            "color": "#6b62ff",
-            "width": 3
-          }
-        }
-      ],
-      "layout": {
-        "xaxis": {
-          "title": "hfe (CE)"
-        },
-        "yaxis": {
-          "title": "hfc (CC)"
-        }
-      }
-    },
-    {
-      "id": "reading-h-from-curves",
-      "type": "plotly",
-      "title": "Reading hfe and hoe from Output Characteristics",
-      "traces": [
-        {
-          "x": [
-            0,
-            2,
-            4,
-            6,
-            8,
-            10,
-            12,
-            14
-          ],
-          "y": [
-            0,
-            6,
-            6.5,
-            7,
-            7.5,
-            8,
-            8.5,
-            9
-          ],
-          "name": "IB = 80μA",
-          "type": "scatter",
-          "mode": "lines",
-          "line": {
-            "color": "#4f8cff",
-            "width": 2
-          }
-        },
-        {
-          "x": [
-            0,
-            2,
-            4,
-            6,
-            8,
-            10,
-            12,
-            14
-          ],
-          "y": [
-            0,
-            5,
-            5.4,
-            5.8,
-            6.2,
-            6.5,
-            6.8,
-            7
-          ],
-          "name": "IB = 60μA",
-          "type": "scatter",
-          "mode": "lines",
-          "line": {
-            "color": "#2fbf8f",
-            "width": 2
-          }
-        },
-        {
-          "x": [
-            0,
-            2,
-            4,
-            6,
-            8,
-            10,
-            12,
-            14
-          ],
-          "y": [
-            0,
-            4,
-            4.3,
-            4.6,
-            4.9,
-            5.2,
-            5.4,
-            5.6
-          ],
-          "name": "IB = 40μA",
-          "type": "scatter",
-          "mode": "lines",
-          "line": {
-            "color": "#ff6b8a",
-            "width": 2
-          }
-        },
-        {
-          "x": [
-            8
-          ],
-          "y": [
-            7.5
-          ],
-          "name": "Q-point",
-          "type": "scatter",
-          "mode": "markers",
-          "marker": {
-            "size": 14,
-            "color": "#f0a03a",
-            "symbol": "star"
-          }
-        }
-      ],
-      "layout": {
-        "xaxis": {
-          "title": "VCE (V)"
-        },
-        "yaxis": {
-          "title": "IC (mA)"
-        },
-        "annotations": [
-          {
-            "x": 8,
-            "y": 7.5,
-            "text": "Q-point<br>hfe=ΔIC/ΔIB here",
-            "showarrow": true
-          }
-        ]
-      }
-    },
-    {
-      "id": "falstad-bjt-ac",
-      "type": "falstad-sim",
-      "title": "Interactive: BJT Amplifier — AC Signal on DC Bias",
-      "description": "A voltage-divider biased NPN with an AC signal. Watch how the small AC input creates a larger AC output.",
-      "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nR 272 48 272 16 0 0 40 15 0 0 0.5\nr 272 48 272 112 0 22000\nr 272 208 272 304 0 1000\nt 272 160 336 160 0 1 -11.362474826958736 0.6594853999780009 100 default\nr 336 48 336 144 0 4700\nR 336 48 336 16 0 0 40 15 0 0 0.5\nw 272 112 272 160 0\nr 272 160 272 208 0 4700\ng 272 304 272 336 0 0\ng 336 176 336 208 0 0\nv 176 208 176 112 0 1 1000 0.01 0 0 0.5\nc 176 112 272 112 0 0.00001 0.6594853999780009 0.001\nw 176 208 272 208 0\no 4 64 0 4099 2.5 0.00009765625 0 2 4 3\no 2 64 0 4099 10 0.0125 0 2 2 3\n",
-      "height": 400
-    }
-  ]
+    ]
 }

@@ -293,218 +293,197 @@
         },
         {
             "id": "parasitic-caps",
-            "type": "plotly",
+            "type": "circuit-schematic",
             "title": "Parasitic Capacitances in a BJT",
-            "traces": [
+            "description": "C_be across the base-emitter junction and C_bc across the base-collector junction. C_bc is amplified by the Miller effect, creating the dominant upper cutoff.",
+            "width": 450,
+            "height": 240,
+            "elements": [
                 {
-                    "x": [
-                        0
-                    ],
-                    "y": [
-                        0
-                    ],
-                    "mode": "text",
-                    "text": [
-                        ""
-                    ],
-                    "showlegend": false
+                    "component": "wire",
+                    "x1": 20,
+                    "y1": 60,
+                    "x2": 80,
+                    "y2": 60
+                },
+                {
+                    "component": "resistor",
+                    "x": 120,
+                    "y": 110,
+                    "rotation": 90,
+                    "label": "r_π"
+                },
+                {
+                    "component": "wire",
+                    "x1": 120,
+                    "y1": 60,
+                    "x2": 120,
+                    "y2": 80
+                },
+                {
+                    "component": "wire",
+                    "x1": 120,
+                    "y1": 140,
+                    "x2": 120,
+                    "y2": 190
+                },
+                {
+                    "component": "wire",
+                    "x1": 20,
+                    "y1": 190,
+                    "x2": 120,
+                    "y2": 190
+                },
+                {
+                    "component": "capacitor",
+                    "x": 180,
+                    "y": 110,
+                    "rotation": 90,
+                    "label": "C_be"
+                },
+                {
+                    "component": "wire",
+                    "x1": 180,
+                    "y1": 60,
+                    "x2": 180,
+                    "y2": 80
+                },
+                {
+                    "component": "wire",
+                    "x1": 180,
+                    "y1": 140,
+                    "x2": 180,
+                    "y2": 190
+                },
+                {
+                    "component": "wire",
+                    "x1": 120,
+                    "y1": 60,
+                    "x2": 180,
+                    "y2": 60
+                },
+                {
+                    "component": "wire",
+                    "x1": 120,
+                    "y1": 190,
+                    "x2": 180,
+                    "y2": 190
+                },
+                {
+                    "component": "wire",
+                    "x1": 180,
+                    "y1": 60,
+                    "x2": 300,
+                    "y2": 60
+                },
+                {
+                    "component": "wire",
+                    "x1": 180,
+                    "y1": 190,
+                    "x2": 300,
+                    "y2": 190
+                },
+                {
+                    "component": "current-source",
+                    "x": 300,
+                    "y": 110,
+                    "rotation": 90,
+                    "label": "g_m·v_be"
+                },
+                {
+                    "component": "wire",
+                    "x1": 300,
+                    "y1": 60,
+                    "x2": 300,
+                    "y2": 80
+                },
+                {
+                    "component": "wire",
+                    "x1": 300,
+                    "y1": 140,
+                    "x2": 300,
+                    "y2": 190
+                },
+                {
+                    "component": "wire",
+                    "x1": 300,
+                    "y1": 60,
+                    "x2": 430,
+                    "y2": 60
+                },
+                {
+                    "component": "wire",
+                    "x1": 300,
+                    "y1": 190,
+                    "x2": 430,
+                    "y2": 190
+                },
+                {
+                    "component": "capacitor",
+                    "x": 210,
+                    "y": 30,
+                    "label": "C_bc"
+                },
+                {
+                    "component": "wire",
+                    "x1": 150,
+                    "y1": 60,
+                    "x2": 150,
+                    "y2": 30
+                },
+                {
+                    "component": "wire",
+                    "x1": 150,
+                    "y1": 30,
+                    "x2": 180,
+                    "y2": 30
+                },
+                {
+                    "component": "wire",
+                    "x1": 240,
+                    "y1": 30,
+                    "x2": 350,
+                    "y2": 30
+                },
+                {
+                    "component": "wire",
+                    "x1": 350,
+                    "y1": 30,
+                    "x2": 350,
+                    "y2": 60
+                },
+                {
+                    "component": "text",
+                    "x": 40,
+                    "y": 45,
+                    "text": "B",
+                    "fontSize": 13,
+                    "color": "#4ecdc4"
+                },
+                {
+                    "component": "text",
+                    "x": 410,
+                    "y": 45,
+                    "text": "C",
+                    "fontSize": 13,
+                    "color": "#ff6b6b"
+                },
+                {
+                    "component": "text",
+                    "x": 210,
+                    "y": 210,
+                    "text": "E",
+                    "fontSize": 13
+                },
+                {
+                    "component": "text",
+                    "x": 210,
+                    "y": 12,
+                    "text": "← Miller effect amplifies C_bc →",
+                    "fontSize": 9,
+                    "color": "#9b59b6"
                 }
-            ],
-            "layout": {
-                "xaxis": {
-                    "visible": false,
-                    "range": [
-                        -1,
-                        9
-                    ]
-                },
-                "yaxis": {
-                    "visible": false,
-                    "range": [
-                        -0.5,
-                        4.5
-                    ]
-                },
-                "annotations": [
-                    {
-                        "x": 0.5,
-                        "y": 3.3,
-                        "text": "<b>B</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 14,
-                            "color": "#4ecdc4"
-                        }
-                    },
-                    {
-                        "x": 7.5,
-                        "y": 3.3,
-                        "text": "<b>C</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 14,
-                            "color": "#ff6b6b"
-                        }
-                    },
-                    {
-                        "x": 3.5,
-                        "y": -0.2,
-                        "text": "<b>E</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 14
-                        }
-                    },
-                    {
-                        "x": 2,
-                        "y": 1.7,
-                        "text": "<b>r_π</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 13
-                        },
-                        "bgcolor": "rgba(78,205,196,0.15)",
-                        "borderpad": 6
-                    },
-                    {
-                        "x": 3.8,
-                        "y": 1.7,
-                        "text": "<b>C_be</b><br>(pF)",
-                        "showarrow": false,
-                        "font": {
-                            "size": 13
-                        },
-                        "bgcolor": "rgba(240,160,58,0.15)",
-                        "borderpad": 6
-                    },
-                    {
-                        "x": 5.5,
-                        "y": 1.7,
-                        "text": "<b>g_m·v_be</b>",
-                        "showarrow": false,
-                        "font": {
-                            "size": 13
-                        },
-                        "bgcolor": "rgba(255,107,107,0.15)",
-                        "borderpad": 6
-                    },
-                    {
-                        "x": 4,
-                        "y": 4,
-                        "text": "<b>C_bc</b> (pF)",
-                        "showarrow": false,
-                        "font": {
-                            "size": 13,
-                            "color": "#9b59b6"
-                        },
-                        "bgcolor": "rgba(150,120,220,0.15)",
-                        "borderpad": 6
-                    },
-                    {
-                        "x": 4,
-                        "y": 4.4,
-                        "text": "← Miller effect amplifies this! →",
-                        "showarrow": false,
-                        "font": {
-                            "size": 10,
-                            "color": "#9b59b6"
-                        }
-                    }
-                ],
-                "shapes": [
-                    {
-                        "type": "rect",
-                        "x0": 1.3,
-                        "x1": 2.7,
-                        "y0": 1.0,
-                        "y1": 2.4,
-                        "line": {
-                            "color": "#4ecdc4",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "rect",
-                        "x0": 3.1,
-                        "x1": 4.5,
-                        "y0": 1.0,
-                        "y1": 2.4,
-                        "line": {
-                            "color": "#f0a03a",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "rect",
-                        "x0": 4.8,
-                        "x1": 6.2,
-                        "y0": 1.0,
-                        "y1": 2.4,
-                        "line": {
-                            "color": "#ff6b6b",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 2,
-                        "x1": 5.5,
-                        "y0": 3.7,
-                        "y1": 3.7,
-                        "line": {
-                            "color": "#9b59b6",
-                            "width": 2,
-                            "dash": "dash"
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 0.5,
-                        "x1": 1.3,
-                        "y0": 3,
-                        "y1": 3,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 0.5,
-                        "x1": 1.3,
-                        "y0": 0.4,
-                        "y1": 0.4,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 6.2,
-                        "x1": 7.5,
-                        "y0": 3,
-                        "y1": 3,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    },
-                    {
-                        "type": "line",
-                        "x0": 6.2,
-                        "x1": 7.5,
-                        "y0": 0.4,
-                        "y1": 0.4,
-                        "line": {
-                            "color": "#aaa",
-                            "width": 2
-                        }
-                    }
-                ],
-                "paper_bgcolor": "rgba(0,0,0,0)",
-                "plot_bgcolor": "rgba(0,0,0,0)"
-            }
+            ]
         },
         {
             "id": "multiple-cutoffs",

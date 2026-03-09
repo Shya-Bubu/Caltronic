@@ -6,78 +6,45 @@
             "title": "Parallel RLC Circuit Driven by AC Current Source",
             "elements": [
                 {
-                    "type": "current-source",
-                    "id": "Is",
-                    "from": [
-                        0,
-                        256
-                    ],
-                    "to": [
-                        0,
-                        0
-                    ],
+                    "component": "current-source",
+                    "x": 0,
+                    "y": 128,
+                    "rotation": 90,
                     "label": "Is"
                 },
                 {
-                    "type": "resistor",
-                    "id": "R",
-                    "from": [
-                        0,
-                        0
-                    ],
-                    "to": [
-                        128,
-                        0
-                    ],
+                    "component": "resistor",
+                    "x": 64,
+                    "y": 0,
                     "label": "R"
                 },
                 {
-                    "type": "inductor",
-                    "id": "L",
-                    "from": [
-                        128,
-                        0
-                    ],
-                    "to": [
-                        128,
-                        256
-                    ],
+                    "component": "inductor",
+                    "x": 128,
+                    "y": 128,
+                    "rotation": 90,
                     "label": "L"
                 },
                 {
-                    "type": "capacitor",
-                    "id": "C",
-                    "from": [
-                        256,
-                        0
-                    ],
-                    "to": [
-                        256,
-                        256
-                    ],
+                    "component": "capacitor",
+                    "x": 256,
+                    "y": 128,
+                    "rotation": 90,
                     "label": "C"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        0
-                    ],
-                    "to": [
-                        256,
-                        0
-                    ]
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 0,
+                    "x2": 256,
+                    "y2": 0
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        256
-                    ],
-                    "to": [
-                        256,
-                        256
-                    ]
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 256,
+                    "x2": 256,
+                    "y2": 256
                 }
             ]
         },
@@ -229,7 +196,7 @@
                         0.55,
                         0.71,
                         0.83,
-                        1.0,
+                        1,
                         0.83,
                         0.71,
                         0.55,
@@ -321,7 +288,7 @@
                         0.3,
                         0.6,
                         0.85,
-                        1.0,
+                        1,
                         0.85,
                         0.6,
                         0.3,
@@ -352,7 +319,7 @@
                         0.65,
                         0.8,
                         0.92,
-                        1.0,
+                        1,
                         0.92,
                         0.8,
                         0.65,

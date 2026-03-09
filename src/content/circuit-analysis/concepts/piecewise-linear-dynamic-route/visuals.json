@@ -250,8 +250,8 @@
                     ],
                     "y": [
                         2.5,
-                        2.0,
-                        2.0,
+                        2,
+                        2,
                         0.74,
                         0.27
                     ],
@@ -306,52 +306,31 @@
             "title": "RC Circuit with Piecewise-Linear Network N",
             "elements": [
                 {
-                    "type": "capacitor",
-                    "id": "C",
-                    "from": [
-                        192,
-                        64
-                    ],
-                    "to": [
-                        192,
-                        224
-                    ],
+                    "component": "capacitor",
+                    "x": 192,
+                    "y": 144,
+                    "rotation": 90,
                     "label": "C"
                 },
                 {
-                    "type": "resistor",
-                    "id": "R",
-                    "from": [
-                        64,
-                        64
-                    ],
-                    "to": [
-                        192,
-                        64
-                    ],
+                    "component": "resistor",
+                    "x": 128,
+                    "y": 64,
                     "label": "R₁"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        64,
-                        64
-                    ],
-                    "to": [
-                        64,
-                        224
-                    ]
+                    "component": "wire",
+                    "x1": 64,
+                    "y1": 64,
+                    "x2": 64,
+                    "y2": 224
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        64,
-                        224
-                    ],
-                    "to": [
-                        192,
-                        224
-                    ]
+                    "component": "wire",
+                    "x1": 64,
+                    "y1": 224,
+                    "x2": 192,
+                    "y2": 224
                 }
             ]
         },
@@ -377,7 +356,7 @@
                         2.29,
                         2.19,
                         2.09,
-                        2.0
+                        2
                     ],
                     "name": "Segment 1: unstable growth",
                     "mode": "lines",
@@ -396,7 +375,7 @@
                         300
                     ],
                     "y": [
-                        2.0,
+                        2,
                         1.67,
                         1.21,
                         0.83,
@@ -415,7 +394,7 @@
                         31.9
                     ],
                     "y": [
-                        2.0
+                        2
                     ],
                     "name": "Breakpoint at t₁ = 31.9 μs",
                     "mode": "markers",
@@ -555,7 +534,7 @@
                         5.32,
                         6.75,
                         7.73,
-                        8.40
+                        8.4
                     ],
                     "name": "Zero-state: ∫h(t−t')·x_s(t')dt'",
                     "mode": "lines",
@@ -575,9 +554,9 @@
                     ],
                     "y": [
                         5,
-                        5.0,
-                        6.0,
-                        7.0,
+                        5,
+                        6,
+                        7,
                         7.82,
                         8.43
                     ],

@@ -84,79 +84,45 @@
             "title": "NOT Gate: BJT Transistor Inverter Circuit",
             "elements": [
                 {
-                    "type": "voltage-source",
-                    "id": "Vcc",
-                    "from": [
-                        192,
-                        32
-                    ],
-                    "to": [
-                        192,
-                        0
-                    ],
+                    "component": "voltage-source",
+                    "x": 192,
+                    "y": 16,
+                    "rotation": 90,
                     "label": "5V (Vcc)"
                 },
                 {
-                    "type": "resistor",
-                    "id": "Rc",
-                    "from": [
-                        192,
-                        32
-                    ],
-                    "to": [
-                        192,
-                        128
-                    ],
+                    "component": "resistor",
+                    "x": 192,
+                    "y": 80,
+                    "rotation": 90,
                     "label": "Rc"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        128
-                    ],
-                    "to": [
-                        192,
-                        160
-                    ],
-                    "label": "Z (output)"
+                    "component": "wire",
+                    "x1": 192,
+                    "y1": 128,
+                    "x2": 192,
+                    "y2": 160
                 },
                 {
-                    "type": "resistor",
-                    "id": "Rb",
-                    "from": [
-                        32,
-                        192
-                    ],
-                    "to": [
-                        128,
-                        192
-                    ],
+                    "component": "resistor",
+                    "x": 80,
+                    "y": 192,
                     "label": "Rb"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        192
-                    ],
-                    "to": [
-                        32,
-                        192
-                    ],
-                    "label": "X (input)"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 192,
+                    "x2": 32,
+                    "y2": 192
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        288
-                    ],
-                    "to": [
-                        192,
-                        320
-                    ],
-                    "label": "GND"
+                    "component": "wire",
+                    "x1": 192,
+                    "y1": 288,
+                    "x2": 192,
+                    "y2": 320
                 }
             ]
         },
@@ -215,91 +181,51 @@
             "title": "OR Gate: Diode Implementation",
             "elements": [
                 {
-                    "type": "diode",
-                    "id": "D1",
-                    "from": [
-                        64,
-                        64
-                    ],
-                    "to": [
-                        192,
-                        128
-                    ],
+                    "component": "diode",
+                    "x": 128,
+                    "y": 96,
                     "label": "D₁"
                 },
                 {
-                    "type": "diode",
-                    "id": "D2",
-                    "from": [
-                        64,
-                        192
-                    ],
-                    "to": [
-                        192,
-                        128
-                    ],
+                    "component": "diode",
+                    "x": 128,
+                    "y": 160,
                     "label": "D₂"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        64
-                    ],
-                    "to": [
-                        64,
-                        64
-                    ],
-                    "label": "X₀"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 64,
+                    "x2": 64,
+                    "y2": 64
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        192
-                    ],
-                    "to": [
-                        64,
-                        192
-                    ],
-                    "label": "X₁"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 192,
+                    "x2": 64,
+                    "y2": 192
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        128
-                    ],
-                    "to": [
-                        288,
-                        128
-                    ],
-                    "label": "Z"
+                    "component": "wire",
+                    "x1": 192,
+                    "y1": 128,
+                    "x2": 288,
+                    "y2": 128
                 },
                 {
-                    "type": "resistor",
-                    "id": "R",
-                    "from": [
-                        192,
-                        128
-                    ],
-                    "to": [
-                        192,
-                        256
-                    ],
+                    "component": "resistor",
+                    "x": 192,
+                    "y": 192,
+                    "rotation": 90,
                     "label": "R (pull-down)"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        256
-                    ],
-                    "to": [
-                        192,
-                        288
-                    ],
-                    "label": "GND"
+                    "component": "wire",
+                    "x1": 192,
+                    "y1": 256,
+                    "x2": 192,
+                    "y2": 288
                 }
             ]
         },
@@ -358,92 +284,51 @@
             "title": "AND Gate: Diode Implementation with Pull-Up",
             "elements": [
                 {
-                    "type": "voltage-source",
-                    "id": "Vcc",
-                    "from": [
-                        192,
-                        0
-                    ],
-                    "to": [
-                        192,
-                        32
-                    ],
+                    "component": "voltage-source",
+                    "x": 192,
+                    "y": 16,
+                    "rotation": 90,
                     "label": "5V"
                 },
                 {
-                    "type": "resistor",
-                    "id": "R",
-                    "from": [
-                        192,
-                        32
-                    ],
-                    "to": [
-                        192,
-                        128
-                    ],
+                    "component": "resistor",
+                    "x": 192,
+                    "y": 80,
+                    "rotation": 90,
                     "label": "R (pull-up)"
                 },
                 {
-                    "type": "diode",
-                    "id": "D1",
-                    "from": [
-                        192,
-                        128
-                    ],
-                    "to": [
-                        64,
-                        64
-                    ],
+                    "component": "diode",
+                    "x": 128,
+                    "y": 96,
                     "label": "D₁"
                 },
                 {
-                    "type": "diode",
-                    "id": "D2",
-                    "from": [
-                        192,
-                        128
-                    ],
-                    "to": [
-                        64,
-                        192
-                    ],
+                    "component": "diode",
+                    "x": 128,
+                    "y": 160,
                     "label": "D₂"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        64
-                    ],
-                    "to": [
-                        64,
-                        64
-                    ],
-                    "label": "X₀"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 64,
+                    "x2": 64,
+                    "y2": 64
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        0,
-                        192
-                    ],
-                    "to": [
-                        64,
-                        192
-                    ],
-                    "label": "X₁"
+                    "component": "wire",
+                    "x1": 0,
+                    "y1": 192,
+                    "x2": 64,
+                    "y2": 192
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        192,
-                        128
-                    ],
-                    "to": [
-                        288,
-                        128
-                    ],
-                    "label": "Z"
+                    "component": "wire",
+                    "x1": 192,
+                    "y1": 128,
+                    "x2": 288,
+                    "y2": 128
                 }
             ]
         },

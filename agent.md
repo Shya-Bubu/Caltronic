@@ -238,16 +238,32 @@ Best for: v-i curves, transfer characteristics, frequency responses, any data pl
 
 #### Category 2: Circuit Schematics (type: `circuit-schematic`)
 Best for: Static circuit diagrams — resistors, diodes, sources, connections.
+
+> [!CAUTION]
+> **Elements use `"component"` key (NOT `"type"`)** with `x`/`y` centre position.
+> Components occupy ±30px from centre (60px total width/height).
+> Wires use `x1`/`y1`/`x2`/`y2`. Labels use `component: "text"`.
+> **NEVER use `"type"` as element key or `"from"`/`"to"` arrays — the renderer will silently skip them.**
+
+Supported `component` values: `resistor`, `resistor-iec`, `capacitor`, `inductor`, `diode`, `voltage-source`, `current-source`, `op-amp`, `switch`, `ground`, `wire`, `junction`, `current-arrow`, `voltage-mark`, `text`.
+
 ```json
 {
   "id": "voltage-divider",
   "type": "circuit-schematic",
   "title": "Voltage Divider Circuit",
+  "width": 480,
+  "height": 280,
   "elements": [
-    { "type": "voltage-source", "id": "Vs", "from": [50,200], "to": [50,50], "label": "Vs = 10V" },
-    { "type": "resistor", "id": "R1", "from": [50,50], "to": [200,50], "label": "R₁" },
-    { "type": "resistor", "id": "R2", "from": [200,50], "to": [200,200], "label": "R₂" },
-    { "type": "wire", "from": [50,200], "to": [200,200] }
+    { "component": "voltage-source", "x": 60, "y": 140, "label": "Vs", "value": "10V" },
+    { "component": "wire", "x1": 60, "y1": 100, "x2": 140, "y2": 100 },
+    { "component": "resistor", "x": 170, "y": 100, "label": "R₁", "value": "1kΩ" },
+    { "component": "wire", "x1": 200, "y1": 100, "x2": 300, "y2": 100 },
+    { "component": "resistor", "x": 300, "y": 140, "label": "R₂", "value": "2kΩ", "rotation": 90 },
+    { "component": "wire", "x1": 60, "y1": 180, "x2": 300, "y2": 180 },
+    { "component": "ground", "x": 180, "y": 180 },
+    { "component": "current-arrow", "x": 110, "y": 75, "label": "i" },
+    { "component": "text", "x": 340, "y": 140, "text": "V_out", "fontSize": 12, "color": "#4ecdc4" }
   ]
 }
 ```

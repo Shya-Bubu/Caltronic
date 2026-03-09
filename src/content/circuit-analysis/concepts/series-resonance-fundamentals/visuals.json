@@ -6,75 +6,46 @@
             "title": "Series RLC Circuit Driven by AC Voltage Source",
             "elements": [
                 {
-                    "type": "voltage-source",
-                    "id": "Vs",
-                    "from": [
-                        0,
-                        128
-                    ],
-                    "to": [
-                        0,
-                        0
-                    ],
+                    "component": "voltage-source",
+                    "x": 0,
+                    "y": 64,
+                    "rotation": 90,
                     "label": "Vs = Vm∠θ"
                 },
                 {
-                    "type": "resistor",
-                    "id": "R",
-                    "from": [
-                        0,
-                        0
-                    ],
-                    "to": [
-                        128,
-                        0
-                    ],
+                    "component": "resistor",
+                    "x": 64,
+                    "y": 0,
                     "label": "R"
                 },
                 {
-                    "type": "inductor",
-                    "id": "L",
-                    "from": [
-                        128,
-                        0
-                    ],
-                    "to": [
-                        256,
-                        0
-                    ],
+                    "component": "inductor",
+                    "x": 192,
+                    "y": 0,
                     "label": "jωL"
                 },
                 {
-                    "type": "capacitor",
-                    "id": "C",
-                    "from": [
-                        256,
-                        0
-                    ],
-                    "to": [
-                        256,
-                        128
-                    ],
+                    "component": "capacitor",
+                    "x": 256,
+                    "y": 64,
+                    "rotation": 90,
                     "label": "1/jωC"
                 },
                 {
-                    "type": "wire",
-                    "from": [
-                        256,
-                        128
-                    ],
-                    "to": [
-                        0,
-                        128
-                    ]
+                    "component": "wire",
+                    "x1": 256,
+                    "y1": 128,
+                    "x2": 0,
+                    "y2": 128
                 },
                 {
-                    "type": "label",
+                    "component": "text",
+                    "x": 128,
+                    "y": 64,
                     "text": "I →",
-                    "position": [
-                        128,
-                        64
-                    ]
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "textAnchor": "middle"
                 }
             ]
         },
@@ -284,15 +255,15 @@
                         3.1,
                         2.5,
                         2.2,
-                        2.0,
+                        2,
                         2.2,
                         2.5,
                         3.1,
                         4.4,
                         8.6,
                         12.7,
-                        18.0,
-                        23.0
+                        18,
+                        23
                     ],
                     "name": "|Z(ω)|",
                     "type": "scatter",

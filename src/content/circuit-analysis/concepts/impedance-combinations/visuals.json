@@ -87,32 +87,28 @@
             "description": "Three impedances in series. The same phasor current I flows through each. The total voltage is V = (Z₁+Z₂+Z₃)I.",
             "elements": [
                 {
-                    "type": "source",
-                    "id": "vs",
-                    "label": "V_s",
-                    "from": "A",
-                    "to": "B"
+                    "component": "source",
+                    "x": null,
+                    "y": null,
+                    "label": "V_s"
                 },
                 {
-                    "type": "impedance",
-                    "id": "z1",
-                    "label": "Z₁",
-                    "from": "B",
-                    "to": "C"
+                    "component": "impedance",
+                    "x": null,
+                    "y": null,
+                    "label": "Z₁"
                 },
                 {
-                    "type": "impedance",
-                    "id": "z2",
-                    "label": "Z₂",
-                    "from": "C",
-                    "to": "D"
+                    "component": "impedance",
+                    "x": null,
+                    "y": null,
+                    "label": "Z₂"
                 },
                 {
-                    "type": "impedance",
-                    "id": "z3",
-                    "label": "Z₃",
-                    "from": "D",
-                    "to": "A"
+                    "component": "impedance",
+                    "x": null,
+                    "y": null,
+                    "label": "Z₃"
                 }
             ]
         },
@@ -123,25 +119,22 @@
             "description": "Two impedances in parallel. The same phasor voltage V appears across each. The total current is I = (Y₁+Y₂)V.",
             "elements": [
                 {
-                    "type": "source",
-                    "id": "vs",
-                    "label": "V_s",
-                    "from": "A",
-                    "to": "B"
+                    "component": "source",
+                    "x": null,
+                    "y": null,
+                    "label": "V_s"
                 },
                 {
-                    "type": "impedance",
-                    "id": "z1",
-                    "label": "Z₁",
-                    "from": "A",
-                    "to": "B"
+                    "component": "impedance",
+                    "x": null,
+                    "y": null,
+                    "label": "Z₁"
                 },
                 {
-                    "type": "impedance",
-                    "id": "z2",
-                    "label": "Z₂",
-                    "from": "A",
-                    "to": "B"
+                    "component": "impedance",
+                    "x": null,
+                    "y": null,
+                    "label": "Z₂"
                 }
             ]
         },
