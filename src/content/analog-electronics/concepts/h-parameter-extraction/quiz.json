@@ -1,0 +1,125 @@
+{
+    "id": "quiz-h-parameter-extraction",
+    "questions": [
+        {
+            "id": "hpe-q1",
+            "prompt": "From which characteristic curves do you extract h_fe and h_oe?",
+            "options": [
+                "Input characteristics (V_BE vs I_B)",
+                "Output characteristics (I_C vs V_CE)",
+                "Transfer characteristics (I_C vs V_BE)",
+                "Frequency response curves"
+            ],
+            "correctAnswer": "Output characteristics (I_C vs V_CE)",
+            "explanation": "h_fe = ΔI_C/ΔI_B at constant V_CE (spacing between curves) and h_oe = ΔI_C/ΔV_CE at constant I_B (slope of one curve) — both are measured from the output characteristics."
+        },
+        {
+            "id": "hpe-q2",
+            "prompt": "h_oe is graphically the:",
+            "options": [
+                "Spacing between adjacent I_B curves on the output characteristics",
+                "Slope of a single I_B curve on the output characteristics at the Q-point",
+                "Horizontal distance between input characteristic curves",
+                "y-intercept of the output characteristic"
+            ],
+            "correctAnswer": "Slope of a single I_B curve on the output characteristics at the Q-point",
+            "explanation": "h_oe = ΔI_C/ΔV_CE at constant I_B. This is literally the slope (steepness) of one output characteristic curve at the Q-point. A perfectly flat curve would give h_oe = 0 (infinite output resistance)."
+        },
+        {
+            "id": "hpe-q3",
+            "prompt": "If the output curves of a BJT were perfectly horizontal and evenly spaced, what would be true?",
+            "options": [
+                "h_fe = 0 and h_oe = ∞",
+                "h_fe = constant and h_oe = 0",
+                "h_fe = 0 and h_oe = 0",
+                "h_fe = ∞ and h_oe = ∞"
+            ],
+            "correctAnswer": "h_fe = constant and h_oe = 0",
+            "explanation": "Horizontal curves mean zero slope → h_oe = 0 (infinite output resistance). Evenly spaced means ΔI_C/ΔI_B is the same everywhere → h_fe is constant regardless of Q-point."
+        },
+        {
+            "id": "hpe-q4",
+            "prompt": "On the input characteristics, h_ie is:",
+            "options": [
+                "The spacing between two V_CE curves at constant I_B",
+                "The slope ΔV_BE/ΔI_B measured on one V_CE curve at the Q-point",
+                "The y-intercept of the curve",
+                "The area under the curve"
+            ],
+            "correctAnswer": "The slope ΔV_BE/ΔI_B measured on one V_CE curve at the Q-point",
+            "explanation": "h_ie is the input impedance — the ratio of input voltage change to input current change. On the V_BE vs I_B plot, this is the slope of one specific V_CE curve at the Q-point. Typical value: ~1 kΩ for CE."
+        },
+        {
+            "id": "hpe-q5",
+            "prompt": "The typical input impedance of a common base configuration is about:",
+            "options": [
+                "1 kΩ",
+                "22 Ω",
+                "40 kΩ",
+                "100 kΩ"
+            ],
+            "correctAnswer": "22 Ω",
+            "explanation": "CB has a very low input impedance (~22 Ω) because the input is at the emitter, which presents a resistance of approximately V_T/I_EQ. This contrasts sharply with CE (~1 kΩ) which has β times higher input impedance."
+        },
+        {
+            "id": "hpe-q6",
+            "prompt": "Common base has a very high output resistance (≈ 2 MΩ). This makes it ideal for:",
+            "options": [
+                "Voltage buffering",
+                "Current source applications",
+                "Impedance matching to 50 Ω loads",
+                "Digital switching"
+            ],
+            "correctAnswer": "Current source applications",
+            "explanation": "A high output resistance means the output current stays nearly constant regardless of the load — the defining property of a good current source. CB's h_ob ≈ 0.49 μA/V gives 1/h_ob ≈ 2 MΩ."
+        },
+        {
+            "id": "hpe-q7",
+            "prompt": "Why does h_fe change when you move the Q-point to a different location?",
+            "options": [
+                "Because the curves are exactly parallel",
+                "Because the spacing between curves varies across the graph due to nonlinearity",
+                "Because the axis scales change",
+                "h_fe never changes — it is truly constant"
+            ],
+            "correctAnswer": "Because the spacing between curves varies across the graph due to nonlinearity",
+            "explanation": "The output characteristic curves are not perfectly uniform — spacings between IB curves vary. At different V_CE or I_B values, the ratio ΔI_C/ΔI_B changes. This is a direct consequence of the BJT's nonlinear nature."
+        },
+        {
+            "id": "hpe-q8",
+            "prompt": "If h_oe = 25 μA/V for a CE BJT, the output resistance is:",
+            "options": [
+                "25 kΩ",
+                "40 kΩ",
+                "400 Ω",
+                "2.5 MΩ"
+            ],
+            "correctAnswer": "40 kΩ",
+            "explanation": "Output resistance = 1/h_oe = 1/(25×10⁻⁶) = 40,000 Ω = 40 kΩ. Remember: h_oe is a conductance (siemens), so invert to get resistance (ohms)."
+        },
+        {
+            "id": "hpe-q9",
+            "prompt": "Which factor can cause h-parameter values to change even at the same Q-point?",
+            "options": [
+                "Wire length in the circuit",
+                "Temperature",
+                "The colour of the component",
+                "The brand of the multimeter"
+            ],
+            "correctAnswer": "Temperature",
+            "explanation": "Temperature significantly affects h-parameters. For example, h_fe (β) typically increases with temperature because the intrinsic carrier concentration and diffusion coefficients are temperature-dependent. This is why thermal stability is important in BJT circuit design."
+        },
+        {
+            "id": "hpe-q10",
+            "prompt": "h_re is almost always negligible (≈ 10⁻⁴) because:",
+            "options": [
+                "The BJT has zero feedback",
+                "Changes in V_CE have virtually no effect on V_BE for CE and CB configurations",
+                "The input characteristics are identical for all V_CE values",
+                "The output resistance is too high"
+            ],
+            "correctAnswer": "Changes in V_CE have virtually no effect on V_BE for CE and CB configurations",
+            "explanation": "h_re = ΔV_BE/ΔV_CE. On the input characteristics, the curves for different V_CE values are almost identical — changing V_CE by several volts shifts V_BE by only fractions of a millivolt. This makes h_re ≈ 10⁻⁴, negligible in most analyses."
+        }
+    ]
+}

@@ -1,0 +1,606 @@
+{
+    "visuals": [
+        {
+            "id": "amplifier-block-diagram",
+            "type": "plotly",
+            "title": "The Four Key Amplifier Quantities",
+            "traces": [
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "text",
+                    "text": [
+                        ""
+                    ],
+                    "showlegend": false
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -1,
+                        7
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -1,
+                        3.5
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 3,
+                        "y": 2.5,
+                        "text": "<b>AMPLIFIER</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 18
+                        }
+                    },
+                    {
+                        "x": 0.5,
+                        "y": 1.5,
+                        "text": "Z_in →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#4ecdc4"
+                        }
+                    },
+                    {
+                        "x": 5.5,
+                        "y": 1.5,
+                        "text": "← Z_out",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#ff6b6b"
+                        }
+                    },
+                    {
+                        "x": 3,
+                        "y": 0.3,
+                        "text": "A_V = V₂/V₁     A_I = -I₂/I₁",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#f0a03a"
+                        }
+                    }
+                ],
+                "shapes": [
+                    {
+                        "type": "rect",
+                        "x0": 1.5,
+                        "x1": 4.5,
+                        "y0": 0.8,
+                        "y1": 3,
+                        "line": {
+                            "color": "#f0a03a",
+                            "width": 3
+                        },
+                        "fillcolor": "rgba(240,160,58,0.1)"
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "general-h-param-circuit",
+            "type": "circuit-schematic",
+            "title": "General Analysis Circuit: Source → h-Model → Load",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "vs",
+                    "from": [
+                        32,
+                        192
+                    ],
+                    "to": [
+                        32,
+                        64
+                    ],
+                    "label": "V_S"
+                },
+                {
+                    "type": "resistor",
+                    "id": "rs",
+                    "from": [
+                        32,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        64
+                    ],
+                    "label": "R_S"
+                },
+                {
+                    "type": "resistor",
+                    "id": "hi",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        192
+                    ],
+                    "label": "h_i"
+                },
+                {
+                    "type": "current-source",
+                    "id": "hf",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ],
+                    "label": "h_f·I₁"
+                },
+                {
+                    "type": "resistor",
+                    "id": "ho",
+                    "from": [
+                        384,
+                        64
+                    ],
+                    "to": [
+                        384,
+                        192
+                    ],
+                    "label": "1/h_o"
+                },
+                {
+                    "type": "resistor",
+                    "id": "zl",
+                    "from": [
+                        448,
+                        64
+                    ],
+                    "to": [
+                        448,
+                        192
+                    ],
+                    "label": "Z_L"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        192
+                    ],
+                    "to": [
+                        192,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        192
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        384,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        384,
+                        192
+                    ],
+                    "to": [
+                        448,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        64
+                    ],
+                    "to": [
+                        384,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        384,
+                        64
+                    ],
+                    "to": [
+                        448,
+                        64
+                    ]
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        160,
+                        128
+                    ],
+                    "text": "V₁",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        416,
+                        128
+                    ],
+                    "text": "V₂",
+                    "anchor": "middle"
+                }
+            ]
+        },
+        {
+            "id": "current-gain-derivation",
+            "type": "plotly",
+            "title": "Current Gain: How h_o Reduces It",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        20,
+                        40,
+                        80,
+                        160
+                    ],
+                    "y": [
+                        50,
+                        49.4,
+                        48.8,
+                        47.6,
+                        45.5,
+                        41.7,
+                        35.7
+                    ],
+                    "name": "|A_I| = h_fe/(1+h_oe·Z_L)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Z_L (kΩ)"
+                },
+                "yaxis": {
+                    "title": "|A_I|"
+                },
+                "annotations": [
+                    {
+                        "x": 40,
+                        "y": 50,
+                        "text": "Ideal: |A_I| = h_fe = 50",
+                        "showarrow": false,
+                        "font": {
+                            "color": "gray"
+                        }
+                    }
+                ],
+                "shapes": [
+                    {
+                        "type": "line",
+                        "x0": 0,
+                        "x1": 160,
+                        "y0": 50,
+                        "y1": 50,
+                        "line": {
+                            "dash": "dash",
+                            "color": "gray"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "input-impedance-formula",
+            "type": "plotly",
+            "title": "Input Impedance vs Load (when h_r ≠ 0)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        1.0,
+                        0.99,
+                        0.96,
+                        0.93,
+                        0.88,
+                        0.77,
+                        0.63
+                    ],
+                    "name": "Z_in (kΩ) with h_r = 2.5×10⁻⁴",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        100
+                    ],
+                    "y": [
+                        1.0,
+                        1.0
+                    ],
+                    "name": "Z_in when h_r = 0",
+                    "mode": "lines",
+                    "line": {
+                        "color": "gray",
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Z_L (kΩ)"
+                },
+                "yaxis": {
+                    "title": "Z_in (kΩ)"
+                },
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "source-resistance-effect",
+            "type": "plotly",
+            "title": "Source Resistance Reduces Voltage Gain",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.1,
+                        0.5,
+                        1,
+                        2,
+                        5,
+                        10
+                    ],
+                    "y": [
+                        21,
+                        19.1,
+                        13.1,
+                        10.5,
+                        7.0,
+                        3.5,
+                        1.9
+                    ],
+                    "name": "|A_VS| with varying R_S",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "R_S (kΩ)"
+                },
+                "yaxis": {
+                    "title": "|A_VS|"
+                },
+                "annotations": [
+                    {
+                        "x": 1,
+                        "y": 21,
+                        "text": "|A_V| = 21 (no R_S)",
+                        "showarrow": false,
+                        "font": {
+                            "color": "gray"
+                        }
+                    }
+                ],
+                "shapes": [
+                    {
+                        "type": "line",
+                        "x0": 0,
+                        "x1": 10,
+                        "y0": 21,
+                        "y1": 21,
+                        "line": {
+                            "dash": "dash",
+                            "color": "gray"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "output-impedance-formula",
+            "type": "plotly",
+            "title": "Output Impedance vs Source Resistance",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.5,
+                        1,
+                        2,
+                        5,
+                        10
+                    ],
+                    "y": [
+                        40,
+                        40.3,
+                        40.6,
+                        41.2,
+                        42.5,
+                        44.4
+                    ],
+                    "name": "Z_out = 1/Y_out (kΩ)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#9b59b6",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "R_S (kΩ)"
+                },
+                "yaxis": {
+                    "title": "Z_out (kΩ)"
+                },
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "four-quantities-summary",
+            "type": "plotly",
+            "title": "Summary: Four Key Quantities for a CE Amplifier",
+            "traces": [
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "text",
+                    "text": [
+                        ""
+                    ],
+                    "showlegend": false
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        7
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        3
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 1.5,
+                        "y": 2.2,
+                        "text": "<b>A_I ≈ -50</b><br>(Current Gain)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(78,205,196,0.2)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 5,
+                        "y": 2.2,
+                        "text": "<b>Z_in ≈ 1 kΩ</b><br>(Input Impedance)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(240,160,58,0.2)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 1.5,
+                        "y": 0.5,
+                        "text": "<b>A_V ≈ -250</b><br>(Voltage Gain)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(255,107,107,0.2)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 5,
+                        "y": 0.5,
+                        "text": "<b>Z_out ≈ 40 kΩ</b><br>(Output Impedance)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(150,120,220,0.2)",
+                        "borderpad": 6
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        }
+    ]
+}

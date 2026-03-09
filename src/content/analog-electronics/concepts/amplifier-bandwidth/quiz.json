@@ -1,0 +1,125 @@
+{
+    "id": "quiz-amplifier-bandwidth",
+    "questions": [
+        {
+            "id": "ab-q1",
+            "prompt": "The lower cutoff frequency of an amplifier is caused by:",
+            "options": [
+                "Parasitic capacitances between BJT terminals",
+                "Coupling and bypass capacitors acting as high-pass filters",
+                "The current gain β decreasing",
+                "The power supply voltage dropping"
+            ],
+            "correctAnswer": "Coupling and bypass capacitors acting as high-pass filters",
+            "explanation": "Coupling capacitors block DC but pass AC. At low frequencies, their impedance (1/ωC) becomes large, creating a voltage divider that attenuates the signal. This creates a high-pass filter with a lower cutoff frequency."
+        },
+        {
+            "id": "ab-q2",
+            "prompt": "The lower cutoff frequency for a coupling capacitor C_c with input resistance R_in is:",
+            "options": [
+                "f_L = 2πR_inC_c",
+                "f_L = R_in/(2πC_c)",
+                "f_L = 1/(2πR_inC_c)",
+                "f_L = C_c/(2πR_in)"
+            ],
+            "correctAnswer": "f_L = 1/(2πR_inC_c)",
+            "explanation": "The RC high-pass filter formed by C_c and R_in has cutoff frequency ω_L = 1/(R_inC_c), or f_L = 1/(2πR_inC_c). Below this frequency, the gain drops at 20 dB/decade."
+        },
+        {
+            "id": "ab-q3",
+            "prompt": "At the -3 dB cutoff frequency, the voltage is what fraction of its midband value?",
+            "options": [
+                "1/2 (50%)",
+                "1/√2 ≈ 0.707 (70.7%)",
+                "1/√3 ≈ 0.577 (57.7%)",
+                "1/e ≈ 0.368 (36.8%)"
+            ],
+            "correctAnswer": "1/√2 ≈ 0.707 (70.7%)",
+            "explanation": "-3 dB corresponds to half power. Since power ∝ V², half power means V²/2, so V = V_max/√2 ≈ 0.707 × V_max. This is the standard definition of cutoff frequency."
+        },
+        {
+            "id": "ab-q4",
+            "prompt": "If three capacitors produce individual cutoffs at 10 Hz, 30 Hz, and 5 Hz, the amplifier's lower cutoff is:",
+            "options": [
+                "5 Hz",
+                "10 Hz",
+                "15 Hz",
+                "30 Hz"
+            ],
+            "correctAnswer": "30 Hz",
+            "explanation": "The amplifier's actual lower cutoff is the HIGHEST of all individual cutoffs. The 30 Hz capacitor starts attenuating first as frequency decreases, creating the limiting bottleneck for the amplifier."
+        },
+        {
+            "id": "ab-q5",
+            "prompt": "The upper cutoff frequency is caused by:",
+            "options": [
+                "Coupling capacitors having too high impedance",
+                "Parasitic capacitances (C_be, C_bc) shunting signal current at high frequencies",
+                "The power supply running out of current",
+                "The BJT switching too fast"
+            ],
+            "correctAnswer": "Parasitic capacitances (C_be, C_bc) shunting signal current at high frequencies",
+            "explanation": "At high frequencies, the tiny parasitic capacitances (picofarads) between BJT terminals have low impedance (X_C = 1/ωC), creating low-impedance paths that bypass the normal amplifier action and reduce gain."
+        },
+        {
+            "id": "ab-q6",
+            "prompt": "If R_in = 10 kΩ and you want f_L < 20 Hz, the minimum coupling capacitor is:",
+            "options": [
+                "0.16 μF",
+                "0.796 μF",
+                "7.96 μF",
+                "100 μF"
+            ],
+            "correctAnswer": "0.796 μF",
+            "explanation": "C > 1/(2πf_L R_in) = 1/(2π × 20 × 10⁴) = 1/(1.257×10⁵) = 7.96×10⁻⁶ F ≈ 0.796 μF. In practice, you'd choose at least 1 μF to have margin."
+        },
+        {
+            "id": "ab-q7",
+            "prompt": "The 'midband' region of an amplifier is where:",
+            "options": [
+                "The gain is at its maximum and approximately constant",
+                "The gain is exactly zero",
+                "Coupling capacitors have maximum impedance",
+                "Parasitic capacitances dominate"
+            ],
+            "correctAnswer": "The gain is at its maximum and approximately constant",
+            "explanation": "In the midband (f_L < f < f_H), coupling capacitors effectively short-circuit (low impedance) and parasitic capacitors effectively open-circuit (high impedance). The gain is at its flat maximum — this is where all our small-signal analysis applies."
+        },
+        {
+            "id": "ab-q8",
+            "prompt": "Bandwidth (BW) is defined as:",
+            "options": [
+                "f_L × f_H",
+                "f_H - f_L",
+                "f_H + f_L",
+                "f_H / f_L"
+            ],
+            "correctAnswer": "f_H - f_L",
+            "explanation": "BW = f_H - f_L is the frequency range over which the amplifier provides useful gain (within 3 dB of the midband value). Since typically f_H >> f_L, BW ≈ f_H."
+        },
+        {
+            "id": "ab-q9",
+            "prompt": "Why do we use large coupling capacitors (e.g., 100 μF)?",
+            "options": [
+                "To increase the voltage gain",
+                "To make f_L as low as possible so all audio frequencies pass",
+                "To increase the output current",
+                "To store energy for the bias circuit"
+            ],
+            "correctAnswer": "To make f_L as low as possible so all audio frequencies pass",
+            "explanation": "f_L = 1/(2πRC). Larger C means smaller f_L. With C = 100 μF and R = 10 kΩ, f_L = 0.16 Hz — well below the 20 Hz lower limit of human hearing, ensuring all audio frequencies pass without attenuation."
+        },
+        {
+            "id": "ab-q10",
+            "prompt": "The emitter bypass capacitor affects bandwidth because:",
+            "options": [
+                "It changes the bias point",
+                "At low frequencies it fails to short R_E2, increasing emitter resistance and reducing gain",
+                "It increases the upper cutoff frequency",
+                "It has no effect on bandwidth"
+            ],
+            "correctAnswer": "At low frequencies it fails to short R_E2, increasing emitter resistance and reducing gain",
+            "explanation": "The bypass capacitor shorts R_E2 at midband frequencies, increasing gain. At low frequencies, C_E has high impedance and no longer bypasses R_E2, so the full R_E appears in the circuit, reducing gain. This creates a cutoff frequency."
+        }
+    ]
+}

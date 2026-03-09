@@ -1,0 +1,11 @@
+{
+    "id": "small-signal-circuit-analysis",
+    "title": "Small-Signal Circuit Analysis Using h-Parameters",
+    "slug": "small-signal-circuit-analysis",
+    "description": "Derive general formulas for current gain, voltage gain, input impedance, and output admittance using the h-parameter model, applicable to any BJT configuration.",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

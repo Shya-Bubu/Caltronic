@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-h-parameter-derivation",
+    "cards": [
+        {
+            "id": "hpd-f1",
+            "front": "What are the four h-parameters for common emitter?",
+            "back": "h_ie (input impedance, Ω), h_re (reverse voltage gain, dimensionless), h_fe (forward current gain, dimensionless), h_oe (output conductance, S).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "hpd-f2",
+            "front": "Write the two h-parameter equations for CE configuration.",
+            "back": "v_be = h_ie · i_b + h_re · v_ce\ni_c = h_fe · i_b + h_oe · v_ce",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpd-f3",
+            "front": "Define h_fe as a partial derivative.",
+            "back": "h_fe = ∂I_C/∂I_B evaluated at V_CE = V_CEQ. It is the slope of the I_C vs I_B relationship at constant output voltage — the AC current gain (β).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "hpd-f4",
+            "front": "Define h_oe as a partial derivative.",
+            "back": "h_oe = ∂I_C/∂V_CE evaluated at I_B = I_BQ. It is the slope of the output characteristic curve at the Q-point — the output conductance.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "hpd-f5",
+            "front": "What does the second subscript in h-parameters represent?",
+            "back": "The BJT configuration: 'e' = common emitter, 'c' = common collector, 'b' = common base.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "hpd-f6",
+            "front": "Why is h_re usually neglected in CE analysis?",
+            "back": "h_re ≈ 2.5 × 10⁻⁴ for CE. A 10V change in V_CE produces only 2.5 mV at the input — negligible. Setting h_re = 0 removes the feedback voltage source and simplifies analysis.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpd-f7",
+            "front": "For which configuration is h_r NOT negligible? Why?",
+            "back": "Common collector (emitter follower): h_rc ≈ 1. The output voltage (at the emitter) closely follows the input. Nearly all of V_EC feeds back to the input.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "hpd-f8",
+            "front": "What are the four circuit elements in the h-parameter model?",
+            "back": "1. Resistor h_ie (input side)\n2. VCVS h_re·v_ce (input side)\n3. CCCS h_fe·i_b (output side)\n4. Resistor 1/h_oe (output side)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpd-f9",
+            "front": "How do h_ie and h_fe relate to r_π and g_m?",
+            "back": "r_π = h_ie and g_m = h_fe/h_ie = I_CQ/V_T. The hybrid-π model is the h-parameter model with h_re = 0.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "hpd-f10",
+            "front": "If given CE parameters but the circuit is CB, what do you do?",
+            "back": "Insert the CE equivalent circuit (the model you have parameters for) and connect B, C, E terminals appropriately. Then analyse with KVL/KCL. Never try to use CE parameters as if they were CB parameters.",
+            "difficultyLevel": 4
+        }
+    ]
+}

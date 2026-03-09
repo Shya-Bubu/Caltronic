@@ -1,0 +1,11 @@
+{
+    "id": "h-parameter-extraction",
+    "title": "Extracting h-Parameters from BJT Characteristics",
+    "slug": "h-parameter-extraction",
+    "description": "Learn to graphically extract all four h-parameters from the input and output characteristic curves of a BJT, and understand typical values for CE, CC, and CB configurations.",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

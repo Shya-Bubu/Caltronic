@@ -1,0 +1,11 @@
+{
+    "id": "h-parameter-derivation",
+    "title": "Deriving the h-Parameter Model",
+    "slug": "h-parameter-derivation",
+    "description": "Derive the four h-parameters from a two-variable Taylor series expansion, understand the equivalent circuit, and learn the second-subscript convention for CE/CC/CB configurations.",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

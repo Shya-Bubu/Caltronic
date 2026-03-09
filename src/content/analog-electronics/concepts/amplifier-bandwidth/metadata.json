@@ -1,0 +1,11 @@
+{
+    "id": "amplifier-bandwidth",
+    "title": "Amplifier Bandwidth",
+    "slug": "amplifier-bandwidth",
+    "description": "Understand how coupling capacitors create the lower cutoff frequency and parasitic capacitances create the upper cutoff, defining the amplifier's usable bandwidth.",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

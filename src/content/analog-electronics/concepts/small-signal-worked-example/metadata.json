@@ -1,0 +1,11 @@
+{
+    "id": "small-signal-worked-example",
+    "title": "Small-Signal Analysis — Complete Worked Example",
+    "slug": "small-signal-worked-example",
+    "description": "Walk through a complete CE amplifier analysis: AC equivalent circuit, h-parameter model substitution, R_E reflection, and calculating R_in, R_out, A_V, and A_I.",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

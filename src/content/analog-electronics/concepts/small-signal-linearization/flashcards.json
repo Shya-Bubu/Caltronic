@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-small-signal-linearization",
+    "cards": [
+        {
+            "id": "ssl-f1",
+            "front": "What is the small-signal condition for a BJT?",
+            "back": "v_be << V_T ≈ 26 mV. Practically, v_be < 10 mV. This ensures the Taylor series approximation is valid and higher-order terms are negligible.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ssl-f2",
+            "front": "What is V_T and what is its value at room temperature?",
+            "back": "V_T is the thermal voltage = kT/q ≈ 26 mV at 300 K. It sets the voltage scale for the BJT's exponential characteristic.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ssl-f3",
+            "front": "What mathematical technique linearises the BJT?",
+            "back": "Taylor series expansion of e^(v_be/V_T) around the Q-point, keeping only the first-order term: e^x ≈ 1 + x when x << 1.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ssl-f4",
+            "front": "Write the linearised expression for i_b in terms of v_be.",
+            "back": "i_b = (I_BQ / V_T) · v_be. The ratio I_BQ/V_T is constant at the Q-point, making this a linear relationship.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ssl-f5",
+            "front": "What is the transconductance g_m?",
+            "back": "g_m = I_CQ / V_T. It relates AC collector current to AC base-emitter voltage: i_c = g_m · v_be. Independent of β.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ssl-f6",
+            "front": "List the three assumptions for the small-signal h-parameter model.",
+            "back": "1. BJT properly biased in active region. 2. Signal is small (v_be << V_T). 3. Frequency is low (parasitic capacitances negligible, h-parameters real-valued).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ssl-f7",
+            "front": "Why does the BJT behave linearly only for small signals?",
+            "back": "The I_B vs V_BE relationship is exponential. Taylor expansion shows that only when v_be << V_T do the higher-order (nonlinear) terms become negligible, leaving a linear first-order approximation.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ssl-f8",
+            "front": "What notation convention distinguishes AC from DC quantities?",
+            "back": "Lowercase-lowercase (v_ce, i_b) = pure AC. Uppercase-uppercase (V_CE, I_B) = DC. Lowercase-uppercase (v_CE, i_B) = total (DC+AC). Uppercase-lowercase = phasor/RMS.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ssl-f9",
+            "front": "If I_CQ = 1 mA, what is g_m?",
+            "back": "g_m = I_CQ / V_T = 1 mA / 26 mV = 38.5 mA/V. This is a high transconductance — a 1 mV change in v_be produces 38.5 μA change in i_c.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ssl-f10",
+            "front": "What happens at high frequencies that invalidates the simple h-parameter model?",
+            "back": "Parasitic capacitances between BJT terminals (C_be, C_bc) have low impedance at high frequencies, creating current paths not modelled by the simple h-parameter equivalent circuit. The h-parameters become complex-valued.",
+            "difficultyLevel": 4
+        }
+    ]
+}

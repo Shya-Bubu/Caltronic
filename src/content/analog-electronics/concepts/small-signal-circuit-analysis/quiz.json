@@ -1,0 +1,125 @@
+{
+    "id": "quiz-small-signal-circuit-analysis",
+    "questions": [
+        {
+            "id": "ssca-q1",
+            "prompt": "The current gain A_I of an amplifier using h-parameters is:",
+            "options": [
+                "A_I = h_f",
+                "A_I = -h_f / (1 + h_o·Z_L)",
+                "A_I = h_f · Z_L",
+                "A_I = h_f / h_i"
+            ],
+            "correctAnswer": "A_I = -h_f / (1 + h_o·Z_L)",
+            "explanation": "The current gain includes the effect of the output conductance h_o. Some of the generated current h_f·I_1 flows through 1/h_o instead of the load. The denominator (1 + h_o·Z_L) captures this loss. If h_o = 0, it simplifies to A_I = -h_f."
+        },
+        {
+            "id": "ssca-q2",
+            "prompt": "When h_r ≈ 0, the input impedance Z_in simplifies to:",
+            "options": [
+                "h_i + h_r·h_f·Z_L",
+                "h_i",
+                "h_f / h_o",
+                "h_i · h_f"
+            ],
+            "correctAnswer": "h_i",
+            "explanation": "With h_r = 0, the feedback term h_r·A_I·Z_L vanishes and Z_in = h_i. The input impedance becomes independent of the load — a major simplification."
+        },
+        {
+            "id": "ssca-q3",
+            "prompt": "The voltage gain A_V can be expressed as:",
+            "options": [
+                "A_I · Z_L / Z_in",
+                "h_f · Z_L",
+                "V_2 · Z_L / V_1",
+                "h_f / (h_i + Z_L)"
+            ],
+            "correctAnswer": "A_I · Z_L / Z_in",
+            "explanation": "A_V = V_2/V_1. Since V_2 = A_I·I_1·Z_L and V_1 = Z_in·I_1, dividing gives A_V = A_I·Z_L/Z_in. This elegant formula connects all three quantities."
+        },
+        {
+            "id": "ssca-q4",
+            "prompt": "If R_S = Z_in, the overall voltage gain A_VS compared to A_V is:",
+            "options": [
+                "The same",
+                "Doubled",
+                "Halved",
+                "Zero"
+            ],
+            "correctAnswer": "Halved",
+            "explanation": "A_VS = A_V · Z_in/(R_S + Z_in). When R_S = Z_in, the fraction becomes 1/2, so A_VS = A_V/2. Half the source voltage drops across R_S. This is called the loading effect."
+        },
+        {
+            "id": "ssca-q5",
+            "prompt": "To find Z_out, you must:",
+            "options": [
+                "Open-circuit the source and connect the load",
+                "Short-circuit the source (V_S = 0) and remove the load",
+                "Short-circuit both source and load",
+                "Leave everything connected as-is"
+            ],
+            "correctAnswer": "Short-circuit the source (V_S = 0) and remove the load",
+            "explanation": "By definition, Z_out is measured with V_S = 0 (source shorted) and Z_L = ∞ (no load). This isolates the output's own impedance from the external components."
+        },
+        {
+            "id": "ssca-q6",
+            "prompt": "The output admittance Y_out depends on:",
+            "options": [
+                "Only h_o",
+                "h_o and the load Z_L",
+                "h_o, h_f, h_r, h_i, and source resistance R_S",
+                "Only the load impedance Z_L"
+            ],
+            "correctAnswer": "h_o, h_f, h_r, h_i, and source resistance R_S",
+            "explanation": "Y_out = h_o - h_f·h_r/(h_i + R_S). It depends on all four h-parameters AND the source resistance. The feedback path (h_r) modifies the effective output impedance."
+        },
+        {
+            "id": "ssca-q7",
+            "prompt": "Why should you NOT memorise the A_I, A_V, Z_in, Z_out formulas for the exam?",
+            "options": [
+                "They are too simple to forget",
+                "The formulas change depending on the circuit — always derive from KVL/KCL",
+                "The examiner provides them on a formula sheet",
+                "They only work for CE configuration"
+            ],
+            "correctAnswer": "The formulas change depending on the circuit — always derive from KVL/KCL",
+            "explanation": "The general formulas assume a specific topology (source → BJT → load). Real circuits have additional components (bias resistors, bypass capacitors, feedback networks) that change the analysis. The lecturer explicitly said: derive your own expressions using KVL/KCL."
+        },
+        {
+            "id": "ssca-q8",
+            "prompt": "High input impedance is desirable because:",
+            "options": [
+                "It draws maximum current from the source",
+                "It minimises the voltage drop across the source resistance, preserving signal strength",
+                "It increases the output current",
+                "It reduces the power supply requirements"
+            ],
+            "correctAnswer": "It minimises the voltage drop across the source resistance, preserving signal strength",
+            "explanation": "With high Z_in, most of V_S appears across the amplifier input (V_1 ≈ V_S since Z_in >> R_S). With low Z_in, a significant portion of V_S drops across R_S, reducing the effective input signal."
+        },
+        {
+            "id": "ssca-q9",
+            "prompt": "The current gain with source resistance included, A_IS, relates to A_I by:",
+            "options": [
+                "A_IS = A_I · R_S / (R_S + Z_in)",
+                "A_IS = A_I · Z_in / (R_S + Z_in)",
+                "A_IS = A_I + R_S",
+                "A_IS = A_I / R_S"
+            ],
+            "correctAnswer": "A_IS = A_I · R_S / (R_S + Z_in)",
+            "explanation": "Using Norton equivalent: input current I_1 divides between Z_in and R_S. By current division: I_1 = I_S · R_S/(R_S + Z_in). So A_IS = A_I · R_S/(R_S + Z_in)."
+        },
+        {
+            "id": "ssca-q10",
+            "prompt": "If h_o·Z_L << 1, the current gain is approximately:",
+            "options": [
+                "-h_f",
+                "-h_f · Z_L",
+                "-h_f / Z_L",
+                "h_i / h_f"
+            ],
+            "correctAnswer": "-h_f",
+            "explanation": "When h_o·Z_L << 1, the denominator (1 + h_o·Z_L) ≈ 1, so A_I ≈ -h_f. Physically, this means the output conductance is so small that virtually no current is lost through 1/h_o — all of h_f·I_1 flows through the load."
+        }
+    ]
+}

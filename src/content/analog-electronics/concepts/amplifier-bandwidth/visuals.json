@@ -1,0 +1,636 @@
+{
+    "visuals": [
+        {
+            "id": "bandwidth-overview",
+            "type": "plotly",
+            "title": "Amplifier Frequency Response: The Bandwidth Picture",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100,
+                        200,
+                        500,
+                        1000,
+                        5000,
+                        10000,
+                        50000,
+                        100000,
+                        500000,
+                        1000000
+                    ],
+                    "y": [
+                        0.1,
+                        0.2,
+                        0.45,
+                        0.7,
+                        0.9,
+                        0.98,
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0,
+                        0.98,
+                        0.9,
+                        0.7,
+                        0.3,
+                        0.1
+                    ],
+                    "name": "|A_V/A_V,max|",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        1000000
+                    ],
+                    "y": [
+                        0.707,
+                        0.707
+                    ],
+                    "name": "-3 dB line",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "dash": "dash",
+                        "width": 1
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Frequency (Hz)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Normalised Gain",
+                    "range": [
+                        0,
+                        1.1
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 2.3,
+                        "y": 0.85,
+                        "text": "f_L",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 0,
+                        "ay": -30
+                    },
+                    {
+                        "x": 5.2,
+                        "y": 0.85,
+                        "text": "f_H",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 0,
+                        "ay": -30
+                    },
+                    {
+                        "x": 3.7,
+                        "y": 1.05,
+                        "text": "← Midband →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#4ecdc4"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "coupling-cap-effect",
+            "type": "falstad-sim",
+            "title": "Interactive: Coupling Capacitor as High-Pass Filter",
+            "description": "The coupling capacitor blocks DC and attenuates low-frequency AC. Try changing the frequency of the source to see how the output changes.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 112 288 112 80 0 1 100 0.5 0 0 0.5\nc 112 80 240 80 0 0.000001 0 0.001\nr 240 80 240 288 0 10000\nw 112 288 240 288 0\ng 176 288 176 320 0 0\no 2 64 0 4098 0.625 0.05 0 2 2 3\no 0 64 0 4098 0.625 0.05 1 2 0 3\n",
+            "height": 400
+        },
+        {
+            "id": "highpass-response",
+            "type": "plotly",
+            "title": "High-Pass Filter: |V_in/V_S| vs Frequency",
+            "traces": [
+                {
+                    "x": [
+                        0.01,
+                        0.02,
+                        0.05,
+                        0.1,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100
+                    ],
+                    "y": [
+                        0.01,
+                        0.02,
+                        0.05,
+                        0.1,
+                        0.196,
+                        0.45,
+                        0.707,
+                        0.894,
+                        0.98,
+                        0.995,
+                        0.999,
+                        1.0,
+                        1.0
+                    ],
+                    "name": "|V_in/V_S|",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0.01,
+                        100
+                    ],
+                    "y": [
+                        0.707,
+                        0.707
+                    ],
+                    "name": "0.707 (-3 dB)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "f / f_L (normalised)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "|V_in/V_S|"
+                },
+                "annotations": [
+                    {
+                        "x": 0,
+                        "y": 0.75,
+                        "text": "Cutoff: f = f_L",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 40,
+                        "ay": -20
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "cutoff-calculation",
+            "type": "plotly",
+            "title": "Lower Cutoff Frequency: f_L = 1/(2πR_in·C_c)",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100,
+                        200,
+                        500,
+                        1000
+                    ],
+                    "y": [
+                        15.9,
+                        7.96,
+                        3.18,
+                        1.59,
+                        0.796,
+                        0.318,
+                        0.159,
+                        0.080,
+                        0.032,
+                        0.016
+                    ],
+                    "name": "f_L (Hz) for R_in = 10 kΩ",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "C_c (μF)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "f_L (Hz)",
+                    "type": "log"
+                },
+                "shapes": [
+                    {
+                        "type": "line",
+                        "x0": 1,
+                        "x1": 1000,
+                        "y0": 20,
+                        "y1": 20,
+                        "line": {
+                            "dash": "dash",
+                            "color": "#ff6b6b"
+                        }
+                    },
+                    {
+                        "type": "rect",
+                        "x0": 1,
+                        "x1": 1000,
+                        "y0": 0.01,
+                        "y1": 20,
+                        "fillcolor": "rgba(78,205,196,0.1)",
+                        "line": {
+                            "width": 0
+                        }
+                    }
+                ],
+                "annotations": [
+                    {
+                        "x": 2.5,
+                        "y": 1.4,
+                        "text": "Below 20 Hz →<br>audio-safe zone",
+                        "showarrow": false,
+                        "font": {
+                            "size": 11,
+                            "color": "#4ecdc4"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "parasitic-caps",
+            "type": "circuit-schematic",
+            "title": "Parasitic Capacitances in a BJT",
+            "elements": [
+                {
+                    "type": "resistor",
+                    "id": "rpi",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ],
+                    "label": "r_π"
+                },
+                {
+                    "type": "current-source",
+                    "id": "gm",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ],
+                    "label": "g_m·v_be"
+                },
+                {
+                    "type": "capacitor",
+                    "id": "cbe",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        192
+                    ],
+                    "label": "C_be"
+                },
+                {
+                    "type": "capacitor",
+                    "id": "cbc",
+                    "from": [
+                        160,
+                        32
+                    ],
+                    "to": [
+                        320,
+                        32
+                    ],
+                    "label": "C_bc"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        64
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        192
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        192
+                    ],
+                    "to": [
+                        192,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        64
+                    ],
+                    "to": [
+                        384,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        384,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        160,
+                        32
+                    ],
+                    "to": [
+                        160,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        32
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ]
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        32,
+                        48
+                    ],
+                    "text": "B",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        384,
+                        48
+                    ],
+                    "text": "C",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        160,
+                        208
+                    ],
+                    "text": "E",
+                    "anchor": "middle"
+                }
+            ]
+        },
+        {
+            "id": "multiple-cutoffs",
+            "type": "plotly",
+            "title": "Multiple Capacitor Cutoffs: The Highest One Wins",
+            "traces": [
+                {
+                    "x": [
+                        "Input Cap",
+                        "Output Cap",
+                        "Bypass Cap"
+                    ],
+                    "y": [
+                        5,
+                        8,
+                        50
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4ecdc4",
+                            "#f0a03a",
+                            "#ff6b6b"
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "yaxis": {
+                    "title": "f_L (Hz)"
+                },
+                "annotations": [
+                    {
+                        "x": "Bypass Cap",
+                        "y": 55,
+                        "text": "← This one sets f_L!",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#ff6b6b"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "complete-freq-response",
+            "type": "plotly",
+            "title": "Complete Frequency Response: Three Regions",
+            "traces": [
+                {
+                    "x": [
+                        1,
+                        2,
+                        5,
+                        10,
+                        20,
+                        50,
+                        100,
+                        500,
+                        1000,
+                        5000,
+                        10000,
+                        50000,
+                        100000,
+                        500000
+                    ],
+                    "y": [
+                        20,
+                        26,
+                        33,
+                        37,
+                        39.5,
+                        40,
+                        40,
+                        40,
+                        40,
+                        40,
+                        39.5,
+                        37,
+                        33,
+                        26
+                    ],
+                    "name": "Gain (dB)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        1,
+                        500000
+                    ],
+                    "y": [
+                        37,
+                        37
+                    ],
+                    "name": "-3 dB from peak",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "Frequency (Hz)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "Gain (dB)"
+                },
+                "shapes": [
+                    {
+                        "type": "rect",
+                        "x0": 50,
+                        "x1": 50000,
+                        "y0": 18,
+                        "y1": 42,
+                        "fillcolor": "rgba(78,205,196,0.1)",
+                        "line": {
+                            "width": 0
+                        }
+                    }
+                ],
+                "annotations": [
+                    {
+                        "x": 3.2,
+                        "y": 42,
+                        "text": "← Midband →",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#4ecdc4"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        }
+    ]
+}

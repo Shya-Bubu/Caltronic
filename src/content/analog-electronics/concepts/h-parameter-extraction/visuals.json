@@ -1,0 +1,797 @@
+{
+    "visuals": [
+        {
+            "id": "output-characteristics",
+            "type": "plotly",
+            "title": "BJT Output Characteristics (I_C vs V_CE)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        0.8,
+                        0.95,
+                        1.0,
+                        1.05,
+                        1.12,
+                        1.2,
+                        1.28,
+                        1.37
+                    ],
+                    "name": "I_B = 20 μA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        1.6,
+                        1.9,
+                        2.0,
+                        2.1,
+                        2.25,
+                        2.4,
+                        2.57,
+                        2.75
+                    ],
+                    "name": "I_B = 40 μA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        2.4,
+                        2.85,
+                        3.0,
+                        3.15,
+                        3.38,
+                        3.6,
+                        3.85,
+                        4.12
+                    ],
+                    "name": "I_B = 60 μA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        3.2,
+                        3.8,
+                        4.0,
+                        4.2,
+                        4.5,
+                        4.8,
+                        5.13,
+                        5.5
+                    ],
+                    "name": "I_B = 80 μA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#9b59b6",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        6
+                    ],
+                    "y": [
+                        2.4
+                    ],
+                    "name": "Q-point",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ff6b6b",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_CE (V)"
+                },
+                "yaxis": {
+                    "title": "I_C (mA)"
+                },
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "hfe-extraction",
+            "type": "plotly",
+            "title": "Extracting h_fe: Current Gain from Curve Spacing",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        1.6,
+                        1.9,
+                        2.0,
+                        2.1,
+                        2.25,
+                        2.4,
+                        2.57,
+                        2.75
+                    ],
+                    "name": "I_B = 40 μA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        2.4,
+                        2.85,
+                        3.0,
+                        3.15,
+                        3.38,
+                        3.6,
+                        3.85,
+                        4.12
+                    ],
+                    "name": "I_B = 60 μA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        6,
+                        6
+                    ],
+                    "y": [
+                        2.4,
+                        3.6
+                    ],
+                    "name": "ΔI_C = 1.2 mA",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#fff",
+                        "width": 2,
+                        "dash": "dot"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_CE (V)"
+                },
+                "yaxis": {
+                    "title": "I_C (mA)"
+                },
+                "annotations": [
+                    {
+                        "x": 7,
+                        "y": 3.0,
+                        "text": "h_fe = ΔI_C/ΔI_B<br>= 1.2 mA / 20 μA<br>= 60",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 50,
+                        "ay": -20
+                    }
+                ],
+                "shapes": [
+                    {
+                        "type": "line",
+                        "x0": 6,
+                        "x1": 6,
+                        "y0": 0,
+                        "y1": 5,
+                        "line": {
+                            "color": "gray",
+                            "dash": "dash",
+                            "width": 1
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "hoe-extraction",
+            "type": "plotly",
+            "title": "Extracting h_oe: Output Conductance from Curve Slope",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        0.2,
+                        0.5,
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10
+                    ],
+                    "y": [
+                        0,
+                        1.6,
+                        1.9,
+                        2.0,
+                        2.1,
+                        2.25,
+                        2.4,
+                        2.57,
+                        2.75
+                    ],
+                    "name": "I_B = 40 μA (Q-point curve)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        4,
+                        8
+                    ],
+                    "y": [
+                        2.25,
+                        2.57
+                    ],
+                    "name": "Tangent at Q",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_CE (V)"
+                },
+                "yaxis": {
+                    "title": "I_C (mA)"
+                },
+                "annotations": [
+                    {
+                        "x": 7,
+                        "y": 2.1,
+                        "text": "h_oe = ΔI_C/ΔV_CE<br>= 0.32 mA / 4 V<br>= 80 μA/V",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 30,
+                        "ay": 40
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "input-characteristics",
+            "type": "plotly",
+            "title": "BJT Input Characteristics (V_BE vs I_B)",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        15,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80
+                    ],
+                    "y": [
+                        0.55,
+                        0.6,
+                        0.63,
+                        0.65,
+                        0.665,
+                        0.685,
+                        0.7,
+                        0.71,
+                        0.72,
+                        0.725,
+                        0.73
+                    ],
+                    "name": "V_CE = 2V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        15,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80
+                    ],
+                    "y": [
+                        0.548,
+                        0.598,
+                        0.628,
+                        0.648,
+                        0.663,
+                        0.683,
+                        0.698,
+                        0.708,
+                        0.718,
+                        0.723,
+                        0.728
+                    ],
+                    "name": "V_CE = 6V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        15,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80
+                    ],
+                    "y": [
+                        0.546,
+                        0.596,
+                        0.626,
+                        0.646,
+                        0.661,
+                        0.681,
+                        0.696,
+                        0.706,
+                        0.716,
+                        0.721,
+                        0.726
+                    ],
+                    "name": "V_CE = 10V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        40
+                    ],
+                    "y": [
+                        0.698
+                    ],
+                    "name": "Q-point",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ff6b6b",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "I_B (μA)"
+                },
+                "yaxis": {
+                    "title": "V_BE (V)"
+                },
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "hie-extraction",
+            "type": "plotly",
+            "title": "Extracting h_ie: Input Impedance from Curve Slope",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        15,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80
+                    ],
+                    "y": [
+                        0.548,
+                        0.598,
+                        0.628,
+                        0.648,
+                        0.663,
+                        0.683,
+                        0.698,
+                        0.708,
+                        0.718,
+                        0.723,
+                        0.728
+                    ],
+                    "name": "V_CE = 6V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        30,
+                        50
+                    ],
+                    "y": [
+                        0.683,
+                        0.708
+                    ],
+                    "name": "Tangent at Q",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "I_B (μA)"
+                },
+                "yaxis": {
+                    "title": "V_BE (V)"
+                },
+                "annotations": [
+                    {
+                        "x": 55,
+                        "y": 0.67,
+                        "text": "h_ie = ΔV_BE/ΔI_B<br>= 25 mV / 20 μA<br>= 1.25 kΩ",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 30,
+                        "ay": 30
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "hre-extraction",
+            "type": "plotly",
+            "title": "Extracting h_re: Reverse Voltage Gain from Curve Shift",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        15,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80
+                    ],
+                    "y": [
+                        0.55,
+                        0.6,
+                        0.63,
+                        0.65,
+                        0.665,
+                        0.685,
+                        0.7,
+                        0.71,
+                        0.72,
+                        0.725,
+                        0.73
+                    ],
+                    "name": "V_CE = 2V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        5,
+                        10,
+                        15,
+                        20,
+                        30,
+                        40,
+                        50,
+                        60,
+                        70,
+                        80
+                    ],
+                    "y": [
+                        0.546,
+                        0.596,
+                        0.626,
+                        0.646,
+                        0.661,
+                        0.681,
+                        0.696,
+                        0.706,
+                        0.716,
+                        0.721,
+                        0.726
+                    ],
+                    "name": "V_CE = 10V",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "width": 2
+                    }
+                },
+                {
+                    "x": [
+                        40,
+                        40
+                    ],
+                    "y": [
+                        0.696,
+                        0.7
+                    ],
+                    "name": "ΔV_BE (tiny!)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#fff",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "I_B (μA)"
+                },
+                "yaxis": {
+                    "title": "V_BE (V)",
+                    "range": [
+                        0.68,
+                        0.72
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 50,
+                        "y": 0.698,
+                        "text": "h_re = ΔV_BE/ΔV_CE<br>= 4 mV / 8 V ≈ 5×10⁻⁴<br>(Almost nothing!)",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 50,
+                        "ay": -30
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "h-param-comparison-table",
+            "type": "plotly",
+            "title": "h-Parameter Values Comparison: CE vs CC vs CB",
+            "traces": [
+                {
+                    "x": [
+                        "h_i (Ω)",
+                        "h_f",
+                        "1/h_o (kΩ)"
+                    ],
+                    "y": [
+                        1100,
+                        50,
+                        40
+                    ],
+                    "name": "CE",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#4ecdc4"
+                    }
+                },
+                {
+                    "x": [
+                        "h_i (Ω)",
+                        "h_f",
+                        "1/h_o (kΩ)"
+                    ],
+                    "y": [
+                        1100,
+                        51,
+                        40
+                    ],
+                    "name": "CC",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#f0a03a"
+                    }
+                },
+                {
+                    "x": [
+                        "h_i (Ω)",
+                        "h_f",
+                        "1/h_o (kΩ)"
+                    ],
+                    "y": [
+                        22,
+                        0.98,
+                        2000
+                    ],
+                    "name": "CB",
+                    "type": "bar",
+                    "marker": {
+                        "color": "#ff6b6b"
+                    }
+                }
+            ],
+            "layout": {
+                "yaxis": {
+                    "title": "Value",
+                    "type": "log"
+                },
+                "barmode": "group",
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "q-point-variation",
+            "type": "plotly",
+            "title": "h_ie Varies with Q-Point: Higher I_CQ → Lower Input Resistance",
+            "traces": [
+                {
+                    "x": [
+                        0.1,
+                        0.5,
+                        1,
+                        2,
+                        3,
+                        5,
+                        10
+                    ],
+                    "y": [
+                        13,
+                        2.6,
+                        1.3,
+                        0.65,
+                        0.43,
+                        0.26,
+                        0.13
+                    ],
+                    "name": "h_ie ≈ βV_T/I_CQ (kΩ)",
+                    "mode": "lines+markers",
+                    "line": {
+                        "color": "#f0a03a",
+                        "width": 3
+                    },
+                    "marker": {
+                        "size": 8
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "I_CQ (mA)",
+                    "type": "log"
+                },
+                "yaxis": {
+                    "title": "h_ie (kΩ)",
+                    "type": "log"
+                },
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        }
+    ]
+}

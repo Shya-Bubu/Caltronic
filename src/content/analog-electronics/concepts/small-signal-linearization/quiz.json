@@ -1,0 +1,125 @@
+{
+    "id": "quiz-small-signal-linearization",
+    "questions": [
+        {
+            "id": "ssl-q1",
+            "prompt": "The relationship between I_B and V_BE for a BJT is:",
+            "options": [
+                "Linear (I_B = kV_BE)",
+                "Exponential (I_B ∝ e^(V_BE/V_T))",
+                "Quadratic (I_B ∝ V_BE²)",
+                "Logarithmic (I_B ∝ ln(V_BE))"
+            ],
+            "correctAnswer": "Exponential (I_B ∝ e^(V_BE/V_T))",
+            "explanation": "The BJT base current follows the exponential relationship I_B = (I_S/β)·e^(V_BE/V_T), inherited from the PN junction physics of the base-emitter diode. This is fundamentally nonlinear, which is why linearization is needed for AC analysis."
+        },
+        {
+            "id": "ssl-q2",
+            "prompt": "What mathematical technique converts the BJT's nonlinear characteristic into a linear approximation?",
+            "options": [
+                "Fourier transform",
+                "Taylor series expansion around the Q-point",
+                "Laplace transform",
+                "Matrix inversion"
+            ],
+            "correctAnswer": "Taylor series expansion around the Q-point",
+            "explanation": "A Taylor series expansion of the exponential function e^(v_be/V_T) around the Q-point gives: 1 + v_be/V_T + (v_be/V_T)²/2 + ... When v_be is small, higher-order terms are negligible, leaving a linear relationship."
+        },
+        {
+            "id": "ssl-q3",
+            "prompt": "The small-signal condition requires v_be to be:",
+            "options": [
+                "Equal to V_T = 26 mV",
+                "Much less than V_T ≈ 26 mV (practically < 10 mV)",
+                "Greater than 0.7 V",
+                "Less than V_CC"
+            ],
+            "correctAnswer": "Much less than V_T ≈ 26 mV (practically < 10 mV)",
+            "explanation": "For the Taylor series to be well-approximated by its first-order term, v_be/V_T must be much less than 1. Since V_T = 26 mV at room temperature, v_be must be much smaller — the practical rule of thumb is v_be < 10 mV, which keeps the second-order error below about 10%."
+        },
+        {
+            "id": "ssl-q4",
+            "prompt": "What is V_T (the thermal voltage) at room temperature (300 K)?",
+            "options": [
+                "0.7 V",
+                "26 mV",
+                "10 mV",
+                "1.38 V"
+            ],
+            "correctAnswer": "26 mV",
+            "explanation": "V_T = kT/q where k = 1.38×10⁻²³ J/K, T = 300 K, q = 1.6×10⁻¹⁹ C. This gives V_T = (1.38×10⁻²³ × 300)/(1.6×10⁻¹⁹) ≈ 25.9 mV ≈ 26 mV. This is a fundamental constant in semiconductor physics."
+        },
+        {
+            "id": "ssl-q5",
+            "prompt": "After linearization, the AC base current is i_b = ?",
+            "options": [
+                "I_BQ · v_be",
+                "(I_BQ / V_T) · v_be",
+                "β · V_T · v_be",
+                "I_S · e^(v_be/V_T)"
+            ],
+            "correctAnswer": "(I_BQ / V_T) · v_be",
+            "explanation": "From the Taylor expansion, keeping only the first-order term: I_B ≈ I_BQ(1 + v_be/V_T) = I_BQ + (I_BQ/V_T)·v_be. The AC component is i_b = (I_BQ/V_T)·v_be — a linear function of v_be with slope I_BQ/V_T."
+        },
+        {
+            "id": "ssl-q6",
+            "prompt": "The transconductance g_m of a BJT is defined as:",
+            "options": [
+                "g_m = V_T / I_CQ",
+                "g_m = I_CQ / V_T",
+                "g_m = β / V_T",
+                "g_m = I_BQ × V_T"
+            ],
+            "correctAnswer": "g_m = I_CQ / V_T",
+            "explanation": "The transconductance relates the AC collector current to the AC base-emitter voltage: i_c = g_m · v_be. Since i_c = β·i_b = β·(I_BQ/V_T)·v_be = (I_CQ/V_T)·v_be, we get g_m = I_CQ/V_T. Crucially, g_m does not depend on β."
+        },
+        {
+            "id": "ssl-q7",
+            "prompt": "If v_be = 5 mV and V_T = 26 mV, what is the percentage error from dropping the second-order term?",
+            "options": [
+                "About 9.6%",
+                "About 19.2%",
+                "About 1.9%",
+                "About 38.5%"
+            ],
+            "correctAnswer": "About 9.6%",
+            "explanation": "The second-order term relative to the first-order term is: (v_be/V_T)/2 = (5/26)/2 = 0.192/2 = 0.096 = 9.6%. This is close to our 10% threshold, making 5 mV a reasonable signal level for the small-signal approximation."
+        },
+        {
+            "id": "ssl-q8",
+            "prompt": "Which of these is NOT a required assumption for using the small-signal h-parameter model?",
+            "options": [
+                "BJT is properly biased in the active region",
+                "Signal frequency is in the audio range (low frequency)",
+                "β must be greater than 100",
+                "v_be << V_T (signal is small)"
+            ],
+            "correctAnswer": "β must be greater than 100",
+            "explanation": "The three assumptions are: (1) proper biasing in active region, (2) small signal (v_be << V_T), and (3) low frequency. The value of β does not need to exceed any particular threshold — the linearization works regardless of β as long as the signal is small."
+        },
+        {
+            "id": "ssl-q9",
+            "prompt": "Why must the frequency be low for the simple h-parameter model to be valid?",
+            "options": [
+                "Because the BJT cannot switch at high frequencies",
+                "Because at high frequencies, parasitic capacitances between terminals create additional current paths not modelled by h-parameters",
+                "Because V_T changes with frequency",
+                "Because β decreases at high frequencies"
+            ],
+            "correctAnswer": "Because at high frequencies, parasitic capacitances between terminals create additional current paths not modelled by h-parameters",
+            "explanation": "At high frequencies, the impedance of parasitic capacitances (base-emitter, base-collector) becomes small enough to allow significant current flow through paths the simple h-parameter model ignores. The h-parameters become complex-valued, requiring a more sophisticated model."
+        },
+        {
+            "id": "ssl-q10",
+            "prompt": "In the notation convention, a lowercase letter with a lowercase subscript (e.g., v_ce, i_b) represents:",
+            "options": [
+                "The DC quantity only",
+                "The total instantaneous value (DC + AC)",
+                "The purely AC quantity (zero average)",
+                "The RMS or phasor value"
+            ],
+            "correctAnswer": "The purely AC quantity (zero average)",
+            "explanation": "Lowercase letter + lowercase subscript = purely AC (zero DC component). For example, v_ce is only the AC part of the collector-emitter voltage. Uppercase-uppercase = DC only. Lowercase-uppercase = total (DC+AC). Uppercase-lowercase = phasor/RMS."
+        }
+    ]
+}

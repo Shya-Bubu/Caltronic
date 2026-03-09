@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-small-signal-worked-example",
+    "cards": [
+        {
+            "id": "sswe-f1",
+            "front": "Steps to draw the AC equivalent circuit?",
+            "back": "1. Short-circuit all capacitors (C_in, C_out, C_E)\n2. Replace DC voltage sources with short circuits\n3. Replace DC current sources with open circuits\n4. Redraw the simplified circuit",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "sswe-f2",
+            "front": "How does the R_E reflection trick work?",
+            "back": "R_E in the emitter (carrying ≈ βi_b) can be moved to the base branch as β·R_E (carrying i_b). This preserves KVL: same voltage drop, but now in the base loop for easier analysis.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "sswe-f3",
+            "front": "For h_ie = 1kΩ, β = 50, R_E1 = 240Ω, what is R_base?",
+            "back": "R_base = h_ie + β·R_E1 = 1k + 50×240 = 1k + 12k = 13 kΩ.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "sswe-f4",
+            "front": "Quick formula for CE voltage gain?",
+            "back": "A_V ≈ -(R_C ∥ R_L) / R_E,unbypassed. Only the unbypassed emitter resistance matters because the bypassed R_E2 is shorted by C_E at signal frequencies.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "sswe-f5",
+            "front": "Why is R_out = R_C for a CE amplifier?",
+            "back": "Looking into the collector with V_S = 0 and R_L removed, you see R_C in parallel with the current source (infinite impedance). If 1/h_oe is also neglected, only R_C remains.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "sswe-f6",
+            "front": "Why is A_I less than β?",
+            "back": "Two losses: (1) I_in splits between I_B and bias resistor current I_1 → not all input current reaches the base. (2) I_C splits between R_C and R_L → not all collector current reaches the load.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "sswe-f7",
+            "front": "How does the AC load line differ from the DC load line?",
+            "back": "AC load line uses R_AC = R_E1 + R_C∥R_L (capacitors shorted, R_L connected). DC load line uses R_DC = R_E1 + R_E2 + R_C (capacitors open, no R_L). AC line is steeper.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "sswe-f8",
+            "front": "When can you neglect 1/h_oe?",
+            "back": "When 1/h_oe >> R_C∥R_L. Typical: 1/h_oe = 40 kΩ vs R_C∥R_L = 5 kΩ. The ratio is 8:1, so < 13% error — acceptable for engineering.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "sswe-f9",
+            "front": "How to use CE parameters for a CB circuit?",
+            "back": "Don't convert! Insert the CE equivalent circuit, connect B→B, C→C, E→E. Then analyse with KVL/KCL. The circuit topology handles the configuration difference.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "sswe-f10",
+            "front": "Complete analysis pipeline (7 steps)?",
+            "back": "1. DC analysis → Q-point\n2. AC equivalent circuit\n3. AC load line\n4. h-parameter model (simplify)\n5. R_E reflection\n6. Calculate R_in, R_out, A_V, A_I\n7. Sanity check with shortcuts",
+            "difficultyLevel": 1
+        }
+    ]
+}

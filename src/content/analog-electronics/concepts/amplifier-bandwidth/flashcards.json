@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-amplifier-bandwidth",
+    "cards": [
+        {
+            "id": "ab-f1",
+            "front": "What causes the lower cutoff frequency?",
+            "back": "Coupling and bypass capacitors. At low frequencies, their impedance (1/ωC) is large, causing voltage drops that attenuate the signal.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ab-f2",
+            "front": "Formula for lower cutoff frequency?",
+            "back": "f_L = 1/(2πRC) where R is the resistance and C is the coupling/bypass capacitor.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ab-f3",
+            "front": "What is the -3 dB point in terms of voltage?",
+            "back": "Voltage = 1/√2 ≈ 0.707 of the midband value. This corresponds to half power (-3 dB).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ab-f4",
+            "front": "When multiple capacitors each produce their own cutoff, the amplifier's f_L is:",
+            "back": "The HIGHEST of all individual cutoff frequencies. The capacitor with the highest cutoff frequency is the bottleneck.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ab-f5",
+            "front": "What causes the upper cutoff frequency?",
+            "back": "Parasitic capacitances (C_be, C_bc) between BJT terminals. At high frequencies, their low impedance shunts signal current, reducing gain.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ab-f6",
+            "front": "What is the midband region?",
+            "back": "The frequency range f_L < f < f_H where gain is approximately constant. Coupling caps act as shorts, parasitic caps act as opens. All small-signal analysis assumes midband.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ab-f7",
+            "front": "How does a coupling capacitor form a high-pass filter?",
+            "back": "C_c in series with R_in creates a voltage divider. At low f: X_C >> R_in → most signal drops across C_c. At high f: X_C << R_in → signal passes to amplifier.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ab-f8",
+            "front": "If R_in = 5 kΩ, C_c = 10 μF, what is f_L?",
+            "back": "f_L = 1/(2π × 5×10³ × 10×10⁻⁶) = 1/(0.314) = 3.18 Hz.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ab-f9",
+            "front": "Why is the emitter bypass capacitor's cutoff often the bottleneck?",
+            "back": "The resistance seen by the bypass cap is small (R_E is typically 100s of ohms), making its cutoff frequency higher than that of coupling caps which see larger resistances.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "ab-f10",
+            "front": "Bandwidth BW = ?",
+            "back": "BW = f_H - f_L. Since typically f_H >> f_L, BW ≈ f_H. For audio: BW should cover 20 Hz to 20 kHz.",
+            "difficultyLevel": 2
+        }
+    ]
+}

@@ -1,0 +1,764 @@
+{
+    "visuals": [
+        {
+            "id": "full-circuit",
+            "type": "falstad-sim",
+            "title": "CE Amplifier with Voltage Divider Bias and Load",
+            "description": "Complete CE amplifier circuit: V_CC = 10V, R_A = R_B = 56kΩ, R_C = 10kΩ, R_E1 = 240Ω, R_E2 = 20kΩ (bypassed), R_L = 10kΩ. Source: 12mV peak. Observe the amplified and inverted output.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 48 384 48 64 0 0 40 10 0 0 0.5\nr 48 64 208 64 0 56000\nr 208 64 208 384 0 56000\nt 272 192 336 192 0 1 -9.303 0.691 50\nr 336 64 336 144 0 10000\nw 336 144 336 176 0\nw 208 64 208 192 0\nc 208 192 272 192 0 0.0001 0 0.001\nv 112 320 112 384 0 1 1000 0.012 0 0 0.5\nr 336 208 336 272 0 240\nr 336 272 336 384 0 20000\nc 400 272 400 384 0 0.0001 0 0.001\nw 336 272 400 272 0\nc 336 144 480 144 0 0.0001 0 0.001\nr 480 144 480 384 0 10000\nw 48 384 112 384 0\nw 112 384 208 384 0\nw 208 384 336 384 0\nw 336 384 400 384 0\nw 400 384 480 384 0\nw 48 64 48 144 0\nw 48 144 336 144 0\nw 112 320 112 192 0\nw 112 192 208 192 0\ng 256 384 256 416 0 0\no 13 64 0 4098 0.0000048828125 0.05 0 2 13 3\n",
+            "height": 500
+        },
+        {
+            "id": "ac-equivalent",
+            "type": "circuit-schematic",
+            "title": "AC Equivalent Circuit (Capacitors Shorted, V_CC Grounded)",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "vs",
+                    "from": [
+                        32,
+                        256
+                    ],
+                    "to": [
+                        32,
+                        64
+                    ],
+                    "label": "V_S = 12mV"
+                },
+                {
+                    "type": "resistor",
+                    "id": "rbias",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        256
+                    ],
+                    "label": "R_A∥R_B = 28kΩ"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        192,
+                        64
+                    ],
+                    "text": "B",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        350,
+                        64
+                    ],
+                    "text": "C",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        270,
+                        285
+                    ],
+                    "text": "E",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "resistor",
+                    "id": "re1",
+                    "from": [
+                        270,
+                        220
+                    ],
+                    "to": [
+                        270,
+                        256
+                    ],
+                    "label": "R_E1 = 240Ω"
+                },
+                {
+                    "type": "resistor",
+                    "id": "rc",
+                    "from": [
+                        350,
+                        64
+                    ],
+                    "to": [
+                        350,
+                        256
+                    ],
+                    "label": "R_C = 10kΩ"
+                },
+                {
+                    "type": "resistor",
+                    "id": "rl",
+                    "from": [
+                        420,
+                        64
+                    ],
+                    "to": [
+                        420,
+                        256
+                    ],
+                    "label": "R_L = 10kΩ"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        350,
+                        64
+                    ],
+                    "to": [
+                        420,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        256
+                    ],
+                    "to": [
+                        128,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        256
+                    ],
+                    "to": [
+                        270,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        270,
+                        256
+                    ],
+                    "to": [
+                        350,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        350,
+                        256
+                    ],
+                    "to": [
+                        420,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ac-load-line",
+            "type": "plotly",
+            "title": "AC Load Lines: Loaded vs Unloaded",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        3.85,
+                        5.9
+                    ],
+                    "y": [
+                        0.59,
+                        0.205,
+                        0
+                    ],
+                    "name": "Unloaded (slope = -1/10k)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#ff6b6b",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                },
+                {
+                    "x": [
+                        0,
+                        3.85,
+                        4.88
+                    ],
+                    "y": [
+                        0.975,
+                        0.205,
+                        0
+                    ],
+                    "name": "Loaded (slope = -1/5k)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        3.85
+                    ],
+                    "y": [
+                        0.205
+                    ],
+                    "name": "Q-point",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#f0a03a",
+                        "symbol": "star"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "V_CE (V)"
+                },
+                "yaxis": {
+                    "title": "I_C (mA)"
+                },
+                "title": "AC Load Line: Steeper with R_L Connected",
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "h-param-model-circuit",
+            "type": "circuit-schematic",
+            "title": "Small-Signal h-Parameter Model of the Amplifier",
+            "elements": [
+                {
+                    "type": "voltage-source",
+                    "id": "vs",
+                    "from": [
+                        32,
+                        256
+                    ],
+                    "to": [
+                        32,
+                        64
+                    ],
+                    "label": "12mV"
+                },
+                {
+                    "type": "resistor",
+                    "id": "hie",
+                    "from": [
+                        160,
+                        64
+                    ],
+                    "to": [
+                        160,
+                        160
+                    ],
+                    "label": "h_ie = 1kΩ"
+                },
+                {
+                    "type": "current-source",
+                    "id": "hfe",
+                    "from": [
+                        320,
+                        256
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ],
+                    "label": "50·i_b"
+                },
+                {
+                    "type": "resistor",
+                    "id": "rbias",
+                    "from": [
+                        96,
+                        64
+                    ],
+                    "to": [
+                        96,
+                        256
+                    ],
+                    "label": "28kΩ"
+                },
+                {
+                    "type": "resistor",
+                    "id": "re1",
+                    "from": [
+                        220,
+                        160
+                    ],
+                    "to": [
+                        220,
+                        256
+                    ],
+                    "label": "240Ω"
+                },
+                {
+                    "type": "resistor",
+                    "id": "rc",
+                    "from": [
+                        380,
+                        64
+                    ],
+                    "to": [
+                        380,
+                        256
+                    ],
+                    "label": "10kΩ"
+                },
+                {
+                    "type": "resistor",
+                    "id": "rl",
+                    "from": [
+                        440,
+                        64
+                    ],
+                    "to": [
+                        440,
+                        256
+                    ],
+                    "label": "10kΩ"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        64
+                    ],
+                    "to": [
+                        96,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        96,
+                        64
+                    ],
+                    "to": [
+                        160,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        160,
+                        160
+                    ],
+                    "to": [
+                        220,
+                        160
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        220,
+                        160
+                    ],
+                    "to": [
+                        320,
+                        160
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        160
+                    ],
+                    "to": [
+                        320,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        64
+                    ],
+                    "to": [
+                        380,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        380,
+                        64
+                    ],
+                    "to": [
+                        440,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        256
+                    ],
+                    "to": [
+                        96,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        96,
+                        256
+                    ],
+                    "to": [
+                        220,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        220,
+                        256
+                    ],
+                    "to": [
+                        320,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        256
+                    ],
+                    "to": [
+                        380,
+                        256
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        380,
+                        256
+                    ],
+                    "to": [
+                        440,
+                        256
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "re-reflection",
+            "type": "plotly",
+            "title": "R_E Reflection: 240Ω in Emitter = 12kΩ in Base",
+            "traces": [
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "text",
+                    "text": [
+                        ""
+                    ],
+                    "showlegend": false
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -1,
+                        7
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -1,
+                        4
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 1.5,
+                        "y": 3,
+                        "text": "<b>Before</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14
+                        }
+                    },
+                    {
+                        "x": 5,
+                        "y": 3,
+                        "text": "<b>After Reflection</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14
+                        }
+                    },
+                    {
+                        "x": 1.5,
+                        "y": 2,
+                        "text": "h_ie = 1kΩ (base)",
+                        "showarrow": false,
+                        "bgcolor": "rgba(78,205,196,0.2)",
+                        "borderpad": 4
+                    },
+                    {
+                        "x": 1.5,
+                        "y": 1,
+                        "text": "R_E1 = 240Ω (emitter)",
+                        "showarrow": false,
+                        "bgcolor": "rgba(255,107,107,0.2)",
+                        "borderpad": 4
+                    },
+                    {
+                        "x": 5,
+                        "y": 2,
+                        "text": "h_ie = 1kΩ (base)",
+                        "showarrow": false,
+                        "bgcolor": "rgba(78,205,196,0.2)",
+                        "borderpad": 4
+                    },
+                    {
+                        "x": 5,
+                        "y": 1,
+                        "text": "β·R_E1 = 12kΩ (base)",
+                        "showarrow": false,
+                        "bgcolor": "rgba(240,160,58,0.2)",
+                        "borderpad": 4
+                    },
+                    {
+                        "x": 5,
+                        "y": 0,
+                        "text": "<b>Total: 13kΩ</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 14,
+                            "color": "#f0a03a"
+                        }
+                    }
+                ],
+                "shapes": [
+                    {
+                        "type": "line",
+                        "x0": 3.25,
+                        "x1": 3.25,
+                        "y0": -0.5,
+                        "y1": 3.5,
+                        "line": {
+                            "color": "gray",
+                            "dash": "dash"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "input-impedance-calc",
+            "type": "plotly",
+            "title": "Input Current Splits Between Base and Bias Paths",
+            "traces": [
+                {
+                    "x": [
+                        "I_B (base path)",
+                        "I_1 (bias path)",
+                        "I_in (total)"
+                    ],
+                    "y": [
+                        0.923,
+                        0.428,
+                        1.351
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "#4ecdc4",
+                            "#f0a03a",
+                            "#ff6b6b"
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "yaxis": {
+                    "title": "Current (μA)"
+                },
+                "annotations": [
+                    {
+                        "x": "I_in (total)",
+                        "y": 1.5,
+                        "text": "R_in = 12mV/1.35μA ≈ 8.9 kΩ",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "voltage-gain-calc",
+            "type": "plotly",
+            "title": "Voltage Gain Calculation",
+            "traces": [
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "text",
+                    "text": [
+                        ""
+                    ],
+                    "showlegend": false
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -1,
+                        7
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        3
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 3,
+                        "y": 2.3,
+                        "text": "<b>A_V = V_L / V_S = -250 mV / 12 mV ≈ -21</b>",
+                        "showarrow": false,
+                        "font": {
+                            "size": 15,
+                            "color": "#f0a03a"
+                        }
+                    },
+                    {
+                        "x": 3,
+                        "y": 1.5,
+                        "text": "V_L = -I_C × (R_C∥R_L) = -50μA × 5kΩ = -250 mV",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12
+                        }
+                    },
+                    {
+                        "x": 3,
+                        "y": 0.5,
+                        "text": "Quick check: A_V ≈ -(R_C∥R_L)/R_E1 = -5k/240 ≈ -21 ✓",
+                        "showarrow": false,
+                        "font": {
+                            "size": 12,
+                            "color": "#4ecdc4"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "current-gain-calc",
+            "type": "plotly",
+            "title": "Current Gain: Why A_I < β",
+            "traces": [
+                {
+                    "x": [
+                        "β (ideal)",
+                        "Lost to R_C",
+                        "Lost to bias",
+                        "Actual A_I"
+                    ],
+                    "y": [
+                        50,
+                        25,
+                        8,
+                        17
+                    ],
+                    "type": "bar",
+                    "marker": {
+                        "color": [
+                            "gray",
+                            "#ff6b6b",
+                            "#f0a03a",
+                            "#4ecdc4"
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "yaxis": {
+                    "title": "Current Gain"
+                },
+                "annotations": [
+                    {
+                        "x": "Actual A_I",
+                        "y": 20,
+                        "text": "A_I ≈ 17",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13,
+                            "color": "#4ecdc4"
+                        }
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        }
+    ]
+}

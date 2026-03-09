@@ -1,0 +1,746 @@
+{
+    "visuals": [
+        {
+            "id": "two-port-h-model",
+            "type": "circuit-schematic",
+            "title": "General h-Parameter Two-Port Model",
+            "elements": [
+                {
+                    "type": "resistor",
+                    "id": "hi",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ],
+                    "label": "h_i"
+                },
+                {
+                    "type": "voltage-source",
+                    "id": "hr",
+                    "from": [
+                        192,
+                        192
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ],
+                    "label": "h_r·V₂"
+                },
+                {
+                    "type": "current-source",
+                    "id": "hf",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ],
+                    "label": "h_f·I₁"
+                },
+                {
+                    "type": "resistor",
+                    "id": "ho",
+                    "from": [
+                        384,
+                        64
+                    ],
+                    "to": [
+                        384,
+                        192
+                    ],
+                    "label": "1/h_o"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        192,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        192
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        192
+                    ],
+                    "to": [
+                        192,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        192,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        384,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        384,
+                        192
+                    ],
+                    "to": [
+                        448,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        64
+                    ],
+                    "to": [
+                        384,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        384,
+                        64
+                    ],
+                    "to": [
+                        448,
+                        64
+                    ]
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        32,
+                        128
+                    ],
+                    "text": "V₁",
+                    "anchor": "end"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        448,
+                        128
+                    ],
+                    "text": "V₂",
+                    "anchor": "start"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        80,
+                        48
+                    ],
+                    "text": "I₁ →",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        420,
+                        48
+                    ],
+                    "text": "I₂ →",
+                    "anchor": "middle"
+                }
+            ]
+        },
+        {
+            "id": "partial-derivative-concept",
+            "type": "plotly",
+            "title": "Partial Derivatives: Slope in One Direction While Holding the Other Constant",
+            "traces": [
+                {
+                    "x": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "y": [
+                        0.6,
+                        0.62,
+                        0.64,
+                        0.66,
+                        0.68,
+                        0.7,
+                        0.72,
+                        0.74,
+                        0.76
+                    ],
+                    "name": "V_BE vs I_B (at V_CE = V_CEQ)",
+                    "mode": "lines",
+                    "line": {
+                        "color": "#4ecdc4",
+                        "width": 3
+                    }
+                },
+                {
+                    "x": [
+                        4
+                    ],
+                    "y": [
+                        0.68
+                    ],
+                    "name": "Q-point",
+                    "mode": "markers",
+                    "marker": {
+                        "size": 14,
+                        "color": "#ff6b6b",
+                        "symbol": "circle"
+                    }
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "title": "I_B (μA)"
+                },
+                "yaxis": {
+                    "title": "V_BE (V)"
+                },
+                "annotations": [
+                    {
+                        "x": 6,
+                        "y": 0.72,
+                        "text": "slope = ∂V_BE/∂I_B = h_ie",
+                        "showarrow": true,
+                        "arrowhead": 2,
+                        "ax": 40,
+                        "ay": -30
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "h-parameter-equations",
+            "type": "plotly",
+            "title": "The Four h-Parameters at a Glance",
+            "traces": [
+                {
+                    "x": [
+                        0
+                    ],
+                    "y": [
+                        0
+                    ],
+                    "mode": "text",
+                    "text": [
+                        ""
+                    ],
+                    "showlegend": false
+                }
+            ],
+            "layout": {
+                "xaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        6
+                    ]
+                },
+                "yaxis": {
+                    "visible": false,
+                    "range": [
+                        -0.5,
+                        3
+                    ]
+                },
+                "annotations": [
+                    {
+                        "x": 1.25,
+                        "y": 2.4,
+                        "text": "<b>h_ie = ∂V_BE/∂I_B</b><br>Input impedance (Ω)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(78, 205, 196, 0.2)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 4.25,
+                        "y": 2.4,
+                        "text": "<b>h_re = ∂V_BE/∂V_CE</b><br>Reverse gain (≈ 0)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(240, 160, 58, 0.2)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 1.25,
+                        "y": 0.6,
+                        "text": "<b>h_fe = ∂I_C/∂I_B</b><br>Current gain (= β)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(255, 107, 107, 0.2)",
+                        "borderpad": 6
+                    },
+                    {
+                        "x": 4.25,
+                        "y": 0.6,
+                        "text": "<b>h_oe = ∂I_C/∂V_CE</b><br>Output conductance (S)",
+                        "showarrow": false,
+                        "font": {
+                            "size": 13
+                        },
+                        "bgcolor": "rgba(150, 120, 220, 0.2)",
+                        "borderpad": 6
+                    }
+                ],
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "ce-h-parameter-circuit",
+            "type": "circuit-schematic",
+            "title": "Common Emitter h-Parameter Equivalent Circuit",
+            "elements": [
+                {
+                    "type": "resistor",
+                    "id": "hie",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ],
+                    "label": "h_ie"
+                },
+                {
+                    "type": "voltage-source",
+                    "id": "hre",
+                    "from": [
+                        224,
+                        192
+                    ],
+                    "to": [
+                        224,
+                        64
+                    ],
+                    "label": "h_re·v_ce"
+                },
+                {
+                    "type": "current-source",
+                    "id": "hfe",
+                    "from": [
+                        352,
+                        192
+                    ],
+                    "to": [
+                        352,
+                        64
+                    ],
+                    "label": "h_fe·i_b"
+                },
+                {
+                    "type": "resistor",
+                    "id": "roe",
+                    "from": [
+                        416,
+                        64
+                    ],
+                    "to": [
+                        416,
+                        192
+                    ],
+                    "label": "1/h_oe"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        224,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        192
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        192
+                    ],
+                    "to": [
+                        224,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        224,
+                        192
+                    ],
+                    "to": [
+                        352,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        352,
+                        192
+                    ],
+                    "to": [
+                        416,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        416,
+                        192
+                    ],
+                    "to": [
+                        480,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        352,
+                        64
+                    ],
+                    "to": [
+                        416,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        416,
+                        64
+                    ],
+                    "to": [
+                        480,
+                        64
+                    ]
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        32,
+                        48
+                    ],
+                    "text": "B",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        480,
+                        48
+                    ],
+                    "text": "C",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        256,
+                        208
+                    ],
+                    "text": "E",
+                    "anchor": "middle"
+                }
+            ]
+        },
+        {
+            "id": "ce-equivalent-falstad",
+            "type": "falstad-sim",
+            "title": "Interactive: CE h-Parameter Model with Load",
+            "description": "The BJT is replaced by its h-parameter equivalent. Change input signal and observe output. The current source h_fe·i_b is the amplification mechanism.",
+            "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 112 304 112 80 0 1 40 0.01 0 0 0.5\nr 112 80 224 80 0 1000\nr 336 80 336 304 0 40000\nc 336 80 448 80 0 0.000001 0 0.001\nr 448 80 448 304 0 10000\nw 112 304 224 304 0\nw 224 304 336 304 0\nw 336 304 448 304 0\ng 288 304 288 336 0 0\nw 224 304 288 304 0\ni 336 304 336 80 0 0.05\no 4 64 0 4098 0.0000048828125 0.05 0 2 4 3\n",
+            "height": 450
+        },
+        {
+            "id": "hre-effect",
+            "type": "plotly",
+            "title": "Effect of h_re: Reverse Feedback by Configuration",
+            "traces": [
+                {
+                    "x": [
+                        "Common Emitter",
+                        "Common Base",
+                        "Common Collector"
+                    ],
+                    "y": [
+                        0.00025,
+                        0.00029,
+                        1.0
+                    ],
+                    "type": "bar",
+                    "name": "h_r value",
+                    "marker": {
+                        "color": [
+                            "#4ecdc4",
+                            "#f0a03a",
+                            "#ff6b6b"
+                        ]
+                    }
+                }
+            ],
+            "layout": {
+                "yaxis": {
+                    "title": "h_r value",
+                    "type": "log"
+                },
+                "title": "h_r is negligible for CE and CB, but ≈ 1 for CC!",
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "hybrid-pi-comparison",
+            "type": "circuit-schematic",
+            "title": "Hybrid-π Model (Simplified h-Parameter Model with h_re = 0)",
+            "elements": [
+                {
+                    "type": "resistor",
+                    "id": "rpi",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ],
+                    "label": "r_π = h_ie"
+                },
+                {
+                    "type": "current-source",
+                    "id": "gm",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ],
+                    "label": "g_m·v_be"
+                },
+                {
+                    "type": "resistor",
+                    "id": "ro",
+                    "from": [
+                        384,
+                        64
+                    ],
+                    "to": [
+                        384,
+                        192
+                    ],
+                    "label": "r_o = 1/h_oe"
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        64
+                    ],
+                    "to": [
+                        128,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        64
+                    ],
+                    "to": [
+                        320,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        64
+                    ],
+                    "to": [
+                        384,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        384,
+                        64
+                    ],
+                    "to": [
+                        448,
+                        64
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        32,
+                        192
+                    ],
+                    "to": [
+                        128,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        128,
+                        192
+                    ],
+                    "to": [
+                        320,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        320,
+                        192
+                    ],
+                    "to": [
+                        384,
+                        192
+                    ]
+                },
+                {
+                    "type": "wire",
+                    "from": [
+                        384,
+                        192
+                    ],
+                    "to": [
+                        448,
+                        192
+                    ]
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        32,
+                        48
+                    ],
+                    "text": "B",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        448,
+                        48
+                    ],
+                    "text": "C",
+                    "anchor": "middle"
+                },
+                {
+                    "type": "label",
+                    "position": [
+                        240,
+                        208
+                    ],
+                    "text": "E",
+                    "anchor": "middle"
+                }
+            ]
+        }
+    ]
+}

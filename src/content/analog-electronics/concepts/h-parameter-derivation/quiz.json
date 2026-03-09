@@ -1,0 +1,125 @@
+{
+    "id": "quiz-h-parameter-derivation",
+    "questions": [
+        {
+            "id": "hpd-q1",
+            "prompt": "The h-parameters are derived using which mathematical technique?",
+            "options": [
+                "Fourier series expansion",
+                "Two-variable Taylor series expansion around the Q-point",
+                "Matrix eigenvalue decomposition",
+                "Laplace transform"
+            ],
+            "correctAnswer": "Two-variable Taylor series expansion around the Q-point",
+            "explanation": "The h-parameters come from expanding V_BE(I_B, V_CE) and I_C(I_B, V_CE) as two-variable Taylor series around the Q-point, keeping only first-order terms. Each h-parameter is a partial derivative evaluated at the operating point."
+        },
+        {
+            "id": "hpd-q2",
+            "prompt": "h_ie is defined as:",
+            "options": [
+                "∂I_C/∂I_B at constant V_CE",
+                "∂V_BE/∂I_B at constant V_CE",
+                "∂V_BE/∂V_CE at constant I_B",
+                "∂I_C/∂V_CE at constant I_B"
+            ],
+            "correctAnswer": "∂V_BE/∂I_B at constant V_CE",
+            "explanation": "h_ie is the input impedance — the ratio of input voltage change to input current change, with the output voltage held constant. It has units of ohms and represents the resistance seen looking into the base."
+        },
+        {
+            "id": "hpd-q3",
+            "prompt": "What element does h_fe·i_b represent in the equivalent circuit?",
+            "options": [
+                "A resistor",
+                "A voltage-controlled voltage source",
+                "A current-controlled current source",
+                "A capacitor"
+            ],
+            "correctAnswer": "A current-controlled current source",
+            "explanation": "h_fe·i_b is a current source whose magnitude depends on the input current i_b. It models the forward current gain of the BJT — the fact that a small base current controls a much larger collector current. This is the amplification mechanism."
+        },
+        {
+            "id": "hpd-q4",
+            "prompt": "Why are the h-parameters called 'hybrid' parameters?",
+            "options": [
+                "Because they combine NPN and PNP models",
+                "Because they mix different units (ohms, siemens, dimensionless)",
+                "Because they work for both AC and DC",
+                "Because they combine input and output characteristics"
+            ],
+            "correctAnswer": "Because they mix different units (ohms, siemens, dimensionless)",
+            "explanation": "Unlike z-parameters (all in ohms) or y-parameters (all in siemens), h-parameters have mixed units: h_ie in Ω, h_oe in S, and h_fe and h_re are dimensionless ratios. This 'hybrid' nature gives them their name."
+        },
+        {
+            "id": "hpd-q5",
+            "prompt": "The typical value of h_re for a common emitter BJT is about 2.5 × 10⁻⁴. This means:",
+            "options": [
+                "The reverse feedback is very strong",
+                "A 10 V change in V_CE causes only 2.5 mV change in V_BE — often negligible",
+                "The BJT has no reverse feedback",
+                "The output impedance is very high"
+            ],
+            "correctAnswer": "A 10 V change in V_CE causes only 2.5 mV change in V_BE — often negligible",
+            "explanation": "h_re = ΔV_BE/ΔV_CE ≈ 2.5×10⁻⁴, so a 10 V swing in V_CE only produces 2.5×10⁻⁴ × 10 = 2.5 mV at the input. This is so tiny that we usually set h_re ≈ 0 for CE analysis, removing the feedback source."
+        },
+        {
+            "id": "hpd-q6",
+            "prompt": "For which configuration is h_r NOT negligible?",
+            "options": [
+                "Common emitter",
+                "Common base",
+                "Common collector",
+                "All configurations"
+            ],
+            "correctAnswer": "Common collector",
+            "explanation": "For common collector, h_rc ≈ 1 — virtually all of the output voltage (V_EC) feeds back to the input. This makes sense physically because in CC (emitter follower), the output voltage closely tracks the input. For CE and CB, h_r ≈ 10⁻⁴ and can be safely neglected."
+        },
+        {
+            "id": "hpd-q7",
+            "prompt": "The output element in the h-parameter model is:",
+            "options": [
+                "A resistor of value h_oe",
+                "A resistor of value 1/h_oe",
+                "A voltage source of value h_oe·v_ce",
+                "A current source of value h_oe·i_b"
+            ],
+            "correctAnswer": "A resistor of value 1/h_oe",
+            "explanation": "h_oe is the output conductance (in siemens). In the equivalent circuit, it appears as a resistor of value 1/h_oe (converting conductance to resistance). For a typical CE BJT, h_oe ≈ 25 μA/V, so the resistance is 1/h_oe ≈ 40 kΩ."
+        },
+        {
+            "id": "hpd-q8",
+            "prompt": "The second subscript 'e' in h_ie, h_re, h_fe, h_oe stands for:",
+            "options": [
+                "Emitter current",
+                "Common emitter configuration",
+                "External parameters",
+                "Estimated values"
+            ],
+            "correctAnswer": "Common emitter configuration",
+            "explanation": "The second subscript identifies the BJT configuration: 'e' = common emitter, 'c' = common collector, 'b' = common base. The first subscript identifies the parameter type: i = input, r = reverse, f = forward, o = output."
+        },
+        {
+            "id": "hpd-q9",
+            "prompt": "How is h_ie related to r_π in the hybrid-π model?",
+            "options": [
+                "r_π = 1/h_ie",
+                "r_π = h_ie",
+                "r_π = h_ie × β",
+                "r_π = h_ie / β"
+            ],
+            "correctAnswer": "r_π = h_ie",
+            "explanation": "The hybrid-π model's r_π is numerically equal to h_ie — both represent the small-signal input resistance looking into the base. The hybrid-π model is essentially the h-parameter model with h_re set to zero."
+        },
+        {
+            "id": "hpd-q10",
+            "prompt": "If you are given CE h-parameters but the circuit is common base, you should:",
+            "options": [
+                "Convert all h-parameters to CB values first",
+                "Insert the CE equivalent circuit and connect the terminals (B, C, E) appropriately",
+                "The analysis cannot be done without CB parameters",
+                "Use the CE parameters as if they were CB parameters"
+            ],
+            "correctAnswer": "Insert the CE equivalent circuit and connect the terminals (B, C, E) appropriately",
+            "explanation": "Always use the model for which you have parameters. If given CE parameters, insert the CE equivalent circuit into your actual circuit, connecting base to base, collector to collector, and emitter to emitter. Then apply KVL/KCL. The circuit topology handles the configuration difference automatically."
+        }
+    ]
+}

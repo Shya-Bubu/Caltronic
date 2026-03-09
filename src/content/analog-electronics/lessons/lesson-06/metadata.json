@@ -1,0 +1,21 @@
+{
+    "id": "lesson-06",
+    "title": "BJT Small-Signal Analysis & Amplifier Design",
+    "slug": "lesson-06",
+    "description": "Linearise the BJT for small-signal AC analysis, derive and extract h-parameters from device characteristics, analyse amplifier circuits using the h-parameter model to find gain, impedance, and bandwidth, and walk through a complete worked example.",
+    "prerequisites": [
+        "lesson-05"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "small-signal-linearization",
+        "h-parameter-derivation",
+        "h-parameter-extraction",
+        "small-signal-circuit-analysis",
+        "amplifier-bandwidth",
+        "small-signal-worked-example"
+    ],
+    "lectureWeek": 6,
+    "estimatedMinutes": 300
+}

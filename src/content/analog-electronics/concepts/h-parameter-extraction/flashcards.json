@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-h-parameter-extraction",
+    "cards": [
+        {
+            "id": "hpe-f1",
+            "front": "Which graph gives h_fe and h_oe?",
+            "back": "Output characteristics (I_C vs V_CE with I_B as parameter). h_fe = spacing between curves at constant V_CE. h_oe = slope of one curve at Q-point.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "hpe-f2",
+            "front": "Which graph gives h_ie and h_re?",
+            "back": "Input characteristics (V_BE vs I_B with V_CE as parameter). h_ie = slope of one V_CE curve at Q-point. h_re = shift in V_BE between V_CE curves at constant I_B.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "hpe-f3",
+            "front": "Typical h_ie for CE?",
+            "back": "About 1.1 kΩ. For CB, it's much lower (~22 Ω) because the input is at the low-impedance emitter terminal.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpe-f4",
+            "front": "Typical h_fe for CE?",
+            "back": "About 50 (= β). For CB, h_fb ≈ −0.98 (current gain near unity). For CC, h_fc ≈ −51.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpe-f5",
+            "front": "What does h_oe = 25 μA/V mean in terms of resistance?",
+            "back": "Output resistance = 1/h_oe = 1/(25×10⁻⁶) = 40 kΩ. The output behaves like a 40 kΩ resistor in parallel with the current source.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "hpe-f6",
+            "front": "Why does CB have much higher output resistance than CE?",
+            "back": "CB's h_ob ≈ 0.49 μA/V → R_out = 1/h_ob ≈ 2 MΩ. The base grounding creates a cascode-like effect that dramatically increases output resistance.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "hpe-f7",
+            "front": "Why aren't h-parameters truly constant?",
+            "back": "The characteristic curves are nonlinear: slopes change with position (h_ie, h_oe vary) and spacings between curves vary (h_fe varies). Also, temperature affects all parameters.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "hpe-f8",
+            "front": "If you increase I_CQ, does h_ie increase or decrease?",
+            "back": "Decreases. h_ie ≈ r_π = βV_T/I_CQ. Higher collector current means steeper input curve → smaller ΔV_BE/ΔI_B → lower input resistance.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "hpe-f9",
+            "front": "Why is h_rc ≈ 1 for common collector?",
+            "back": "In CC (emitter follower), the output is at the emitter, which closely tracks the base voltage. So nearly all of V_EC feeds back to the input: h_rc = ΔV_BE/ΔV_EC ≈ 1.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "hpe-f10",
+            "front": "How do you graphically find h_fe from output characteristics?",
+            "back": "Draw a vertical line at V_CE = V_CEQ. Read I_C at two adjacent I_B curves. h_fe = ΔI_C/ΔI_B. This is the current gain at that operating point.",
+            "difficultyLevel": 2
+        }
+    ]
+}

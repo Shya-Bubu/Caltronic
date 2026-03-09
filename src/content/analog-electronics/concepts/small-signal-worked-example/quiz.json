@@ -1,0 +1,125 @@
+{
+    "id": "quiz-small-signal-worked-example",
+    "questions": [
+        {
+            "id": "sswe-q1",
+            "prompt": "The first step in small-signal AC analysis of a BJT amplifier is:",
+            "options": [
+                "Replace the BJT with h-parameters",
+                "Draw the AC equivalent circuit by shorting capacitors and grounding DC sources",
+                "Calculate the voltage gain",
+                "Find the DC Q-point"
+            ],
+            "correctAnswer": "Draw the AC equivalent circuit by shorting capacitors and grounding DC sources",
+            "explanation": "After finding the Q-point (DC analysis), the first AC step is drawing the AC equivalent: short all capacitors, replace DC voltage sources with shorts (or their internal impedance), and replace current sources with opens."
+        },
+        {
+            "id": "sswe-q2",
+            "prompt": "When R_A = R_B = 56 kΩ and V_CC is grounded, the bias resistance seen from the base is:",
+            "options": [
+                "112 kΩ",
+                "56 kΩ",
+                "28 kΩ",
+                "14 kΩ"
+            ],
+            "correctAnswer": "28 kΩ",
+            "explanation": "With V_CC shorted to ground, both R_A and R_B connect from base to ground. They are in parallel: R_A ∥ R_B = 56k ∥ 56k = 28 kΩ."
+        },
+        {
+            "id": "sswe-q3",
+            "prompt": "The R_E reflection trick moves R_E from the emitter to the base by:",
+            "options": [
+                "Dividing by β",
+                "Multiplying by β",
+                "Adding β",
+                "Leaving it unchanged"
+            ],
+            "correctAnswer": "Multiplying by β",
+            "explanation": "An emitter resistor R_E carries current ≈ βi_b. To maintain the same voltage drop in the base branch (which carries i_b), we multiply by β: R_E,reflected = β × R_E. This preserves KVL."
+        },
+        {
+            "id": "sswe-q4",
+            "prompt": "With h_ie = 1 kΩ, β = 50, R_E1 = 240 Ω, the total base-side resistance is:",
+            "options": [
+                "1.24 kΩ",
+                "13 kΩ",
+                "12 kΩ",
+                "51 kΩ"
+            ],
+            "correctAnswer": "13 kΩ",
+            "explanation": "R_base = h_ie + β·R_E1 = 1k + 50×240 = 1k + 12k = 13 kΩ. The reflected R_E1 dominates over h_ie."
+        },
+        {
+            "id": "sswe-q5",
+            "prompt": "R_out of a CE amplifier with ideal current source (1/h_oe neglected) is approximately:",
+            "options": [
+                "R_C",
+                "R_C ∥ R_L",
+                "1/h_oe",
+                "R_E1"
+            ],
+            "correctAnswer": "R_C",
+            "explanation": "With the source shorted and load removed, looking into the collector you see R_C in parallel with the current source (infinite impedance). So R_out = R_C. We don't include R_L because it's external to the amplifier."
+        },
+        {
+            "id": "sswe-q6",
+            "prompt": "The quick-check formula for CE voltage gain is:",
+            "options": [
+                "A_V ≈ -β",
+                "A_V ≈ -(R_C ∥ R_L)/R_E,unbypassed",
+                "A_V ≈ -h_ie/R_C",
+                "A_V ≈ -R_E/R_C"
+            ],
+            "correctAnswer": "A_V ≈ -(R_C ∥ R_L)/R_E,unbypassed",
+            "explanation": "This shortcut gives the voltage gain within 10-20% without formal analysis. Collector-side resistance (R_C ∥ R_L) divided by emitter-side unbypassed resistance (R_E1), with a negative sign for CE phase inversion."
+        },
+        {
+            "id": "sswe-q7",
+            "prompt": "The current gain A_I is less than β because:",
+            "options": [
+                "The BJT is not in the active region",
+                "Some input current flows through bias resistors, and collector current splits between R_C and R_L",
+                "h_re feedback reduces it",
+                "The DC Q-point is wrong"
+            ],
+            "correctAnswer": "Some input current flows through bias resistors, and collector current splits between R_C and R_L",
+            "explanation": "I_in = I_B + I_bias. Only I_B produces amplified current. Then I_C splits between R_C and R_L (only the R_L portion is 'output'). Both effects reduce A_I below the ideal β."
+        },
+        {
+            "id": "sswe-q8",
+            "prompt": "If R_L is removed (open circuit), the voltage gain:",
+            "options": [
+                "Stays the same",
+                "Approximately doubles (from ≈ 21 to ≈ 42)",
+                "Drops to zero",
+                "Becomes infinite"
+            ],
+            "correctAnswer": "Approximately doubles (from ≈ 21 to ≈ 42)",
+            "explanation": "Without R_L: A_V ≈ -R_C/R_E1 = -10k/240 ≈ -42. With R_L: A_V ≈ -(R_C∥R_L)/R_E1 = -5k/240 ≈ -21. The gain doubles because the full R_C appears in the gain formula instead of R_C∥R_L."
+        },
+        {
+            "id": "sswe-q9",
+            "prompt": "If given CE parameters for a common base circuit, you should:",
+            "options": [
+                "Convert h_ie to h_ib first",
+                "Insert the CE model and connect B, C, E terminals to the actual circuit nodes",
+                "Cannot solve without CB parameters",
+                "Set all h-parameters to zero"
+            ],
+            "correctAnswer": "Insert the CE model and connect B, C, E terminals to the actual circuit nodes",
+            "explanation": "Use the model you have parameters for. Insert the CE equivalent circuit, connecting base→base, collector→collector, emitter→emitter. Then apply KVL/KCL. The circuit topology handles everything."
+        },
+        {
+            "id": "sswe-q10",
+            "prompt": "In a CE amplifier, the output voltage is 180° out of phase with the input. This is shown by:",
+            "options": [
+                "A_V being positive",
+                "A_V being negative",
+                "A_V being zero",
+                "A_I being positive"
+            ],
+            "correctAnswer": "A_V being negative",
+            "explanation": "The negative sign in A_V ≈ -21 indicates phase inversion. When v_be increases, i_c increases, the voltage drop across R_C increases, so v_ce DECREASES — the output moves opposite to the input."
+        }
+    ]
+}

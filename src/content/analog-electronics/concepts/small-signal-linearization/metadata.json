@@ -1,0 +1,11 @@
+{
+    "id": "small-signal-linearization",
+    "title": "Small-Signal Linearization of the BJT",
+    "slug": "small-signal-linearization",
+    "description": "Understand how a Taylor series expansion converts the nonlinear BJT into a linear device when signals are small, enabling AC analysis using two-port network theory.",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-small-signal-circuit-analysis",
+    "cards": [
+        {
+            "id": "ssca-f1",
+            "front": "Write the formula for current gain A_I.",
+            "back": "A_I = -h_f / (1 + h_o·Z_L). Simplified (h_o ≈ 0): A_I = -h_f.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ssca-f2",
+            "front": "Write the formula for input impedance Z_in.",
+            "back": "Z_in = h_i + h_r·A_I·Z_L. Simplified (h_r ≈ 0): Z_in = h_i.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ssca-f3",
+            "front": "Write the formula for voltage gain A_V.",
+            "back": "A_V = A_I·Z_L / Z_in. Simplified: A_V = -h_f·Z_L / h_i.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "ssca-f4",
+            "front": "Write the formula for output admittance Y_out.",
+            "back": "Y_out = h_o - h_f·h_r/(h_i + R_S). Simplified (h_r ≈ 0): Y_out = h_o.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ssca-f5",
+            "front": "What happens to A_VS when R_S = Z_in?",
+            "back": "A_VS = A_V/2. Half the source voltage drops across R_S — the loading effect. This is why high Z_in is desirable for voltage amplifiers.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ssca-f6",
+            "front": "Does Z_in depend on the load when h_r ≈ 0?",
+            "back": "No. When h_r = 0, Z_in = h_i regardless of Z_L. The feedback path is broken, so the output cannot affect the input impedance.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ssca-f7",
+            "front": "Does Z_out depend on the source resistance?",
+            "back": "Yes! Y_out = h_o - h_f·h_r/(h_i + R_S). Higher R_S increases Z_out, making the output more like an ideal current source.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "ssca-f8",
+            "front": "Why shouldn't you memorise these formulas for the exam?",
+            "back": "Real circuits have additional components (bias resistors, bypass caps) that change the analysis. The lecturer says: always derive from KVL/KCL for the specific circuit given.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "ssca-f9",
+            "front": "Voltage gain including source resistance: A_VS = ?",
+            "back": "A_VS = A_V · Z_in/(R_S + Z_in) = A_I·Z_L/(R_S + Z_in). This accounts for the voltage division between R_S and Z_in.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "ssca-f10",
+            "front": "Simplified voltage gain for CE when h_r ≈ 0: A_V ≈ ?",
+            "back": "A_V ≈ -h_fe·Z_L/h_ie. Since h_fe = β and h_ie = r_π = βV_T/I_CQ, this becomes A_V ≈ -I_CQ·Z_L/V_T = -g_m·Z_L.",
+            "difficultyLevel": 4
+        }
+    ]
+}
