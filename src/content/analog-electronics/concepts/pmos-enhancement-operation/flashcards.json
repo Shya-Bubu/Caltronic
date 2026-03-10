@@ -4,62 +4,74 @@
         {
             "id": "fc1",
             "front": "What is the substrate type in a PMOS?",
-            "back": "n-type substrate. This is the opposite of NMOS (which uses p-type). P⁺ source/drain regions are embedded in this n-type material."
+            "back": "n-type substrate. This is the opposite of NMOS (which uses p-type). P⁺ source/drain regions are embedded in this n-type material.",
+            "difficultyLevel": 1
         },
         {
             "id": "fc2",
             "front": "What sign is the PMOS threshold voltage VT?",
-            "back": "Negative (typically −1 to −2 V). Turn-ON condition: VGS < VT, meaning the gate must be pulled sufficiently below the source voltage."
+            "back": "Negative (typically −1 to −2 V). Turn-ON condition: VGS < VT, meaning the gate must be pulled sufficiently below the source voltage.",
+            "difficultyLevel": 1
         },
         {
             "id": "fc3",
             "front": "How does the p-channel form in PMOS?",
-            "back": "Negative VGS creates a field that repels electrons and attracts holes to the surface of the n-type substrate, forming a p-type inversion layer (the channel)."
+            "back": "Negative VGS creates a field that repels electrons and attracts holes to the surface of the n-type substrate, forming a p-type inversion layer (the channel).",
+            "difficultyLevel": 1
         },
         {
             "id": "fc4",
             "front": "Which way does conventional current flow in PMOS?",
-            "back": "Source to Drain. Since holes flow S→D and they are positive carriers, conventional current follows: S→D. (Opposite of NMOS which is D→S.)"
+            "back": "Source to Drain. Since holes flow S→D and they are positive carriers, conventional current follows: S→D. (Opposite of NMOS which is D→S.)",
+            "difficultyLevel": 2
         },
         {
             "id": "fc5",
             "front": "Why is PMOS slower than NMOS?",
-            "back": "Hole mobility μp is about 2.5× lower than electron mobility μn. Since Kp = μpCox'(W/L), PMOS needs a wider channel (larger W) to match NMOS current/speed."
+            "back": "Hole mobility μp is about 2.5× lower than electron mobility μn. Since Kp = μpCox'(W/L), PMOS needs a wider channel (larger W) to match NMOS current/speed.",
+            "difficultyLevel": 2
         },
         {
             "id": "fc6",
             "front": "How much wider must PMOS be to match NMOS current?",
-            "back": "About 2.5× wider, because μp ≈ μn/2.5. This is why PMOS transistors always appear larger in chip layouts."
+            "back": "About 2.5× wider, because μp ≈ μn/2.5. This is why PMOS transistors always appear larger in chip layouts.",
+            "difficultyLevel": 2
         },
         {
             "id": "fc7",
             "front": "In CMOS, what does the PMOS transistor do?",
-            "back": "Acts as the pull-up network. Source connects to VDD (positive supply). When gate is LOW → PMOS ON → output pulled to VDD (logic HIGH)."
+            "back": "Acts as the pull-up network. Source connects to VDD (positive supply). When gate is LOW → PMOS ON → output pulled to VDD (logic HIGH).",
+            "difficultyLevel": 3
         },
         {
             "id": "fc8",
             "front": "Write the PMOS saturation current equation.",
-            "back": "IDS = (Kp/2)(|VGS| − |VT|)². Same form as NMOS but using absolute values and Kp = μpCox'(W/L)."
+            "back": "IDS = (Kp/2)(|VGS| − |VT|)². Same form as NMOS but using absolute values and Kp = μpCox'(W/L).",
+            "difficultyLevel": 3
         },
         {
             "id": "fc9",
             "front": "How do you determine the PMOS operating region?",
-            "back": "Same as NMOS but with absolute values: (1) Is |VGS| > |VT|? No → Cutoff. (2) Is |VDS| < |VGS| − |VT|? Yes → Triode. No → Saturation."
+            "back": "Same as NMOS but with absolute values: (1) Is |VGS| > |VT|? No → Cutoff. (2) Is |VDS| < |VGS| − |VT|? Yes → Triode. No → Saturation.",
+            "difficultyLevel": 3
         },
         {
             "id": "fc10",
             "front": "What was wrong with PMOS-only logic?",
-            "back": "Slower than NMOS logic because of lower hole mobility. It was used in the 1960s-70s but replaced by NMOS and then CMOS technology."
+            "back": "Slower than NMOS logic because of lower hole mobility. It was used in the 1960s-70s but replaced by NMOS and then CMOS technology.",
+            "difficultyLevel": 4
         },
         {
             "id": "fc11",
             "front": "Complete the duality: NMOS substrate = p-type → PMOS substrate = ?",
-            "back": "n-type. Every aspect of PMOS mirrors NMOS: substrate type, S/D doping, carrier type, VT sign, current direction — all reversed."
+            "back": "n-type. Every aspect of PMOS mirrors NMOS: substrate type, S/D doping, carrier type, VT sign, current direction — all reversed.",
+            "difficultyLevel": 4
         },
         {
             "id": "fc12",
             "front": "In a CMOS inverter with VDD supply, when is the PMOS ON?",
-            "back": "When the input (gate) is LOW (0 V). Then VGS = 0 − VDD = −VDD. Since |−VDD| > |VT| (typically), the PMOS turns ON and pulls output to VDD."
+            "back": "When the input (gate) is LOW (0 V). Then VGS = 0 − VDD = −VDD. Since |−VDD| > |VT| (typically), the PMOS turns ON and pulls output to VDD.",
+            "difficultyLevel": 5
         }
     ]
 }

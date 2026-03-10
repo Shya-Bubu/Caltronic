@@ -4,62 +4,74 @@
         {
             "id": "fc1",
             "front": "What is a depletion-mode MOSFET?",
-            "back": "A MOSFET that is 'normally ON' — the channel exists at VGS = 0 because it was physically implanted during fabrication. Applying gate voltage depletes (removes) the channel."
+            "back": "A MOSFET that is 'normally ON' — the channel exists at VGS = 0 because it was physically implanted during fabrication. Applying gate voltage depletes (removes) the channel.",
+            "difficultyLevel": 1
         },
         {
             "id": "fc2",
             "front": "Enhancement vs Depletion: state at VGS = 0?",
-            "back": "Enhancement: OFF (no channel, IDS = 0). Depletion: ON (channel exists, IDS = IDSS). They are opposites."
+            "back": "Enhancement: OFF (no channel, IDS = 0). Depletion: ON (channel exists, IDS = IDSS). They are opposites.",
+            "difficultyLevel": 1
         },
         {
             "id": "fc3",
             "front": "What sign is VT for an n-channel depletion MOSFET?",
-            "back": "Negative. Since the device is already ON at VGS = 0, negative VGS is needed to deplete the channel. VT marks the point where the channel is fully removed."
+            "back": "Negative. Since the device is already ON at VGS = 0, negative VGS is needed to deplete the channel. VT marks the point where the channel is fully removed.",
+            "difficultyLevel": 1
         },
         {
             "id": "fc4",
             "front": "What is IDSS?",
-            "back": "Drain current at VGS = 0. IDSS = (K/2)VT². It's the 'default' current through a depletion MOSFET with no gate bias — a key datasheet specification."
+            "back": "Drain current at VGS = 0. IDSS = (K/2)VT². It's the 'default' current through a depletion MOSFET with no gate bias — a key datasheet specification.",
+            "difficultyLevel": 2
         },
         {
             "id": "fc5",
             "front": "Can depletion MOSFETs operate with positive VGS?",
-            "back": "Yes! Positive VGS enhances the channel, giving IDS > IDSS. Depletion devices work on both sides of VGS = 0 — unique among MOSFET types."
+            "back": "Yes! Positive VGS enhances the channel, giving IDS > IDSS. Depletion devices work on both sides of VGS = 0 — unique among MOSFET types.",
+            "difficultyLevel": 2
         },
         {
             "id": "fc6",
             "front": "What current equation applies to depletion-mode devices?",
-            "back": "Same as enhancement: IDS = (K/2)(VGS - VT)². Only the VT value changes (negative instead of positive for n-channel)."
+            "back": "Same as enhancement: IDS = (K/2)(VGS - VT)². Only the VT value changes (negative instead of positive for n-channel).",
+            "difficultyLevel": 2
         },
         {
             "id": "fc7",
             "front": "How is the channel created in a depletion MOSFET?",
-            "back": "Ion implantation during fabrication — dopant atoms are physically injected into the surface to create a permanent n-type (or p-type) conducting layer."
+            "back": "Ion implantation during fabrication — dopant atoms are physically injected into the surface to create a permanent n-type (or p-type) conducting layer.",
+            "difficultyLevel": 3
         },
         {
             "id": "fc8",
             "front": "Why are depletion MOSFETs used as loads?",
-            "back": "With gate tied to source (VGS = 0), they provide constant-current IDSS load. Much smaller chip area than a resistor, better performance, same fabrication process."
+            "back": "With gate tied to source (VGS = 0), they provide constant-current IDSS load. Much smaller chip area than a resistor, better performance, same fabrication process.",
+            "difficultyLevel": 3
         },
         {
             "id": "fc9",
             "front": "Name all 4 MOSFET types.",
-            "back": "1. N-Channel Enhancement (normally OFF, +VT). 2. N-Channel Depletion (normally ON, −VT). 3. P-Channel Enhancement (normally OFF, −VT). 4. P-Channel Depletion (normally ON, +VT)."
+            "back": "1. N-Channel Enhancement (normally OFF, +VT). 2. N-Channel Depletion (normally ON, −VT). 3. P-Channel Enhancement (normally OFF, −VT). 4. P-Channel Depletion (normally ON, +VT).",
+            "difficultyLevel": 3
         },
         {
             "id": "fc10",
             "front": "At what VGS does a depletion NMOS turn OFF?",
-            "back": "At VGS ≤ VT, where VT is negative. Example: if VT = −2V, the device turns off when VGS falls to −2V or below."
+            "back": "At VGS ≤ VT, where VT is negative. Example: if VT = −2V, the device turns off when VGS falls to −2V or below.",
+            "difficultyLevel": 4
         },
         {
             "id": "fc11",
             "front": "What does the transfer curve of a depletion NMOS look like?",
-            "back": "A parabola that crosses the IDS axis at VGS = 0 (IDS = IDSS) and touches the VGS axis at VGS = VT (IDS = 0). It extends to both sides of VGS = 0."
+            "back": "A parabola that crosses the IDS axis at VGS = 0 (IDS = IDSS) and touches the VGS axis at VGS = VT (IDS = 0). It extends to both sides of VGS = 0.",
+            "difficultyLevel": 4
         },
         {
             "id": "fc12",
             "front": "Calculate IDSS for K=1 mA/V², VT=−3V.",
-            "back": "IDSS = (K/2)VT² = (1/2)(−3)² = (0.5)(9) = 4.5 mA."
+            "back": "IDSS = (K/2)VT² = (1/2)(−3)² = (0.5)(9) = 4.5 mA.",
+            "difficultyLevel": 5
         }
     ]
 }

@@ -4,62 +4,74 @@
         {
             "id": "fc1",
             "front": "What happens at VGS = 0 in an NMOS enhancement MOSFET?",
-            "back": "No channel exists. The transistor is OFF with IDS = 0. Two back-to-back pn junctions (n⁺-p and p-n⁺) block current flow. You must apply VGS > VT to turn it ON."
+            "back": "No channel exists. The transistor is OFF with IDS = 0. Two back-to-back pn junctions (n⁺-p and p-n⁺) block current flow. You must apply VGS > VT to turn it ON.",
+            "difficultyLevel": 1
         },
         {
             "id": "fc2",
             "front": "What is the threshold voltage VT for an NMOS device?",
-            "back": "The minimum positive gate-source voltage needed to form an inversion layer (channel). Typically +1 to +2 V. Below VT: no channel (cutoff). Above VT: channel forms (ON)."
+            "back": "The minimum positive gate-source voltage needed to form an inversion layer (channel). Typically +1 to +2 V. Below VT: no channel (cutoff). Above VT: channel forms (ON).",
+            "difficultyLevel": 1
         },
         {
             "id": "fc3",
             "front": "What physical process creates the channel?",
-            "back": "A positive VGS creates an electric field through the oxide that (1) repels holes from the surface, (2) attracts electrons to the surface, forming an inversion layer when VGS > VT."
+            "back": "A positive VGS creates an electric field through the oxide that (1) repels holes from the surface, (2) attracts electrons to the surface, forming an inversion layer when VGS > VT.",
+            "difficultyLevel": 1
         },
         {
             "id": "fc4",
             "front": "Name the three operating regions of an NMOS MOSFET.",
-            "back": "1. Cutoff (VGS < VT): IDS = 0. 2. Triode/Linear (VGS > VT, VDS < VOV): acts as resistor. 3. Saturation (VGS > VT, VDS ≥ VOV): acts as current source."
+            "back": "1. Cutoff (VGS < VT): IDS = 0. 2. Triode/Linear (VGS > VT, VDS < VOV): acts as resistor. 3. Saturation (VGS > VT, VDS ≥ VOV): acts as current source.",
+            "difficultyLevel": 2
         },
         {
             "id": "fc5",
             "front": "Write the saturation current equation.",
-            "back": "IDS = (K/2)(VGS - VT)² = (K/2)VOV². Current depends on the square of the overdrive voltage. K = kn'(W/L)."
+            "back": "IDS = (K/2)(VGS - VT)² = (K/2)VOV². Current depends on the square of the overdrive voltage. K = kn'(W/L).",
+            "difficultyLevel": 2
         },
         {
             "id": "fc6",
             "front": "Write the triode region current equation.",
-            "back": "IDS = K[(VGS - VT)VDS - VDS²/2]. For small VDS: IDS ≈ K(VGS - VT)VDS = VDS/Ron where Ron = 1/[K(VGS - VT)]."
+            "back": "IDS = K[(VGS - VT)VDS - VDS²/2]. For small VDS: IDS ≈ K(VGS - VT)VDS = VDS/Ron where Ron = 1/[K(VGS - VT)].",
+            "difficultyLevel": 2
         },
         {
             "id": "fc7",
             "front": "What is the overdrive voltage VOV?",
-            "back": "VOV = VGS - VT. It measures how far above threshold the gate is biased. Determines channel strength and saturation current."
+            "back": "VOV = VGS - VT. It measures how far above threshold the gate is biased. Determines channel strength and saturation current.",
+            "difficultyLevel": 3
         },
         {
             "id": "fc8",
             "front": "How do you determine which region the MOSFET is in?",
-            "back": "Step 1: Is VGS > VT? No → Cutoff. Yes → Step 2: Is VDS < VGS - VT? Yes → Triode. No → Saturation."
+            "back": "Step 1: Is VGS > VT? No → Cutoff. Yes → Step 2: Is VDS < VGS - VT? Yes → Triode. No → Saturation.",
+            "difficultyLevel": 3
         },
         {
             "id": "fc9",
             "front": "What does 'channel pinch-off' mean?",
-            "back": "At VDS = VGS - VT, the voltage across the channel at the drain end equals VT, narrowing the channel to zero width there. This is the boundary between triode and saturation."
+            "back": "At VDS = VGS - VT, the voltage across the channel at the drain end equals VT, narrowing the channel to zero width there. This is the boundary between triode and saturation.",
+            "difficultyLevel": 3
         },
         {
             "id": "fc10",
             "front": "What is the process transconductance parameter K?",
-            "back": "K = μnCox'(W/L) = kn'(W/L). Combines the technology parameters (μn, Cox') with the designer's geometry (W/L). Units: A/V²."
+            "back": "K = μnCox'(W/L) = kn'(W/L). Combines the technology parameters (μn, Cox') with the designer's geometry (W/L). Units: A/V².",
+            "difficultyLevel": 4
         },
         {
             "id": "fc11",
             "front": "In saturation, if VOV doubles, what happens to IDS?",
-            "back": "IDS quadruples (×4). Because IDS ∝ VOV², doubling the overdrive squares the multiplier: (2x)² = 4x²."
+            "back": "IDS quadruples (×4). Because IDS ∝ VOV², doubling the overdrive squares the multiplier: (2x)² = 4x².",
+            "difficultyLevel": 4
         },
         {
             "id": "fc12",
             "front": "Why is the NMOS called 'enhancement mode'?",
-            "back": "Because the channel does NOT exist at VGS = 0 (normally OFF). You must 'enhance' the surface by applying VGS > VT to create the channel. This is opposite to depletion-mode devices which are normally ON."
+            "back": "Because the channel does NOT exist at VGS = 0 (normally OFF). You must 'enhance' the surface by applying VGS > VT to create the channel. This is opposite to depletion-mode devices which are normally ON.",
+            "difficultyLevel": 5
         }
     ]
 }
