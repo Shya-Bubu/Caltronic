@@ -1,0 +1,17 @@
+{
+    "id": "flashcards-cmos-logic-gates",
+    "cards": [
+        {"id": "fc1", "front": "CMOS NAND: PDN topology?", "back": "Series NMOS. Both must be ON (both inputs HIGH) to pull output LOW. PUN dual: parallel PMOS."},
+        {"id": "fc2", "front": "CMOS NOR: PDN topology?", "back": "Parallel NMOS. Any ON driver pulls output LOW. PUN dual: series PMOS."},
+        {"id": "fc3", "front": "The CMOS duality rule?", "back": "PUN = dual of PDN. Series in PDN ↔ parallel in PUN. Parallel in PDN ↔ series in PUN. This ensures complementary operation (one ON, other OFF)."},
+        {"id": "fc4", "front": "Why is NAND preferred in CMOS?", "back": "Series NMOS (fast, high μn) is the NAND bottleneck. Series PMOS (slow, low μp) is the NOR bottleneck. NAND is faster because its slow path (PMOS) is parallel."},
+        {"id": "fc5", "front": "Transistor count for n-input CMOS gate?", "back": "2n transistors: n NMOS (PDN) + n PMOS (PUN). A 4-input NAND = 8 transistors."},
+        {"id": "fc6", "front": "CMOS NAND: A=1, B=1 → output?", "back": "LOW (0V). Both NMOS ON → PDN connected to GND. Both PMOS OFF → PUN disconnected. Only case with LOW output for 2-input NAND."},
+        {"id": "fc7", "front": "CMOS NOR: A=0, B=0 → output?", "back": "HIGH (VDD). Both NMOS OFF → PDN open. Both PMOS ON → PUN connected to VDD. Only case with HIGH output for 2-input NOR."},
+        {"id": "fc8", "front": "Static power in CMOS gates?", "back": "Zero in all states. PDN and PUN are complementary: when one conducts, the other doesn't. No DC path from VDD to GND ever exists."},
+        {"id": "fc9", "front": "NMOS-only: NOR preferred. CMOS: NAND preferred. Why?", "back": "In NMOS-only, speed depends only on pull-down. In CMOS, both networks matter. NOR's series PMOS (slow holes stacked) is the worst bottleneck."},
+        {"id": "fc10", "front": "How to size series NMOS in CMOS NAND?", "back": "Each series NMOS should be n× wider than inverter NMOS (n = number of inputs). This compensates for stacked resistance: R_total = R1 + R2 + ... + Rn."},
+        {"id": "fc11", "front": "Y = NOT(A·(B+C)): what's the PDN?", "back": "A in series with (B parallel C). PDN implements un-inverted function. AND = series, OR = parallel. PUN dual: A parallel with (B series C)."},
+        {"id": "fc12", "front": "CMOS NAND truth table summary?", "back": "Output LOW only when ALL inputs HIGH. All other combinations: output HIGH. Y = NOT(A·B). Equivalent to: at least one input LOW → output HIGH."}
+    ]
+}

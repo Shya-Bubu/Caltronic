@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-nmos-logic-gates",
+    "cards": [
+        {
+            "id": "fc1",
+            "front": "Parallel NMOS drivers → what gate?",
+            "back": "NOR gate. Y = NOT(A + B). Any ON driver pulls output LOW. Output HIGH only when all drivers are OFF."
+        },
+        {
+            "id": "fc2",
+            "front": "Series NMOS drivers → what gate?",
+            "back": "NAND gate. Y = NOT(A · B). All drivers must be ON to pull output LOW. Any OFF driver keeps output HIGH."
+        },
+        {
+            "id": "fc3",
+            "front": "NOR truth table: A=0, B=0 → Y?",
+            "back": "Y = 1 (HIGH). Both drivers OFF → no path to ground → load pulls output HIGH. This is the only HIGH output case for NOR."
+        },
+        {
+            "id": "fc4",
+            "front": "NAND truth table: A=1, B=1 → Y?",
+            "back": "Y = 0 (LOW). Both series drivers ON → complete path to ground → output pulled LOW. This is the only LOW output case for NAND."
+        },
+        {
+            "id": "fc5",
+            "front": "Why is NOR preferred in NMOS logic?",
+            "back": "Parallel drivers: R_total = R_on/n (fast pull-down). Series drivers: R_total = n × R_on (slow, plus body effect). NOR switches faster."
+        },
+        {
+            "id": "fc6",
+            "front": "What is the body effect in series transistors?",
+            "back": "The source of upper transistors is above ground, increasing their effective VT. This makes them harder to turn ON and slows down NAND gates."
+        },
+        {
+            "id": "fc7",
+            "front": "Why are NAND/NOR called universal gates?",
+            "back": "Any Boolean function (AND, OR, NOT, XOR...) can be built using ONLY NAND or ONLY NOR gates. They are functionally complete."
+        },
+        {
+            "id": "fc8",
+            "front": "How many transistors in an n-input NMOS NOR?",
+            "back": "n + 1 total: n parallel drivers (one per input) + 1 load transistor."
+        },
+        {
+            "id": "fc9",
+            "front": "Static power: NOR vs NAND?",
+            "back": "NOR: output LOW in 3/4 states → more static power. NAND: output LOW in 1/4 states → less static power. NOR wastes more power on average."
+        },
+        {
+            "id": "fc10",
+            "front": "Write the NOR Boolean expression.",
+            "back": "Y = NOT(A + B) = A̅ + B̅. Also written as Y with a bar over (A+B)."
+        },
+        {
+            "id": "fc11",
+            "front": "Write the NAND Boolean expression.",
+            "back": "Y = NOT(A · B) = A̅ · B̅. Also written as Y with a bar over (A·B)."
+        },
+        {
+            "id": "fc12",
+            "front": "How does adding inputs affect each gate type?",
+            "back": "NOR: more parallel paths → faster but more static power. NAND: more series resistance → slower, worse body effect. NOR scales better in NMOS."
+        }
+    ]
+}

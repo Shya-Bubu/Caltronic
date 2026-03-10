@@ -1,0 +1,23 @@
+{
+    "id": "lesson-09",
+    "title": "MOSFET Fundamentals & MOS Logic Families",
+    "slug": "lesson-09",
+    "description": "Understand the physical structure and operation of enhancement and depletion MOSFETs (both N-channel and P-channel), then apply them to build MOS inverters, NMOS logic gates, CMOS inverters, and CMOS NAND/NOR gates.",
+    "prerequisites": [
+        "lesson-06"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "mosfet-physical-structure",
+        "nmos-enhancement-operation",
+        "pmos-enhancement-operation",
+        "depletion-mode-mosfet",
+        "mos-inverter-circuits",
+        "nmos-logic-gates",
+        "cmos-inverter",
+        "cmos-logic-gates"
+    ],
+    "lectureWeek": 9,
+    "estimatedMinutes": 360
+}

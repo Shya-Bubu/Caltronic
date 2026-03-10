@@ -1,0 +1,11 @@
+{
+    "id": "depletion-mode-mosfet",
+    "title": "Depletion-Mode MOSFETs — Normally ON",
+    "slug": "depletion-mode-mosfet",
+    "estimatedMinutes": 15,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

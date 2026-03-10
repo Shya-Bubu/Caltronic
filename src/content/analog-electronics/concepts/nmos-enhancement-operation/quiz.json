@@ -1,0 +1,149 @@
+{
+    "id": "quiz-nmos-enhancement-operation",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In an NMOS enhancement MOSFET with VGS = 0 V, what is the state of the transistor?",
+            "options": [
+                "ON with maximum current",
+                "ON with moderate current",
+                "OFF — no channel exists, IDS = 0",
+                "In saturation mode"
+            ],
+            "correctAnswer": "OFF — no channel exists, IDS = 0",
+            "explanation": "An enhancement-mode MOSFET is 'normally OFF'. With VGS = 0, no channel exists between source and drain because the gate voltage hasn't exceeded the threshold voltage VT. The two back-to-back pn junctions block current flow in both directions."
+        },
+        {
+            "id": "q2",
+            "prompt": "What must happen for a channel to form in an NMOS enhancement MOSFET?",
+            "options": [
+                "VDS must exceed VT",
+                "VGS must exceed VT (positive threshold)",
+                "VGS must be negative",
+                "Current must flow into the gate"
+            ],
+            "correctAnswer": "VGS must exceed VT (positive threshold)",
+            "explanation": "The gate-source voltage VGS must exceed the positive threshold voltage VT. This creates a strong enough electric field through the oxide to attract electrons to the surface, forming an inversion layer (n-channel) between source and drain."
+        },
+        {
+            "id": "q3",
+            "prompt": "What type of charge carriers form the channel in an NMOS device?",
+            "options": [
+                "Holes",
+                "Electrons",
+                "Both holes and electrons",
+                "Photons"
+            ],
+            "correctAnswer": "Electrons",
+            "explanation": "In an NMOS (N-channel) device, the channel is formed by electrons — minority carriers in the p-type substrate that are attracted to the surface by the positive gate voltage. This is why it's called 'N-channel': the conducting channel is n-type (electron conduction)."
+        },
+        {
+            "id": "q4",
+            "prompt": "An NMOS transistor has VGS = 3 V, VT = 1 V, VDS = 1 V. What region is it in?",
+            "options": [
+                "Cutoff",
+                "Triode (linear)",
+                "Saturation",
+                "Breakdown"
+            ],
+            "correctAnswer": "Triode (linear)",
+            "explanation": "First, VGS (3V) > VT (1V), so the transistor is ON. Next, check: VDS (1V) vs VGS - VT = 3 - 1 = 2V. Since VDS (1V) < VGS - VT (2V), the device is in the triode (linear) region."
+        },
+        {
+            "id": "q5",
+            "prompt": "An NMOS transistor has VGS = 3 V, VT = 1 V, VDS = 4 V. What region is it in?",
+            "options": [
+                "Cutoff",
+                "Triode (linear)",
+                "Saturation",
+                "Breakdown"
+            ],
+            "correctAnswer": "Saturation",
+            "explanation": "VGS (3V) > VT (1V), so the transistor is ON. VDS (4V) vs VGS - VT = 3 - 1 = 2V. Since VDS (4V) ≥ VGS - VT (2V), the device is in saturation. The channel has pinched off near the drain."
+        },
+        {
+            "id": "q6",
+            "prompt": "In saturation, the drain current of an NMOS is given by IDS = (K/2)(VGS - VT)². If K = 2 mA/V² and VGS - VT = 2 V, what is IDS?",
+            "options": [
+                "2 mA",
+                "4 mA",
+                "8 mA",
+                "1 mA"
+            ],
+            "correctAnswer": "4 mA",
+            "explanation": "IDS = (K/2)(VGS - VT)² = (2/2)(2)² = 1 × 4 = 4 mA. The overdrive voltage VOV = VGS - VT = 2V, and the current depends on the square of this overdrive voltage."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the overdrive voltage VOV?",
+            "options": [
+                "VDS - VT",
+                "VGS - VT",
+                "VGS + VT",
+                "VDS - VGS"
+            ],
+            "correctAnswer": "VGS - VT",
+            "explanation": "The overdrive voltage VOV = VGS - VT represents how much the gate voltage exceeds the threshold. It determines channel strength and, in saturation, the drain current: IDS = (K/2)VOV². A larger overdrive means a stronger channel and more current."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the triode region, the MOSFET behaves most like which passive component?",
+            "options": [
+                "A capacitor",
+                "A voltage-controlled resistor",
+                "An inductor",
+                "A voltage source"
+            ],
+            "correctAnswer": "A voltage-controlled resistor",
+            "explanation": "In the triode region (also called the linear or ohmic region), the MOSFET behaves like a resistor whose value is controlled by VGS: Ron = 1/[K(VGS - VT)]. Higher gate voltage → lower resistance. This property is exploited in analog switches and variable attenuators."
+        },
+        {
+            "id": "q9",
+            "prompt": "What happens to the channel at the boundary between triode and saturation (VDS = VGS - VT)?",
+            "options": [
+                "The channel widens",
+                "The channel pinches off at the drain end",
+                "The channel disappears completely",
+                "The gate oxide breaks down"
+            ],
+            "correctAnswer": "The channel pinches off at the drain end",
+            "explanation": "At VDS = VGS - VT, the voltage difference between gate and drain equals VT, which is just enough to maintain the channel. The channel 'pinches off' at the drain end — it narrows to zero width there. Beyond this point (saturation), increasing VDS doesn't increase current because the pinch-off region simply extends."
+        },
+        {
+            "id": "q10",
+            "prompt": "The gate current in an operating NMOS transistor is:",
+            "options": [
+                "Equal to IDS/β",
+                "Proportional to VGS",
+                "Essentially zero (iG ≈ 0)",
+                "Equal to the source current"
+            ],
+            "correctAnswer": "Essentially zero (iG ≈ 0)",
+            "explanation": "The gate is insulated from the channel by the SiO₂ oxide layer, which is a near-perfect insulator. No DC current flows into the gate. This is fundamentally different from a BJT, where base current must flow continuously. The zero gate current gives the MOSFET infinite DC input impedance."
+        },
+        {
+            "id": "q11",
+            "prompt": "Why is this device called 'enhancement mode'?",
+            "options": [
+                "Because it enhances the signal amplitude",
+                "Because the channel must be enhanced (created) by applying gate voltage",
+                "Because it has enhanced breakdown voltage",
+                "Because it uses enhanced doping levels"
+            ],
+            "correctAnswer": "Because the channel must be enhanced (created) by applying gate voltage",
+            "explanation": "In enhancement mode, no channel exists at VGS = 0 — the device is normally OFF. You must 'enhance' the surface by applying VGS > VT to create the inversion layer (channel). This contrasts with depletion-mode devices where the channel exists by default."
+        },
+        {
+            "id": "q12",
+            "prompt": "For an NMOS in saturation, if you double VGS - VT (the overdrive), the drain current:",
+            "options": [
+                "Doubles",
+                "Quadruples",
+                "Stays the same",
+                "Halves"
+            ],
+            "correctAnswer": "Quadruples",
+            "explanation": "In saturation, IDS = (K/2)(VGS - VT)². The current depends on the SQUARE of the overdrive voltage. So doubling the overdrive (VGS - VT) quadruples the current: (2x)² = 4x². This quadratic relationship is important — it means MOSFET amplifiers are inherently nonlinear."
+        }
+    ]
+}

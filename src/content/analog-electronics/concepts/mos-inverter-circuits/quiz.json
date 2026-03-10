@@ -1,0 +1,149 @@
+{
+    "id": "quiz-mos-inverter-circuits",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What does a logic inverter do?",
+            "options": [
+                "Amplifies the input signal",
+                "Outputs the logical complement of the input",
+                "Adds two inputs together",
+                "Stores a logic value"
+            ],
+            "correctAnswer": "Outputs the logical complement of the input",
+            "explanation": "An inverter outputs the opposite of its input: HIGH input → LOW output, LOW input → HIGH output. It's the simplest logic gate and the fundamental building block of digital circuits."
+        },
+        {
+            "id": "q2",
+            "prompt": "In a MOS inverter, what are the two main elements?",
+            "options": [
+                "Two resistors",
+                "An NMOS driver and a load element",
+                "A capacitor and an inductor",
+                "Two PMOS transistors"
+            ],
+            "correctAnswer": "An NMOS driver and a load element",
+            "explanation": "Every MOS inverter consists of an NMOS enhancement transistor as the driver (controlled by the input) and a load element (which can be a resistor, enhancement MOSFET, or depletion MOSFET) connected to VDD."
+        },
+        {
+            "id": "q3",
+            "prompt": "In an enhancement load inverter, the output HIGH level is:",
+            "options": [
+                "VDD (full supply)",
+                "VDD − VT (degraded)",
+                "VDD/2",
+                "0 V"
+            ],
+            "correctAnswer": "VDD − VT (degraded)",
+            "explanation": "The enhancement load transistor turns OFF when its VGS drops below VT. Since VGS = VDD − Vout, the load stops conducting when Vout reaches VDD − VT. The output can never rise above this value — a significant limitation."
+        },
+        {
+            "id": "q4",
+            "prompt": "Why does the depletion load inverter achieve full VDD output swing?",
+            "options": [
+                "Because it uses a higher supply voltage",
+                "Because the depletion load has VGS = 0, so it stays ON even as Vout → VDD",
+                "Because it uses a PMOS load instead",
+                "Because the driver transistor is larger"
+            ],
+            "correctAnswer": "Because the depletion load has VGS = 0, so it stays ON even as Vout → VDD",
+            "explanation": "The depletion load has its gate tied to its source, so VGS = 0 always. Since it's a depletion device (normally ON at VGS = 0), it continues conducting even as the output approaches VDD, allowing the output to reach the full supply voltage."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the main advantage of using a MOSFET load over a resistor load in ICs?",
+            "options": [
+                "Lower cost",
+                "Much smaller chip area for equivalent resistance",
+                "Higher accuracy",
+                "Better temperature stability"
+            ],
+            "correctAnswer": "Much smaller chip area for equivalent resistance",
+            "explanation": "On-chip resistors require enormous area for high values (100 kΩ might take more area than dozens of transistors). A MOSFET load achieves equivalent or better performance in a fraction of the area and uses the same fabrication steps."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is static power dissipation in a MOS inverter?",
+            "options": [
+                "Power consumed during switching transitions",
+                "Power consumed when the output is LOW (current flows VDD → load → driver → GND)",
+                "Power stored in the gate capacitance",
+                "Power lost in the wiring"
+            ],
+            "correctAnswer": "Power consumed when the output is LOW (current flows VDD → load → driver → GND)",
+            "explanation": "When the output is LOW, both the load and driver are ON, and current flows continuously from VDD to ground. This creates constant power dissipation P = VDD × IDS, even with no switching — a fundamental problem of NMOS logic."
+        },
+        {
+            "id": "q7",
+            "prompt": "What are the two standard logic levels in MOS circuits?",
+            "options": [
+                "V(0) ≈ VDD/2, V(1) ≈ VDD",
+                "V(0) ≈ 0 V, V(1) ≈ VDD",
+                "V(0) ≈ −VDD, V(1) ≈ +VDD",
+                "V(0) ≈ 0.7 V, V(1) ≈ 5 V"
+            ],
+            "correctAnswer": "V(0) ≈ 0 V, V(1) ≈ VDD",
+            "explanation": "In MOS logic families, logic 0 is represented by approximately 0 V (ground) and logic 1 by approximately VDD (positive supply). The quality of a gate is measured by how close its outputs are to these ideal levels."
+        },
+        {
+            "id": "q8",
+            "prompt": "In an enhancement load inverter, when Vin = HIGH:",
+            "options": [
+                "Only the load is ON",
+                "Only the driver is ON",
+                "Both driver and load are ON, output is LOW",
+                "Both are OFF"
+            ],
+            "correctAnswer": "Both driver and load are ON, output is LOW",
+            "explanation": "When Vin = HIGH: the driver T1 turns ON (VGS > VT). The load T2 is always ON (gate connected to VDD). Both conduct, forming a voltage divider. Since the driver is designed with lower Ron, the output is pulled close to 0 V."
+        },
+        {
+            "id": "q9",
+            "prompt": "The depletion load transistor has its gate connected to:",
+            "options": [
+                "VDD",
+                "Ground",
+                "Its own source (VGS = 0)",
+                "The input signal"
+            ],
+            "correctAnswer": "Its own source (VGS = 0)",
+            "explanation": "The depletion load has gate connected to source, giving VGS = 0. Since it's a depletion device (ON at VGS = 0), it always conducts current IDSS. This makes it act as a nearly constant-current source — ideal for a load element."
+        },
+        {
+            "id": "q10",
+            "prompt": "Which MOS logic family solves the static power dissipation problem?",
+            "options": [
+                "PMOS logic",
+                "NMOS logic",
+                "CMOS (complementary MOS)",
+                "Enhancement load logic"
+            ],
+            "correctAnswer": "CMOS (complementary MOS)",
+            "explanation": "CMOS uses complementary NMOS and PMOS transistors arranged so that in every logic state, one transistor is OFF — breaking the current path from VDD to ground. This eliminates static power dissipation, the key advantage of CMOS."
+        },
+        {
+            "id": "q11",
+            "prompt": "In an enhancement load inverter, when Vin = LOW (0 V):",
+            "options": [
+                "Driver ON, load OFF, Vout = 0",
+                "Driver OFF, load ON, Vout ≈ VDD − VT",
+                "Both OFF, output floating",
+                "Both ON, output = VDD/2"
+            ],
+            "correctAnswer": "Driver OFF, load ON, Vout ≈ VDD − VT",
+            "explanation": "With Vin = 0: the driver T1 has VGS = 0 < VT → OFF. The load T2 has gate at VDD → it charges the output up. But output only reaches VDD − VT because the load turns off when its VGS drops below VT."
+        },
+        {
+            "id": "q12",
+            "prompt": "A depletion load inverter with VDD = 5V has:",
+            "options": [
+                "Vout(HIGH) = 3V, Vout(LOW) ≈ 0V",
+                "Vout(HIGH) = 5V, Vout(LOW) ≈ 0V",
+                "Vout(HIGH) = 4V, Vout(LOW) = 1V",
+                "Vout(HIGH) = 2.5V, Vout(LOW) = 2.5V"
+            ],
+            "correctAnswer": "Vout(HIGH) = 5V, Vout(LOW) ≈ 0V",
+            "explanation": "The depletion load provides full VDD swing: output HIGH = 5V (full VDD, since the depletion load stays ON). Output LOW ≈ 0V (the strong driver pulls it near ground). This full-swing capability is the depletion load's main advantage."
+        }
+    ]
+}

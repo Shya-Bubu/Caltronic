@@ -1,0 +1,549 @@
+[
+    {
+        "id": "pmos-cross-section-img",
+        "type": "image",
+        "title": "P-Channel Enhancement MOSFET — Cross-Section",
+        "src": "/course/analog-electronics/lesson-09/pmos-cross-section.png",
+        "caption": "The PMOS structure mirrors the NMOS: p⁺ source and drain regions sit in an n-type substrate. The channel that forms is p-type, conducting through holes."
+    },
+    {
+        "id": "pmos-biased-img",
+        "type": "image",
+        "title": "PMOS with Induced P-Channel Under Gate Bias",
+        "src": "/course/analog-electronics/lesson-09/pmos-biased-channel.png",
+        "caption": "With negative VGS applied (gate more negative than source), holes accumulate at the surface forming the p-channel. Current ID flows from source to drain through this channel."
+    },
+    {
+        "id": "pmos-current-direction",
+        "type": "circuit-schematic",
+        "title": "PMOS Current Flow Direction",
+        "width": 350,
+        "height": 300,
+        "elements": [
+            {
+                "component": "wire",
+                "x1": 175,
+                "y1": 30,
+                "x2": 175,
+                "y2": 60
+            },
+            {
+                "component": "text",
+                "x": 195,
+                "y": 40,
+                "text": "S (to VDD)",
+                "fontSize": 12,
+                "color": "#ffa726"
+            },
+            {
+                "component": "wire",
+                "x1": 155,
+                "y1": 90,
+                "x2": 195,
+                "y2": 90
+            },
+            {
+                "component": "wire",
+                "x1": 155,
+                "y1": 110,
+                "x2": 195,
+                "y2": 110
+            },
+            {
+                "component": "wire",
+                "x1": 155,
+                "y1": 130,
+                "x2": 195,
+                "y2": 130
+            },
+            {
+                "component": "wire",
+                "x1": 120,
+                "y1": 110,
+                "x2": 155,
+                "y2": 110
+            },
+            {
+                "component": "wire",
+                "x1": 50,
+                "y1": 110,
+                "x2": 120,
+                "y2": 110
+            },
+            {
+                "component": "text",
+                "x": 30,
+                "y": 110,
+                "text": "G",
+                "fontSize": 14,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "wire",
+                "x1": 175,
+                "y1": 130,
+                "x2": 175,
+                "y2": 250
+            },
+            {
+                "component": "text",
+                "x": 195,
+                "y": 240,
+                "text": "D",
+                "fontSize": 14,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "current-arrow",
+                "x": 210,
+                "y": 150,
+                "label": "ID (S→D)"
+            },
+            {
+                "component": "text",
+                "x": 260,
+                "y": 70,
+                "text": "iG = 0",
+                "fontSize": 11,
+                "color": "#888"
+            },
+            {
+                "component": "text",
+                "x": 260,
+                "y": 180,
+                "text": "Holes flow S→D",
+                "fontSize": 10,
+                "color": "#ab47bc"
+            }
+        ]
+    },
+    {
+        "id": "pmos-vi-curves",
+        "type": "plotly",
+        "title": "PMOS Output Characteristics — |IDS| vs |VDS|",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    0.2,
+                    0.4,
+                    0.6,
+                    0.8,
+                    1.0,
+                    1.5,
+                    2.0,
+                    2.5,
+                    3.0,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0.14,
+                    0.24,
+                    0.30,
+                    0.33,
+                    0.35,
+                    0.35,
+                    0.35,
+                    0.35,
+                    0.35,
+                    0.35,
+                    0.35
+                ],
+                "name": "|VGS| = 2V",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 2
+                }
+            },
+            {
+                "x": [
+                    0,
+                    0.4,
+                    0.8,
+                    1.2,
+                    1.6,
+                    2.0,
+                    2.5,
+                    3.0,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0.28,
+                    0.48,
+                    0.63,
+                    0.70,
+                    0.70,
+                    0.70,
+                    0.70,
+                    0.70,
+                    0.70
+                ],
+                "name": "|VGS| = 2.5V",
+                "mode": "lines",
+                "line": {
+                    "color": "#ffa726",
+                    "width": 2
+                }
+            },
+            {
+                "x": [
+                    0,
+                    0.5,
+                    1.0,
+                    1.5,
+                    2.0,
+                    2.5,
+                    3.0,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0.38,
+                    0.63,
+                    0.75,
+                    0.80,
+                    0.80,
+                    0.80,
+                    0.80,
+                    0.80
+                ],
+                "name": "|VGS| = 3V",
+                "mode": "lines",
+                "line": {
+                    "color": "#ff6b6b",
+                    "width": 2
+                }
+            },
+            {
+                "x": [
+                    0,
+                    1.0,
+                    2.0,
+                    3.0,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0.75,
+                    1.30,
+                    1.80,
+                    1.80,
+                    1.80
+                ],
+                "name": "|VGS| = 4V",
+                "mode": "lines",
+                "line": {
+                    "color": "#ab47bc",
+                    "width": 2
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "|VDS| (V)"
+            },
+            "yaxis": {
+                "title": "|IDS| (mA)"
+            },
+            "annotations": [
+                {
+                    "x": 4,
+                    "y": 1.5,
+                    "text": "Note: Current is lower than\nNMOS for same |VGS| due\nto lower hole mobility",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#888",
+                        "size": 10
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "nmos-vs-pmos-comparison",
+        "type": "plotly",
+        "title": "NMOS vs PMOS Transfer Characteristics",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    0.5,
+                    1.0,
+                    1.5,
+                    2.0,
+                    2.5,
+                    3.0,
+                    3.5,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0,
+                    0,
+                    0.125,
+                    0.5,
+                    1.125,
+                    2.0,
+                    3.125,
+                    4.5,
+                    8.0
+                ],
+                "name": "NMOS: IDS vs VGS",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 3
+                }
+            },
+            {
+                "x": [
+                    0,
+                    -0.5,
+                    -1.0,
+                    -1.5,
+                    -2.0,
+                    -2.5,
+                    -3.0,
+                    -3.5,
+                    -4.0,
+                    -5.0
+                ],
+                "y": [
+                    0,
+                    0,
+                    0,
+                    0.05,
+                    0.2,
+                    0.45,
+                    0.8,
+                    1.25,
+                    1.8,
+                    3.2
+                ],
+                "name": "PMOS: |IDS| vs VGS",
+                "mode": "lines",
+                "line": {
+                    "color": "#ff6b6b",
+                    "width": 3
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "VGS (V)",
+                "range": [
+                    -5.5,
+                    5.5
+                ]
+            },
+            "yaxis": {
+                "title": "|IDS| (mA)"
+            },
+            "annotations": [
+                {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "text": "NMOS VT = +1V",
+                    "showarrow": true,
+                    "ax": 30,
+                    "ay": -20,
+                    "font": {
+                        "color": "#4ecdc4"
+                    }
+                },
+                {
+                    "x": -1.0,
+                    "y": 0.8,
+                    "text": "PMOS VT = -1V",
+                    "showarrow": true,
+                    "ax": -30,
+                    "ay": -20,
+                    "font": {
+                        "color": "#ff6b6b"
+                    }
+                },
+                {
+                    "x": 3.5,
+                    "y": 4,
+                    "text": "NMOS has higher\ncurrent (faster)",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#4ecdc4",
+                        "size": 10
+                    }
+                },
+                {
+                    "x": -3.5,
+                    "y": 1.5,
+                    "text": "PMOS has lower\ncurrent (slower)",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ff6b6b",
+                        "size": 10
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "pmos-circuit-symbol",
+        "type": "circuit-schematic",
+        "title": "PMOS Circuit Symbol (Enhancement Mode)",
+        "width": 300,
+        "height": 280,
+        "elements": [
+            {
+                "component": "wire",
+                "x1": 150,
+                "y1": 40,
+                "x2": 150,
+                "y2": 80
+            },
+            {
+                "component": "text",
+                "x": 170,
+                "y": 45,
+                "text": "S",
+                "fontSize": 14,
+                "color": "#ffa726"
+            },
+            {
+                "component": "wire",
+                "x1": 130,
+                "y1": 100,
+                "x2": 170,
+                "y2": 100
+            },
+            {
+                "component": "wire",
+                "x1": 130,
+                "y1": 120,
+                "x2": 170,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 130,
+                "y1": 140,
+                "x2": 170,
+                "y2": 140
+            },
+            {
+                "component": "wire",
+                "x1": 110,
+                "y1": 120,
+                "x2": 130,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 60,
+                "y1": 120,
+                "x2": 110,
+                "y2": 120
+            },
+            {
+                "component": "text",
+                "x": 40,
+                "y": 120,
+                "text": "G",
+                "fontSize": 14,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "wire",
+                "x1": 150,
+                "y1": 140,
+                "x2": 150,
+                "y2": 240
+            },
+            {
+                "component": "text",
+                "x": 170,
+                "y": 235,
+                "text": "D",
+                "fontSize": 14,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 200,
+                "y": 100,
+                "text": "Arrow OUT",
+                "fontSize": 10,
+                "color": "#888"
+            },
+            {
+                "component": "text",
+                "x": 200,
+                "y": 115,
+                "text": "= PMOS",
+                "fontSize": 10,
+                "color": "#888"
+            }
+        ]
+    },
+    {
+        "id": "falstad-pmos-basic",
+        "type": "falstad-sim",
+        "title": "Interactive: PMOS MOSFET Operation",
+        "description": "This circuit uses a PMOS transistor with VDD supply. Adjust the gate voltage to see the PMOS turn ON (gate low) and OFF (gate high). Compare the current levels with the NMOS simulation.",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 128 80 128 304 0 0 40 5 0 0 0.5\nw 128 80 272 80 0\nr 272 304 272 224 0 1000\nf 208 160 272 160 33 1.5 0.02\nw 272 80 272 144 0\nw 272 176 272 224 0\nw 128 304 272 304 0\nR 208 160 160 160 0 0 40 5 0 0 0.5\n38 1 0 0 5 Vgate\no 5 64 0 4099 5 0.1 0 2 5 3\n",
+        "height": 450
+    },
+    {
+        "id": "mobility-comparison",
+        "type": "plotly",
+        "title": "Electron vs Hole Mobility in Silicon",
+        "traces": [
+            {
+                "x": [
+                    "Electron (μn)",
+                    "Hole (μp)"
+                ],
+                "y": [
+                    1350,
+                    480
+                ],
+                "type": "bar",
+                "marker": {
+                    "color": [
+                        "#4ecdc4",
+                        "#ff6b6b"
+                    ]
+                },
+                "text": [
+                    "1350 cm²/V·s",
+                    "480 cm²/V·s"
+                ],
+                "textposition": "auto"
+            }
+        ],
+        "layout": {
+            "yaxis": {
+                "title": "Mobility (cm²/V·s)"
+            },
+            "annotations": [
+                {
+                    "x": 0.5,
+                    "y": 1100,
+                    "text": "μn/μp ≈ 2.8×",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ffa726",
+                        "size": 16
+                    }
+                }
+            ],
+            "showlegend": false
+        }
+    }
+]

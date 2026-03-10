@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-cmos-inverter",
+    "cards": [
+        {
+            "id": "fc1",
+            "front": "What does CMOS stand for?",
+            "back": "Complementary Metal-Oxide-Semiconductor. Uses a complementary pair: NMOS (pull-down to GND) + PMOS (pull-up to VDD)."
+        },
+        {
+            "id": "fc2",
+            "front": "Why is CMOS static power ≈ 0?",
+            "back": "In both logic states, one transistor is OFF, breaking the VDD-to-GND current path. No DC current → no static power. Current flows only during brief switching transitions."
+        },
+        {
+            "id": "fc3",
+            "front": "CMOS inverter: Vin = LOW → which transistor ON?",
+            "back": "PMOS ON (VGS = 0−VDD = −VDD, |VGS| > |VTp|). NMOS OFF (VGS = 0 < VTn). Output = VDD (HIGH)."
+        },
+        {
+            "id": "fc4",
+            "front": "CMOS inverter: Vin = HIGH → which transistor ON?",
+            "back": "NMOS ON (VGS = VDD > VTn). PMOS OFF (VGS = VDD−VDD = 0). Output = 0V (LOW)."
+        },
+        {
+            "id": "fc5",
+            "front": "What is the CMOS dynamic power equation?",
+            "back": "P = CL × VDD² × f. CL = load capacitance, VDD = supply, f = switching frequency. Halving VDD reduces power by 4×."
+        },
+        {
+            "id": "fc6",
+            "front": "CMOS output swing compared to NMOS inverter?",
+            "back": "CMOS: full swing 0 to VDD. NMOS (enhancement load): 0 to VDD−VT. CMOS is superior — no threshold voltage degradation."
+        },
+        {
+            "id": "fc7",
+            "front": "The complementary principle in CMOS?",
+            "back": "NMOS = pull-down (to GND), PMOS = pull-up (to VDD). When one is ON, the other is OFF. Never both ON simultaneously in steady state."
+        },
+        {
+            "id": "fc8",
+            "front": "Why must PMOS be wider than NMOS in CMOS?",
+            "back": "μp ≈ μn/2.5. To match drive strengths (symmetric rise/fall), PMOS needs W_p ≈ 2.5 × W_n. This equalises the switching point at VDD/2."
+        },
+        {
+            "id": "fc9",
+            "front": "When does CMOS draw the most current?",
+            "back": "During switching transitions. For a brief moment, both transistors are partially ON, creating a 'shoot-through' or 'short-circuit' current from VDD to GND."
+        },
+        {
+            "id": "fc10",
+            "front": "What is the CMOS switching point?",
+            "back": "Approximately VDD/2 for a symmetric inverter (PMOS sized to match NMOS). This gives equal noise margins for both HIGH and LOW levels."
+        },
+        {
+            "id": "fc11",
+            "front": "What is CMOS leakage current?",
+            "back": "Small subthreshold current when transistors are 'OFF'. Negligible for large transistors but significant in modern nm-scale devices with billions of transistors."
+        },
+        {
+            "id": "fc12",
+            "front": "Why did CMOS replace NMOS and PMOS logic?",
+            "back": "Zero static power enables billions of transistors without overheating. CMOS combines NMOS speed (pull-down) with complementary operation (zero static power). The extra transistor count is worth the power savings."
+        }
+    ]
+}

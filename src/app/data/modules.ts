@@ -112,7 +112,7 @@ export const modules: Module[] = [
     description: "Analog device behavior, amplifiers, and practical circuit intuition.",
     category: "Core Theory",
     accent: "#f0a03a",
-    updatedToWeek: 6,
+    updatedToWeek: 9,
     lectures: [
       {
         id: "lab-02",
@@ -139,7 +139,11 @@ export const modules: Module[] = [
         title: "BJT Small-Signal Analysis & Amplifier Design",
         path: "/analog-electronics/lesson-06",
       },
-
+      {
+        id: "lesson-09",
+        title: "MOSFET Fundamentals & MOS Logic Families",
+        path: "/analog-electronics/lesson-09",
+      },
     ],
   },
   {

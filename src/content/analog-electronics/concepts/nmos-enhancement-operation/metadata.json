@@ -1,0 +1,11 @@
+{
+    "id": "nmos-enhancement-operation",
+    "title": "How the N-Channel Enhancement MOSFET Works",
+    "slug": "nmos-enhancement-operation",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

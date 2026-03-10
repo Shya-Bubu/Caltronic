@@ -1,0 +1,11 @@
+{
+    "id": "nmos-logic-gates",
+    "title": "NMOS NOR and NAND Gates",
+    "slug": "nmos-logic-gates",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-mos-inverter-circuits",
+    "cards": [
+        {
+            "id": "fc1",
+            "front": "What does a logic inverter do?",
+            "back": "Outputs the logical complement: HIGH → LOW, LOW → HIGH. Vout = NOT(Vin). The simplest logic gate."
+        },
+        {
+            "id": "fc2",
+            "front": "What are the two parts of every MOS inverter?",
+            "back": "1. Driver transistor (NMOS enhancement, controlled by input). 2. Load element (can be resistor, enhancement MOSFET, or depletion MOSFET)."
+        },
+        {
+            "id": "fc3",
+            "front": "Enhancement load: what is Vout(HIGH)?",
+            "back": "VDD − VT (degraded). The enhancement load turns off when VGS drops below VT, so output can never reach full VDD. This is the main weakness."
+        },
+        {
+            "id": "fc4",
+            "front": "Depletion load: what is Vout(HIGH)?",
+            "back": "Full VDD. The depletion load has VGS = 0 (gate tied to source), so it stays ON as a depletion device even as Vout → VDD. No threshold voltage loss."
+        },
+        {
+            "id": "fc5",
+            "front": "Why is a MOSFET load better than a resistor in ICs?",
+            "back": "MOSFET takes much less chip area than a resistor of equivalent value, uses the same fabrication process, and provides better performance (especially depletion load as current source)."
+        },
+        {
+            "id": "fc6",
+            "front": "What is static power dissipation?",
+            "back": "Power wasted when output is LOW: P = VDD × IDS. Both load and driver are ON, creating a DC current path from VDD to ground. This is the main problem with NMOS/PMOS logic."
+        },
+        {
+            "id": "fc7",
+            "front": "What are the logic levels in MOS circuits?",
+            "back": "V(0) ≈ 0 V (ground). V(1) ≈ VDD (positive supply). A good logic family has outputs as close to these ideals as possible."
+        },
+        {
+            "id": "fc8",
+            "front": "When Vin = HIGH in a MOS inverter, what happens?",
+            "back": "Driver (T1) turns ON with low Ron. Current flows VDD → Load → Driver → GND. Voltage divider action pulls Vout close to 0 V (LOW)."
+        },
+        {
+            "id": "fc9",
+            "front": "When Vin = LOW in a MOS inverter, what happens?",
+            "back": "Driver (T1) turns OFF (no current path). Load pulls output toward VDD. Enhancement load: reaches VDD−VT. Depletion load: reaches full VDD."
+        },
+        {
+            "id": "fc10",
+            "front": "How does the depletion load achieve constant-current behaviour?",
+            "back": "Gate tied to source → VGS = 0. Depletion device is ON at VGS = 0, conducting IDSS. Current is independent of Vout (within saturation), acting as a current source."
+        },
+        {
+            "id": "fc11",
+            "front": "What logic family solves the static power problem?",
+            "back": "CMOS (Complementary MOS). By pairing NMOS and PMOS, one transistor is always OFF in every logic state, breaking the VDD-to-ground current path."
+        },
+        {
+            "id": "fc12",
+            "front": "Compare the three MOS inverter load types.",
+            "back": "Resistor: good swing but huge area. Enhancement: small area but degraded HIGH (VDD−VT). Depletion: small area + full VDD swing + current-source behaviour. Best NMOS option."
+        }
+    ]
+}

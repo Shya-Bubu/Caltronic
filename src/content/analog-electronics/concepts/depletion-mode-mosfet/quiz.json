@@ -1,0 +1,149 @@
+{
+    "id": "quiz-depletion-mode-mosfet",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "At VGS = 0, a depletion-mode NMOS MOSFET is:",
+            "options": [
+                "OFF with no current",
+                "ON with current flowing (IDS = IDSS)",
+                "In breakdown",
+                "Oscillating"
+            ],
+            "correctAnswer": "ON with current flowing (IDS = IDSS)",
+            "explanation": "Depletion-mode MOSFETs are 'normally ON' — a channel is physically implanted during manufacturing. At VGS = 0, the channel exists and current IDSS flows. This is the fundamental difference from enhancement-mode devices."
+        },
+        {
+            "id": "q2",
+            "prompt": "How is the channel created in a depletion-mode MOSFET?",
+            "options": [
+                "By applying gate voltage",
+                "By ion implantation during fabrication",
+                "By drain-source current",
+                "By thermal heating"
+            ],
+            "correctAnswer": "By ion implantation during fabrication",
+            "explanation": "The channel in a depletion-mode device is physically created during manufacturing through ion implantation — dopant atoms are injected into the surface to form a conductive layer that exists permanently, regardless of gate voltage."
+        },
+        {
+            "id": "q3",
+            "prompt": "For an n-channel depletion-mode MOSFET, the threshold voltage VT is:",
+            "options": [
+                "Positive",
+                "Negative",
+                "Zero",
+                "Always equal to VDD"
+            ],
+            "correctAnswer": "Negative",
+            "explanation": "For n-channel depletion devices, VT is negative. This makes sense: since the device is already ON at VGS = 0, you need to apply negative VGS to deplete the channel and turn it OFF. The turn-off condition is VGS ≤ VT (where VT < 0)."
+        },
+        {
+            "id": "q4",
+            "prompt": "What does 'depletion' refer to in depletion-mode?",
+            "options": [
+                "Creating the channel by enhancing carriers",
+                "Removing carriers from the existing channel by applying gate voltage",
+                "Depleting the power supply",
+                "Reducing the oxide thickness"
+            ],
+            "correctAnswer": "Removing carriers from the existing channel by applying gate voltage",
+            "explanation": "The word 'depletion' describes what the gate voltage does: it depletes (removes) charge carriers from the pre-existing channel. Negative VGS in an n-channel device pushes electrons away from the channel, narrowing it until it's fully depleted at VGS = VT."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is IDSS?",
+            "options": [
+                "Drain current at VGS = VT",
+                "Drain current at VGS = 0 (zero gate voltage)",
+                "Maximum possible drain current",
+                "Drain-source short-circuit current"
+            ],
+            "correctAnswer": "Drain current at VGS = 0 (zero gate voltage)",
+            "explanation": "IDSS is the drain-to-source current with the gate shorted to the source (VGS = 0). It's a key datasheet parameter for depletion-mode devices, representing the 'default' current that flows when no gate bias is applied."
+        },
+        {
+            "id": "q6",
+            "prompt": "Can a depletion-mode MOSFET operate with positive VGS?",
+            "options": [
+                "No, it would damage the device",
+                "Yes, positive VGS enhances the channel, giving IDS > IDSS",
+                "Yes, but only in cutoff",
+                "No, positive VGS has no effect"
+            ],
+            "correctAnswer": "Yes, positive VGS enhances the channel, giving IDS > IDSS",
+            "explanation": "A depletion-mode device works on both sides of VGS = 0. Positive VGS attracts even more electrons to the channel, making it wider and carrying more current than IDSS. This dual-mode capability is unique to depletion devices."
+        },
+        {
+            "id": "q7",
+            "prompt": "The current equation for a depletion-mode MOSFET in saturation is:",
+            "options": [
+                "IDS = K(VGS - VT)",
+                "IDS = (K/2)(VGS - VT)² where VT < 0",
+                "IDS = IDSS always",
+                "IDS = K·VDS²"
+            ],
+            "correctAnswer": "IDS = (K/2)(VGS - VT)² where VT < 0",
+            "explanation": "The exact same equation applies as for enhancement-mode: IDS = (K/2)(VGS - VT)². The only difference is that VT is negative, so at VGS = 0 the current is (K/2)(0 - VT)² = (K/2)VT² = IDSS (not zero)."
+        },
+        {
+            "id": "q8",
+            "prompt": "A depletion NMOS has VT = -2V and K = 1 mA/V². What is IDSS?",
+            "options": [
+                "1 mA",
+                "2 mA",
+                "4 mA",
+                "0.5 mA"
+            ],
+            "correctAnswer": "2 mA",
+            "explanation": "IDSS = (K/2)(0 - VT)² = (1/2)(0-(-2))² = (0.5)(4) = 2 mA. This is the current at VGS = 0, the 'resting' state of the depletion device."
+        },
+        {
+            "id": "q9",
+            "prompt": "When used as a load device, a depletion MOSFET has its gate connected to:",
+            "options": [
+                "VDD",
+                "Ground",
+                "Its own source (VGS = 0)",
+                "Its own drain"
+            ],
+            "correctAnswer": "Its own source (VGS = 0)",
+            "explanation": "With gate tied to source, VGS = 0, and the depletion MOSFET acts as a constant-current source providing IDSS. This is used as a load in MOS inverter circuits, replacing bulky resistors."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why is a depletion MOSFET preferred over a resistor as a load in integrated circuits?",
+            "options": [
+                "It's cheaper",
+                "It takes far less chip area and gives better performance",
+                "It's more accurate",
+                "It produces less heat"
+            ],
+            "correctAnswer": "It takes far less chip area and gives better performance",
+            "explanation": "On-chip resistors consume enormous area for high values (MΩ range). A depletion MOSFET provides constant-current load behaviour in a fraction of the area, with better circuit performance (higher gain) and is built using the same fabrication process as other transistors."
+        },
+        {
+            "id": "q11",
+            "prompt": "How many MOSFET types exist in total (considering both enhancement/depletion and n/p-channel)?",
+            "options": [
+                "2",
+                "3",
+                "4",
+                "6"
+            ],
+            "correctAnswer": "4",
+            "explanation": "Four types: (1) N-channel Enhancement, (2) N-channel Depletion, (3) P-channel Enhancement, (4) P-channel Depletion. Enhancement and depletion differ in whether the channel exists at VGS = 0; N and P differ in carrier type and voltage polarity."
+        },
+        {
+            "id": "q12",
+            "prompt": "In the transfer characteristic of a depletion NMOS, the curve crosses the IDS axis at:",
+            "options": [
+                "VGS = VT (where IDS = 0)",
+                "VGS = 0 (where IDS = IDSS)",
+                "VGS = VDD",
+                "The curve never crosses the IDS axis"
+            ],
+            "correctAnswer": "VGS = 0 (where IDS = IDSS)",
+            "explanation": "At VGS = 0, the drain current equals IDSS — this is where the transfer curve crosses the current axis. The curve also touches the VGS axis at VGS = VT (where IDS = 0). The curve exists on BOTH sides of VGS = 0, unlike enhancement devices."
+        }
+    ]
+}

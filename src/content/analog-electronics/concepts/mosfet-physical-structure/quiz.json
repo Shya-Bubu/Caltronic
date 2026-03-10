@@ -1,0 +1,149 @@
+{
+    "id": "quiz-mosfet-physical-structure",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What does MOSFET stand for?",
+            "options": [
+                "Metal-Oxide-Semiconductor Field-Effect Transistor",
+                "Metal-Organic-Silicon Field-Effect Transistor",
+                "Metal-Oxide-Silicon Feedback Transistor",
+                "Mono-Oxide-Semiconductor Field-Effect Transistor"
+            ],
+            "correctAnswer": "Metal-Oxide-Semiconductor Field-Effect Transistor",
+            "explanation": "MOSFET stands for Metal-Oxide-Semiconductor Field-Effect Transistor. The name directly describes its physical structure: a metal (or polysilicon) gate, a silicon dioxide oxide insulator, and a semiconductor substrate. The 'field-effect' part describes how it works — an electric field controls the current."
+        },
+        {
+            "id": "q2",
+            "prompt": "How many terminals does a MOSFET have?",
+            "options": [
+                "2 (Gate and Source)",
+                "3 (Gate, Drain, Source)",
+                "4 (Gate, Drain, Source, Body)",
+                "5 (Gate, Drain, Source, Body, Substrate)"
+            ],
+            "correctAnswer": "4 (Gate, Drain, Source, Body)",
+            "explanation": "A MOSFET has four terminals: Gate (G), Drain (D), Source (S), and Body (B). The body terminal connects to the semiconductor substrate. In many circuit applications, the body is tied to the source or to a fixed supply, effectively making it a three-terminal device — but physically, all four terminals exist."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the purpose of the silicon dioxide (SiO₂) layer in a MOSFET?",
+            "options": [
+                "It conducts current between gate and channel",
+                "It insulates the gate from the substrate, allowing voltage control with zero gate current",
+                "It provides mechanical support for the gate electrode",
+                "It amplifies the gate signal before reaching the channel"
+            ],
+            "correctAnswer": "It insulates the gate from the substrate, allowing voltage control with zero gate current",
+            "explanation": "The SiO₂ layer is a near-perfect insulator that separates the gate electrode from the semiconductor substrate. This insulation means no DC current flows into the gate (iG = 0), giving the MOSFET essentially infinite input impedance. The gate controls the channel entirely through an electric field, not through current."
+        },
+        {
+            "id": "q4",
+            "prompt": "In an n-channel enhancement MOSFET, the source and drain regions are:",
+            "options": [
+                "p-type regions in an n-type substrate",
+                "n⁺-doped regions in a p-type substrate",
+                "Intrinsic silicon regions in a doped substrate",
+                "Metal contacts directly on the substrate surface"
+            ],
+            "correctAnswer": "n⁺-doped regions in a p-type substrate",
+            "explanation": "In an n-channel (NMOS) enhancement MOSFET, the source and drain are heavily doped n-type (n⁺) regions embedded in a p-type substrate. The channel that forms between them is also n-type (electrons are the carriers). The 'n' in 'n-channel' refers to the type of charge carriers in the induced channel."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the channel region in a MOSFET?",
+            "options": [
+                "The metal gate electrode",
+                "The oxide layer between gate and substrate",
+                "The gap between source and drain where the conductive path forms",
+                "The wire connecting the MOSFET to the circuit"
+            ],
+            "correctAnswer": "The gap between source and drain where the conductive path forms",
+            "explanation": "The channel region is the semiconductor surface between the source and drain. When sufficient gate voltage is applied, an inversion layer of charge carriers forms here, creating a conductive path that allows current to flow from drain to source. The channel length L is the distance between source and drain."
+        },
+        {
+            "id": "q6",
+            "prompt": "What does the W/L ratio (aspect ratio) of a MOSFET control?",
+            "options": [
+                "The threshold voltage of the device",
+                "The oxide thickness",
+                "The current-carrying capability of the transistor",
+                "The breakdown voltage of the gate oxide"
+            ],
+            "correctAnswer": "The current-carrying capability of the transistor",
+            "explanation": "The drain current is proportional to W/L: IDS ∝ W/L. A larger width W provides a wider path for current (like a wider highway), while a shorter length L reduces the channel resistance (like a shorter road). Circuit designers adjust W/L to set the desired current level for each transistor."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why is the MOSFET's gate current essentially zero?",
+            "options": [
+                "Because the gate is made of a superconductor",
+                "Because the SiO₂ oxide layer insulates the gate from the substrate",
+                "Because the gate voltage is always zero",
+                "Because electrons cannot enter metal electrodes"
+            ],
+            "correctAnswer": "Because the SiO₂ oxide layer insulates the gate from the substrate",
+            "explanation": "The SiO₂ oxide layer acts as a near-perfect electrical insulator between the gate electrode and the semiconductor substrate. Since no DC current can flow through this insulator, the gate current iG ≈ 0. Only a tiny leakage current (picoamps) flows in practice. This is fundamentally different from a BJT, where base current must flow continuously."
+        },
+        {
+            "id": "q8",
+            "prompt": "How does the MOSFET control current flow compared to the BJT?",
+            "options": [
+                "Both use current control",
+                "Both use voltage control",
+                "MOSFET uses voltage (VGS), BJT uses current (IB)",
+                "MOSFET uses current (IG), BJT uses voltage (VBE)"
+            ],
+            "correctAnswer": "MOSFET uses voltage (VGS), BJT uses current (IB)",
+            "explanation": "The MOSFET is a voltage-controlled device: the gate-source voltage VGS controls the drain current IDS. The BJT is a current-controlled device: the base current IB controls the collector current IC. This fundamental difference is why the MOSFET has much higher input impedance than the BJT."
+        },
+        {
+            "id": "q9",
+            "prompt": "The MOS structure (Metal-Oxide-Semiconductor) is analogous to which passive component?",
+            "options": [
+                "A resistor",
+                "An inductor",
+                "A capacitor",
+                "A transformer"
+            ],
+            "correctAnswer": "A capacitor",
+            "explanation": "The MOS structure is essentially a parallel-plate capacitor: the metal gate is one plate, the semiconductor substrate is the other plate, and the SiO₂ oxide is the dielectric in between. The gate capacitance is Cox = εox/(tox) × W × L. When voltage is applied, charge accumulates on both 'plates' — this is how the gate controls the channel."
+        },
+        {
+            "id": "q10",
+            "prompt": "If you double the channel width W while keeping length L constant, what happens to the maximum drain current?",
+            "options": [
+                "It stays the same",
+                "It doubles",
+                "It quadruples",
+                "It halves"
+            ],
+            "correctAnswer": "It doubles",
+            "explanation": "Since IDS ∝ W/L, doubling W while keeping L constant doubles the W/L ratio, which doubles the current capability. A wider channel provides more area for electrons to flow through — like widening a river to carry more water. This is the primary way circuit designers increase transistor drive strength."
+        },
+        {
+            "id": "q11",
+            "prompt": "What is the typical thickness of the gate oxide in modern MOSFETs?",
+            "options": [
+                "About 1 mm",
+                "About 1 μm (micrometre)",
+                "About 1–10 nm (nanometres)",
+                "About 1 cm"
+            ],
+            "correctAnswer": "About 1–10 nm (nanometres)",
+            "explanation": "Modern gate oxides are incredibly thin — just 1 to 10 nanometres, which is only a few atoms thick. This extreme thinness is necessary for the gate electric field to have strong enough control over the channel. In some cutting-edge processes, the effective gate oxide thickness is less than 1 nm."
+        },
+        {
+            "id": "q12",
+            "prompt": "Which of these is the MOSFET's primary advantage over the BJT for digital logic circuits?",
+            "options": [
+                "Higher voltage gain in amplifier circuits",
+                "Zero gate current means very low power consumption at scale",
+                "Faster switching speed in all conditions",
+                "Simpler manufacturing process"
+            ],
+            "correctAnswer": "Zero gate current means very low power consumption at scale",
+            "explanation": "The MOSFET's zero gate current means controlling it costs essentially no power. This is critical for digital logic where billions of transistors must coexist on a single chip. If each transistor required continuous control current (like a BJT's base current), the power dissipation would be unmanageable. This is the fundamental reason MOSFETs dominate digital circuits."
+        }
+    ]
+}

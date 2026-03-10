@@ -1,0 +1,603 @@
+[
+    {
+        "id": "depletion-structure-img",
+        "type": "image",
+        "title": "Depletion-Mode MOSFET — Physical Structure",
+        "src": "/course/analog-electronics/lesson-09/depletion-mosfet-structure.jpeg",
+        "caption": "(a) The depletion-mode MOSFET has a physically implanted channel (shown as the n-channel between S and D) that exists even with VGS = 0. (b) Applying negative VGS depletes the channel, reducing its width and eventually cutting off current."
+    },
+    {
+        "id": "depletion-operation-schematic",
+        "type": "circuit-schematic",
+        "title": "Depletion NMOS — Three Operating States",
+        "width": 480,
+        "height": 200,
+        "elements": [
+            {
+                "component": "text",
+                "x": 80,
+                "y": 30,
+                "text": "VGS = 0",
+                "fontSize": 12,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 80,
+                "y": 50,
+                "text": "Channel ON",
+                "fontSize": 11,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 80,
+                "y": 70,
+                "text": "IDS = IDSS",
+                "fontSize": 11,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 240,
+                "y": 30,
+                "text": "VT < VGS < 0",
+                "fontSize": 12,
+                "color": "#ffa726"
+            },
+            {
+                "component": "text",
+                "x": 240,
+                "y": 50,
+                "text": "Partially depleted",
+                "fontSize": 11,
+                "color": "#ffa726"
+            },
+            {
+                "component": "text",
+                "x": 240,
+                "y": 70,
+                "text": "0 < IDS < IDSS",
+                "fontSize": 11,
+                "color": "#ffa726"
+            },
+            {
+                "component": "text",
+                "x": 400,
+                "y": 30,
+                "text": "VGS ≤ VT",
+                "fontSize": 12,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "text",
+                "x": 400,
+                "y": 50,
+                "text": "Fully depleted",
+                "fontSize": 11,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "text",
+                "x": 400,
+                "y": 70,
+                "text": "IDS = 0 (OFF)",
+                "fontSize": 11,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "wire",
+                "x1": 160,
+                "y1": 20,
+                "x2": 160,
+                "y2": 170
+            },
+            {
+                "component": "wire",
+                "x1": 320,
+                "y1": 20,
+                "x2": 320,
+                "y2": 170
+            }
+        ]
+    },
+    {
+        "id": "depletion-transfer-curve",
+        "type": "plotly",
+        "title": "Depletion NMOS Transfer Characteristic (VT = −2V)",
+        "traces": [
+            {
+                "x": [
+                    -2.0,
+                    -1.8,
+                    -1.5,
+                    -1.2,
+                    -1.0,
+                    -0.5,
+                    0,
+                    0.5,
+                    1.0,
+                    1.5,
+                    2.0
+                ],
+                "y": [
+                    0,
+                    0.02,
+                    0.125,
+                    0.32,
+                    0.5,
+                    1.125,
+                    2.0,
+                    3.125,
+                    4.5,
+                    6.125,
+                    8.0
+                ],
+                "name": "IDS (mA)",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 3
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "VGS (V)",
+                "range": [
+                    -2.5,
+                    2.5
+                ]
+            },
+            "yaxis": {
+                "title": "IDS (mA)"
+            },
+            "annotations": [
+                {
+                    "x": -2.0,
+                    "y": 0.5,
+                    "text": "VT = −2V\n(OFF)",
+                    "showarrow": true,
+                    "arrowhead": 2,
+                    "ax": -40,
+                    "ay": -30,
+                    "font": {
+                        "color": "#ff6b6b"
+                    }
+                },
+                {
+                    "x": 0,
+                    "y": 2.5,
+                    "text": "IDSS = 2 mA",
+                    "showarrow": true,
+                    "arrowhead": 2,
+                    "ax": 40,
+                    "ay": -20,
+                    "font": {
+                        "color": "#ffa726"
+                    }
+                },
+                {
+                    "x": -1.0,
+                    "y": 3.5,
+                    "text": "Depletion\nregion",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ffa726",
+                        "size": 11
+                    }
+                },
+                {
+                    "x": 1.5,
+                    "y": 7.0,
+                    "text": "Enhancement\nregion",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#4ecdc4",
+                        "size": 11
+                    }
+                }
+            ],
+            "shapes": [
+                {
+                    "type": "line",
+                    "x0": 0,
+                    "y0": 0,
+                    "x1": 0,
+                    "y1": 8.5,
+                    "line": {
+                        "color": "rgba(255,255,255,0.2)",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "depletion-normalized-curve",
+        "type": "plotly",
+        "title": "Normalised Transfer Curve: IDS/IDSS vs VGS/VT",
+        "traces": [
+            {
+                "x": [
+                    1.0,
+                    0.9,
+                    0.8,
+                    0.7,
+                    0.6,
+                    0.5,
+                    0.4,
+                    0.3,
+                    0.2,
+                    0.1,
+                    0,
+                    -0.25,
+                    -0.5,
+                    -0.75,
+                    -1.0
+                ],
+                "y": [
+                    0,
+                    0.01,
+                    0.04,
+                    0.09,
+                    0.16,
+                    0.25,
+                    0.36,
+                    0.49,
+                    0.64,
+                    0.81,
+                    1.0,
+                    1.5625,
+                    2.25,
+                    3.0625,
+                    4.0
+                ],
+                "name": "IDS/IDSS = (1 − VGS/VT)²",
+                "mode": "lines",
+                "line": {
+                    "color": "#ab47bc",
+                    "width": 3
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "VGS/VT (normalised)",
+                "range": [
+                    -1.2,
+                    1.2
+                ]
+            },
+            "yaxis": {
+                "title": "IDS/IDSS (normalised)"
+            },
+            "annotations": [
+                {
+                    "x": 0,
+                    "y": 1.2,
+                    "text": "VGS = 0\nIDS = IDSS",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ffa726"
+                    }
+                },
+                {
+                    "x": 1.0,
+                    "y": 0.2,
+                    "text": "VGS = VT\nOFF",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ff6b6b"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "depletion-load-comparison",
+        "type": "plotly",
+        "title": "Load Device Comparison: Resistor vs Depletion MOSFET",
+        "traces": [
+            {
+                "x": [
+                    "Chip Area\n(relative)",
+                    "Static Power\n(mW)",
+                    "Output\nImpedance (kΩ)",
+                    "Gain\n(typical)"
+                ],
+                "y": [
+                    10,
+                    5,
+                    1,
+                    5
+                ],
+                "name": "Resistor Load",
+                "type": "bar",
+                "marker": {
+                    "color": "#ff6b6b"
+                }
+            },
+            {
+                "x": [
+                    "Chip Area\n(relative)",
+                    "Static Power\n(mW)",
+                    "Output\nImpedance (kΩ)",
+                    "Gain\n(typical)"
+                ],
+                "y": [
+                    1,
+                    2,
+                    10,
+                    20
+                ],
+                "name": "Depletion MOSFET Load",
+                "type": "bar",
+                "marker": {
+                    "color": "#4ecdc4"
+                }
+            }
+        ],
+        "layout": {
+            "barmode": "group",
+            "yaxis": {
+                "title": "Value"
+            },
+            "legend": {
+                "x": 0.6,
+                "y": 0.95
+            }
+        }
+    },
+    {
+        "id": "mosfet-family-summary",
+        "type": "plotly",
+        "title": "The Complete MOSFET Family — Threshold Voltages",
+        "traces": [
+            {
+                "x": [
+                    "N-Enhancement",
+                    "N-Depletion",
+                    "P-Enhancement",
+                    "P-Depletion"
+                ],
+                "y": [
+                    1.5,
+                    -2.0,
+                    -1.5,
+                    2.0
+                ],
+                "type": "bar",
+                "marker": {
+                    "color": [
+                        "#4ecdc4",
+                        "#ffa726",
+                        "#ff6b6b",
+                        "#ab47bc"
+                    ]
+                },
+                "text": [
+                    "+1.5V",
+                    "−2.0V",
+                    "−1.5V",
+                    "+2.0V"
+                ],
+                "textposition": "outside"
+            }
+        ],
+        "layout": {
+            "yaxis": {
+                "title": "Threshold Voltage VT (V)",
+                "range": [
+                    -3,
+                    3
+                ]
+            },
+            "showlegend": false,
+            "shapes": [
+                {
+                    "type": "line",
+                    "x0": -0.5,
+                    "y0": 0,
+                    "x1": 3.5,
+                    "y1": 0,
+                    "line": {
+                        "color": "rgba(255,255,255,0.3)",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                }
+            ],
+            "annotations": [
+                {
+                    "x": 0,
+                    "y": 2.5,
+                    "text": "Normally OFF",
+                    "showarrow": false,
+                    "font": {
+                        "size": 10,
+                        "color": "#4ecdc4"
+                    }
+                },
+                {
+                    "x": 1,
+                    "y": -2.8,
+                    "text": "Normally ON",
+                    "showarrow": false,
+                    "font": {
+                        "size": 10,
+                        "color": "#ffa726"
+                    }
+                },
+                {
+                    "x": 2,
+                    "y": -2.3,
+                    "text": "Normally OFF",
+                    "showarrow": false,
+                    "font": {
+                        "size": 10,
+                        "color": "#ff6b6b"
+                    }
+                },
+                {
+                    "x": 3,
+                    "y": 2.8,
+                    "text": "Normally ON",
+                    "showarrow": false,
+                    "font": {
+                        "size": 10,
+                        "color": "#ab47bc"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "falstad-depletion-mosfet",
+        "type": "falstad-sim",
+        "title": "Interactive: Depletion MOSFET with Variable Gate Voltage",
+        "description": "Adjust VGS from positive (enhanced channel) through zero (IDSS) to negative (depleted channel). Watch how the current changes. The device conducts even at VGS = 0!",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 128 304 128 80 0 0 40 5 0 0 0.5\nw 128 80 272 80 0\nr 272 80 272 160 0 1000\nf 208 224 272 224 36 1.5 0.02\nw 272 160 272 208 0\nw 272 240 272 304 0\nw 128 304 272 304 0\nR 208 224 160 224 0 0 40 5 0 0 0.5\n38 1 0 -3 3 Vgate\no 5 64 0 4099 5 0.1 0 2 5 3\n",
+        "height": 450
+    },
+    {
+        "id": "enhancement-vs-depletion-symbols",
+        "type": "circuit-schematic",
+        "title": "Circuit Symbols: Enhancement vs Depletion MOSFET",
+        "width": 450,
+        "height": 200,
+        "elements": [
+            {
+                "component": "text",
+                "x": 110,
+                "y": 20,
+                "text": "Enhancement",
+                "fontSize": 13,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 110,
+                "y": 40,
+                "text": "(broken line = no channel)",
+                "fontSize": 10,
+                "color": "#888"
+            },
+            {
+                "component": "wire",
+                "x1": 80,
+                "y1": 80,
+                "x2": 80,
+                "y2": 100
+            },
+            {
+                "component": "wire",
+                "x1": 65,
+                "y1": 100,
+                "x2": 75,
+                "y2": 100
+            },
+            {
+                "component": "wire",
+                "x1": 85,
+                "y1": 100,
+                "x2": 95,
+                "y2": 100
+            },
+            {
+                "component": "wire",
+                "x1": 65,
+                "y1": 120,
+                "x2": 95,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 65,
+                "y1": 140,
+                "x2": 75,
+                "y2": 140
+            },
+            {
+                "component": "wire",
+                "x1": 85,
+                "y1": 140,
+                "x2": 95,
+                "y2": 140
+            },
+            {
+                "component": "wire",
+                "x1": 40,
+                "y1": 120,
+                "x2": 60,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 80,
+                "y1": 140,
+                "x2": 80,
+                "y2": 170
+            },
+            {
+                "component": "text",
+                "x": 340,
+                "y": 20,
+                "text": "Depletion",
+                "fontSize": 13,
+                "color": "#ffa726"
+            },
+            {
+                "component": "text",
+                "x": 340,
+                "y": 40,
+                "text": "(solid line = channel exists)",
+                "fontSize": 10,
+                "color": "#888"
+            },
+            {
+                "component": "wire",
+                "x1": 310,
+                "y1": 80,
+                "x2": 310,
+                "y2": 100
+            },
+            {
+                "component": "wire",
+                "x1": 295,
+                "y1": 100,
+                "x2": 325,
+                "y2": 100
+            },
+            {
+                "component": "wire",
+                "x1": 295,
+                "y1": 120,
+                "x2": 325,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 295,
+                "y1": 140,
+                "x2": 325,
+                "y2": 140
+            },
+            {
+                "component": "wire",
+                "x1": 270,
+                "y1": 120,
+                "x2": 290,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 310,
+                "y1": 140,
+                "x2": 310,
+                "y2": 170
+            }
+        ]
+    }
+]

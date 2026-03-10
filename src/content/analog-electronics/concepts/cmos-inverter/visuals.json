@@ -1,0 +1,530 @@
+[
+    {
+        "id": "cmos-inverter-img",
+        "type": "image",
+        "title": "CMOS Inverter Circuit",
+        "src": "/course/analog-electronics/lesson-09/cmos-inverter-circuit.jpeg",
+        "caption": "The CMOS inverter from the textbook (Fig. 3.33): T1 is the n-channel driver (pull-down to ground), T2 is the p-channel load (pull-up to VDD). Both gates share a common input, and both drains connect to form the output."
+    },
+    {
+        "id": "cmos-state-analysis",
+        "type": "circuit-schematic",
+        "title": "CMOS Inverter — Both Logic States",
+        "width": 500,
+        "height": 220,
+        "elements": [
+            {
+                "component": "text",
+                "x": 125,
+                "y": 15,
+                "text": "Vin = LOW",
+                "fontSize": 13,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 125,
+                "y": 40,
+                "text": "PMOS: ON ✓",
+                "fontSize": 11,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 125,
+                "y": 60,
+                "text": "NMOS: OFF ✗",
+                "fontSize": 11,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "text",
+                "x": 125,
+                "y": 80,
+                "text": "Vout = VDD",
+                "fontSize": 12,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 125,
+                "y": 100,
+                "text": "IDD = 0",
+                "fontSize": 11,
+                "color": "#888"
+            },
+            {
+                "component": "wire",
+                "x1": 250,
+                "y1": 15,
+                "x2": 250,
+                "y2": 200
+            },
+            {
+                "component": "text",
+                "x": 375,
+                "y": 15,
+                "text": "Vin = HIGH",
+                "fontSize": 13,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "text",
+                "x": 375,
+                "y": 40,
+                "text": "PMOS: OFF ✗",
+                "fontSize": 11,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "text",
+                "x": 375,
+                "y": 60,
+                "text": "NMOS: ON ✓",
+                "fontSize": 11,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "text",
+                "x": 375,
+                "y": 80,
+                "text": "Vout = 0V",
+                "fontSize": 12,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "text",
+                "x": 375,
+                "y": 100,
+                "text": "IDD = 0",
+                "fontSize": 11,
+                "color": "#888"
+            },
+            {
+                "component": "text",
+                "x": 250,
+                "y": 180,
+                "text": "Zero static power in BOTH states!",
+                "fontSize": 12,
+                "color": "#ffa726"
+            }
+        ]
+    },
+    {
+        "id": "cmos-vtc-plotly",
+        "type": "plotly",
+        "title": "CMOS Inverter — Voltage Transfer Characteristic",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    0.5,
+                    1.0,
+                    1.5,
+                    2.0,
+                    2.2,
+                    2.4,
+                    2.5,
+                    2.6,
+                    2.8,
+                    3.0,
+                    3.5,
+                    4.0,
+                    4.5,
+                    5.0
+                ],
+                "y": [
+                    5.0,
+                    5.0,
+                    5.0,
+                    4.95,
+                    4.8,
+                    4.5,
+                    3.8,
+                    2.5,
+                    1.2,
+                    0.5,
+                    0.2,
+                    0.05,
+                    0.02,
+                    0.01,
+                    0.0
+                ],
+                "name": "CMOS VTC",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 3
+                }
+            },
+            {
+                "x": [
+                    0,
+                    0.5,
+                    1.0,
+                    1.5,
+                    2.0,
+                    2.5,
+                    3.0,
+                    3.5,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    3.5,
+                    3.5,
+                    3.5,
+                    3.0,
+                    2.0,
+                    0.5,
+                    0.2,
+                    0.1,
+                    0.05,
+                    0.02
+                ],
+                "name": "NMOS (enhancement load)",
+                "mode": "lines",
+                "line": {
+                    "color": "#ff6b6b",
+                    "width": 2,
+                    "dash": "dash"
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "Vin (V)",
+                "range": [
+                    0,
+                    5.5
+                ]
+            },
+            "yaxis": {
+                "title": "Vout (V)",
+                "range": [
+                    -0.5,
+                    5.5
+                ]
+            },
+            "annotations": [
+                {
+                    "x": 2.5,
+                    "y": 3.5,
+                    "text": "Sharp transition\nat VDD/2",
+                    "showarrow": true,
+                    "arrowhead": 2,
+                    "ax": 40,
+                    "ay": -30,
+                    "font": {
+                        "color": "#ffa726"
+                    }
+                },
+                {
+                    "x": 0.3,
+                    "y": 5.3,
+                    "text": "Full VDD",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#4ecdc4"
+                    }
+                },
+                {
+                    "x": 0.3,
+                    "y": 3.8,
+                    "text": "VDD−VT",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ff6b6b",
+                        "size": 10
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "power-comparison-plotly",
+        "type": "plotly",
+        "title": "Power Comparison — NMOS vs CMOS",
+        "traces": [
+            {
+                "x": [
+                    "Static Power\n(DC)",
+                    "Dynamic Power\n(switching)",
+                    "Total at\n100 MHz",
+                    "Total at\n1 GHz"
+                ],
+                "y": [
+                    5.0,
+                    0.5,
+                    5.5,
+                    10.0
+                ],
+                "name": "NMOS Logic",
+                "type": "bar",
+                "marker": {
+                    "color": "#ff6b6b"
+                }
+            },
+            {
+                "x": [
+                    "Static Power\n(DC)",
+                    "Dynamic Power\n(switching)",
+                    "Total at\n100 MHz",
+                    "Total at\n1 GHz"
+                ],
+                "y": [
+                    0.001,
+                    0.5,
+                    0.501,
+                    5.001
+                ],
+                "name": "CMOS",
+                "type": "bar",
+                "marker": {
+                    "color": "#4ecdc4"
+                }
+            }
+        ],
+        "layout": {
+            "barmode": "group",
+            "yaxis": {
+                "title": "Power (mW)"
+            },
+            "annotations": [
+                {
+                    "x": 0,
+                    "y": 6,
+                    "text": "CMOS eliminates\nthis entirely!",
+                    "showarrow": true,
+                    "arrowhead": 2,
+                    "ax": 0,
+                    "ay": 30,
+                    "font": {
+                        "color": "#ffa726"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "technology-comparison",
+        "type": "plotly",
+        "title": "MOS Technology Evolution — Static Power per Gate",
+        "traces": [
+            {
+                "x": [
+                    "PMOS\n(1960s)",
+                    "NMOS\n(1970s)",
+                    "CMOS\n(1980s+)"
+                ],
+                "y": [
+                    5.0,
+                    2.5,
+                    0.001
+                ],
+                "type": "bar",
+                "marker": {
+                    "color": [
+                        "#ab47bc",
+                        "#ffa726",
+                        "#4ecdc4"
+                    ]
+                },
+                "text": [
+                    "5.0 mW",
+                    "2.5 mW",
+                    "≈ 0 mW"
+                ],
+                "textposition": "auto"
+            }
+        ],
+        "layout": {
+            "yaxis": {
+                "title": "Static Power per Gate (mW)",
+                "type": "log",
+                "range": [
+                    -4,
+                    1
+                ]
+            },
+            "showlegend": false
+        }
+    },
+    {
+        "id": "falstad-cmos-inverter",
+        "type": "falstad-sim",
+        "title": "Interactive: CMOS Inverter",
+        "description": "Toggle the input between HIGH and LOW. Notice how one transistor turns ON while the other turns OFF — there's never a static current path from VDD to ground. Compare the output levels with the NMOS inverter.",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 112 304 112 80 0 0 40 5 0 0 0.5\nw 112 80 240 80 0\nf 176 160 240 160 33 1.5 0.02\nf 176 224 240 224 32 1.5 0.02\nw 240 80 240 144 0\nw 240 176 240 208 0\nw 240 240 240 304 0\nw 112 304 240 304 0\nw 176 160 176 224 0\nR 176 160 128 160 0 0 40 5 0 0 0.5\n38 1 0 0 5 Vin\np 240 176 240 208 1 0\no 10 64 0 4099 5 0.1 0 2 10 3\n",
+        "height": 450
+    },
+    {
+        "id": "cmos-complementary-principle",
+        "type": "plotly",
+        "title": "The Complementary Principle: PMOS vs NMOS State",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "y": [
+                    1,
+                    1,
+                    1,
+                    0.5,
+                    0,
+                    0
+                ],
+                "name": "PMOS state (1=ON)",
+                "mode": "lines",
+                "line": {
+                    "color": "#ff6b6b",
+                    "width": 3
+                }
+            },
+            {
+                "x": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "y": [
+                    0,
+                    0,
+                    0,
+                    0.5,
+                    1,
+                    1
+                ],
+                "name": "NMOS state (1=ON)",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 3
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "Vin (V)"
+            },
+            "yaxis": {
+                "title": "Transistor State",
+                "tickvals": [
+                    0,
+                    0.5,
+                    1
+                ],
+                "ticktext": [
+                    "OFF",
+                    "Transition",
+                    "ON"
+                ]
+            },
+            "annotations": [
+                {
+                    "x": 1,
+                    "y": 1.15,
+                    "text": "PMOS ON\nNMOS OFF",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ff6b6b",
+                        "size": 10
+                    }
+                },
+                {
+                    "x": 4,
+                    "y": 1.15,
+                    "text": "NMOS ON\nPMOS OFF",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#4ecdc4",
+                        "size": 10
+                    }
+                },
+                {
+                    "x": 2.5,
+                    "y": 0.7,
+                    "text": "Both partially ON\n(current flows!)",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ffa726",
+                        "size": 10
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "cmos-dynamic-power",
+        "type": "plotly",
+        "title": "CMOS Dynamic Power vs Frequency",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    100,
+                    500,
+                    1000,
+                    2000,
+                    3000,
+                    4000,
+                    5000
+                ],
+                "y": [
+                    0,
+                    0.25,
+                    1.25,
+                    2.5,
+                    5.0,
+                    7.5,
+                    10.0,
+                    12.5
+                ],
+                "name": "P = CL × VDD² × f",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 3
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "Frequency (MHz)"
+            },
+            "yaxis": {
+                "title": "Power (mW)"
+            },
+            "annotations": [
+                {
+                    "x": 4000,
+                    "y": 11,
+                    "text": "Power wall!\nToo much heat",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ff6b6b",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": 1000,
+                    "y": 1,
+                    "text": "Linear growth\nwith frequency",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ffa726"
+                    }
+                }
+            ]
+        }
+    }
+]

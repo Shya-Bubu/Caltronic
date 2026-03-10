@@ -1,0 +1,606 @@
+[
+    {
+        "id": "nmos-off-state",
+        "type": "circuit-schematic",
+        "title": "NMOS Enhancement MOSFET — OFF State (VGS = 0)",
+        "width": 400,
+        "height": 280,
+        "elements": [
+            {
+                "component": "text",
+                "x": 200,
+                "y": 20,
+                "text": "VGS = 0 → No Channel → IDS = 0",
+                "fontSize": 13,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "wire",
+                "x1": 200,
+                "y1": 40,
+                "x2": 200,
+                "y2": 70
+            },
+            {
+                "component": "text",
+                "x": 220,
+                "y": 55,
+                "text": "D",
+                "fontSize": 14,
+                "color": "#4ecdc4"
+            },
+            {
+                "component": "wire",
+                "x1": 180,
+                "y1": 100,
+                "x2": 220,
+                "y2": 100
+            },
+            {
+                "component": "wire",
+                "x1": 180,
+                "y1": 120,
+                "x2": 220,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 180,
+                "y1": 140,
+                "x2": 220,
+                "y2": 140
+            },
+            {
+                "component": "wire",
+                "x1": 150,
+                "y1": 120,
+                "x2": 180,
+                "y2": 120
+            },
+            {
+                "component": "wire",
+                "x1": 80,
+                "y1": 120,
+                "x2": 150,
+                "y2": 120
+            },
+            {
+                "component": "text",
+                "x": 60,
+                "y": 120,
+                "text": "G",
+                "fontSize": 14,
+                "color": "#ff6b6b"
+            },
+            {
+                "component": "wire",
+                "x1": 200,
+                "y1": 140,
+                "x2": 200,
+                "y2": 170
+            },
+            {
+                "component": "wire",
+                "x1": 200,
+                "y1": 170,
+                "x2": 200,
+                "y2": 240
+            },
+            {
+                "component": "text",
+                "x": 220,
+                "y": 200,
+                "text": "S",
+                "fontSize": 14,
+                "color": "#ffa726"
+            },
+            {
+                "component": "ground",
+                "x": 200,
+                "y": 250
+            },
+            {
+                "component": "text",
+                "x": 280,
+                "y": 130,
+                "text": "No current path",
+                "fontSize": 11,
+                "color": "#888"
+            },
+            {
+                "component": "text",
+                "x": 280,
+                "y": 150,
+                "text": "(two back-to-back",
+                "fontSize": 10,
+                "color": "#888"
+            },
+            {
+                "component": "text",
+                "x": 280,
+                "y": 165,
+                "text": " pn junctions block)",
+                "fontSize": 10,
+                "color": "#888"
+            }
+        ]
+    },
+    {
+        "id": "nmos-biased-diagram",
+        "type": "image",
+        "title": "N-Channel Enhancement MOSFET with Induced Channel",
+        "src": "/course/analog-electronics/lesson-09/nmos-2d-cross-section.png",
+        "caption": "Cross-section showing the oxide thickness tox and the channel region between the n⁺ source and drain. When VGS > VT, electrons accumulate at the surface forming the inversion layer."
+    },
+    {
+        "id": "nmos-channel-current",
+        "type": "image",
+        "title": "Biased NMOS — Channel Formation and Current Flow",
+        "src": "/course/analog-electronics/lesson-09/nmos-biased-channel.png",
+        "caption": "With VGS > VT applied, the induced n-channel connects source to drain. Conventional current ID flows from D to S (electrons flow S to D). Note: iG = 0 and iS = iD."
+    },
+    {
+        "id": "nmos-regions-plotly",
+        "type": "plotly",
+        "title": "NMOS Operating Regions — IDS vs VDS",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    0.2,
+                    0.4,
+                    0.6,
+                    0.8,
+                    1.0,
+                    1.2,
+                    1.4,
+                    1.6,
+                    1.8,
+                    2.0,
+                    2.5,
+                    3.0,
+                    3.5,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0.36,
+                    0.64,
+                    0.84,
+                    0.96,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "name": "VGS = 2V (VOV = 1V)",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 2
+                }
+            },
+            {
+                "x": [
+                    0,
+                    0.4,
+                    0.8,
+                    1.2,
+                    1.6,
+                    2.0,
+                    2.4,
+                    2.8,
+                    3.0,
+                    3.5,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0.64,
+                    1.12,
+                    1.44,
+                    1.60,
+                    1.6,
+                    1.6,
+                    1.6,
+                    1.6,
+                    1.6,
+                    1.6,
+                    1.6
+                ],
+                "name": "VGS = 2.5V (VOV = 1.5V)",
+                "mode": "lines",
+                "line": {
+                    "color": "#ffa726",
+                    "width": 2
+                }
+            },
+            {
+                "x": [
+                    0,
+                    0.5,
+                    1.0,
+                    1.5,
+                    2.0,
+                    2.5,
+                    3.0,
+                    3.5,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0.75,
+                    1.25,
+                    1.50,
+                    1.60,
+                    1.60,
+                    1.60,
+                    1.60,
+                    1.60,
+                    1.60
+                ],
+                "name": "VGS = 3V (VOV = 2V)",
+                "mode": "lines",
+                "line": {
+                    "color": "#ff6b6b",
+                    "width": 2
+                }
+            },
+            {
+                "x": [
+                    0,
+                    1.0,
+                    2.0,
+                    3.0,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    1.00,
+                    2.25,
+                    4.00,
+                    4.50,
+                    4.50
+                ],
+                "name": "VGS = 4V (VOV = 3V)",
+                "mode": "lines",
+                "line": {
+                    "color": "#ab47bc",
+                    "width": 2
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "VDS (V)",
+                "range": [
+                    0,
+                    5.5
+                ]
+            },
+            "yaxis": {
+                "title": "IDS (mA)",
+                "range": [
+                    0,
+                    5
+                ]
+            },
+            "annotations": [
+                {
+                    "x": 0.5,
+                    "y": 4.5,
+                    "text": "Triode",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#888",
+                        "size": 12
+                    }
+                },
+                {
+                    "x": 3.5,
+                    "y": 4.5,
+                    "text": "Saturation",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#888",
+                        "size": 12
+                    }
+                }
+            ],
+            "shapes": [
+                {
+                    "type": "line",
+                    "x0": 0,
+                    "y0": 0,
+                    "x1": 3,
+                    "y1": 4.5,
+                    "line": {
+                        "color": "rgba(255,255,255,0.15)",
+                        "width": 2,
+                        "dash": "dot"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "nmos-vi-curves",
+        "type": "plotly",
+        "title": "Transfer Characteristic — IDS vs VGS (Saturation)",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    0.2,
+                    0.4,
+                    0.6,
+                    0.8,
+                    1.0,
+                    1.2,
+                    1.5,
+                    2.0,
+                    2.5,
+                    3.0,
+                    3.5,
+                    4.0,
+                    4.5,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.02,
+                    0.125,
+                    0.5,
+                    1.125,
+                    2.0,
+                    3.125,
+                    4.5,
+                    6.125,
+                    8.0
+                ],
+                "name": "IDS = (K/2)(VGS-VT)²",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 3
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "VGS (V)"
+            },
+            "yaxis": {
+                "title": "IDS (mA)"
+            },
+            "annotations": [
+                {
+                    "x": 1.0,
+                    "y": 0.5,
+                    "text": "VT = 1V",
+                    "showarrow": true,
+                    "arrowhead": 2,
+                    "ax": 30,
+                    "ay": -30,
+                    "font": {
+                        "color": "#ff6b6b"
+                    }
+                },
+                {
+                    "x": 4.0,
+                    "y": 5.5,
+                    "text": "Quadratic\n(not linear!)",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ffa726"
+                    }
+                }
+            ],
+            "shapes": [
+                {
+                    "type": "line",
+                    "x0": 1.0,
+                    "y0": 0,
+                    "x1": 1.0,
+                    "y1": 8.5,
+                    "line": {
+                        "color": "#ff6b6b",
+                        "width": 1,
+                        "dash": "dash"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "threshold-voltage-plotly",
+        "type": "plotly",
+        "title": "Channel Conductance vs VGS — Threshold Crossing",
+        "traces": [
+            {
+                "x": [
+                    0,
+                    0.2,
+                    0.4,
+                    0.6,
+                    0.8,
+                    1.0,
+                    1.2,
+                    1.5,
+                    2.0,
+                    2.5,
+                    3.0,
+                    4.0,
+                    5.0
+                ],
+                "y": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.2,
+                    0.5,
+                    1.0,
+                    1.5,
+                    2.0,
+                    3.0,
+                    4.0
+                ],
+                "name": "Channel conductance (mS)",
+                "mode": "lines",
+                "line": {
+                    "color": "#4ecdc4",
+                    "width": 3
+                },
+                "fill": "tozeroy",
+                "fillcolor": "rgba(78,205,196,0.1)"
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "title": "VGS (V)"
+            },
+            "yaxis": {
+                "title": "Channel Conductance (mS)"
+            },
+            "annotations": [
+                {
+                    "x": 0.5,
+                    "y": 1.5,
+                    "text": "OFF\n(no channel)",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#ff6b6b",
+                        "size": 13
+                    }
+                },
+                {
+                    "x": 3.0,
+                    "y": 3.5,
+                    "text": "ON\n(channel exists)",
+                    "showarrow": false,
+                    "font": {
+                        "color": "#4ecdc4",
+                        "size": 13
+                    }
+                },
+                {
+                    "x": 1.0,
+                    "y": 0.3,
+                    "text": "VT",
+                    "showarrow": true,
+                    "arrowhead": 2,
+                    "ax": 0,
+                    "ay": -30,
+                    "font": {
+                        "color": "#ffa726",
+                        "size": 14
+                    }
+                }
+            ],
+            "shapes": [
+                {
+                    "type": "line",
+                    "x0": 1.0,
+                    "y0": 0,
+                    "x1": 1.0,
+                    "y1": 4.5,
+                    "line": {
+                        "color": "#ffa726",
+                        "width": 2,
+                        "dash": "dash"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": "falstad-nmos-operation",
+        "type": "falstad-sim",
+        "title": "Interactive: NMOS MOSFET Operating Regions",
+        "description": "Adjust VGS with the slider to move through cutoff, triode, and saturation. Watch how the drain current changes. Try setting VGS below VT (1V) to see the transistor turn OFF.",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 128 304 128 80 0 0 40 5 0 0 0.5\nw 128 80 272 80 0\nr 272 80 272 160 0 1000\nf 208 224 272 224 32 1.5 0.02\nw 272 160 272 208 0\nw 272 240 272 304 0\nw 128 304 272 304 0\nR 208 224 160 224 0 0 40 5 0 0 0.5\n38 1 0 0 5 Vgate\no 5 64 0 4099 5 0.1 0 2 5 3\no 2 64 0 4098 5 0.00009765625 1 2 2 3\n",
+        "height": 450
+    },
+    {
+        "id": "region-decision-flowchart",
+        "type": "plotly",
+        "title": "Decision Flowchart: Identifying the Operating Region",
+        "traces": [
+            {
+                "x": [
+                    "Step 1:\nIs VGS > VT?",
+                    "NO → Cutoff\n(IDS = 0)",
+                    "Step 2:\nIs VDS < VOV?",
+                    "YES → Triode\n(resistor)",
+                    "NO → Saturation\n(current source)"
+                ],
+                "y": [
+                    5,
+                    4,
+                    3,
+                    2,
+                    1
+                ],
+                "mode": "markers+text",
+                "text": [
+                    "Step 1:\nIs VGS > VT?",
+                    "NO → Cutoff\n(IDS = 0)",
+                    "Step 2:\nIs VDS < VOV?",
+                    "YES → Triode\n(resistor)",
+                    "NO → Saturation\n(current source)"
+                ],
+                "textposition": "middle center",
+                "marker": {
+                    "size": 60,
+                    "color": [
+                        "#4ecdc4",
+                        "#ff6b6b",
+                        "#ffa726",
+                        "#4ecdc4",
+                        "#ab47bc"
+                    ],
+                    "opacity": 0.3
+                },
+                "textfont": {
+                    "size": 11
+                }
+            }
+        ],
+        "layout": {
+            "xaxis": {
+                "visible": false
+            },
+            "yaxis": {
+                "visible": false,
+                "range": [
+                    0,
+                    6
+                ]
+            },
+            "showlegend": false,
+            "margin": {
+                "t": 30,
+                "b": 20
+            }
+        }
+    }
+]
