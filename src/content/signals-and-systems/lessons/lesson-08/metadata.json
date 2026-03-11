@@ -1,0 +1,19 @@
+{
+    "id": "lesson-08",
+    "title": "Systems, LTI, Convolution & Transfer Functions",
+    "slug": "lesson-08",
+    "description": "From system classification through LTI properties, impulse response, and the convolution integral, to transfer functions in the Laplace domain — with worked RC and RLC circuit examples.",
+    "prerequisites": ["lesson-07"],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "lectureWeek": 8,
+    "estimatedMinutes": 90,
+    "concepts": [
+        "system-classification",
+        "system-interconnections",
+        "impulse-response-and-convolution",
+        "laplace-domain-analysis",
+        "transfer-function",
+        "rlc-circuit-transfer-function"
+    ]
+}
