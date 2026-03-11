@@ -63,7 +63,7 @@ export const modules: Module[] = [
     description: "Signals, systems, and the mathematical language of engineering change over time.",
     category: "Core Theory",
     accent: "#6b62ff",
-    updatedToWeek: 8,
+    updatedToWeek: 9,
     lectures: [
       {
         id: "lesson-04",
@@ -89,6 +89,11 @@ export const modules: Module[] = [
         id: "lesson-08",
         title: "Systems, LTI, Convolution & Transfer Functions",
         path: "/signals-and-systems/lesson-08",
+      },
+      {
+        id: "lesson-09",
+        title: "Step Response, Value Theorems & Sinusoidal Response",
+        path: "/signals-and-systems/lesson-09",
       },
     ],
   },

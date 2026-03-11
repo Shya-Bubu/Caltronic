@@ -1,0 +1,18 @@
+{
+    "id": "lesson-09",
+    "title": "Step Response, Value Theorems & Sinusoidal Response",
+    "slug": "lesson-09",
+    "description": "From step response analysis through initial and final value theorems, second-order damping behaviour, sinusoidal steady-state response, and response to arbitrary inputs using superposition.",
+    "prerequisites": ["lesson-08"],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "lectureWeek": 9,
+    "estimatedMinutes": 90,
+    "concepts": [
+        "step-response-of-lti-systems",
+        "initial-and-final-value-theorems",
+        "second-order-step-response",
+        "sinusoidal-response-of-lti",
+        "response-to-arbitrary-inputs"
+    ]
+}
