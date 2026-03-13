@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-stability-from-poles",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What is the stability question really asking?",
+      "back": "It asks whether the system response settles down, stays bounded, or grows after a disturbance.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What are the roots of the denominator polynomial called?",
+      "back": "They are called poles.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What time-domain factor comes from a real pole $p$?",
+      "back": "A real pole contributes a term proportional to $e^{pt}$.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "What time-domain form comes from a complex pole pair $\\sigma \\pm j\\omega$?",
+      "back": "It contributes a decaying or growing oscillation such as $e^{\\sigma t}\\cos(\\omega t + \\theta)$.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is the asymptotic stability condition in pole language?",
+      "back": "Every pole must satisfy Re(p_i) < 0.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "Why does the left half plane correspond to decay?",
+      "back": "Because poles there have negative real part, so the exponential envelope shrinks with time.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "Do zeros decide asymptotic stability?",
+      "back": "No. Zeros shape the response, but the poles decide whether the natural modes decay or grow.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What does a right-half-plane pole imply?",
+      "back": "It creates a growing exponential or growing oscillation, so the system is unstable.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "What does $\\lim_{t \\to \\infty} h(t)=0$ mean physically?",
+      "back": "It means the natural transient response dies away, so the system forgets the disturbance over time.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "How should you attack a stability question from $H(s)$?",
+      "back": "Find the poles, inspect their real parts, connect them to the forms in $h(t)$, then classify the system.",
+      "difficultyLevel": 5
+    }
+  ]
+}

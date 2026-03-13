@@ -1,0 +1,17 @@
+{
+  "id": "lesson-10",
+  "title": "Stability of Systems",
+  "slug": "lesson-10",
+  "description": "How pole locations control stability, what marginal and unstable behaviour look like, why a series RLC circuit stays stable, and how absolute integrability leads to the BIBO stability test.",
+  "prerequisites": ["lesson-09"],
+  "overviewPath": "overview.md",
+  "synthesisPath": "synthesis.md",
+  "lectureWeek": 10,
+  "estimatedMinutes": 75,
+  "concepts": [
+    "stability-from-poles",
+    "marginal-stability-and-instability",
+    "rlc-stability-example",
+    "absolute-integrability-and-bibo-stability"
+  ]
+}

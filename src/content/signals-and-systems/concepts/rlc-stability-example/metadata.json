@@ -1,0 +1,11 @@
+{
+  "id": "rlc-stability-example",
+  "title": "Series RLC Stability Example",
+  "slug": "rlc-stability-example",
+  "estimatedMinutes": 18,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

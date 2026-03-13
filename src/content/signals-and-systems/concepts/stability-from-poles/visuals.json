@@ -1,0 +1,77 @@
+{
+  "visuals": [
+    {
+      "id": "lesson-note-page-17",
+      "type": "image",
+      "title": "Lecture Note: Stability Setup",
+      "src": "/course/signals-and-systems/lesson-10/page_01.png",
+      "caption": "The handwritten note introduces finite-dimensional transfer functions, impulse response, and the pole-zero factorization that drives the stability test."
+    },
+    {
+      "id": "pole-response-building-blocks",
+      "type": "plotly",
+      "title": "How Different Pole Types Show Up in h(t)",
+      "description": "Negative real part means decay. A complex pair adds oscillation, and a repeated pole adds a polynomial factor such as t.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.37, 0.14, 0.05, 0.02, 0.01, 0.0],
+          "name": "real pole: e^(-t)",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, -0.22, -0.36, 0.24, 0.13, -0.13, -0.03],
+          "name": "complex pair: e^(-0.4t) cos(2t)",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [0.0, 0.37, 0.27, 0.15, 0.07, 0.03, 0.01],
+          "name": "repeated pole: t e^(-t)",
+          "mode": "lines"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "t (s)" },
+        "yaxis": { "title": "mode amplitude" }
+      },
+      "height": 380
+    },
+    {
+      "id": "stable-pole-map",
+      "type": "plotly",
+      "title": "Pole Map and the Stability Boundary",
+      "description": "The imaginary axis is the dividing line. Left-half-plane poles decay. Right-half-plane poles grow.",
+      "traces": [
+        {
+          "x": [-3.0, -1.5, -0.8, 0.6],
+          "y": [0.0, 2.0, -2.0, 1.4],
+          "name": "sample poles",
+          "mode": "markers",
+          "marker": { "size": 12, "symbol": "x" }
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "Re{s}", "range": [-4, 2] },
+        "yaxis": { "title": "Im{s}", "range": [-3, 3] },
+        "annotations": [
+          { "x": -2.5, "y": 2.6, "text": "stable region", "showarrow": false },
+          { "x": 0.9, "y": 2.6, "text": "unstable region", "showarrow": false }
+        ],
+        "shapes": [
+          { "type": "line", "x0": 0, "x1": 0, "y0": -3, "y1": 3, "line": { "dash": "dash" } }
+        ]
+      },
+      "centeredAxes": false,
+      "height": 380
+    },
+    {
+      "id": "lesson-note-page-18",
+      "type": "image",
+      "title": "Lecture Note: Left-Half-Plane Criterion",
+      "src": "/course/signals-and-systems/lesson-10/page_02.png",
+      "caption": "The note links real parts of poles to the limit of h(t) and sketches the left-half-plane stability picture."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "visuals": [
+    {
+      "id": "rlc-note-gallery",
+      "type": "image-gallery",
+      "title": "Lecture Note: Series RLC Stability Derivation",
+      "images": [
+        {
+          "src": "/course/signals-and-systems/lesson-10/page_04.png",
+          "caption": "The series RLC transfer function is written and the poles are derived."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-10/page_05.png",
+          "caption": "The note concludes that the passive circuit stays stable in every damping case."
+        }
+      ]
+    },
+    {
+      "id": "rlc-pole-map",
+      "type": "plotly",
+      "title": "Sample Pole Locations for a Passive Series RLC Circuit",
+      "description": "The exact locations shift with damping, but the real part stays negative for passive values.",
+      "traces": [
+        {
+          "x": [-1.8, -1.0, -1.0],
+          "y": [0.0, 2.2, -2.2],
+          "name": "overdamped / underdamped samples",
+          "mode": "markers",
+          "marker": { "size": 12, "symbol": "x" }
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "Re{s}", "range": [-3, 1] },
+        "yaxis": { "title": "Im{s}", "range": [-3, 3] },
+        "shapes": [
+          { "type": "line", "x0": 0, "x1": 0, "y0": -3, "y1": 3, "line": { "dash": "dash" } }
+        ],
+        "annotations": [
+          { "x": -1.5, "y": 2.5, "text": "stable region", "showarrow": false }
+        ]
+      },
+      "height": 380
+    },
+    {
+      "id": "rlc-response-cases",
+      "type": "plotly",
+      "title": "Three Damping Cases, All Stable",
+      "description": "The waveform shape changes across overdamped, critically damped, and underdamped cases, but each still decays.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.62, 0.38, 0.22, 0.13, 0.08, 0.05],
+          "name": "overdamped",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.37, 0.14, 0.05, 0.02, 0.01, 0.0],
+          "name": "critical damping",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, -0.14, -0.41, 0.13, 0.15, -0.1, -0.04],
+          "name": "underdamped",
+          "mode": "lines"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "t (s)" },
+        "yaxis": { "title": "response amplitude" }
+      },
+      "height": 380
+    },
+    {
+      "id": "series-rlc-note-page",
+      "type": "image",
+      "title": "Series RLC Example from the Note",
+      "src": "/course/signals-and-systems/lesson-10/page_04.png",
+      "caption": "The worked example shows how the pole formula drops directly out of the characteristic equation."
+    }
+  ]
+}

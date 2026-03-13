@@ -1,0 +1,100 @@
+{
+  "id": "quiz-marginal-stability-and-instability",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A system is marginally stable if its impulse response is:",
+      "options": ["zero", "bounded", "strictly increasing", "periodic only"],
+      "correctAnswer": "bounded",
+      "explanation": "The note defines marginal stability through boundedness of h(t). The response does not have to go to zero, but it must remain finite for all time."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which extra condition is required for poles on the imaginary axis in a marginally stable system?",
+      "options": ["they must be repeated", "they must be non-repeated", "they must be zeros", "they must lie in the right half plane"],
+      "correctAnswer": "they must be non-repeated",
+      "explanation": "A simple pole on the imaginary axis gives a bounded oscillation. A repeated pole there introduces factors like t cos(omega t), which grow and destroy boundedness."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why can a repeated pole on the imaginary axis make a system unstable?",
+      "options": [
+        "because it produces polynomial growth factors such as t",
+        "because repeated poles always move to the right half plane",
+        "because zeros cancel the denominator",
+        "because the input becomes unbounded"
+      ],
+      "correctAnswer": "because it produces polynomial growth factors such as t",
+      "explanation": "Repeated poles add factors like t, t^2, and so on. On the imaginary axis that means the oscillation amplitude can grow with time, so the response is no longer bounded."
+    },
+    {
+      "id": "q4",
+      "prompt": "A system with poles at $\\pm j4$ and no repetition is:",
+      "options": ["asymptotically stable", "marginally stable", "unstable", "non-causal"],
+      "correctAnswer": "marginally stable",
+      "explanation": "Simple poles on the imaginary axis create sustained oscillations with constant amplitude. The response stays bounded, but it does not decay to zero, so the system is marginally stable."
+    },
+    {
+      "id": "q5",
+      "prompt": "A system with one pole at $+0.3$ is:",
+      "options": ["marginally stable", "stable only for bounded inputs", "unstable", "stable if the other poles are negative"],
+      "correctAnswer": "unstable",
+      "explanation": "A right-half-plane pole contributes a factor that grows exponentially with time. Even if every other pole is stable, that one growing mode makes the full system unstable."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which description best matches asymptotic stability?",
+      "options": ["bounded but non-decaying", "decays to zero", "oscillates forever", "grows linearly"],
+      "correctAnswer": "decays to zero",
+      "explanation": "Asymptotic stability is stronger than boundedness. It requires the natural response to die away so that h(t) tends to zero as time goes to infinity."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which pole set gives marginal stability?",
+      "options": [
+        "$-1, -2, -3$",
+        "$-1, \\pm j2$",
+        "$+1, -2$",
+        "$\\pm j2$ repeated"
+      ],
+      "correctAnswer": "$-1, \\pm j2$",
+      "explanation": "The pole at -1 gives decay, while the simple pair at plus/minus j2 gives bounded oscillation. Together they produce a bounded response that does not fully decay, which is the marginally stable case."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the main difference between marginal stability and asymptotic stability?",
+      "options": [
+        "marginal stability requires all zeros to be negative",
+        "asymptotic stability requires the response to decay to zero",
+        "marginal stability allows right-half-plane poles",
+        "asymptotic stability forbids complex poles"
+      ],
+      "correctAnswer": "asymptotic stability requires the response to decay to zero",
+      "explanation": "Both can avoid immediate blow-up, but asymptotic stability demands decay. Marginal stability only demands boundedness, so sustained oscillation is still allowed there."
+    },
+    {
+      "id": "q9",
+      "prompt": "The safest quick test for instability is to check whether there is:",
+      "options": [
+        "a repeated zero",
+        "a right-half-plane pole or repeated imaginary-axis pole",
+        "a complex pole pair",
+        "a non-zero initial condition"
+      ],
+      "correctAnswer": "a right-half-plane pole or repeated imaginary-axis pole",
+      "explanation": "Those are the two mechanisms highlighted in the note. Either one creates an unbounded natural response, so the system is unstable."
+    },
+    {
+      "id": "q10",
+      "prompt": "Why is a marginally stable design often considered delicate in practice?",
+      "options": [
+        "because any bounded system is mathematically invalid",
+        "because sustained oscillation leaves little room for modelling error",
+        "because it cannot contain complex poles",
+        "because it always has repeated zeros"
+      ],
+      "correctAnswer": "because sustained oscillation leaves little room for modelling error",
+      "explanation": "A marginally stable response does not decay, so any small perturbation or parameter drift can push the pole pattern into genuine instability. That is why engineers prefer poles safely inside the left half plane."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "absolute-integrability-and-bibo-stability",
+  "title": "Absolute Integrability and BIBO Stability",
+  "slug": "absolute-integrability-and-bibo-stability",
+  "estimatedMinutes": 18,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

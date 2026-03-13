@@ -1,0 +1,11 @@
+{
+  "id": "stability-from-poles",
+  "title": "Pole Locations and Asymptotic Stability",
+  "slug": "stability-from-poles",
+  "estimatedMinutes": 18,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

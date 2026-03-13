@@ -1,0 +1,95 @@
+{
+  "visuals": [
+    {
+      "id": "lesson-note-page-18-marginal",
+      "type": "image",
+      "title": "Lecture Note: Marginal Stability Rule",
+      "src": "/course/signals-and-systems/lesson-10/page_03.png",
+      "caption": "The note defines bounded h(t), lists the allowed pole conditions, and contrasts marginal stability with instability."
+    },
+    {
+      "id": "classification-responses",
+      "type": "plotly",
+      "title": "Stable, Marginal, and Unstable Natural Responses",
+      "description": "Decay, sustained oscillation, and growth are the three qualitative behaviours behind the classifications.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.37, 0.14, 0.05, 0.02, 0.01, 0.0],
+          "name": "asymptotically stable",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.07, -0.99, -0.21, 0.96, 0.35, -0.91],
+          "name": "marginally stable",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [0.0, 0.54, -0.9, -1.2, 3.12, -1.2, -6.62],
+          "name": "unstable",
+          "mode": "lines"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "t (s)" },
+        "yaxis": { "title": "response amplitude" }
+      },
+      "height": 380
+    },
+    {
+      "id": "pole-classification-map",
+      "type": "plotly",
+      "title": "How Pole Regions Map to Stability Classes",
+      "description": "Simple poles on the imaginary axis sit on the boundary between decay and growth.",
+      "traces": [
+        {
+          "x": [-2.5, -1.2, 0.0, 0.0, 0.8],
+          "y": [0.0, 1.5, 2.0, -2.0, 0.8],
+          "name": "sample pole locations",
+          "mode": "markers",
+          "marker": { "size": 12, "symbol": "x" }
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "Re{s}", "range": [-3, 2] },
+        "yaxis": { "title": "Im{s}", "range": [-3, 3] },
+        "annotations": [
+          { "x": -2.2, "y": 2.5, "text": "decay", "showarrow": false },
+          { "x": 0.0, "y": 2.5, "text": "boundary", "showarrow": false },
+          { "x": 1.1, "y": 2.5, "text": "growth", "showarrow": false }
+        ],
+        "shapes": [
+          { "type": "line", "x0": 0, "x1": 0, "y0": -3, "y1": 3, "line": { "dash": "dash" } }
+        ]
+      },
+      "height": 380
+    },
+    {
+      "id": "repeated-pole-growth",
+      "type": "plotly",
+      "title": "Why a Repeated Imaginary-Axis Pole Grows",
+      "description": "Compare a pure cosine with a repeated-pole style response t cos(omega t). The second stays oscillatory but its envelope grows.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, -0.42, -0.65, 0.96, -0.15, -0.84, 0.84],
+          "name": "simple pole: cos(t)",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [0.0, -0.42, -1.31, 2.88, -0.58, -4.2, 5.04],
+          "name": "repeated pole: t cos(t)",
+          "mode": "lines"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "t (s)" },
+        "yaxis": { "title": "response amplitude" }
+      },
+      "height": 380
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "id": "quiz-absolute-integrability-and-bibo-stability",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "BIBO stands for:",
+      "options": [
+        "Bounded-Input Bounded-Output",
+        "Basic Input Balanced Output",
+        "Binary Input Binary Output",
+        "Bounded Integral Bounded Oscillation"
+      ],
+      "correctAnswer": "Bounded-Input Bounded-Output",
+      "explanation": "BIBO stability asks whether every bounded input produces a bounded output. It is a practical input-output notion of stability for systems."
+    },
+    {
+      "id": "q2",
+      "prompt": "For a causal LTI system, the output is written as:",
+      "options": [
+        "$y(t)=\\int_0^\\infty h(\\tau)x(t-\\tau)d\\tau$",
+        "$y(t)=h(t)+x(t)$",
+        "$y(t)=h(t)x(t)$",
+        "$y(t)=\\int_0^t x(\\tau)d\\tau$"
+      ],
+      "correctAnswer": "$y(t)=\\int_0^\\infty h(\\tau)x(t-\\tau)d\\tau$",
+      "explanation": "The BIBO proof starts from the convolution integral. That is why knowing the LTI input-output relation is essential before you can prove the boundedness result."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does absolute integrability of $h(t)$ mean?",
+      "options": [
+        "$\\int_0^\\infty |h(t)|dt < \\infty$",
+        "$\\int_0^\\infty h(t)dt = 0$",
+        "$|h(t)| < 1$ for all $t$",
+        "$h(t)$ is periodic"
+      ],
+      "correctAnswer": "$\\int_0^\\infty |h(t)|dt < \\infty$",
+      "explanation": "Absolute integrability requires the total area under the magnitude of the impulse response to be finite. That is the exact condition used in the note to guarantee BIBO stability."
+    },
+    {
+      "id": "q4",
+      "prompt": "If the input is bounded by $|x(t)| \\le M$, then $|x(t-\\tau)|$ is also:",
+      "options": ["$\\le M$", "$=0$", "$\\ge M$", "unbounded"],
+      "correctAnswer": "$\\le M$",
+      "explanation": "A bounded-input assumption applies to every time-shifted copy of the same signal. That is why the bound M can be inserted into the convolution inequality."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which inequality appears in the BIBO proof?",
+      "options": [
+        "$|y(t)| \\le M \\int_0^\\infty |h(\\tau)|d\\tau$",
+        "$|y(t)| = \\int_0^\\infty h(\\tau)d\\tau$",
+        "$|y(t)| \\ge M \\int_0^\\infty |h(\\tau)|d\\tau$",
+        "$y(t)=M$"
+      ],
+      "correctAnswer": "$|y(t)| \\le M \\int_0^\\infty |h(\\tau)|d\\tau$",
+      "explanation": "This is the key finishing step of the proof. Once the right-hand side is finite, you have shown that the output remains bounded for every bounded input."
+    },
+    {
+      "id": "q6",
+      "prompt": "If $h(t)=e^{-t}u(t)$, then the system is BIBO stable because:",
+      "options": [
+        "$\\int_0^\\infty e^{-t}dt$ is finite",
+        "$e^{-t}$ is always greater than 1",
+        "the input must be zero",
+        "the poles are not needed"
+      ],
+      "correctAnswer": "$\\int_0^\\infty e^{-t}dt$ is finite",
+      "explanation": "The exponential decays fast enough that the total area under |h(t)| is finite. That satisfies the absolute integrability condition, so the system is BIBO stable."
+    },
+    {
+      "id": "q7",
+      "prompt": "If $h(t)=u(t)$, what fails?",
+      "options": [
+        "absolute integrability",
+        "causality",
+        "linearity",
+        "time invariance"
+      ],
+      "correctAnswer": "absolute integrability",
+      "explanation": "For h(t)=u(t), the integral of |h(t)| from 0 to infinity becomes the integral of 1, which diverges. That means the impulse response is not absolutely integrable and the BIBO condition fails."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why are absolute values necessary in the integrability test?",
+      "options": [
+        "because positive and negative parts could otherwise cancel misleadingly",
+        "because h(t) must always be positive",
+        "because the input is complex",
+        "because Laplace transforms require it"
+      ],
+      "correctAnswer": "because positive and negative parts could otherwise cancel misleadingly",
+      "explanation": "Ordinary integrability could hide a large oscillatory response through cancellation. Absolute integrability prevents that by measuring the true total magnitude that the system contributes in convolution."
+    },
+    {
+      "id": "q9",
+      "prompt": "BIBO stability is best described as:",
+      "options": [
+        "an input-output boundedness guarantee",
+        "a pole-zero cancellation trick",
+        "a condition that the output must go to zero",
+        "a property of the numerator only"
+      ],
+      "correctAnswer": "an input-output boundedness guarantee",
+      "explanation": "BIBO stability is about what happens to the output when the input remains bounded. It is not the same as demanding that the natural response vanish to zero."
+    },
+    {
+      "id": "q10",
+      "prompt": "What is the fastest way to rebuild the BIBO proof if you forget it in the exam?",
+      "options": [
+        "start from convolution, apply absolute values, insert the input bound, and test the remaining integral",
+        "differentiate h(t) until it becomes simpler",
+        "replace h(t) by its zeros",
+        "set the output equal to one"
+      ],
+      "correctAnswer": "start from convolution, apply absolute values, insert the input bound, and test the remaining integral",
+      "explanation": "That is the full logical structure of the proof. It is short, reconstructable, and exactly matches the argument written in the note."
+    }
+  ]
+}

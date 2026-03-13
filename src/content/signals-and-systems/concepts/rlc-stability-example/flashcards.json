@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-rlc-stability-example",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What is the key denominator for the normalized series RLC transfer function?",
+      "back": "$s^2 + (R/L)s + 1/(LC)$.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "How do you find the poles of the RLC example?",
+      "back": "Set the denominator equal to zero and solve the quadratic equation.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is the real part of the passive RLC poles?",
+      "back": "The real part is $-R/(2L)$.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "Why is $-R/(2L)$ important?",
+      "back": "Because its sign determines whether the natural response decays. For passive values it is negative, so the circuit is stable.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What does a positive discriminant mean in the RLC example?",
+      "back": "It means two distinct real poles, which corresponds to overdamped behaviour.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What does zero discriminant mean in the RLC example?",
+      "back": "It means a repeated real pole, which corresponds to critical damping.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What does a negative discriminant mean in the RLC example?",
+      "back": "It means a complex-conjugate pole pair, which corresponds to underdamped oscillation.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Can an underdamped RLC response still be stable?",
+      "back": "Yes. Oscillation is allowed as long as the real part is negative so the oscillation envelope decays.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "Why is the series RLC example stable in every damping case?",
+      "back": "Because for passive values the poles remain in the left half plane even though their exact locations change with the discriminant.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What design habit does the RLC example teach?",
+      "back": "Derive the denominator, find the poles, and inspect their real parts before doing a full inverse Laplace calculation.",
+      "difficultyLevel": 5
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-absolute-integrability-and-bibo-stability",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What does BIBO stand for?",
+      "back": "Bounded-Input Bounded-Output.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What is the causal LTI convolution formula used in the BIBO proof?",
+      "back": "$y(t)=\\int_0^\\infty h(\\tau)x(t-\\tau)d\\tau$.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is the absolute integrability condition on h(t)?",
+      "back": "$\\int_0^\\infty |h(t)|dt < \\infty$.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "If the input is bounded by M, what bound do we get for the output?",
+      "back": "$|y(t)| \\le M \\int_0^\\infty |h(\\tau)|d\\tau$.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "Why are absolute values used in the integral test?",
+      "back": "They prevent positive and negative parts from cancelling and hiding the true magnitude of the impulse response.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "Is h(t)=e^{-t}u(t) absolutely integrable?",
+      "back": "Yes. Its absolute integral is 1, so it satisfies the BIBO condition.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "Is h(t)=u(t) absolutely integrable?",
+      "back": "No. The integral of 1 from 0 to infinity diverges, so the condition fails.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What kind of stability does absolute integrability guarantee?",
+      "back": "It guarantees BIBO stability: every bounded input produces a bounded output.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "How is BIBO stability related to the earlier pole discussion?",
+      "back": "Pole locations shape h(t), and the shape of h(t) determines whether |h(t)| is integrable. So BIBO stability is the input-output face of the same dynamics.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "How can you reconstruct the BIBO proof from scratch?",
+      "back": "Write convolution, take absolute values, bound the shifted input by M, factor M out, and ask whether the remaining integral of |h| is finite.",
+      "difficultyLevel": 5
+    }
+  ]
+}

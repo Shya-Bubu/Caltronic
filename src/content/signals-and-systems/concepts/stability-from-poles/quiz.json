@@ -1,0 +1,100 @@
+{
+  "id": "quiz-stability-from-poles",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In this lesson, stability is judged primarily from the ______ of the transfer function.",
+      "options": ["zeros", "numerator gain", "poles", "input signal only"],
+      "correctAnswer": "poles",
+      "explanation": "The denominator poles determine the natural modes that appear in the impulse response. Those modes decide whether the response decays, stays bounded, or grows, so poles are the key objects for stability classification."
+    },
+    {
+      "id": "q2",
+      "prompt": "A real pole at $p=-3$ contributes which kind of time-domain factor?",
+      "options": ["$e^{-3t}$", "$e^{3t}$", "$\\cos 3t$", "$t$"],
+      "correctAnswer": "$e^{-3t}$",
+      "explanation": "A real pole $p$ produces a term proportional to $e^{pt}$. Substituting $p=-3$ gives $e^{-3t}$, which decays with time because the exponent is negative."
+    },
+    {
+      "id": "q3",
+      "prompt": "If a complex pole pair is $p=\\sigma \\pm j\\omega$, the envelope of the corresponding oscillation is controlled by:",
+      "options": ["$\\omega$ only", "$\\sigma$ only", "the zeros", "the numerator degree"],
+      "correctAnswer": "$\\sigma$ only",
+      "explanation": "The oscillatory part comes from $\\omega$, but the exponential envelope is $e^{\\sigma t}$. That means the sign of $\\sigma$ decides whether the oscillation decays, stays constant, or grows."
+    },
+    {
+      "id": "q4",
+      "prompt": "A finite-dimensional continuous-time LTI system is asymptotically stable when:",
+      "options": [
+        "all poles have negative real part",
+        "all zeros have negative real part",
+        "at least one pole has negative real part",
+        "all poles are real"
+      ],
+      "correctAnswer": "all poles have negative real part",
+      "explanation": "Asymptotic stability means every natural mode must decay to zero. That only happens when every pole satisfies Re(p_i) < 0. A single pole with non-negative real part can prevent decay."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which statement about zeros is correct for this topic?",
+      "options": [
+        "zeros decide asymptotic stability",
+        "zeros matter for shaping response, but poles decide decay",
+        "zeros and poles contribute equally to the stability test",
+        "zeros are ignored because they never affect any response"
+      ],
+      "correctAnswer": "zeros matter for shaping response, but poles decide decay",
+      "explanation": "Zeros absolutely affect the shape and frequency behaviour of a system, but the natural modes responsible for decay or growth come from the denominator poles. That is why the pole locations drive the stability test."
+    },
+    {
+      "id": "q6",
+      "prompt": "A pole at $p=+0.1$ implies a term proportional to:",
+      "options": ["$e^{-0.1t}$", "$e^{0.1t}$", "$\\cos 0.1t$", "$t e^{-0.1t}$"],
+      "correctAnswer": "$e^{0.1t}$",
+      "explanation": "A real pole $p$ produces $e^{pt}$. If $p=+0.1$, the factor becomes $e^{0.1t}$, which grows without bound as time increases. That is a direct sign of instability."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why is the left half of the $s$-plane called the stable region?",
+      "options": [
+        "because poles there have negative real part and generate decaying exponentials",
+        "because the zeros always lie there",
+        "because oscillations cannot occur there",
+        "because the transfer function becomes zero there"
+      ],
+      "correctAnswer": "because poles there have negative real part and generate decaying exponentials",
+      "explanation": "The real part of a pole determines the exponential envelope. In the left half plane, the real part is negative, so modes such as $e^{pt}$ and $e^{\\sigma t}\\cos(\\omega t+\\theta)$ decay with time."
+    },
+    {
+      "id": "q8",
+      "prompt": "If one pole lies in the right half plane while all others lie in the left half plane, the system is:",
+      "options": ["stable", "marginally stable", "unstable", "undetermined"],
+      "correctAnswer": "unstable",
+      "explanation": "Only one growing mode is needed to dominate the long-term response. Even if every other mode decays, the right-half-plane pole produces a factor that eventually grows without bound, making the whole system unstable."
+    },
+    {
+      "id": "q9",
+      "prompt": "What is the best interpretation of $\\lim_{t \\to \\infty} h(t)=0$?",
+      "options": [
+        "the transient natural response dies away",
+        "the system output is always zero",
+        "the input must be zero",
+        "the system has no poles"
+      ],
+      "correctAnswer": "the transient natural response dies away",
+      "explanation": "The statement does not mean the system never responds. It means the natural part of the impulse response fades away with time, which is exactly the asymptotic stability condition discussed in the note."
+    },
+    {
+      "id": "q10",
+      "prompt": "Which workflow is best for a stability question based on $H(s)$?",
+      "options": [
+        "find poles, inspect real parts, link to time-domain modes, classify the system",
+        "find zeros first, then classify from the numerator",
+        "substitute $s=0$ and classify from the DC gain",
+        "differentiate $H(s)$ until the pattern is clear"
+      ],
+      "correctAnswer": "find poles, inspect real parts, link to time-domain modes, classify the system",
+      "explanation": "That sequence mirrors the logic of the lecture note. The denominator poles tell you what exponentials or oscillations appear in the impulse response, and those time-domain modes are what determine stability."
+    }
+  ]
+}

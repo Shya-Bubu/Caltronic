@@ -1,0 +1,115 @@
+{
+  "id": "quiz-rlc-stability-example",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For the series RLC example in the notes, the denominator of the normalized transfer function is:",
+      "options": [
+        "$s^2 + \\frac{R}{L}s + \\frac{1}{LC}$",
+        "$s^2 + Rs + LC$",
+        "$s + \\frac{R}{L} + \\frac{1}{LC}$",
+        "$LCs + RC + 1$"
+      ],
+      "correctAnswer": "$s^2 + \\frac{R}{L}s + \\frac{1}{LC}$",
+      "explanation": "After multiplying by Cs and normalizing by LC, the characteristic denominator becomes s^2 + (R/L)s + 1/(LC). That is the polynomial whose roots determine the pole locations and stability."
+    },
+    {
+      "id": "q2",
+      "prompt": "The poles of the series RLC example are found by:",
+      "options": [
+        "differentiating the numerator",
+        "solving the denominator polynomial equal to zero",
+        "setting the transfer function equal to one",
+        "integrating the input"
+      ],
+      "correctAnswer": "solving the denominator polynomial equal to zero",
+      "explanation": "Poles are the roots of the denominator. That is why you form the characteristic equation and solve it, usually using the quadratic formula in the second-order RLC case."
+    },
+    {
+      "id": "q3",
+      "prompt": "For passive values $R>0$ and $L>0$, the real part of the RLC poles is:",
+      "options": ["$+R/(2L)$", "$-R/(2L)$", "$1/(LC)$", "$0$"],
+      "correctAnswer": "$-R/(2L)$",
+      "explanation": "Whether the poles are real or complex, the real part is controlled by -R/(2L). Since R and L are positive in the passive circuit, that value is negative, which is the stability clue."
+    },
+    {
+      "id": "q4",
+      "prompt": "If the RLC poles are complex, the circuit is:",
+      "options": ["always unstable", "always marginally stable", "still stable if the real part is negative", "non-causal"],
+      "correctAnswer": "still stable if the real part is negative",
+      "explanation": "Complex poles are not a problem by themselves. What matters is the real part. A negative real part gives a decaying oscillation, which is perfectly stable."
+    },
+    {
+      "id": "q5",
+      "prompt": "The discriminant in the RLC characteristic equation mainly decides:",
+      "options": [
+        "whether the input is bounded",
+        "which damping case occurs",
+        "whether the numerator has zeros",
+        "whether the capacitor exists"
+      ],
+      "correctAnswer": "which damping case occurs",
+      "explanation": "The sign of the discriminant determines whether the poles are distinct real, repeated real, or complex conjugates. Those correspond to overdamped, critically damped, and underdamped behaviour."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why does the note conclude that the series RLC circuit is stable in any case?",
+      "options": [
+        "because the poles always stay in the left half plane for passive values",
+        "because the zeros cancel the poles",
+        "because all second-order systems are stable",
+        "because the input voltage is finite"
+      ],
+      "correctAnswer": "because the poles always stay in the left half plane for passive values",
+      "explanation": "The exact waveform can change between overdamped, critical, and underdamped cases, but the real part remains negative for passive component values. That keeps every natural mode decaying."
+    },
+    {
+      "id": "q7",
+      "prompt": "A repeated real pole in this passive RLC example implies:",
+      "options": [
+        "marginal stability",
+        "instability",
+        "critical damping with decay",
+        "right-half-plane growth"
+      ],
+      "correctAnswer": "critical damping with decay",
+      "explanation": "A repeated pole is only automatically dangerous when it sits on the imaginary axis. In the passive RLC circuit the repeated pole remains at a negative real value, so the response still decays and the circuit stays stable."
+    },
+    {
+      "id": "q8",
+      "prompt": "What changes when R is reduced but remains positive?",
+      "options": [
+        "the poles move deeper into the right half plane",
+        "the poles move closer to the imaginary axis and ringing increases",
+        "the circuit stops being second order",
+        "the real part becomes zero immediately"
+      ],
+      "correctAnswer": "the poles move closer to the imaginary axis and ringing increases",
+      "explanation": "Reducing resistance lowers the damping. The poles move closer to the imaginary axis, so the oscillation decays more slowly and ringing becomes more noticeable, but the circuit can still remain stable while R stays positive."
+    },
+    {
+      "id": "q9",
+      "prompt": "In the RLC example, what should you inspect first for a fast stability decision?",
+      "options": [
+        "the exact inverse Laplace transform",
+        "the numerator coefficients",
+        "the real parts of the poles",
+        "the initial current value"
+      ],
+      "correctAnswer": "the real parts of the poles",
+      "explanation": "You do not need the full time response before you can classify stability. Once the pole real parts are known, the envelope behaviour is known, and that is enough for a fast, correct decision."
+    },
+    {
+      "id": "q10",
+      "prompt": "What is the most important lesson from the series RLC stability example?",
+      "options": [
+        "oscillation always means instability",
+        "the imaginary part alone decides stability",
+        "damping case changes waveform shape, but the real part decides stability",
+        "only first-order circuits can be stable"
+      ],
+      "correctAnswer": "damping case changes waveform shape, but the real part decides stability",
+      "explanation": "The series RLC example shows that underdamped responses can still be stable. Oscillation shape and damping category matter, but the final stability decision is controlled by the pole real parts."
+    }
+  ]
+}

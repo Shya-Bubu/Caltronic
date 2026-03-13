@@ -1,0 +1,76 @@
+{
+  "visuals": [
+    {
+      "id": "integrability-note-gallery",
+      "type": "image-gallery",
+      "title": "Lecture Note: Integrability and BIBO Stability",
+      "images": [
+        {
+          "src": "/course/signals-and-systems/lesson-10/page_05.png",
+          "caption": "The note introduces absolute integrability and starts the BIBO argument."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-10/page_06.png",
+          "caption": "The final inequality shows how bounded input and finite integral force bounded output."
+        }
+      ]
+    },
+    {
+      "id": "absolute-integrability-comparison",
+      "type": "plotly",
+      "title": "Absolutely Integrable vs Non-Integrable Impulse Responses",
+      "description": "A decaying impulse response has finite total area. A non-decaying one does not.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.37, 0.14, 0.05, 0.02, 0.01, 0.0],
+          "name": "e^(-t) u(t)",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1, 1, 1, 1, 1, 1, 1],
+          "name": "u(t)",
+          "mode": "lines"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "t (s)" },
+        "yaxis": { "title": "h(t)" }
+      },
+      "height": 380
+    },
+    {
+      "id": "bibo-bound-illustration",
+      "type": "plotly",
+      "title": "The BIBO Bound from Convolution",
+      "description": "If |x(t)| is bounded by M and the area under |h(t)| is finite, the output stays bounded by their product.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [2, 2, 2, 2, 2, 2, 2],
+          "name": "input bound M",
+          "mode": "lines"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.6, 1.2, 0.9, 0.7, 0.5, 0.4, 0.3],
+          "name": "possible |y(t)| bound",
+          "mode": "lines"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "t (s)" },
+        "yaxis": { "title": "magnitude" }
+      },
+      "height": 380
+    },
+    {
+      "id": "lesson-note-page-19",
+      "type": "image",
+      "title": "Lecture Note: Final BIBO Stability Inequality",
+      "src": "/course/signals-and-systems/lesson-10/page_06.png",
+      "caption": "The final line of the note states the engineering conclusion: if h(t) is absolutely integrable, the system is BIBO stable."
+    }
+  ]
+}

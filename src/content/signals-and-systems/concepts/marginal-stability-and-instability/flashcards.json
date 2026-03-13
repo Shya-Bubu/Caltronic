@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-marginal-stability-and-instability",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "How does the note define marginal stability?",
+      "back": "A system is marginally stable if its impulse response h(t) remains bounded for all time.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "Does marginal stability require h(t) to go to zero?",
+      "back": "No. It only requires h(t) to stay finite. The response may keep oscillating forever.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What kind of imaginary-axis poles are allowed in marginal stability?",
+      "back": "Only non-repeated imaginary-axis poles are allowed.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "Why are repeated imaginary-axis poles dangerous?",
+      "back": "They introduce terms such as t cos(omega t), so the amplitude grows with time and the system becomes unstable.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What does a simple pole at j omega produce?",
+      "back": "It produces a constant-amplitude oscillation, which is bounded but non-decaying.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What immediately makes a system unstable?",
+      "back": "Any pole in the right half plane, or any repeated pole on the imaginary axis.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What is the difference between asymptotic stability and marginal stability?",
+      "back": "Asymptotic stability means the response decays to zero. Marginal stability means it stays bounded but may not decay.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Why is multiplicity important in pole classification?",
+      "back": "Because repeated poles add polynomial factors like t, which can turn a bounded oscillation into an unbounded one.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "Give a pole pattern for a marginally stable system.",
+      "back": "A typical example is one with poles at -1 and plus/minus j2, where the imaginary-axis poles are simple.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "Why do engineers prefer poles comfortably inside the left half plane?",
+      "back": "Because decay gives robustness. Marginally stable systems are sensitive to modelling error and can easily drift into instability.",
+      "difficultyLevel": 5
+    }
+  ]
+}
