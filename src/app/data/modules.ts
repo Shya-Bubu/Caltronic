@@ -63,7 +63,7 @@ export const modules: Module[] = [
     description: "Signals, systems, and the mathematical language of engineering change over time.",
     category: "Core Theory",
     accent: "#6b62ff",
-    updatedToWeek: 10,
+    updatedToWeek: 11,
     lectures: [
       {
         id: "lesson-04",
@@ -99,6 +99,11 @@ export const modules: Module[] = [
         id: "lesson-10",
         title: "Stability of Systems",
         path: "/signals-and-systems/lesson-10",
+      },
+      {
+        id: "lesson-11",
+        title: "Routh-Hurwitz Stability Criterion",
+        path: "/signals-and-systems/lesson-11",
       },
     ],
   },

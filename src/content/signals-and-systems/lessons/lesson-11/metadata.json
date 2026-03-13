@@ -1,0 +1,17 @@
+{
+  "id": "lesson-11",
+  "title": "Routh-Hurwitz Stability Criterion",
+  "slug": "lesson-11",
+  "description": "A parameter-dependent active RLC example that shows poles crossing the stability boundary, followed by the Routh-Hurwitz criterion for testing stability directly from denominator coefficients.",
+  "prerequisites": ["lesson-10"],
+  "overviewPath": "overview.md",
+  "synthesisPath": "synthesis.md",
+  "lectureWeek": 11,
+  "estimatedMinutes": 85,
+  "concepts": [
+    "parameter-dependent-stability",
+    "routh-hurwitz-foundations",
+    "building-the-routh-array",
+    "routh-tests-for-second-and-third-order"
+  ]
+}

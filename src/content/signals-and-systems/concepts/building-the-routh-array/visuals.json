@@ -1,0 +1,68 @@
+{
+  "visuals": [
+    {
+      "id": "routh-array-template-note",
+      "type": "image",
+      "title": "Lecture Note: Routh Array Template",
+      "src": "/course/signals-and-systems/lesson-11/page_07.png",
+      "caption": "The note shows how the first two rows are copied directly from the denominator coefficients."
+    },
+    {
+      "id": "array-construction-flow",
+      "type": "plotly",
+      "title": "From Coefficients to Stability Decision",
+      "description": "The Routh workflow starts with coefficient placement, moves through recursive row construction, and ends with first-column sign inspection.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3],
+          "y": [0, 0, 0, 0],
+          "mode": "markers+lines+text",
+          "text": ["first two rows", "compute next row", "track first column", "decide stability"],
+          "textposition": "top center",
+          "name": "workflow"
+        }
+      ],
+      "layout": {
+        "xaxis": { "visible": false },
+        "yaxis": { "visible": false }
+      },
+      "height": 320
+    },
+    {
+      "id": "entry-formula-note",
+      "type": "image",
+      "title": "Lecture Note: Recursive Entry Formula",
+      "src": "/course/signals-and-systems/lesson-11/page_08.png",
+      "caption": "The next rows are generated from the two rows above using the standard Routh recursion formulas."
+    },
+    {
+      "id": "first-column-rule",
+      "type": "plotly",
+      "title": "The First Column Carries the Verdict",
+      "description": "All-positive first-column entries mean stability, while sign changes reveal poles outside the left half plane.",
+      "traces": [
+        {
+          "x": [1, 2, 3],
+          "y": [3, 3, 3],
+          "type": "bar",
+          "name": "stable case"
+        },
+        {
+          "x": [5, 6, 7],
+          "y": [3, -2, 1],
+          "type": "bar",
+          "name": "unstable case"
+        }
+      ],
+      "layout": {
+        "xaxis": {
+          "title": "sample first-column entries",
+          "tickvals": [1, 2, 3, 5, 6, 7],
+          "ticktext": ["r1", "r2", "r3", "r1", "r2", "r3"]
+        },
+        "yaxis": { "title": "sign and magnitude" }
+      },
+      "height": 360
+    }
+  ]
+}

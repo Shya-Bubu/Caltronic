@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-building-the-routh-array",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "How do you form the first row of a Routh array?",
+      "back": "Place the denominator coefficients in alternating order starting from the highest-power coefficient.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "How do you form the second row of a Routh array?",
+      "back": "Place the remaining alternating denominator coefficients starting from the second coefficient.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is the first computed row in a Routh array?",
+      "back": "The third row is the first row obtained by the recursive determinant-style formula from the two rows above.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "Why is the first column so important in the Routh array?",
+      "back": "Because the stability decision comes from the signs of the first-column entries, not from the rest of the table by themselves.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What does it mean if all first-column entries are positive?",
+      "back": "It means the polynomial is stable, so all poles lie in the left half plane.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What does a sign change in the first column indicate?",
+      "back": "Each sign change corresponds to one pole that is not in the left half plane.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What should you do if the denominator of a Routh recursion step becomes zero?",
+      "back": "Replace it with a small positive epsilon so the sign analysis can continue without division by zero.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Why must missing powers of s be written as zero coefficients before building the array?",
+      "back": "Because the coefficient positions determine the entire row pattern, and skipping a zero coefficient misaligns the array.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "What is the practical purpose of the non-first-column entries?",
+      "back": "They are intermediate values needed to generate the correct first-column signs and therefore the correct stability conclusion.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "Why is the Routh array preferred over solving roots directly in many exam problems?",
+      "back": "It gives stability information from coefficients alone and avoids unnecessary algebraic root solving for higher-order polynomials.",
+      "difficultyLevel": 5
+    }
+  ]
+}

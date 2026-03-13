@@ -1,0 +1,110 @@
+{
+  "id": "quiz-routh-hurwitz-foundations",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Routh-Hurwitz is applied to which polynomial?",
+      "options": ["the numerator polynomial", "the denominator polynomial", "the input polynomial", "the impulse response only"],
+      "correctAnswer": "the denominator polynomial",
+      "explanation": "The denominator determines the poles, and the poles determine stability. That is why the Routh-Hurwitz criterion is built from the denominator coefficients of the transfer function."
+    },
+    {
+      "id": "q2",
+      "prompt": "Why do we want a method like Routh-Hurwitz?",
+      "options": [
+        "because direct root-solving becomes awkward for higher-order polynomials",
+        "because poles no longer matter in stability",
+        "because numerators always decide stability first",
+        "because quadratic equations have no roots"
+      ],
+      "correctAnswer": "because direct root-solving becomes awkward for higher-order polynomials",
+      "explanation": "For low-order polynomials, solving roots directly is possible. As order increases, that approach becomes inefficient or impractical, so Routh-Hurwitz gives a faster stability test from coefficients alone."
+    },
+    {
+      "id": "q3",
+      "prompt": "If all poles are in the left half plane, what is a necessary condition on the coefficients?",
+      "options": [
+        "they must all have the same sign",
+        "they must alternate signs",
+        "they must all be zero",
+        "they must be prime numbers"
+      ],
+      "correctAnswer": "they must all have the same sign",
+      "explanation": "The note shows that stable pole locations imply a same-sign pattern in the denominator coefficients. That makes equal-sign coefficients a necessary condition for stability."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why is the equal-sign coefficient condition not sufficient?",
+      "options": [
+        "because a polynomial can still have unstable roots even when all coefficients are positive",
+        "because coefficients never affect roots",
+        "because only negative coefficients can be stable",
+        "because the numerator cancels the denominator automatically"
+      ],
+      "correctAnswer": "because a polynomial can still have unstable roots even when all coefficients are positive",
+      "explanation": "The note gives a counterexample with all positive coefficients but an unstable quadratic factor. So the sign check is useful as a quick filter, but it cannot guarantee left-half-plane poles by itself."
+    },
+    {
+      "id": "q5",
+      "prompt": "Routh-Hurwitz is described in the note as:",
+      "options": [
+        "a necessary and sufficient test for stability",
+        "a sufficient but not necessary test",
+        "a method for computing the numerator",
+        "a shortcut for inverse Laplace transforms"
+      ],
+      "correctAnswer": "a necessary and sufficient test for stability",
+      "explanation": "This is exactly why the method matters. It closes the logical gap left by the simple sign check and tells you whether the denominator poles satisfy the stability requirement."
+    },
+    {
+      "id": "q6",
+      "prompt": "What kind of roots is the note trying to rule out when introducing Routh-Hurwitz?",
+      "options": [
+        "positive real-part roots",
+        "negative real roots",
+        "purely imaginary roots only",
+        "repeated zeros"
+      ],
+      "correctAnswer": "positive real-part roots",
+      "explanation": "The stability question is really about whether any denominator roots leave the left half plane. Positive real-part roots are directly associated with unstable behaviour."
+    },
+    {
+      "id": "q7",
+      "prompt": "In $H(s)=Z(s)/P(s)$, which part matters for Routh-Hurwitz?",
+      "options": ["$Z(s)$ only", "$P(s)$ only", "both equally", "neither"],
+      "correctAnswer": "$P(s)$ only",
+      "explanation": "Routh-Hurwitz tests the pole locations of the system, and those come from the denominator. The numerator influences the response shape, but not the pole-based stability test."
+    },
+    {
+      "id": "q8",
+      "prompt": "The main conceptual shift in this lesson is from:",
+      "options": [
+        "explicit roots to coefficient-based stability testing",
+        "time domain to frequency domain only",
+        "numerator design to input design",
+        "causal systems to non-causal systems"
+      ],
+      "correctAnswer": "explicit roots to coefficient-based stability testing",
+      "explanation": "The previous lesson focused on explicit pole calculation. Routh-Hurwitz keeps the same stability goal but reaches it through the denominator coefficients instead of direct root-solving."
+    },
+    {
+      "id": "q9",
+      "prompt": "A polynomial with all positive coefficients is automatically stable:",
+      "options": ["always", "never", "not always", "only if it is second order"],
+      "correctAnswer": "not always",
+      "explanation": "That is one of the central warnings in the note. All-positive coefficients are necessary for stability in the cases being studied, but they are not enough to guarantee it."
+    },
+    {
+      "id": "q10",
+      "prompt": "What is the practical value of Routh-Hurwitz?",
+      "options": [
+        "it reveals stability directly from coefficients without solving every root",
+        "it eliminates the need for denominator polynomials",
+        "it turns unstable systems into stable ones",
+        "it only works for numerators"
+      ],
+      "correctAnswer": "it reveals stability directly from coefficients without solving every root",
+      "explanation": "That is the whole point of the method. It makes higher-order stability analysis tractable by replacing direct factorization with a structured coefficient test."
+    }
+  ]
+}

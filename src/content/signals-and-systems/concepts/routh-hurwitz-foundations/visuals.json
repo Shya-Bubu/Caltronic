@@ -1,0 +1,58 @@
+{
+  "visuals": [
+    {
+      "id": "routh-foundation-note",
+      "type": "image",
+      "title": "Lecture Note: Motivation for Routh-Hurwitz",
+      "src": "/course/signals-and-systems/lesson-11/page_05.png",
+      "caption": "The note introduces the denominator polynomial and asks how to detect unstable roots without explicit factorization."
+    },
+    {
+      "id": "positive-coefficients-counterexample",
+      "type": "image",
+      "title": "Lecture Note: Same-Sign Coefficients Are Not Enough",
+      "src": "/course/signals-and-systems/lesson-11/page_06.png",
+      "caption": "The counterexample shows that all-positive coefficients are necessary but not sufficient for stability."
+    },
+    {
+      "id": "coefficient-sign-logic",
+      "type": "plotly",
+      "title": "Necessary vs Sufficient Thinking",
+      "description": "Same-sign coefficients are a useful first filter, but the Routh test is the stronger condition.",
+      "traces": [
+        {
+          "x": [1, 2, 3],
+          "y": [1, 2, 3],
+          "name": "logic ladder",
+          "mode": "markers+lines"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "strength of test", "tickvals": [1, 2, 3], "ticktext": ["sign check", "counterexample", "Routh-Hurwitz"] },
+        "yaxis": { "title": "confidence in stability", "tickvals": [1, 2, 3], "ticktext": ["low", "medium", "high"] }
+      },
+      "height": 340
+    },
+    {
+      "id": "denominator-only-focus",
+      "type": "plotly",
+      "title": "Why the Denominator Is the Focus",
+      "description": "The denominator determines poles, and poles determine stability.",
+      "traces": [
+        {
+          "x": [0, 1, 2],
+          "y": [0, 1, 2],
+          "name": "flow",
+          "mode": "markers+lines+text",
+          "text": ["P(s)", "poles", "stability"],
+          "textposition": "top center"
+        }
+      ],
+      "layout": {
+        "xaxis": { "visible": false },
+        "yaxis": { "visible": false }
+      },
+      "height": 300
+    }
+  ]
+}

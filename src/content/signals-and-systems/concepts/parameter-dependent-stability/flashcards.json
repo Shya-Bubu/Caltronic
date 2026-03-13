@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-parameter-dependent-stability",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "Which parameter controls stability in the active RLC example?",
+      "back": "The gain parameter A.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What normalized denominator appears after substituting component values?",
+      "back": "$s^2 + (1-A)s + 2$.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is the pole formula for the active RLC example?",
+      "back": "$p_{1,2} = [-(1-A) \\pm \\sqrt{(1-A)^2 - 8}]/2$.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "When are the poles real in this example?",
+      "back": "When the discriminant is non-negative, which gives |1-A| >= 2 sqrt(2).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What happens at A = 1?",
+      "back": "The poles become purely imaginary, plus/minus j sqrt(2), so the system is marginally stable.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What is the full stable region for the circuit?",
+      "back": "The circuit is stable for A < 1.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What is the full unstable region for the circuit?",
+      "back": "The circuit is unstable for A > 1.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Why does A > 1 make the complex-pole case unstable?",
+      "back": "Because the pole real part becomes (A-1)/2, which is positive, so the oscillatory envelope grows.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "Why is the active RLC example pedagogically useful?",
+      "back": "It shows that changing one coefficient parameter can move poles through the imaginary axis and change the stability class.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What bigger lesson does this example motivate?",
+      "back": "It motivates Routh-Hurwitz: a method for testing stability from coefficients when direct root-solving becomes cumbersome.",
+      "difficultyLevel": 5
+    }
+  ]
+}

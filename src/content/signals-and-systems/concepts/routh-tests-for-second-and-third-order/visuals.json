@@ -1,0 +1,92 @@
+{
+  "visuals": [
+    {
+      "id": "low-order-results-note",
+      "type": "image",
+      "title": "Lecture Note: Low-Order Routh Results",
+      "src": "/course/signals-and-systems/lesson-11/page_09.png",
+      "caption": "The note summarizes the stability conditions that drop out of the Routh table for second-order and third-order polynomials."
+    },
+    {
+      "id": "second-order-first-column",
+      "type": "plotly",
+      "title": "Second-Order First Column",
+      "description": "For a monic quadratic, the first column is 1, a1, a0, so positivity of a1 and a0 is enough.",
+      "traces": [
+        {
+          "x": ["1", "a1", "a0"],
+          "y": [1, 1, 1],
+          "type": "bar",
+          "name": "required positive entries"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "first-column entries" },
+        "yaxis": { "title": "sign requirement", "tickvals": [1], "ticktext": ["positive"] }
+      },
+      "height": 340
+    },
+    {
+      "id": "third-order-first-column",
+      "type": "plotly",
+      "title": "Third-Order First Column",
+      "description": "The extra entry (a2a1-a0)/a2 is why cubic stability needs more than simple coefficient positivity.",
+      "traces": [
+        {
+          "x": ["1", "a2", "(a2a1-a0)/a2", "a0"],
+          "y": [1, 1, 1, 1],
+          "type": "bar",
+          "name": "required positive entries"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "first-column entries" },
+        "yaxis": { "title": "sign requirement", "tickvals": [1], "ticktext": ["positive"] }
+      },
+      "height": 360
+    },
+    {
+      "id": "third-order-margin-chart",
+      "type": "plotly",
+      "title": "The Cubic Stability Margin",
+      "description": "The sign of a1a2-a0 separates stable and unstable third-order cases once the basic coefficient signs are positive.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5],
+          "y": [-4, -2, 0, 2, 4, 6],
+          "mode": "lines+markers",
+          "name": "a1a2-a0"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "example coefficient setting index" },
+        "yaxis": { "title": "margin a1a2-a0" },
+        "shapes": [
+          { "type": "line", "x0": 0, "x1": 5, "y0": 0, "y1": 0, "line": { "dash": "dash" } }
+        ]
+      },
+      "height": 360
+    },
+    {
+      "id": "decision-summary-flow",
+      "type": "plotly",
+      "title": "Quick Decision Flow for Low-Order Denominators",
+      "description": "Second-order polynomials need two positivity checks, while third-order polynomials need the extra product inequality.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4],
+          "y": [0, 0, 0, 0, 0],
+          "mode": "markers+lines+text",
+          "text": ["identify order", "check signs", "quadratic?", "if cubic check a1a2>a0", "state stability"],
+          "textposition": "top center",
+          "name": "workflow"
+        }
+      ],
+      "layout": {
+        "xaxis": { "visible": false },
+        "yaxis": { "visible": false }
+      },
+      "height": 320
+    }
+  ]
+}

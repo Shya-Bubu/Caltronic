@@ -1,0 +1,11 @@
+{
+  "id": "parameter-dependent-stability",
+  "title": "Parameter-Dependent Stability in an Active RLC Circuit",
+  "slug": "parameter-dependent-stability",
+  "estimatedMinutes": 20,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,120 @@
+{
+  "id": "quiz-building-the-routh-array",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How are the first two rows of the Routh array formed?",
+      "options": [
+        "by alternating denominator coefficients",
+        "by differentiating the polynomial",
+        "by using the numerator coefficients",
+        "by factorizing the denominator first"
+      ],
+      "correctAnswer": "by alternating denominator coefficients",
+      "explanation": "The first row takes coefficients at one alternating step, and the second row takes the remaining alternating coefficients. This direct placement is how the Routh array always begins."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the main purpose of building the lower rows?",
+      "options": [
+        "to generate the first-column values used in the stability test",
+        "to compute the numerator zeros",
+        "to avoid writing the polynomial",
+        "to calculate the input signal"
+      ],
+      "correctAnswer": "to generate the first-column values used in the stability test",
+      "explanation": "The lower rows are not the goal by themselves. They are computed so the first column becomes available, because the first column is what reveals stability and sign changes."
+    },
+    {
+      "id": "q3",
+      "prompt": "According to the note, the system is stable iff:",
+      "options": [
+        "all first-column entries are positive",
+        "all entries in the array are equal",
+        "the numerator has positive coefficients",
+        "the final row is zero"
+      ],
+      "correctAnswer": "all first-column entries are positive",
+      "explanation": "That is the central Routh-Hurwitz test given in the note. The first column is the decisive part of the array for stability classification."
+    },
+    {
+      "id": "q4",
+      "prompt": "What does the number of sign changes in the first column represent?",
+      "options": [
+        "the number of poles not in the left half plane",
+        "the number of zeros in the numerator",
+        "the order of the polynomial",
+        "the number of repeated roots only"
+      ],
+      "correctAnswer": "the number of poles not in the left half plane",
+      "explanation": "This makes the Routh array more informative than a yes/no test. It tells you how many roots are on the wrong side of the stability boundary, not just whether the system is stable."
+    },
+    {
+      "id": "q5",
+      "prompt": "If a denominator entry in the recursion becomes zero, the note says to replace it with:",
+      "options": ["1", "0", "a small positive epsilon", "-1"],
+      "correctAnswer": "a small positive epsilon",
+      "explanation": "The epsilon substitution avoids a divide-by-zero problem while preserving the sign logic needed to continue the Routh test. You should state that step explicitly if it appears in an exam."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why should missing polynomial powers never be skipped before forming the array?",
+      "options": [
+        "because every missing power corresponds to a zero coefficient that affects the array",
+        "because missing powers only affect the numerator",
+        "because the array ignores coefficient placement",
+        "because Routh-Hurwitz works only for complete factorization"
+      ],
+      "correctAnswer": "because every missing power corresponds to a zero coefficient that affects the array",
+      "explanation": "The array uses coefficient order exactly. If a power is missing, its coefficient is zero and must be included, otherwise the entire construction shifts incorrectly and the conclusion becomes invalid."
+    },
+    {
+      "id": "q7",
+      "prompt": "What should you pay the most attention to while computing the array?",
+      "options": [
+        "the first column",
+        "the last row only",
+        "the numerator coefficient",
+        "the DC gain"
+      ],
+      "correctAnswer": "the first column",
+      "explanation": "The first column is where the stability decision lives. Everything else in the table is supportive arithmetic used to create that column correctly."
+    },
+    {
+      "id": "q8",
+      "prompt": "The third row entries are computed from:",
+      "options": [
+        "the first and second rows",
+        "the numerator and denominator",
+        "only the final row",
+        "the roots of the polynomial"
+      ],
+      "correctAnswer": "the first and second rows",
+      "explanation": "The first two rows seed the recursion. The third row is the first computed row, and every later row is then built from the two rows above it."
+    },
+    {
+      "id": "q9",
+      "prompt": "Why is Routh-Hurwitz useful even when you do not know the exact roots?",
+      "options": [
+        "because stability and sign-change information come from the array itself",
+        "because it makes roots unnecessary in mathematics",
+        "because it always gives the transfer-function numerator",
+        "because it converts every system to first order"
+      ],
+      "correctAnswer": "because stability and sign-change information come from the array itself",
+      "explanation": "That is the point of the method. The array organizes coefficient information so you can decide stability directly, without ever writing the roots explicitly."
+    },
+    {
+      "id": "q10",
+      "prompt": "What is the best final line after completing a Routh table?",
+      "options": [
+        "state whether the first column is all positive and mention any sign changes",
+        "rewrite the polynomial from memory",
+        "differentiate the array",
+        "start solving for exact roots anyway"
+      ],
+      "correctAnswer": "state whether the first column is all positive and mention any sign changes",
+      "explanation": "That final sentence is what turns your arithmetic into a systems answer. Without it, the examiner sees a table but not a completed stability argument."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-routh-hurwitz-foundations",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What problem is Routh-Hurwitz designed to solve?",
+      "back": "It tests stability of a denominator polynomial without solving explicitly for every root.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "Which polynomial is used in the Routh-Hurwitz test?",
+      "back": "The denominator polynomial P(s) of the transfer function.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What simple coefficient condition is necessary for stability?",
+      "back": "All coefficients must have the same sign.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "Why is the same-sign coefficient condition not enough?",
+      "back": "Because a polynomial can still have unstable roots even when all coefficients are positive.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What kind of test is Routh-Hurwitz logically?",
+      "back": "A necessary-and-sufficient stability test.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "Why is direct root-solving unattractive for high-order systems?",
+      "back": "Because it becomes algebraically messy and often impractical, especially with tunable parameters.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "Why does the numerator not drive the Routh-Hurwitz test?",
+      "back": "Because stability is determined by poles, and poles come from the denominator.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is the key conceptual shift in this lesson?",
+      "back": "Moving from explicit pole calculation to coefficient-based stability reasoning.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "What is the practical question behind Routh-Hurwitz?",
+      "back": "How can we tell whether a denominator has no right-half-plane roots without factorizing it?",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What does the counterexample with positive coefficients teach you?",
+      "back": "It teaches that quick coefficient-sign checks are only filters, not full proofs of stability.",
+      "difficultyLevel": 5
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "quiz-parameter-dependent-stability",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "In the active RLC example, the stability-changing parameter is:",
+      "options": ["R", "L", "C", "A"],
+      "correctAnswer": "A",
+      "explanation": "The note uses a controlled source gain A inside the denominator coefficient. Changing A shifts the pole locations and therefore changes the stability classification."
+    },
+    {
+      "id": "q2",
+      "prompt": "After substituting $R=1$, $L=1/2$, and $C=1$, the denominator becomes:",
+      "options": [
+        "$s^2 + (1-A)s + 2$",
+        "$s^2 + (A-1)s + 1$",
+        "$s + (1-A) + 2$",
+        "$s^2 + As + 2A$"
+      ],
+      "correctAnswer": "$s^2 + (1-A)s + 2$",
+      "explanation": "That is the normalized characteristic polynomial written in the notes. It is the polynomial you must solve to find the poles and classify stability."
+    },
+    {
+      "id": "q3",
+      "prompt": "The poles of the circuit are obtained from:",
+      "options": [
+        "$\\frac{-(1-A) \\pm \\sqrt{(1-A)^2-8}}{2}$",
+        "$\\frac{(1-A) \\pm \\sqrt{(1-A)^2+8}}{2}$",
+        "$\\pm \\sqrt{A}$",
+        "$A \\pm j2$"
+      ],
+      "correctAnswer": "$\\frac{-(1-A) \\pm \\sqrt{(1-A)^2-8}}{2}$",
+      "explanation": "Applying the quadratic formula to s^2 + (1-A)s + 2 = 0 gives exactly that expression. Everything about the circuit's stability then follows from those poles."
+    },
+    {
+      "id": "q4",
+      "prompt": "At $A=1$, the poles are:",
+      "options": ["$\\pm j\\sqrt{2}$", "$\\pm \\sqrt{2}$", "$-1 \\pm j\\sqrt{2}$", "$0$ and $-2$"],
+      "correctAnswer": "$\\pm j\\sqrt{2}$",
+      "explanation": "When A=1, the coefficient of s becomes zero, so the poles lie purely on the imaginary axis. That is the boundary case corresponding to marginal stability."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the overall stable region for this circuit?",
+      "options": ["$A<1$", "$A\\le 1$", "$A>1$", "$A<1-2\\sqrt{2}$ only"],
+      "correctAnswer": "$A<1$",
+      "explanation": "For A below 1, both the real-pole region and the complex-pole region remain in the left half plane. The circuit only reaches the boundary at A=1, so the full stable interval is A<1."
+    },
+    {
+      "id": "q6",
+      "prompt": "What happens when $A>1$ and the poles are complex?",
+      "options": [
+        "their real part becomes positive, so the system is unstable",
+        "they immediately become negative real poles",
+        "the system becomes marginally stable",
+        "the poles disappear"
+      ],
+      "correctAnswer": "their real part becomes positive, so the system is unstable",
+      "explanation": "For the complex-pole case, the real part is (A-1)/2. Once A exceeds 1, that real part becomes positive, which creates a growing oscillation and therefore instability."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why is $A=1$ special?",
+      "options": [
+        "it places the poles exactly on the imaginary axis",
+        "it makes the circuit first order",
+        "it removes the capacitor",
+        "it forces both poles to be negative"
+      ],
+      "correctAnswer": "it places the poles exactly on the imaginary axis",
+      "explanation": "A=1 makes the s coefficient vanish, so the roots become purely imaginary. That is the exact boundary between left-half-plane decay and right-half-plane growth."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why is this example a good motivation for Routh-Hurwitz?",
+      "options": [
+        "because it shows stability changing with a coefficient parameter",
+        "because it avoids using any denominator",
+        "because it proves all second-order systems are unstable",
+        "because it removes the need for poles"
+      ],
+      "correctAnswer": "because it shows stability changing with a coefficient parameter",
+      "explanation": "The example makes it clear that we want a fast way to judge stability from coefficients. Solving the quadratic was manageable here, but higher-order parameter-dependent cases need a more systematic method."
+    },
+    {
+      "id": "q9",
+      "prompt": "When are the poles real in this example?",
+      "options": [
+        "$|1-A| \\ge 2\\sqrt{2}$",
+        "$|1-A| \\le 2\\sqrt{2}$",
+        "$A=1$ only",
+        "for every value of A"
+      ],
+      "correctAnswer": "$|1-A| \\ge 2\\sqrt{2}$",
+      "explanation": "Real poles require the quadratic discriminant to be non-negative. Setting (1-A)^2 - 8 greater than or equal to zero gives the condition |1-A| >= 2 sqrt(2)."
+    },
+    {
+      "id": "q10",
+      "prompt": "The cleanest summary of the active RLC example is:",
+      "options": [
+        "stable for $A<1$, marginal at $A=1$, unstable for $A>1$",
+        "stable for all values of A",
+        "unstable for all values of A",
+        "stable only when the poles are complex"
+      ],
+      "correctAnswer": "stable for $A<1$, marginal at $A=1$, unstable for $A>1$",
+      "explanation": "That final classification combines every case in the note. The gain parameter A shifts the poles through the stability boundary at the imaginary axis, and the sign of A-1 captures that transition cleanly."
+    }
+  ]
+}

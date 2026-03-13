@@ -1,0 +1,11 @@
+{
+  "id": "routh-tests-for-second-and-third-order",
+  "title": "Second- and Third-Order Routh Tests",
+  "slug": "routh-tests-for-second-and-third-order",
+  "estimatedMinutes": 18,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

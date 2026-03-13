@@ -1,0 +1,125 @@
+{
+  "id": "quiz-routh-tests-for-second-and-third-order",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "For the polynomial P(s)=s^2+a1 s+a0, which conditions guarantee stability?",
+      "options": [
+        "a1 > 0 and a0 > 0",
+        "a1 < 0 and a0 > 0",
+        "a1 > 0 only",
+        "a0 > 0 only"
+      ],
+      "correctAnswer": "a1 > 0 and a0 > 0",
+      "explanation": "The second-order Routh array has first column 1, a1, a0. Stability requires all these values to be positive, so both a1 and a0 must be positive."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the first-column sequence for a monic second-order polynomial?",
+      "options": [
+        "1, a1, a0",
+        "1, a0, a1",
+        "a1, 1, a0",
+        "a0, a1, 1"
+      ],
+      "correctAnswer": "1, a1, a0",
+      "explanation": "The Routh array for s^2+a1s+a0 places 1 and a0 in the first row, a1 in the second row, and a0 in the last row, so the first column is 1, a1, a0."
+    },
+    {
+      "id": "q3",
+      "prompt": "For P(s)=s^3+a2 s^2+a1 s+a0, which inequality is the extra third-order condition beyond positivity?",
+      "options": [
+        "a1 a2 > a0",
+        "a1 + a2 > a0",
+        "a2 > a1 a0",
+        "a0 > a1 a2"
+      ],
+      "correctAnswer": "a1 a2 > a0",
+      "explanation": "The third-order Routh array creates the entry (a2a1-a0)/a2 in the first column. To keep that positive when a2 is positive, you need a1a2 > a0."
+    },
+    {
+      "id": "q4",
+      "prompt": "Why are positive coefficients alone not enough for a third-order polynomial?",
+      "options": [
+        "because the first column also depends on the combination a1 a2 - a0",
+        "because third-order systems ignore the constant term",
+        "because the numerator changes the result",
+        "because cubic polynomials are always unstable"
+      ],
+      "correctAnswer": "because the first column also depends on the combination a1 a2 - a0",
+      "explanation": "Even when all coefficients are positive, the third Routh first-column entry involves a2a1-a0. If that combination is not positive, the system fails the stability test."
+    },
+    {
+      "id": "q5",
+      "prompt": "If a2 > 0 and a0 > 0 but a1 a2 < a0, the third-order system is:",
+      "options": [
+        "unstable",
+        "stable",
+        "always marginally stable",
+        "not classifiable"
+      ],
+      "correctAnswer": "unstable",
+      "explanation": "The inequality a1a2 > a0 is necessary to keep the third Routh first-column entry positive. If it fails, a sign change appears and the system is unstable."
+    },
+    {
+      "id": "q6",
+      "prompt": "Which statement about second-order systems is correct?",
+      "options": [
+        "The low-order rule comes directly from the general Routh method.",
+        "Second-order systems cannot be analyzed by Routh-Hurwitz.",
+        "The second-order rule depends on the numerator coefficients.",
+        "Second-order stability requires a1 a0 > 1."
+      ],
+      "correctAnswer": "The low-order rule comes directly from the general Routh method.",
+      "explanation": "The second-order condition is not a separate theorem. It is exactly what you get when you build the short Routh array and apply the first-column positivity rule."
+    },
+    {
+      "id": "q7",
+      "prompt": "The expression a1 - a0/a2 > 0 is equivalent to which third-order condition?",
+      "options": [
+        "a1 a2 > a0",
+        "a1 + a2 > a0",
+        "a2 > a0",
+        "a1 > a0"
+      ],
+      "correctAnswer": "a1 a2 > a0",
+      "explanation": "When a2 is positive, multiplying both sides of a1-a0/a2 > 0 by a2 gives a1a2-a0 > 0, which is the standard third-order Routh inequality."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the best first move when you see a cubic denominator in an exam?",
+      "options": [
+        "check positivity and then test a1 a2 > a0",
+        "differentiate the polynomial",
+        "ignore the constant term",
+        "solve the cubic formula immediately"
+      ],
+      "correctAnswer": "check positivity and then test a1 a2 > a0",
+      "explanation": "That sequence reflects the actual Routh logic. Positive coefficients are necessary, but the decisive third-order test is the product inequality."
+    },
+    {
+      "id": "q9",
+      "prompt": "Why are these low-order results worth memorizing?",
+      "options": [
+        "because they let you reach the same Routh conclusion much faster in common exam cases",
+        "because they replace all higher-order Routh tables",
+        "because they work for any numerator and denominator automatically",
+        "because they prove all roots are real"
+      ],
+      "correctAnswer": "because they let you reach the same Routh conclusion much faster in common exam cases",
+      "explanation": "The second-order and third-order summaries are compressed forms of the Routh test. They save time while preserving the same stability logic for these common cases."
+    },
+    {
+      "id": "q10",
+      "prompt": "Which conclusion is valid for a second-order monic polynomial with a1 < 0 and a0 > 0?",
+      "options": [
+        "It is unstable because the first column cannot stay positive.",
+        "It is stable because a0 is positive.",
+        "It is marginally stable because the order is low.",
+        "It is stable if the numerator is small."
+      ],
+      "correctAnswer": "It is unstable because the first column cannot stay positive.",
+      "explanation": "The second-order first column is 1, a1, a0. A negative a1 immediately breaks the all-positive requirement, so the polynomial cannot represent a stable system."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "visuals": [
+    {
+      "id": "active-rlc-note-page",
+      "type": "image",
+      "title": "Lecture Note: Active RLC Derivation",
+      "src": "/course/signals-and-systems/lesson-11/page_01.png",
+      "caption": "The note derives the transfer function of the active RLC circuit from an s-domain KCL equation."
+    },
+    {
+      "id": "gain-vs-stability-map",
+      "type": "image-gallery",
+      "title": "Lecture Note: Pole Regions as A Changes",
+      "images": [
+        {
+          "src": "/course/signals-and-systems/lesson-11/page_02.png",
+          "caption": "The note begins the pole and discriminant analysis."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-11/page_03.png",
+          "caption": "The special boundary case A = 1 gives purely imaginary poles."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-11/page_04.png",
+          "caption": "The full stable and unstable parameter regions are sketched on the A-axis."
+        }
+      ]
+    },
+    {
+      "id": "imaginary-axis-boundary",
+      "type": "plotly",
+      "title": "The Boundary Point at A = 1",
+      "description": "At A = 1 the poles are purely imaginary, so the system sits exactly on the stability boundary.",
+      "traces": [
+        {
+          "x": [0, 0],
+          "y": [1.414, -1.414],
+          "name": "poles at A = 1",
+          "mode": "markers",
+          "marker": { "size": 12, "symbol": "x" }
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "Re{s}", "range": [-3, 3] },
+        "yaxis": { "title": "Im{s}", "range": [-3, 3] },
+        "shapes": [
+          { "type": "line", "x0": 0, "x1": 0, "y0": -3, "y1": 3, "line": { "dash": "dash" } }
+        ]
+      },
+      "height": 380
+    },
+    {
+      "id": "stability-summary-chart",
+      "type": "plotly",
+      "title": "Stability Classification as A Changes",
+      "description": "The circuit is stable for A < 1, marginal at A = 1, and unstable for A > 1.",
+      "traces": [
+        {
+          "x": [-4, 1, 1, 4],
+          "y": [1, 1, 0, -1],
+          "name": "classification trend",
+          "mode": "lines+markers"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "A", "range": [-4.5, 4.5] },
+        "yaxis": { "title": "classification index", "tickvals": [-1, 0, 1], "ticktext": ["unstable", "marginal", "stable"] }
+      },
+      "height": 360
+    }
+  ]
+}
