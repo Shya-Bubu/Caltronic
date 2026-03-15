@@ -1,63 +1,75 @@
-## Stability from Pole Locations
+## Pole Location Is the Stability Test
 
-The note considers causal, linear, time-invariant, finite-dimensional continuous-time systems with transfer function
-
-$$
-H(s) = \frac{b_M s^M + b_{M-1}s^{M-1} + \cdots + b_0}{s^N + a_{N-1}s^{N-1} + \cdots + a_0}
-$$
-
-The factored form is written as
+The note begins with causal, linear, time-invariant, finite-dimensional continuous-time systems. For that class, the transfer function is written as
 
 $$
-H(s) = K\frac{(s-z_M)\cdots(s-z_1)}{(s-p_N)\cdots(s-p_1)}
+H(s)=\frac{b_M s^M+b_{M-1}s^{M-1}+\cdots+b_0}{s^N+a_{N-1}s^{N-1}+\cdots+a_0}
 $$
 
-so the denominator poles $p_i$ determine the natural modes in $h(t)$.
+and the impulse response satisfies
+
+$$
+H(s)=\mathcal{L}\{h(t)\}
+$$
+
+So the stability question is tied directly to the form of $h(t)$.
 
 [[visual:lesson-note-page-17]]
 
-## Modes Produced by Poles
+The note then separates numerator roots and denominator roots:
 
-The note connects pole type to time-domain terms:
+- roots of the numerator are zeros
+- roots of the denominator are poles
 
-- a real pole gives an exponential term $e^{pt}$
-- a complex pole pair gives an oscillatory term with exponential envelope
-- a repeated pole adds factors such as $t e^{pt}$
+and rewrites the transfer function in factored form:
 
-So stability depends on whether these terms decay or not.
+$$
+H(s)=K\frac{(s-z_M)(s-z_{M-1})\cdots(s-z_1)}{(s-p_N)(s-p_{N-1})\cdots(s-p_1)}
+$$
+
+This matters because partial fractions turn those poles into the time-domain terms that appear in $h(t)$.
+
+## What Different Poles Produce
+
+The next page states the three main cases:
+
+- if $H(s)$ has a real pole $p$, then $h(t)$ contains a term of the form $e^{pt}$
+- if $H(s)$ has a complex-conjugate pair $p=\sigma \pm j\omega$, then $h(t)$ contains a term of the form $e^{\sigma t}\cos(\omega t+\theta)$
+- if $H(s)$ has repeated poles, then $h(t)$ contains terms with extra powers of $t$, such as $t^i e^{pt}$ or $t^i e^{\sigma t}\cos(\omega t+\theta)$
 
 [[visual:pole-response-building-blocks]]
 
-For the systems in the lecture, the key statement is
+This is the key bridge in the note. Stability is not decided by poles as isolated points on a diagram. It is decided by the time functions those poles generate.
+
+If the pole contribution contains a negative exponential envelope, the response decays. If that envelope is zero, the response stays at constant magnitude. If the envelope is positive, the response grows.
+
+## Why Negative Real Part Is the Condition
+
+From those time-domain forms, the note states
 
 $$
 \lim_{t\to\infty} h(t)=0
 \quad \text{iff} \quad
-\operatorname{Re}(p_i)<0 \text{ for all } i
+\operatorname{Re}(p_i)<0,\ \ i=1,2,\ldots,N
 $$
 
-## Why the Left Half Plane Matters
+That is the asymptotic stability condition for the systems under discussion.
 
-If a pole is real, the mode is $e^{pt}$.
+To see why, take the two basic pole types:
 
-- $p<0$ gives decay
-- $p=0$ gives a constant term
-- $p>0$ gives growth
-
-If a pole is complex, $p=\sigma \pm j\omega$, then the oscillation is multiplied by $e^{\sigma t}$. The sign of $\sigma$ decides decay or growth.
-
-That is why the imaginary axis separates stable and unstable pole locations.
+- for a real pole $p$, the term is $e^{pt}$, which decays only when $p<0$
+- for a complex pole $\sigma \pm j\omega$, the oscillation is multiplied by $e^{\sigma t}$, so decay happens only when $\sigma<0$
 
 [[visual:stable-pole-map]]
 
-## Final Rule from the Note
+That is why the note marks the left half of the $s$-plane as the stable region. If every pole lies to the left of the $j\omega$ axis, then every natural mode in $h(t)$ decays.
 
-For these finite-dimensional systems, asymptotic stability is decided by the poles only:
+## What the Note Wants You to Remember
 
-$$
-\text{asymptotically stable} \iff \operatorname{Re}(p_i)<0 \text{ for every pole}
-$$
+The final sentence on the page is the compact rule:
 
-Zeros are part of the transfer function, but the stability condition comes from the denominator poles.
+for the transient response to go to zero, all poles should lie in the left half plane.
+
+That is the main idea of this first concept. Once you know where the poles are, you already know whether the natural response will die away.
 
 [[visual:lesson-note-page-18]]

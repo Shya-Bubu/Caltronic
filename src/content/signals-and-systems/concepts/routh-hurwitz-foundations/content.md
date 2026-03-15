@@ -1,42 +1,57 @@
-## Why Routh-Hurwitz Is Introduced
+## Why a New Stability Test Is Needed
 
-After the active RLC example, the note asks how to test stability without solving all poles explicitly.
+After the active RLC example, the note introduces the Routh-Hurwitz stability criterion.
 
 [[visual:routh-foundation-note]]
 
 The denominator polynomial is written as
 
 $$
-P(s)=a_0 s^N+a_1 s^{N-1}+\cdots+a_N
+P(s)=a_0 s^N+a_1 s^{N-1}+\cdots+a_N,\qquad a_i\in\mathbb{R}
 $$
 
-The question is whether this polynomial has any roots with positive real part.
+The question asked on the page is:
 
-## Necessary Condition
+how can we know that there are no positive real roots without factorizing the polynomial?
 
-From the coefficient comparison in the note:
+That is the motivation for the whole method.
 
-if all poles have negative real parts, then all coefficients of the polynomial must have the same sign.
+## Necessary Condition from the Coefficients
 
-So same-sign coefficients are a necessary condition for stability.
+The note expands the polynomial in terms of its roots and compares the coefficients. From that comparison it concludes:
+
+if all poles have negative real parts, then it is necessary for all the coefficients to have the same sign.
 
 [[visual:coefficient-sign-logic]]
 
-## Why That Is Not Enough
+This is an important filter, but the note immediately says it is not enough by itself.
 
-The note gives the counterexample
+## Why Same-Sign Coefficients Are Not Sufficient
+
+The counterexample written in the note is
 
 $$
 P(s)=s^3+2s^2+2s+40
 $$
 
-All coefficients are positive, but the polynomial is not stable. So same-sign coefficients are not sufficient.
+and it is factorized as
+
+$$
+P(s)=(s+4)(s^2-2s+10)
+$$
+
+The quadratic factor gives roots with positive real part, so the polynomial is not stable even though all coefficients are positive.
 
 [[visual:positive-coefficients-counterexample]]
 
-## Routh-Hurwitz Idea
+So the note's conclusion is precise:
 
-The Routh-Hurwitz test is then introduced as a necessary-and-sufficient test based on the denominator coefficients.
+- same-sign coefficients are necessary
+- same-sign coefficients are not sufficient
+
+## Routh-Hurwitz Criterion
+
+That is why the lecture introduces the Routh-Hurwitz test as a necessary-and-sufficient stability condition.
 
 For
 
@@ -44,6 +59,8 @@ $$
 H(s)=\frac{Z(s)}{P(s)}
 $$
 
-the stability test is applied to the denominator $P(s)$. The coefficients are arranged into the Routh array, and stability is decided from that array instead of explicit root solving.
+the test is applied to the denominator polynomial $P(s)$, because stability is decided by the poles.
+
+The coefficients of $P(s)$ are then arranged in a Routh array, and the stability decision is taken from that array instead of explicit factorization.
 
 [[visual:denominator-only-focus]]

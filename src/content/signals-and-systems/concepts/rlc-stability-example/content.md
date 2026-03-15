@@ -1,77 +1,79 @@
-## Series RLC Stability Example
+## The Series RLC Example in the Note
 
-The note uses a series RLC circuit with input $v(t)$ and output current $i(t)$.
+The lecture now tests the pole rules on a specific circuit: a series RLC network with input voltage $v(t)$ and capacitor current $i(t)$ as output.
 
 [[visual:rlc-note-gallery]]
 
-Its transfer function is written as
+The transfer function is written as
 
 $$
 H(s)=\frac{I(s)}{V(s)}=\frac{1}{R+Ls+\frac{1}{Cs}}
 $$
 
-Multiplying by $Cs$ gives
+Multiplying the numerator and denominator by $Cs$ gives
 
 $$
 H(s)=\frac{Cs}{LCs^2+RCs+1}
 $$
 
-and the denominator becomes
+and dividing by $LC$ gives the denominator in standard form:
 
 $$
-s^2+\frac{R}{L}s+\frac{1}{LC}
+H(s)=\frac{s/L}{s^2+\frac{R}{L}s+\frac{1}{LC}}
 $$
 
-## Pole Calculation
-
-The poles satisfy
+So the stability question reduces to the roots of
 
 $$
 s^2+\frac{R}{L}s+\frac{1}{LC}=0
 $$
 
-so
+## Pole Calculation
+
+Using the quadratic formula, the note gets
 
 $$
-p_{1,2}=-\frac{R}{2L}\pm \sqrt{\left(\frac{R}{2L}\right)^2-\frac{1}{LC}}
+p_{1,2}=-\frac{R}{2L}\pm\sqrt{\left(\frac{R}{2L}\right)^2-\frac{1}{LC}}
 $$
 
-If the poles are complex, the note writes them as
+If the quantity inside the square root is negative, this is rewritten as
 
 $$
 p_{1,2}=-\frac{R}{2L}\pm j\sqrt{\frac{1}{LC}-\left(\frac{R}{2L}\right)^2}
 $$
 
-In both forms, the real part is
+[[visual:rlc-pole-map]]
+
+In either form, the real part is
 
 $$
 \operatorname{Re}(p_{1,2})=-\frac{R}{2L}
 $$
 
-[[visual:rlc-pole-map]]
+So for positive $R$ and $L$, the real part is negative.
 
-## Stability Conclusion
+## Why the Circuit Is Stable in Every Case
 
-For positive $R$ and $L$, the real part is negative. So the poles stay in the left half plane.
+The note then checks the different cases of the discriminant.
 
-The discriminant
+If
 
 $$
-\left(\frac{R}{2L}\right)^2-\frac{1}{LC}
+\left(\frac{R}{2L}\right)^2-\frac{1}{LC}<0
 $$
 
-may give:
+the poles are complex conjugates, but their real part is still $-R/(2L)$, so they remain in the left half plane.
 
-- two real poles
-- a repeated real pole
-- a complex-conjugate pole pair
+If the discriminant is zero, the poles are repeated, but the repeated pole is still at a negative real value.
 
-but the note's conclusion is the same in every case:
-
-> The circuit is stable in any case.
+If the discriminant is positive, the poles are real. The note rewrites them to show both are still negative.
 
 [[visual:rlc-response-cases]]
 
-So this example shows that the waveform type may change, but the stability result still comes from the pole real parts.
+That is why the handwritten conclusion is:
+
+> Circuit is stable in any case.
+
+The damping behaviour can change from real poles to repeated poles to complex poles, but the stability result does not change because the pole real parts remain negative.
 
 [[visual:series-rlc-note-page]]

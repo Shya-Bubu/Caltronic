@@ -1,38 +1,54 @@
-## Absolute Integrability and BIBO Stability
+## Integrability and Stability
 
-The note then introduces BIBO stability: bounded input should give bounded output.
+The note then adds another condition based directly on the impulse response itself.
 
-The condition used in the lecture is
+If
 
 $$
 \int_0^\infty |h(t)|\,dt \le C
 $$
 
-for some finite constant $C$. This means $h(t)$ is absolutely integrable.
+for some finite constant $C$, then $h(t)$ is absolutely integrable.
 
 [[visual:integrability-note-gallery]]
 
-## Proof from Convolution
+The lecture first states that if $h(t)$ is absolutely integrable, then
 
-For a causal LTI system,
+$$
+\lim_{t\to\infty} h(t)=0
+$$
+
+so the system is stable.
+
+## BIBO Stability
+
+After that, the note introduces bounded-input bounded-output stability and starts from the convolution integral
 
 $$
 y(t)=\int_0^\infty h(\tau)x(t-\tau)\,d\tau
 $$
 
-Taking absolute values,
+Taking absolute values gives
+
+$$
+|y(t)|\le \int_0^\infty |h(\tau)x(t-\tau)|\,d\tau
+$$
+
+and then
 
 $$
 |y(t)|\le \int_0^\infty |h(\tau)|\,|x(t-\tau)|\,d\tau
 $$
 
-If the input is bounded, then
+[[visual:absolute-integrability-comparison]]
+
+Now if the input is bounded, the note writes
 
 $$
 |x(t)|\le M
 $$
 
-for some finite $M$, so
+for some finite value $M$. Then
 
 $$
 |x(t-\tau)|\le M
@@ -44,33 +60,22 @@ $$
 |y(t)|\le M\int_0^\infty |h(\tau)|\,d\tau
 $$
 
-If the integral is finite, then the output is bounded.
+## Final Result
 
-[[visual:absolute-integrability-comparison]]
+If $h(t)$ is absolutely integrable, the integral on the right is finite, so the output is bounded.
 
-So the lecture result is
+That is the conclusion written at the end of the note:
 
-$$
-h(t)\ \text{absolutely integrable} \Rightarrow \text{BIBO stable}
-$$
-
-## What to Remember
-
-The steps in the note are:
-
-1. write convolution
-2. take absolute values
-3. bound the input by $M$
-4. use the finite integral of $|h(t)|$
-
-This gives the bounded-output conclusion directly.
+if $h(t)$ is absolutely integrable, a system is BIBO stable.
 
 [[visual:bibo-bound-illustration]]
 
-The final criterion to remember is
+So the condition you should retain is
 
 $$
 \int_0^\infty |h(t)|\,dt < \infty
 $$
+
+because the note uses it both as a stability indicator for $h(t)$ and as the key step in the BIBO proof.
 
 [[visual:lesson-note-page-19]]

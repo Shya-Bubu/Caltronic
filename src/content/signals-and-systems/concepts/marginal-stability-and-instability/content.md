@@ -1,60 +1,77 @@
-## Marginal Stability and Instability
+## When the Response Does Not Go to Zero
 
-The note next separates the cases where the response is bounded from the cases where it becomes unbounded.
+After giving the left-half-plane condition for asymptotic stability, the note moves to the two remaining cases: marginal stability and instability.
 
 [[visual:lesson-note-page-18-marginal]]
 
-## Marginal Stability
-
-The lecture defines marginal stability by bounded impulse response:
+The lecture defines a system as marginally stable if
 
 $$
-|h(t)| \le C \quad \text{for all } t
+h(t)\ \text{is bounded}
 $$
 
-for some finite constant $C$.
+that is,
 
-This means the response stays finite, but it does not have to go to zero.
+$$
+|h(t)|\le C \quad \text{for all } t
+$$
 
-For marginal stability, the note gives these pole conditions:
+for some positive finite constant $C$.
 
-- all poles satisfy $\operatorname{Re}(p_i)\le 0$
-- any poles on the imaginary axis are non-repeated
-- repeated poles must lie strictly in the left half plane
+This is weaker than asymptotic stability. The response is allowed to remain present, as long as it stays finite.
+
+## Pole Conditions for Marginal Stability
+
+The note writes the conditions in two parts.
+
+For non-repeated poles,
+
+$$
+\operatorname{Re}(p_i)\le 0
+$$
+
+is acceptable.
+
+For repeated poles,
+
+$$
+\operatorname{Re}(p_i)<0
+$$
+
+is required.
 
 [[visual:classification-responses]]
 
-## Why Repetition Matters
+That distinction comes from the time-domain forms. A simple pole on the imaginary axis gives an oscillation with constant amplitude. A repeated pole on the imaginary axis introduces factors of $t$, and those factors make the response grow without bound.
 
-If an imaginary-axis pole is simple, the response can stay as a bounded oscillation.
+So the note summarizes the marginally stable case like this:
 
-If that pole is repeated, terms such as
+- all poles must be in the left half plane or on the imaginary axis
+- any poles on the imaginary axis must be non-repeated
+
+## When the System Is Unstable
+
+The lecture then defines instability by unbounded response:
 
 $$
-t\cos(\omega t+\theta)
+t\to\infty \quad h(t)\to\infty
 $$
 
-or
+and says this occurs when
 
-$$
-t\sin(\omega t+\theta)
-$$
-
-appear, and the response becomes unbounded.
-
-## Unstable Case
-
-The note classifies the system as unstable when $h(t)$ is unbounded. This happens if
-
-- at least one pole has $\operatorname{Re}(p_i)>0$, or
-- an imaginary-axis pole is repeated
+- $\operatorname{Re}(p_i)>0$ for any $i$, or
+- $\operatorname{Re}(p_i)=0$ in the case of a repeated pole
 
 [[visual:pole-classification-map]]
 
-So the full classification is:
+This is the important boundary case many students miss. A pole on the imaginary axis is not automatically acceptable. You still have to check whether it is repeated.
 
-- all poles in the left half plane: asymptotically stable
-- poles in the closed left half plane, with only simple imaginary-axis poles: marginally stable
-- any right-half-plane pole, or repeated imaginary-axis pole: unstable
+## Final Classification
+
+So the three classes from the note are:
+
+- all poles strictly in the left half plane: asymptotically stable
+- poles in the closed left half plane, with only non-repeated imaginary-axis poles: marginally stable
+- any right-half-plane pole, or any repeated imaginary-axis pole: unstable
 
 [[visual:repeated-pole-growth]]
