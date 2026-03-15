@@ -1,23 +1,22 @@
 # Routh-Hurwitz Stability Criterion - Synthesis
 
-The active RLC example shows that one parameter can shift poles across the imaginary axis. In that worked example, the note ends with the simple classification
+The active RLC example at the start of the lesson gives the clean parameter result
 
 - $A<1$: stable
 - $A=1$: marginally stable
 - $A>1$: unstable
 
-That example motivates the Routh-Hurwitz criterion. The lecture then states three key facts:
+That example shows why denominator coefficients matter: as $A$ changes, the poles move.
+
+The Routh-Hurwitz part then turns that idea into a general stability test. The key points from the note are:
 
 - same-sign coefficients are necessary for stability
 - same-sign coefficients are not sufficient
-- the Routh array gives a necessary-and-sufficient stability test
+- the Routh array gives a necessary-and-sufficient test
+- all first-column entries positive means the system is stable
+- sign changes in the first column count poles not in the left half plane
 
-The actual decision comes from the first column of the array:
-
-- all first-column entries positive $\Rightarrow$ stable
-- number of sign changes in the first column $\Rightarrow$ number of poles not in the left half plane
-
-The note finishes with the low-order results
+The final low-order results are
 
 $$
 P(s)=s^2+a_1s+a_0 \Rightarrow a_1>0,\ a_0>0
@@ -29,4 +28,4 @@ $$
 P(s)=s^3+a_2s^2+a_1s+a_0 \Rightarrow a_2>0,\ a_0>0,\ a_1a_2>a_0
 $$
 
-Those results are not separate formulas. They are the short versions of the general Routh test.
+So the lesson ends with a very practical habit: if direct pole solving is easy, use it; if not, move to the denominator coefficients and build the Routh array.

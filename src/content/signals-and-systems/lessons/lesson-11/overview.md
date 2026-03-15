@@ -1,15 +1,17 @@
 # Routh-Hurwitz Stability Criterion - Overview
 
-Lesson 11 stays on stability, but the note changes the method.
+> **Why This Matters**: Lesson 10 taught you to decide stability after finding poles. Lesson 11 teaches you what to do when that direct route becomes awkward: read stability from the denominator itself.
 
-It starts with an active RLC example where a parameter $A$ changes the denominator and moves the poles between stable, marginal, and unstable regions. That example shows why direct root calculation can become awkward even in a relatively small problem.
+This lesson has two connected parts.
 
-The second half then introduces the Routh-Hurwitz criterion. Instead of solving for every pole explicitly, the lecture works with the denominator coefficients, builds the Routh array, and reads stability from the first column of that array.
+First, the note studies an active RLC example where the parameter $A$ changes the denominator and pushes the poles through stable, marginal, and unstable regions. That part is important because it shows you, with a real transfer function, that changing one coefficient can move the whole stability picture.
 
-So the lesson moves through this sequence:
+Second, the note introduces the Routh-Hurwitz criterion. Instead of factorizing the denominator completely, you build the Routh array and inspect its first column. The lecture then finishes with the compact second-order and third-order results that come out of that array.
+
+So the lesson flow is
 
 $$
-\text{parameter-dependent poles} \rightarrow \text{stability regions} \rightarrow \text{Routh array} \rightarrow \text{coefficient-based test}
+\text{parameter } A \rightarrow \text{pole movement} \rightarrow \text{need for a faster test} \rightarrow \text{Routh array}
 $$
 
-The last pages then specialize the method to second-order and third-order polynomials so you get short conditions that can be checked quickly.
+What you should expect from this lesson is not a new definition of stability. The definition is the same as before. What changes is the method you use to test it.

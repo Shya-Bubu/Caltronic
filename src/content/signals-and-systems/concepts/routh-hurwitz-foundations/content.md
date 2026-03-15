@@ -1,6 +1,6 @@
-## Why a New Stability Test Is Needed
+## Why Routh-Hurwitz Appears Right Here
 
-After the active RLC example, the note introduces the Routh-Hurwitz stability criterion.
+The note introduces the Routh-Hurwitz stability criterion immediately after the parameter-dependent example. That order is important. You have just seen a case where direct pole calculation is still possible, but you can also feel how quickly that approach could become inconvenient for higher-order polynomials.
 
 [[visual:routh-foundation-note]]
 
@@ -10,23 +10,25 @@ $$
 P(s)=a_0 s^N+a_1 s^{N-1}+\cdots+a_N,\qquad a_i\in\mathbb{R}
 $$
 
-The question asked on the page is:
+and the question on the page is direct:
 
-how can we know that there are no positive real roots without factorizing the polynomial?
+How can you know there are no positive-real-part roots without factorizing the polynomial?
 
-That is the motivation for the whole method.
+That is the exact problem Routh-Hurwitz is designed to solve.
 
-## Necessary Condition from the Coefficients
+## What the Coefficients Tell You First
 
-The note expands the polynomial in terms of its roots and compares the coefficients. From that comparison it concludes:
+The note expands the polynomial in terms of its roots and compares the coefficients. From that comparison, it extracts a necessary condition:
 
-if all poles have negative real parts, then it is necessary for all the coefficients to have the same sign.
+if all poles have negative real parts, then all coefficients must have the same sign.
 
 [[visual:coefficient-sign-logic]]
 
-This is an important filter, but the note immediately says it is not enough by itself.
+This follows from the way the root sums and root products appear inside the coefficient expressions. So same-sign coefficients are not random luck. They reflect the structure a stable polynomial must have.
 
-## Why Same-Sign Coefficients Are Not Sufficient
+But here is the part you must not miss: the note immediately warns that this is only a necessary condition.
+
+## Necessary Is Not the Same as Sufficient
 
 The counterexample written in the note is
 
@@ -34,24 +36,28 @@ $$
 P(s)=s^3+2s^2+2s+40
 $$
 
-and it is factorized as
+Every coefficient is positive. If you stopped there, you would incorrectly call the system stable.
+
+But the note factorizes it as
 
 $$
 P(s)=(s+4)(s^2-2s+10)
 $$
 
-The quadratic factor gives roots with positive real part, so the polynomial is not stable even though all coefficients are positive.
+Now let's see why that matters. The quadratic factor has roots with positive real part, so the polynomial is unstable even though its coefficients all have the same sign.
 
 [[visual:positive-coefficients-counterexample]]
 
-So the note's conclusion is precise:
+That is the whole logic of this concept in one example:
 
-- same-sign coefficients are necessary
-- same-sign coefficients are not sufficient
+- same-sign coefficients help
+- same-sign coefficients do not prove stability
 
-## Routh-Hurwitz Criterion
+So if you rely only on that quick check, you can still be wrong.
 
-That is why the lecture introduces the Routh-Hurwitz test as a necessary-and-sufficient stability condition.
+## What Routh-Hurwitz Adds
+
+The lecture then introduces the Routh-Hurwitz test as a necessary-and-sufficient condition.
 
 For
 
@@ -59,8 +65,12 @@ $$
 H(s)=\frac{Z(s)}{P(s)}
 $$
 
-the test is applied to the denominator polynomial $P(s)$, because stability is decided by the poles.
+the stability test is applied to the denominator polynomial $P(s)$, because poles come from the denominator and poles decide stability.
 
-The coefficients of $P(s)$ are then arranged in a Routh array, and the stability decision is taken from that array instead of explicit factorization.
+Instead of solving for the roots one by one, the coefficients of $P(s)$ are rearranged into the Routh array. That array is built so that its first column reveals the stability information you care about.
 
 [[visual:denominator-only-focus]]
+
+> **Why This Matters**: This is the conceptual shift of Lesson 11. You are no longer asking only, "Can I solve for the poles?" You are asking, "Can I decide stability from the denominator itself?"
+
+That shift is what makes the next concept worth learning carefully.
