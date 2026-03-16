@@ -1,0 +1,17 @@
+{
+  "id": "flashcards-filter-phase-and-distortion",
+  "cards": [
+    {"id":"fc1","front":"Distortionless phase condition?","back":"∠H(ω) = −ωt_d (linear through origin). All frequencies delayed by same t_d. Output = x(t − t_d).","difficultyLevel":1},
+    {"id":"fc2","front":"What causes phase distortion?","back":"Non-linear phase → different frequencies get different time delays → signal shape changes even if magnitudes preserved.","difficultyLevel":1},
+    {"id":"fc3","front":"Complete ideal LPF response?","back":"H(ω) = P_{2B}(ω)·e^{−jωt_d}. Rectangular magnitude (|H|=1 for |ω|<B) plus linear phase (∠H=−ωt_d).","difficultyLevel":2},
+    {"id":"fc4","front":"Constant phase ∠H = C: time delay at frequency ω?","back":"Delay = C/ω. Different for each ω → signal distortion. Not the same as linear phase.","difficultyLevel":3},
+    {"id":"fc5","front":"Why does flat magnitude alone not guarantee distortionless?","back":"Flat |H| prevents amplitude distortion but doesn't prevent phase distortion. Need BOTH flat magnitude AND linear phase.","difficultyLevel":2},
+    {"id":"fc6","front":"What is t_d in ∠H(ω) = −ωt_d?","back":"Propagation delay (group delay). Constant for linear phase. Units: seconds. t_d = −d(∠H)/dω.","difficultyLevel":2},
+    {"id":"fc7","front":"Two-component signal through linear-phase filter: y(t) = ?","back":"y(t) = A₀cos(ω₀(t−t_d)) + A₁cos(ω₁(t−t_d)). Both delayed by same t_d → no shape change.","difficultyLevel":3},
+    {"id":"fc8","front":"Two-component signal through constant-phase filter: y(t) = ?","back":"y(t) = A₀cos(ω₀t−C) + A₁cos(ω₁t−C). Delays are C/ω₀ ≠ C/ω₁ → relative phase shift → distortion.","difficultyLevel":3},
+    {"id":"fc9","front":"P_{2B}(ω) definition?","back":"Rectangular pulse: P_{2B}(ω) = 1 for |ω| ≤ B, 0 for |ω| > B. Width = 2B, centred at ω = 0.","difficultyLevel":2},
+    {"id":"fc10","front":"If ∠H(ω) = −5ω, what is t_d and what is y(t)?","back":"t_d = 5 seconds. Output y(t) = x(t − 5). Pure delay, no distortion.","difficultyLevel":2},
+    {"id":"fc11","front":"Group delay definition for linear phase?","back":"τ_g = −d(∠H)/dω. For ∠H = −ωt_d: τ_g = t_d (constant). Constant group delay = no distortion.","difficultyLevel":4},
+    {"id":"fc12","front":"What two conditions define a 'distortionless' filter?","back":"1) |H(ω)| = constant (usually 1) in passband. 2) ∠H(ω) = −ωt_d (linear phase). Both needed simultaneously.","difficultyLevel":3}
+  ]
+}

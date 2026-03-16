@@ -1,42 +1,65 @@
-[
-  {
-    "front": "What first-order transfer function is studied in the note?",
-    "back": "H(s)=K/(s+B), with K>0 and B>0."
-  },
-  {
-    "front": "Where is the pole of H(s)=K/(s+B)?",
-    "back": "At s=-B on the negative real axis."
-  },
-  {
-    "front": "What is H(omega) for the first-order system?",
-    "back": "H(omega)=K/(j omega + B)."
-  },
-  {
-    "front": "What is the magnitude response of H(s)=K/(s+B)?",
-    "back": "|H(omega)|=K/sqrt(omega^2+B^2)."
-  },
-  {
-    "front": "What is the phase response of H(s)=K/(s+B)?",
-    "back": "angle H(omega)=-tan^-1(omega/B)."
-  },
-  {
-    "front": "What is the low-frequency magnitude limit?",
-    "back": "As omega goes to 0, |H(omega)| goes to K/B."
-  },
-  {
-    "front": "What is the high-frequency phase limit?",
-    "back": "As omega goes to infinity, angle H(omega) goes to -90 degrees."
-  },
-  {
-    "front": "What is special about omega=B?",
-    "back": "The magnitude becomes K/(sqrt(2)B) and the phase becomes -45 degrees."
-  },
-  {
-    "front": "Why is B called the 3 dB bandwidth?",
-    "back": "Because the magnitude at omega=B is 3 dB below the low-frequency level."
-  },
-  {
-    "front": "What filter type does the first-order example resemble?",
-    "back": "A low-pass filter."
-  }
-]
+{
+  "id": "flashcards-first-order-low-pass-response",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What first-order transfer function is studied in the note?",
+      "back": "H(s)=K/(s+B), with K>0 and B>0.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "Where is the pole of H(s)=K/(s+B)?",
+      "back": "At s=-B on the negative real axis.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is H(omega) for the first-order system?",
+      "back": "H(omega)=K/(j omega + B).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "What is the magnitude response of H(s)=K/(s+B)?",
+      "back": "|H(omega)|=K/sqrt(omega^2+B^2).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is the phase response of H(s)=K/(s+B)?",
+      "back": "angle H(omega)=-tan^-1(omega/B).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What is the low-frequency magnitude limit?",
+      "back": "As omega goes to 0, |H(omega)| goes to K/B.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What is the high-frequency phase limit?",
+      "back": "As omega goes to infinity, angle H(omega) goes to -90 degrees.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is special about omega=B?",
+      "back": "The magnitude becomes K/(sqrt(2)B) and the phase becomes -45 degrees.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "Why is B called the 3 dB bandwidth?",
+      "back": "Because the magnitude at omega=B is 3 dB below the low-frequency level.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What filter type does the first-order example resemble?",
+      "back": "A low-pass filter.",
+      "difficultyLevel": 5
+    }
+  ]
+}

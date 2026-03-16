@@ -1,42 +1,65 @@
-[
-  {
-    "front": "What transfer function is used in the single pole-zero example?",
-    "back": "H(s)=(s+C)/(s+B)."
-  },
-  {
-    "front": "What condition is imposed on B and C?",
-    "back": "The note analyzes the case 0<C<B."
-  },
-  {
-    "front": "Where are the zero and pole located?",
-    "back": "The zero is at s=-C and the pole is at s=-B."
-  },
-  {
-    "front": "What is H(omega) for the pole-zero example?",
-    "back": "H(omega)=(j omega + C)/(j omega + B)."
-  },
-  {
-    "front": "What is the magnitude response of the pole-zero example?",
-    "back": "|H(omega)|=sqrt(omega^2+C^2)/sqrt(omega^2+B^2)."
-  },
-  {
-    "front": "What is the phase response of the pole-zero example?",
-    "back": "angle H(omega)=tan^-1(omega/C)-tan^-1(omega/B)."
-  },
-  {
-    "front": "What is the magnitude at omega=0?",
-    "back": "|H(0)|=C/B."
-  },
-  {
-    "front": "What is the magnitude limit as omega goes to infinity?",
-    "back": "It approaches 1."
-  },
-  {
-    "front": "What happens to the phase shape when 0<C<B?",
-    "back": "It becomes positive, rises to a peak, and then returns toward 0 degrees."
-  },
-  {
-    "front": "What qualitative filter behavior does H(s)=(s+1)/(s+2) resemble?",
-    "back": "It resembles a high-pass filter, though the cutoff is not sharp."
-  }
-]
+{
+  "id": "flashcards-single-pole-zero-frequency-shaping",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What transfer function is used in the single pole-zero example?",
+      "back": "H(s)=(s+C)/(s+B).",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What condition is imposed on B and C?",
+      "back": "The note analyzes the case 0<C<B.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "Where are the zero and pole located?",
+      "back": "The zero is at s=-C and the pole is at s=-B.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "What is H(omega) for the pole-zero example?",
+      "back": "H(omega)=(j omega + C)/(j omega + B).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is the magnitude response of the pole-zero example?",
+      "back": "|H(omega)|=sqrt(omega^2+C^2)/sqrt(omega^2+B^2).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What is the phase response of the pole-zero example?",
+      "back": "angle H(omega)=tan^-1(omega/C)-tan^-1(omega/B).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What is the magnitude at omega=0?",
+      "back": "|H(0)|=C/B.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is the magnitude limit as omega goes to infinity?",
+      "back": "It approaches 1.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "What happens to the phase shape when 0<C<B?",
+      "back": "It becomes positive, rises to a peak, and then returns toward 0 degrees.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What qualitative filter behavior does H(s)=(s+1)/(s+2) resemble?",
+      "back": "It resembles a high-pass filter, though the cutoff is not sharp.",
+      "difficultyLevel": 5
+    }
+  ]
+}

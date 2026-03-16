@@ -1,42 +1,65 @@
-[
-  {
-    "front": "How is frequency response obtained from the transfer function?",
-    "back": "Set s=j omega in H(s), so H(omega)=H(s)|_{s=j omega}."
-  },
-  {
-    "front": "What does |H(omega)| represent?",
-    "back": "The amplitude response, meaning the sinusoidal gain at frequency omega."
-  },
-  {
-    "front": "What does angle H(omega) represent?",
-    "back": "The phase response, meaning the phase shift at frequency omega."
-  },
-  {
-    "front": "What is the dB magnitude formula used in the note?",
-    "back": "20 log10 |H(omega)|."
-  },
-  {
-    "front": "What does a positive dB magnitude indicate?",
-    "back": "Amplification at that frequency."
-  },
-  {
-    "front": "What does a negative dB magnitude indicate?",
-    "back": "Attenuation at that frequency."
-  },
-  {
-    "front": "What two plots make up a Bode diagram?",
-    "back": "A magnitude-versus-frequency plot and a phase-versus-frequency plot."
-  },
-  {
-    "front": "Why is the imaginary axis used in frequency response?",
-    "back": "Because steady sinusoidal terms correspond to s=j omega."
-  },
-  {
-    "front": "How can frequency response be measured experimentally?",
-    "back": "By applying sinusoids at different frequencies and measuring the output gain and phase shift."
-  },
-  {
-    "front": "What idea from Lesson 12 does frequency response generalize?",
-    "back": "The steady-state output formula for a sinusoidal input at a single frequency."
-  }
-]
+{
+  "id": "flashcards-frequency-response-and-bode-plots",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "How is frequency response obtained from the transfer function?",
+      "back": "Set s=j omega in H(s), so H(omega)=H(s)|_{s=j omega}.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What does |H(omega)| represent?",
+      "back": "The amplitude response, meaning the sinusoidal gain at frequency omega.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What does angle H(omega) represent?",
+      "back": "The phase response, meaning the phase shift at frequency omega.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "What is the dB magnitude formula used in the note?",
+      "back": "20 log10 |H(omega)|.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What does a positive dB magnitude indicate?",
+      "back": "Amplification at that frequency.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "What does a negative dB magnitude indicate?",
+      "back": "Attenuation at that frequency.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What two plots make up a Bode diagram?",
+      "back": "A magnitude-versus-frequency plot and a phase-versus-frequency plot.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Why is the imaginary axis used in frequency response?",
+      "back": "Because steady sinusoidal terms correspond to s=j omega.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "How can frequency response be measured experimentally?",
+      "back": "By applying sinusoids at different frequencies and measuring the output gain and phase shift.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What idea from Lesson 12 does frequency response generalize?",
+      "back": "The steady-state output formula for a sinusoidal input at a single frequency.",
+      "difficultyLevel": 5
+    }
+  ]
+}

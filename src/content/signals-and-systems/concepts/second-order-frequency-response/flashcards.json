@@ -1,42 +1,65 @@
-[
-  {
-    "front": "What second-order transfer function is used in the note?",
-    "back": "H(s)=K/(s^2+2 zeta omega_n s+omega_n^2)."
-  },
-  {
-    "front": "What happens when zeta is greater than or equal to 1?",
-    "back": "The poles are real and negative."
-  },
-  {
-    "front": "What is the low-frequency magnitude for the second-order form?",
-    "back": "|H(0)|=K/omega_n^2."
-  },
-  {
-    "front": "What high-frequency phase limit does the two-pole case approach?",
-    "back": "-180 degrees."
-  },
-  {
-    "front": "What special choice gives the simplified magnitude omega_n^2/(omega^2+omega_n^2)?",
-    "back": "Choose zeta=1 and K=omega_n^2."
-  },
-  {
-    "front": "What 3 dB bandwidth formula is derived for the special zeta=1 case?",
-    "back": "B=sqrt(sqrt(2)-1) omega_n."
-  },
-  {
-    "front": "What is omega_d when 0<zeta<1?",
-    "back": "omega_d=omega_n sqrt(1-zeta^2)."
-  },
-  {
-    "front": "What kind of poles appear when 0<zeta<1?",
-    "back": "A complex-conjugate pole pair."
-  },
-  {
-    "front": "Why can a resonant peak appear in the underdamped case?",
-    "back": "Because one denominator factor decreases up to omega=omega_d while the other increases, which can make the total denominator small."
-  },
-  {
-    "front": "What is the main contrast between the two second-order cases in the note?",
-    "back": "Real poles give a sharper low-pass response, while complex poles can produce a magnitude peak near the damped frequency."
-  }
-]
+{
+  "id": "flashcards-second-order-frequency-response",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What second-order transfer function is used in the note?",
+      "back": "H(s)=K/(s^2+2 zeta omega_n s+omega_n^2).",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What happens when zeta is greater than or equal to 1?",
+      "back": "The poles are real and negative.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "What is the low-frequency magnitude for the second-order form?",
+      "back": "|H(0)|=K/omega_n^2.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "What high-frequency phase limit does the two-pole case approach?",
+      "back": "-180 degrees.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What special choice gives the simplified magnitude omega_n^2/(omega^2+omega_n^2)?",
+      "back": "Choose zeta=1 and K=omega_n^2.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What 3 dB bandwidth formula is derived for the special zeta=1 case?",
+      "back": "B=sqrt(sqrt(2)-1) omega_n.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What is omega_d when 0<zeta<1?",
+      "back": "omega_d=omega_n sqrt(1-zeta^2).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What kind of poles appear when 0<zeta<1?",
+      "back": "A complex-conjugate pole pair.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "Why can a resonant peak appear in the underdamped case?",
+      "back": "Because one denominator factor decreases up to omega=omega_d while the other increases, which can make the total denominator small.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What is the main contrast between the two second-order cases in the note?",
+      "back": "Real poles give a sharper low-pass response, while complex poles can produce a magnitude peak near the damped frequency.",
+      "difficultyLevel": 5
+    }
+  ]
+}
