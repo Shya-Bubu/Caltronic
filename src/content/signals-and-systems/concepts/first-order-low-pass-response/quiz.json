@@ -1,112 +1,125 @@
-[
-  {
-    "question": "What is the transfer function of the first-order example in the note?",
-    "options": [
-      "K/(s+B)",
-      "(s+B)/K",
-      "K/(s^2+B)",
-      "(s+K)/(s+B)"
-    ],
-    "answer": 0,
-    "explanation": "The note introduces the first-order system exactly in the form H(s)=K/(s+B) with K>0 and B>0."
-  },
-  {
-    "question": "Where is the pole of H(s)=K/(s+B)?",
-    "options": [
-      "s=-B",
-      "s=+B",
-      "s=0",
-      "s=-K"
-    ],
-    "answer": 0,
-    "explanation": "The denominator becomes zero when s=-B, so the single pole lies on the negative real axis."
-  },
-  {
-    "question": "What is H(omega) after substituting s=j omega?",
-    "options": [
-      "K/(j omega + B)",
-      "K/(omega + B)",
-      "K/(j omega - B)",
-      "(j omega + B)/K"
-    ],
-    "answer": 0,
-    "explanation": "The frequency response is found by replacing s with j omega, giving H(omega)=K/(j omega + B)."
-  },
-  {
-    "question": "What is the magnitude response of the first-order system?",
-    "options": [
-      "K/sqrt(omega^2 + B^2)",
-      "K/(omega + B)",
-      "sqrt(omega^2 + B^2)/K",
-      "K/(omega^2 + B^2)"
-    ],
-    "answer": 0,
-    "explanation": "The complex denominator magnitude is sqrt(omega^2 + B^2), so |H(omega)| becomes K divided by that quantity."
-  },
-  {
-    "question": "What is the phase response of the first-order system?",
-    "options": [
-      "-tan^-1(omega/B)",
-      "tan^-1(omega/B)",
-      "-tan^-1(B/omega)",
-      "90 degrees for all omega"
-    ],
-    "answer": 0,
-    "explanation": "Because the denominator angle is tan^-1(omega/B), the overall phase of the reciprocal is its negative."
-  },
-  {
-    "question": "What happens to |H(omega)| as omega approaches 0?",
-    "options": [
-      "It approaches K/B",
-      "It approaches 0",
-      "It approaches infinity",
-      "It approaches B/K"
-    ],
-    "answer": 0,
-    "explanation": "At very low frequency the omega term disappears, leaving the magnitude close to K/B."
-  },
-  {
-    "question": "What happens to the phase as omega approaches infinity?",
-    "options": [
-      "It approaches -90 degrees",
-      "It approaches 0 degrees",
-      "It approaches +90 degrees",
-      "It approaches -180 degrees"
-    ],
-    "answer": 0,
-    "explanation": "As omega/B becomes very large, tan^-1(omega/B) tends to 90 degrees, so the negative phase tends to -90 degrees."
-  },
-  {
-    "question": "What is |H(B)|?",
-    "options": [
-      "K/(sqrt(2) B)",
-      "K/B",
-      "K/(2B)",
-      "sqrt(2) K/B"
-    ],
-    "answer": 0,
-    "explanation": "Substituting omega=B gives sqrt(B^2+B^2)=sqrt(2)B in the denominator, so the magnitude becomes K/(sqrt(2)B)."
-  },
-  {
-    "question": "Why is B called the 3 dB bandwidth in this note?",
-    "options": [
-      "Because the magnitude at omega=B is 3 dB below the low-frequency value",
-      "Because the phase becomes -3 degrees there",
-      "Because the pole is located at -3B",
-      "Because the gain becomes exactly 3"
-    ],
-    "answer": 0,
-    "explanation": "The note shows that the magnitude at omega=B is reduced by a factor of 1/sqrt(2), which corresponds to a drop of 3 dB."
-  },
-  {
-    "question": "How does the note classify the first-order response H(s)=2/(s+2)?",
-    "options": [
-      "A low-pass filter",
-      "A high-pass filter",
-      "An all-pass filter",
-      "A band-stop filter"
-    ],
-    "answer": 0,
-    "explanation": "The magnitude is strongest at low frequencies and decays as frequency increases, which is exactly the low-pass behavior described in the note."
-  }
-]
+{
+  "id": "quiz-first-order-low-pass-response",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the transfer function of the first-order example in the note?",
+      "options": [
+        "K/(s+B)",
+        "(s+B)/K",
+        "K/(s^2+B)",
+        "(s+K)/(s+B)"
+      ],
+      "correctAnswer": "K/(s+B)",
+      "explanation": "The note introduces the first-order system exactly in the form H(s)=K/(s+B) with K>0 and B>0."
+    },
+    {
+      "id": "q2",
+      "prompt": "Where is the pole of H(s)=K/(s+B)?",
+      "options": [
+        "s=-B",
+        "s=+B",
+        "s=0",
+        "s=-K"
+      ],
+      "correctAnswer": "s=-B",
+      "explanation": "The denominator becomes zero when s=-B, so the single pole lies on the negative real axis."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is H(omega) after substituting s=j omega?",
+      "options": [
+        "K/(j omega + B)",
+        "K/(omega + B)",
+        "K/(j omega - B)",
+        "(j omega + B)/K"
+      ],
+      "correctAnswer": "K/(j omega + B)",
+      "explanation": "The frequency response is found by replacing s with j omega, giving H(omega)=K/(j omega + B)."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the magnitude response of the first-order system?",
+      "options": [
+        "K/sqrt(omega^2 + B^2)",
+        "K/(omega + B)",
+        "sqrt(omega^2 + B^2)/K",
+        "K/(omega^2 + B^2)"
+      ],
+      "correctAnswer": "K/sqrt(omega^2 + B^2)",
+      "explanation": "The complex denominator magnitude is sqrt(omega^2 + B^2), so |H(omega)| becomes K divided by that quantity."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the phase response of the first-order system?",
+      "options": [
+        "-tan^-1(omega/B)",
+        "tan^-1(omega/B)",
+        "-tan^-1(B/omega)",
+        "90 degrees for all omega"
+      ],
+      "correctAnswer": "-tan^-1(omega/B)",
+      "explanation": "Because the denominator angle is tan^-1(omega/B), the overall phase of the reciprocal is its negative."
+    },
+    {
+      "id": "q6",
+      "prompt": "What happens to |H(omega)| as omega approaches 0?",
+      "options": [
+        "It approaches K/B",
+        "It approaches 0",
+        "It approaches infinity",
+        "It approaches B/K"
+      ],
+      "correctAnswer": "It approaches K/B",
+      "explanation": "At very low frequency the omega term disappears, leaving the magnitude close to K/B."
+    },
+    {
+      "id": "q7",
+      "prompt": "What happens to the phase as omega approaches infinity?",
+      "options": [
+        "It approaches -90 degrees",
+        "It approaches 0 degrees",
+        "It approaches +90 degrees",
+        "It approaches -180 degrees"
+      ],
+      "correctAnswer": "It approaches -90 degrees",
+      "explanation": "As omega/B becomes very large, tan^-1(omega/B) tends to 90 degrees, so the negative phase tends to -90 degrees."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is |H(B)|?",
+      "options": [
+        "K/(sqrt(2) B)",
+        "K/B",
+        "K/(2B)",
+        "sqrt(2) K/B"
+      ],
+      "correctAnswer": "K/(sqrt(2) B)",
+      "explanation": "Substituting omega=B gives sqrt(B^2+B^2)=sqrt(2)B in the denominator, so the magnitude becomes K/(sqrt(2)B)."
+    },
+    {
+      "id": "q9",
+      "prompt": "Why is B called the 3 dB bandwidth in this note?",
+      "options": [
+        "Because the magnitude at omega=B is 3 dB below the low-frequency value",
+        "Because the phase becomes -3 degrees there",
+        "Because the pole is located at -3B",
+        "Because the gain becomes exactly 3"
+      ],
+      "correctAnswer": "Because the magnitude at omega=B is 3 dB below the low-frequency value",
+      "explanation": "The note shows that the magnitude at omega=B is reduced by a factor of 1/sqrt(2), which corresponds to a drop of 3 dB."
+    },
+    {
+      "id": "q10",
+      "prompt": "How does the note classify the first-order response H(s)=2/(s+2)?",
+      "options": [
+        "A low-pass filter",
+        "A high-pass filter",
+        "An all-pass filter",
+        "A band-stop filter"
+      ],
+      "correctAnswer": "A low-pass filter",
+      "explanation": "The magnitude is strongest at low frequencies and decays as frequency increases, which is exactly the low-pass behavior described in the note."
+    }
+  ]
+}

@@ -1,112 +1,125 @@
-[
-  {
-    "question": "What transfer function is used in the single pole and zero example?",
-    "options": [
-      "(s+C)/(s+B)",
-      "K/(s+B)",
-      "(s+B)/(s+C)",
-      "K/(s^2+2 zeta omega_n s + omega_n^2)"
-    ],
-    "answer": 0,
-    "explanation": "The second example in the note studies H(s)=(s+C)/(s+B) with positive B and C."
-  },
-  {
-    "question": "What additional condition is stated in the note for this example?",
-    "options": [
-      "0<C<B",
-      "0<B<C",
-      "B=C=0",
-      "C<0<B"
-    ],
-    "answer": 0,
-    "explanation": "The note specifically analyzes the case 0<C<B, which places the zero closer to the origin than the pole."
-  },
-  {
-    "question": "After substituting s=j omega, what is H(omega)?",
-    "options": [
-      "(j omega + C)/(j omega + B)",
-      "(omega + C)/(omega + B)",
-      "(j omega - C)/(j omega + B)",
-      "(j omega + B)/(j omega + C)"
-    ],
-    "answer": 0,
-    "explanation": "Replacing s by j omega gives the frequency response H(omega)=(j omega + C)/(j omega + B)."
-  },
-  {
-    "question": "What is |H(omega)| for this pole-zero example?",
-    "options": [
-      "sqrt(omega^2+C^2)/sqrt(omega^2+B^2)",
-      "(omega+C)/(omega+B)",
-      "sqrt(omega^2+B^2)/sqrt(omega^2+C^2)",
-      "(omega^2+C^2)/(omega^2+B^2)"
-    ],
-    "answer": 0,
-    "explanation": "The magnitude is the magnitude of the numerator divided by the magnitude of the denominator, giving the ratio of the two square roots."
-  },
-  {
-    "question": "What is the phase response for this example?",
-    "options": [
-      "tan^-1(omega/C) - tan^-1(omega/B)",
-      "-tan^-1(omega/C) - tan^-1(omega/B)",
-      "tan^-1(omega/B) - tan^-1(omega/C)",
-      "0 for all omega"
-    ],
-    "answer": 0,
-    "explanation": "The phase is the angle of the numerator minus the angle of the denominator, so the note writes tan^-1(omega/C)-tan^-1(omega/B)."
-  },
-  {
-    "question": "What is the low-frequency magnitude |H(0)|?",
-    "options": [
-      "C/B",
-      "B/C",
-      "1",
-      "0"
-    ],
-    "answer": 0,
-    "explanation": "Substituting omega=0 leaves the real ratio C/B, which is below one because C<B."
-  },
-  {
-    "question": "What is the high-frequency magnitude limit?",
-    "options": [
-      "It approaches 1",
-      "It approaches 0",
-      "It approaches C/B",
-      "It approaches infinity"
-    ],
-    "answer": 0,
-    "explanation": "At large omega, both numerator and denominator are dominated by omega, so their ratio tends to one."
-  },
-  {
-    "question": "Why is the phase positive when 0<C<B?",
-    "options": [
-      "Because omega/C is always larger than omega/B, so the first inverse tangent is larger",
-      "Because the pole angle is always positive",
-      "Because the magnitude is below one",
-      "Because the numerator has no imaginary part"
-    ],
-    "answer": 0,
-    "explanation": "The note points out that omega/C exceeds omega/B, so tan^-1(omega/C) is larger than tan^-1(omega/B), making the phase positive."
-  },
-  {
-    "question": "What happens to the phase at very large frequency?",
-    "options": [
-      "It returns toward 0 degrees",
-      "It tends to 90 degrees",
-      "It tends to -90 degrees",
-      "It grows without limit"
-    ],
-    "answer": 0,
-    "explanation": "Both inverse tangent terms tend to 90 degrees as omega becomes large, so their difference tends back to zero."
-  },
-  {
-    "question": "How does the note describe H(s)=(s+1)/(s+2)?",
-    "options": [
-      "It resembles a high-pass filter, though the cutoff is not sharp",
-      "It is an ideal low-pass filter",
-      "It is an all-pass filter",
-      "It is a band-stop filter"
-    ],
-    "answer": 0,
-    "explanation": "The note uses cautious language and says the characteristic resembles a high-pass filter, but the 3 dB cutoff is not sharp."
-  }
-]
+{
+  "id": "quiz-single-pole-zero-frequency-shaping",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What transfer function is used in the single pole and zero example?",
+      "options": [
+        "(s+C)/(s+B)",
+        "K/(s+B)",
+        "(s+B)/(s+C)",
+        "K/(s^2+2 zeta omega_n s + omega_n^2)"
+      ],
+      "correctAnswer": "(s+C)/(s+B)",
+      "explanation": "The second example in the note studies H(s)=(s+C)/(s+B) with positive B and C."
+    },
+    {
+      "id": "q2",
+      "prompt": "What additional condition is stated in the note for this example?",
+      "options": [
+        "0<C<B",
+        "0<B<C",
+        "B=C=0",
+        "C<0<B"
+      ],
+      "correctAnswer": "0<C<B",
+      "explanation": "The note specifically analyzes the case 0<C<B, which places the zero closer to the origin than the pole."
+    },
+    {
+      "id": "q3",
+      "prompt": "After substituting s=j omega, what is H(omega)?",
+      "options": [
+        "(j omega + C)/(j omega + B)",
+        "(omega + C)/(omega + B)",
+        "(j omega - C)/(j omega + B)",
+        "(j omega + B)/(j omega + C)"
+      ],
+      "correctAnswer": "(j omega + C)/(j omega + B)",
+      "explanation": "Replacing s by j omega gives the frequency response H(omega)=(j omega + C)/(j omega + B)."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is |H(omega)| for this pole-zero example?",
+      "options": [
+        "sqrt(omega^2+C^2)/sqrt(omega^2+B^2)",
+        "(omega+C)/(omega+B)",
+        "sqrt(omega^2+B^2)/sqrt(omega^2+C^2)",
+        "(omega^2+C^2)/(omega^2+B^2)"
+      ],
+      "correctAnswer": "sqrt(omega^2+C^2)/sqrt(omega^2+B^2)",
+      "explanation": "The magnitude is the magnitude of the numerator divided by the magnitude of the denominator, giving the ratio of the two square roots."
+    },
+    {
+      "id": "q5",
+      "prompt": "What is the phase response for this example?",
+      "options": [
+        "tan^-1(omega/C) - tan^-1(omega/B)",
+        "-tan^-1(omega/C) - tan^-1(omega/B)",
+        "tan^-1(omega/B) - tan^-1(omega/C)",
+        "0 for all omega"
+      ],
+      "correctAnswer": "tan^-1(omega/C) - tan^-1(omega/B)",
+      "explanation": "The phase is the angle of the numerator minus the angle of the denominator, so the note writes tan^-1(omega/C)-tan^-1(omega/B)."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the low-frequency magnitude |H(0)|?",
+      "options": [
+        "C/B",
+        "B/C",
+        "1",
+        "0"
+      ],
+      "correctAnswer": "C/B",
+      "explanation": "Substituting omega=0 leaves the real ratio C/B, which is below one because C<B."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the high-frequency magnitude limit?",
+      "options": [
+        "It approaches 1",
+        "It approaches 0",
+        "It approaches C/B",
+        "It approaches infinity"
+      ],
+      "correctAnswer": "It approaches 1",
+      "explanation": "At large omega, both numerator and denominator are dominated by omega, so their ratio tends to one."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why is the phase positive when 0<C<B?",
+      "options": [
+        "Because omega/C is always larger than omega/B, so the first inverse tangent is larger",
+        "Because the pole angle is always positive",
+        "Because the magnitude is below one",
+        "Because the numerator has no imaginary part"
+      ],
+      "correctAnswer": "Because omega/C is always larger than omega/B, so the first inverse tangent is larger",
+      "explanation": "The note points out that omega/C exceeds omega/B, so tan^-1(omega/C) is larger than tan^-1(omega/B), making the phase positive."
+    },
+    {
+      "id": "q9",
+      "prompt": "What happens to the phase at very large frequency?",
+      "options": [
+        "It returns toward 0 degrees",
+        "It tends to 90 degrees",
+        "It tends to -90 degrees",
+        "It grows without limit"
+      ],
+      "correctAnswer": "It returns toward 0 degrees",
+      "explanation": "Both inverse tangent terms tend to 90 degrees as omega becomes large, so their difference tends back to zero."
+    },
+    {
+      "id": "q10",
+      "prompt": "How does the note describe H(s)=(s+1)/(s+2)?",
+      "options": [
+        "It resembles a high-pass filter, though the cutoff is not sharp",
+        "It is an ideal low-pass filter",
+        "It is an all-pass filter",
+        "It is a band-stop filter"
+      ],
+      "correctAnswer": "It resembles a high-pass filter, though the cutoff is not sharp",
+      "explanation": "The note uses cautious language and says the characteristic resembles a high-pass filter, but the 3 dB cutoff is not sharp."
+    }
+  ]
+}

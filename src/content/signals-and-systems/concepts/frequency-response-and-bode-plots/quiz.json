@@ -1,112 +1,125 @@
-[
-  {
-    "question": "What is the frequency response of a system according to the note?",
-    "options": [
-      "H(omega)=H(s) evaluated at s=j omega",
-      "H(omega)=H(s) evaluated at s=omega",
-      "H(omega)=dH(s)/ds",
-      "H(omega)=1/H(s)"
-    ],
-    "answer": 0,
-    "explanation": "The note defines the frequency response by evaluating the transfer function on the imaginary axis, so H(omega)=H(s)|_{s=j omega}."
-  },
-  {
-    "question": "What does |H(omega)| describe?",
-    "options": [
-      "The amplitude scaling of the sinusoidal response",
-      "The transient decay rate only",
-      "The pole locations only",
-      "The time delay in seconds only"
-    ],
-    "answer": 0,
-    "explanation": "The note calls |H(omega)| the amplitude response because it tells how strongly the output sinusoid is scaled at each frequency."
-  },
-  {
-    "question": "What does angle H(omega) describe?",
-    "options": [
-      "The phase shift of the sinusoidal response",
-      "The amplitude ratio in dB",
-      "The input frequency itself",
-      "The natural frequency only"
-    ],
-    "answer": 0,
-    "explanation": "The phase response is the angle of H(omega), and it tells how much the output sinusoid is shifted relative to the input."
-  },
-  {
-    "question": "Which expression converts magnitude response to decibels?",
-    "options": [
-      "20 log10 |H(omega)|",
-      "10 log10 |H(omega)|",
-      "20 |H(omega)|",
-      "|H(omega)|/20"
-    ],
-    "answer": 0,
-    "explanation": "The lecture note explicitly writes the Bode magnitude in dB as 20 log10 |H(omega)|."
-  },
-  {
-    "question": "If the dB magnitude is greater than 0 dB, the system is:",
-    "options": [
-      "amplifying",
-      "attenuating",
-      "unstable",
-      "time varying"
-    ],
-    "answer": 0,
-    "explanation": "The note directly states that positive dB corresponds to amplification, meaning the output amplitude is larger than the input amplitude."
-  },
-  {
-    "question": "If the dB magnitude is less than 0 dB, the system is:",
-    "options": [
-      "attenuating",
-      "resonating",
-      "oscillating freely",
-      "producing zero phase shift"
-    ],
-    "answer": 0,
-    "explanation": "Negative dB means the magnitude ratio is below one, so the system attenuates that frequency component."
-  },
-  {
-    "question": "A Bode plot consists of:",
-    "options": [
-      "a magnitude plot and a phase plot against frequency",
-      "a pole plot and a root-locus plot",
-      "an impulse response and a step response only",
-      "two time-domain waveforms"
-    ],
-    "answer": 0,
-    "explanation": "The note uses Bode plots to mean the two frequency-domain graphs: magnitude versus omega and phase versus omega."
-  },
-  {
-    "question": "Why is the substitution s=j omega used in frequency response?",
-    "options": [
-      "Because steady sinusoids are represented on the imaginary axis",
-      "Because all stable poles lie on the imaginary axis",
-      "Because it removes the denominator",
-      "Because the phase response becomes zero"
-    ],
-    "answer": 0,
-    "explanation": "The imaginary axis is the axis associated with sustained sinusoidal factors, so evaluating H(s) there gives the sinusoidal steady-state response."
-  },
-  {
-    "question": "How can Bode information be obtained experimentally according to the note?",
-    "options": [
-      "Apply different sinusoidal input frequencies and measure output amplitude and phase",
-      "Differentiate the transfer function twice",
-      "Apply only a step input and read the answer directly",
-      "Measure only the DC gain"
-    ],
-    "answer": 0,
-    "explanation": "The note says frequency response can be built experimentally by varying the input sinusoid frequency and observing amplitude gain and phase shift."
-  },
-  {
-    "question": "Which statement best matches the role of frequency response in this lesson?",
-    "options": [
-      "It describes how the system treats each sinusoidal input frequency",
-      "It replaces the transfer function completely",
-      "It only applies to unstable systems",
-      "It is unrelated to steady-state response"
-    ],
-    "answer": 0,
-    "explanation": "This lesson uses frequency response as a direct description of how each sinusoidal frequency is amplified and phase shifted in steady state."
-  }
-]
+{
+  "id": "quiz-frequency-response-and-bode-plots",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the frequency response of a system according to the note?",
+      "options": [
+        "H(omega)=H(s) evaluated at s=j omega",
+        "H(omega)=H(s) evaluated at s=omega",
+        "H(omega)=dH(s)/ds",
+        "H(omega)=1/H(s)"
+      ],
+      "correctAnswer": "H(omega)=H(s) evaluated at s=j omega",
+      "explanation": "The note defines the frequency response by evaluating the transfer function on the imaginary axis, so H(omega)=H(s)|_{s=j omega}."
+    },
+    {
+      "id": "q2",
+      "prompt": "What does |H(omega)| describe?",
+      "options": [
+        "The amplitude scaling of the sinusoidal response",
+        "The transient decay rate only",
+        "The pole locations only",
+        "The time delay in seconds only"
+      ],
+      "correctAnswer": "The amplitude scaling of the sinusoidal response",
+      "explanation": "The note calls |H(omega)| the amplitude response because it tells how strongly the output sinusoid is scaled at each frequency."
+    },
+    {
+      "id": "q3",
+      "prompt": "What does angle H(omega) describe?",
+      "options": [
+        "The phase shift of the sinusoidal response",
+        "The amplitude ratio in dB",
+        "The input frequency itself",
+        "The natural frequency only"
+      ],
+      "correctAnswer": "The phase shift of the sinusoidal response",
+      "explanation": "The phase response is the angle of H(omega), and it tells how much the output sinusoid is shifted relative to the input."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which expression converts magnitude response to decibels?",
+      "options": [
+        "20 log10 |H(omega)|",
+        "10 log10 |H(omega)|",
+        "20 |H(omega)|",
+        "|H(omega)|/20"
+      ],
+      "correctAnswer": "20 log10 |H(omega)|",
+      "explanation": "The lecture note explicitly writes the Bode magnitude in dB as 20 log10 |H(omega)|."
+    },
+    {
+      "id": "q5",
+      "prompt": "If the dB magnitude is greater than 0 dB, the system is:",
+      "options": [
+        "amplifying",
+        "attenuating",
+        "unstable",
+        "time varying"
+      ],
+      "correctAnswer": "amplifying",
+      "explanation": "The note directly states that positive dB corresponds to amplification, meaning the output amplitude is larger than the input amplitude."
+    },
+    {
+      "id": "q6",
+      "prompt": "If the dB magnitude is less than 0 dB, the system is:",
+      "options": [
+        "attenuating",
+        "resonating",
+        "oscillating freely",
+        "producing zero phase shift"
+      ],
+      "correctAnswer": "attenuating",
+      "explanation": "Negative dB means the magnitude ratio is below one, so the system attenuates that frequency component."
+    },
+    {
+      "id": "q7",
+      "prompt": "A Bode plot consists of:",
+      "options": [
+        "a magnitude plot and a phase plot against frequency",
+        "a pole plot and a root-locus plot",
+        "an impulse response and a step response only",
+        "two time-domain waveforms"
+      ],
+      "correctAnswer": "a magnitude plot and a phase plot against frequency",
+      "explanation": "The note uses Bode plots to mean the two frequency-domain graphs: magnitude versus omega and phase versus omega."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why is the substitution s=j omega used in frequency response?",
+      "options": [
+        "Because steady sinusoids are represented on the imaginary axis",
+        "Because all stable poles lie on the imaginary axis",
+        "Because it removes the denominator",
+        "Because the phase response becomes zero"
+      ],
+      "correctAnswer": "Because steady sinusoids are represented on the imaginary axis",
+      "explanation": "The imaginary axis is the axis associated with sustained sinusoidal factors, so evaluating H(s) there gives the sinusoidal steady-state response."
+    },
+    {
+      "id": "q9",
+      "prompt": "How can Bode information be obtained experimentally according to the note?",
+      "options": [
+        "Apply different sinusoidal input frequencies and measure output amplitude and phase",
+        "Differentiate the transfer function twice",
+        "Apply only a step input and read the answer directly",
+        "Measure only the DC gain"
+      ],
+      "correctAnswer": "Apply different sinusoidal input frequencies and measure output amplitude and phase",
+      "explanation": "The note says frequency response can be built experimentally by varying the input sinusoid frequency and observing amplitude gain and phase shift."
+    },
+    {
+      "id": "q10",
+      "prompt": "Which statement best matches the role of frequency response in this lesson?",
+      "options": [
+        "It describes how the system treats each sinusoidal input frequency",
+        "It replaces the transfer function completely",
+        "It only applies to unstable systems",
+        "It is unrelated to steady-state response"
+      ],
+      "correctAnswer": "It describes how the system treats each sinusoidal input frequency",
+      "explanation": "This lesson uses frequency response as a direct description of how each sinusoidal frequency is amplified and phase shifted in steady state."
+    }
+  ]
+}

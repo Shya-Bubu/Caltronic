@@ -1,112 +1,125 @@
-[
-  {
-    "question": "What second-order transfer function is studied in the note?",
-    "options": [
-      "K/(s^2 + 2 zeta omega_n s + omega_n^2)",
-      "(s^2 + 2 zeta omega_n s + omega_n^2)/K",
-      "K/(s + omega_n)",
-      "(s+C)/(s+B)"
-    ],
-    "answer": 0,
-    "explanation": "The final example in the note uses the standard second-order denominator K/(s^2 + 2 zeta omega_n s + omega_n^2)."
-  },
-  {
-    "question": "What happens to the poles when zeta is greater than or equal to 1?",
-    "options": [
-      "They are real and negative",
-      "They are purely imaginary",
-      "They are positive real",
-      "They disappear"
-    ],
-    "answer": 0,
-    "explanation": "For zeta>=1, the square-root term stays real, and the note identifies the resulting poles as real negative poles."
-  },
-  {
-    "question": "What is the phase limit of the real-pole second-order case as omega approaches infinity?",
-    "options": [
-      "-180 degrees",
-      "-90 degrees",
-      "0 degrees",
-      "+180 degrees"
-    ],
-    "answer": 0,
-    "explanation": "Because there are two pole contributions, the phase continues down to -180 degrees at high frequency."
-  },
-  {
-    "question": "For the special case zeta=1 and K=omega_n^2, what is |H(omega)|?",
-    "options": [
-      "omega_n^2/(omega^2 + omega_n^2)",
-      "omega_n/(omega + omega_n)",
-      "1/(omega^2 + omega_n^2)",
-      "omega_n^2/sqrt(omega^2 + omega_n^2)"
-    ],
-    "answer": 0,
-    "explanation": "The note simplifies the critically damped case to a compact low-pass expression omega_n^2/(omega^2 + omega_n^2)."
-  },
-  {
-    "question": "What bandwidth formula does the note derive for the special zeta=1 case?",
-    "options": [
-      "B=sqrt(sqrt(2)-1) omega_n",
-      "B=omega_n",
-      "B=(sqrt(2)+1) omega_n",
-      "B=omega_n/sqrt(2)"
-    ],
-    "answer": 0,
-    "explanation": "Setting the magnitude equal to 1/sqrt(2) leads to B^2=(sqrt(2)-1) omega_n^2, so B=sqrt(sqrt(2)-1) omega_n."
-  },
-  {
-    "question": "What happens to the poles when 0<zeta<1?",
-    "options": [
-      "They become complex conjugates",
-      "They become repeated real poles",
-      "They move to the right half plane automatically",
-      "They become zeros"
-    ],
-    "answer": 0,
-    "explanation": "When zeta is below one, the term under the square root becomes negative, so the poles form a complex-conjugate pair."
-  },
-  {
-    "question": "What is the damped frequency defined in the note?",
-    "options": [
-      "omega_d=omega_n sqrt(1-zeta^2)",
-      "omega_d=zeta omega_n",
-      "omega_d=omega_n/zeta",
-      "omega_d=omega_n^2"
-    ],
-    "answer": 0,
-    "explanation": "The note introduces omega_d as omega_n sqrt(1-zeta^2) when the poles become complex."
-  },
-  {
-    "question": "Why can the magnitude develop a peak when 0<zeta<1?",
-    "options": [
-      "Because one denominator factor decreases up to omega=omega_d while the other increases",
-      "Because the numerator becomes infinite",
-      "Because both poles move to the origin",
-      "Because the phase is always zero"
-    ],
-    "answer": 0,
-    "explanation": "The note explains the peak by tracking the two denominator factors: one shrinks before omega reaches omega_d, which can make the total denominator small."
-  },
-  {
-    "question": "In the example zeta=0.1, omega_n=10, K=20, what is omega_d approximately?",
-    "options": [
-      "9.9",
-      "1.0",
-      "10.0",
-      "20.0"
-    ],
-    "answer": 0,
-    "explanation": "Using omega_d=omega_n sqrt(1-zeta^2) gives 10 sqrt(0.99), which the note rounds to about 9.9."
-  },
-  {
-    "question": "What is the main qualitative contrast between the real-pole and complex-pole second-order cases?",
-    "options": [
-      "The complex-pole case can show a resonant peak, while the real-pole case behaves like a sharper low-pass response",
-      "The real-pole case always has zero phase, while the complex-pole case has no magnitude response",
-      "The complex-pole case becomes unstable, while the real-pole case is always marginally stable",
-      "There is no qualitative contrast; both curves are identical"
-    ],
-    "answer": 0,
-    "explanation": "That is the central visual message of the note: real poles sharpen the low-pass roll-off, while complex poles can create a pronounced peak near the damped frequency."
-  }
-]
+{
+  "id": "quiz-second-order-frequency-response",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What second-order transfer function is studied in the note?",
+      "options": [
+        "K/(s^2 + 2 zeta omega_n s + omega_n^2)",
+        "(s^2 + 2 zeta omega_n s + omega_n^2)/K",
+        "K/(s + omega_n)",
+        "(s+C)/(s+B)"
+      ],
+      "correctAnswer": "K/(s^2 + 2 zeta omega_n s + omega_n^2)",
+      "explanation": "The final example in the note uses the standard second-order denominator K/(s^2 + 2 zeta omega_n s + omega_n^2)."
+    },
+    {
+      "id": "q2",
+      "prompt": "What happens to the poles when zeta is greater than or equal to 1?",
+      "options": [
+        "They are real and negative",
+        "They are purely imaginary",
+        "They are positive real",
+        "They disappear"
+      ],
+      "correctAnswer": "They are real and negative",
+      "explanation": "For zeta>=1, the square-root term stays real, and the note identifies the resulting poles as real negative poles."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the phase limit of the real-pole second-order case as omega approaches infinity?",
+      "options": [
+        "-180 degrees",
+        "-90 degrees",
+        "0 degrees",
+        "+180 degrees"
+      ],
+      "correctAnswer": "-180 degrees",
+      "explanation": "Because there are two pole contributions, the phase continues down to -180 degrees at high frequency."
+    },
+    {
+      "id": "q4",
+      "prompt": "For the special case zeta=1 and K=omega_n^2, what is |H(omega)|?",
+      "options": [
+        "omega_n^2/(omega^2 + omega_n^2)",
+        "omega_n/(omega + omega_n)",
+        "1/(omega^2 + omega_n^2)",
+        "omega_n^2/sqrt(omega^2 + omega_n^2)"
+      ],
+      "correctAnswer": "omega_n^2/(omega^2 + omega_n^2)",
+      "explanation": "The note simplifies the critically damped case to a compact low-pass expression omega_n^2/(omega^2 + omega_n^2)."
+    },
+    {
+      "id": "q5",
+      "prompt": "What bandwidth formula does the note derive for the special zeta=1 case?",
+      "options": [
+        "B=sqrt(sqrt(2)-1) omega_n",
+        "B=omega_n",
+        "B=(sqrt(2)+1) omega_n",
+        "B=omega_n/sqrt(2)"
+      ],
+      "correctAnswer": "B=sqrt(sqrt(2)-1) omega_n",
+      "explanation": "Setting the magnitude equal to 1/sqrt(2) leads to B^2=(sqrt(2)-1) omega_n^2, so B=sqrt(sqrt(2)-1) omega_n."
+    },
+    {
+      "id": "q6",
+      "prompt": "What happens to the poles when 0<zeta<1?",
+      "options": [
+        "They become complex conjugates",
+        "They become repeated real poles",
+        "They move to the right half plane automatically",
+        "They become zeros"
+      ],
+      "correctAnswer": "They become complex conjugates",
+      "explanation": "When zeta is below one, the term under the square root becomes negative, so the poles form a complex-conjugate pair."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the damped frequency defined in the note?",
+      "options": [
+        "omega_d=omega_n sqrt(1-zeta^2)",
+        "omega_d=zeta omega_n",
+        "omega_d=omega_n/zeta",
+        "omega_d=omega_n^2"
+      ],
+      "correctAnswer": "omega_d=omega_n sqrt(1-zeta^2)",
+      "explanation": "The note introduces omega_d as omega_n sqrt(1-zeta^2) when the poles become complex."
+    },
+    {
+      "id": "q8",
+      "prompt": "Why can the magnitude develop a peak when 0<zeta<1?",
+      "options": [
+        "Because one denominator factor decreases up to omega=omega_d while the other increases",
+        "Because the numerator becomes infinite",
+        "Because both poles move to the origin",
+        "Because the phase is always zero"
+      ],
+      "correctAnswer": "Because one denominator factor decreases up to omega=omega_d while the other increases",
+      "explanation": "The note explains the peak by tracking the two denominator factors: one shrinks before omega reaches omega_d, which can make the total denominator small."
+    },
+    {
+      "id": "q9",
+      "prompt": "In the example zeta=0.1, omega_n=10, K=20, what is omega_d approximately?",
+      "options": [
+        "9.9",
+        "1.0",
+        "10.0",
+        "20.0"
+      ],
+      "correctAnswer": "9.9",
+      "explanation": "Using omega_d=omega_n sqrt(1-zeta^2) gives 10 sqrt(0.99), which the note rounds to about 9.9."
+    },
+    {
+      "id": "q10",
+      "prompt": "What is the main qualitative contrast between the real-pole and complex-pole second-order cases?",
+      "options": [
+        "The complex-pole case can show a resonant peak, while the real-pole case behaves like a sharper low-pass response",
+        "The real-pole case always has zero phase, while the complex-pole case has no magnitude response",
+        "The complex-pole case becomes unstable, while the real-pole case is always marginally stable",
+        "There is no qualitative contrast; both curves are identical"
+      ],
+      "correctAnswer": "The complex-pole case can show a resonant peak, while the real-pole case behaves like a sharper low-pass response",
+      "explanation": "That is the central visual message of the note: real poles sharpen the low-pass roll-off, while complex poles can create a pronounced peak near the damped frequency."
+    }
+  ]
+}
