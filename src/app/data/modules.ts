@@ -115,11 +115,6 @@ export const modules: Module[] = [
         title: "Frequency Response and Bode Plots",
         path: "/signals-and-systems/lesson-13",
       },
-      {
-        id: "lesson-14",
-        title: "Introduction to Analog Filters & Butterworth Design",
-        path: "/signals-and-systems/lesson-14",
-      },
     ],
   },
   {
