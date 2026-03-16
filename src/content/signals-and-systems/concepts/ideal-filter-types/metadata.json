@@ -1,0 +1,10 @@
+{
+  "id": "ideal-filter-types",
+  "title": "Ideal Filter Types",
+  "slug": "ideal-filter-types",
+  "estimatedMinutes": 18,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}
