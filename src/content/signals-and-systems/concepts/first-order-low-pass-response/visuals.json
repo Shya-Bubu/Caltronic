@@ -1,0 +1,71 @@
+{
+  "visuals": [
+    {
+      "id": "first-order-note",
+      "type": "image-gallery",
+      "title": "Lecture Note: First-Order System",
+      "images": [
+        {
+          "src": "/course/signals-and-systems/lesson-13/page_02.png",
+          "caption": "The note derives the magnitude and phase of H(s)=K/(s+B)."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-13/page_03.png",
+          "caption": "The numerical example H(s)=2/(s+2) is sketched as a low-pass response."
+        }
+      ]
+    },
+    {
+      "id": "first-order-magnitude",
+      "type": "plotly",
+      "title": "First-Order Magnitude Response",
+      "description": "The single-pole magnitude is largest at low frequency and decays as omega increases.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.89, 0.71, 0.55, 0.45, 0.37, 0.32],
+          "mode": "lines+markers",
+          "name": "|H(omega)| for K=B=2"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "omega (rad/s)" },
+        "yaxis": { "title": "|H(omega)|" }
+      },
+      "height": 340
+    },
+    {
+      "id": "first-order-phase",
+      "type": "plotly",
+      "title": "First-Order Phase Response",
+      "description": "The phase shifts gradually from 0 degrees toward -90 degrees.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [0, -26.6, -45, -56.3, -63.4, -68.2, -71.6],
+          "mode": "lines+markers",
+          "name": "phase"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "omega (rad/s)" },
+        "yaxis": { "title": "angle H(omega) (deg)" }
+      },
+      "height": 340
+    },
+    {
+      "id": "three-db-bandwidth",
+      "type": "image",
+      "title": "Lecture Note: 3 dB Bandwidth",
+      "src": "/course/signals-and-systems/lesson-13/page_04.png",
+      "caption": "The note shows that omega=B corresponds to a 3 dB drop from the low-frequency magnitude level."
+    },
+    {
+      "id": "example-two-over-s-plus-two",
+      "type": "image",
+      "title": "Lecture Note: H(s)=2/(s+2)",
+      "src": "/course/signals-and-systems/lesson-13/page_03.png",
+      "caption": "The example labels the pass band, stop band, and low-pass character for the case K=B=2."
+    }
+  ]
+}

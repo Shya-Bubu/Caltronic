@@ -63,7 +63,7 @@ export const modules: Module[] = [
     description: "Signals, systems, and the mathematical language of engineering change over time.",
     category: "Core Theory",
     accent: "#6b62ff",
-    updatedToWeek: 12,
+    updatedToWeek: 13,
     lectures: [
       {
         id: "lesson-04",
@@ -109,6 +109,11 @@ export const modules: Module[] = [
         id: "lesson-12",
         title: "jω-Axis Poles and Sinusoidal Steady-State Response",
         path: "/signals-and-systems/lesson-12",
+      },
+      {
+        id: "lesson-13",
+        title: "Frequency Response and Bode Plots",
+        path: "/signals-and-systems/lesson-13",
       },
     ],
   },

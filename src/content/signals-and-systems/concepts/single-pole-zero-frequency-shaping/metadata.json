@@ -1,0 +1,11 @@
+{
+  "id": "single-pole-zero-frequency-shaping",
+  "title": "Single Pole and a Zero",
+  "slug": "single-pole-zero-frequency-shaping",
+  "estimatedMinutes": 22,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

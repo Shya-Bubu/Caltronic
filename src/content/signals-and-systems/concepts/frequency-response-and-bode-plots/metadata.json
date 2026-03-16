@@ -1,0 +1,11 @@
+{
+  "id": "frequency-response-and-bode-plots",
+  "title": "Frequency Response and Bode Plot Basics",
+  "slug": "frequency-response-and-bode-plots",
+  "estimatedMinutes": 20,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

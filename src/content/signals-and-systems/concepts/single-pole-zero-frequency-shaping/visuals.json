@@ -1,0 +1,63 @@
+{
+  "visuals": [
+    {
+      "id": "pole-zero-note",
+      "type": "image",
+      "title": "Lecture Note: Single Pole and a Zero",
+      "src": "/course/signals-and-systems/lesson-13/page_05.png",
+      "caption": "The note derives the magnitude and phase expressions for H(s)=(s+C)/(s+B) with 0<C<B."
+    },
+    {
+      "id": "pole-zero-magnitude",
+      "type": "plotly",
+      "title": "Magnitude with One Zero and One Pole",
+      "description": "For C=1 and B=2, the magnitude rises from 0.5 toward 1 as frequency increases.",
+      "traces": [
+        {
+          "x": [0, 0.5, 1, 1.5, 2, 3, 4],
+          "y": [0.5, 0.54, 0.63, 0.73, 0.79, 0.88, 0.92],
+          "mode": "lines+markers",
+          "name": "|H(omega)|"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "omega (rad/s)" },
+        "yaxis": { "title": "|H(omega)|" }
+      },
+      "height": 340
+    },
+    {
+      "id": "pole-zero-phase",
+      "type": "plotly",
+      "title": "Positive Phase Hump",
+      "description": "The zero lifts the phase above 0 degrees before the phase returns toward 0 degrees at high frequency.",
+      "traces": [
+        {
+          "x": [0, 0.5, 1, 1.5, 2, 3, 4],
+          "y": [0, 12.5, 18.4, 19.7, 18.4, 14.0, 10.5],
+          "mode": "lines+markers",
+          "name": "angle H(omega)"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "omega (rad/s)" },
+        "yaxis": { "title": "phase (deg)" }
+      },
+      "height": 340
+    },
+    {
+      "id": "phase-peak-note",
+      "type": "image",
+      "title": "Lecture Note: Phase Peak",
+      "src": "/course/signals-and-systems/lesson-13/page_06.png",
+      "caption": "The note remarks that the phase increases from 0 degrees, then decreases after omega grows beyond the pole region."
+    },
+    {
+      "id": "example-s-plus-1-over-s-plus-2",
+      "type": "image",
+      "title": "Lecture Note: H(s)=(s+1)/(s+2)",
+      "src": "/course/signals-and-systems/lesson-13/page_06.png",
+      "caption": "The example sketches a rising magnitude and a positive phase hump, then comments that the behavior resembles a high-pass filter."
+    }
+  ]
+}

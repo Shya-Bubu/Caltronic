@@ -1,0 +1,11 @@
+{
+  "id": "second-order-frequency-response",
+  "title": "Second-Order Frequency Response",
+  "slug": "second-order-frequency-response",
+  "estimatedMinutes": 29,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "first-order-low-pass-response",
+  "title": "First-Order Frequency Response and 3 dB Bandwidth",
+  "slug": "first-order-low-pass-response",
+  "estimatedMinutes": 24,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

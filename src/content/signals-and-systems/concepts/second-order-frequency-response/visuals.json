@@ -1,0 +1,65 @@
+{
+  "visuals": [
+    {
+      "id": "second-order-note",
+      "type": "image",
+      "title": "Lecture Note: Second-Order System Setup",
+      "src": "/course/signals-and-systems/lesson-13/page_07.png",
+      "caption": "The note introduces the second-order form, its poles, and the corresponding magnitude and phase expressions."
+    },
+    {
+      "id": "real-pole-low-pass",
+      "type": "image-gallery",
+      "title": "Lecture Note: Real-Pole Case",
+      "images": [
+        {
+          "src": "/course/signals-and-systems/lesson-13/page_08.png",
+          "caption": "For zeta greater than or equal to one, the response is interpreted as a low-pass filter."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-13/page_09.png",
+          "caption": "The note compares the one-pole and two-pole low-pass curves and begins the complex-pole case."
+        }
+      ]
+    },
+    {
+      "id": "two-pole-bandwidth-note",
+      "type": "plotly",
+      "title": "One Pole Versus Two Poles",
+      "description": "The two-pole response falls more sharply than the one-pole response for the example in the note.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.89, 0.71, 0.55, 0.45, 0.37, 0.32],
+          "mode": "lines",
+          "name": "1-pole"
+        },
+        {
+          "x": [0, 1, 2, 3, 4, 5, 6],
+          "y": [1.0, 0.82, 0.5, 0.27, 0.16, 0.1, 0.07],
+          "mode": "lines",
+          "name": "2-pole"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "omega (rad/s)" },
+        "yaxis": { "title": "|H(omega)|" }
+      },
+      "height": 340
+    },
+    {
+      "id": "complex-pole-note",
+      "type": "image",
+      "title": "Lecture Note: Complex Poles",
+      "src": "/course/signals-and-systems/lesson-13/page_10.png",
+      "caption": "The note rewrites the denominator in terms of zeta omega_n and omega_d to explain the underdamped case."
+    },
+    {
+      "id": "resonant-example",
+      "type": "image",
+      "title": "Lecture Note: Resonant Example",
+      "src": "/course/signals-and-systems/lesson-13/page_11.png",
+      "caption": "For zeta=0.1 and omega_n=10, the sketched magnitude shows a pronounced peak near the damped frequency."
+    }
+  ]
+}

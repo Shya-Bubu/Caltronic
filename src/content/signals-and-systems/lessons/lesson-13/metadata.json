@@ -1,0 +1,17 @@
+{
+  "id": "lesson-13",
+  "title": "Frequency Response and Bode Plots",
+  "slug": "lesson-13",
+  "description": "How H(j omega) defines amplitude and phase response, followed by first-order, pole-zero, and second-order examples drawn directly from the lecture note.",
+  "prerequisites": ["lesson-12"],
+  "overviewPath": "overview.md",
+  "synthesisPath": "synthesis.md",
+  "lectureWeek": 13,
+  "estimatedMinutes": 95,
+  "concepts": [
+    "frequency-response-and-bode-plots",
+    "first-order-low-pass-response",
+    "single-pole-zero-frequency-shaping",
+    "second-order-frequency-response"
+  ]
+}
