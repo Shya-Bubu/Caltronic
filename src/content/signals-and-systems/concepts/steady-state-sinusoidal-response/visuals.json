@@ -1,0 +1,70 @@
+{
+  "visuals": [
+    {
+      "id": "steady-state-response-note",
+      "type": "image-gallery",
+      "title": "Lecture Note: From Y(s) to y(t)",
+      "images": [
+        {
+          "src": "/course/signals-and-systems/lesson-12/page_04.png",
+          "caption": "The note takes the inverse Laplace transform and separates the transient and sinusoidal terms."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-12/page_05.png",
+          "caption": "The final page rewrites the result as a steady-state sinusoid controlled by H(j omega0)."
+        }
+      ]
+    },
+    {
+      "id": "steady-state-waveform-transform",
+      "type": "plotly",
+      "title": "Same Frequency, New Amplitude and Phase",
+      "description": "The steady-state output keeps the input frequency omega0 while its amplitude and phase are modified by H(j omega0).",
+      "traces": [
+        {
+          "x": [0, 0.52, 1.05, 1.57, 2.09, 2.62, 3.14, 3.66, 4.19, 4.71, 5.24, 5.76, 6.28],
+          "y": [1, 0.87, 0.5, 0, -0.5, -0.87, -1, -0.87, -0.5, 0, 0.5, 0.87, 1],
+          "mode": "lines",
+          "name": "input"
+        },
+        {
+          "x": [0, 0.52, 1.05, 1.57, 2.09, 2.62, 3.14, 3.66, 4.19, 4.71, 5.24, 5.76, 6.28],
+          "y": [0.72, 0.94, 0.91, 0.63, 0.17, -0.33, -0.72, -0.94, -0.91, -0.63, -0.17, 0.33, 0.72],
+          "mode": "lines",
+          "name": "steady-state output"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "t" },
+        "yaxis": { "title": "amplitude" }
+      },
+      "height": 360
+    },
+    {
+      "id": "frequency-response-note",
+      "type": "image",
+      "title": "Lecture Note: Steady-State Formula",
+      "src": "/course/signals-and-systems/lesson-12/page_04.png",
+      "caption": "The note identifies the sinusoidal term as the steady-state response and shows how H(j omega0) sets amplitude and phase."
+    },
+    {
+      "id": "laplace-vs-fourier-summary",
+      "type": "plotly",
+      "title": "Laplace View Versus Fourier View",
+      "description": "The lecture contrasts full-response analysis in Laplace form with direct steady-state analysis in Fourier form.",
+      "traces": [
+        {
+          "type": "bar",
+          "x": ["Laplace method", "Fourier method"],
+          "y": [2, 1],
+          "text": ["transient + steady state", "steady state only"],
+          "textposition": "auto"
+        }
+      ],
+      "layout": {
+        "yaxis": { "visible": false }
+      },
+      "height": 320
+    }
+  ]
+}

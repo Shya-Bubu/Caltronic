@@ -1,0 +1,125 @@
+{
+  "id": "quiz-laplace-analysis-of-sinusoidal-inputs",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What input does the note use in the sinusoidal-response revisit?",
+      "options": [
+        "x(t) = C cos(ω0 t), t ≥ 0",
+        "x(t) = C e^{-ω0 t}",
+        "x(t) = C sin^2(ω0 t)",
+        "x(t) = C u(t)"
+      ],
+      "correctAnswer": "x(t) = C cos(ω0 t), t ≥ 0",
+      "explanation": "The note explicitly starts the derivation with a cosine input applied for t greater than or equal to zero. That specific choice leads to the Laplace transform used in the rest of the derivation."
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the Laplace transform of the input used in the note?",
+      "options": [
+        "Cs / (s^2 + ω0^2)",
+        "Cω0 / (s^2 + ω0^2)",
+        "C / (s + ω0)",
+        "Cs / (s + ω0)"
+      ],
+      "correctAnswer": "Cs / (s^2 + ω0^2)",
+      "explanation": "For the cosine input used in the note, the Laplace transform is Cs over s squared plus omega naught squared. The denominator can then be factored into the pair of imaginary-axis poles."
+    },
+    {
+      "id": "q3",
+      "prompt": "How is s^2 + ω0^2 factored in the note?",
+      "options": [
+        "(s + jω0)(s - jω0)",
+        "(s + ω0)(s - ω0)",
+        "(s + jω0)^2",
+        "(s - jω0)^2"
+      ],
+      "correctAnswer": "(s + jω0)(s - jω0)",
+      "explanation": "The factorization into conjugate imaginary-axis poles is essential because those poles later generate the sinusoidal part of the output response."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the general partial-fraction form written for Y(s)?",
+      "options": [
+        "R(s)/P(s) + K/(s-jω0) + K*/(s+jω0)",
+        "R(s)/Z(s) + K/(s-ω0)",
+        "H(s) + K/(s-jω0)",
+        "K/(s-jω0) only"
+      ],
+      "correctAnswer": "R(s)/P(s) + K/(s-jω0) + K*/(s+jω0)",
+      "explanation": "The note separates the output into a transient term linked to the system poles and a conjugate pair linked to the input poles at plus or minus j omega naught."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why do K and K* appear as a pair?",
+      "options": [
+        "because the poles at ±jω0 are a complex-conjugate pair and the final time response must be real",
+        "because the numerator has repeated poles",
+        "because the system is always second order",
+        "because the input is unstable"
+      ],
+      "correctAnswer": "because the poles at ±jω0 are a complex-conjugate pair and the final time response must be real",
+      "explanation": "The note keeps the output compatible with a real-valued time response by pairing the residues in conjugate form, matching the conjugate structure of the input poles."
+    },
+    {
+      "id": "q6",
+      "prompt": "How is K evaluated in the note?",
+      "options": [
+        "By multiplying Y(s) by (s-jω0) and setting s = jω0",
+        "By differentiating Y(s) twice",
+        "By setting s = 0 immediately",
+        "By factorizing Z(s) only"
+      ],
+      "correctAnswer": "By multiplying Y(s) by (s-jω0) and setting s = jω0",
+      "explanation": "That is the standard residue step used in the note. It isolates the coefficient of the pole at s equals j omega naught before substitution."
+    },
+    {
+      "id": "q7",
+      "prompt": "What does K simplify to after the algebra?",
+      "options": [
+        "(C/2) H(jω0)",
+        "C H(s)",
+        "H(jω0) / C",
+        "jCω0 H(jω0)"
+      ],
+      "correctAnswer": "(C/2) H(jω0)",
+      "explanation": "The derivation is built to show that the residue at the input pole becomes half of C times the system frequency response evaluated at j omega naught."
+    },
+    {
+      "id": "q8",
+      "prompt": "What does the term R(s)/P(s) represent in the decomposition?",
+      "options": [
+        "the part associated with the system poles, which becomes the transient response",
+        "the Fourier transform directly",
+        "the input itself",
+        "the final constant output only"
+      ],
+      "correctAnswer": "the part associated with the system poles, which becomes the transient response",
+      "explanation": "The lecture separates the output into a system-pole contribution and an input-pole contribution. The system-pole term later becomes the transient part in the time domain."
+    },
+    {
+      "id": "q9",
+      "prompt": "Why is H(jω0) important in this derivation?",
+      "options": [
+        "because it appears naturally in the residue and controls the steady-state sinusoidal term",
+        "because it replaces P(s) everywhere",
+        "because it always makes the system stable",
+        "because it eliminates all transient behavior in Laplace form"
+      ],
+      "correctAnswer": "because it appears naturally in the residue and controls the steady-state sinusoidal term",
+      "explanation": "The note does not introduce H(jω0) artificially. It emerges from evaluating the output at the input pole, and this is why it later determines amplitude and phase in steady state."
+    },
+    {
+      "id": "q10",
+      "prompt": "What is the main outcome of this concept before inverse Laplace is taken?",
+      "options": [
+        "an expression for Y(s) where the sinusoidal part is written using H(jω0)",
+        "the final BIBO stability theorem",
+        "a new Routh array",
+        "a proof that all poles are repeated"
+      ],
+      "correctAnswer": "an expression for Y(s) where the sinusoidal part is written using H(jω0)",
+      "explanation": "This concept stops at the clean Laplace-domain decomposition. The next concept then converts that expression into the steady-state time-domain formula."
+    }
+  ]
+}

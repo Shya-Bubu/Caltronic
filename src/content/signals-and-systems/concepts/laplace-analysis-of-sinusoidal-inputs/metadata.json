@@ -1,0 +1,11 @@
+{
+  "id": "laplace-analysis-of-sinusoidal-inputs",
+  "title": "Laplace Analysis of Sinusoidal Inputs",
+  "slug": "laplace-analysis-of-sinusoidal-inputs",
+  "estimatedMinutes": 23,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

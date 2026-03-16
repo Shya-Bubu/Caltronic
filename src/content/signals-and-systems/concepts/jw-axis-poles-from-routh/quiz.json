@@ -1,0 +1,125 @@
+{
+  "id": "quiz-jw-axis-poles-from-routh",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What special feature is Lesson 12 first looking for in the Routh table?",
+      "options": [
+        "a pair of poles on the jω axis",
+        "a zero in the numerator only",
+        "a pole-zero cancellation",
+        "a purely real repeated pole"
+      ],
+      "correctAnswer": "a pair of poles on the jω axis",
+      "explanation": "The first part of the lesson studies how a special Routh-table pattern reveals poles exactly on the imaginary axis, not just general left-half-plane or right-half-plane cases."
+    },
+    {
+      "id": "q2",
+      "prompt": "In Example 3, what placeholder does the note use when a zero appears in the table?",
+      "options": [
+        "a small epsilon",
+        "the value 1",
+        "the constant term only",
+        "the numerator coefficient"
+      ],
+      "correctAnswer": "a small epsilon",
+      "explanation": "The note replaces the zero by a small epsilon so the recursion can continue and the sign behavior of the first column can still be examined carefully."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which Routh-table row is singled out in the note for detecting one pair of poles on the jω axis?",
+      "options": [
+        "the row indexed by s^1",
+        "the row indexed by s^4",
+        "the top row only",
+        "the final row only"
+      ],
+      "correctAnswer": "the row indexed by s^1",
+      "explanation": "Page 30 states the condition in terms of the entry indexed by s^1. That specific zero, together with the rest of the first column being positive, indicates one pair on the jω axis."
+    },
+    {
+      "id": "q4",
+      "prompt": "If all first-column entries are positive but the one indexed by s^1 is zero, the note says there is:",
+      "options": [
+        "one pair of poles on the jω axis",
+        "one pole in the right half plane",
+        "automatic asymptotic stability",
+        "no meaningful conclusion"
+      ],
+      "correctAnswer": "one pair of poles on the jω axis",
+      "explanation": "That is the specific rule given in the lecture note. It marks a boundary case rather than an ordinary stable or unstable classification."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is a zero in the Routh table important in this lesson?",
+      "options": [
+        "because it can signal a boundary case that needs special interpretation",
+        "because it means the numerator is zero",
+        "because it always proves the system is stable",
+        "because it eliminates the need for the rest of the table"
+      ],
+      "correctAnswer": "because it can signal a boundary case that needs special interpretation",
+      "explanation": "The note uses the zero to expose a special situation near the stability boundary. It is not treated as a routine arithmetic inconvenience."
+    },
+    {
+      "id": "q6",
+      "prompt": "In the note's Example 4, what type of pole pair is identified?",
+      "options": [
+        "a purely imaginary conjugate pair",
+        "a repeated negative real pair",
+        "a positive real pair",
+        "a pole-zero pair"
+      ],
+      "correctAnswer": "a purely imaginary conjugate pair",
+      "explanation": "The note concludes that the pattern corresponds to poles on the jω axis, which means a purely imaginary conjugate pair rather than real poles."
+    },
+    {
+      "id": "q7",
+      "prompt": "What is the purpose of checking the first column in the Routh array?",
+      "options": [
+        "to decide stability behavior and detect special boundary cases",
+        "to compute the numerator degree",
+        "to remove all complex arithmetic",
+        "to calculate input amplitude"
+      ],
+      "correctAnswer": "to decide stability behavior and detect special boundary cases",
+      "explanation": "The first column is the decisive part of the Routh table. In this lesson it is used not only for stability signs, but also for recognizing poles on the imaginary-axis boundary."
+    },
+    {
+      "id": "q8",
+      "prompt": "What pair does the note obtain for the worked jω-axis example?",
+      "options": [
+        "±j√2",
+        "±2",
+        "±√2",
+        "±j2√2"
+      ],
+      "correctAnswer": "±j√2",
+      "explanation": "The note explicitly evaluates the special pair and writes it as plus or minus j times root 2, which places both poles on the imaginary axis."
+    },
+    {
+      "id": "q9",
+      "prompt": "Why should you not immediately label the system unstable when a zero appears in the Routh table?",
+      "options": [
+        "because the zero may instead indicate poles on the jω axis",
+        "because zero entries are always ignored",
+        "because the numerator decides stability next",
+        "because the sign changes no longer matter"
+      ],
+      "correctAnswer": "because the zero may instead indicate poles on the jω axis",
+      "explanation": "This lesson is built around exactly that caution. A zero in the table can reveal a boundary case, so you must interpret it using the specific rule from the note."
+    },
+    {
+      "id": "q10",
+      "prompt": "What is the safest exam habit from this concept?",
+      "options": [
+        "build the table carefully, inspect the first column, and interpret any zero entry explicitly",
+        "skip the table and guess from coefficient signs",
+        "solve the polynomial roots first and use Routh later",
+        "ignore the row labels and focus only on the final row"
+      ],
+      "correctAnswer": "build the table carefully, inspect the first column, and interpret any zero entry explicitly",
+      "explanation": "That is the most reliable way to avoid losing marks. The lesson's whole point is that the special zero case carries meaning, so it must be handled and explained clearly."
+    }
+  ]
+}

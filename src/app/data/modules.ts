@@ -63,7 +63,7 @@ export const modules: Module[] = [
     description: "Signals, systems, and the mathematical language of engineering change over time.",
     category: "Core Theory",
     accent: "#6b62ff",
-    updatedToWeek: 11,
+    updatedToWeek: 12,
     lectures: [
       {
         id: "lesson-04",
@@ -104,6 +104,11 @@ export const modules: Module[] = [
         id: "lesson-11",
         title: "Routh-Hurwitz Stability Criterion",
         path: "/signals-and-systems/lesson-11",
+      },
+      {
+        id: "lesson-12",
+        title: "jω-Axis Poles and Sinusoidal Steady-State Response",
+        path: "/signals-and-systems/lesson-12",
       },
     ],
   },

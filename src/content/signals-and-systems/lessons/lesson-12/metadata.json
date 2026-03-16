@@ -1,0 +1,16 @@
+{
+  "id": "lesson-12",
+  "title": "jω-Axis Poles and Sinusoidal Steady-State Response",
+  "slug": "lesson-12",
+  "description": "How the Routh table reveals poles on the jω axis, followed by the Laplace-domain derivation of sinusoidal steady-state response and the meaning of H(jω0).",
+  "prerequisites": ["lesson-11"],
+  "overviewPath": "overview.md",
+  "synthesisPath": "synthesis.md",
+  "lectureWeek": 12,
+  "estimatedMinutes": 70,
+  "concepts": [
+    "jw-axis-poles-from-routh",
+    "laplace-analysis-of-sinusoidal-inputs",
+    "steady-state-sinusoidal-response"
+  ]
+}

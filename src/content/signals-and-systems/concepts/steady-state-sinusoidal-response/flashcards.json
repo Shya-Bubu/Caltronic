@@ -1,0 +1,14 @@
+[
+  {
+    "front": "What is the steady-state response to x(t)=C cos(omega0 t) for a stable LTI system?",
+    "back": "y_ss(t)=C|H(j omega0)| cos(omega0 t + angle H(j omega0))."
+  },
+  {
+    "front": "Which part of the total response disappears for a stable system?",
+    "back": "The transient response y_t(t) decays to zero."
+  },
+  {
+    "front": "How is the frequency response related to the transfer function?",
+    "back": "H_1(omega)=F{h(t)}=H(s)|_{s=j omega}."
+  }
+]

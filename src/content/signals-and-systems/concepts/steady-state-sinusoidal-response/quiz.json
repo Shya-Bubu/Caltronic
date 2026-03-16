@@ -1,0 +1,35 @@
+[
+  {
+    "question": "For a stable LTI system driven by x(t)=C cos(omega0 t), what happens to the transient response as t increases?",
+    "options": [
+      "It decays to zero",
+      "It grows linearly with time",
+      "It changes the input frequency",
+      "It remains constant forever"
+    ],
+    "answer": 0,
+    "explanation": "The note identifies y_t(t) as the transient term and states that it tends to zero for a stable system."
+  },
+  {
+    "question": "In steady state, which quantity sets the output amplitude for a sinusoidal input at omega0?",
+    "options": [
+      "|H(j omega0)|",
+      "Re{H(j omega0)} only",
+      "|P(j omega0)| only",
+      "The order of the denominator"
+    ],
+    "answer": 0,
+    "explanation": "The steady-state output amplitude is C|H(j omega0)|, so the multiplicative factor is |H(j omega0)|."
+  },
+  {
+    "question": "What does angle H(j omega0) represent in the steady-state output formula?",
+    "options": [
+      "The phase shift of the output sinusoid",
+      "The rate of transient decay",
+      "The input amplitude",
+      "The location of the dominant system pole"
+    ],
+    "answer": 0,
+    "explanation": "The note writes the output as C|H(j omega0)| cos(omega0 t + angle H(j omega0)), so the angle gives the phase shift."
+  }
+]

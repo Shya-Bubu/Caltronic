@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-laplace-analysis-of-sinusoidal-inputs",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What input is used in the lesson's sinusoidal revisit?",
+      "back": "The note uses x(t) = C cos(ω0 t) for t greater than or equal to zero.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What is X(s) for x(t) = C cos(ω0 t)?",
+      "back": "X(s) = Cs / (s^2 + ω0^2), which can also be written using poles at ±jω0.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "How is s^2 + ω0^2 factored in the note?",
+      "back": "It is factored as (s + jω0)(s - jω0).",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "What is the partial-fraction structure used for Y(s)?",
+      "back": "Y(s) is written as R(s)/P(s) plus K over s minus jω0 plus K* over s plus jω0.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "Why do K and K* appear together?",
+      "back": "Because the input poles are a conjugate pair and the final time response must stay real.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "How do you isolate K?",
+      "back": "Multiply Y(s) by (s-jω0) and evaluate the result at s = jω0.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What does K simplify to?",
+      "back": "K simplifies to (C/2)H(jω0).",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What does the term R(s)/P(s) become in time domain?",
+      "back": "It becomes the transient response associated with the system poles.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "Why is H(jω0) central to sinusoidal response?",
+      "back": "Because it naturally controls the amplitude and phase of the sinusoidal part once the residue is evaluated.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What is the main bridge this concept builds?",
+      "back": "It bridges the Laplace-domain decomposition of Y(s) to the later steady-state formula in terms of H(jω0).",
+      "difficultyLevel": 5
+    }
+  ]
+}

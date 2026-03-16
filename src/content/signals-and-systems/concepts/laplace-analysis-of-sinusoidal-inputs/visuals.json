@@ -1,0 +1,70 @@
+{
+  "visuals": [
+    {
+      "id": "sinusoidal-input-note",
+      "type": "image",
+      "title": "Lecture Note: Sinusoidal Input Setup",
+      "src": "/course/signals-and-systems/lesson-12/page_03.png",
+      "caption": "The note sets up the input x(t)=C cos(ω0 t), writes X(s), and begins the partial-fraction decomposition of Y(s)."
+    },
+    {
+      "id": "input-poles-plot",
+      "type": "plotly",
+      "title": "Input Poles at ±jω0",
+      "description": "The cosine input contributes a conjugate pole pair on the imaginary axis.",
+      "traces": [
+        {
+          "x": [0, 0],
+          "y": [2, -2],
+          "name": "±jω0",
+          "mode": "markers",
+          "marker": { "size": 12, "symbol": "x" }
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "Re{s}", "range": [-3, 3] },
+        "yaxis": { "title": "Im{s}", "range": [-3, 3] },
+        "shapes": [
+          { "type": "line", "x0": 0, "x1": 0, "y0": -3, "y1": 3, "line": { "dash": "dash" } }
+        ]
+      },
+      "height": 360
+    },
+    {
+      "id": "partial-fraction-note",
+      "type": "image-gallery",
+      "title": "Lecture Note: Decomposing Y(s)",
+      "images": [
+        {
+          "src": "/course/signals-and-systems/lesson-12/page_03.png",
+          "caption": "The note defines Y(s) and introduces the conjugate-pole decomposition."
+        },
+        {
+          "src": "/course/signals-and-systems/lesson-12/page_04.png",
+          "caption": "The decomposition is rewritten to expose the transient and sinusoidal parts."
+        }
+      ]
+    },
+    {
+      "id": "k-coefficient-flow",
+      "type": "plotly",
+      "title": "From Residue to H(jω0)",
+      "description": "The residue at s=jω0 reduces to (C/2)H(jω0), which is the key algebraic link in the note.",
+      "traces": [
+        {
+          "x": [0, 1, 2, 3],
+          "y": [0, 0, 0, 0],
+          "mode": "markers+lines+text",
+          "text": ["isolate K", "set s=jω0", "simplify", "(C/2)H(jω0)"],
+          "textposition": "top center",
+          "name": "flow"
+        }
+      ],
+      "layout": {
+        "xaxis": { "visible": false },
+        "yaxis": { "visible": false }
+      },
+      "height": 320
+    }
+  ]
+}

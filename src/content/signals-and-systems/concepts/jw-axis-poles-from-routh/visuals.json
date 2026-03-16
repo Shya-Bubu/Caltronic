@@ -1,0 +1,60 @@
+{
+  "visuals": [
+    {
+      "id": "example-polynomials-note",
+      "type": "image",
+      "title": "Lecture Note: Routh Examples 3 and 4",
+      "src": "/course/signals-and-systems/lesson-12/page_01.png",
+      "caption": "The lesson starts with two fourth-order polynomials and their Routh arrays to expose the special boundary case."
+    },
+    {
+      "id": "routh-epsilon-contrast",
+      "type": "plotly",
+      "title": "Why Epsilon Matters in the First Column",
+      "description": "A tiny epsilon replacement can flip the sign behavior of the later first-column entry and reveal a delicate boundary case.",
+      "traces": [
+        {
+          "x": ["s^4", "s^3", "s^2", "s^1", "s^0"],
+          "y": [1, 1, 0.1, -28, 3],
+          "type": "bar",
+          "name": "sample epsilon > 0 pattern"
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "Routh rows" },
+        "yaxis": { "title": "first-column trend" }
+      },
+      "height": 360
+    },
+    {
+      "id": "jw-axis-condition-note",
+      "type": "image",
+      "title": "Lecture Note: Condition for jω-Axis Poles",
+      "src": "/course/signals-and-systems/lesson-12/page_02.png",
+      "caption": "The note states the special rule involving a zero in the row indexed by s^1 while the other first-column entries remain positive."
+    },
+    {
+      "id": "jw-axis-pair-plot",
+      "type": "plotly",
+      "title": "Pole Pair on the jω Axis",
+      "description": "The worked example identifies a purely imaginary pair at ±j√2.",
+      "traces": [
+        {
+          "x": [0, 0],
+          "y": [1.414, -1.414],
+          "name": "±j√2",
+          "mode": "markers",
+          "marker": { "size": 12, "symbol": "x" }
+        }
+      ],
+      "layout": {
+        "xaxis": { "title": "Re{s}", "range": [-3, 3] },
+        "yaxis": { "title": "Im{s}", "range": [-3, 3] },
+        "shapes": [
+          { "type": "line", "x0": 0, "x1": 0, "y0": -3, "y1": 3, "line": { "dash": "dash" } }
+        ]
+      },
+      "height": 380
+    }
+  ]
+}

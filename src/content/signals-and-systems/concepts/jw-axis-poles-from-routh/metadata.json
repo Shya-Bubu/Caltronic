@@ -1,0 +1,11 @@
+{
+  "id": "jw-axis-poles-from-routh",
+  "title": "Detecting jω-Axis Poles from the Routh Table",
+  "slug": "jw-axis-poles-from-routh",
+  "estimatedMinutes": 22,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-jw-axis-poles-from-routh",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What special pole case is the first part of Lesson 12 about?",
+      "back": "It is about identifying one pair of poles on the jω axis from a special Routh-table pattern.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What symbol does the note use when a zero appears during Routh construction?",
+      "back": "It replaces the zero by a small epsilon so the sign behavior can still be studied.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "Which row is highlighted in the note's jω-axis condition?",
+      "back": "The row indexed by s^1 is highlighted. A zero there, with the rest of the first column positive, signals one pair on the jω axis.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "Why is a zero in the Routh table important?",
+      "back": "Because it may indicate a boundary case rather than an ordinary stable or unstable pattern.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What does the first column of the Routh table tell you?",
+      "back": "It tells you the stability sign pattern and can also reveal special cases like poles on the jω axis.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f6",
+      "front": "What conclusion does the note draw when the s^1-row first-column element is zero but the others are positive?",
+      "back": "It concludes that one pair of poles lies on the jω axis.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What pair is obtained in the worked jω-axis example?",
+      "back": "The note identifies the pair as ±j√2.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "Why should you not call the system unstable as soon as a zero appears in the table?",
+      "back": "Because the zero may instead correspond to a special boundary case, and the lesson shows how to interpret that case correctly.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f9",
+      "front": "What is the role of epsilon in Example 3?",
+      "back": "It lets the table continue so you can examine how the sign pattern behaves around the zero entry.",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What exam habit does this concept teach?",
+      "back": "Always inspect the first column carefully and explain the meaning of any zero instead of treating it like routine arithmetic noise.",
+      "difficultyLevel": 5
+    }
+  ]
+}

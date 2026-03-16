@@ -1,0 +1,11 @@
+{
+  "id": "steady-state-sinusoidal-response",
+  "title": "Steady-State Response and the Meaning of H(jw0)",
+  "slug": "steady-state-sinusoidal-response",
+  "estimatedMinutes": 24,
+  "contentPath": "content.md",
+  "examPath": "exam.md",
+  "visualsPath": "visuals.json",
+  "quizPath": "quiz.json",
+  "flashcardsPath": "flashcards.json"
+}
