@@ -1,11 +1,14 @@
 {
   "id": "lesson-14",
   "title": "Introduction to Analog Filters & Butterworth Design",
-  "description": "Ideal filter types (LPF, HPF, BPF, BSF), phase and distortion conditions, filter realizability, causal filter specifications, and the Butterworth maximally-flat filter design with frequency scaling.",
-  "prerequisites": ["lesson-09"],
+  "slug": "lesson-14",
+  "description": "Introduction to ideal filters, phase distortion, and practical Butterworth filter design methodology.",
+  "prerequisites": ["lesson-13"],
+  "overviewPath": "overview.md",
+  "synthesisPath": "synthesis.md",
   "lectureWeek": 14,
-  "estimatedDuration": 90,
-  "conceptSlugs": [
+  "estimatedMinutes": 90,
+  "concepts": [
     "ideal-filter-types",
     "filter-phase-and-distortion",
     "ideal-filter-realizability",
