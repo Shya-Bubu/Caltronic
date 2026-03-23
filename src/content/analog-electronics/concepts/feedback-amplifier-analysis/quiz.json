@@ -1,57 +1,119 @@
-[
-  {
-    "id": "q1",
-    "question": "What is the first step in analyzing a feedback amplifier circuit?",
-    "options": [
-      "Calculate the open-loop gain",
-      "Draw the small-signal model",
-      "Identify the feedback topology",
-      "Calculate the feedback factor β"
-    ],
-    "answer": 2,
-    "explanation": "Step 1 is always identifying the topology by finding the feedback element and checking how it connects at the output (sampling) and input (mixing). Everything else depends on knowing the topology first."
-  },
-  {
-    "id": "q2",
-    "question": "In the PNP emitter follower, the feedback factor $\\beta$ equals:",
-    "options": ["$R_E / R_L$", "$R_L / R_E$", "$1$", "$0$"],
-    "answer": 2,
-    "explanation": "In an emitter follower, the entire output voltage (across $R_E$) is fed back to the input. So $\\beta = V_f/V_o = 1$. This is maximum feedback, which is why the gain is approximately 1."
-  },
-  {
-    "id": "q3",
-    "question": "Why must the two-stage CE amplifier use an even number of CE stages in the forward path for the overall feedback to be negative?",
-    "options": [
-      "Because PNP transistors require even numbers",
-      "Because each CE stage inverts the signal (180°), and two inversions give 360° (= 0°), maintaining the correct phase for negative feedback",
-      "Because an odd number would give infinite gain",
-      "Because the feedback resistor only works with non-inverting amplifiers"
-    ],
-    "answer": 1,
-    "explanation": "Each CE stage inverts (180° phase shift). With 2 stages: 180° + 180° = 360° = 0° net phase shift. The feedback from output to emitter (inverting terminal) then correctly subtracts from the input, giving negative feedback."
-  },
-  {
-    "id": "q4",
-    "question": "When calculating the open-loop gain of a feedback amplifier, what must you account for that is often forgotten?",
-    "options": [
-      "The transistor's temperature",
-      "The loading effects of the feedback network on the amplifier",
-      "The DC bias voltages",
-      "The power supply voltage"
-    ],
-    "answer": 1,
-    "explanation": "The feedback network adds impedances at both the input and output. For example, $R_f$ appears in parallel with $R_{C2}$ at the output, and $R_{E1}$ acts as emitter degeneration at the input. These loading effects must be included for accurate analysis."
-  },
-  {
-    "id": "q5",
-    "question": "In the two-stage CE example, $A\\beta \\approx 1.79$. This means $A_f \\approx 1/\\beta$ is:",
-    "options": [
-      "A very good approximation",
-      "Not a good approximation — $A\\beta$ needs to be much larger (>> 1) for this to work",
-      "Only valid at low frequencies",
-      "Only valid for PNP transistors"
-    ],
-    "answer": 1,
-    "explanation": "The approximation $A_f \\approx 1/\\beta$ requires $A\\beta \\gg 1$ (typically $A\\beta > 10$). With $A\\beta = 1.79$, we must use the exact formula $A_f = A/(1+A\\beta)$, which gives $A_{Vf} \\approx 64.9$ instead of $1/\\beta = 101$."
-  }
-]
+{
+    "id": "quiz-feedback-amplifier-analysis",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the FIRST step in the systematic feedback amplifier analysis procedure?",
+            "options": ["Calculate open-loop gain A", "Calculate feedback factor β", "Identify the feedback topology", "Draw the small-signal equivalent circuit"],
+            "correctAnswer": "Identify the feedback topology",
+            "explanation": "Step 1 is always topology identification: find the feedback element, determine how it connects at the output (shunt or series sampling) and at the input (shunt or series mixing). All subsequent steps depend on knowing the topology."
+        },
+        {
+            "id": "q2",
+            "prompt": "In the PNP emitter follower analysis, what is the feedback factor β?",
+            "options": ["R_E / (R_E + R_L)", "h_ie / (R_E + h_ie)", "1", "h_fe"],
+            "correctAnswer": "1",
+            "explanation": "The entire output voltage V_E is fed back to the emitter (in series with V_BE). So β = V_f/V_o = V_E/V_E = 1. This is maximum possible feedback — 100% of the output is fed back."
+        },
+        {
+            "id": "q3",
+            "prompt": "In the PNP emitter follower, with h_fe = 50, h_ie = 1.1 kΩ, R_E = R_L = 4.7 kΩ, the open-loop gain is A_V = h_fe(R_E||R_L)/h_ie. What is A_V?",
+            "options": ["106.8", "50", "213.6", "2.35"],
+            "correctAnswer": "106.8",
+            "explanation": "R_E||R_L = 4.7k||4.7k = 2.35 kΩ. A_V = h_fe × (R_E||R_L) / h_ie = 50 × 2350 / 1100 = 117500/1100 ≈ 106.8."
+        },
+        {
+            "id": "q4",
+            "prompt": "With A_V = 106.8 and β = 1 for the emitter follower, what is the closed-loop gain A_Vf?",
+            "options": ["106.8", "1.0", "0.991", "53.4"],
+            "correctAnswer": "0.991",
+            "explanation": "A_Vf = A_V/(1+A_V × β) = 106.8/(1+106.8 × 1) = 106.8/107.8 ≈ 0.991 ≈ 1. The gain is very close to unity — confirming the emitter follower is a unity-gain voltage buffer."
+        },
+        {
+            "id": "q5",
+            "prompt": "With D = 107.8, R_i = 1.1 kΩ, and R_o = 208 Ω for the emitter follower, what are R_if and R_of?",
+            "options": [
+                "R_if = 10.2 Ω, R_of = 22.4 kΩ",
+                "R_if = 118.6 kΩ, R_of = 1.93 Ω",
+                "R_if = 1.1 kΩ, R_of = 208 Ω",
+                "R_if = 53.9 Ω, R_of = 104 Ω"
+            ],
+            "correctAnswer": "R_if = 118.6 kΩ, R_of = 1.93 Ω",
+            "explanation": "Series-Shunt topology: R_if = R_i × D = 1.1k × 107.8 = 118.6 kΩ. R_of = R_o / D = 208 / 107.8 = 1.93 Ω. Feedback gives the emitter follower its excellent buffering properties."
+        },
+        {
+            "id": "q6",
+            "prompt": "In the two-stage CE amplifier, why is the overall open-loop gain A_V positive (non-inverting)?",
+            "options": [
+                "CE stages do not invert",
+                "Two inversions cancel: (-1) × (-1) = +1, so two CE stages give non-inverting gain",
+                "The feedback resistor inverts the signal",
+                "PNP transistors are used in both stages"
+            ],
+            "correctAnswer": "Two inversions cancel: (-1) × (-1) = +1, so two CE stages give non-inverting gain",
+            "explanation": "Each CE stage inverts (A_V is negative). Two inversions: A_V1 × A_V2 = (-) × (-) = (+). The overall gain is positive, making it possible to have negative feedback when the feedback is taken from the output back to the emitter (subtracting)."
+        },
+        {
+            "id": "q7",
+            "prompt": "When should you use the exact formula A_f = A/(1+Aβ) rather than the approximation A_f ≈ 1/β?",
+            "options": [
+                "Always use the exact formula",
+                "When Aβ >> 1 (loop gain much larger than 1)",
+                "When Aβ is not much larger than 1 (modest loop gain)",
+                "Only for transresistance amplifiers"
+            ],
+            "correctAnswer": "When Aβ is not much larger than 1 (modest loop gain)",
+            "explanation": "A_f ≈ 1/β is valid only when Aβ >> 1 (typically Aβ > 10). For the two-stage CE example, Aβ ≈ 1.79 — not >> 1. Using 1/β = 100 would give 54% error. Always use the exact formula when Aβ is modest."
+        },
+        {
+            "id": "q8",
+            "prompt": "In the two-stage CE example with R_f = 47 kΩ and R_E1 = 470 Ω: what is the feedback factor β?",
+            "options": ["47000", "1/47000", "470/47470 × (1/470)", "R_E1/(R_f + R_E1) ... ÷ output"],
+            "correctAnswer": "R_E1/(R_f + R_E1) ... ÷ output",
+            "explanation": "For this Series-Shunt circuit: β = V_f/V_o. The feedback voltage is the voltage at Q1's emitter: V_f = V_o × R_E1/(R_f + R_E1) = V_o × 470/47470 ≈ 0.0099. So β ≈ 0.01."
+        },
+        {
+            "id": "q9",
+            "prompt": "What loading effects must be included in the open-loop small-signal model for the two-stage CE amplifier?",
+            "options": [
+                "None — the feedback is broken so there are no loading effects",
+                "R_f appears in parallel with R_C2 at output, and R_E1 appears as emitter degeneration in Stage 1",
+                "Only R_f at the output",
+                "Only R_E1 at the input"
+            ],
+            "correctAnswer": "R_f appears in parallel with R_C2 at output, and R_E1 appears as emitter degeneration in Stage 1",
+            "explanation": "Even though we break the feedback path, the feedback network components still physically connect to the circuit. R_f loads the output in parallel with R_C2, and R_E1 is physically at Q1's emitter creating degeneration. Both loading effects must be included in calculating A."
+        },
+        {
+            "id": "q10",
+            "prompt": "After calculating A = 181 and β = 0.01 for the two-stage CE, what is the closed-loop gain A_Vf?",
+            "options": ["100", "64.9", "181", "18.1"],
+            "correctAnswer": "64.9",
+            "explanation": "D = 1 + Aβ = 1 + 181 × 0.01 = 1 + 1.81 = 2.81. A_Vf = A/D = 181/2.81 ≈ 64.4 (≈64.9 with more precise values). Cannot use 1/β = 100 since Aβ = 1.81 is not >> 1."
+        },
+        {
+            "id": "q11",
+            "prompt": "In a Series-Shunt feedback amplifier analysis, to find R_of you need to find the open-loop output impedance R_o. Where does R_o come from?",
+            "options": [
+                "R_o = R_C of the last stage only",
+                "R_o = the impedance seen looking into the output port of the open-loop amplifier with loading effects included",
+                "R_o = h_ie of the last transistor",
+                "R_o = R_f in parallel with R_L"
+            ],
+            "correctAnswer": "R_o = the impedance seen looking into the output port of the open-loop amplifier with loading effects included",
+            "explanation": "R_o is the Thévenin output impedance of the open-loop amplifier circuit — including the loading effect of T_f on the output. Then R_of = R_o/D."
+        },
+        {
+            "id": "q12",
+            "prompt": "What is the 6-step feedback analysis procedure in order?",
+            "options": [
+                "1) Calculate β, 2) Draw circuit, 3) Find A, 4) Find D, 5) Find A_f, 6) Find impedances",
+                "1) Identify topology, 2) Calculate β, 3) Open-loop circuit with loading, 4) Calculate A, 5) Calculate A_f = A/(1+Aβ), 6) Calculate R_if and R_of",
+                "1) Find D, 2) Find β, 3) Identify topology, 4) Draw model, 5) Find A, 6) Find A_f",
+                "1) Draw model, 2) Find A, 3) Find β, 4) Identify topology, 5) Find A_f, 6) Find D"
+            ],
+            "correctAnswer": "1) Identify topology, 2) Calculate β, 3) Open-loop circuit with loading, 4) Calculate A, 5) Calculate A_f = A/(1+Aβ), 6) Calculate R_if and R_of",
+            "explanation": "The 6 steps in order: (1) Identify topology, (2) calculate β = X_f/X_o, (3) draw open-loop equivalent including loading effects, (4) calculate open-loop gain A, (5) closed-loop gain A_f = A/(1+Aβ), (6) R_if and R_of using topology rules."
+        }
+    ]
+}

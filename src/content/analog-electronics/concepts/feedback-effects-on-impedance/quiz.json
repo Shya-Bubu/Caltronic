@@ -1,47 +1,114 @@
-[
-  {
-    "id": "q1",
-    "question": "An amplifier with $R_i = 10\\,\\text{k}\\Omega$ uses series mixing feedback with $D = 1 + A\\beta = 20$. The input impedance with feedback is:",
-    "options": ["$500\\,\\Omega$", "$10\\,\\text{k}\\Omega$", "$200\\,\\text{k}\\Omega$", "$20\\,\\text{k}\\Omega$"],
-    "answer": 2,
-    "explanation": "Series mixing multiplies input impedance by $D$: $R_{if} = R_i \\times D = 10\\,\\text{k}\\Omega \\times 20 = 200\\,\\text{k}\\Omega$."
-  },
-  {
-    "id": "q2",
-    "question": "For a shunt-shunt feedback amplifier with $D = 50$, $R_o = 5\\,\\text{k}\\Omega$, the output impedance with feedback is:",
-    "options": ["$250\\,\\text{k}\\Omega$", "$100\\,\\Omega$", "$5\\,\\text{k}\\Omega$", "$1\\,\\text{k}\\Omega$"],
-    "answer": 1,
-    "explanation": "Shunt-Shunt: shunt sampling divides output impedance by $D$: $R_{of} = 5000/50 = 100\\,\\Omega$."
-  },
-  {
-    "id": "q3",
-    "question": "Why does voltage (shunt) sampling at the output reduce output impedance?",
-    "options": [
-      "Because it adds a resistor in parallel with the output",
-      "Because the feedback loop actively opposes any change in output voltage, making it behave like a stiff voltage source",
-      "Because it increases the amplifier's gain",
-      "Because it removes the load resistor"
-    ],
-    "answer": 1,
-    "explanation": "The feedback monitors the output voltage and corrects for deviations. When a load tries to change V_o, the feedback detects this and the amplifier counteracts it — making the output very 'stiff' (low impedance), like an ideal voltage source."
-  },
-  {
-    "id": "q4",
-    "question": "In which topology do BOTH input and output impedances increase?",
-    "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
-    "answer": 1,
-    "explanation": "Series-Series: Series mixing at input → $R_{if} = R_i \\times D$ (increases). Series sampling at output → $R_{of} = R_o \\times D$ (increases). This is ideal for a transconductance amplifier."
-  },
-  {
-    "id": "q5",
-    "question": "The statement 'feedback always pushes impedances toward ideal values' means:",
-    "options": [
-      "All impedances become zero",
-      "All impedances become infinite",
-      "Input and output impedances change in the direction that makes the amplifier closer to its ideal model",
-      "The feedback factor β determines the impedance"
-    ],
-    "answer": 2,
-    "explanation": "Each amplifier type has ideal impedance requirements (e.g., voltage amp: R_i = ∞, R_o = 0). The correct feedback topology always changes the impedances toward these ideal values."
-  }
-]
+{
+    "id": "quiz-feedback-effects-on-impedance",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "An amplifier with R_i = 1 kΩ uses series mixing feedback with D = 50. What is R_if?",
+            "options": ["20 Ω", "1 kΩ", "50 kΩ", "50 Ω"],
+            "correctAnswer": "50 kΩ",
+            "explanation": "Series mixing at input: R_if = R_i × D = 1 kΩ × 50 = 50 kΩ. Feedback multiplies input impedance — much better for a voltage amplifier."
+        },
+        {
+            "id": "q2",
+            "prompt": "An amplifier with R_o = 4 kΩ uses shunt sampling feedback with D = 20. What is R_of?",
+            "options": ["80 kΩ", "200 Ω", "4 kΩ", "20 kΩ"],
+            "correctAnswer": "200 Ω",
+            "explanation": "Shunt sampling at output: R_of = R_o / D = 4 kΩ / 20 = 200 Ω. Feedback divides output impedance — much better for a voltage amplifier."
+        },
+        {
+            "id": "q3",
+            "prompt": "To prove R_if = R_i × D for series mixing, what is the key step?",
+            "options": [
+                "Set V_x = 0 and find the resulting current",
+                "Apply test voltage V_x at input while X_S = 0, find I_x, then R_if = V_x/I_x",
+                "Apply test current I_x and find the voltage across R_i",
+                "Set β = 0 and find the normal input impedance"
+            ],
+            "correctAnswer": "Apply test voltage V_x at input while X_S = 0, find I_x, then R_if = V_x/I_x",
+            "explanation": "Standard impedance derivation: kill the independent source (X_S = 0), apply test signal V_x (or I_x) at the port, find the resulting current I_x (or voltage V_x), and compute R_if = V_x/I_x."
+        },
+        {
+            "id": "q4",
+            "prompt": "To find R_of for shunt sampling feedback, what procedure is used?",
+            "options": [
+                "Apply test voltage V_x at input, R_of = V_x/I_x",
+                "Kill X_S = 0, apply V_x at output, find I_x = I_amplifier + I_feedback, R_of = V_x/I_x",
+                "Apply test current at input, measure output voltage",
+                "Set β = 0 and measure output impedance normally"
+            ],
+            "correctAnswer": "Kill X_S = 0, apply V_x at output, find I_x = I_amplifier + I_feedback, R_of = V_x/I_x",
+            "explanation": "Kill the source (X_S = 0), apply test voltage V_x at the output port. Total current I_x has two components: current through the open-loop output resistance R_o, and the current from the controlled feedback source. R_of = V_x/I_x."
+        },
+        {
+            "id": "q5",
+            "prompt": "For Series-Series topology, both R_if and R_of are:",
+            "options": ["Both reduced by D", "Both increased by D", "R_if increased, R_of reduced", "R_if reduced, R_of increased"],
+            "correctAnswer": "Both increased by D",
+            "explanation": "Series-Series: Series mixing → R_if = R_i × D (increased). Series sampling → R_of = R_o × D (increased). Both increase. This is ideal for transconductance amplifiers that need high R_in and high R_out."
+        },
+        {
+            "id": "q6",
+            "prompt": "In the PNP emitter follower, D = 107.8 and R_i = 1.1 kΩ. The input impedance R_if is approximately:",
+            "options": ["10.2 Ω", "1.1 kΩ", "107.8 kΩ", "118.6 kΩ"],
+            "correctAnswer": "118.6 kΩ",
+            "explanation": "R_if = R_i × D = 1.1 kΩ × 107.8 ≈ 118.6 kΩ. Series mixing (V_E in series with V_BE) increases input impedance dramatically — this is why the emitter follower is an excellent buffer."
+        },
+        {
+            "id": "q7",
+            "prompt": "In the PNP emitter follower, D = 107.8 and open-loop R_o = 208 Ω. The output impedance R_of is approximately:",
+            "options": ["22.4 kΩ", "208 Ω", "1.93 Ω", "10.8 Ω"],
+            "correctAnswer": "1.93 Ω",
+            "explanation": "R_of = R_o / D = 208 Ω / 107.8 ≈ 1.93 Ω. Shunt sampling (voltage sensing) dramatically reduces the output impedance — this is why the emitter follower can drive low-impedance loads."
+        },
+        {
+            "id": "q8",
+            "prompt": "For Shunt-Shunt topology, R_if and R_of both:",
+            "options": ["Increase by D", "Decrease by D", "R_if increases, R_of decreases", "R_if decreases, R_of increases"],
+            "correctAnswer": "Decrease by D",
+            "explanation": "Shunt-Shunt: Shunt at input → R_if = R_i/D (decreased). Shunt at output → R_of = R_o/D (decreased). Both impedances decrease by D. This is ideal for transresistance amplifiers."
+        },
+        {
+            "id": "q9",
+            "prompt": "As the loop gain Aβ increases (with R_i fixed), what happens to R_if in a series-mixing amplifier?",
+            "options": ["R_if decreases toward 0", "R_if stays constant", "R_if increases toward infinity", "R_if equals R_i × A"],
+            "correctAnswer": "R_if increases toward infinity",
+            "explanation": "R_if = R_i × D = R_i × (1+Aβ). As Aβ → ∞, D → ∞, so R_if → ∞. Infinite input impedance is the ideal for a voltage amplifier — feedback drives real circuits toward the ideal."
+        },
+        {
+            "id": "q10",
+            "prompt": "What does 'the test source method' mean in impedance derivation?",
+            "options": [
+                "Connect the circuit to a power supply and measure impedance with a multimeter",
+                "Kill all independent sources, apply a test signal (V_x or I_x) at the port, compute R = V_x/I_x",
+                "Measure impedance by looking at component values only",
+                "Use KVL around the output loop with the source active"
+            ],
+            "correctAnswer": "Kill all independent sources, apply a test signal (V_x or I_x) at the port, compute R = V_x/I_x",
+            "explanation": "The test source method: (1) set all independent sources to zero (V_S = 0 or I_S = 0), (2) apply test signal V_x or I_x at the port of interest, (3) find the response I_x or V_x, (4) compute R = V_x/I_x."
+        },
+        {
+            "id": "q11",
+            "prompt": "Why does shunt sampling at the output drive output impedance down?",
+            "options": [
+                "It adds more resistance in parallel at the output",
+                "The feedback-controlled current source acts like a negative resistance",
+                "The feedback senses V_o and generates a correcting current that opposes any load-caused voltage change — equivalent to low R_o",
+                "Shunt sampling connects R_f in parallel with R_L, reducing total impedance"
+            ],
+            "correctAnswer": "The feedback senses V_o and generates a correcting current that opposes any load-caused voltage change — equivalent to low R_o",
+            "explanation": "When load draws more current and V_o drops, the feedback detects the drop, reduces the error signal, which causes the amplifier to compensate and maintain V_o. From the load's perspective, the source is very 'stiff' = low output impedance."
+        },
+        {
+            "id": "q12",
+            "prompt": "In the Shunt-Series topology, the impedances move toward the ideal for which amplifier?",
+            "options": [
+                "Voltage amplifier (high R_in, low R_out)",
+                "Current amplifier (low R_in, high R_out)",
+                "Transconductance amplifier (high R_in, high R_out)",
+                "Transresistance amplifier (low R_in, low R_out)"
+            ],
+            "correctAnswer": "Current amplifier (low R_in, high R_out)",
+            "explanation": "Shunt-Series: Shunt at input → R_if = R_i/D (low, ideal for current input). Series at output → R_of = R_o × D (high, ideal for current output). Feedback drives both toward the ideal current amplifier."
+        }
+    ]
+}

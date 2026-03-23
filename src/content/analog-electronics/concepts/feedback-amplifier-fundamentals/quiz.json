@@ -1,62 +1,89 @@
-[
-  {
-    "id": "q1",
-    "question": "An amplifier has an open-loop gain of $A = 500$ and a feedback factor of $\\beta = 0.02$. What is the closed-loop gain $A_f$?",
-    "options": [
-      "$A_f = 45.5$",
-      "$A_f = 50$",
-      "$A_f = 500$",
-      "$A_f = 10$"
-    ],
-    "answer": 0,
-    "explanation": "Using $A_f = \\frac{A}{1 + A\\beta} = \\frac{500}{1 + 500 \\times 0.02} = \\frac{500}{1 + 10} = \\frac{500}{11} \\approx 45.5$."
-  },
-  {
-    "id": "q2",
-    "question": "If the loop gain $T = A\\beta = 99$, by what factor is the open-loop gain reduced?",
-    "options": [
-      "By a factor of 99",
-      "By a factor of 100",
-      "By a factor of 10",
-      "By a factor of 50"
-    ],
-    "answer": 1,
-    "explanation": "The desensitivity factor is $D = 1 + A\\beta = 1 + 99 = 100$. The closed-loop gain is the open-loop gain divided by 100."
-  },
-  {
-    "id": "q3",
-    "question": "When $A \\gg 1$, the closed-loop gain $A_f$ approximately equals:",
-    "options": [
-      "$A$",
-      "$A\\beta$",
-      "$\\frac{1}{\\beta}$",
-      "$\\beta$"
-    ],
-    "answer": 2,
-    "explanation": "When $A$ is very large, $A_f = \\frac{A}{1+A\\beta} \\approx \\frac{A}{A\\beta} = \\frac{1}{\\beta}$. The gain depends only on the feedback network, not the amplifier."
-  },
-  {
-    "id": "q4",
-    "question": "What is the primary trade-off when using negative feedback in an amplifier?",
-    "options": [
-      "Increased noise for higher bandwidth",
-      "Reduced gain for improved stability and predictability",
-      "Higher gain for lower input impedance",
-      "Reduced bandwidth for lower distortion"
-    ],
-    "answer": 1,
-    "explanation": "Negative feedback reduces the gain by the factor $D = 1 + A\\beta$, but in return provides stable gain, reduced distortion, controlled impedances, and extended bandwidth."
-  },
-  {
-    "id": "q5",
-    "question": "In the feedback equation $A_f = \\frac{A}{1 + A\\beta}$, the symbol $\\beta$ represents:",
-    "options": [
-      "The current gain $h_{FE}$ of the transistor",
-      "The fraction of the output signal fed back to the input",
-      "The base current divided by the collector current",
-      "The forward transfer ratio of the amplifier"
-    ],
-    "answer": 1,
-    "explanation": "In feedback theory, $\\beta$ is the feedback factor — the fraction of the output that is sampled and returned to the input. It is NOT the transistor $\\beta$ ($h_{FE}$). This is a common source of confusion."
-  }
-]
+{
+    "id": "quiz-feedback-amplifier-fundamentals",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "An amplifier has open-loop gain A = 500 and feedback factor β = 0.01. What is the closed-loop gain A_f?",
+            "options": ["500", "50", "83.3", "100"],
+            "correctAnswer": "83.3",
+            "explanation": "A_f = A/(1+Aβ) = 500/(1+500×0.01) = 500/(1+5) = 500/6 ≈ 83.3. The desensitivity factor D = 6, so the gain is divided by 6."
+        },
+        {
+            "id": "q2",
+            "prompt": "The loop gain T is defined as:",
+            "options": ["A + β", "A / β", "A × β", "1 + Aβ"],
+            "correctAnswer": "A × β",
+            "explanation": "Loop gain T = Aβ, the product of the open-loop amplifier gain and the feedback factor. It represents the gain around the entire feedback loop."
+        },
+        {
+            "id": "q3",
+            "prompt": "The desensitivity factor D is defined as:",
+            "options": ["Aβ", "1 + Aβ", "A / β", "β / A"],
+            "correctAnswer": "1 + Aβ",
+            "explanation": "D = 1 + Aβ. It is the factor by which the open-loop gain A is divided to get the closed-loop gain A_f = A/D."
+        },
+        {
+            "id": "q4",
+            "prompt": "When Aβ >> 1, the closed-loop gain A_f approximately equals:",
+            "options": ["A", "Aβ", "1/β", "β"],
+            "correctAnswer": "1/β",
+            "explanation": "When Aβ >> 1: A_f = A/(1+Aβ) ≈ A/(Aβ) = 1/β. The gain becomes independent of A and depends only on the stable feedback network β."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the primary trade-off of applying negative feedback to an amplifier?",
+            "options": ["Increased distortion", "Reduced gain", "Higher output impedance", "Narrower bandwidth"],
+            "correctAnswer": "Reduced gain",
+            "explanation": "Negative feedback reduces gain by the factor D = 1+Aβ. All other effects (reduced distortion, better impedance, wider bandwidth) are benefits. Reduced gain is the only cost."
+        },
+        {
+            "id": "q6",
+            "prompt": "In the feedback block diagram, the error signal X_i is:",
+            "options": ["X_S + X_f", "X_S - X_f", "X_S × X_f", "X_f - X_S"],
+            "correctAnswer": "X_S - X_f",
+            "explanation": "For negative feedback: X_i = X_S - X_f. The feedback signal X_f is subtracted from the source signal X_S to produce the error (difference) signal that drives the amplifier."
+        },
+        {
+            "id": "q7",
+            "prompt": "The feedback factor β in a feedback amplifier is defined as:",
+            "options": ["X_f / X_i", "X_o / X_f", "X_f / X_o", "X_i / X_o"],
+            "correctAnswer": "X_f / X_o",
+            "explanation": "β = X_f / X_o. It is the ratio of the feedback signal to the output signal. β is a property of the feedback network only, not the amplifier."
+        },
+        {
+            "id": "q8",
+            "prompt": "Which of the following distinguishes transistor β (h_FE) from feedback network β?",
+            "options": ["They are equal in value", "h_FE is the current gain (I_C/I_B), feedback β is the ratio X_f/X_o — completely different quantities", "Both represent current ratios", "They are both dimensionless fractions less than 1"],
+            "correctAnswer": "h_FE is the current gain (I_C/I_B), feedback β is the ratio X_f/X_o — completely different quantities",
+            "explanation": "Transistor h_FE = I_C/I_B (typically 50–300). Feedback β = X_f/X_o (typically much less than 1, set by resistor ratios). Same symbol, completely different physical quantities."
+        },
+        {
+            "id": "q9",
+            "prompt": "An amplifier uses complementary NPN/PNP transistor pairs primarily to:",
+            "options": ["Increase voltage gain", "Cancel temperature-induced VBE variations", "Reduce the feedback factor β", "Increase the desensitivity factor D"],
+            "correctAnswer": "Cancel temperature-induced VBE variations",
+            "explanation": "NPN and PNP transistors have opposite VBE temperature coefficients. Pairing them causes their temperature drifts to cancel, improving DC stability before any feedback is applied."
+        },
+        {
+            "id": "q10",
+            "prompt": "If A = 1000 and β = 0.001, what is the desensitivity factor D?",
+            "options": ["1", "2", "1001", "1000"],
+            "correctAnswer": "2",
+            "explanation": "D = 1 + Aβ = 1 + 1000×0.001 = 1 + 1 = 2. The closed-loop gain A_f = 1000/2 = 500. The loop gain Aβ = 1 is modest, so feedback effects are not dramatic."
+        },
+        {
+            "id": "q11",
+            "prompt": "What happens when the feedback signal and input signal are added together (instead of subtracted)?",
+            "options": ["Negative feedback — gain decreases", "Positive feedback — the system may oscillate", "No change in gain", "Gain increases by factor D"],
+            "correctAnswer": "Positive feedback — the system may oscillate",
+            "explanation": "Positive feedback (X_i = X_S + X_f) causes the gain to be A/(1-Aβ). When Aβ = 1, gain → ∞ and the system oscillates. This is the basis for oscillator design."
+        },
+        {
+            "id": "q12",
+            "prompt": "In a two-stage amplifier, if each stage has gain of -10 (inverting), the overall open-loop gain and the feedback nature are:",
+            "options": ["A = -100, negative feedback", "A = +100, negative feedback requires careful phase checking", "A = +100, always negative feedback", "A = -20, positive feedback"],
+            "correctAnswer": "A = +100, negative feedback requires careful phase checking",
+            "explanation": "(-10) × (-10) = +100. Two inverting stages give non-inverting overall gain. Whether the overall feedback is negative or positive depends on where and how the feedback is connected — the phase must be carefully checked."
+        }
+    ]
+}

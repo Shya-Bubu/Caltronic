@@ -1,26 +1,77 @@
-[
-  {
-    "front": "How does series mixing change input impedance? Why?",
-    "back": "$R_{if} = R_i \\times D$. Increases because the source must overcome both V_i and V_f: $V_S = V_i + V_f$. For the same current $I_i$, the source provides more voltage, so R = V/I increases."
-  },
-  {
-    "front": "How does shunt mixing change input impedance? Why?",
-    "back": "$R_{if} = R_i / D$. Decreases because feedback current I_f shares the node: $I_S = I_i + I_f$. The source provides more current for the same voltage V_i, so R = V/I decreases."
-  },
-  {
-    "front": "How does shunt (voltage) sampling change output impedance? Why?",
-    "back": "$R_{of} = R_o / D$. Decreases because the feedback loop actively opposes any change in output voltage — like a stiff voltage source with near-zero impedance."
-  },
-  {
-    "front": "How does series (current) sampling change output impedance? Why?",
-    "back": "$R_{of} = R_o \\times D$. Increases because the feedback loop actively maintains constant output current — like a stiff current source with near-infinite impedance."
-  },
-  {
-    "front": "Memory aid for impedance effects?",
-    "back": "Feedback always pushes impedances toward the IDEAL values for that amplifier type. Voltage amp: R_i→∞, R_o→0. Current amp: R_i→0, R_o→∞. Transconductance: both ↑. Transresistance: both ↓."
-  },
-  {
-    "front": "How do you derive output impedance with feedback?",
-    "back": "1) Set input source to zero. 2) Apply test voltage V_t at output. 3) Feedback creates X_f = βV_t. 4) Error signal = -βV_t. 5) Amplifier produces -AβV_t. 6) Test current: I_t = V_t(1+Aβ)/R_o. 7) R_of = V_t/I_t = R_o/(1+Aβ)."
-  }
-]
+{
+    "id": "flashcards-feedback-effects-on-impedance",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Impedance rule for series mixing at input?",
+            "back": "R_if = R_i × D. Series mixing (voltage) at input increases input impedance by the desensitivity factor D.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Impedance rule for shunt sampling at output?",
+            "back": "R_of = R_o / D. Shunt sampling (voltage) at output decreases output impedance by D.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Impedance rule for shunt mixing at input?",
+            "back": "R_if = R_i / D. Shunt mixing (current) at input decreases input impedance by D.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Impedance rule for series sampling at output?",
+            "back": "R_of = R_o × D. Series sampling (current) at output increases output impedance by D.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Memory trick: when does feedback INCREASE impedance?",
+            "back": "Series connection → increase. Think: series adds resistance. Series at input → higher R_i. Series at output → higher R_o.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Memory trick: when does feedback DECREASE impedance?",
+            "back": "Shunt connection → decrease. Think: shunt (parallel) reduces resistance. Shunt at input → lower R_i. Shunt at output → lower R_o.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "Emitter follower (Series-Shunt): what are R_if and R_of?",
+            "back": "R_if = R_i × D ≈ 119 kΩ (very high). R_of = R_o / D ≈ 2 Ω (very low). With β = 1 and D ≈ 108, this creates an ideal voltage buffer.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the test source method for finding R_if?",
+            "back": "1) Set X_S = 0 (kill source). 2) Apply test voltage V_x at input port. 3) Find current I_x drawn. 4) R_if = V_x / I_x.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is the test source method for finding R_of?",
+            "back": "1) Set X_S = 0 (kill source). 2) Apply test voltage V_x at output port. 3) Find total current I_x (from R_o + feedback source). 4) R_of = V_x / I_x.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Why does Series-Series feedback increase BOTH R_i and R_o?",
+            "back": "Series mixing at input: R_if = R_i × D. Series sampling at output: R_of = R_o × D. Both multiply by D. Series connections always increase impedance with feedback.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f11",
+            "front": "As Aβ → ∞, what do R_if and R_of approach for a Series-Shunt amplifier?",
+            "back": "R_if = R_i(1+Aβ) → ∞. R_of = R_o/(1+Aβ) → 0. Perfectly ideal voltage amplifier: infinite input impedance, zero output impedance.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f12",
+            "front": "Physical intuition: why does shunt output sampling lower R_out?",
+            "back": "The feedback detects output voltage drops and corrects them — the amplifier actively fights any voltage change at the output. From the load's perspective, the source is 'stiff' (low R_out).",
+            "difficultyLevel": 4
+        }
+    ]
+}

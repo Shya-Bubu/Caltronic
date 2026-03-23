@@ -1,30 +1,77 @@
-[
-  {
-    "front": "What are the 6 steps to analyze a feedback amplifier circuit?",
-    "back": "1) Identify the feedback topology\n2) Calculate β\n3) Draw the open-loop circuit with loading effects\n4) Calculate open-loop gain A\n5) Calculate closed-loop gain A_f = A/(1+Aβ)\n6) Calculate R_if and R_of using topology rules"
-  },
-  {
-    "front": "In the PNP emitter follower, what is β and what is A_Vf?",
-    "back": "β = 1 (100% of output voltage is fed back). A_Vf ≈ 0.99 ≈ 1. The emitter follower is a unity-gain voltage buffer with series-shunt feedback."
-  },
-  {
-    "front": "Why must the total phase around the feedback loop be 0° (or 360°) for negative feedback?",
-    "back": "If the total loop phase is 0°, the feedback signal arrives with the correct polarity to SUBTRACT from the input, giving negative feedback. If it's 180°, the feedback ADDS to the input → positive feedback → oscillation."
-  },
-  {
-    "front": "What loading effects must you consider when calculating open-loop gain?",
-    "back": "1) The input impedance of the next stage loads the output of the previous stage (e.g., h_ie2 in parallel with R_C1)\n2) The feedback network impedances appear at both input and output (e.g., R_f in parallel with R_C2, R_E1 in the emitter)"
-  },
-  {
-    "front": "When can you use the approximation A_f ≈ 1/β?",
-    "back": "Only when Aβ >> 1 (typically Aβ > 10). If Aβ is modest (like 1.79 in the two-stage example), you MUST use the exact formula A_f = A/(1+Aβ)."
-  },
-  {
-    "front": "Why does the emitter follower have such high R_if and low R_of?",
-    "back": "β = 1 gives D = 1 + A ≈ 108. Series mixing: R_if = R_i × 108 ≈ 119 kΩ. Shunt sampling: R_of = R_o / 108 ≈ 2 Ω. Maximum feedback gives maximum impedance improvement."
-  },
-  {
-    "front": "In the two-stage CE amplifier, why do the two negative signs cancel?",
-    "back": "Each CE stage inverts the signal (A_V is negative). Two inversions: (-) × (-) = (+). The overall gain A_V is positive, so the feedback from output to emitter (which subtracts) correctly provides negative feedback."
-  }
-]
+{
+    "id": "flashcards-feedback-amplifier-analysis",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are the 6 steps of feedback amplifier analysis?",
+            "back": "1) Identify topology. 2) Calculate β. 3) Draw open-loop circuit with loading. 4) Calculate A. 5) A_f = A/(1+Aβ). 6) R_if and R_of from topology rules.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "PNP emitter follower: what is β and why?",
+            "back": "β = 1. The full output voltage V_E is fed back to the emitter in series with V_BE. 100% feedback → maximum feedback effect.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "PNP emitter follower results: A_V, D, A_Vf, R_if, R_of",
+            "back": "A_V = 106.8, D = 107.8, A_Vf ≈ 0.99 ≈ 1, R_if = 118.6 kΩ, R_of = 1.93 Ω. Unity gain buffer with high R_in and low R_out.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Two-stage CE amplifier: why is gain positive despite two CE stages?",
+            "back": "Each CE stage inverts: (-10) × (-10) = +100. Two inversions give non-inverting gain, allowing feedback to the emitter to correctly subtract and create negative feedback.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f5",
+            "front": "Two-stage CE amplifier results: A_V1, A_V2, A_V, β, A_Vf",
+            "back": "A_V1 ≈ -1.78 (with loading), A_V2 ≈ -101.7, A_V ≈ 181. β ≈ 0.01. D = 2.81. A_Vf ≈ 64.4.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "When can you use A_f ≈ 1/β instead of the exact formula?",
+            "back": "Only when Aβ >> 1 (typically Aβ > 10). If Aβ is modest (like 1.79), use the exact formula A_f = A/(1+Aβ). The approximation gives large error otherwise.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What loading effects must be included in the open-loop model?",
+            "back": "The feedback network physically connects to both input and output. Its impedances load: (1) R_f in parallel with R_C2 at output. (2) R_E1 as emitter degeneration at input. Both must be included in calculating A.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why does 1/β = 100 overestimate A_Vf for the two-stage CE (where true A_Vf ≈ 64)?",
+            "back": "The approximation 1/β requires Aβ >> 1. Here Aβ ≈ 1.79, so D ≈ 2.81 (not ≈ Aβ). A/D = 181/2.81 ≈ 64, not 1/β = 100.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "To get β = 0.01 in the two-stage CE, what resistors are used and how?",
+            "back": "R_f = 47 kΩ, R_E1 = 470 Ω. β = R_E1/(R_f + R_E1) = 470/47470 ≈ 0.0099. The feedback voltage across R_E1 is a fraction (β) of the output voltage.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "For the two-stage CE (Series-Shunt), what are R_if and R_of?",
+            "back": "R_if = R_i × D (series mixing → increased). R_of = R_o / D (shunt sampling → decreased). With D = 2.81: R_if ≈ 70 kΩ, R_of ≈ 1.68 kΩ.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "Physical interpretation: why is R_of of the emitter follower ≈ 2 Ω?",
+            "back": "D = 107.8 and R_o ≈ 208 Ω. With 100% feedback (β = 1), the amplifier almost perfectly corrects any output voltage drop — from the load's perspective, it sees an extremely stiff source with R_of = 208/107.8 ≈ 2 Ω.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f12",
+            "front": "How to calculate the open-loop output impedance R_o for the emitter follower?",
+            "back": "Look into the emitter with base driven through R_S. R_o = R_E || (h_ie + R_S)/(h_fe + 1). For R_S = 10k: = 4700 || (11100/51) = 4700 || 217.6 ≈ 208 Ω.",
+            "difficultyLevel": 5
+        }
+    ]
+}

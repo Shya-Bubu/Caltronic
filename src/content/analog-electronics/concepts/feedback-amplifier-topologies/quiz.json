@@ -1,49 +1,109 @@
-[
-  {
-    "id": "q1",
-    "question": "In a series-shunt feedback topology, the input impedance with feedback is:",
-    "options": [
-      "$R_i / (1 + A\\beta)$",
-      "$R_i \\times (1 + A\\beta)$",
-      "$R_i$",
-      "$R_i \\times A\\beta$"
-    ],
-    "answer": 1,
-    "explanation": "Series mixing increases input impedance. $R_{if} = R_i \\times (1 + A\\beta) = R_i \\times D$. Series mixing at the input always multiplies $R_i$ by $D$."
-  },
-  {
-    "id": "q2",
-    "question": "If a feedback resistor is connected directly from the collector of a transistor to its base, the topology is:",
-    "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
-    "answer": 2,
-    "explanation": "The feedback resistor connects directly to the output node (collector) → voltage/shunt sampling. It connects directly to the input node (base) → current/shunt mixing. So the topology is Shunt-Shunt (transresistance amplifier)."
-  },
-  {
-    "id": "q3",
-    "question": "Which feedback topology is appropriate for a transconductance amplifier?",
-    "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
-    "answer": 1,
-    "explanation": "A transconductance amplifier has voltage input and current output. Voltage input → Series mixing. Current output → Series sampling. So the topology is Series-Series."
-  },
-  {
-    "id": "q4",
-    "question": "In a shunt-series feedback topology, the output impedance with feedback:",
-    "options": ["Decreases", "Increases", "Stays the same", "Becomes zero"],
-    "answer": 1,
-    "explanation": "Series sampling (current output) always increases output impedance: $R_{of} = R_o \\times (1 + A\\beta)$. This is desirable for a current amplifier — high output impedance ensures the current goes to the load."
-  },
-  {
-    "id": "q5",
-    "question": "The common-collector (emitter follower) circuit is an example of which feedback topology?",
-    "options": ["Shunt-Shunt", "Series-Shunt", "Series-Series", "Shunt-Series"],
-    "answer": 1,
-    "explanation": "In the emitter follower, the output voltage across $R_E$ is fed back in series with the input (KVL in the base-emitter loop). The output is sampled in shunt (voltage across $R_E$). So it is Series-Shunt, which is a voltage amplifier topology."
-  },
-  {
-    "id": "q6",
-    "question": "For a shunt-shunt feedback amplifier, the units of the feedback factor $\\beta$ are:",
-    "options": ["Dimensionless", "Ohms (Ω)", "Siemens (S)", "Amperes per Volt (A/V)"],
-    "answer": 2,
-    "explanation": "In shunt-shunt: $\\beta = I_f / V_o$. This is current divided by voltage = Siemens (S), the unit of conductance. Equivalently, $\\beta = 1/R_f$ for a feedback resistor."
-  }
-]
+{
+    "id": "quiz-feedback-amplifier-topologies",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In a Series-Shunt feedback amplifier, the feedback network:",
+            "options": [
+                "Samples the output current and mixes in series at the input",
+                "Samples the output voltage and mixes in series at the input",
+                "Samples the output voltage and mixes in shunt (parallel) at the input",
+                "Samples the output current and mixes in shunt (parallel) at the input"
+            ],
+            "correctAnswer": "Samples the output voltage and mixes in series at the input",
+            "explanation": "Series-Shunt: 'Series' refers to how feedback is mixed at the input (series = voltage subtraction), 'Shunt' refers to how the output is sampled (shunt = voltage sensing). This topology suits voltage amplifiers."
+        },
+        {
+            "id": "q2",
+            "prompt": "Which feedback topology is ideal for a transconductance amplifier?",
+            "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
+            "correctAnswer": "Series-Series",
+            "explanation": "Series-Series: Both input (series mixing) and output (series sampling) are current/series connections. Input is voltage (series → high R_i) and output senses current (series → high R_o). Perfect for V_in → I_out transconductance amplifiers."
+        },
+        {
+            "id": "q3",
+            "prompt": "A Shunt-Shunt feedback amplifier is used for which amplifier type?",
+            "options": ["Voltage amplifier (V→V)", "Current amplifier (I→I)", "Transconductance (V→I)", "Transresistance (I→V)"],
+            "correctAnswer": "Transresistance (I→V)",
+            "explanation": "Shunt-Shunt: Shunt at input means current mixing (low R_i, ideal for current input). Shunt at output means voltage sampling (low R_o, ideal for voltage output). This matches Transresistance (I→V)."
+        },
+        {
+            "id": "q4",
+            "prompt": "How can you identify if output sampling is 'shunt' or 'series' by looking at the circuit?",
+            "options": [
+                "Shunt if the feedback connects from output directly to ground; Series if it goes to the emitter",
+                "Shunt if the feedback connects to output node (in parallel); Series if it connects in series with the output current path",
+                "Shunt if there is one resistor; Series if there are two resistors",
+                "Shunt if the transistor is NPN; Series if PNP"
+            ],
+            "correctAnswer": "Shunt if the feedback connects to output node (in parallel); Series if it connects in series with the output current path",
+            "explanation": "Shunt sampling: feedback element connects directly to the output voltage node (in parallel with R_L). Series sampling: feedback element is in series with the output current path (like an emitter resistor R_E in a CE stage)."
+        },
+        {
+            "id": "q5",
+            "prompt": "How can you identify if input mixing is 'series' or 'shunt'?",
+            "options": [
+                "Series if feedback connects to the base; Shunt if it connects to the emitter",
+                "Series if feedback signal is added to the emitter (forming voltage subtraction loop); Shunt if feedback current is injected into the base node",
+                "Series if one resistor; Shunt if two resistors",
+                "Series for NPN; Shunt for PNP"
+            ],
+            "correctAnswer": "Series if feedback signal is added to the emitter (forming voltage subtraction loop); Shunt if feedback current is injected into the base node",
+            "explanation": "Series mixing: input and feedback voltages are in series (e.g., feedback to emitter — V_BE = V_B - V_E so V_E is the feedback voltage). Shunt mixing: feedback current is added to the input current at the base node."
+        },
+        {
+            "id": "q6",
+            "prompt": "In which topology does negative feedback increase BOTH input and output impedance?",
+            "options": ["Series-Shunt", "Shunt-Shunt", "Series-Series", "Shunt-Series"],
+            "correctAnswer": "Series-Series",
+            "explanation": "Series-Series: Series mixing at input → R_if = R_i × D (increased). Series sampling at output → R_of = R_o × D (increased). Both impedances increase by D."
+        },
+        {
+            "id": "q7",
+            "prompt": "The emitter resistor R_E in a common-emitter amplifier (without bypass capacitor) creates which feedback topology?",
+            "options": ["Shunt-Shunt", "Series-Series", "Series-Shunt", "Shunt-Series"],
+            "correctAnswer": "Series-Series",
+            "explanation": "R_E samples the output current (in series with the collector current path → series sampling). The voltage drop V_E = I_E × R_E appears in series with V_BE (series mixing). This is Series-Series feedback."
+        },
+        {
+            "id": "q8",
+            "prompt": "The emitter follower (common-collector) uses which feedback topology?",
+            "options": ["Shunt-Shunt", "Series-Series", "Series-Shunt", "Shunt-Series"],
+            "correctAnswer": "Series-Shunt",
+            "explanation": "Emitter follower: The output voltage (V_E) is fed back to the emitter in series with V_BE (series mixing). The feedback element takes the full output voltage (shunt sampling). This is Series-Shunt feedback with β = 1."
+        },
+        {
+            "id": "q9",
+            "prompt": "In Shunt-Series topology, the input and output impedances with feedback are:",
+            "options": [
+                "R_if = R_i × D, R_of = R_o × D",
+                "R_if = R_i / D, R_of = R_o / D",
+                "R_if = R_i / D, R_of = R_o × D",
+                "R_if = R_i × D, R_of = R_o / D"
+            ],
+            "correctAnswer": "R_if = R_i / D, R_of = R_o × D",
+            "explanation": "Shunt-Series: Shunt at input → R_if = R_i/D (decreased, ideal for current input). Series at output → R_of = R_o × D (increased, ideal for current output). Moves toward ideal current amplifier."
+        },
+        {
+            "id": "q10",
+            "prompt": "A feedback resistor R_f is connected from the collector of a CE amplifier directly back to the base. Which topology is this?",
+            "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
+            "correctAnswer": "Shunt-Shunt",
+            "explanation": "The collector is the output voltage node → R_f samples voltage → Shunt sampling. R_f injects a feedback current into the base node (parallel with the input source) → Shunt mixing at input. Total: Shunt-Shunt."
+        },
+        {
+            "id": "q11",
+            "prompt": "What is the feedback factor β for an emitter follower where the full output voltage is fed back?",
+            "options": ["0", "0.5", "1", "Aβ"],
+            "correctAnswer": "1",
+            "explanation": "β = V_f/V_o = V_E/V_o = 1. The entire output voltage V_E is the feedback voltage. This gives maximum feedback, and A_f = A/(1+A) ≈ 1 for large A — unity voltage gain."
+        },
+        {
+            "id": "q12",
+            "prompt": "Which feedback topology has both R_if decreased AND R_of decreased (compared to open loop)?",
+            "options": ["Series-Shunt", "Shunt-Shunt", "Series-Series", "Shunt-Series"],
+            "correctAnswer": "Shunt-Shunt",
+            "explanation": "Shunt-Shunt: Shunt at input → R_if = R_i/D (decreased). Shunt at output → R_of = R_o/D (decreased). Both impedances decrease. This is ideal for transresistance amplifiers needing low R_in and low R_out."
+        }
+    ]
+}

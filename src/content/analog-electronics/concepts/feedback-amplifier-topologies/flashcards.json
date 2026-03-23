@@ -1,38 +1,77 @@
-[
-  {
-    "front": "What are the four feedback topologies and their matching amplifier types?",
-    "back": "1) Series-Shunt → Voltage amplifier\n2) Series-Series → Transconductance amplifier\n3) Shunt-Shunt → Transresistance amplifier\n4) Shunt-Series → Current amplifier"
-  },
-  {
-    "front": "How do you determine if the sampling is Shunt or Series?",
-    "back": "Look at the OUTPUT side: Is the feedback element connected DIRECTLY to the output terminal?\n- Yes → Shunt (voltage) sampling\n- No (it's in the current path) → Series (current) sampling"
-  },
-  {
-    "front": "How do you determine if the mixing is Series or Shunt?",
-    "back": "Look at the INPUT side: Is the feedback element connected DIRECTLY to the input terminal (e.g., base node)?\n- Yes → Shunt (current) mixing (use KCL)\n- No (it's in the voltage loop) → Series (voltage) mixing (use KVL)"
-  },
-  {
-    "front": "What is the rule for impedance changes with Series mixing?",
-    "back": "Series mixing (voltage input) always INCREASES input impedance: $R_{if} = R_i \\times (1+A\\beta)$. The source sees a higher impedance because it must provide extra voltage to overcome the feedback voltage."
-  },
-  {
-    "front": "What is the rule for impedance changes with Shunt mixing?",
-    "back": "Shunt mixing (current input) always DECREASES input impedance: $R_{if} = R_i / (1+A\\beta)$. The input node looks like a lower impedance because the feedback current 'helps' establish the input voltage."
-  },
-  {
-    "front": "What is the rule for impedance changes with Shunt sampling?",
-    "back": "Shunt (voltage) sampling always DECREASES output impedance: $R_{of} = R_o / (1+A\\beta)$. Ideal voltage sources have zero output impedance — feedback pushes toward this ideal."
-  },
-  {
-    "front": "What is the rule for impedance changes with Series sampling?",
-    "back": "Series (current) sampling always INCREASES output impedance: $R_{of} = R_o \\times (1+A\\beta)$. Ideal current sources have infinite output impedance — feedback pushes toward this ideal."
-  },
-  {
-    "front": "What are the units of β for each topology?",
-    "back": "Series-Shunt (V→V): β = V_f/V_o → dimensionless\nSeries-Series (V→I): β = V_f/I_o → Ohms (Ω)\nShunt-Shunt (I→V): β = I_f/V_o → Siemens (S)\nShunt-Series (I→I): β = I_f/I_o → dimensionless"
-  },
-  {
-    "front": "Why does the emitter follower have gain ≈ 1?",
-    "back": "It's series-shunt feedback with β = 1 (100% of V_o is fed back through R_E). So $A_f ≈ 1/β = 1/1 = 1$. The emitter follower is a voltage amplifier with maximum feedback."
-  }
-]
+{
+    "id": "flashcards-feedback-amplifier-topologies",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What are the four feedback topologies and their amplifier types?",
+            "back": "Series-Shunt → Voltage (V→V). Series-Series → Transconductance (V→I). Shunt-Shunt → Transresistance (I→V). Shunt-Series → Current (I→I).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What does 'Series' at the input mean?",
+            "back": "Series mixing: feedback voltage is subtracted in series with the input voltage. V_BE = V_B - V_E. Increases input impedance (R_if = R_i × D).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What does 'Shunt' at the input mean?",
+            "back": "Shunt mixing: feedback current is injected in parallel at the input node. Decreases input impedance (R_if = R_i / D).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What does 'Shunt' at the output mean?",
+            "back": "Shunt sampling: feedback element connects directly to the output voltage node. Senses output voltage (V). Decreases output impedance (R_of = R_o / D).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What does 'Series' at the output mean?",
+            "back": "Series sampling: feedback element is in series with the output current path. Senses output current (I). Increases output impedance (R_of = R_o × D).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Impedance rules for all four topologies?",
+            "back": "Series input → R_i × D. Shunt input → R_i / D. Shunt output → R_o / D. Series output → R_o × D. Tip: 'Series' always multiplies, 'Shunt' always divides.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "How to identify topology from a circuit: 3-step method",
+            "back": "1) Find the feedback element connecting output to input. 2) Check output connection: to output node (voltage/shunt) or in series with current (series)? 3) Check input connection: in parallel at base (shunt) or in series at emitter (series)?",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why is the emitter follower classified as Series-Shunt?",
+            "back": "V_E appears in series with V_BE (series mixing at input). V_E = full output voltage fed back (shunt/voltage sampling at output). β = V_E/V_out = 1.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why does R_E without bypass capacitor in a CE stage create Series-Series feedback?",
+            "back": "R_E is in series with the emitter current (series output sampling of I_E ≈ I_C). V_E = I_E × R_E appears in series with V_BE (series input mixing). β = V_E/I_out.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "For Shunt-Shunt (transresistance), what is the unit and formula for β?",
+            "back": "β = I_f / V_o, units of 1/Ω (Siemens). For R_f from output to input: β = -1/R_f. Closed-loop gain R_Mf = R_M/(1+R_M·β) has units of Ohms.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "For Series-Series (transconductance), what is the unit and formula for β?",
+            "back": "β = V_f / I_o, units of Ohms. For emitter resistor R_E: β = R_E. Closed-loop gain G_Mf = G_M/(1+G_M·R_E), where G_M = h_fe/h_ie.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f12",
+            "front": "What does 'loading effect' mean when breaking the feedback loop?",
+            "back": "The feedback network adds impedance loads to both the input and output of the amplifier, even when feedback is 'broken'. These loading effects must be included when calculating the open-loop gain A.",
+            "difficultyLevel": 4
+        }
+    ]
+}

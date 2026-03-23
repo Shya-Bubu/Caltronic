@@ -1,34 +1,77 @@
-[
-  {
-    "front": "What is the closed-loop gain formula for a negative feedback amplifier?",
-    "back": "$A_f = \\frac{A}{1 + A\\beta}$, where $A$ is the open-loop gain and $\\beta$ is the feedback factor."
-  },
-  {
-    "front": "What does the loop gain $T$ represent?",
-    "back": "$T = A\\beta$ — it is the product of gains around the entire feedback loop. It determines how strongly the feedback controls the amplifier behavior."
-  },
-  {
-    "front": "What is the desensitivity factor $D$?",
-    "back": "$D = 1 + A\\beta$ — the factor by which the open-loop gain is divided to get the closed-loop gain. A larger $D$ means more feedback and more stable gain."
-  },
-  {
-    "front": "When $A$ is very large, what does $A_f$ approximately equal?",
-    "back": "$A_f \\approx \\frac{1}{\\beta}$ — the closed-loop gain depends only on the feedback network (passive components), not on the amplifier gain."
-  },
-  {
-    "front": "What is the difference between $\\beta$ (feedback factor) and $\\beta$ (transistor current gain)?",
-    "back": "They are completely different! Feedback $\\beta = X_f / X_o$ is a fraction (usually < 1) set by resistor ratios. Transistor $\\beta = h_{FE} = I_C / I_B$ is the current gain (typically 50-300). Same symbol, different meaning."
-  },
-  {
-    "front": "What happens if $A\\beta = -1$ (i.e., $1 + A\\beta = 0$)?",
-    "back": "The closed-loop gain becomes infinite — the amplifier oscillates. This is positive feedback and is the basis for oscillator design."
-  },
-  {
-    "front": "How does negative feedback reduce sensitivity to open-loop gain variations?",
-    "back": "$\\frac{dA_f}{A_f} = \\frac{1}{1+A\\beta} \\cdot \\frac{dA}{A}$ — fractional changes in $A_f$ are reduced by the factor $D = 1+A\\beta$ compared to fractional changes in $A$."
-  },
-  {
-    "front": "Why are complementary NPN/PNP pairs used in amplifiers?",
-    "back": "Their $V_{BE}$ temperature coefficients are opposite in sign, so they cancel each other's temperature drift, improving DC stability before feedback is even applied."
-  }
-]
+{
+    "id": "flashcards-feedback-amplifier-fundamentals",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the closed-loop gain formula for negative feedback?",
+            "back": "A_f = A / (1 + Aβ), where A is open-loop gain and β is the feedback factor. The gain is divided by D = 1+Aβ.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the loop gain T?",
+            "back": "T = Aβ — the product of open-loop amplifier gain A and feedback factor β. It determines how strongly feedback controls the system.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is the desensitivity factor D?",
+            "back": "D = 1 + Aβ. All feedback effects scale with D: gain ÷ D, sensitivity ÷ D, distortion ÷ D, bandwidth × D.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "When Aβ >> 1, what does A_f simplify to?",
+            "back": "A_f ≈ 1/β. The closed-loop gain depends only on the feedback network (stable passive components), not the amplifier gain.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "How is the feedback factor β defined in a feedback system?",
+            "back": "β = X_f / X_o — the ratio of feedback signal to output signal. β is a property of the feedback network only, not the amplifier.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is the error signal X_i in a negative feedback system?",
+            "back": "X_i = X_S - X_f. The feedback signal is subtracted from the source to produce an error (difference) signal that drives the amplifier.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "How does transistor β (h_FE) differ from feedback network β?",
+            "back": "Transistor h_FE = I_C/I_B (typically 50–300, a current gain). Feedback β = X_f/X_o (typically << 1, set by resistors). Same symbol, completely different.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What happens when Aβ = -1 (positive feedback condition)?",
+            "back": "Closed-loop gain → ∞ and the amplifier oscillates (1+Aβ = 0, so A_f = A/0). This is the Barkhausen criterion used deliberately in oscillator design.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why does negative feedback stabilize gain against transistor variations?",
+            "back": "dA_f/A_f = (1/D) × dA/A. Fractional gain change is reduced by factor D = 1+Aβ. β is set by stable resistors, not variable transistors.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What is the purpose of complementary NPN/PNP pairs in an amplifier?",
+            "back": "Their VBE temperature coefficients are opposite in sign, so they cancel each other's temperature drift. Improves DC stability before feedback is even applied.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f11",
+            "front": "Derive A_f = A/(1+Aβ) from the block diagram equations.",
+            "back": "X_o = A·X_i = A(X_S - X_f) = A(X_S - βX_o). So X_o(1+Aβ) = AX_S. Therefore A_f = X_o/X_S = A/(1+Aβ).",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f12",
+            "front": "If A = 200 and β = 0.05, what are T, D, and A_f?",
+            "back": "T = Aβ = 200×0.05 = 10. D = 1+T = 11. A_f = A/D = 200/11 ≈ 18.2. Since Aβ = 10 >> 1, A_f ≈ 1/β = 20 (close approximation).",
+            "difficultyLevel": 4
+        }
+    ]
+}

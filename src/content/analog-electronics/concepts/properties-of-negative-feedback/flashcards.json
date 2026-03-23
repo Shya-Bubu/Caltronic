@@ -1,30 +1,77 @@
-[
-  {
-    "front": "What are the six properties of negative feedback?",
-    "back": "1) Desensitized gain, 2) Reduced nonlinear distortion, 3) Reduced noise effects, 4) Controlled I/O impedances, 5) Extended bandwidth — all at the 6) cost of reduced gain."
-  },
-  {
-    "front": "By what factor does negative feedback reduce gain sensitivity?",
-    "back": "$\\frac{dA_f}{A_f} = \\frac{1}{D} \\cdot \\frac{dA}{A}$, where $D = 1+A\\beta$. The fractional change in closed-loop gain is $D$ times smaller than the fractional change in open-loop gain."
-  },
-  {
-    "front": "How does negative feedback affect bandwidth?",
-    "back": "Upper cutoff: $f_{Hf} = f_H \\cdot D$. Lower cutoff: $f_{Lf} = f_L / D$. Bandwidth extends in both directions by factor $D = 1+A\\beta$. But gain drops by $D$, so the gain-bandwidth product is constant."
-  },
-  {
-    "front": "Can negative feedback reduce noise at the amplifier input?",
-    "back": "No. Feedback only reduces noise generated INSIDE the loop. Input noise is amplified identically to the desired signal. This is why the first stage (LNA) in a receiver chain is the most critical."
-  },
-  {
-    "front": "How does negative feedback reduce distortion?",
-    "back": "Distortion is generated internally. The feedback loop detects the distortion as a deviation from the expected output and generates a corrective error signal. Distortion is reduced by factor $D = 1+A\\beta$."
-  },
-  {
-    "front": "What is the gain-bandwidth product relationship?",
-    "back": "$A_M \\times f_H = A_{Mf} \\times f_{Hf} = \\text{constant}$. Feedback reduces midband gain by $D$ but extends bandwidth by $D$. You cannot increase both simultaneously."
-  },
-  {
-    "front": "What does the desensitivity factor $D = 1+A\\beta$ unify?",
-    "back": "Almost every feedback effect involves $D$: gain is divided by $D$, sensitivity by $D$, distortion by $D$, bandwidth multiplied by $D$, and impedances are either multiplied or divided by $D$."
-  }
-]
+{
+    "id": "flashcards-properties-of-negative-feedback",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "How does negative feedback reduce gain?",
+            "back": "A_f = A/D where D = 1+Aβ. Gain is divided by the desensitivity factor D.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "How does feedback affect distortion?",
+            "back": "Closed-loop distortion = open-loop distortion / D. Feedback treats nonlinear distortion as just another error and corrects it.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "How does feedback affect bandwidth?",
+            "back": "BW_f = BW × D. Bandwidth is multiplied by D. Gain-bandwidth product is conserved.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What happens to input impedance for series mixing?",
+            "back": "R_if = R_i × D. Series mixing (voltage) at input → increased input impedance. Moves toward ideal for voltage-input amplifiers.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What happens to input impedance for shunt mixing?",
+            "back": "R_if = R_i / D. Shunt mixing (current) at input → decreased input impedance. Moves toward ideal for current-input amplifiers.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What happens to output impedance for shunt sampling?",
+            "back": "R_of = R_o / D. Shunt sampling (voltage taking) at output → decreased output impedance. Ideal for voltage amplifiers.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What happens to output impedance for series sampling?",
+            "back": "R_of = R_o × D. Series sampling (current sensing) at output → increased output impedance. Ideal for current/transconductance amplifiers.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "What is the gain sensitivity formula?",
+            "back": "dA_f/A_f = (1/D) × dA/A. If A changes by x%, A_f changes by x%/D. Gain is D times less sensitive to amplifier variations.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Does feedback reduce noise injected at the input?",
+            "back": "Yes — input-referred noise is reduced by D, because the noise is treated identically to a signal at the input, passing through A_f = A/D instead of A.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Why is gain-bandwidth product conserved with feedback?",
+            "back": "A_f × BW_f = (A/D)(BW × D) = A × BW. The D factors cancel. Trading gain for bandwidth preserves their product.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f11",
+            "front": "What is the single cost of negative feedback?",
+            "back": "Reduced gain: A_f = A/D. For large loop gain (Aβ >> 1), you give up most of A to gain all the other benefits.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f12",
+            "front": "Why does feedback stabilize gain against transistor variations when Aβ >> 1?",
+            "back": "When Aβ >> 1, A_f ≈ 1/β. β is set by stable passive resistors, not temperature-sensitive transistors. So A_f is stable even if transistor h_FE varies greatly.",
+            "difficultyLevel": 4
+        }
+    ]
+}

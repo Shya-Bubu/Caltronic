@@ -1,37 +1,94 @@
-[
-  {
-    "id": "q1",
-    "question": "If an amplifier has $A = 1000$ and $\\beta = 0.01$, and the open-loop gain changes by 10%, by how much does the closed-loop gain change?",
-    "options": ["10%", "1%", "0.1%", "0.01%"],
-    "answer": 1,
-    "explanation": "$D = 1 + A\\beta = 1 + 10 = 11$. Change in $A_f$: $\\frac{10\\%}{11} \\approx 0.91\\% \\approx 1\\%$. The fractional change is reduced by the factor $D$."
-  },
-  {
-    "id": "q2",
-    "question": "If the distortion in an open-loop amplifier is 5%, what is the distortion with negative feedback when $A\\beta = 49$?",
-    "options": ["5%", "1%", "0.1%", "0.5%"],
-    "answer": 2,
-    "explanation": "Distortion with feedback = $\\frac{D_{dist}}{1+A\\beta} = \\frac{5\\%}{50} = 0.1\\%$."
-  },
-  {
-    "id": "q3",
-    "question": "An amplifier has a midband gain of 100 and upper cutoff frequency of 10 kHz. With feedback ($D = 10$), the new bandwidth is:",
-    "options": ["1 kHz", "10 kHz", "100 kHz", "1 MHz"],
-    "answer": 2,
-    "explanation": "Upper cutoff extends by factor $D$: $f_{Hf} = f_H \\times D = 10\\,\\text{kHz} \\times 10 = 100\\,\\text{kHz}$. The midband gain drops to $100/10 = 10$, but bandwidth increases tenfold."
-  },
-  {
-    "id": "q4",
-    "question": "Which of these is NOT a benefit of negative feedback?",
-    "options": ["Increased gain", "Reduced distortion", "Extended bandwidth", "Stabilized gain"],
-    "answer": 0,
-    "explanation": "Negative feedback always REDUCES gain. This is the trade-off. All the other options are genuine benefits of negative feedback."
-  },
-  {
-    "id": "q5",
-    "question": "The gain-bandwidth product of a feedback amplifier compared to the same amplifier without feedback is:",
-    "options": ["Higher", "Lower", "Approximately the same", "Doubled"],
-    "answer": 2,
-    "explanation": "The gain-bandwidth product $A_M \\times f_H$ is approximately constant. Feedback reduces $A_M$ by $D$ but extends $f_H$ by $D$, so their product stays the same."
-  }
-]
+{
+    "id": "quiz-properties-of-negative-feedback",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "An amplifier has A = 1000 and D = 11. If A changes by 10%, by how much does A_f change?",
+            "options": ["10%", "1%", "0.91%", "110%"],
+            "correctAnswer": "0.91%",
+            "explanation": "Fractional change in A_f = (1/D) × fractional change in A = (1/11) × 10% ≈ 0.91%. This is the gain desensitization property of feedback."
+        },
+        {
+            "id": "q2",
+            "prompt": "Negative feedback reduces nonlinear distortion by a factor of:",
+            "options": ["A", "β", "1 + Aβ = D", "Aβ"],
+            "correctAnswer": "1 + Aβ = D",
+            "explanation": "If the open-loop amplifier generates distortion voltage V_d, the closed-loop distortion is V_d/D = V_d/(1+Aβ). Same desensitivity factor D divides all imperfections."
+        },
+        {
+            "id": "q3",
+            "prompt": "For series mixing at the input of a feedback amplifier, the input impedance R_if is:",
+            "options": ["R_i / D", "R_i × D", "R_i + D", "R_i - D"],
+            "correctAnswer": "R_i × D",
+            "explanation": "Series mixing (voltage subtraction) at the input increases input impedance: R_if = R_i × D. A higher input impedance means less loading on the source — closer to the ideal voltage amplifier."
+        },
+        {
+            "id": "q4",
+            "prompt": "For shunt sampling at the output of a feedback amplifier, the output impedance R_of is:",
+            "options": ["R_o / D", "R_o × D", "R_o + D", "R_o - D"],
+            "correctAnswer": "R_o / D",
+            "explanation": "Shunt sampling (sensing voltage) at the output decreases output impedance: R_of = R_o / D. A lower output impedance means better voltage delivery to the load — again, closer to the ideal."
+        },
+        {
+            "id": "q5",
+            "prompt": "The gain-bandwidth product of a feedback amplifier (compared to the open-loop amplifier) is:",
+            "options": ["Reduced by D", "Increased by D", "Unchanged — GBW is conserved", "Multiplied by D²"],
+            "correctAnswer": "Unchanged — GBW is conserved",
+            "explanation": "Feedback trades gain for bandwidth. A_f = A/D but BW_f = BW × D. The product A_f × BW_f = (A/D)(BW × D) = A × BW. Gain-bandwidth product is preserved."
+        },
+        {
+            "id": "q6",
+            "prompt": "If an open-loop amplifier has bandwidth 10 kHz and D = 20, what is the closed-loop bandwidth?",
+            "options": ["500 Hz", "10 kHz", "200 kHz", "20 kHz"],
+            "correctAnswer": "200 kHz",
+            "explanation": "BW_f = BW × D = 10 kHz × 20 = 200 kHz. Feedback extends the bandwidth by the same factor D that it reduces the gain."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why does negative feedback reduce noise that enters the amplifier at the input?",
+            "options": ["The feedback network filters out noise frequencies", "Noise at input is treated the same as the input signal — it is reduced by D", "Noise is only reduced if it enters at the output", "Feedback does not reduce noise"],
+            "correctAnswer": "Noise at input is treated the same as the input signal — it is reduced by D",
+            "explanation": "Noise appearing at the input is treated identically to the input signal — it passes through the same closed-loop gain A_f = A/D. So input-referred noise is reduced by D relative to the open-loop case."
+        },
+        {
+            "id": "q8",
+            "prompt": "What is the key reason that feedback can stabilize gain against transistor β (h_FE) variations?",
+            "options": ["Feedback changes the transistor's operating point", "The closed-loop gain depends mainly on β (resistors), not on transistor parameters", "Transistor h_FE becomes constant with feedback", "Feedback increases the transistor's transconductance"],
+            "correctAnswer": "The closed-loop gain depends mainly on β (resistors), not on transistor parameters",
+            "explanation": "When Aβ >> 1, A_f ≈ 1/β. The feedback network β is made from stable passive resistors. So A_f no longer depends on the transistor's h_FE — even if h_FE varies from 50 to 300, A_f stays nearly constant."
+        },
+        {
+            "id": "q9",
+            "prompt": "For shunt mixing at the input (current subtraction), the input impedance R_if is:",
+            "options": ["R_i × D", "R_i / D", "R_i + R_f", "R_i unchanged"],
+            "correctAnswer": "R_i / D",
+            "explanation": "Shunt mixing at the input decreases input impedance: R_if = R_i / D. For a current amplifier, low input impedance is ideal — feedback moves it toward ideal."
+        },
+        {
+            "id": "q10",
+            "prompt": "An amplifier has open-loop gain A = 500, D = 51. An open-loop distortion of 100 mV is produced. What is the closed-loop distortion?",
+            "options": ["100 mV", "5100 mV", "1.96 mV", "50 mV"],
+            "correctAnswer": "1.96 mV",
+            "explanation": "Closed-loop distortion = V_d / D = 100 mV / 51 ≈ 1.96 mV. The distortion is divided by the same factor D = 1 + Aβ."
+        },
+        {
+            "id": "q11",
+            "prompt": "For series sampling at the output (sensing output current), the output impedance R_of is:",
+            "options": ["R_o / D", "R_o × D", "R_o + D", "R_o unchanged"],
+            "correctAnswer": "R_o × D",
+            "explanation": "Series sampling (sensing current) at the output increases output impedance: R_of = R_o × D. For a current amplifier or transconductance amplifier, high output impedance is ideal."
+        },
+        {
+            "id": "q12",
+            "prompt": "What are the six key properties of negative feedback (in order)?",
+            "options": [
+                "Gain × D, distortion × D, noise × D, R_i × D, R_o × D, BW × D",
+                "Gain ÷ D, distortion ÷ D, noise ÷ D, impedances change by D, BW × D",
+                "Gain ÷ D, distortion ÷ D, noise unchanged, R_i × D, R_o ÷ D, BW × D",
+                "All quantities divided by D"
+            ],
+            "correctAnswer": "Gain ÷ D, distortion ÷ D, noise ÷ D, impedances change by D, BW × D",
+            "explanation": "Negative feedback: (1) A_f = A/D (gain reduced), (2) distortion ÷ D, (3) input-referred noise ÷ D, (4) impedances change by D or 1/D depending on topology, (5) bandwidth × D. One cost (gain), five benefits."
+        }
+    ]
+}
