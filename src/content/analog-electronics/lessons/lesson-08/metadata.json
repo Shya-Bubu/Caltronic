@@ -1,0 +1,20 @@
+{
+    "id": "lesson-08",
+    "title": "Feedback Amplifiers",
+    "slug": "lesson-08",
+    "description": "Understand the principles of negative feedback in amplifiers — from the fundamental closed-loop gain equation to the four feedback topologies and their systematic circuit analysis. Learn how feedback stabilises gain, reduces distortion, controls impedance, and extends bandwidth.",
+    "prerequisites": [
+        "lesson-06"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "feedback-amplifier-fundamentals",
+        "properties-of-negative-feedback",
+        "feedback-amplifier-topologies",
+        "feedback-effects-on-impedance",
+        "feedback-amplifier-analysis"
+    ],
+    "lectureWeek": 8,
+    "estimatedMinutes": 360
+}
