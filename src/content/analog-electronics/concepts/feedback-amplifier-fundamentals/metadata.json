@@ -1,8 +1,9 @@
 {
-  "concept": "feedback-amplifier-fundamentals",
-  "title": "Feedback Amplifiers: The Big Picture",
-  "description": "Introduction to feedback amplifier concepts — open vs closed loop, the fundamental feedback equation, loop gain, and gain stabilization.",
-  "order": 1,
-  "lesson": "08",
-  "prerequisites": ["amplifier-classification", "ac-equivalent-and-gain-derivation"]
+    "id": "feedback-amplifier-fundamentals",
+    "title": "Feedback Amplifiers: The Big Picture",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
 }

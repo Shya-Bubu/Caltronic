@@ -1,8 +1,9 @@
 {
-  "concept": "properties-of-negative-feedback",
-  "title": "Properties of Negative Feedback",
-  "description": "The six key benefits of negative feedback: desensitized gain, reduced distortion, noise reduction, impedance control, bandwidth extension — all at the cost of gain.",
-  "order": 2,
-  "lesson": "08",
-  "prerequisites": ["feedback-amplifier-fundamentals"]
+    "id": "properties-of-negative-feedback",
+    "title": "Properties of Negative Feedback",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
 }

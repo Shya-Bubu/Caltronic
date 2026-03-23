@@ -1,8 +1,9 @@
 {
-  "concept": "feedback-amplifier-analysis",
-  "title": "Feedback Amplifier Analysis: Step-by-Step Examples",
-  "description": "Systematic 6-step procedure for analyzing feedback amplifier circuits, with two complete worked examples from lectures: PNP emitter follower and two-stage CE amplifier.",
-  "order": 5,
-  "lesson": "08",
-  "prerequisites": ["feedback-amplifier-topologies", "feedback-effects-on-impedance", "bjt-hybrid-pi-model"]
+    "id": "feedback-amplifier-analysis",
+    "title": "Feedback Amplifier Analysis: Step-by-Step Examples",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
 }

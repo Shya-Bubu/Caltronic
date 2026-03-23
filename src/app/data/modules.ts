@@ -175,6 +175,11 @@ export const modules: Module[] = [
         path: "/analog-electronics/lesson-06",
       },
       {
+        id: "lesson-08",
+        title: "Feedback Amplifiers",
+        path: "/analog-electronics/lesson-08",
+      },
+      {
         id: "lesson-09",
         title: "MOSFET Fundamentals & MOS Logic Families",
         path: "/analog-electronics/lesson-09",
