@@ -1,0 +1,37 @@
+[
+  {
+    "id": "q1",
+    "question": "If an amplifier has $A = 1000$ and $\\beta = 0.01$, and the open-loop gain changes by 10%, by how much does the closed-loop gain change?",
+    "options": ["10%", "1%", "0.1%", "0.01%"],
+    "answer": 1,
+    "explanation": "$D = 1 + A\\beta = 1 + 10 = 11$. Change in $A_f$: $\\frac{10\\%}{11} \\approx 0.91\\% \\approx 1\\%$. The fractional change is reduced by the factor $D$."
+  },
+  {
+    "id": "q2",
+    "question": "If the distortion in an open-loop amplifier is 5%, what is the distortion with negative feedback when $A\\beta = 49$?",
+    "options": ["5%", "1%", "0.1%", "0.5%"],
+    "answer": 2,
+    "explanation": "Distortion with feedback = $\\frac{D_{dist}}{1+A\\beta} = \\frac{5\\%}{50} = 0.1\\%$."
+  },
+  {
+    "id": "q3",
+    "question": "An amplifier has a midband gain of 100 and upper cutoff frequency of 10 kHz. With feedback ($D = 10$), the new bandwidth is:",
+    "options": ["1 kHz", "10 kHz", "100 kHz", "1 MHz"],
+    "answer": 2,
+    "explanation": "Upper cutoff extends by factor $D$: $f_{Hf} = f_H \\times D = 10\\,\\text{kHz} \\times 10 = 100\\,\\text{kHz}$. The midband gain drops to $100/10 = 10$, but bandwidth increases tenfold."
+  },
+  {
+    "id": "q4",
+    "question": "Which of these is NOT a benefit of negative feedback?",
+    "options": ["Increased gain", "Reduced distortion", "Extended bandwidth", "Stabilized gain"],
+    "answer": 0,
+    "explanation": "Negative feedback always REDUCES gain. This is the trade-off. All the other options are genuine benefits of negative feedback."
+  },
+  {
+    "id": "q5",
+    "question": "The gain-bandwidth product of a feedback amplifier compared to the same amplifier without feedback is:",
+    "options": ["Higher", "Lower", "Approximately the same", "Doubled"],
+    "answer": 2,
+    "explanation": "The gain-bandwidth product $A_M \\times f_H$ is approximately constant. Feedback reduces $A_M$ by $D$ but extends $f_H$ by $D$, so their product stays the same."
+  }
+]

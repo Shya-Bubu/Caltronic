@@ -1,0 +1,58 @@
+[
+  {
+    "id": "open-vs-closed-loop",
+    "type": "diagram",
+    "title": "Open-Loop vs Closed-Loop Amplifier",
+    "description": "Side-by-side comparison showing an open-loop amplifier (input → A → output) with no feedback path, versus a closed-loop amplifier where a fraction β of the output is subtracted from the input. The open-loop path is a straight arrow; the closed-loop path shows the feedback loop going from output through the β block back to the mixer at the input.",
+    "details": "Left side: V_S → [A] → V_out (simple arrow). Right side: V_S → (+) → [A] → V_out, with a branch from V_out → [β] → back to the (-) input of the (+) mixer. Label the mixer as 'Comparator/Mixer'. Show X_i = X_S - X_f at the mixer output."
+  },
+  {
+    "id": "feedback-block-diagram",
+    "type": "diagram",
+    "title": "Universal Feedback Amplifier Block Diagram",
+    "description": "The complete feedback block diagram showing the four building blocks: Signal Source (X_S), Mixer/Comparator (produces X_i = X_S - X_f), Basic Amplifier (gain A, produces X_o = A·X_i), and Feedback Network (gain β, produces X_f = β·X_o). Arrows show signal flow in a loop.",
+    "details": "Draw with the forward path on top (Source → Mixer → Amplifier → Output) and the feedback path on the bottom (Output → β → back to Mixer). Label all signals: X_S (input), X_i (error signal), X_o (output), X_f (feedback signal). The Mixer should show a circle with + and - inputs. Color the forward path blue and the feedback path red."
+  },
+  {
+    "id": "closed-loop-gain-derivation",
+    "type": "falstad",
+    "title": "Interactive Feedback Amplifier — Watch the Gain Change",
+    "description": "A Falstad circuit simulation showing a simple op-amp or amplifier model with a resistor divider feedback network. Students can adjust the open-loop gain A and the feedback resistor ratio to see how the closed-loop gain A_f = A/(1+Aβ) converges toward 1/β as A increases.",
+    "details": "Use an op-amp model or voltage-controlled voltage source with adjustable gain A. Connect a resistor divider (R1, R2) from output to inverting input. Show scopes for input, output, and gain value. Allow user to sweep A from 10 to 10000 and observe that A_f barely changes when A is large."
+  },
+  {
+    "id": "loop-gain-visualization",
+    "type": "diagram",
+    "title": "The Loop Gain T = Aβ — Following the Signal Around the Loop",
+    "description": "A diagram showing the signal path around the feedback loop, with the gain at each stage labeled. Starting from the mixer output X_i, through A to get X_o, then through β to get X_f. The product T = A × β is highlighted as the total gain experienced by a signal going once around the loop.",
+    "details": "Draw the loop as a circle with arrows. At each stage, show the signal being multiplied: X_i → ×A → X_o → ×β → X_f = Aβ·X_i. Highlight that if a '1' enters the loop, Aβ comes out after one trip around. Use color to show the multiplication at each stage."
+  },
+  {
+    "id": "gain-stabilization-example",
+    "type": "chart",
+    "title": "Gain Stabilization: Open-Loop vs Closed-Loop",
+    "description": "A bar chart or line graph comparing how open-loop gain A and closed-loop gain A_f respond to variations. Show A varying from 800 to 1200 (±20%) while A_f only varies from about 89 to 93 (±2%). The ideal value 1/β = 100 is shown as a horizontal dashed line that A_f approaches.",
+    "details": "X-axis: 'Amplifier Gain A' from 500 to 2000. Y-axis: 'Gain'. Plot two curves: one is A itself (steep line), the other is A/(1+0.01A) which is nearly flat around 100. Show the dashed line 1/β = 100. Annotate: '20% change in A → only 1.5% change in A_f'."
+  },
+  {
+    "id": "complementary-pair-temperature",
+    "type": "diagram",
+    "title": "Complementary NPN + PNP Temperature Compensation",
+    "description": "A circuit diagram showing an NPN and PNP transistor connected such that their V_BE temperature drifts cancel. Each transistor has an arrow showing V_BE drift direction (-2mV/°C), and the net effect is shown as approximately zero drift.",
+    "details": "Draw a simple two-transistor circuit with NPN on top and PNP on bottom. Show V_BE1 shifting down and V_BE2 shifting up with temperature, resulting in net cancellation. Include temperature axis showing the cancellation effect."
+  },
+  {
+    "id": "two-stage-feedback-amplifier",
+    "type": "falstad",
+    "title": "Two-Stage Amplifier with Feedback — Interactive Circuit",
+    "description": "A Falstad simulation of a two-stage common-emitter amplifier with a feedback resistor R_f from the collector of stage 2 to the emitter of stage 1. Students can toggle the feedback on/off to see how it stabilizes the gain and changes impedances.",
+    "details": "Two CE stages with coupling. R_f connects output collector to first-stage emitter. Include toggleable switch for R_f. Show input/output waveforms with scopes. Display gain value. When feedback is ON, gain should be lower but more stable."
+  },
+  {
+    "id": "positive-vs-negative-feedback",
+    "type": "diagram",
+    "title": "Negative vs Positive Feedback Effects",
+    "description": "A comparison diagram showing negative feedback (subtracting, gain reduces, stable) vs positive feedback (adding, gain increases, may oscillate). Uses simple wave diagrams to show how negative feedback produces a smaller but cleaner output, while positive feedback amplifies and potentially leads to oscillation.",
+    "details": "Two rows. Top row: Negative feedback — input wave, subtracted feedback wave, reduced but clean output wave. Bottom row: Positive feedback — input wave, added feedback wave, growing output that eventually clips or oscillates. Use green for negative feedback and red for positive feedback."
+  }
+]

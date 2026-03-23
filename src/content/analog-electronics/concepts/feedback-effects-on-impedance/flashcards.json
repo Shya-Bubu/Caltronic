@@ -1,0 +1,26 @@
+[
+  {
+    "front": "How does series mixing change input impedance? Why?",
+    "back": "$R_{if} = R_i \\times D$. Increases because the source must overcome both V_i and V_f: $V_S = V_i + V_f$. For the same current $I_i$, the source provides more voltage, so R = V/I increases."
+  },
+  {
+    "front": "How does shunt mixing change input impedance? Why?",
+    "back": "$R_{if} = R_i / D$. Decreases because feedback current I_f shares the node: $I_S = I_i + I_f$. The source provides more current for the same voltage V_i, so R = V/I decreases."
+  },
+  {
+    "front": "How does shunt (voltage) sampling change output impedance? Why?",
+    "back": "$R_{of} = R_o / D$. Decreases because the feedback loop actively opposes any change in output voltage — like a stiff voltage source with near-zero impedance."
+  },
+  {
+    "front": "How does series (current) sampling change output impedance? Why?",
+    "back": "$R_{of} = R_o \\times D$. Increases because the feedback loop actively maintains constant output current — like a stiff current source with near-infinite impedance."
+  },
+  {
+    "front": "Memory aid for impedance effects?",
+    "back": "Feedback always pushes impedances toward the IDEAL values for that amplifier type. Voltage amp: R_i→∞, R_o→0. Current amp: R_i→0, R_o→∞. Transconductance: both ↑. Transresistance: both ↓."
+  },
+  {
+    "front": "How do you derive output impedance with feedback?",
+    "back": "1) Set input source to zero. 2) Apply test voltage V_t at output. 3) Feedback creates X_f = βV_t. 4) Error signal = -βV_t. 5) Amplifier produces -AβV_t. 6) Test current: I_t = V_t(1+Aβ)/R_o. 7) R_of = V_t/I_t = R_o/(1+Aβ)."
+  }
+]

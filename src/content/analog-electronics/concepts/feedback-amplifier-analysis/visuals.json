@@ -1,0 +1,51 @@
+[
+  {
+    "id": "analysis-procedure-flowchart",
+    "type": "diagram",
+    "title": "The 6-Step Feedback Analysis Procedure",
+    "description": "A flowchart showing the 6 steps: 1) Identify topology, 2) Calculate β, 3) Draw open-loop circuit with loading, 4) Calculate A, 5) Calculate A_f, 6) Calculate impedances. Each step has a brief description and connects to the next.",
+    "details": "Vertical flowchart with 6 boxes connected by arrows. Each box has the step number, step name, and a one-line description. Color code: blue for identification steps (1-2), green for analysis steps (3-4), orange for result steps (5-6)."
+  },
+  {
+    "id": "pnp-emitter-follower-circuit",
+    "type": "falstad",
+    "title": "PNP Emitter Follower Circuit — Interactive",
+    "description": "A Falstad simulation of the PNP emitter follower circuit analyzed in the lecture. Shows V_in, V_out scopes demonstrating near-unity gain. Students can adjust R_E and R_L to see effects.",
+    "details": "PNP transistor in common-collector. R_S = 10kΩ, R_E = 4.7kΩ, R_L = 4.7kΩ. Two scopes: V_in and V_out showing gain ≈ 1. Highlight R_E as the feedback element with annotation."
+  },
+  {
+    "id": "pnp-open-loop-small-signal",
+    "type": "diagram",
+    "title": "PNP Emitter Follower: Open-Loop Small-Signal Model",
+    "description": "The small-signal equivalent circuit of the PNP emitter follower with feedback 'broken'. Shows h_ie, h_fe·I_b current source, R_E||R_L as the load, and how V_o and V_i are defined.",
+    "details": "Input: V_i across h_ie = 1.1kΩ. I_b = V_i/h_ie. Current source: h_fe·I_b = 50·I_b. Load: R_E||R_L = 2.35kΩ. V_o = h_fe·I_b·(R_E||R_L). Label A_V = V_o/V_i."
+  },
+  {
+    "id": "pnp-results-summary",
+    "type": "diagram",
+    "title": "PNP Emitter Follower Analysis Results",
+    "description": "A summary card showing the key results: A_V ≈ 106.8, β = 1, D ≈ 107.8, A_Vf ≈ 0.99, R_if ≈ 119 kΩ, R_of ≈ 1.93 Ω. Before/after comparison with green arrows showing improvements.",
+    "details": "Two-column comparison: 'Without Feedback' vs 'With Feedback'. Show: Gain (106.8 → 0.99), R_i (1.1kΩ → 119kΩ), R_o (208Ω → 1.93Ω). Green arrows for improvements. Note: gain close to 1 is DESIRED for a buffer."
+  },
+  {
+    "id": "two-stage-ce-feedback-circuit",
+    "type": "falstad",
+    "title": "Two-Stage CE Amplifier with Feedback — Interactive",
+    "description": "A Falstad simulation of the two-stage CE amplifier with R_f = 47kΩ from Q2 collector to Q1 emitter. Students can toggle feedback and observe gain reduction and stability improvement.",
+    "details": "Two BJTs in CE configuration. R_C1 = R_C2 = 4.7kΩ, R_f = 47kΩ, R_E1 = 470Ω. Toggle switch for R_f. Two scopes: V_in and V_out. Display gain value. Show how gain changes with and without feedback."
+  },
+  {
+    "id": "two-stage-open-loop-model",
+    "type": "diagram",
+    "title": "Two-Stage CE: Open-Loop Equivalent Circuit",
+    "description": "The small-signal equivalent circuit of both stages with feedback network loading effects included but feedback signal path broken. Shows Stage 1 (with R_E1 degeneration) driving Stage 2 through the loading of h_ie2.",
+    "details": "Stage 1: V_i → h_ie1 → h_fe1·I_b1 source → R_C1||h_ie2 load. R_E1 in emitter. Stage 2: V_i2 → h_ie2 → h_fe2·I_b2 source → R_C2||R_L||R_f load. Show all values and intermediate gains A_V1 and A_V2."
+  },
+  {
+    "id": "two-stage-results-summary",
+    "type": "diagram",
+    "title": "Two-Stage CE Analysis Results",
+    "description": "Summary card: A_V1 ≈ -1.78, A_V2 ≈ -101.7, A_V ≈ 181, β ≈ 0.01, D ≈ 2.79, A_Vf ≈ 64.9, R_if ≈ 70 kΩ, R_of ≈ 1.68 kΩ.",
+    "details": "Multi-row card showing: Stage gains, overall gain, β, D, closed-loop gain. Before/after for R_i and R_o. Note that Aβ ≈ 1.79 is modest — more stages would give better feedback quality."
+  }
+]

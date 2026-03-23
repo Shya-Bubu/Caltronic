@@ -1,0 +1,49 @@
+[
+  {
+    "id": "q1",
+    "question": "In a series-shunt feedback topology, the input impedance with feedback is:",
+    "options": [
+      "$R_i / (1 + A\\beta)$",
+      "$R_i \\times (1 + A\\beta)$",
+      "$R_i$",
+      "$R_i \\times A\\beta$"
+    ],
+    "answer": 1,
+    "explanation": "Series mixing increases input impedance. $R_{if} = R_i \\times (1 + A\\beta) = R_i \\times D$. Series mixing at the input always multiplies $R_i$ by $D$."
+  },
+  {
+    "id": "q2",
+    "question": "If a feedback resistor is connected directly from the collector of a transistor to its base, the topology is:",
+    "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
+    "answer": 2,
+    "explanation": "The feedback resistor connects directly to the output node (collector) → voltage/shunt sampling. It connects directly to the input node (base) → current/shunt mixing. So the topology is Shunt-Shunt (transresistance amplifier)."
+  },
+  {
+    "id": "q3",
+    "question": "Which feedback topology is appropriate for a transconductance amplifier?",
+    "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
+    "answer": 1,
+    "explanation": "A transconductance amplifier has voltage input and current output. Voltage input → Series mixing. Current output → Series sampling. So the topology is Series-Series."
+  },
+  {
+    "id": "q4",
+    "question": "In a shunt-series feedback topology, the output impedance with feedback:",
+    "options": ["Decreases", "Increases", "Stays the same", "Becomes zero"],
+    "answer": 1,
+    "explanation": "Series sampling (current output) always increases output impedance: $R_{of} = R_o \\times (1 + A\\beta)$. This is desirable for a current amplifier — high output impedance ensures the current goes to the load."
+  },
+  {
+    "id": "q5",
+    "question": "The common-collector (emitter follower) circuit is an example of which feedback topology?",
+    "options": ["Shunt-Shunt", "Series-Shunt", "Series-Series", "Shunt-Series"],
+    "answer": 1,
+    "explanation": "In the emitter follower, the output voltage across $R_E$ is fed back in series with the input (KVL in the base-emitter loop). The output is sampled in shunt (voltage across $R_E$). So it is Series-Shunt, which is a voltage amplifier topology."
+  },
+  {
+    "id": "q6",
+    "question": "For a shunt-shunt feedback amplifier, the units of the feedback factor $\\beta$ are:",
+    "options": ["Dimensionless", "Ohms (Ω)", "Siemens (S)", "Amperes per Volt (A/V)"],
+    "answer": 2,
+    "explanation": "In shunt-shunt: $\\beta = I_f / V_o$. This is current divided by voltage = Siemens (S), the unit of conductance. Equivalently, $\\beta = 1/R_f$ for a feedback resistor."
+  }
+]

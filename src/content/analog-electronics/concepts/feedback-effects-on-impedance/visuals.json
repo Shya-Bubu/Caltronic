@@ -1,0 +1,44 @@
+[
+  {
+    "id": "impedance-intuition",
+    "type": "diagram",
+    "title": "Intuitive Picture: Why Feedback Changes Impedance",
+    "description": "Two side-by-side illustrations. Left: series feedback at input — source must push against V_f, so it 'sees' higher impedance. Right: shunt feedback at input — feedback current shares the load, making the node look like lower impedance. Use simple mechanical analogies (springs, water flow).",
+    "details": "Left panel: Arrow of V_S pushing against wall labeled V_f, with V_i being the small gap between them. Caption: 'Source works harder → higher impedance'. Right panel: Two streams of current (I_S and I_f) merging at a node, with only I_i entering the amplifier. Caption: 'Feedback helps → lower impedance'."
+  },
+  {
+    "id": "series-mixing-impedance-derivation",
+    "type": "diagram",
+    "title": "Series Mixing: Input Impedance Derivation Circuit",
+    "description": "Circuit diagram for the series mixing case. Shows V_S, V_f in series, V_i across R_i, with I_i flowing through. All voltages and currents labeled. KVL equation shown: V_S = V_i + V_f.",
+    "details": "Loop diagram: V_S source → V_f (feedback voltage, opposing) → R_i with V_i across it and I_i through it. Show V_f = βAV_i. Derive R_if = V_S/I_i step by step alongside the circuit."
+  },
+  {
+    "id": "shunt-mixing-impedance-derivation",
+    "type": "diagram",
+    "title": "Shunt Mixing: Input Impedance Derivation Circuit",
+    "description": "Circuit diagram for the shunt mixing case. Shows I_S entering a node, I_f being subtracted, and I_i entering R_i. All currents labeled. KCL equation shown: I_S = I_i + I_f.",
+    "details": "Node diagram: I_S flowing in from left, I_f flowing in from bottom (feedback), I_i flowing right into R_i. V_i appears across R_i. Show I_f = βAI_i. Derive R_if = V_i/I_S step by step."
+  },
+  {
+    "id": "output-impedance-voltage-sampling",
+    "type": "diagram",
+    "title": "Output Impedance with Voltage (Shunt) Sampling",
+    "description": "Circuit showing test voltage V_t applied at output with source turned off. The feedback creates -βAV_t internally, opposing V_t. Shows test current I_t and derivation of R_of = R_o/D.",
+    "details": "Output side: V_t applied at output terminals. Internal: amplifier produces -AβV_t (opposing). R_o between internal source and output. I_t = V_t(1+Aβ)/R_o. Arrow showing active opposition."
+  },
+  {
+    "id": "output-impedance-current-sampling",
+    "type": "diagram",
+    "title": "Output Impedance with Current (Series) Sampling",
+    "description": "Circuit showing test current applied at output. Feedback monitors output current and generates opposing signal. Shows derivation of R_of = R_o × D.",
+    "details": "Output side with current source test. β element in series sampling the current. Internal amplifier reacts to maintain current. Result: R_of = R_o × D. Output looks like stiff current source."
+  },
+  {
+    "id": "impedance-changes-ideal-direction",
+    "type": "diagram",
+    "title": "Feedback Pushes Impedances Toward Ideal Values",
+    "description": "Four panels, one for each topology, showing arrows pointing from actual R_i and R_o values toward their ideal values (0 or ∞). Each panel shows how feedback helps bridge the gap.",
+    "details": "4 panels. Each shows: actual R_i → (feedback) → ideal R_i, and actual R_o → (feedback) → ideal R_o. Voltage amp: R_i→∞, R_o→0. Transconductance: R_i→∞, R_o→∞. Transresistance: R_i→0, R_o→0. Current: R_i→0, R_o→∞. Arrows are proportional to D."
+  }
+]

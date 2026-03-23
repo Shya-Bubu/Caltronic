@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q1",
+    "question": "An amplifier has an open-loop gain of $A = 500$ and a feedback factor of $\\beta = 0.02$. What is the closed-loop gain $A_f$?",
+    "options": [
+      "$A_f = 45.5$",
+      "$A_f = 50$",
+      "$A_f = 500$",
+      "$A_f = 10$"
+    ],
+    "answer": 0,
+    "explanation": "Using $A_f = \\frac{A}{1 + A\\beta} = \\frac{500}{1 + 500 \\times 0.02} = \\frac{500}{1 + 10} = \\frac{500}{11} \\approx 45.5$."
+  },
+  {
+    "id": "q2",
+    "question": "If the loop gain $T = A\\beta = 99$, by what factor is the open-loop gain reduced?",
+    "options": [
+      "By a factor of 99",
+      "By a factor of 100",
+      "By a factor of 10",
+      "By a factor of 50"
+    ],
+    "answer": 1,
+    "explanation": "The desensitivity factor is $D = 1 + A\\beta = 1 + 99 = 100$. The closed-loop gain is the open-loop gain divided by 100."
+  },
+  {
+    "id": "q3",
+    "question": "When $A \\gg 1$, the closed-loop gain $A_f$ approximately equals:",
+    "options": [
+      "$A$",
+      "$A\\beta$",
+      "$\\frac{1}{\\beta}$",
+      "$\\beta$"
+    ],
+    "answer": 2,
+    "explanation": "When $A$ is very large, $A_f = \\frac{A}{1+A\\beta} \\approx \\frac{A}{A\\beta} = \\frac{1}{\\beta}$. The gain depends only on the feedback network, not the amplifier."
+  },
+  {
+    "id": "q4",
+    "question": "What is the primary trade-off when using negative feedback in an amplifier?",
+    "options": [
+      "Increased noise for higher bandwidth",
+      "Reduced gain for improved stability and predictability",
+      "Higher gain for lower input impedance",
+      "Reduced bandwidth for lower distortion"
+    ],
+    "answer": 1,
+    "explanation": "Negative feedback reduces the gain by the factor $D = 1 + A\\beta$, but in return provides stable gain, reduced distortion, controlled impedances, and extended bandwidth."
+  },
+  {
+    "id": "q5",
+    "question": "In the feedback equation $A_f = \\frac{A}{1 + A\\beta}$, the symbol $\\beta$ represents:",
+    "options": [
+      "The current gain $h_{FE}$ of the transistor",
+      "The fraction of the output signal fed back to the input",
+      "The base current divided by the collector current",
+      "The forward transfer ratio of the amplifier"
+    ],
+    "answer": 1,
+    "explanation": "In feedback theory, $\\beta$ is the feedback factor — the fraction of the output that is sampled and returned to the input. It is NOT the transistor $\\beta$ ($h_{FE}$). This is a common source of confusion."
+  }
+]

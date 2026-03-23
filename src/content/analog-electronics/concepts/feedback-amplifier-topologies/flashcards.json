@@ -1,0 +1,38 @@
+[
+  {
+    "front": "What are the four feedback topologies and their matching amplifier types?",
+    "back": "1) Series-Shunt → Voltage amplifier\n2) Series-Series → Transconductance amplifier\n3) Shunt-Shunt → Transresistance amplifier\n4) Shunt-Series → Current amplifier"
+  },
+  {
+    "front": "How do you determine if the sampling is Shunt or Series?",
+    "back": "Look at the OUTPUT side: Is the feedback element connected DIRECTLY to the output terminal?\n- Yes → Shunt (voltage) sampling\n- No (it's in the current path) → Series (current) sampling"
+  },
+  {
+    "front": "How do you determine if the mixing is Series or Shunt?",
+    "back": "Look at the INPUT side: Is the feedback element connected DIRECTLY to the input terminal (e.g., base node)?\n- Yes → Shunt (current) mixing (use KCL)\n- No (it's in the voltage loop) → Series (voltage) mixing (use KVL)"
+  },
+  {
+    "front": "What is the rule for impedance changes with Series mixing?",
+    "back": "Series mixing (voltage input) always INCREASES input impedance: $R_{if} = R_i \\times (1+A\\beta)$. The source sees a higher impedance because it must provide extra voltage to overcome the feedback voltage."
+  },
+  {
+    "front": "What is the rule for impedance changes with Shunt mixing?",
+    "back": "Shunt mixing (current input) always DECREASES input impedance: $R_{if} = R_i / (1+A\\beta)$. The input node looks like a lower impedance because the feedback current 'helps' establish the input voltage."
+  },
+  {
+    "front": "What is the rule for impedance changes with Shunt sampling?",
+    "back": "Shunt (voltage) sampling always DECREASES output impedance: $R_{of} = R_o / (1+A\\beta)$. Ideal voltage sources have zero output impedance — feedback pushes toward this ideal."
+  },
+  {
+    "front": "What is the rule for impedance changes with Series sampling?",
+    "back": "Series (current) sampling always INCREASES output impedance: $R_{of} = R_o \\times (1+A\\beta)$. Ideal current sources have infinite output impedance — feedback pushes toward this ideal."
+  },
+  {
+    "front": "What are the units of β for each topology?",
+    "back": "Series-Shunt (V→V): β = V_f/V_o → dimensionless\nSeries-Series (V→I): β = V_f/I_o → Ohms (Ω)\nShunt-Shunt (I→V): β = I_f/V_o → Siemens (S)\nShunt-Series (I→I): β = I_f/I_o → dimensionless"
+  },
+  {
+    "front": "Why does the emitter follower have gain ≈ 1?",
+    "back": "It's series-shunt feedback with β = 1 (100% of V_o is fed back through R_E). So $A_f ≈ 1/β = 1/1 = 1$. The emitter follower is a voltage amplifier with maximum feedback."
+  }
+]

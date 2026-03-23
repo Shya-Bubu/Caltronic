@@ -1,0 +1,8 @@
+{
+  "concept": "feedback-amplifier-topologies",
+  "title": "Feedback Amplifier Topologies",
+  "description": "The four feedback topologies — series-shunt, series-series, shunt-shunt, shunt-series — their identification in circuits, and their effects on amplifier characteristics.",
+  "order": 3,
+  "lesson": "08",
+  "prerequisites": ["feedback-amplifier-fundamentals", "properties-of-negative-feedback", "amplifier-classification"]
+}

@@ -1,0 +1,8 @@
+{
+  "concept": "feedback-effects-on-impedance",
+  "title": "Feedback Effects on Input and Output Impedance",
+  "description": "Detailed derivations showing how series/shunt mixing and sampling change input and output impedances, with physical interpretations.",
+  "order": 4,
+  "lesson": "08",
+  "prerequisites": ["feedback-amplifier-topologies"]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "q1",
+    "question": "An amplifier with $R_i = 10\\,\\text{k}\\Omega$ uses series mixing feedback with $D = 1 + A\\beta = 20$. The input impedance with feedback is:",
+    "options": ["$500\\,\\Omega$", "$10\\,\\text{k}\\Omega$", "$200\\,\\text{k}\\Omega$", "$20\\,\\text{k}\\Omega$"],
+    "answer": 2,
+    "explanation": "Series mixing multiplies input impedance by $D$: $R_{if} = R_i \\times D = 10\\,\\text{k}\\Omega \\times 20 = 200\\,\\text{k}\\Omega$."
+  },
+  {
+    "id": "q2",
+    "question": "For a shunt-shunt feedback amplifier with $D = 50$, $R_o = 5\\,\\text{k}\\Omega$, the output impedance with feedback is:",
+    "options": ["$250\\,\\text{k}\\Omega$", "$100\\,\\Omega$", "$5\\,\\text{k}\\Omega$", "$1\\,\\text{k}\\Omega$"],
+    "answer": 1,
+    "explanation": "Shunt-Shunt: shunt sampling divides output impedance by $D$: $R_{of} = 5000/50 = 100\\,\\Omega$."
+  },
+  {
+    "id": "q3",
+    "question": "Why does voltage (shunt) sampling at the output reduce output impedance?",
+    "options": [
+      "Because it adds a resistor in parallel with the output",
+      "Because the feedback loop actively opposes any change in output voltage, making it behave like a stiff voltage source",
+      "Because it increases the amplifier's gain",
+      "Because it removes the load resistor"
+    ],
+    "answer": 1,
+    "explanation": "The feedback monitors the output voltage and corrects for deviations. When a load tries to change V_o, the feedback detects this and the amplifier counteracts it — making the output very 'stiff' (low impedance), like an ideal voltage source."
+  },
+  {
+    "id": "q4",
+    "question": "In which topology do BOTH input and output impedances increase?",
+    "options": ["Series-Shunt", "Series-Series", "Shunt-Shunt", "Shunt-Series"],
+    "answer": 1,
+    "explanation": "Series-Series: Series mixing at input → $R_{if} = R_i \\times D$ (increases). Series sampling at output → $R_{of} = R_o \\times D$ (increases). This is ideal for a transconductance amplifier."
+  },
+  {
+    "id": "q5",
+    "question": "The statement 'feedback always pushes impedances toward ideal values' means:",
+    "options": [
+      "All impedances become zero",
+      "All impedances become infinite",
+      "Input and output impedances change in the direction that makes the amplifier closer to its ideal model",
+      "The feedback factor β determines the impedance"
+    ],
+    "answer": 2,
+    "explanation": "Each amplifier type has ideal impedance requirements (e.g., voltage amp: R_i = ∞, R_o = 0). The correct feedback topology always changes the impedances toward these ideal values."
+  }
+]

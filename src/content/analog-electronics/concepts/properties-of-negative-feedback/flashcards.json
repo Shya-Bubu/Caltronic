@@ -1,0 +1,30 @@
+[
+  {
+    "front": "What are the six properties of negative feedback?",
+    "back": "1) Desensitized gain, 2) Reduced nonlinear distortion, 3) Reduced noise effects, 4) Controlled I/O impedances, 5) Extended bandwidth — all at the 6) cost of reduced gain."
+  },
+  {
+    "front": "By what factor does negative feedback reduce gain sensitivity?",
+    "back": "$\\frac{dA_f}{A_f} = \\frac{1}{D} \\cdot \\frac{dA}{A}$, where $D = 1+A\\beta$. The fractional change in closed-loop gain is $D$ times smaller than the fractional change in open-loop gain."
+  },
+  {
+    "front": "How does negative feedback affect bandwidth?",
+    "back": "Upper cutoff: $f_{Hf} = f_H \\cdot D$. Lower cutoff: $f_{Lf} = f_L / D$. Bandwidth extends in both directions by factor $D = 1+A\\beta$. But gain drops by $D$, so the gain-bandwidth product is constant."
+  },
+  {
+    "front": "Can negative feedback reduce noise at the amplifier input?",
+    "back": "No. Feedback only reduces noise generated INSIDE the loop. Input noise is amplified identically to the desired signal. This is why the first stage (LNA) in a receiver chain is the most critical."
+  },
+  {
+    "front": "How does negative feedback reduce distortion?",
+    "back": "Distortion is generated internally. The feedback loop detects the distortion as a deviation from the expected output and generates a corrective error signal. Distortion is reduced by factor $D = 1+A\\beta$."
+  },
+  {
+    "front": "What is the gain-bandwidth product relationship?",
+    "back": "$A_M \\times f_H = A_{Mf} \\times f_{Hf} = \\text{constant}$. Feedback reduces midband gain by $D$ but extends bandwidth by $D$. You cannot increase both simultaneously."
+  },
+  {
+    "front": "What does the desensitivity factor $D = 1+A\\beta$ unify?",
+    "back": "Almost every feedback effect involves $D$: gain is divided by $D$, sensitivity by $D$, distortion by $D$, bandwidth multiplied by $D$, and impedances are either multiplied or divided by $D$."
+  }
+]

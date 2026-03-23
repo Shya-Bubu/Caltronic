@@ -1,0 +1,30 @@
+[
+  {
+    "front": "What are the 6 steps to analyze a feedback amplifier circuit?",
+    "back": "1) Identify the feedback topology\n2) Calculate β\n3) Draw the open-loop circuit with loading effects\n4) Calculate open-loop gain A\n5) Calculate closed-loop gain A_f = A/(1+Aβ)\n6) Calculate R_if and R_of using topology rules"
+  },
+  {
+    "front": "In the PNP emitter follower, what is β and what is A_Vf?",
+    "back": "β = 1 (100% of output voltage is fed back). A_Vf ≈ 0.99 ≈ 1. The emitter follower is a unity-gain voltage buffer with series-shunt feedback."
+  },
+  {
+    "front": "Why must the total phase around the feedback loop be 0° (or 360°) for negative feedback?",
+    "back": "If the total loop phase is 0°, the feedback signal arrives with the correct polarity to SUBTRACT from the input, giving negative feedback. If it's 180°, the feedback ADDS to the input → positive feedback → oscillation."
+  },
+  {
+    "front": "What loading effects must you consider when calculating open-loop gain?",
+    "back": "1) The input impedance of the next stage loads the output of the previous stage (e.g., h_ie2 in parallel with R_C1)\n2) The feedback network impedances appear at both input and output (e.g., R_f in parallel with R_C2, R_E1 in the emitter)"
+  },
+  {
+    "front": "When can you use the approximation A_f ≈ 1/β?",
+    "back": "Only when Aβ >> 1 (typically Aβ > 10). If Aβ is modest (like 1.79 in the two-stage example), you MUST use the exact formula A_f = A/(1+Aβ)."
+  },
+  {
+    "front": "Why does the emitter follower have such high R_if and low R_of?",
+    "back": "β = 1 gives D = 1 + A ≈ 108. Series mixing: R_if = R_i × 108 ≈ 119 kΩ. Shunt sampling: R_of = R_o / 108 ≈ 2 Ω. Maximum feedback gives maximum impedance improvement."
+  },
+  {
+    "front": "In the two-stage CE amplifier, why do the two negative signs cancel?",
+    "back": "Each CE stage inverts the signal (A_V is negative). Two inversions: (-) × (-) = (+). The overall gain A_V is positive, so the feedback from output to emitter (which subtracts) correctly provides negative feedback."
+  }
+]

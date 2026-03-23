@@ -1,0 +1,57 @@
+[
+  {
+    "id": "q1",
+    "question": "What is the first step in analyzing a feedback amplifier circuit?",
+    "options": [
+      "Calculate the open-loop gain",
+      "Draw the small-signal model",
+      "Identify the feedback topology",
+      "Calculate the feedback factor β"
+    ],
+    "answer": 2,
+    "explanation": "Step 1 is always identifying the topology by finding the feedback element and checking how it connects at the output (sampling) and input (mixing). Everything else depends on knowing the topology first."
+  },
+  {
+    "id": "q2",
+    "question": "In the PNP emitter follower, the feedback factor $\\beta$ equals:",
+    "options": ["$R_E / R_L$", "$R_L / R_E$", "$1$", "$0$"],
+    "answer": 2,
+    "explanation": "In an emitter follower, the entire output voltage (across $R_E$) is fed back to the input. So $\\beta = V_f/V_o = 1$. This is maximum feedback, which is why the gain is approximately 1."
+  },
+  {
+    "id": "q3",
+    "question": "Why must the two-stage CE amplifier use an even number of CE stages in the forward path for the overall feedback to be negative?",
+    "options": [
+      "Because PNP transistors require even numbers",
+      "Because each CE stage inverts the signal (180°), and two inversions give 360° (= 0°), maintaining the correct phase for negative feedback",
+      "Because an odd number would give infinite gain",
+      "Because the feedback resistor only works with non-inverting amplifiers"
+    ],
+    "answer": 1,
+    "explanation": "Each CE stage inverts (180° phase shift). With 2 stages: 180° + 180° = 360° = 0° net phase shift. The feedback from output to emitter (inverting terminal) then correctly subtracts from the input, giving negative feedback."
+  },
+  {
+    "id": "q4",
+    "question": "When calculating the open-loop gain of a feedback amplifier, what must you account for that is often forgotten?",
+    "options": [
+      "The transistor's temperature",
+      "The loading effects of the feedback network on the amplifier",
+      "The DC bias voltages",
+      "The power supply voltage"
+    ],
+    "answer": 1,
+    "explanation": "The feedback network adds impedances at both the input and output. For example, $R_f$ appears in parallel with $R_{C2}$ at the output, and $R_{E1}$ acts as emitter degeneration at the input. These loading effects must be included for accurate analysis."
+  },
+  {
+    "id": "q5",
+    "question": "In the two-stage CE example, $A\\beta \\approx 1.79$. This means $A_f \\approx 1/\\beta$ is:",
+    "options": [
+      "A very good approximation",
+      "Not a good approximation — $A\\beta$ needs to be much larger (>> 1) for this to work",
+      "Only valid at low frequencies",
+      "Only valid for PNP transistors"
+    ],
+    "answer": 1,
+    "explanation": "The approximation $A_f \\approx 1/\\beta$ requires $A\\beta \\gg 1$ (typically $A\\beta > 10$). With $A\\beta = 1.79$, we must use the exact formula $A_f = A/(1+A\\beta)$, which gives $A_{Vf} \\approx 64.9$ instead of $1/\\beta = 101$."
+  }
+]

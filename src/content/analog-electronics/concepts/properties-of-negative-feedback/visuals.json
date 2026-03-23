@@ -1,0 +1,51 @@
+[
+  {
+    "id": "six-benefits-overview",
+    "type": "diagram",
+    "title": "The Six Benefits of Negative Feedback at a Glance",
+    "description": "A visual overview showing the six properties of negative feedback arranged as icons or cards: Gain Stability, Reduced Distortion, Reduced Noise, Impedance Control, Extended Bandwidth, and the cost (Reduced Gain). Each card has a simple icon and one-line description.",
+    "details": "Use card-style layout with 6 cards arranged in 2 rows of 3. First 5 cards are green (benefits), last card is red (cost). Each card has an icon and a brief description. Show arrows indicating all are linked by the factor D = 1+Aβ."
+  },
+  {
+    "id": "sensitivity-reduction",
+    "type": "chart",
+    "title": "Gain Sensitivity: How dA_f/A_f Shrinks with Feedback",
+    "description": "A chart comparing relative gain change dA/A (open loop) vs dA_f/A_f (closed loop) for different values of the desensitivity factor D. Shows that as D increases, the closed-loop sensitivity drops dramatically.",
+    "details": "Bar chart with D values on x-axis (1, 5, 10, 50, 100) and sensitivity reduction factor on y-axis. For a 10% change in A, show the resulting percentage change in A_f for each D value."
+  },
+  {
+    "id": "nonlinear-distortion-comparison",
+    "type": "diagram",
+    "title": "Linear vs Nonlinear Transfer Characteristics",
+    "description": "Two transfer characteristics (V_out vs V_in). One is a perfectly straight line (ideal linear). The other curves at high signal levels, compressing the positive peaks and expanding the negative peaks (or vice versa). Shows how distortion appears as deviation from linearity.",
+    "details": "Plot V_out vs V_in. Straight green line for ideal. Curved red line that bends at large values, showing compression. Inset waveform shows pure sine input producing distorted output."
+  },
+  {
+    "id": "distortion-before-after-feedback",
+    "type": "falstad",
+    "title": "Distortion Reduction with Feedback — Interactive Demo",
+    "description": "A Falstad simulation showing an amplifier with intentional nonlinearity (e.g., diode clipping). Students can toggle feedback on/off and observe how the output waveform becomes cleaner with feedback.",
+    "details": "Use a voltage amplifier with a soft-clipping element. Add a feedback resistor divider. Show two scopes: input (clean sine) and output (distorted without feedback, clean with feedback). Toggle switch for feedback."
+  },
+  {
+    "id": "impedance-control-table",
+    "type": "diagram",
+    "title": "How Feedback Controls Input and Output Impedance",
+    "description": "A 2×2 grid showing the four combinations of mixing (series/shunt) and sampling (series/shunt), with arrows indicating whether impedance increases (up arrow) or decreases (down arrow) for each combination.",
+    "details": "Grid with Series/Shunt on both axes. Each cell shows: impedance effect (R_i × D or R_i / D), the amplifier type (voltage, current, etc.), and a colored up/down arrow. Green for increase, red for decrease."
+  },
+  {
+    "id": "bandwidth-extension",
+    "type": "chart",
+    "title": "Bandwidth Extension: Open-Loop vs Closed-Loop Frequency Response",
+    "description": "A Bode plot showing the gain vs frequency for both open-loop and closed-loop cases. The open-loop has high midband gain but narrow bandwidth. The closed-loop has lower midband gain but much wider bandwidth. The gain-bandwidth product is shown to be the same.",
+    "details": "Bode plot with log frequency on x-axis and gain in dB on y-axis. Open-loop curve: high plateau with sharp rolloff. Closed-loop curve: lower plateau with extended bandwidth. Annotate: A_M × f_H = A_Mf × f_Hf. Shade the 'gained bandwidth' region."
+  },
+  {
+    "id": "gain-bandwidth-tradeoff",
+    "type": "diagram",
+    "title": "The Gain-Bandwidth Tradeoff: You Can't Get Something for Nothing",
+    "description": "A see-saw or balance diagram showing that as you apply more feedback (increase D), the gain goes down but the bandwidth goes up proportionally. The product remains constant.",
+    "details": "Draw a see-saw with Gain on one side and Bandwidth on the other. As the feedback amount D increases, the Gain side goes down and the Bandwidth side goes up. Show the product GBP = constant above."
+  }
+]
