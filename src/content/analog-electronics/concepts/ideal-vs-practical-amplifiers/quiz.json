@@ -35,7 +35,7 @@
                 "1 MHz"
             ],
             "correctAnswer": "10 kHz",
-            "explanation": "BW = GBP/Gain = 1MHz/100 = 10 kHz."
+            "explanation": "The gain-bandwidth product (GBP) is constant, so bandwidth BW = GBP/Gain = 1MHz/100 = 10 kHz. This is correct because higher gain comes at the cost of reduced bandwidth. The other options are incorrect: 100 kHz would require gain of only 10, 1 kHz would require gain of 1000, and 1 MHz would mean unity gain."
         },
         {
             "id": "q4",
@@ -59,7 +59,7 @@
                 "90%"
             ],
             "correctAnswer": "80%",
-            "explanation": "R_L/(R_L+R_out) = 4/(4+1) = 0.8 = 80%."
+            "explanation": "The output voltage divides between R_out and R_L using the voltage divider formula: V_out/V_ideal = R_L/(R_L+R_out) = 4kΩ/(4kΩ+1kΩ) = 4/5 = 0.8 = 80%. This is correct. The other options are wrong: 20% would mean R_L is 0.25kΩ, 50% would mean R_out = R_L, and 90% would mean R_out is much smaller (only 0.44kΩ)."
         },
         {
             "id": "q6",

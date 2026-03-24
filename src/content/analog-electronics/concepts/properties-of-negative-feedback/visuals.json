@@ -1,51 +1,183 @@
 [
   {
     "id": "six-benefits-overview",
-    "type": "diagram",
+    "type": "plotly",
     "title": "The Six Benefits of Negative Feedback at a Glance",
-    "description": "A visual overview showing the six properties of negative feedback arranged as icons or cards: Gain Stability, Reduced Distortion, Reduced Noise, Impedance Control, Extended Bandwidth, and the cost (Reduced Gain). Each card has a simple icon and one-line description.",
-    "details": "Use card-style layout with 6 cards arranged in 2 rows of 3. First 5 cards are green (benefits), last card is red (cost). Each card has an icon and a brief description. Show arrows indicating all are linked by the factor D = 1+Aβ."
+    "description": "A visual overview showing the six properties of negative feedback: Gain Stability, Reduced Distortion, Reduced Noise, Impedance Control, Extended Bandwidth, and the cost (Reduced Gain).",
+    "traces": [
+      {
+        "x": ["Gain Stability", "Distortion ↓", "Noise ↓", "Impedance Control", "Bandwidth ↑", "Gain ↓ (cost)"],
+        "y": [10, 10, 10, 10, 10, -5],
+        "type": "bar",
+        "name": "Benefit Level",
+        "marker": {"color": ["green", "green", "green", "green", "green", "red"]}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Property"},
+      "yaxis": {"title": "Improvement Factor (via D = 1+Aβ)"},
+      "title": "Six Properties of Negative Feedback",
+      "showlegend": false
+    }
   },
   {
     "id": "sensitivity-reduction",
-    "type": "chart",
+    "type": "plotly",
     "title": "Gain Sensitivity: How dA_f/A_f Shrinks with Feedback",
     "description": "A chart comparing relative gain change dA/A (open loop) vs dA_f/A_f (closed loop) for different values of the desensitivity factor D. Shows that as D increases, the closed-loop sensitivity drops dramatically.",
-    "details": "Bar chart with D values on x-axis (1, 5, 10, 50, 100) and sensitivity reduction factor on y-axis. For a 10% change in A, show the resulting percentage change in A_f for each D value."
+    "traces": [
+      {
+        "x": [1, 5, 10, 50, 100],
+        "y": [10, 10, 10, 10, 10],
+        "type": "bar",
+        "name": "Open-Loop (dA/A = 10%)",
+        "marker": {"color": "red"}
+      },
+      {
+        "x": [1, 5, 10, 50, 100],
+        "y": [10, 2, 1, 0.2, 0.1],
+        "type": "bar",
+        "name": "Closed-Loop (dA_f/A_f)",
+        "marker": {"color": "blue"}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Desensitivity Factor D = 1 + Aβ"},
+      "yaxis": {"title": "Relative Gain Change (%)"},
+      "title": "Sensitivity Reduction with Feedback (10% Change in A)",
+      "barmode": "group",
+      "showlegend": true
+    }
   },
   {
     "id": "nonlinear-distortion-comparison",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Linear vs Nonlinear Transfer Characteristics",
     "description": "Two transfer characteristics (V_out vs V_in). One is a perfectly straight line (ideal linear). The other curves at high signal levels, compressing the positive peaks and expanding the negative peaks (or vice versa). Shows how distortion appears as deviation from linearity.",
-    "details": "Plot V_out vs V_in. Straight green line for ideal. Curved red line that bends at large values, showing compression. Inset waveform shows pure sine input producing distorted output."
+    "traces": [
+      {
+        "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
+        "y": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
+        "mode": "lines",
+        "name": "Ideal Linear",
+        "line": {"color": "green", "width": 2}
+      },
+      {
+        "x": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5],
+        "y": [-4.5, -3.8, -2.9, -2, -1, 0, 1, 1.8, 2.5, 3.0, 3.3],
+        "mode": "lines",
+        "name": "Nonlinear (Distorted)",
+        "line": {"color": "red", "width": 2}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "V_in (V)"},
+      "yaxis": {"title": "V_out (V)"},
+      "title": "Transfer Characteristic: Linear vs Nonlinear",
+      "showlegend": true
+    }
   },
   {
     "id": "distortion-before-after-feedback",
-    "type": "falstad",
+    "type": "falstad-sim",
     "title": "Distortion Reduction with Feedback — Interactive Demo",
     "description": "A Falstad simulation showing an amplifier with intentional nonlinearity (e.g., diode clipping). Students can toggle feedback on/off and observe how the output waveform becomes cleaner with feedback.",
-    "details": "Use a voltage amplifier with a soft-clipping element. Add a feedback resistor divider. Show two scopes: input (clean sine) and output (distorted without feedback, clean with feedback). Toggle switch for feedback."
+    "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nv 80 272 80 176 0 1 60 1 0 0 0.5\nw 80 176 144 176 0\ng 80 272 80 288 0 0\n403 144 176 256 176 0 1_15_0_4098_100_0.1_0_2_1_3_0_0\nw 256 176 336 176 0\nd 336 176 336 240 2 default\nd 336 240 336 304 2 default\nw 336 304 336 336 0\ng 336 336 336 352 0 0\nw 336 240 432 240 0\nw 432 240 432 176 0\nO 432 176 496 176 1 0\nr 432 176 256 272 0 100000\nw 256 240 256 272 0\nw 256 272 144 272 0\nw 144 272 144 240 0\no 7 64 0 4098 5 0.00009765625 0 2 7 3\n"
   },
   {
     "id": "impedance-control-table",
-    "type": "diagram",
+    "type": "plotly",
     "title": "How Feedback Controls Input and Output Impedance",
-    "description": "A 2×2 grid showing the four combinations of mixing (series/shunt) and sampling (series/shunt), with arrows indicating whether impedance increases (up arrow) or decreases (down arrow) for each combination.",
-    "details": "Grid with Series/Shunt on both axes. Each cell shows: impedance effect (R_i × D or R_i / D), the amplifier type (voltage, current, etc.), and a colored up/down arrow. Green for increase, red for decrease."
+    "description": "A 2×2 grid showing the four combinations of mixing (series/shunt) and sampling (series/shunt), with arrows indicating whether impedance increases or decreases for each combination.",
+    "traces": [
+      {
+        "x": ["Voltage Amp<br>(Series-Shunt)", "Transconductance<br>(Series-Series)", "Transresistance<br>(Shunt-Shunt)", "Current Amp<br>(Shunt-Series)"],
+        "y": [10, 10, 0.1, 0.1],
+        "type": "bar",
+        "name": "R_i Effect",
+        "marker": {"color": ["green", "green", "red", "red"]}
+      },
+      {
+        "x": ["Voltage Amp<br>(Series-Shunt)", "Transconductance<br>(Series-Series)", "Transresistance<br>(Shunt-Shunt)", "Current Amp<br>(Shunt-Series)"],
+        "y": [0.1, 10, 0.1, 10],
+        "type": "bar",
+        "name": "R_o Effect",
+        "marker": {"color": ["red", "green", "red", "green"]}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Feedback Topology"},
+      "yaxis": {"title": "Impedance Change Factor (×D or /D)", "type": "log"},
+      "title": "Impedance Control by Feedback Topology (D=10)",
+      "barmode": "group",
+      "showlegend": true
+    }
   },
   {
     "id": "bandwidth-extension",
-    "type": "chart",
+    "type": "plotly",
     "title": "Bandwidth Extension: Open-Loop vs Closed-Loop Frequency Response",
     "description": "A Bode plot showing the gain vs frequency for both open-loop and closed-loop cases. The open-loop has high midband gain but narrow bandwidth. The closed-loop has lower midband gain but much wider bandwidth. The gain-bandwidth product is shown to be the same.",
-    "details": "Bode plot with log frequency on x-axis and gain in dB on y-axis. Open-loop curve: high plateau with sharp rolloff. Closed-loop curve: lower plateau with extended bandwidth. Annotate: A_M × f_H = A_Mf × f_Hf. Shade the 'gained bandwidth' region."
+    "traces": [
+      {
+        "x": [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000],
+        "y": [40, 40, 40, 40, 34, 20, 0, -20],
+        "mode": "lines",
+        "name": "Open-Loop",
+        "line": {"color": "red", "width": 2}
+      },
+      {
+        "x": [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000],
+        "y": [20, 20, 20, 20, 20, 20, 14, 0],
+        "mode": "lines",
+        "name": "Closed-Loop",
+        "line": {"color": "blue", "width": 2}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Frequency (Hz)", "type": "log"},
+      "yaxis": {"title": "Gain (dB)"},
+      "title": "Bandwidth Extension with Feedback",
+      "showlegend": true
+    }
   },
   {
     "id": "gain-bandwidth-tradeoff",
-    "type": "diagram",
+    "type": "plotly",
     "title": "The Gain-Bandwidth Tradeoff: You Can't Get Something for Nothing",
     "description": "A see-saw or balance diagram showing that as you apply more feedback (increase D), the gain goes down but the bandwidth goes up proportionally. The product remains constant.",
-    "details": "Draw a see-saw with Gain on one side and Bandwidth on the other. As the feedback amount D increases, the Gain side goes down and the Bandwidth side goes up. Show the product GBP = constant above."
+    "traces": [
+      {
+        "x": [1, 2, 5, 10, 20, 50, 100],
+        "y": [1000, 500, 200, 100, 50, 20, 10],
+        "mode": "lines+markers",
+        "name": "Gain (A_f)",
+        "line": {"color": "red", "width": 2},
+        "marker": {"size": 8}
+      },
+      {
+        "x": [1, 2, 5, 10, 20, 50, 100],
+        "y": [10, 20, 50, 100, 200, 500, 1000],
+        "mode": "lines+markers",
+        "name": "Bandwidth (kHz)",
+        "line": {"color": "blue", "width": 2},
+        "marker": {"size": 8},
+        "yaxis": "y2"
+      },
+      {
+        "x": [1, 2, 5, 10, 20, 50, 100],
+        "y": [10000, 10000, 10000, 10000, 10000, 10000, 10000],
+        "mode": "lines",
+        "name": "GBP = constant",
+        "line": {"color": "green", "dash": "dash", "width": 2}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Desensitivity Factor D = 1 + Aβ", "type": "log"},
+      "yaxis": {"title": "Gain A_f", "type": "log"},
+      "yaxis2": {"title": "Bandwidth (kHz)", "overlaying": "y", "side": "right", "type": "log"},
+      "title": "Gain-Bandwidth Tradeoff (GBP = 10 MHz)",
+      "showlegend": true
+    }
   }
 ]

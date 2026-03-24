@@ -1,51 +1,144 @@
 [
   {
     "id": "analysis-procedure-flowchart",
-    "type": "diagram",
+    "type": "plotly",
     "title": "The 6-Step Feedback Analysis Procedure",
-    "description": "A flowchart showing the 6 steps: 1) Identify topology, 2) Calculate β, 3) Draw open-loop circuit with loading, 4) Calculate A, 5) Calculate A_f, 6) Calculate impedances. Each step has a brief description and connects to the next.",
-    "details": "Vertical flowchart with 6 boxes connected by arrows. Each box has the step number, step name, and a one-line description. Color code: blue for identification steps (1-2), green for analysis steps (3-4), orange for result steps (5-6)."
+    "description": "A flowchart showing the 6 steps: 1) Identify topology, 2) Calculate β, 3) Draw open-loop circuit with loading, 4) Calculate A, 5) Calculate A_f, 6) Calculate impedances.",
+    "traces": [
+      {
+        "x": [1, 2, 3, 4, 5, 6],
+        "y": [1, 1, 1, 1, 1, 1],
+        "mode": "markers+text",
+        "marker": {
+          "size": 50,
+          "color": ["blue", "blue", "green", "green", "orange", "orange"]
+        },
+        "text": [
+          "1. Identify<br>Topology",
+          "2. Calculate<br>β",
+          "3. Draw<br>Open-Loop",
+          "4. Calculate<br>A",
+          "5. Calculate<br>A_f",
+          "6. Calculate<br>Impedances"
+        ],
+        "textposition": "middle center",
+        "textfont": {"size": 9, "color": "white"},
+        "showlegend": false
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Analysis Step", "range": [0, 7]},
+      "yaxis": {"visible": false, "range": [0, 2]},
+      "title": "6-Step Feedback Analysis Procedure",
+      "showlegend": false,
+      "height": 300
+    }
   },
   {
     "id": "pnp-emitter-follower-circuit",
-    "type": "falstad",
+    "type": "falstad-sim",
     "title": "PNP Emitter Follower Circuit — Interactive",
     "description": "A Falstad simulation of the PNP emitter follower circuit analyzed in the lecture. Shows V_in, V_out scopes demonstrating near-unity gain. Students can adjust R_E and R_L to see effects.",
-    "details": "PNP transistor in common-collector. R_S = 10kΩ, R_E = 4.7kΩ, R_L = 4.7kΩ. Two scopes: V_in and V_out showing gain ≈ 1. Highlight R_E as the feedback element with annotation."
+    "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nv 96 336 96 240 0 1 60 1 0 0 0.5\nr 96 240 192 240 0 10000\nw 192 240 224 240 0\ng 96 336 96 352 0 0\nR 320 128 320 96 0 0 40 12 0 0 0.5\nt 224 240 320 240 0 -1 11.373699054136564 -0.6260723413713657 100 default\nr 320 128 320 224 0 4700\nr 320 256 320 336 0 4700\ng 320 336 320 352 0 0\nw 320 336 432 336 0\nw 432 336 432 240 0\nw 432 240 320 240 0\nO 432 240 496 240 1 0\no 6 64 0 4098 5 0.00009765625 0 2 6 3\n"
   },
   {
     "id": "pnp-open-loop-small-signal",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "PNP Emitter Follower: Open-Loop Small-Signal Model",
     "description": "The small-signal equivalent circuit of the PNP emitter follower with feedback 'broken'. Shows h_ie, h_fe·I_b current source, R_E||R_L as the load, and how V_o and V_i are defined.",
-    "details": "Input: V_i across h_ie = 1.1kΩ. I_b = V_i/h_ie. Current source: h_fe·I_b = 50·I_b. Load: R_E||R_L = 2.35kΩ. V_o = h_fe·I_b·(R_E||R_L). Label A_V = V_o/V_i."
+    "elements": [
+      {"component": "resistor", "x": 150, "y": 150, "value": "h_ie", "label": "h_ie = 1.1kΩ"},
+      {"component": "current-source", "x": 250, "y": 200, "label": "h_fe·I_b"},
+      {"component": "resistor", "x": 350, "y": 200, "value": "R_E||R_L", "label": "R_E||R_L = 2.35kΩ"},
+      {"component": "wire", "x1": 100, "y1": 150, "x2": 130, "y2": 150},
+      {"component": "wire", "x1": 170, "y1": 150, "x2": 200, "y2": 150},
+      {"component": "wire", "x1": 200, "y1": 150, "x2": 200, "y2": 120},
+      {"component": "text", "x": 200, "y": 100, "label": "V_i"},
+      {"component": "text", "x": 210, "y": 160, "label": "I_b = V_i/h_ie"},
+      {"component": "wire", "x1": 250, "y1": 180, "x2": 250, "y2": 120},
+      {"component": "wire", "x1": 250, "y1": 220, "x2": 250, "y2": 250},
+      {"component": "wire", "x1": 250, "y1": 200, "x2": 330, "y2": 200},
+      {"component": "wire", "x1": 370, "y1": 200, "x2": 420, "y2": 200},
+      {"component": "text", "x": 420, "y": 200, "label": "V_o"},
+      {"component": "ground", "x": 250, "y": 270},
+      {"component": "text", "x": 200, "y": 300, "label": "A_V = V_o/V_i = h_fe(R_E||R_L)/h_ie ≈ 106.8"}
+    ]
   },
   {
     "id": "pnp-results-summary",
-    "type": "diagram",
+    "type": "plotly",
     "title": "PNP Emitter Follower Analysis Results",
     "description": "A summary card showing the key results: A_V ≈ 106.8, β = 1, D ≈ 107.8, A_Vf ≈ 0.99, R_if ≈ 119 kΩ, R_of ≈ 1.93 Ω. Before/after comparison with green arrows showing improvements.",
-    "details": "Two-column comparison: 'Without Feedback' vs 'With Feedback'. Show: Gain (106.8 → 0.99), R_i (1.1kΩ → 119kΩ), R_o (208Ω → 1.93Ω). Green arrows for improvements. Note: gain close to 1 is DESIRED for a buffer."
+    "traces": [
+      {
+        "x": ["Gain", "R_in (kΩ)", "R_out (Ω)"],
+        "y": [106.8, 1.1, 208],
+        "type": "bar",
+        "name": "Without Feedback",
+        "marker": {"color": "red"}
+      },
+      {
+        "x": ["Gain", "R_in (kΩ)", "R_out (Ω)"],
+        "y": [0.99, 119, 1.93],
+        "type": "bar",
+        "name": "With Feedback",
+        "marker": {"color": "green"}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Parameter"},
+      "yaxis": {"title": "Value", "type": "log"},
+      "title": "PNP Emitter Follower: Before vs After Feedback",
+      "barmode": "group",
+      "showlegend": true
+    }
   },
   {
     "id": "two-stage-ce-feedback-circuit",
-    "type": "falstad",
+    "type": "falstad-sim",
     "title": "Two-Stage CE Amplifier with Feedback — Interactive",
     "description": "A Falstad simulation of the two-stage CE amplifier with R_f = 47kΩ from Q2 collector to Q1 emitter. Students can toggle feedback and observe gain reduction and stability improvement.",
-    "details": "Two BJTs in CE configuration. R_C1 = R_C2 = 4.7kΩ, R_f = 47kΩ, R_E1 = 470Ω. Toggle switch for R_f. Two scopes: V_in and V_out. Display gain value. Show how gain changes with and without feedback."
+    "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nv 96 320 96 240 0 1 60 0.1 0 0 0.5\nw 96 240 176 240 0\ng 96 320 96 336 0 0\nt 176 240 224 240 0 1 -0.6178662088817646 0.6421313964282337 100 default\nw 224 224 224 176 0\nr 224 176 224 112 0 4700\nw 224 112 224 80 0\nR 224 80 224 48 0 0 40 12 0 0 0.5\nr 224 256 224 304 0 470\nw 224 304 224 320 0\nt 352 240 400 240 0 1 -0.05773636668859433 0.6421313964282352 100 default\nw 400 224 400 176 0\nr 400 176 400 112 0 4700\nw 400 112 400 80 0\nw 400 80 224 80 0\nr 400 256 400 304 0 4700\ng 400 304 400 320 0 0\nw 224 240 288 240 0\nc 288 240 352 240 0 0.00001 -0.05773636668859433 0.001\nw 400 176 480 176 0\nO 480 176 544 176 1 0\nr 400 176 224 304 0 47000\no 21 64 0 4098 5 0.0001 0 2 21 3\n"
   },
   {
     "id": "two-stage-open-loop-model",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Two-Stage CE: Open-Loop Equivalent Circuit",
     "description": "The small-signal equivalent circuit of both stages with feedback network loading effects included but feedback signal path broken. Shows Stage 1 (with R_E1 degeneration) driving Stage 2 through the loading of h_ie2.",
-    "details": "Stage 1: V_i → h_ie1 → h_fe1·I_b1 source → R_C1||h_ie2 load. R_E1 in emitter. Stage 2: V_i2 → h_ie2 → h_fe2·I_b2 source → R_C2||R_L||R_f load. Show all values and intermediate gains A_V1 and A_V2."
+    "elements": [
+      {"component": "text", "x": 150, "y": 50, "label": "Stage 1"},
+      {"component": "resistor", "x": 100, "y": 100, "value": "h_ie1", "label": "h_ie1"},
+      {"component": "current-source", "x": 200, "y": 150, "label": "h_fe1·I_b1"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_C1||h_ie2", "label": "R_C1||h_ie2"},
+      {"component": "resistor", "x": 100, "y": 200, "value": "R_E1", "label": "R_E1 (degeneration)"},
+      {"component": "text", "x": 450, "y": 50, "label": "Stage 2"},
+      {"component": "resistor", "x": 400, "y": 100, "value": "h_ie2", "label": "h_ie2"},
+      {"component": "current-source", "x": 500, "y": 150, "label": "h_fe2·I_b2"},
+      {"component": "resistor", "x": 600, "y": 150, "value": "R_C2||R_L||R_f", "label": "R_C2||R_L||R_f"},
+      {"component": "text", "x": 300, "y": 300, "label": "A_V1 ≈ -1.78, A_V2 ≈ -101.7, A_V = A_V1 × A_V2 ≈ 181"}
+    ]
   },
   {
     "id": "two-stage-results-summary",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Two-Stage CE Analysis Results",
     "description": "Summary card: A_V1 ≈ -1.78, A_V2 ≈ -101.7, A_V ≈ 181, β ≈ 0.01, D ≈ 2.79, A_Vf ≈ 64.9, R_if ≈ 70 kΩ, R_of ≈ 1.68 kΩ.",
-    "details": "Multi-row card showing: Stage gains, overall gain, β, D, closed-loop gain. Before/after for R_i and R_o. Note that Aβ ≈ 1.79 is modest — more stages would give better feedback quality."
+    "traces": [
+      {
+        "x": ["Stage 1 Gain", "Stage 2 Gain", "Total Gain", "Closed-Loop Gain"],
+        "y": [1.78, 101.7, 181, 64.9],
+        "type": "bar",
+        "name": "Gain Values",
+        "marker": {"color": ["lightblue", "blue", "darkblue", "green"]},
+        "text": ["-1.78", "-101.7", "181", "64.9"],
+        "textposition": "auto"
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Gain Stage"},
+      "yaxis": {"title": "Magnitude of Gain", "type": "log"},
+      "title": "Two-Stage CE Amplifier: Gain Analysis (β=0.01, D=2.79)",
+      "showlegend": false
+    }
   }
 ]

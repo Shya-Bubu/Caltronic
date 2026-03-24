@@ -1,58 +1,195 @@
 [
   {
     "id": "open-vs-closed-loop",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Open-Loop vs Closed-Loop Amplifier",
-    "description": "Side-by-side comparison showing an open-loop amplifier (input → A → output) with no feedback path, versus a closed-loop amplifier where a fraction β of the output is subtracted from the input. The open-loop path is a straight arrow; the closed-loop path shows the feedback loop going from output through the β block back to the mixer at the input.",
-    "details": "Left side: V_S → [A] → V_out (simple arrow). Right side: V_S → (+) → [A] → V_out, with a branch from V_out → [β] → back to the (-) input of the (+) mixer. Label the mixer as 'Comparator/Mixer'. Show X_i = X_S - X_f at the mixer output."
+    "description": "Side-by-side comparison showing an open-loop amplifier (input → A → output) with no feedback path, versus a closed-loop amplifier where a fraction β of the output is subtracted from the input.",
+    "traces": [
+      {
+        "x": ["Open-Loop", "Closed-Loop"],
+        "y": [1000, 90.9],
+        "type": "bar",
+        "name": "Gain",
+        "marker": {"color": ["red", "blue"]}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Amplifier Type"},
+      "yaxis": {"title": "Gain (V/V)"},
+      "title": "Open-Loop vs Closed-Loop Gain Comparison (β=0.01)",
+      "showlegend": false
+    }
   },
   {
     "id": "feedback-block-diagram",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Universal Feedback Amplifier Block Diagram",
-    "description": "The complete feedback block diagram showing the four building blocks: Signal Source (X_S), Mixer/Comparator (produces X_i = X_S - X_f), Basic Amplifier (gain A, produces X_o = A·X_i), and Feedback Network (gain β, produces X_f = β·X_o). Arrows show signal flow in a loop.",
-    "details": "Draw with the forward path on top (Source → Mixer → Amplifier → Output) and the feedback path on the bottom (Output → β → back to Mixer). Label all signals: X_S (input), X_i (error signal), X_o (output), X_f (feedback signal). The Mixer should show a circle with + and - inputs. Color the forward path blue and the feedback path red."
+    "description": "The complete feedback block diagram showing signal flow through four building blocks: Signal Source, Mixer/Comparator, Basic Amplifier, and Feedback Network.",
+    "traces": [
+      {
+        "x": ["Input (X_S)", "Mixer (X_i)", "Amplifier (X_o)", "Feedback (X_f)"],
+        "y": [1, 0.1, 100, 1],
+        "type": "bar",
+        "name": "Signal Level",
+        "marker": {"color": ["green", "orange", "blue", "red"]}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Signal Path Stage"},
+      "yaxis": {"title": "Relative Signal Amplitude", "type": "log"},
+      "title": "Signal Flow in Feedback Loop (A=1000, β=0.01)",
+      "showlegend": false
+    }
   },
   {
     "id": "closed-loop-gain-derivation",
-    "type": "falstad",
+    "type": "falstad-sim",
     "title": "Interactive Feedback Amplifier — Watch the Gain Change",
     "description": "A Falstad circuit simulation showing a simple op-amp or amplifier model with a resistor divider feedback network. Students can adjust the open-loop gain A and the feedback resistor ratio to see how the closed-loop gain A_f = A/(1+Aβ) converges toward 1/β as A increases.",
-    "details": "Use an op-amp model or voltage-controlled voltage source with adjustable gain A. Connect a resistor divider (R1, R2) from output to inverting input. Show scopes for input, output, and gain value. Allow user to sweep A from 10 to 10000 and observe that A_f barely changes when A is large."
+    "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nv 80 256 80 128 0 1 1000 5 0 0 0.5\nw 80 256 160 256 0\nw 80 128 160 128 0\nO 496 192 560 192 1 0\n403 160 128 256 128 0 1_15_0_4098_1000_0.01_0_2_1_3_0_0\nw 256 128 352 128 0\nw 256 192 352 192 0\nr 352 192 352 288 0 9000\nr 352 288 352 336 0 1000\nw 352 336 352 384 0\ng 352 384 352 400 0 0\nw 352 288 464 288 0\nw 464 288 464 192 0\nw 464 192 352 192 0\nw 352 128 496 128 0\nw 496 128 496 192 0\no 11 64 0 4098 5 0.00009765625 0 2 11 3 feedback gain\n"
   },
   {
     "id": "loop-gain-visualization",
-    "type": "diagram",
+    "type": "plotly",
     "title": "The Loop Gain T = Aβ — Following the Signal Around the Loop",
-    "description": "A diagram showing the signal path around the feedback loop, with the gain at each stage labeled. Starting from the mixer output X_i, through A to get X_o, then through β to get X_f. The product T = A × β is highlighted as the total gain experienced by a signal going once around the loop.",
-    "details": "Draw the loop as a circle with arrows. At each stage, show the signal being multiplied: X_i → ×A → X_o → ×β → X_f = Aβ·X_i. Highlight that if a '1' enters the loop, Aβ comes out after one trip around. Use color to show the multiplication at each stage."
+    "description": "A diagram showing the signal path around the feedback loop, with the gain at each stage labeled. Starting from the mixer output X_i, through A to get X_o, then through β to get X_f.",
+    "traces": [
+      {
+        "x": [0, 1, 2, 3, 4],
+        "y": [1, 1, 1000, 1000, 10],
+        "mode": "lines+markers",
+        "name": "Signal Amplitude",
+        "line": {"color": "blue", "width": 3},
+        "marker": {"size": 10}
+      }
+    ],
+    "layout": {
+      "xaxis": {
+        "title": "Position in Loop",
+        "tickmode": "array",
+        "tickvals": [0, 1, 2, 3, 4],
+        "ticktext": ["Start (X_i)", "×A", "X_o", "×β", "X_f (back)"]
+      },
+      "yaxis": {"title": "Signal Amplitude", "type": "log"},
+      "title": "Signal Traveling Around Feedback Loop (T = Aβ = 10)",
+      "showlegend": false,
+      "annotations": [
+        {
+          "x": 1.5,
+          "y": 500,
+          "text": "Gain A = 1000",
+          "showarrow": false,
+          "font": {"size": 12, "color": "red"}
+        },
+        {
+          "x": 3.5,
+          "y": 100,
+          "text": "Gain β = 0.01",
+          "showarrow": false,
+          "font": {"size": 12, "color": "red"}
+        }
+      ]
+    }
   },
   {
     "id": "gain-stabilization-example",
-    "type": "chart",
+    "type": "plotly",
     "title": "Gain Stabilization: Open-Loop vs Closed-Loop",
     "description": "A bar chart or line graph comparing how open-loop gain A and closed-loop gain A_f respond to variations. Show A varying from 800 to 1200 (±20%) while A_f only varies from about 89 to 93 (±2%). The ideal value 1/β = 100 is shown as a horizontal dashed line that A_f approaches.",
-    "details": "X-axis: 'Amplifier Gain A' from 500 to 2000. Y-axis: 'Gain'. Plot two curves: one is A itself (steep line), the other is A/(1+0.01A) which is nearly flat around 100. Show the dashed line 1/β = 100. Annotate: '20% change in A → only 1.5% change in A_f'."
+    "traces": [
+      {
+        "x": [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+        "y": [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+        "mode": "lines",
+        "name": "Open-Loop Gain A",
+        "line": {"color": "red", "width": 2}
+      },
+      {
+        "x": [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+        "y": [83.33, 85.71, 87.5, 88.89, 90, 90.91, 91.67, 92.31, 92.86, 93.33, 93.75, 94.12, 94.44, 94.74, 95, 95.24],
+        "mode": "lines",
+        "name": "Closed-Loop Gain A_f",
+        "line": {"color": "blue", "width": 2}
+      },
+      {
+        "x": [500, 2000],
+        "y": [100, 100],
+        "mode": "lines",
+        "name": "Ideal (1/β = 100)",
+        "line": {"color": "green", "dash": "dash", "width": 2}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Open-Loop Gain A"},
+      "yaxis": {"title": "Gain"},
+      "title": "Gain Stabilization with Negative Feedback (β = 0.01)",
+      "showlegend": true
+    }
   },
   {
     "id": "complementary-pair-temperature",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Complementary NPN + PNP Temperature Compensation",
     "description": "A circuit diagram showing an NPN and PNP transistor connected such that their V_BE temperature drifts cancel. Each transistor has an arrow showing V_BE drift direction (-2mV/°C), and the net effect is shown as approximately zero drift.",
-    "details": "Draw a simple two-transistor circuit with NPN on top and PNP on bottom. Show V_BE1 shifting down and V_BE2 shifting up with temperature, resulting in net cancellation. Include temperature axis showing the cancellation effect."
+    "elements": [
+      {"component": "npn", "x": 200, "y": 100, "label": "Q1 (NPN)"},
+      {"component": "pnp", "x": 200, "y": 250, "label": "Q2 (PNP)"},
+      {"component": "resistor", "x": 200, "y": 50, "value": "R_C1", "label": "R_C1"},
+      {"component": "resistor", "x": 200, "y": 300, "value": "R_E2", "label": "R_E2"},
+      {"component": "wire", "x1": 100, "y1": 100, "x2": 180, "y2": 100, "label": "V_in"},
+      {"component": "wire", "x1": 220, "y1": 150, "x2": 220, "y2": 200},
+      {"component": "wire", "x1": 180, "y1": 250, "x2": 100, "y2": 250, "label": "Coupled"},
+      {"component": "arrow", "x": 150, "y": 120, "direction": "down", "label": "V_BE ↓ (-2mV/°C)"},
+      {"component": "arrow", "x": 150, "y": 230, "direction": "up", "label": "V_BE ↑ (-2mV/°C)"},
+      {"component": "text", "x": 300, "y": 175, "label": "Net: ≈ 0 drift"}
+    ]
   },
   {
     "id": "two-stage-feedback-amplifier",
-    "type": "falstad",
+    "type": "falstad-sim",
     "title": "Two-Stage Amplifier with Feedback — Interactive Circuit",
     "description": "A Falstad simulation of a two-stage common-emitter amplifier with a feedback resistor R_f from the collector of stage 2 to the emitter of stage 1. Students can toggle the feedback on/off to see how it stabilizes the gain and changes impedances.",
-    "details": "Two CE stages with coupling. R_f connects output collector to first-stage emitter. Include toggleable switch for R_f. Show input/output waveforms with scopes. Display gain value. When feedback is ON, gain should be lower but more stable."
+    "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 96 320 96 256 0 1 60 0.1 0 0 0.5\nw 96 256 176 256 0\ng 96 320 96 336 0 0\nt 176 256 224 256 0 1 -0.6178662088817646 0.6421313964282337 100 default\nw 224 240 224 192 0\nr 224 192 224 128 0 4700\nw 224 128 224 96 0\nR 224 96 224 64 0 0 40 12 0 0 0.5\nr 224 272 224 320 0 470\ng 224 320 224 336 0 0\nt 352 256 400 256 0 1 -0.05773636668859433 0.6421313964282352 100 default\nw 400 240 400 192 0\nr 400 192 400 128 0 4700\nw 400 128 400 96 0\nw 400 96 224 96 0\nr 400 272 400 320 0 4700\ng 400 320 400 336 0 0\nw 224 256 288 256 0\nc 288 256 352 256 0 0.00001 -0.05773636668859433 0.001\nw 400 192 480 192 0\nO 480 192 544 192 1 0\nr 400 192 224 320 0 47000\nw 224 272 224 288 0\no 21 64 0 4098 5 0.0001 0 2 21 3\n"
   },
   {
     "id": "positive-vs-negative-feedback",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Negative vs Positive Feedback Effects",
-    "description": "A comparison diagram showing negative feedback (subtracting, gain reduces, stable) vs positive feedback (adding, gain increases, may oscillate). Uses simple wave diagrams to show how negative feedback produces a smaller but cleaner output, while positive feedback amplifies and potentially leads to oscillation.",
-    "details": "Two rows. Top row: Negative feedback — input wave, subtracted feedback wave, reduced but clean output wave. Bottom row: Positive feedback — input wave, added feedback wave, growing output that eventually clips or oscillates. Use green for negative feedback and red for positive feedback."
+    "description": "A comparison diagram showing negative feedback (subtracting, gain reduces, stable) vs positive feedback (adding, gain increases, may oscillate).",
+    "traces": [
+      {
+        "x": ["Negative Feedback", "Positive Feedback"],
+        "y": [90.9, 5000],
+        "type": "bar",
+        "name": "Closed-Loop Gain",
+        "marker": {"color": ["green", "red"]}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Feedback Type"},
+      "yaxis": {"title": "Closed-Loop Gain (A=1000, β=0.01)", "type": "log"},
+      "title": "Negative Feedback Stabilizes, Positive Feedback Amplifies",
+      "showlegend": false,
+      "annotations": [
+        {
+          "x": 0,
+          "y": 90.9,
+          "text": "Stable<br>A_f = A/(1+Aβ) = 90.9",
+          "showarrow": true,
+          "arrowhead": 2,
+          "ax": 0,
+          "ay": -40
+        },
+        {
+          "x": 1,
+          "y": 5000,
+          "text": "Unstable<br>A_f = A/(1-Aβ) = 5000",
+          "showarrow": true,
+          "arrowhead": 2,
+          "ax": 0,
+          "ay": -40
+        }
+      ]
+    }
   }
 ]

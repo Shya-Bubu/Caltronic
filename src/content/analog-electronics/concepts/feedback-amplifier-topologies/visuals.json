@@ -1,93 +1,270 @@
 [
   {
     "id": "four-topologies-matrix",
-    "type": "diagram",
+    "type": "plotly",
     "title": "The 2×2 Matrix of Feedback Topologies",
     "description": "A 2×2 grid with Sampling type (Voltage/Shunt vs Current/Series) on one axis and Mixing type (Series/Voltage vs Shunt/Current) on the other. Each cell shows the topology name, amplifier type, and impedance effects.",
-    "details": "Grid layout: rows = Mixing (Series, Shunt), columns = Sampling (Shunt, Series). Cell (Series,Shunt) = 'Voltage Amp, R_i↑ R_o↓'. Cell (Series,Series) = 'Transconductance, R_i↑ R_o↑'. Cell (Shunt,Shunt) = 'Transresistance, R_i↓ R_o↓'. Cell (Shunt,Series) = 'Current Amp, R_i↓ R_o↑'. Color code up/down arrows."
+    "traces": [
+      {
+        "x": ["Series-Shunt<br>Voltage Amp", "Series-Series<br>Transconductance", "Shunt-Shunt<br>Transresistance", "Shunt-Series<br>Current Amp"],
+        "y": [1, 1, 1, 1],
+        "type": "bar",
+        "name": "Topology",
+        "text": ["R_i↑ R_o↓", "R_i↑ R_o↑", "R_i↓ R_o↓", "R_i↓ R_o↑"],
+        "textposition": "auto",
+        "marker": {"color": ["blue", "green", "orange", "purple"]}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Feedback Topology (Mixing-Sampling)"},
+      "yaxis": {"title": "Count", "visible": false},
+      "title": "Four Feedback Topologies and Impedance Effects",
+      "showlegend": false,
+      "height": 400
+    }
   },
   {
     "id": "voltage-sampling-shunt",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Voltage Sampling (Shunt) — Like a Voltmeter",
     "description": "Diagram showing the feedback network connected in parallel across the output. The amplifier block (A) has output voltage V_o, and the feedback block (β) has its input connected across V_o. Show the feedback network 'seeing' the output voltage.",
-    "details": "Amplifier A block with V_o output. β block connected in parallel across V_o. Show R_L also connected across V_o. Arrows showing V_o enters β, and V_f = βV_o exits. Analogy: voltmeter symbol in parallel."
+    "elements": [
+      {"component": "amplifier", "x": 150, "y": 150, "label": "A"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_L", "label": "R_L"},
+      {"component": "resistor", "x": 300, "y": 250, "value": "β", "label": "β"},
+      {"component": "wire", "x1": 200, "y1": 150, "x2": 250, "y2": 150, "label": "V_o"},
+      {"component": "wire", "x1": 250, "y1": 150, "x2": 250, "y2": 100},
+      {"component": "wire", "x1": 250, "y1": 100, "x2": 300, "y2": 100},
+      {"component": "wire", "x1": 300, "y1": 100, "x2": 300, "y2": 130},
+      {"component": "wire", "x1": 300, "y1": 170, "x2": 300, "y2": 230},
+      {"component": "wire", "x1": 300, "y1": 270, "x2": 300, "y2": 300},
+      {"component": "ground", "x": 300, "y": 320},
+      {"component": "wire", "x1": 250, "y1": 150, "x2": 250, "y2": 200},
+      {"component": "wire", "x1": 250, "y1": 200, "x2": 100, "y2": 200},
+      {"component": "wire", "x1": 100, "y1": 200, "x2": 100, "y2": 250, "label": "V_f to input"},
+      {"component": "text", "x": 350, "y": 150, "label": "Parallel connection = Voltage sampling"}
+    ]
   },
   {
     "id": "current-sampling-series",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Current Sampling (Series) — Like an Ammeter",
     "description": "Diagram showing the feedback element in series with the output current path. The output current I_o flows through the feedback element, creating V_f across it.",
-    "details": "Amplifier A block with I_o output. β block (a resistor) in series with the output current path. I_o flows through β. Show V_f = βI_o across the element. Analogy: ammeter symbol in series."
+    "elements": [
+      {"component": "amplifier", "x": 150, "y": 150, "label": "A"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "β", "label": "β (in series)"},
+      {"component": "resistor", "x": 400, "y": 200, "value": "R_L", "label": "R_L"},
+      {"component": "wire", "x1": 200, "y1": 150, "x2": 280, "y2": 150},
+      {"component": "wire", "x1": 320, "y1": 150, "x2": 400, "y2": 150},
+      {"component": "wire", "x1": 400, "y1": 150, "x2": 400, "y2": 180},
+      {"component": "wire", "x1": 400, "y1": 220, "x2": 400, "y2": 250},
+      {"component": "ground", "x": 400, "y": 270},
+      {"component": "arrow", "x": 350, "y": 130, "direction": "right", "label": "I_o"},
+      {"component": "text", "x": 300, "y": 100, "label": "V_f = β·I_o"},
+      {"component": "text", "x": 200, "y": 250, "label": "Series connection = Current sampling"}
+    ]
   },
   {
     "id": "series-mixing-voltage",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Series Mixing — Voltages Add by KVL",
     "description": "Circuit showing V_S, V_f, and V_i in a series loop at the input. KVL gives V_i = V_S - V_f. The feedback voltage subtracts from the source voltage.",
-    "details": "Input loop: V_S source → V_f feedback voltage (opposing) → V_i appears across amplifier input R_i. Show KVL loop equation. Highlight that voltages are in series."
+    "elements": [
+      {"component": "voltage-source", "x": 100, "y": 150, "label": "V_S"},
+      {"component": "voltage-source", "x": 200, "y": 150, "label": "V_f", "polarity": "reversed"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_i", "label": "R_i"},
+      {"component": "wire", "x1": 120, "y1": 150, "x2": 180, "y2": 150},
+      {"component": "wire", "x1": 220, "y1": 150, "x2": 280, "y2": 150},
+      {"component": "wire", "x1": 320, "y1": 150, "x2": 350, "y2": 150},
+      {"component": "text", "x": 250, "y": 100, "label": "V_i = V_S - V_f (KVL)"},
+      {"component": "text", "x": 250, "y": 250, "label": "Series mixing = Voltage subtraction"}
+    ]
   },
   {
     "id": "shunt-mixing-current",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Shunt Mixing — Currents Add by KCL",
     "description": "Circuit showing I_S, I_f, and I_i meeting at the input node. KCL gives I_i = I_S - I_f. The feedback current subtracts from the source current.",
-    "details": "Node diagram: I_S flowing in, I_f flowing out (or in opposing direction), I_i flowing into R_i. KCL equation at node. Highlight that currents meet at a node."
+    "elements": [
+      {"component": "current-source", "x": 100, "y": 150, "label": "I_S"},
+      {"component": "current-source", "x": 200, "y": 200, "label": "I_f", "direction": "up"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_i", "label": "R_i"},
+      {"component": "node", "x": 200, "y": 150, "label": "Input Node"},
+      {"component": "wire", "x1": 120, "y1": 150, "x2": 200, "y2": 150},
+      {"component": "wire", "x1": 200, "y1": 150, "x2": 280, "y2": 150},
+      {"component": "arrow", "x": 160, "y": 130, "direction": "right", "label": "I_S"},
+      {"component": "arrow", "x": 180, "y": 180, "direction": "up", "label": "I_f"},
+      {"component": "arrow", "x": 240, "y": 130, "direction": "right", "label": "I_i"},
+      {"component": "text", "x": 200, "y": 250, "label": "I_i = I_S - I_f (KCL)"},
+      {"component": "text", "x": 200, "y": 280, "label": "Shunt mixing = Current subtraction"}
+    ]
   },
   {
     "id": "series-shunt-topology",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Series-Shunt Feedback (Voltage Amplifier)",
     "description": "Complete feedback amplifier model for the voltage amplifier: Thévenin source, series mixing of V_S and V_f, amplifier with A_V gain and R_i/R_o, shunt sampling at output with R_L, and β feedback network connected across V_o.",
-    "details": "Full circuit: V_S with R_S → series loop with V_f → into R_i → A_V·V_i source with R_o → V_o across R_L. β network from V_o producing V_f back to series loop. Label all impedances and signals."
+    "traces": [
+      {
+        "x": ["V_S (Source)", "V_i (Input)", "V_o (Output)", "V_f (Feedback)"],
+        "y": [1, 0.01, 100, 1],
+        "type": "bar",
+        "name": "Voltage Level",
+        "marker": {"color": ["green", "orange", "blue", "red"]}
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Signal Point"},
+      "yaxis": {"title": "Voltage (V)", "type": "log"},
+      "title": "Series-Shunt Feedback Signal Flow (A_V=10000, β=0.01)",
+      "showlegend": false
+    }
   },
   {
     "id": "series-series-topology",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Series-Series Feedback (Transconductance Amplifier)",
     "description": "Feedback model for transconductance amplifier: Thévenin source, series mixing, amplifier with G_M gain, series sampling where I_o flows through feedback element, and high output impedance.",
-    "details": "V_S → series loop → R_i → G_M·V_i current source with R_o (large) → I_o through R_L and through β element (in series). V_f developed across β element feeds back to series loop."
+    "traces": [
+      {
+        "x": ["V_i", "I_o", "V_f"],
+        "y": [1, 100, 1],
+        "type": "bar",
+        "name": "Signal Level",
+        "marker": {"color": ["green", "blue", "red"]},
+        "text": ["Input Voltage (mV)", "Output Current (mA)", "Feedback Voltage (mV)"],
+        "textposition": "auto"
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Signal Point"},
+      "yaxis": {"title": "Magnitude (mV or mA)", "type": "log"},
+      "title": "Series-Series (Transconductance) Signal Flow (G_M=100mA/V)",
+      "showlegend": false
+    }
   },
   {
     "id": "shunt-shunt-topology",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Shunt-Shunt Feedback (Transresistance Amplifier)",
     "description": "Feedback model for transresistance amplifier: Norton source, shunt mixing of I_S and I_f at input node, amplifier with R_M gain, and shunt sampling at output.",
-    "details": "I_S current source with R_S → node where I_f subtracts → I_i into R_i (small) → R_M·I_i voltage source with R_o (small) → V_o across R_L. β network: I_f = V_o/R_f back to input node."
+    "traces": [
+      {
+        "x": ["I_i", "V_o", "I_f"],
+        "y": [1, 100, 1],
+        "type": "bar",
+        "name": "Signal Level",
+        "marker": {"color": ["green", "blue", "red"]},
+        "text": ["Input Current (μA)", "Output Voltage (mV)", "Feedback Current (μA)"],
+        "textposition": "auto"
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Signal Point"},
+      "yaxis": {"title": "Magnitude (μA or mV)", "type": "log"},
+      "title": "Shunt-Shunt (Transresistance) Signal Flow (R_M=100kΩ)",
+      "showlegend": false
+    }
   },
   {
     "id": "shunt-series-topology",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Shunt-Series Feedback (Current Amplifier)",
     "description": "Feedback model for current amplifier: Norton source, shunt mixing at input, amplifier with A_I gain, and series sampling where output current flows through feedback element.",
-    "details": "I_S → input node (KCL with I_f) → R_i (small) → A_I·I_i current source with R_o (large) → I_o through R_L and β element. I_f from β feeds back to input node."
+    "traces": [
+      {
+        "x": ["I_i", "I_o", "I_f"],
+        "y": [1, 100, 100],
+        "type": "bar",
+        "name": "Current Level",
+        "marker": {"color": ["green", "blue", "red"]},
+        "text": ["Input Current (μA)", "Output Current (mA)", "Feedback Current (mA)"],
+        "textposition": "auto"
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Signal Point"},
+      "yaxis": {"title": "Current Magnitude", "type": "log"},
+      "title": "Shunt-Series (Current Amp) Signal Flow (A_I=100)",
+      "showlegend": false
+    }
   },
   {
     "id": "master-topology-table",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Complete Summary: All Four Feedback Topologies",
     "description": "A comprehensive table or card layout showing all four topologies side by side with: topology name, amplifier type, mixing/sampling, impedance effects, gain formula, and β units.",
-    "details": "Four columns, one per topology. Rows: Name, Amplifier Type, Input Signal, Output Signal, Mixing, Sampling, R_if formula, R_of formula, β units, Gain formula. Use color coding: green for impedance increases, red for decreases."
+    "traces": [
+      {
+        "x": ["Voltage<br>(Series-Shunt)", "Transconductance<br>(Series-Series)", "Transresistance<br>(Shunt-Shunt)", "Current<br>(Shunt-Series)"],
+        "y": [100, 100, 100, 100],
+        "type": "bar",
+        "name": "Input Impedance Effect",
+        "marker": {"color": ["green", "green", "red", "red"]},
+        "text": ["R_i×D (↑)", "R_i×D (↑)", "R_i/D (↓)", "R_i/D (↓)"],
+        "textposition": "inside"
+      },
+      {
+        "x": ["Voltage<br>(Series-Shunt)", "Transconductance<br>(Series-Series)", "Transresistance<br>(Shunt-Shunt)", "Current<br>(Shunt-Series)"],
+        "y": [100, 100, 100, 100],
+        "type": "bar",
+        "name": "Output Impedance Effect",
+        "marker": {"color": ["red", "green", "red", "green"]},
+        "text": ["R_o/D (↓)", "R_o×D (↑)", "R_o/D (↓)", "R_o×D (↑)"],
+        "textposition": "inside"
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Amplifier Type (Mixing-Sampling)"},
+      "yaxis": {"title": "Impedance Effect", "visible": false},
+      "title": "Impedance Effects by Topology",
+      "barmode": "stack",
+      "showlegend": true,
+      "height": 500
+    }
   },
   {
     "id": "topology-identification-flowchart",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Flowchart: Identifying the Feedback Topology",
     "description": "A decision-tree flowchart starting with 'Find the feedback element', then branching on 'Is it connected directly to the output?' (Yes=Voltage/Shunt, No=Current/Series), then 'Is it connected directly to the input?' (Yes=Current/Shunt, No=Voltage/Series), leading to one of the four topologies.",
-    "details": "Start → 'Identify R_f' → 'Connected to output node directly?' → Yes: 'Voltage Sampling (Shunt)' / No: 'Current Sampling (Series)' → 'Connected to input node directly?' → Yes: 'Shunt Mixing (Current)' / No: 'Series Mixing (Voltage)' → Combine answers → Topology name and amplifier type."
+    "traces": [
+      {
+        "x": [1, 2, 3, 4],
+        "y": [4, 3, 2, 1],
+        "mode": "markers+text",
+        "marker": {"size": [60, 50, 50, 50], "color": ["blue", "green", "orange", "purple"]},
+        "text": ["Start:<br>Find R_f", "Step 1:<br>Sampling?", "Step 2:<br>Mixing?", "Topology<br>Identified"],
+        "textposition": "middle center",
+        "textfont": {"size": 10, "color": "white"},
+        "showlegend": false
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Analysis Step", "range": [0, 5], "showgrid": false},
+      "yaxis": {"title": "Decision Tree Level", "range": [0, 5], "showgrid": false},
+      "title": "Topology Identification Decision Flow",
+      "showlegend": false,
+      "height": 400,
+      "annotations": [
+        {"x": 2, "y": 3.5, "text": "Output<br>connection?", "showarrow": false},
+        {"x": 3, "y": 2.5, "text": "Input<br>connection?", "showarrow": false},
+        {"x": 4, "y": 1.5, "text": "→ Series/Shunt/etc", "showarrow": false}
+      ]
+    }
   },
   {
     "id": "emitter-follower-as-feedback",
-    "type": "falstad",
+    "type": "falstad-sim",
     "title": "Emitter Follower as Series-Shunt Feedback — Interactive",
     "description": "A Falstad simulation of a common-collector (emitter follower) circuit, with annotations showing the feedback path through R_E. Students can see the gain is ≈1, input impedance is high, and output impedance is low.",
-    "details": "Single BJT in CC configuration with R_E. Show V_in and V_out scopes. Annotate R_E as the feedback element. Display gain value (≈1), R_in (high), R_out (low). Optional: toggle R_E bypass cap to show effect of removing feedback at AC."
+    "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nv 96 336 96 240 0 1 60 1 0 0 0.5\nw 96 240 192 240 0\ng 96 336 96 352 0 0\nR 320 128 320 96 0 0 40 12 0 0 0.5\nt 192 240 320 240 0 1 -11.373699054136564 0.6260723413713657 100 default\nr 320 128 320 224 0 4700\nr 320 256 320 336 0 1000\ng 320 336 320 352 0 0\nw 320 336 432 336 0\nw 432 336 432 240 0\nO 432 240 496 240 1 0\no 6 64 0 4098 5 0.00009765625 0 2 6 3\n"
   },
   {
     "id": "shunt-shunt-example",
-    "type": "falstad",
+    "type": "falstad-sim",
     "title": "Shunt-Shunt Feedback with R_f from Collector to Base",
     "description": "A Falstad simulation of a CE amplifier with R_f from collector to base. Students can see the transresistance behavior — current in, voltage out — and observe the reduced input and output impedances.",
-    "details": "Single CE BJT with R_f from V_C to base. Input is a current source. Show V_out scope. Display R_in (low), R_out (low), and gain. Toggle R_f to see feedback on/off effect."
+    "circuitText": "$ 1 0.000005 10.20027730826997 50 5 50 5e-11\nf 192 240 256 240 0 1.5 0.02\nw 192 240 128 240 0\ng 128 336 128 352 0 0\nR 256 128 256 96 0 0 40 12 0 0 0.5\nt 256 240 304 240 0 1 -11.328991043276437 0.6710804522315787 100 default\nr 304 128 304 224 0 4700\nr 304 256 304 336 0 1000\ng 304 336 304 352 0 0\nw 304 128 256 128 0\nr 304 128 192 240 0 100000\nw 304 128 432 128 0\nO 432 128 496 128 1 0\nw 128 240 128 336 0\no 11 64 0 4098 5 0.00009765625 0 2 11 3\n"
   }
 ]

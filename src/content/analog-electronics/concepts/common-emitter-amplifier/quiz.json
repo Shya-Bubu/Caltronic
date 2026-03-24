@@ -71,7 +71,7 @@
                 "250 Ω"
             ],
             "correctAnswer": "2.5 kΩ",
-            "explanation": "r_π = β/g_m = 100/0.04 = 2500 Ω = 2.5 kΩ."
+            "explanation": "The base-emitter resistance is r_π = β/g_m = 100/0.04 = 2500 Ω = 2.5 kΩ. This is the correct answer using the hybrid-pi model relationship. The other options are incorrect: 100 kΩ would require g_m = 1 mS (too small), 40 kΩ would require g_m = 2.5 mS, and 250 Ω would require β = 10 (too small for a typical BJT)."
         },
         {
             "id": "q7",
@@ -119,7 +119,7 @@
                 "40"
             ],
             "correctAnswer": "200",
-            "explanation": "|A_V| = g_m × R_C = 0.04 × 5000 = 200."
+            "explanation": "The CE voltage gain magnitude is |A_V| = g_m × R_C = 40mS × 5kΩ = 0.04 × 5000 = 200. This is correct because g_m converts input voltage to current, and R_C converts that current back to output voltage. The other options are wrong: 5 would be R_C/1kΩ, 0.008 is the reciprocal calculation error (1/125), and 40 is just g_m in mS without multiplying by R_C."
         }
     ]
 }

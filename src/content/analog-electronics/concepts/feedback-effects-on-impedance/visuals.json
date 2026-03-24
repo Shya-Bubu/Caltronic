@@ -1,44 +1,131 @@
 [
   {
     "id": "impedance-intuition",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Intuitive Picture: Why Feedback Changes Impedance",
-    "description": "Two side-by-side illustrations. Left: series feedback at input — source must push against V_f, so it 'sees' higher impedance. Right: shunt feedback at input — feedback current shares the load, making the node look like lower impedance. Use simple mechanical analogies (springs, water flow).",
-    "details": "Left panel: Arrow of V_S pushing against wall labeled V_f, with V_i being the small gap between them. Caption: 'Source works harder → higher impedance'. Right panel: Two streams of current (I_S and I_f) merging at a node, with only I_i entering the amplifier. Caption: 'Feedback helps → lower impedance'."
+    "description": "Two side-by-side illustrations showing series feedback at input making source 'see' higher impedance, vs shunt feedback making node look like lower impedance.",
+    "traces": [
+      {
+        "x": ["No Feedback", "Series Feedback", "Shunt Feedback"],
+        "y": [1, 10, 0.1],
+        "type": "bar",
+        "name": "Input Impedance",
+        "marker": {"color": ["gray", "green", "red"]},
+        "text": ["R_i = 1kΩ", "R_if = 10kΩ (×D)", "R_if = 100Ω (/D)"],
+        "textposition": "auto"
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Feedback Type at Input"},
+      "yaxis": {"title": "Input Impedance (kΩ)", "type": "log"},
+      "title": "How Feedback Changes Input Impedance (D=10)",
+      "showlegend": false
+    }
   },
   {
     "id": "series-mixing-impedance-derivation",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Series Mixing: Input Impedance Derivation Circuit",
     "description": "Circuit diagram for the series mixing case. Shows V_S, V_f in series, V_i across R_i, with I_i flowing through. All voltages and currents labeled. KVL equation shown: V_S = V_i + V_f.",
-    "details": "Loop diagram: V_S source → V_f (feedback voltage, opposing) → R_i with V_i across it and I_i through it. Show V_f = βAV_i. Derive R_if = V_S/I_i step by step alongside the circuit."
+    "elements": [
+      {"component": "voltage-source", "x": 100, "y": 150, "label": "V_S"},
+      {"component": "voltage-source", "x": 200, "y": 150, "label": "V_f", "polarity": "reversed"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_i", "label": "R_i"},
+      {"component": "wire", "x1": 120, "y1": 150, "x2": 180, "y2": 150},
+      {"component": "wire", "x1": 220, "y1": 150, "x2": 280, "y2": 150},
+      {"component": "wire", "x1": 320, "y1": 150, "x2": 370, "y2": 150},
+      {"component": "arrow", "x": 340, "y": 130, "direction": "right", "label": "I_i"},
+      {"component": "text", "x": 200, "y": 80, "label": "V_S = V_i + V_f (KVL)"},
+      {"component": "text", "x": 200, "y": 250, "label": "V_f = βAV_i"},
+      {"component": "text", "x": 200, "y": 280, "label": "R_if = V_S/I_i = R_i(1 + Aβ) = R_i × D"}
+    ]
   },
   {
     "id": "shunt-mixing-impedance-derivation",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Shunt Mixing: Input Impedance Derivation Circuit",
     "description": "Circuit diagram for the shunt mixing case. Shows I_S entering a node, I_f being subtracted, and I_i entering R_i. All currents labeled. KCL equation shown: I_S = I_i + I_f.",
-    "details": "Node diagram: I_S flowing in from left, I_f flowing in from bottom (feedback), I_i flowing right into R_i. V_i appears across R_i. Show I_f = βAI_i. Derive R_if = V_i/I_S step by step."
+    "elements": [
+      {"component": "current-source", "x": 100, "y": 150, "label": "I_S"},
+      {"component": "current-source", "x": 200, "y": 220, "label": "I_f", "direction": "up"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_i", "label": "R_i"},
+      {"component": "node", "x": 200, "y": 150, "label": "Node"},
+      {"component": "wire", "x1": 120, "y1": 150, "x2": 200, "y2": 150},
+      {"component": "wire", "x1": 200, "y1": 150, "x2": 280, "y2": 150},
+      {"component": "arrow", "x": 160, "y": 130, "direction": "right", "label": "I_S"},
+      {"component": "arrow", "x": 180, "y": 195, "direction": "up", "label": "I_f"},
+      {"component": "arrow", "x": 240, "y": 130, "direction": "right", "label": "I_i"},
+      {"component": "text", "x": 200, "y": 80, "label": "I_S = I_i + I_f (KCL)"},
+      {"component": "text", "x": 200, "y": 270, "label": "I_f = βAI_i"},
+      {"component": "text", "x": 200, "y": 300, "label": "R_if = V_i/I_S = R_i/(1 + Aβ) = R_i / D"}
+    ]
   },
   {
     "id": "output-impedance-voltage-sampling",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Output Impedance with Voltage (Shunt) Sampling",
     "description": "Circuit showing test voltage V_t applied at output with source turned off. The feedback creates -βAV_t internally, opposing V_t. Shows test current I_t and derivation of R_of = R_o/D.",
-    "details": "Output side: V_t applied at output terminals. Internal: amplifier produces -AβV_t (opposing). R_o between internal source and output. I_t = V_t(1+Aβ)/R_o. Arrow showing active opposition."
+    "elements": [
+      {"component": "voltage-source", "x": 450, "y": 150, "label": "V_t (test)"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_o", "label": "R_o"},
+      {"component": "voltage-source", "x": 200, "y": 150, "label": "-AβV_t", "polarity": "reversed"},
+      {"component": "wire", "x1": 220, "y1": 150, "x2": 280, "y2": 150},
+      {"component": "wire", "x1": 320, "y1": 150, "x2": 430, "y2": 150},
+      {"component": "arrow", "x": 380, "y": 130, "direction": "left", "label": "I_t"},
+      {"component": "text", "x": 300, "y": 80, "label": "I_t = V_t(1+Aβ)/R_o"},
+      {"component": "text", "x": 300, "y": 250, "label": "R_of = V_t/I_t = R_o/(1+Aβ) = R_o/D"},
+      {"component": "text", "x": 300, "y": 280, "label": "Feedback actively opposes → lower impedance"}
+    ]
   },
   {
     "id": "output-impedance-current-sampling",
-    "type": "diagram",
+    "type": "circuit-schematic",
     "title": "Output Impedance with Current (Series) Sampling",
     "description": "Circuit showing test current applied at output. Feedback monitors output current and generates opposing signal. Shows derivation of R_of = R_o × D.",
-    "details": "Output side with current source test. β element in series sampling the current. Internal amplifier reacts to maintain current. Result: R_of = R_o × D. Output looks like stiff current source."
+    "elements": [
+      {"component": "current-source", "x": 450, "y": 150, "label": "I_t (test)"},
+      {"component": "resistor", "x": 300, "y": 150, "value": "R_o", "label": "R_o"},
+      {"component": "voltage-source", "x": 200, "y": 150, "label": "AβR_o·I_t"},
+      {"component": "wire", "x1": 220, "y1": 150, "x2": 280, "y2": 150},
+      {"component": "wire", "x1": 320, "y1": 150, "x2": 430, "y2": 150},
+      {"component": "arrow", "x": 380, "y": 130, "direction": "left", "label": "I_t"},
+      {"component": "text", "x": 300, "y": 80, "label": "V_t = I_t·R_o(1+Aβ)"},
+      {"component": "text", "x": 300, "y": 250, "label": "R_of = V_t/I_t = R_o(1+Aβ) = R_o × D"},
+      {"component": "text", "x": 300, "y": 280, "label": "Feedback actively assists → higher impedance"}
+    ]
   },
   {
     "id": "impedance-changes-ideal-direction",
-    "type": "diagram",
+    "type": "plotly",
     "title": "Feedback Pushes Impedances Toward Ideal Values",
     "description": "Four panels, one for each topology, showing arrows pointing from actual R_i and R_o values toward their ideal values (0 or ∞). Each panel shows how feedback helps bridge the gap.",
-    "details": "4 panels. Each shows: actual R_i → (feedback) → ideal R_i, and actual R_o → (feedback) → ideal R_o. Voltage amp: R_i→∞, R_o→0. Transconductance: R_i→∞, R_o→∞. Transresistance: R_i→0, R_o→0. Current: R_i→0, R_o→∞. Arrows are proportional to D."
+    "traces": [
+      {
+        "x": ["Voltage Amp", "Transconductance", "Transresistance", "Current Amp"],
+        "y": [10, 10, 0.1, 0.1],
+        "type": "bar",
+        "name": "R_i Effect",
+        "marker": {"color": ["green", "green", "red", "red"]},
+        "text": ["→∞ (ideal)", "→∞ (ideal)", "→0 (ideal)", "→0 (ideal)"],
+        "textposition": "auto"
+      },
+      {
+        "x": ["Voltage Amp", "Transconductance", "Transresistance", "Current Amp"],
+        "y": [0.1, 10, 0.1, 10],
+        "type": "bar",
+        "name": "R_o Effect",
+        "marker": {"color": ["red", "green", "red", "green"]},
+        "text": ["→0 (ideal)", "→∞ (ideal)", "→0 (ideal)", "→∞ (ideal)"],
+        "textposition": "auto"
+      }
+    ],
+    "layout": {
+      "xaxis": {"title": "Amplifier Topology"},
+      "yaxis": {"title": "Impedance Change Factor (×D or /D)", "type": "log"},
+      "title": "Feedback Moves Impedances Toward Ideal (D=10)",
+      "barmode": "group",
+      "showlegend": true,
+      "height": 500
+    }
   }
 ]

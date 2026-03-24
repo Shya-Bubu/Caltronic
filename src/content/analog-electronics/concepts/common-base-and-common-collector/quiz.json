@@ -11,7 +11,7 @@
                 "Any terminal"
             ],
             "correctAnswer": "Emitter",
-            "explanation": "CB: input at emitter, output at collector, base is common (AC grounded)."
+            "explanation": "In the common-base (CB) configuration, the signal enters at the emitter and exits at the collector, while the base is common to both (AC grounded). This is correct because CB means the base is the reference terminal. The other options are wrong: base is the common terminal (not input), collector is the output, and the input is specifically the emitter in CB configuration."
         },
         {
             "id": "q2",

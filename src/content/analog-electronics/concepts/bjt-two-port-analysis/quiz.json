@@ -11,7 +11,7 @@
                 "Reverse voltage ratio"
             ],
             "correctAnswer": "Forward current gain (β)",
-            "explanation": "h_fe = I_out/I_in with V_out = 0. For CE, h_fe = β."
+            "explanation": "h_fe is the forward short-circuit current gain, defined as I_out/I_in with V_out = 0 (output shorted). For a common-emitter BJT, h_fe equals β, the DC current gain. This is correct. The other options are wrong: h_ie is input impedance, h_oe is output admittance, and h_re is reverse voltage ratio."
         },
         {
             "id": "q2",
@@ -35,7 +35,7 @@
                 "It equals h_fe"
             ],
             "correctAnswer": "Its value is ≈ 0 (10⁻⁴)",
-            "explanation": "h_re is the reverse voltage feedback ratio. For BJTs it is typically 10⁻⁴, small enough to neglect."
+            "explanation": "h_re is the reverse open-circuit voltage feedback ratio (V_in/V_out with I_in = 0). For typical BJTs, h_re ≈ 10⁻⁴ which is negligibly small, so we approximate it as zero in most analyses. This simplifies the h-parameter equations significantly. The other options are incorrect: h_re has correct units (dimensionless), applies at all frequencies, and is completely different from h_fe."
         },
         {
             "id": "q4",
@@ -119,7 +119,7 @@
                 "-1500"
             ],
             "correctAnswer": "-500",
-            "explanation": "A_V = -h_fe·R_L/h_ie = -150·10k/3k = -500."
+            "explanation": "Using the simplified h-parameter formula for CE voltage gain: A_V = -h_fe·R_L/h_ie = -150·10kΩ/3kΩ = -150·(10/3) = -500. The negative sign indicates 180° phase inversion characteristic of CE amplifiers. This is correct. The other options are wrong: -150 would be if R_L = h_ie, +500 ignores the phase inversion, and -1500 incorrectly multiplies instead of divides by h_ie."
         }
     ]
 }
