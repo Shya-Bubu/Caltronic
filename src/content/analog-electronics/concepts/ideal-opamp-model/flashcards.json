@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-ideal-opamp-model",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What does a differential amplifier amplify?",
+            "back": "It amplifies the *difference* between two input voltages (V_1 - V_2), not the absolute voltage relative to ground.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "List the three Golden Rules of an Ideal Op-Amp.",
+            "back": "1. Infinite input impedance (no current into inputs). 2. Zero output impedance. 3. Infinite open-loop gain (A_vd → ∞).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is the Virtual Short Principle?",
+            "back": "When negative feedback is applied, an ideal op-amp forces the voltage difference between its input terminals to zero (V_+ = V_-) without any current flowing between them.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is Common-Mode Rejection Ratio (CMRR)?",
+            "back": "CMRR = A_vd / A_cm. It is the ratio of differential gain to common-mode gain, representing how well the amplifier rejects noise common to both inputs.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why is a constant current source used in the emitter tail of an op-amp's internal differential pair?",
+            "back": "Instead of a physical resistor, it acts as a massive equivalent AC resistance, which drives the common-mode gain A_cm towards zero, thereby maximizing CMRR.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What does infinite input impedance imply for op-amp circuit analysis?",
+            "back": "It implies that the input bias currents are perfectly zero (i_+ = 0 and i_- = 0). You can always assume no current is drawn by the op-amp input pins.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "If V_d is the differential voltage and A_vd is the open-loop gain, what is the output voltage V_o?",
+            "back": "V_o = A_vd * V_d = A_vd * (V_+ - V_-)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f8",
+            "front": "How does negative feedback cause the virtual short?",
+            "back": "Because V_d = V_o / A_vd, and A_vd is infinite, V_d must approach zero for any finite output voltage V_o. So V_+ = V_-.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What is a Common-Mode signal?",
+            "back": "The average voltage present on both inputs simultaneously: V_cm = (V_1 + V_2) / 2.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "In the BJT differential pair equation A_vd = (h_fe * R_C) / h_ie, how do you increase differential gain?",
+            "back": "Use transistors with higher beta (h_fe) or increase the collector resistors (R_C).",
+            "difficultyLevel": 4
+        }
+    ]
+}

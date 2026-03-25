@@ -1,0 +1,75 @@
+{
+    "id": "quiz-inverting-amplifier",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the closed-loop voltage gain formula for an inverting amplifier?",
+            "options": ["V_o / V_in = 1 + R_2/R_1", "V_o / V_in = -R_1/R_2", "V_o / V_in = -R_2/R_1", "V_o / V_in = R_2/R_1"],
+            "correctAnswer": "V_o / V_in = -R_2/R_1",
+            "explanation": "The gain of an inverting amplifier is completely dictated by the ratio of the feedback resistor (R_2) to the input resistor (R_1), with a negative sign indicating phase inversion."
+        },
+        {
+            "id": "q2",
+            "prompt": "In the standard inverting amplifier circuit, the non-inverting (+) terminal is connected to:",
+            "options": ["The input signal V_in", "The output V_o", "The feedback resistor R_2", "Ground (0V)"],
+            "correctAnswer": "Ground (0V)",
+            "explanation": "In an inverting amplifier, the input signal goes to the inverting (-) terminal, while the non-inverting (+) terminal is tied directly to ground."
+        },
+        {
+            "id": "q3",
+            "prompt": "What defines the 'Virtual Ground' at the inverting terminal of an inverting amplifier?",
+            "options": ["It is physically connected to the earth pin of the power supply", "The virtual short forces its voltage to match the grounded non-inverting terminal", "It has zero resistance to ground", "All input current flows straight to ground at that node"],
+            "correctAnswer": "The virtual short forces its voltage to match the grounded non-inverting terminal",
+            "explanation": "Because the (+) terminal is grounded (0V), and negative feedback creates a virtual short (V_- = V_+), the (-) terminal is forced to 0V. It's 'virtual' because there is no physical wire to ground."
+        },
+        {
+            "id": "q4",
+            "prompt": "An inverting amplifier has R_1 = 5 kΩ and R_2 = 50 kΩ. What is the output voltage if a DC input of -0.2 V is applied?",
+            "options": ["-2.0 V", "2.0 V", "-1.0 V", "1.0 V"],
+            "correctAnswer": "2.0 V",
+            "explanation": "The gain is -R_2 / R_1 = -50 / 5 = -10. V_o = Gain × V_in = -10 × (-0.2V) = +2.0V. The initial negative input creates a positive output."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is the input impedance of the complete inverting amplifier circuit (as seen by the source V_in)?",
+            "options": ["Infinite", "Zero", "R_2", "R_1"],
+            "correctAnswer": "R_1",
+            "explanation": "Because the inverting terminal is a virtual ground (0V), the input source purely drives the resistor R_1. Therefore, the input impedance of the circuit is precisely R_1."
+        },
+        {
+            "id": "q6",
+            "prompt": "When doing KCL analysis at the virtual ground node of an inverting amplifier, we state that I_1 (current through input resistor) equals what?",
+            "options": ["0 Amps", "The current entering the op-amp input pin", "-I_2 (where I_2 is current flowing from output through the feedback resistor)", "V_in / R_2"],
+            "correctAnswer": "-I_2 (where I_2 is current flowing from output through the feedback resistor)",
+            "explanation": "Because the op-amp input pin draws zero current, KCL demands that all current entering the virtual ground node via R_1 must exactly leave via R_2. So I_1 + I_2 = 0, or I_1 = -I_2."
+        },
+        {
+            "id": "q7",
+            "prompt": "An inverting amplifier has a gain of -5 and is powered by ±10V supplies. If the input is a 3V sine wave, what will happen to the output?",
+            "options": ["It will be a 15V sine wave", "The op-amp will break", "The output will clip (saturate) at approximately ±10V", "The gain will automatically decrease to prevent clipping"],
+            "correctAnswer": "The output will clip (saturate) at approximately ±10V",
+            "explanation": "The required output is -5 × 3V = -15V (and +15V on the other cycle half). However, an op-amp cannot output a voltage higher than its power supply lines. It will saturate, flattening the top and bottom of the wave at ±10V."
+        },
+        {
+            "id": "q8",
+            "prompt": "Which of the following describes the phase relationship between the input and output of an inverting amplifier?",
+            "options": ["In phase (0° shift)", "Out of phase by 90°", "Out of phase by 180°", "Out of phase by 270°"],
+            "correctAnswer": "Out of phase by 180°",
+            "explanation": "The negative sign in the gain equation means the signal is inverted. Physically on an AC waveform like a sine wave, an inversion represents a phase shift of exactly 180 degrees."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why is it generally bad practice to design an inverting amplifier with R_1 = 10 Ohms to get a high gain?",
+            "options": ["The gain equation breaks down at low Ohmic values", "A 10 Ohm input resistor creates an extremely low input impedance that will overload most signal sources", "Op-amps cannot drive small resistors", "The thermal noise of a 10 Ohm resistor is excessive"],
+            "correctAnswer": "A 10 Ohm input resistor creates an extremely low input impedance that will overload most signal sources",
+            "explanation": "The input impedance is R_1. A 10 Ohm input impedance essentially looks like a short circuit to many weak signal sources (like audio transducers), causing them to fail to deliver the signal voltage."
+        },
+        {
+            "id": "q10",
+            "prompt": "By using the virtual short and zero input current rules to analyze the inverting amplifier, we are treating the op-amp as:",
+            "options": ["An ideal operational amplifier", "A practical non-ideal amplifier", "A standard BJT transdiode configuration", "An open-loop comparator"],
+            "correctAnswer": "An ideal operational amplifier",
+            "explanation": "The KCL + virtual short derivation assumes infinite open-loop gain (for the virtual short) and infinite input impedance (for zero input current), which are the defining traits of the ideal op-amp model."
+        }
+    ]
+}

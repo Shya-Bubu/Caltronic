@@ -1,0 +1,164 @@
+[
+  {
+    "id": "open-loop-bode",
+    "type": "plotly",
+    "title": "Open-Loop Gain vs Frequency",
+    "description": "The open-loop gain A_d doesn't stay constant at 100,000 forever. It begins dropping at a very low frequency (typically 10 Hz) due to internal compensation capacitors intentionally added to prevent oscillation.",
+    "traces": [
+      {
+        "x": [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000],
+        "y": [100000, 100000, 100000, 10000, 1000, 100, 10, 1, 0.1],
+        "mode": "lines",
+        "name": "Open-Loop Gain (A_d)",
+        "line": { "color": "#ffbe0b", "width": 4 }
+      },
+      {
+        "x": [10, 10],
+        "y": [0.1, 100000],
+        "mode": "lines",
+        "name": "f_c (Break Frequency ~10Hz)",
+        "line": { "color": "gray", "dash": "dash" }
+      }
+    ],
+    "layout": {
+      "xaxis": { "type": "log", "title": "Frequency (Hz)" },
+      "yaxis": { "type": "log", "title": "Voltage Gain Magnitude |A_v|", "range": [-1, 6] },
+      "title": "LM741 Open Loop Bode Plot"
+    }
+  },
+  {
+    "id": "feedback-block-diagram",
+    "type": "circuit-schematic",
+    "title": "Negative Feedback Block Diagram",
+    "description": "We take a fraction of the output (β) and mathematically subtract it from the input signal.",
+    "elements": [
+      { "component": "arrow", "x": 50, "y": 100, "direction": "right", "label": "V_s" },
+      { "component": "text", "x": 100, "y": 120, "text": "Σ" },
+      { "component": "wire", "x1": 50, "y1": 100, "x2": 90, "y2": 100 },
+      { "component": "arrow", "x": 130, "y": 100, "direction": "right", "label": "V_i" },
+      { "component": "wire", "x1": 110, "y1": 100, "x2": 170, "y2": 100 },
+      { "component": "text", "x": 200, "y": 100, "text": "[ A_d ]" },
+      { "component": "arrow", "x": 250, "y": 100, "direction": "right", "label": "V_o" },
+      { "component": "wire", "x1": 230, "y1": 100, "x2": 320, "y2": 100 },
+      { "component": "wire", "x1": 280, "y1": 100, "x2": 280, "y2": 160 },
+      { "component": "arrow", "x": 280, "y": 160, "direction": "left" },
+      { "component": "wire", "x1": 280, "y1": 160, "x2": 230, "y2": 160 },
+      { "component": "text", "x": 200, "y": 160, "text": "[ β ]" },
+      { "component": "wire", "x1": 170, "y1": 160, "x2": 100, "y2": 160 },
+      { "component": "arrow", "x": 100, "y": 160, "direction": "up", "label": "-" },
+      { "component": "wire", "x1": 100, "y1": 160, "x2": 100, "y2": 110 },
+      { "component": "junction", "x": 280, "y": 100 }
+    ],
+    "width": 350,
+    "height": 220
+  },
+  {
+    "id": "bandwidth-extension",
+    "type": "plotly",
+    "title": "Trading Gain for Bandwidth",
+    "description": "When you apply negative feedback to lower the gain from 100,000 down to 100, the bandwidth magically extends! The amplifier now works perfectly flat up to 10 kHz instead of 10 Hz.",
+    "traces": [
+      {
+        "x": [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000],
+        "y": [100000, 100000, 100000, 10000, 1000, 100, 10, 1, 0.1],
+        "mode": "lines",
+        "name": "Open-Loop",
+        "line": { "color": "#ffbe0b", "dash": "dot" }
+      },
+      {
+        "x": [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000],
+        "y": [100, 100, 100, 100, 100, 100, 10, 1, 0.1],
+        "mode": "lines",
+        "name": "Closed-Loop (Gain=100)",
+        "line": { "color": "#118ab2", "width": 4 }
+      },
+      {
+        "x": [0.1, 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000],
+        "y": [10, 10, 10, 10, 10, 10, 10, 1, 0.1],
+        "mode": "lines",
+        "name": "Closed-Loop (Gain=10)",
+        "line": { "color": "#06d6a0", "width": 4 }
+      }
+    ],
+    "layout": {
+      "xaxis": { "type": "log", "title": "Frequency (Hz)" },
+      "yaxis": { "type": "log", "title": "Gain Magnitude |A_v|", "range": [-1, 6] },
+      "title": "Gain-Bandwidth Tradeoff"
+    }
+  },
+  {
+    "id": "gain-bandwidth-product",
+    "type": "plotly",
+    "title": "The Constant Gain-Bandwidth Product (GBP)",
+    "description": "For a standard voltage-feedback op-amp, the product of Gain × Bandwidth is always exactly the same constant number. For the venerable LM741, GBP = 1 MHz.",
+    "traces": [
+      {
+        "x": ["Gain=100k, BW=10Hz", "Gain=10k, BW=100Hz", "Gain=1k, BW=1kHz", "Gain=100, BW=10kHz", "Gain=10, BW=100kHz", "Gain=1, BW=1MHz"],
+        "y": [1000000, 1000000, 1000000, 1000000, 1000000, 1000000],
+        "type": "bar",
+        "name": "Gain × Bandwidth",
+        "marker": { "color": "#ef476f" }
+      }
+    ],
+    "layout": {
+      "yaxis": { "title": "Product Value (Hz)", "range": [0, 1200000] },
+      "title": "GBP = Gain × Bandwidth = Constant"
+    }
+  },
+  {
+    "id": "temperature-stability",
+    "type": "plotly",
+    "title": "Stabilizing Gain against Temperature",
+    "description": "The open-loop gain A_d fluctuates wildly with temperature as internal transistor betas change. But thanks to the equation A_f ≈ 1/β, the closed-loop gain is rock solid because it depends entirely on stable external resistors.",
+    "traces": [
+      {
+        "x": [-20, 0, 25, 50, 75, 100],
+        "y": [80000, 90000, 100000, 115000, 130000, 150000],
+        "mode": "lines+markers",
+        "name": "Open-Loop Gain A_d",
+        "line": { "color": "#ffbe0b", "width": 2 }
+      },
+      {
+        "x": [-20, 0, 25, 50, 75, 100],
+        "y": [100, 100, 100, 100, 100, 100],
+        "mode": "lines+markers",
+        "name": "Closed-Loop Gain A_f",
+        "yaxis": "y2",
+        "line": { "color": "#118ab2", "width": 4 }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Temperature (°C)" },
+      "yaxis": { "title": "Open-Loop Gain", "range": [50000, 200000] },
+      "yaxis2": { "title": "Closed-Loop Gain", "overlaying": "y", "side": "right", "range": [99, 101] },
+      "title": "Gain Stability vs Temperature"
+    }
+  },
+  {
+    "id": "falstad-bandpass",
+    "type": "falstad-sim",
+    "title": "Interactive Active Filter (Bandpass)",
+    "description": "By deliberately placing capacitors in both the input branch and the feedback branch, we manipulate the frequency response to create a filter that only amplifies a specific middle range of frequencies.",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 80 160 80 256 0 1 1000 2 0 0 0.5\nc 80 160 176 160 0 1e-7 0\nr 176 160 256 160 0 1000\nw 256 160 288 160 0\nw 288 160 288 176 0\na 336 192 432 192 8 15 -15 1000000 0 0 100000\nw 288 208 288 256 0\ng 288 256 288 272 0\ng 80 256 80 272 0\nw 288 160 288 96 0\nr 288 96 384 96 0 10000\nc 288 48 384 48 0 1e-9 0\nw 288 96 288 48 0\nw 384 96 384 48 0\nw 384 96 432 96 0\nw 432 96 432 192 0\nO 432 192 496 192 2 0\no 16 64 0 4098 5 0.1 0 2 16 3\no 0 2 0 4098 5 0.1 0 2 0 3\n"
+  },
+  {
+    "id": "ac-coupling-plotly",
+    "type": "plotly",
+    "title": "AC Coupling Capacitor Effect",
+    "description": "Placing a capacitor in series with the input blocks DC voltages absolutely, but causes the amplifier's gain to roll off toward 0 at very low frequencies, creating a High-Pass response.",
+    "traces": [
+      {
+        "x": [0.1, 1, 10, 100, 1000, 10000],
+        "y": [0.1, 1, 10, 100, 100, 100],
+        "mode": "lines",
+        "name": "Response with Input Capacitor",
+        "line": { "color": "#ef476f", "width": 4 }
+      }
+    ],
+    "layout": {
+      "xaxis": { "type": "log", "title": "Frequency (Hz)" },
+      "yaxis": { "type": "log", "title": "Gain Magnitude |A_v|" },
+      "title": "Low Frequency AC Coupling Roll-off"
+    }
+  }
+]

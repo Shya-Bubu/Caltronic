@@ -1,0 +1,23 @@
+{
+    "id": "lesson-10",
+    "title": "Operational Amplifiers — Fundamentals & Applications",
+    "slug": "lesson-10",
+    "description": "Master the ideal op-amp model, understand virtual short concepts, analyze inverting and non-inverting configurations, explore integrators and differentiators, and learn practical op-amp limitations including finite gain, bandwidth, and slew rate.",
+    "prerequisites": [
+        "lesson-06"
+    ],
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "concepts": [
+        "ideal-opamp-model",
+        "inverting-amplifier",
+        "noninverting-amplifier",
+        "opamp-integrator-differentiator",
+        "summing-difference-amplifiers",
+        "opamp-comparators",
+        "practical-opamp-limitations",
+        "opamp-frequency-response"
+    ],
+    "lectureWeek": 10,
+    "estimatedMinutes": 400
+}

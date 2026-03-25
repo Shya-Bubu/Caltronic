@@ -184,6 +184,11 @@ export const modules: Module[] = [
         title: "MOSFET Fundamentals & MOS Logic Families",
         path: "/analog-electronics/lesson-09",
       },
+      {
+        id: "lesson-10",
+        title: "Operational Amplifiers — Fundamentals & Applications",
+        path: "/analog-electronics/lesson-10",
+      },
     ],
   },
   {

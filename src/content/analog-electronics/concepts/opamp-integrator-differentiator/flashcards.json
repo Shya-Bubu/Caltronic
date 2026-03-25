@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-opamp-integrator-differentiator",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What does an inverting integrator output when given a square wave input?",
+            "back": "A perfectly straight-edged triangle wave.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What does an inverting differentiator output when given a triangle wave input?",
+            "back": "A square wave.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Write the fundamental equation defining the output voltage V_o of an ideal inverting integrator.",
+            "back": "V_o(t) = -(1/RC) ∫ V_in(t) dt + V_initial",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Write the fundamental equation defining the output voltage V_o of an ideal inverting differentiator.",
+            "back": "V_o(t) = -RC * dV_in(t)/dt",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is the phenomenon called 'Integrator DC Drift'?",
+            "back": "The slow ramping of the output to saturation caused by the continuous integration of the op-amp's tiny internal DC input offset voltages.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "How do you modify an ideal integrator to fix DC drift?",
+            "back": "Add a large resistor R_F in parallel with the feedback capacitor. This creates a DC feedback path, forming a 'Lossy Integrator'.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What is the fatal flaw of an ideal differentiator regarding high frequencies?",
+            "back": "The impedance of a capacitor drops as frequency increases, meaning the circuit's gain approaches infinity. High-frequency noise gets massively amplified.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "How do you stop a differentiator from amplifying extreme high-frequency noise?",
+            "back": "Add a small resistor R_S in series with the input capacitor to cap the maximum gain at very high frequencies.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "If an ideal integrator with a 10k resistor and 1μF capacitor receives a constant -1V DC input, how fast does the output voltage rise?",
+            "back": "RC = 0.01s. Output equation is -(1/0.01) * ∫(-1)dt = +100t. It rises at +100V per second.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What allows us to perform KCL simply as i_in = -i_feedback when deriving both of these circuits?",
+            "back": "The assumption of infinite input impedance in the ideal op-amp model, meaning i_- = 0.",
+            "difficultyLevel": 3
+        }
+    ]
+}

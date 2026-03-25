@@ -1,0 +1,75 @@
+{
+    "id": "quiz-noninverting-amplifier",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the closed-loop voltage gain formula for a non-inverting amplifier?",
+            "options": ["V_o / V_in = 1 + R_2/R_1", "V_o / V_in = -R_2/R_1", "V_o / V_in = 1 - R_2/R_1", "V_o / V_in = R_1/R_2"],
+            "correctAnswer": "V_o / V_in = 1 + R_2/R_1",
+            "explanation": "The gain is slightly different from the inverting amp. It is always positive, and its minimum magnitude is 1."
+        },
+        {
+            "id": "q2",
+            "prompt": "In a non-inverting amplifier, what is the primary advantage over an inverting amplifier?",
+            "options": ["It requires fewer resistors", "It can attenuate signals (gain < 1)", "It has an incredibly high input impedance", "It uses less power from the supply rails"],
+            "correctAnswer": "It has an incredibly high input impedance",
+            "explanation": "Because the source is connected directly to the op-amp's non-inverting input terminal (which draws essentially zero current), the input impedance is practically infinite. The inverting amp's input impedance is limited to R_1."
+        },
+        {
+            "id": "q3",
+            "prompt": "If a non-inverting amplifier has R_1 = 10 kΩ and R_2 = 100 kΩ, what is the voltage gain?",
+            "options": ["-10", "10", "11", "0.1"],
+            "correctAnswer": "11",
+            "explanation": "Gain = 1 + R_2/R_1 = 1 + (100k/10k) = 1 + 10 = 11."
+        },
+        {
+            "id": "q4",
+            "prompt": "In a non-inverting amplifier, where is the input signal V_in connected?",
+            "options": ["To the feedback resistor R_2", "To the inverting (-) terminal", "To the non-inverting (+) terminal", "To ground"],
+            "correctAnswer": "To the non-inverting (+) terminal",
+            "explanation": "To maintain the same phase as the input and achieve high input impedance, V_in is applied directly to the (+) terminal."
+        },
+        {
+            "id": "q5",
+            "prompt": "For a unity gain buffer (voltage follower), what are the standard values for R_1 and R_2?",
+            "options": ["R_1 = 0, R_2 = 0", "R_1 = ∞ (open), R_2 = 0 (short)", "R_1 = 1k, R_2 = 1k", "R_1 = 0 (short), R_2 = ∞ (open)"],
+            "correctAnswer": "R_1 = ∞ (open), R_2 = 0 (short)",
+            "explanation": "To get a gain of exactly 1 from the equation 1 + R_2/R_1, we need R_2/R_1 to be 0. We do this by making R_2 a short circuit (0Ω) and removing R_1 entirely (infinite resistance)."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the primary purpose of a unity gain buffer?",
+            "options": ["To amplify weak voltages", "To invert the phase of a signal", "To act as an impedance matching device, preventing signal source loading", "To provide a precision voltage divider"],
+            "correctAnswer": "To act as an impedance matching device, preventing signal source loading",
+            "explanation": "While it doesn't amplify voltage (gain = 1), it provides massive input impedance and zero output impedance. This 'loads' the source as little as possible while driving heavy loads easily."
+        },
+        {
+            "id": "q7",
+            "prompt": "In KCL analysis of the non-inverting amplifier, the resistors R_1 and R_2 form a:",
+            "options": ["Current mirror", "Wheatstone bridge", "Voltage divider from V_o to ground", "Integrator network"],
+            "correctAnswer": "Voltage divider from V_o to ground",
+            "explanation": "Because virtually no current enters the op-amp's (-) terminal, all current from V_o flows through R_2 and then straight through R_1 to ground. They act as a simple voltage divider feeding a fraction of V_o back to the (-) terminal."
+        },
+        {
+            "id": "q8",
+            "prompt": "Is it possible to design a standard non-inverting amplifier with a voltage gain of 0.5?",
+            "options": ["Yes, by making R_1 larger than R_2", "Yes, by adding a capacitor", "No, because the minimum theoretical gain is 1", "No, because real op-amps cannot attenuate"],
+            "correctAnswer": "No, because the minimum theoretical gain is 1",
+            "explanation": "Looking at the formula A_v = 1 + R_2/R_1, the lowest possible value is 1 (if R_2 is zero or R_1 is infinite). It cannot be designed to attenuate."
+        },
+        {
+            "id": "q9",
+            "prompt": "If V_in is a +2V DC signal. Due to the virtual short principle, what is the voltage at the inverting (-) terminal?",
+            "options": ["0V (virtual ground)", "-2V", "+2V", "Depends on the gain"],
+            "correctAnswer": "+2V",
+            "explanation": "The virtual short dictates that V_- = V_+. Since V_in is connected to V_+, V_+ is +2V. Therefore, the op-amp adjusts the output to ensure the (-) terminal also sits at +2V."
+        },
+        {
+            "id": "q10",
+            "prompt": "Assuming an ideal op-amp, how much current flows from the V_in signal source into the non-inverting amplifier circuit?",
+            "options": ["V_in / (R_1 + R_2)", "V_in / R_1", "Depends entirely on the load resistor", "Zero Amps"],
+            "correctAnswer": "Zero Amps",
+            "explanation": "The source is connected exclusively to the non-inverting input terminal of the op-amp. Because an ideal op-amp has infinite input impedance, it draws exactly zero current from the source."
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "id": "opamp-integrator-differentiator",
+    "title": "Op-Amp Integrators and Differentiators",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "transfer-characteristic",
+    "type": "plotly",
+    "title": "Open-Loop Transfer Characteristic",
+    "description": "Because the open loop gain A_vd is so massive (e.g. 100,000), a difference of less than a millivolt between the inputs is enough to drive the output all the way to the supply rails.",
+    "traces": [
+      {
+        "x": [-3, -1, -0.15, 0.15, 1, 3],
+        "y": [-15, -15, -15, 15, 15, 15],
+        "mode": "lines",
+        "name": "Output Voltage",
+        "line": { "color": "#118ab2", "width": 4 }
+      },
+      {
+        "x": [0, 0],
+        "y": [-20, 20],
+        "mode": "lines",
+        "line": { "color": "gray", "dash": "dash" },
+        "name": "y-axis"
+      },
+      {
+        "x": [-3, 3],
+        "y": [15, 15],
+        "mode": "lines",
+        "line": { "color": "#ef476f", "dash": "dash" },
+        "name": "+V_{CC}"
+      },
+      {
+        "x": [-3, 3],
+        "y": [-15, -15],
+        "mode": "lines",
+        "line": { "color": "#ef476f", "dash": "dash" },
+        "name": "-V_{CC}"
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Differential Input Voltage V_d (mV)", "range": [-2, 2] },
+      "yaxis": { "title": "Output Voltage V_o (V)", "range": [-18, 18] },
+      "title": "Op-Amp Saturation"
+    }
+  },
+  {
+    "id": "comparator-schematic",
+    "type": "circuit-schematic",
+    "title": "The Basic Comparator",
+    "description": "An op-amp operated entirely open-loop (no feedback). It compares V_in against a fixed reference voltage V_ref.",
+    "elements": [
+      { "component": "wire", "x1": 60, "y1": 134, "x2": 150, "y2": 134, "label": "V_{in}" },
+      { "component": "wire", "x1": 60, "y1": 174, "x2": 150, "y2": 174, "label": "V_{ref}" },
+      { "component": "op-amp", "x": 198, "y": 154 },
+      { "component": "wire", "x1": 246, "y1": 154, "x2": 300, "y2": 154, "label": "V_o" },
+      { "component": "wire", "x1": 198, "y1": 104, "x2": 198, "y2": 80 },
+      { "component": "voltage-source", "x": 198, "y": 80, "label": "+V_{CC}" },
+      { "component": "wire", "x1": 198, "y1": 204, "x2": 198, "y2": 220 },
+      { "component": "voltage-source", "x": 198, "y": 220, "label": "-V_{CC}" }
+    ],
+    "width": 360,
+    "height": 280
+  },
+  {
+    "id": "zero-crossing-detector",
+    "type": "plotly",
+    "title": "Zero-Crossing Detector ($V_{ref} = 0V$)",
+    "description": "A very common use case: converting a weak analog sine wave into a robust digital square wave by triggering every time the sine wave crosses 0V.",
+    "traces": [
+      {
+        "x": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        "y": [0, 4, 5.6, 4, 0, -4, -5.6, -4, 0],
+        "mode": "lines",
+        "name": "V_in (Sine)",
+        "line": { "color": "#118ab2", "shape": "spline" }
+      },
+      {
+        "x": [0, 0 , 4, 4, 8, 8],
+        "y": [-15, 15, 15, -15, -15, 15],
+        "mode": "lines",
+        "name": "V_o (Comparator)",
+        "line": { "color": "#ef476f", "width": 3, "shape": "hv" }
+      },
+      {
+        "x": [0, 8],
+        "y": [0, 0],
+        "mode": "lines",
+        "name": "V_ref (0V)",
+        "line": { "color": "gray", "dash": "dash" }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Time" },
+      "yaxis": { "title": "Voltage (V)" },
+      "title": "Sine to Square Wave Conversion"
+    }
+  },
+  {
+    "id": "falstad-comparator",
+    "type": "falstad-sim",
+    "title": "Interactive Comparator",
+    "description": "Adjust the V_ref slider. Watch how it changes the point at which the sine wave triggers the green output wave to flip.",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 112 160 112 256 0 1 40 5 0 0 0.5\nv 112 368 112 432 0 0 40 0 0 0 0.5\nw 112 160 224 160 0\nw 224 160 224 224 0\nw 224 224 272 224 0\na 272 240 384 240 8 15 -15 1000000 0 0 100000\nw 384 240 448 240 0\ng 112 256 112 272 0\nw 112 368 224 368 0\nw 224 368 224 256 0\nw 224 256 272 256 0\ng 112 432 112 448 0\nO 448 240 512 240 2 0\nO 112 368 48 368 3 0\nO 112 160 48 160 2 0\no 15 64 0 4098 10 0.1 0 2 15 3\no 0 64 0 4098 20 0.1 0 2 0 3\no 14 64 0 4098 5 0.1 0 2 14 3\n"
+  },
+  {
+    "id": "threshold-noise",
+    "type": "plotly",
+    "title": "The Problem with Basic Comparators: Noise",
+    "description": "If the input signal has electrical noise, it might cross the V_ref threshold multiple times rapidly as it passes exactly through 0V. This causes the output to violently chatter between +15V and -15V.",
+    "traces": [
+      {
+        "x": [0, 1, 2, 2.8, 2.9, 3.0, 3.1, 3.2, 4, 5, 6],
+        "y": [-5, -3, -1, -0.1, 0.2, -0.1, 0.1, 0.5, 3, 5, 7],
+        "mode": "lines",
+        "name": "Noisy Input V_in",
+        "line": { "color": "#118ab2" }
+      },
+      {
+        "x": [0, 2.85, 2.85, 2.95, 2.95, 3.05, 3.05, 6],
+        "y": [-15, -15, 15, 15, -15, -15, 15, 15],
+        "mode": "lines",
+        "name": "Chattering Output V_o",
+        "line": { "color": "#ef476f", "width": 2, "shape": "hv" }
+      },
+      {
+        "x": [0, 6],
+        "y": [0, 0],
+        "mode": "lines",
+        "name": "V_ref (0V)",
+        "line": { "color": "gray", "dash": "dash" }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Time" },
+      "yaxis": { "title": "Voltage (V)" },
+      "title": "Multiple Triggering due to Noise"
+    }
+  },
+  {
+    "id": "schmitt-trigger-schematic",
+    "type": "circuit-schematic",
+    "title": "The Schmitt Trigger (Positive Feedback)",
+    "description": "By connecting the output back to the NON-INVERTING (+) terminal, we create POSITIVE feedback. This creates two distinct threshold voltages depending on whether the output is currently High or Low.",
+    "elements": [
+      { "component": "wire", "x1": 60, "y1": 134, "x2": 150, "y2": 134, "label": "V_{in}" },
+      { "component": "op-amp", "x": 198, "y": 154 },
+      { "component": "wire", "x1": 246, "y1": 154, "x2": 280, "y2": 154, "label": "V_o" },
+      { "component": "wire", "x1": 150, "y1": 174, "x2": 120, "y2": 174 },
+      { "component": "resistor", "x": 120, "y": 204, "label": "R_2", "rotation": 90 },
+      { "component": "wire", "x1": 120, "y1": 174, "x2": 120, "y2": 204 },
+      { "component": "wire", "x1": 120, "y1": 264, "x2": 120, "y2": 290 },
+      { "component": "ground", "x": 120, "y": 290 },
+      { "component": "wire", "x1": 120, "y1": 174, "x2": 90, "y2": 174 },
+      { "component": "wire", "x1": 90, "y1": 174, "x2": 90, "y2": 80 },
+      { "component": "wire", "x1": 90, "y1": 80, "x2": 120, "y2": 80 },
+      { "component": "resistor", "x": 150, "y": 80, "label": "R_1" },
+      { "component": "wire", "x1": 180, "y1": 80, "x2": 260, "y2": 80 },
+      { "component": "wire", "x1": 260, "y1": 80, "x2": 260, "y2": 154 },
+      { "component": "junction", "x": 120, "y": 174 },
+      { "component": "junction", "x": 260, "y": 154 },
+      { "component": "text", "x": 100, "y": 190, "text": "V_+" }
+    ],
+    "width": 340,
+    "height": 320
+  },
+  {
+    "id": "hysteresis-curve",
+    "type": "plotly",
+    "title": "Hysteresis Transfer Curve",
+    "description": "The output 'snaps' to one state or the other and stays there until the input crosses the opposite threshold. The 'dead zone' between V_TL and V_TU is called the hysteresis band.",
+    "traces": [
+      {
+        "x": [-5, 2, 2, 5],
+        "y": [15, 15, -15, -15],
+        "mode": "lines",
+        "name": "Input increasing (→)",
+        "line": { "color": "#118ab2", "width": 4 }
+      },
+      {
+        "x": [5, -2, -2, -5],
+        "y": [-15, -15, 15, 15],
+        "mode": "lines",
+        "name": "Input decreasing (←)",
+        "line": { "color": "#ef476f", "width": 4, "dash": "dash" }
+      },
+      {
+        "x": [0, 0],
+        "y": [-20, 20],
+        "mode": "lines",
+        "line": { "color": "gray", "dash": "dash" },
+        "name": "y-axis"
+      },
+      {
+        "x": [-2, -2],
+        "y": [-20, 0],
+        "mode": "lines",
+        "line": { "color": "green", "dash": "dot" },
+        "name": "V_{TL} (Lower Threshold)"
+      },
+      {
+        "x": [2, 2],
+        "y": [0, 20],
+        "mode": "lines",
+        "line": { "color": "orange", "dash": "dot" },
+        "name": "V_{TU} (Upper Threshold)"
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Input Voltage V_{in} (V)", "range": [-6, 6] },
+      "yaxis": { "title": "Output Voltage V_o (V)", "range": [-18, 18] },
+      "title": "Schmitt Trigger Hysteresis Loop"
+    }
+  },
+  {
+    "id": "falstad-schmitt-trigger",
+    "type": "falstad-sim",
+    "title": "Interactive Schmitt Trigger vs Noise",
+    "description": "V_in is the same noisy signal. Because of the hysteresis band created by Positive Feedback, the output cleanly snaps once and ignores the high-frequency chatter.",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 112 192 112 288 0 1 40 5 0 0 0.5\nv 112 304 112 368 0 1 500 0.8 0 0 0.5\nw 112 192 224 192 0\nw 224 192 224 224 0\nw 224 224 272 224 0\na 272 240 384 240 8 15 -15 1000000 0 0 100000\nw 384 240 448 240 0\nw 112 288 112 304 0\ng 112 368 112 384 0\nw 272 256 224 256 0\nr 224 256 224 352 0 10000\ng 224 352 224 368 0\nw 224 256 160 256 0\nw 160 256 160 144 0\nr 160 144 384 144 0 50000\nw 384 144 384 240 0\nO 448 240 512 240 2 0\nO 112 192 48 192 2 0\no 17 64 0 4098 10 0.1 0 2 17 3\no 18 64 0 4098 20 0.1 0 2 18 3\n"
+  }
+]

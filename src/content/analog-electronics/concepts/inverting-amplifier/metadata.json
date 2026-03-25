@@ -1,0 +1,9 @@
+{
+    "id": "inverting-amplifier",
+    "title": "The Inverting Amplifier: Your First Op-Amp Circuit",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

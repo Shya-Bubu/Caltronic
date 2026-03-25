@@ -1,0 +1,175 @@
+[
+  {
+    "id": "inverting-amp-schematic",
+    "type": "circuit-schematic",
+    "title": "The Inverting Amplifier",
+    "description": "The standard inverting amplifier configuration. The input signal V_in is applied through R1 to the inverting terminal, and R2 provides negative feedback from the output.",
+    "elements": [
+      { "component": "wire", "x1": 60, "y1": 120, "x2": 100, "y2": 120, "label": "V_{in}" },
+      { "component": "resistor", "x": 130, "y": 120, "label": "R_1" },
+      { "component": "wire", "x1": 160, "y1": 120, "x2": 240, "y2": 120 },
+      { "component": "op-amp", "x": 288, "y": 144 },
+      { "component": "wire", "x1": 240, "y1": 120, "x2": 240, "y2": 134 },
+      { "component": "wire", "x1": 180, "y1": 168, "x2": 240, "y2": 168 },
+      { "component": "ground", "x": 180, "y": 168 },
+      { "component": "wire", "x1": 240, "y1": 168, "x2": 240, "y2": 154 },
+      { "component": "wire", "x1": 336, "y1": 144, "x2": 370, "y2": 144, "label": "V_o" },
+      { "component": "wire", "x1": 220, "y1": 120, "x2": 220, "y2": 60 },
+      { "component": "wire", "x1": 220, "y1": 60, "x2": 250, "y2": 60 },
+      { "component": "resistor", "x": 280, "y": 60, "label": "R_2" },
+      { "component": "wire", "x1": 310, "y1": 60, "x2": 350, "y2": 60 },
+      { "component": "wire", "x1": 350, "y1": 60, "x2": 350, "y2": 144 },
+      { "component": "junction", "x": 220, "y": 120 },
+      { "component": "junction", "x": 350, "y": 144 },
+      { "component": "text", "x": 200, "y": 140, "text": "A" }
+    ],
+    "width": 420,
+    "height": 220
+  },
+  {
+    "id": "falstad-inverting-amp",
+    "type": "falstad-sim",
+    "title": "Interactive Inverting Amplifier",
+    "description": "Watch how the output is an inverted (flipped over the x-axis) and amplified version of the input. Try changing R2 to change the gain.",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 112 256 112 160 0 1 40 5 0 0 0.5\nr 112 160 224 160 0 1000\nw 224 160 224 176 0\na 272 192 368 192 8 15 -15 1000000 0 0 100000\nw 224 208 224 240 0\ng 224 240 224 256 0\nw 112 256 224 256 0\nw 224 144 224 160 0\nw 224 144 256 144 0\nr 256 144 336 144 0 5000\nw 336 144 384 144 0\nw 384 144 384 192 0\nw 368 192 416 192 0\nw 384 192 368 192 0\nO 416 192 480 192 2 0\no 15 64 0 4098 5 0.1 0 2 15 3\no 0 64 0 4098 20 0.1 0 2 0 3\n"
+  },
+  {
+    "id": "kcl-current-flow",
+    "type": "circuit-schematic",
+    "title": "KCL at the Virtual Ground",
+    "description": "All the current that flows through R1 MUST flow through R2, because the op-amp input draws zero current. This simple fact defines the entire amplifier.",
+    "elements": [
+      { "component": "wire", "x1": 50, "y1": 150, "x2": 100, "y2": 150, "label": "V_{in}" },
+      { "component": "resistor", "x": 130, "y": 150, "label": "R_1" },
+      { "component": "wire", "x1": 160, "y1": 150, "x2": 220, "y2": 150 },
+      { "component": "text", "x": 220, "y": 170, "text": "Node A (0V)" },
+      { "component": "op-amp", "x": 268, "y": 174 },
+      { "component": "wire", "x1": 220, "y1": 150, "x2": 220, "y2": 164 },
+      { "component": "wire", "x1": 180, "y1": 198, "x2": 220, "y2": 198 },
+      { "component": "ground", "x": 180, "y": 198 },
+      { "component": "wire", "x1": 220, "y1": 198, "x2": 220, "y2": 184 },
+      { "component": "wire", "x1": 316, "y1": 174, "x2": 350, "y2": 174, "label": "V_o" },
+      { "component": "wire", "x1": 200, "y1": 150, "x2": 200, "y2": 90 },
+      { "component": "wire", "x1": 200, "y1": 90, "x2": 230, "y2": 90 },
+      { "component": "resistor", "x": 260, "y": 90, "label": "R_2" },
+      { "component": "wire", "x1": 290, "y1": 90, "x2": 330, "y2": 90 },
+      { "component": "wire", "x1": 330, "y1": 90, "x2": 330, "y2": 174 },
+      { "component": "junction", "x": 200, "y": 150 },
+      { "component": "junction", "x": 330, "y": 174 },
+      { "component": "arrow", "x": 80, "y": 150, "direction": "right", "label": "I_1" },
+      { "component": "arrow", "x": 210, "y": 90, "direction": "right", "label": "I_2" },
+      { "component": "arrow", "x": 210, "y": 164, "direction": "right", "label": "i_- = 0" },
+      { "component": "text", "x": 260, "y": 60, "text": "I_1 = I_2", "color": "#ff6b6b" }
+    ],
+    "width": 400,
+    "height": 260
+  },
+  {
+    "id": "gain-vs-resistors",
+    "type": "plotly",
+    "title": "Gain Control via Resistor Ratio",
+    "description": "The magnitude of the closed-loop gain |A_v| = R_2 / R_1. By simply changing a resistor, you can set the gain to an exact, precise value.",
+    "traces": [
+      {
+        "x": [0.1, 1, 2, 5, 10, 20, 50, 100],
+        "y": [0.1, 1, 2, 5, 10, 20, 50, 100],
+        "mode": "lines+markers",
+        "name": "Gain Magnitude |A_v|",
+        "line": { "color": "#4ecdc4", "width": 3 }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Resistor Ratio (R_2 / R_1)", "type": "log" },
+      "yaxis": { "title": "Voltage Gain Magnitude |V_o / V_in|", "type": "log" },
+      "title": "Closed-Loop Gain Depends ONLY on Resistors"
+    }
+  },
+  {
+    "id": "transfer-characteristic",
+    "type": "plotly",
+    "title": "Inverting Amplifier Transfer Characteristic",
+    "description": "Because of the negative sign, the slope of the V_out vs V_in graph is negative. The output is bounded by the supply rails (±15V here).",
+    "traces": [
+      {
+        "x": [-5, -1.5, 0, 1.5, 5],
+        "y": [15, 15, 0, -15, -15],
+        "mode": "lines",
+        "name": "Gain = -10",
+        "line": { "color": "#ff6b6b", "width": 3 }
+      },
+      {
+        "x": [-5, -5, 5, 5],
+        "y": [15, 15, 15, 15],
+        "mode": "lines",
+        "line": { "color": "gray", "dash": "dash" },
+        "name": "+15V Rail"
+      },
+      {
+        "x": [-5, -5, 5, 5],
+        "y": [-15, -15, -15, -15],
+        "mode": "lines",
+        "line": { "color": "gray", "dash": "dash" },
+        "name": "-15V Rail"
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Input Voltage V_{in} (V)", "range": [-4, 4] },
+      "yaxis": { "title": "Output Voltage V_o (V)", "range": [-20, 20] },
+      "title": "Transfer Curve (V_{CC} = ±15V, Gain = -10)"
+    }
+  },
+  {
+    "id": "virtual-ground-voltage",
+    "type": "plotly",
+    "title": "Voltage Levels Through the Circuit",
+    "description": "Visualising the voltage dropping from V_in, hitting exactly 0V at the virtual ground, and then continuing to drop to the negative V_o.",
+    "traces": [
+      {
+        "x": ["V_{in}", "Node A (Virtual Ground)", "V_o"],
+        "y": [2.0, 0.0, -10.0],
+        "type": "scatter",
+        "mode": "lines+markers",
+        "marker": { "size": 12, "color": "#118ab2" },
+        "line": { "width": 4 }
+      }
+    ],
+    "layout": {
+      "yaxis": { "title": "Voltage (V)" },
+      "title": "Voltage Profile (Gain = -5, V_{in} = 2V)"
+    }
+  },
+  {
+    "id": "output-saturation",
+    "type": "plotly",
+    "title": "Clipping (Saturation) at the Supply Rails",
+    "description": "If the input signal multiplied by the gain exceeds the power supply voltage, the op-amp 'clips' the top and bottom off the waveform.",
+    "traces": [
+      {
+        "x": [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.28],
+        "y": [0, 1.9, 3.5, 4.6, 5, 4.6, 3.5, 1.9, 0, -1.9, -3.5, -4.6, -5, -4.6],
+        "mode": "lines",
+        "name": "V_in (1V peak)",
+        "line": { "color": "#ffbe0b", "dash": "dash" }
+      },
+      {
+        "x": [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.28],
+        "y": [0, -15, -15, -15, -15, -15, -15, -15, 0, 15, 15, 15, 15, 15],
+        "mode": "lines",
+        "name": "V_o (Clipped at ±15V)",
+        "line": { "color": "#ef476f", "width": 3, "shape": "spline" }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Time (ms)" },
+      "yaxis": { "title": "Voltage (V)", "range": [-20, 20] },
+      "title": "Output Saturation (Gain = -20)"
+    }
+  },
+  {
+    "id": "falstad-clipping",
+    "type": "falstad-sim",
+    "title": "Interactive Clipping Demonstration",
+    "description": "Increase the input voltage amplitude slider. Watch the output voltage closely — it can never exceed the ±15V power supply rails, no matter how hard you drive the input.",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 112 256 112 160 0 1 40 2 0 0 0.5\nr 112 160 224 160 0 1000\nw 224 160 224 176 0\na 272 192 368 192 8 15 -15 1000000 0 0 100000\nw 224 208 224 240 0\ng 224 240 224 256 0\nw 112 256 224 256 0\nw 224 144 224 160 0\nw 224 144 256 144 0\nr 256 144 336 144 0 10000\nw 336 144 384 144 0\nw 384 144 384 192 0\nw 368 192 416 192 0\nw 384 192 368 192 0\nO 416 192 480 192 2 0\no 15 64 0 4098 10 0.1 0 2 15 3\no 0 64 0 4098 20 0.1 0 2 0 3\n"
+  }
+]

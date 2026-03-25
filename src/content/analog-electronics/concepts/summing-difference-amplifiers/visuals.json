@@ -1,0 +1,179 @@
+[
+  {
+    "id": "summing-amp-schematic",
+    "type": "circuit-schematic",
+    "title": "The Inverting Summing Amplifier",
+    "description": "Multiple input voltages (V1, V2, V3) are connected via their own resistors (R1, R2, R3) to the virtual ground node of an inverting amplifier.",
+    "elements": [
+      { "component": "wire", "x1": 50, "y1": 60, "x2": 100, "y2": 60, "label": "V_1" },
+      { "component": "resistor", "x": 130, "y": 60, "label": "R_1" },
+      { "component": "wire", "x1": 160, "y1": 60, "x2": 200, "y2": 60 },
+      { "component": "wire", "x1": 50, "y1": 120, "x2": 100, "y2": 120, "label": "V_2" },
+      { "component": "resistor", "x": 130, "y": 120, "label": "R_2" },
+      { "component": "wire", "x1": 160, "y1": 120, "x2": 200, "y2": 120 },
+      { "component": "wire", "x1": 50, "y1": 180, "x2": 100, "y2": 180, "label": "V_3" },
+      { "component": "resistor", "x": 130, "y": 180, "label": "R_3" },
+      { "component": "wire", "x1": 160, "y1": 180, "x2": 200, "y2": 180 },
+      { "component": "wire", "x1": 200, "y1": 60, "x2": 200, "y2": 180 },
+      { "component": "wire", "x1": 200, "y1": 120, "x2": 240, "y2": 120 },
+      { "component": "op-amp", "x": 288, "y": 144 },
+      { "component": "wire", "x1": 240, "y1": 120, "x2": 240, "y2": 134 },
+      { "component": "wire", "x1": 180, "y1": 168, "x2": 240, "y2": 168 },
+      { "component": "ground", "x": 180, "y": 168 },
+      { "component": "wire", "x1": 240, "y1": 168, "x2": 240, "y2": 154 },
+      { "component": "wire", "x1": 336, "y1": 144, "x2": 370, "y2": 144, "label": "V_o" },
+      { "component": "wire", "x1": 220, "y1": 120, "x2": 220, "y2": 60 },
+      { "component": "wire", "x1": 220, "y1": 60, "x2": 250, "y2": 60 },
+      { "component": "resistor", "x": 280, "y": 60, "label": "R_F" },
+      { "component": "wire", "x1": 310, "y1": 60, "x2": 350, "y2": 60 },
+      { "component": "wire", "x1": 350, "y1": 60, "x2": 350, "y2": 144 },
+      { "component": "junction", "x": 200, "y": 60 },
+      { "component": "junction", "x": 200, "y": 120 },
+      { "component": "junction", "x": 200, "y": 180 },
+      { "component": "junction", "x": 220, "y": 120 },
+      { "component": "junction", "x": 350, "y": 144 }
+    ],
+    "width": 400,
+    "height": 260
+  },
+  {
+    "id": "falstad-summing-amp",
+    "type": "falstad-sim",
+    "title": "Interactive Summing Amplifier",
+    "description": "An audio mixer! V1 is a low-frequency bass wave, V2 is a high-frequency treble wave. The output is the sum (superposition) of both waves. Adjust the sliders to change their individual volumes.",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 112 160 112 224 0 1 100 2 0 0 0.5\nv 112 304 112 368 0 1 400 1 0 0 0.5\nr 112 160 224 160 0 10000\nr 112 304 224 304 0 10000\nw 224 160 224 208 0\nw 224 304 224 240 0\nw 224 208 224 240 0\nw 224 224 288 224 0\na 288 240 384 240 8 15 -15 1000000 0 0 100000\nw 224 256 288 256 0\ng 224 256 224 272 0\ng 112 224 112 240 0\ng 112 368 112 384 0\nw 256 224 256 128 0\nr 256 128 352 128 0 10000\nw 352 128 400 128 0\nw 400 128 400 240 0\nw 384 240 432 240 0\nw 400 240 384 240 0\nO 432 240 496 240 2 0\nO 112 160 32 160 3 0\nO 112 304 32 304 3 0\no 18 64 0 4098 10 0.1 0 2 18 3\n"
+  },
+  {
+    "id": "weighted-sum-demo",
+    "type": "plotly",
+    "title": "Scaling Individual Inputs",
+    "description": "By choosing different resistor values, we can weight the inputs differently. Here, V_o = -2*V_1 - 0.5*V_2.",
+    "traces": [
+      {
+        "x": [0, 1, 2, 3, 4, 5, 6],
+        "y": [1, 1, 1, 1, 1, 1, 1],
+        "mode": "lines+markers",
+        "name": "V_1 (Weight 2)",
+        "line": { "color": "#118ab2", "dash": "dash" }
+      },
+      {
+        "x": [0, 1, 2, 3, 4, 5, 6],
+        "y": [2, 2, 2, 2, 2, 2, 2],
+        "mode": "lines+markers",
+        "name": "V_2 (Weight 0.5)",
+        "line": { "color": "#06d6a0", "dash": "dash" }
+      },
+      {
+        "x": [0, 1, 2, 3, 4, 5, 6],
+        "y": [-3, -3, -3, -3, -3, -3, -3],
+        "mode": "lines+markers",
+        "name": "Output V_o",
+        "line": { "color": "#ef476f", "width": 4 }
+      }
+    ],
+    "layout": {
+      "yaxis": { "title": "Voltage (V)" },
+      "title": "Weighted Sum: -(2*1V + 0.5*2V) = -3V"
+    }
+  },
+  {
+    "id": "binary-weighted-dac",
+    "type": "circuit-schematic",
+    "title": "Digital-to-Analog Converter (DAC)",
+    "description": "A 4-bit DAC using a summing amplifier. Each input resistor is double the previous one (R, 2R, 4R, 8R), perfectly matching the binary 1, 2, 4, 8 weighting system.",
+    "elements": [
+      { "component": "wire", "x1": 50, "y1": 50, "x2": 100, "y2": 50, "label": "V_3 (MSB)" },
+      { "component": "resistor", "x": 130, "y": 50, "label": "R" },
+      { "component": "wire", "x1": 160, "y1": 50, "x2": 210, "y2": 50 },
+      { "component": "wire", "x1": 50, "y1": 100, "x2": 100, "y2": 100, "label": "V_2" },
+      { "component": "resistor", "x": 130, "y": 100, "label": "2R" },
+      { "component": "wire", "x1": 160, "y1": 100, "x2": 210, "y2": 100 },
+      { "component": "wire", "x1": 50, "y1": 150, "x2": 100, "y2": 150, "label": "V_1" },
+      { "component": "resistor", "x": 130, "y": 150, "label": "4R" },
+      { "component": "wire", "x1": 160, "y1": 150, "x2": 210, "y2": 150 },
+      { "component": "wire", "x1": 50, "y1": 200, "x2": 100, "y2": 200, "label": "V_0 (LSB)" },
+      { "component": "resistor", "x": 130, "y": 200, "label": "8R" },
+      { "component": "wire", "x1": 160, "y1": 200, "x2": 210, "y2": 200 },
+      { "component": "wire", "x1": 210, "y1": 50, "x2": 210, "y2": 200 },
+      { "component": "wire", "x1": 210, "y1": 125, "x2": 250, "y2": 125 },
+      { "component": "op-amp", "x": 298, "y": 149 },
+      { "component": "wire", "x1": 250, "y1": 125, "x2": 250, "y2": 139 },
+      { "component": "wire", "x1": 190, "y1": 173, "x2": 250, "y2": 173 },
+      { "component": "ground", "x": 190, "y": 173 },
+      { "component": "wire", "x1": 250, "y1": 173, "x2": 250, "y2": 159 },
+      { "component": "wire", "x1": 346, "y1": 149, "x2": 380, "y2": 149, "label": "V_o" },
+      { "component": "wire", "x1": 230, "y1": 125, "x2": 230, "y2": 30 },
+      { "component": "wire", "x1": 230, "y1": 30, "x2": 260, "y2": 30 },
+      { "component": "resistor", "x": 290, "y": 30, "label": "R_F" },
+      { "component": "wire", "x1": 320, "y1": 30, "x2": 360, "y2": 30 },
+      { "component": "wire", "x1": 360, "y1": 30, "x2": 360, "y2": 149 },
+      { "component": "junction", "x": 210, "y": 50 },
+      { "component": "junction", "x": 210, "y": 100 },
+      { "component": "junction", "x": 210, "y": 150 },
+      { "component": "junction", "x": 230, "y": 125 },
+      { "component": "junction", "x": 360, "y": 149 }
+    ],
+    "width": 430,
+    "height": 250
+  },
+  {
+    "id": "dac-staircase",
+    "type": "plotly",
+    "title": "4-Bit DAC Analogue Output",
+    "description": "As the digital 4-bit input counts from 0000 to 1111, the analog output voltage drops in 16 perfectly equal discrete steps.",
+    "traces": [
+      {
+        "x": ["0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"],
+        "y": [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15],
+        "type": "scatter",
+        "mode": "lines+markers",
+        "line": { "shape": "hv", "color": "#118ab2", "width": 3 },
+        "marker": { "size": 8 }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Digital Input Code" },
+      "yaxis": { "title": "Analog Output Voltage (V)" },
+      "title": "DAC Staircase Waveform"
+    }
+  },
+  {
+    "id": "difference-amp-schematic",
+    "type": "circuit-schematic",
+    "title": "The Difference Amplifier",
+    "description": "By utilizing both the inverting and non-inverting inputs, we can subtract one signal from another. This requires four carefully matched resistors.",
+    "elements": [
+      { "component": "wire", "x1": 60, "y1": 100, "x2": 100, "y2": 100, "label": "V_1" },
+      { "component": "resistor", "x": 130, "y": 100, "label": "R_1" },
+      { "component": "wire", "x1": 160, "y1": 100, "x2": 240, "y2": 100 },
+      { "component": "op-amp", "x": 288, "y": 124 },
+      { "component": "wire", "x1": 240, "y1": 100, "x2": 240, "y2": 114 },
+      { "component": "wire", "x1": 50, "y1": 148, "x2": 100, "y2": 148, "label": "V_2" },
+      { "component": "resistor", "x": 130, "y": 148, "label": "R_3" },
+      { "component": "wire", "x1": 160, "y1": 148, "x2": 240, "y2": 148 },
+      { "component": "wire", "x1": 240, "y1": 148, "x2": 240, "y2": 134 },
+      { "component": "wire", "x1": 240, "y1": 160, "x2": 240, "y2": 190 },
+      { "component": "resistor", "x": 240, "y": 220, "label": "R_4", "rotation": 90 },
+      { "component": "wire", "x1": 240, "y1": 250, "x2": 240, "y2": 280 },
+      { "component": "ground", "x": 240, "y": 280 },
+      { "component": "wire", "x1": 336, "y1": 124, "x2": 370, "y2": 124, "label": "V_o" },
+      { "component": "wire", "x1": 210, "y1": 100, "x2": 210, "y2": 40 },
+      { "component": "wire", "x1": 210, "y1": 40, "x2": 240, "y2": 40 },
+      { "component": "resistor", "x": 270, "y": 40, "label": "R_2" },
+      { "component": "wire", "x1": 300, "y1": 40, "x2": 350, "y2": 40 },
+      { "component": "wire", "x1": 350, "y1": 40, "x2": 350, "y2": 124 },
+      { "component": "junction", "x": 210, "y": 100 },
+      { "component": "junction", "x": 350, "y": 124 },
+      { "component": "junction", "x": 240, "y": 148 }
+    ],
+    "width": 420,
+    "height": 340
+  },
+  {
+    "id": "falstad-difference-amp",
+    "type": "falstad-sim",
+    "title": "Interactive Difference Amplifier",
+    "description": "Here, R1=R2=R3=R4, so V_o = V_2 - V_1. V_1 is a 5V DC signal, V_2 is a 10V peak sine wave. Observe how the output sine wave is shifted downwards by exactly 5V.",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 80 192 80 128 0 0 40 5 0 0 0.5\nv 80 320 80 256 0 1 40 10 0 0 0.5\nr 80 128 176 128 0 10000\nr 80 256 176 256 0 10000\nw 176 128 224 128 0\nw 176 256 224 256 0\na 272 160 384 160 8 15 -15 1000000 0 0 100000\nw 224 144 272 144 0\nw 224 176 272 176 0\nw 224 128 224 144 0\nw 224 256 224 176 0\nw 208 128 208 64 0\nr 208 64 336 64 0 10000\nw 336 64 400 64 0\nw 400 64 400 160 0\nw 384 160 448 160 0\nw 448 160 400 160 0\nr 224 176 224 272 0 10000\ng 224 272 224 288 0\ng 80 192 80 208 0\ng 80 320 80 336 0\nO 448 160 512 160 2 0\no 1 64 0 4098 20 0.1 0 2 1 3\no 0 64 0 4098 10 0.1 0 2 1 3\no 21 64 0 4098 20 0.1 0 2 21 3\n"
+  }
+]

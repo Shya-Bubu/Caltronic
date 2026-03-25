@@ -1,0 +1,75 @@
+{
+    "id": "quiz-opamp-frequency-response",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What is the typical Open-Loop Break Frequency (f_c) where an LM741 begins losing its massive DC gain?",
+            "options": ["1 MHz", "10 kHz", "10 Hz", "0 Hz (DC)"],
+            "correctAnswer": "10 Hz",
+            "explanation": "Because of internal compensation capacitors, the gain stays perfectly flat only up to about 10 Hz before it starts linearly rolling off on the Bode plot."
+        },
+        {
+            "id": "q2",
+            "prompt": "Why do manufacturers intentionally add a low-pass compensation capacitor inside general-purpose op-amps?",
+            "options": ["To filter out audio noise", "To ensure the op-amp remains absolutely stable and doesn't violently oscillate at high frequencies", "To increase the open-loop gain", "To reduce the power consumption"],
+            "correctAnswer": "To ensure the op-amp remains absolutely stable and doesn't violently oscillate at high frequencies",
+            "explanation": "High-frequency signals naturally experience phase shifts as they travel through transit delays in the transistors. If a signal shifts by 180 degrees, negative feedback turns into positive feedback, creating an oscillator. The capacitor kills the gain before that shift can become dangerous."
+        },
+        {
+            "id": "q3",
+            "prompt": "According to the fundamental equation A_f = A_d / (1 + A_d * β), what happens when the open-loop gain A_d is massively large (e.g. 100,000)?",
+            "options": ["The circuit begins to oscillate", "The closed-loop gain A_f approximates exactly to 1/β", "The closed-loop gain A_f becomes infinite", "The feedback fraction β must be zero"],
+            "correctAnswer": "The closed-loop gain A_f approximates exactly to 1/β",
+            "explanation": "When A_d is huge, A_d * β is much larger than 1. This cancels out the A_d terms in the numerator and denominator, leaving only 1/β."
+        },
+        {
+            "id": "q4",
+            "prompt": "How does Negative Feedback magically 'extend' the bandwidth of an amplifier?",
+            "options": ["It physically bypasses the internal compensation capacitor", "By trading excess open-loop gain for bandwidth. You accept a much lower, flat gain (e.g. 100), and that flat line intersects the dropping open-loop curve at a much higher frequency (e.g. 10 kHz).", "It injects high-frequency currents directly into the output pins", "It causes the op-amp to run hotter, increasing electron mobility"],
+            "correctAnswer": "By trading excess open-loop gain for bandwidth. You accept a much lower, flat gain (e.g. 100), and that flat line intersects the dropping open-loop curve at a much higher frequency (e.g. 10 kHz).",
+            "explanation": "The closed-loop gain remains perfectly flat and stable until it collides with the open-loop ceiling."
+        },
+        {
+            "id": "q5",
+            "prompt": "If an op-amp has a constant Gain-Bandwidth Product (GBP) of 10 MHz. What is the maximum operating frequency if you configure it for a voltage gain of 50?",
+            "options": ["10 MHz", "500 MHz", "200 kHz", "50 kHz"],
+            "correctAnswer": "200 kHz",
+            "explanation": "GBP = Gain * Bandwidth. 10,000,000 = 50 * Bandwidth. Bandwidth = 10,000,000 / 50 = 200,000 Hz = 200 kHz."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the primary technical advantage of the equation A_f ≈ 1/β regarding manufacturing and operating environments?",
+            "options": ["It proves op-amps require negative power supplies", "It shows that closed-loop gain is completely immune to massive temperature-induced fluctuations in the op-amp's internal open-loop gain (A_d).", "It allows the op-amp to drive heavier loads", "It eliminates Input Offset Voltage (V_OS)"],
+            "correctAnswer": "It shows that closed-loop gain is completely immune to massive temperature-induced fluctuations in the op-amp's internal open-loop gain (A_d).",
+            "explanation": "Because A_d is mathematically eliminated from the final equation, even if A_d drops from 200,000 to 50,000 due to intense heat, the closed-loop output gain stays perfectly locked to the external physical resistors."
+        },
+        {
+            "id": "q7",
+            "prompt": "How do you define the Unity Gain Frequency (f_T)?",
+            "options": ["The frequency at which the Open-Loop Gain drops exactly to 1 (0 dB) passing its GBP", "The 10 Hz break frequency", "The frequency where the op-amp begins oscillating", "The frequency where V_OS = 0"],
+            "correctAnswer": "The frequency at which the Open-Loop Gain drops exactly to 1 (0 dB) passing its GBP",
+            "explanation": "Because GBP = Gain * Bandwidth, if Gain = 1, then GBP = Bandwidth. The standard bandwidth limit for a buffer is the Unity Gain Frequency."
+        },
+        {
+            "id": "q8",
+            "prompt": "You need an amplifier with a gain of 1000 and a bandwidth of 1 MHz. You only have cheap 1 MHz GBP op-amps. How can you solve this?",
+            "options": ["It is mathematically impossible", "Connect three op-amps in parallel to boost the current", "Cascade (daisy-chain) three separate op-amp stages, each configured for a tiny gain of 10. They will multiply to 1000, but each will individually maintain a 100 kHz bandwidth, which is still too slow. Wait, you need 1 MHz bandwidth. Cascade three stages with gain of 10 -> each stage BW = 1MHz/10 = 100kHz. The overall BW is even lower. Correct answer: You MUST use a faster, more expensive op-amp with at least a 1000 MHz (1 GHz) GBP.", "Remove the compensation capacitor manually"],
+            "correctAnswer": "Cascade (daisy-chain) three separate op-amp stages, each configured for a tiny gain of 10. They will multiply to 1000, but each will individually maintain a 100 kHz bandwidth, which is still too slow. Wait, you need 1 MHz bandwidth. Cascade three stages with gain of 10 -> each stage BW = 1MHz/10 = 100kHz. The overall BW is even lower. Correct answer: You MUST use a faster, more expensive op-amp with at least a 1000 MHz (1 GHz) GBP.",
+            "explanation": "Let's re-read the options carefully. If GBP = 1MHz, and you need Gain=1000 and BW=1MHz, required GBP = 1GHz. Cascading gain of 10 * 10 * 10 means each stage must pass 1MHz. A stage with gain 10 using a 1MHz GBP op-amp has a max BW of 100kHz. It blocks 1MHz. Therefore, it is impossible without buying a faster chip."
+        },
+        {
+            "id": "q9",
+            "prompt": "Placing a capacitor in series with the input voltage signal (AC Coupling) creates what type of circuit?",
+            "options": ["An ideal integrator", "A High-Pass filter (blocking DC)", "A Low-Pass filter (blocking RF)", "A Schmitt Trigger"],
+            "correctAnswer": "A High-Pass filter (blocking DC)",
+            "explanation": "A series capacitor completely blocks DC (0 Hz), acting as an open circuit. As frequency increases, its impedance drops, allowing the signal through. This creates a high-pass frequency response."
+        },
+        {
+            "id": "q10",
+            "prompt": "If an op-amp's Open-Loop curve rolls off at a rate of -20 dB/decade, what does this actually mean physically?",
+            "options": ["Every time the frequency multiplies by 10 (a decade), the voltage gain divides exactly by 10", "The gain drops by 20 Volts every second", "The op-amp heats up by 20 degrees per decade", "Every time the frequency doubles, the gain drops by 20"],
+            "correctAnswer": "Every time the frequency multiplies by 10 (a decade), the voltage gain divides exactly by 10",
+            "explanation": "In decibels, -20 dB specifically equals a voltage ratio of 0.1 (or 1/10th). So every time your frequency goes from 1kHz to 10kHz, your available gain is crushed to exactly one-tenth of its previous value."
+        }
+    ]
+}

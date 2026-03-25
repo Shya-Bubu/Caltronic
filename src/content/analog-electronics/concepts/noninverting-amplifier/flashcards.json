@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-noninverting-amplifier",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the closed-loop voltage gain formula for a non-inverting amplifier?",
+            "back": "A_v = 1 + (R_2 / R_1), where R_2 is the feedback resistor and R_1 connects to ground.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the definition of a Unity Gain Buffer?",
+            "back": "An op-amp circuit where the output is connected directly to the inverting input, producing a voltage gain of exactly 1 (V_o = V_in).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is the primary advantage of a non-inverting amplifier over an inverting amplifier?",
+            "back": "It has an incredibly high input impedance (theoretically infinite) because the signal source connects directly to the op-amp input pin, drawing zero current.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Why is the unity gain buffer useful if it doesn't amplify voltage?",
+            "back": "It provides impedance isolation (buffers). It draws no current from a weak signal source, but can supply significant current to a heavy load.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "For a non-inverting amplifier, what is the theoretical minimum gain you can achieve?",
+            "back": "The minimum gain is 1. (When R_2 = 0 or R_1 = ∞). You cannot attenuate a signal with this standard configuration.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Explain how the resistors R_1 and R_2 act in a non-inverting amplifier.",
+            "back": "They form a voltage divider that feeds a fraction of the output voltage V_o back to the inverting terminal.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "If V_in is applied to the non-inverting terminal, what is the voltage at the inverting terminal?",
+            "back": "Due to the virtual short (V_- = V_+), the voltage at the inverting terminal is also equal to V_in.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f8",
+            "front": "In the derivation, what assumption allows us to treat R_1 and R_2 as a perfect voltage divider?",
+            "back": "The assumption that the op-amp inverting terminal draws ZERO current (i_- = 0). This means all current from R_2 must flow through R_1.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "What phase relationship exists between the input and output of a non-inverting amplifier?",
+            "back": "They are perfectly in phase (0 degree shift). A positive-going input produces a positive-going output.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f10",
+            "front": "To build a buffer, what resistor values should be used for the non-inverting equation 1 + (R_2/R_1)?",
+            "back": "R_2 should be 0 ohms (a short wire). R_1 should be infinite ohms (removed from the circuit).",
+            "difficultyLevel": 4
+        }
+    ]
+}

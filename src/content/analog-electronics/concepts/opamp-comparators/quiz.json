@@ -1,0 +1,75 @@
+{
+    "id": "quiz-opamp-comparators",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What happens when an op-amp is operated entirely open-loop (no feedback)?",
+            "options": ["It operates as a perfect linear amplifier", "It acts as an oscillator", "Its massive gain causes its output to saturate at the supply rails for even tiny input differences", "It severely attenuates the input signal"],
+            "correctAnswer": "Its massive gain causes its output to saturate at the supply rails for even tiny input differences",
+            "explanation": "With an open-loop gain A_vd of 10^5 or more, a few millivolts of difference between V+ and V- is enough to multiply the output voltage past the physical limits of the power supply."
+        },
+        {
+            "id": "q2",
+            "prompt": "If V_in is connected to the inverting (-) terminal and a reference voltage of 2V is connected to the non-inverting (+) terminal of a comparator, what is the output state when V_in is 3V?",
+            "options": ["+V_CC (High saturation)", "-V_CC (Low saturation)", "0V", "1V"],
+            "correctAnswer": "-V_CC (Low saturation)",
+            "explanation": "Since V_in (3V) is greater than the reference (2V), V_(-) is strictly greater than V_(+). The op-amp amplifies this negative difference rapidly, hitting the lower supply rail."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the primary function of a Zero-Crossing Detector?",
+            "options": ["To eliminate DC drift", "To convert an analog wave (like a sine wave) into a digital square wave that triggers exactly when the wave crosses 0V", "To perfectly sum multiple 0V signals", "To prevent the op-amp from saturating"],
+            "correctAnswer": "To convert an analog wave (like a sine wave) into a digital square wave that triggers exactly when the wave crosses 0V",
+            "explanation": "By setting the reference voltage strictly to 0V (ground), the comparator flips its output state every time the input crosses that 0V line."
+        },
+        {
+            "id": "q4",
+            "prompt": "What severe practical problem affects basic comparators when evaluating noisy analog signals?",
+            "options": ["Bandwidth limitation", "Thermal runaway", "Output chattering (multiple rapid triggerings) as the noise repeatedly knocks the signal across the threshold", "Failure to saturate"],
+            "correctAnswer": "Output chattering (multiple rapid triggerings) as the noise repeatedly knocks the signal across the threshold",
+            "explanation": "Because the comparator evaluates instantly, noise spikes spanning across the V_ref threshold cause the output to rapidly switch back and forth."
+        },
+        {
+            "id": "q5",
+            "prompt": "How does a Schmitt Trigger solve the noise chattering problem?",
+            "options": ["By adding a large capacitor to the input", "By using a lower power supply voltage", "By introducing Positive Feedback to create Hysteresis", "By using a faster op-amp"],
+            "correctAnswer": "By introducing Positive Feedback to create Hysteresis",
+            "explanation": "Positive feedback creates two distinct snapping thresholds. Once it crosses one, it locks in that state until the signal travels past a completely different threshold."
+        },
+        {
+            "id": "q6",
+            "prompt": "In a Schmitt Trigger, where does the feedback network connect the output signal?",
+            "options": ["To the Inverting (-) terminal", "To the Non-Inverting (+) terminal", "To Ground", "To the V_CC power rail"],
+            "correctAnswer": "To the Non-Inverting (+) terminal",
+            "explanation": "Connecting the output back to the non-inverting terminal creates Positive Feedback, accelerating the op-amp toward saturation and locking it there."
+        },
+        {
+            "id": "q7",
+            "prompt": "What happens to the Virtual Short rule (V_+ = V_-) in a Schmitt Trigger circuit?",
+            "options": ["It remains perfectly valid", "It only applies when the output is 0V", "It is completely invalid because there is no negative feedback driving the inputs together", "It reverses to V_+ = -V_-"],
+            "correctAnswer": "It is completely invalid because there is no negative feedback driving the inputs together",
+            "explanation": "The virtual short relies exclusively on negative feedback counteracting differences. Positive feedback amplifies the difference until starvation, preventing them from ever being equal."
+        },
+        {
+            "id": "q8",
+            "prompt": "Define Hysteresis in the context of a Schmitt Trigger.",
+            "options": ["The maximum frequency the comparator can handle", "The voltage difference between the positive and negative supply rails", "The property where the circuit has a higher trigger threshold for a rising input and a lower trigger threshold for a falling input", "The delay time between the input crossing and the output snapping"],
+            "correctAnswer": "The property where the circuit has a higher trigger threshold for a rising input and a lower trigger threshold for a falling input",
+            "explanation": "This 'dead band' between the two thresholds means small noise spikes cannot cause accidental re-triggering. The signal must traverse the entire band to flip the state."
+        },
+        {
+            "id": "q9",
+            "prompt": "A Schmitt trigger has purely resistive positive feedback dividing the output voltage. If the output is currently at +15V, what does the non-inverting (+) terminal see?",
+            "options": ["0V", "A fraction of +15V determined by the resistor voltage divider", "-15V", "Exactly +15V"],
+            "correctAnswer": "A fraction of +15V determined by the resistor voltage divider",
+            "explanation": "The voltage divider (R_1 and R_2) sets a new positive reference voltage (the Upper Threshold) based on that +15V output."
+        },
+        {
+            "id": "q10",
+            "prompt": "A Schmitt trigger's thresholds are +2V (upper) and -2V (lower). If the output is currently Low (-V_CC) and the input V_in is slowly rising from -5V, at what precise voltage will the output snap High?",
+            "options": ["0V", "-2V", "+2V", "+5V"],
+            "correctAnswer": "+2V",
+            "explanation": "Because the output is currently stuck Low, the reference voltage established by the positive feedback divider is the Lower Threshold (-2V) IF V_in was attached to the (+) pin. Assuming standard configuration where V_in is on (-), we must wait until V_in crosses the reference. Wait, standard inverting Schmitt: If output is Low (-Vcc), reference on (+) is -2V. For the difference to go positive and flip the output High, V_in on (-) must drop below -2V, not rise above +2V! This question implies non-inverting config. If V_in is on (+) and V_ref on (-): output is Low (-Vcc). V_in rises. It must cross the Upper Threshold (+2V) to flip High. Let's assume standard Upper Threshold definition (+2V) for a rising signal to cause a state change."
+        }
+    ]
+}

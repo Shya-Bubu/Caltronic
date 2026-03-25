@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-inverting-amplifier",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the closed-loop voltage gain formula for an inverting amplifier?",
+            "back": "A_v = -R_2 / R_1, where R_2 is the feedback resistor and R_1 is the input resistor.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "In an inverting amplifier, what is the non-inverting (+) terminal connected to?",
+            "back": "It is connected directly to ground (0V).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is a 'Virtual Ground'?",
+            "back": "A node that is held exactly at 0V by an op-amp's negative feedback (virtual short to a grounded pin), even though it has no direct physical wire to ground.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the input impedance of an inverting amplifier circuit as seen by the source V_in?",
+            "back": "Z_in = R_1. Because the inverting terminal is at a virtual ground (0V), the source drives the resistor R_1 directly to ground.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why must the current through R_1 equal the negative of the current through R_2 in KCL analysis?",
+            "back": "Because the ideal op-amp draws zero current into its input pins. So all current entering the virtual ground node from R_1 MUST leave via R_2. I_1 + I_2 = 0.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "What does output 'saturation' (or clipping) mean for an op-amp?",
+            "back": "The condition where the theoretical output voltage exceeds the power supply rails (±V_CC). The op-amp physically cannot exceed these rails, so the output wave is flattened.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What does the negative sign in the gain equation A_v = -R_2/R_1 imply for an AC signal?",
+            "back": "It implies a phase inversion. The output waveform is exactly 180 degrees out of phase with the input waveform.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f8",
+            "front": "Write out the KCL equation at the virtual ground node in terms of V_in, V_o, R_1, and R_2.",
+            "back": "(V_in / R_1) + (V_o / R_2) = 0",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "Why is it inadvisable to use a very small value for R_1 (e.g., 10 ohms) to achieve high gain?",
+            "back": "Because Z_in = R_1. A 10 ohm input impedance will heavily load down most signal sources, drawing excessive current and causing the source's voltage to drop.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "If an inverting amplifier has R_1 = 10k, R_2 = 100k, and V_in = +1.5V DC, what is V_o?",
+            "back": "V_o = -(100k/10k) * 1.5V = -10 * 1.5V = -15V.",
+            "difficultyLevel": 3
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "id": "ideal-opamp-model",
+    "title": "The Ideal Op-Amp Model & Differential Amplifiers",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

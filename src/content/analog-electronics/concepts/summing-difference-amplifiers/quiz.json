@@ -1,0 +1,75 @@
+{
+    "id": "quiz-summing-difference-amplifiers",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What key property of the inverting amplifier allows us to add multiple inputs without them interfering with each other?",
+            "options": ["The output has zero impedance", "The inverting terminal is a Virtual Ground (0V)", "The op-amp has infinite open-loop gain", "The input resistors are always equal"],
+            "correctAnswer": "The inverting terminal is a Virtual Ground (0V)",
+            "explanation": "Because the node where they all mix is held exactly at 0V by the op-amp, the current from one input cannot flow 'backwards' into another input. They are perfectly isolated."
+        },
+        {
+            "id": "q2",
+            "prompt": "For an inverting summing amplifier with inputs V_1, V_2, V_3 and respective resistors R_1, R_2, R_3, what is the correct output equation?",
+            "options": ["V_o = R_F * (V_1/R_1 + V_2/R_2 + V_3/R_3)", "V_o = -R_F * (V_1/R_1 + V_2/R_2 + V_3/R_3)", "V_o = -(R_F/R_1) * (V_1 + V_2 + V_3)", "V_o = V_1 + V_2 + V_3"],
+            "correctAnswer": "V_o = -R_F * (V_1/R_1 + V_2/R_2 + V_3/R_3)",
+            "explanation": "The output is the negative product of the feedback resistor and the sum of the individual input currents (V_i / R_i)."
+        },
+        {
+            "id": "q3",
+            "prompt": "In a 3-input audio mixer using a summing amplifier, how do you increase the volume of microphone 2 without changing the others?",
+            "options": ["Decrease the feedback resistor R_F", "Increase the input resistor R_2", "Decrease the input resistor R_2", "Increase the power supply voltage"],
+            "correctAnswer": "Decrease the input resistor R_2",
+            "explanation": "Decreasing R_2 increases the current I_2 that V_2 drives into the virtual ground, increasing its specific gain (-R_F/R_2). Changing R_F would change the volume of ALL microphones."
+        },
+        {
+            "id": "q4",
+            "prompt": "In a 4-bit binary-weighted DAC built with a summing amplifier, if the MSB logic '1' produces -8V output, what will the bit right next to it (MSB-1) produce when set to logic '1'?",
+            "options": ["-8V", "-16V", "-4V", "-2V"],
+            "correctAnswer": "-4V",
+            "explanation": "In a binary weighted DAC, each successively less significant bit has double the resistance of the previous bit. Double the resistance means exactly half the gain. So -8V becomes -4V."
+        },
+        {
+            "id": "q5",
+            "prompt": "Why are binary-weighted DACs impractical for high resolutions (e.g., 16 bits)?",
+            "options": ["They are too slow", "They draw too much power", "The op-amps cannot handle the discrete jumps", "The large difference between the smallest and largest resistor (a ratio of 2^15) is impossible to manufacture tightly"],
+            "correctAnswer": "The large difference between the smallest and largest resistor (a ratio of 2^15) is impossible to manufacture tightly",
+            "explanation": "At 16 bits, the LSB resistor is 32,768 times larger than the MSB resistor. Creating such wildly different resistors with identical temperature behavior inside a chip is physically prohibitive."
+        },
+        {
+            "id": "q6",
+            "prompt": "A difference amplifier uses both inputs (V_1 inverting, V_2 non-inverting). What condition must be met for it to perform perfect subtraction V_o ∝ (V_2 - V_1)?",
+            "options": ["R_1 = R_2 and R_3 = R_4", "R_1/R_3 = R_2/R_4", "R_1/R_2 = R_3/R_4", "R_F must be zero"],
+            "correctAnswer": "R_1/R_2 = R_3/R_4",
+            "explanation": "The ratio of the resistors passing the inverting signal (R_1/R_2) must perfectly match the ratio of the voltage divider passing the non-inverting signal (R_3/R_4)."
+        },
+        {
+            "id": "q7",
+            "prompt": "If a perfect difference amplifier has R_1=10k, R_2=50k, R_3=10k, and R_4=50k. What is V_o if V_1 = 2V and V_2 = 3V?",
+            "options": ["-5V", "5V", "1V", "+10V"],
+            "correctAnswer": "5V",
+            "explanation": "The gain of the difference amp is R_2/R_1 = 50k/10k = 5. V_o = 5 * (V_2 - V_1) = 5 * (3 - 2) = 5 * 1 = 5V."
+        },
+        {
+            "id": "q8",
+            "prompt": "If a 50 Hz noise is induced equally on the wires carrying V_1 and V_2 into a difference amplifier, what happens to the noise at the output?",
+            "options": ["It is amplified entirely", "It is cancelled out completely (Common Mode Rejection)", "It is divided by 2", "It causes the op-amp to oscillate"],
+            "correctAnswer": "It is cancelled out completely (Common Mode Rejection)",
+            "explanation": "Because the noise is identical on both V_1 and V_2, the term (V_2 - V_1) for the noise is (Noise - Noise) = 0. The difference amplifier theoretically rejects it completely."
+        },
+        {
+            "id": "q9",
+            "prompt": "When analyzing a difference amplifier by Superposition, what do you do with V_2 when evaluating the effect of V_1?",
+            "options": ["Replace it with an open circuit", "Replace it with a short circuit to V_1", "Replace it with a short circuit to ground (0V)", "Leave it alone"],
+            "correctAnswer": "Replace it with a short circuit to ground (0V)",
+            "explanation": "In superposition analysis, all unused independent voltage sources are turned off by replacing them with a short circuit to ground (0V)."
+        },
+        {
+            "id": "q10",
+            "prompt": "In an inverting summing amplifier, how many feedback resistors (R_F) are required to sum 5 input signals?",
+            "options": ["5", "1", "0", "10"],
+            "correctAnswer": "1",
+            "explanation": "You need 5 separate input resistors for the 5 signals, but only ONE feedback resistor to carry the sum of all their currents from the output back to the virtual ground."
+        }
+    ]
+}

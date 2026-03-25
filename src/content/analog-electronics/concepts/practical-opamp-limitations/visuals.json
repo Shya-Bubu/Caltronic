@@ -1,0 +1,188 @@
+[
+  {
+    "id": "real-opamp-model",
+    "type": "circuit-schematic",
+    "title": "The Practical Op-Amp Equivalent Circuit",
+    "description": "Unlike the ideal model, a real op-amp has finite input impedance (R_in), non-zero output impedance (R_o), and an error voltage source (V_OS) representing internal imbalances.",
+    "elements": [
+      { "component": "wire", "x1": 50, "y1": 50, "x2": 100, "y2": 50, "label": "V_+" },
+      { "component": "wire", "x1": 50, "y1": 150, "x2": 100, "y2": 150, "label": "V_-" },
+      { "component": "resistor", "x": 100, "y": 100, "label": "R_{in}", "rotation": 90 },
+      { "component": "wire", "x1": 100, "y1": 50, "x2": 100, "y2": 70 },
+      { "component": "wire", "x1": 100, "y1": 130, "x2": 100, "y2": 150 },
+      { "component": "wire", "x1": 100, "y1": 50, "x2": 150, "y2": 50 },
+      { "component": "voltage-source", "x": 180, "y": 50, "label": "V_{OS}" },
+      { "component": "wire", "x1": 150, "y1": 50, "x2": 165, "y2": 50 },
+      { "component": "wire", "x1": 195, "y1": 50, "x2": 220, "y2": 50 },
+      { "component": "wire", "x1": 100, "y1": 150, "x2": 220, "y2": 150 },
+      { "component": "wire", "x1": 220, "y1": 50, "x2": 250, "y2": 100 },
+      { "component": "wire", "x1": 220, "y1": 150, "x2": 250, "y2": 100 },
+      { "component": "wire", "x1": 220, "y1": 50, "x2": 220, "y2": 150 },
+      { "component": "voltage-source", "x": 300, "y": 100, "label": "A_{vd}V_d" },
+      { "component": "resistor", "x": 360, "y": 100, "label": "R_o" },
+      { "component": "wire", "x1": 250, "y1": 100, "x2": 285, "y2": 100 },
+      { "component": "wire", "x1": 315, "y1": 100, "x2": 330, "y2": 100 },
+      { "component": "wire", "x1": 390, "y1": 100, "x2": 430, "y2": 100, "label": "V_o" },
+      { "component": "ground", "x": 300, "y": 140 },
+      { "component": "wire", "x1": 300, "y1": 115, "x2": 300, "y2": 140 },
+      { "component": "junction", "x": 100, "y": 50 },
+      { "component": "junction", "x": 100, "y": 150 }
+    ],
+    "width": 500,
+    "height": 200
+  },
+  {
+    "id": "ideal-vs-real",
+    "type": "plotly",
+    "title": "Ideal vs 741 Op-Amp (Log Scale)",
+    "description": "Comparing the theoretical ideal parameters with the legendary (but outdated) LM741 op-amp.",
+    "traces": [
+      {
+        "x": ["Input Impedance (Ω)", "Open Loop Gain", "CMRR"],
+        "y": [1e12, 1e7, 1e6],
+        "type": "bar",
+        "name": "'Ideal' (Mathematical Infinity assumed as 1T)",
+        "marker": { "color": "#118ab2" }
+      },
+      {
+        "x": ["Input Impedance (Ω)", "Open Loop Gain", "CMRR"],
+        "y": [2e6, 2e5, 3.16e4],
+        "type": "bar",
+        "name": "LM741 (Typical)",
+        "marker": { "color": "#ef476f" }
+      }
+    ],
+    "layout": {
+      "yaxis": { "type": "log", "title": "Magnitude" },
+      "title": "Parameter Comparison: Ideal vs Reality",
+      "barmode": "group"
+    }
+  },
+  {
+    "id": "offset-voltage-schematic",
+    "type": "circuit-schematic",
+    "title": "Modeling Input Offset Voltage (V_OS)",
+    "description": "Even if both inputs are grounded, a real op-amp acts as if there is a tiny internal battery (V_OS) connected to one of its input terminals.",
+    "elements": [
+      { "component": "wire", "x1": 100, "y1": 134, "x2": 120, "y2": 134 },
+      { "component": "ground", "x": 100, "y": 134 },
+      { "component": "voltage-source", "x": 150, "y": 134, "label": "V_{OS} (1 mV)" },
+      { "component": "wire", "x1": 165, "y1": 134, "x2": 210, "y2": 134 },
+      { "component": "wire", "x1": 100, "y1": 174, "x2": 210, "y2": 174 },
+      { "component": "ground", "x": 100, "y": 174 },
+      { "component": "op-amp", "x": 258, "y": 154 },
+      { "component": "wire", "x1": 306, "y1": 154, "x2": 350, "y2": 154 },
+      { "component": "text", "x": 370, "y": 154, "text": "V_o ≠ 0V" },
+      { "component": "wire", "x1": 120, "y1": 134, "x2": 135, "y2": 134 }
+    ],
+    "width": 450,
+    "height": 220
+  },
+  {
+    "id": "falstad-offset-error",
+    "type": "falstad-sim",
+    "title": "Interactive Offset Error in an Amplifier",
+    "description": "This inverting amplifier has its input grounded (0V). The op-amp has an internal 5mV offset error. Because the NON-INVERTING gain is (1 + 100k/1k) = 101, the tiny 5mV error is amplified to roughly 500mV at the output!",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 80 160 80 224 0 0 40 5 0 0 0.5\nr 80 160 176 160 0 1000\nw 176 160 224 160 0\nw 224 160 224 176 0\na 272 192 368 192 8 15 -15 1000000 0 0 100000\nw 224 208 224 256 0\ng 80 224 80 240 0\nw 176 160 176 96 0\nr 176 96 336 96 0 100000\nw 336 96 368 96 0\nw 368 96 368 192 0\nv 224 304 224 256 0 0 40 0.005 0 0 0.5\ng 224 304 224 320 0\nO 368 192 416 192 2 0\nt 203 277 241 277 0 -1 -1 0 5mV Internal Error\no 14 64 0 4098 0.625 0.1 0 2 14 3\n"
+  },
+  {
+    "id": "temperature-drift",
+    "type": "plotly",
+    "title": "Offset Voltage Drift with Temperature",
+    "description": "Offset voltage isn't constant. It changes as the silicon heats up or cools down. This requires complex temperature-compensation circuitry in precision measuring tools.",
+    "traces": [
+      {
+        "x": [-40, -20, 0, 25, 50, 75, 100, 125],
+        "y": [1.2, 0.8, 0.5, 0.1, -0.4, -1.0, -1.8, -2.5],
+        "mode": "lines+markers",
+        "name": "V_{OS} (mV)",
+        "line": { "color": "#ef476f", "shape": "spline" }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Temperature (°C)" },
+      "yaxis": { "title": "Input Offset Voltage (mV)" },
+      "title": "Thermal Drift (α = ΔV_{OS} / ΔT)"
+    }
+  },
+  {
+    "id": "ic-pinout",
+    "type": "circuit-schematic",
+    "title": "LM741 Pinout & Null Compensation",
+    "description": "Pins 1 and 5 are specifically provided to allow the user to manually tune out the offset error using an external potentiometer.",
+    "elements": [
+      { "component": "text", "x": 100, "y": 80, "text": "LM741" },
+      { "component": "wire", "x1": 100, "y1": 100, "x2": 150, "y2": 100, "label": "Offset Null (1)" },
+      { "component": "wire", "x1": 100, "y1": 140, "x2": 150, "y2": 140, "label": "Inverting In (-) (2)" },
+      { "component": "wire", "x1": 100, "y1": 180, "x2": 150, "y2": 180, "label": "Non-Inv In (+) (3)" },
+      { "component": "wire", "x1": 100, "y1": 220, "x2": 150, "y2": 220, "label": "-Vcc / Vee (4)" },
+      { "component": "wire", "x1": 300, "y1": 100, "x2": 250, "y2": 100, "label": "NC (8)" },
+      { "component": "wire", "x1": 300, "y1": 140, "x2": 250, "y2": 140, "label": "+Vcc (7)" },
+      { "component": "wire", "x1": 300, "y1": 180, "x2": 250, "y2": 180, "label": "Output (6)" },
+      { "component": "wire", "x1": 300, "y1": 220, "x2": 250, "y2": 220, "label": "Offset Null (5)" },
+      { "component": "wire", "x1": 150, "y1": 80, "x2": 250, "y2": 80 },
+      { "component": "wire", "x1": 150, "y1": 240, "x2": 250, "y2": 240 },
+      { "component": "wire", "x1": 150, "y1": 80, "x2": 150, "y2": 240 },
+      { "component": "wire", "x1": 250, "y1": 80, "x2": 250, "y2": 240 }
+    ],
+    "width": 400,
+    "height": 300
+  },
+  {
+    "id": "null-compensation-schematic",
+    "type": "circuit-schematic",
+    "title": "Wiring the Offset Null Potentiometer",
+    "description": "A 10k potentiometer is wired between Pins 1 and 5, with its wiper connected to the negative supply rail (-V_ee). By turning the knob, internal transistor bias currents are adjusted until V_o is exactly 0V when the inputs are 0V.",
+    "elements": [
+      { "component": "op-amp", "x": 198, "y": 154 },
+      { "component": "wire", "x1": 150, "y1": 134, "x2": 180, "y2": 134 },
+      { "component": "wire", "x1": 150, "y1": 174, "x2": 180, "y2": 174 },
+      { "component": "wire", "x1": 246, "y1": 154, "x2": 300, "y2": 154 },
+      { "component": "wire", "x1": 198, "y1": 104, "x2": 198, "y2": 80 },
+      { "component": "wire", "x1": 198, "y1": 204, "x2": 198, "y2": 220 },
+      { "component": "wire", "x1": 210, "y1": 180, "x2": 260, "y2": 180, "label": "Pin 5" },
+      { "component": "wire", "x1": 170, "y1": 180, "x2": 120, "y2": 180, "label": "Pin 1" },
+      { "component": "resistor", "x": 190, "y": 260, "label": "10k Pot" },
+      { "component": "wire", "x1": 120, "y1": 180, "x2": 120, "y2": 260 },
+      { "component": "wire", "x1": 120, "y1": 260, "x2": 160, "y2": 260 },
+      { "component": "wire", "x1": 260, "y1": 180, "x2": 260, "y2": 260 },
+      { "component": "wire", "x1": 220, "y1": 260, "x2": 260, "y2": 260 },
+      { "component": "arrow", "x": 190, "y": 280, "direction": "up" },
+      { "component": "wire", "x1": 190, "y1": 280, "x2": 190, "y2": 310 },
+      { "component": "wire", "x1": 190, "y1": 310, "x2": 198, "y2": 310 },
+      { "component": "wire", "x1": 198, "y1": 220, "x2": 198, "y2": 310 },
+      { "component": "voltage-source", "x": 198, "y": 340, "label": "-V_{EE}" },
+      { "component": "wire", "x1": 198, "y1": 310, "x2": 198, "y2": 340 },
+      { "component": "junction", "x": 198, "y": 310 }
+    ],
+    "width": 350,
+    "height": 400
+  },
+  {
+    "id": "integrator-drift-plot",
+    "type": "plotly",
+    "title": "Integrator Drift over Time",
+    "description": "Why DC offsets are terrifying for integrators: A tiny 1mV offset is integrated linearly over time ($V = 1mV/RC * t$). Eventually the output completely saturates.",
+    "traces": [
+      {
+        "x": [0, 10, 20, 30, 40, 50, 60],
+        "y": [0, 2.5, 5.0, 7.5, 10.0, 12.5, 15.0],
+        "mode": "lines",
+        "name": "V_o (1mV offset, RC=4ms)",
+        "line": { "color": "#ffbe0b", "width": 3 }
+      },
+      {
+        "x": [60, 61, 70, 80],
+        "y": [15.0, 15.0, 15.0, 15.0],
+        "mode": "lines",
+        "name": "Saturation (+Vcc)",
+        "line": { "color": "#ef476f", "width": 4 }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Time (ms)" },
+      "yaxis": { "title": "Output Voltage (V)" },
+      "title": "Integration of Unwanted V_{OS}"
+    }
+  }
+]

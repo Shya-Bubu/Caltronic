@@ -1,0 +1,75 @@
+{
+    "id": "quiz-opamp-integrator-differentiator",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Which component arrangement creates an ideal inverting integrator?",
+            "options": ["A resistor at the input and a resistor in the feedback loop", "A capacitor at the input and a resistor in the feedback loop", "A resistor at the input and a capacitor in the feedback loop", "A capacitor at the input and a capacitor in the feedback loop"],
+            "correctAnswer": "A resistor at the input and a capacitor in the feedback loop",
+            "explanation": "The voltage across the feedback capacitor is the integral of the current forced into it by the input resistor."
+        },
+        {
+            "id": "q2",
+            "prompt": "If a constant positive DC voltage is applied to the input of an ideal inverting integrator, what will the output look like?",
+            "options": ["A constant negative DC voltage", "A positive-going linear ramp", "A negative-going linear ramp", "A sine wave"],
+            "correctAnswer": "A negative-going linear ramp",
+            "explanation": "Integrating a constant value produces a linear line (ramp). Because it is an inverting integrator, the positive input produces a negative-going slope."
+        },
+        {
+            "id": "q3",
+            "prompt": "What is the primary practical problem with an ideal integrator circuit?",
+            "options": ["It amplifies high-frequency noise excessively", "It suffers from DC drift and will eventually saturate due to tiny offset voltages", "It cannot integrate negative voltages", "It has an extremely low input impedance"],
+            "correctAnswer": "It suffers from DC drift and will eventually saturate due to tiny offset voltages",
+            "explanation": "Because a capacitor blocks DC, there is no DC negative feedback. The op-amp continuously integrates its own tiny internal error voltages until it hits the supply rails."
+        },
+        {
+            "id": "q4",
+            "prompt": "How is the integrator DC drift problem typically solved in a practical (lossy) integrator?",
+            "options": ["Adding a large resistor in parallel with the feedback capacitor", "Adding a small capacitor in parallel with the input resistor", "Adding a diode to ground", "Replacing the op-amp with a BJT"],
+            "correctAnswer": "Adding a large resistor in parallel with the feedback capacitor",
+            "explanation": "The parallel resistor provides a DC path for negative feedback, stabilizing the op-amp at extremely low frequencies (DC) while allowing it to act as an integrator at higher frequencies."
+        },
+        {
+            "id": "q5",
+            "prompt": "Which component arrangement creates an ideal inverting differentiator?",
+            "options": ["A resistor at the input and a capacitor in the feedback loop", "A capacitor at the input and a resistor in the feedback loop", "Two capacitors in parallel", "An inductor at the input"],
+            "correctAnswer": "A capacitor at the input and a resistor in the feedback loop",
+            "explanation": "The current through the input capacitor is proportional to the rate of change of the input voltage. This current then flows through the feedback resistor to create the output voltage."
+        },
+        {
+            "id": "q6",
+            "prompt": "If a perfect triangle wave is applied to the input of an ideal differentiator, what is the shape of the output?",
+            "options": ["A square wave", "A sine wave", "A parabola", "A phase-shifted triangle wave"],
+            "correctAnswer": "A square wave",
+            "explanation": "A triangle wave consists of segments with constant positive slope and constant negative slope. The derivative (rate of change) of a constant slope is a flat DC line. The alternating slopes create a square wave."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the primary practical problem with an ideal differentiator circuit?",
+            "options": ["DC drift and saturation", "It draws zero current from the source", "Its gain approaches infinity at high frequencies, heavily amplifying noise", "It cannot differentiate sine waves"],
+            "correctAnswer": "Its gain approaches infinity at high frequencies, heavily amplifying noise",
+            "explanation": "Because the impedance of the input capacitor drops as frequency increases, high-frequency noise gets amplified immensely and swamps the useful low-frequency signal."
+        },
+        {
+            "id": "q8",
+            "prompt": "What happens to the phase of a sine wave when it passes through an inverting differentiator?",
+            "options": ["It remains unchanged", "It shifts by 90 degrees", "It shifts by 180 degrees", "It shifts by nearly 90 degrees (becoming a negative cosine wave)"],
+            "correctAnswer": "It shifts by nearly 90 degrees (becoming a negative cosine wave)",
+            "explanation": "The mathematical derivative of sin(x) is cos(x) (a 90° shift forward). The inverting configuration adds a negative sign, resulting in -cos(x), meaning it's shifted by 90 degrees backwards."
+        },
+        {
+            "id": "q9",
+            "prompt": "In the differentiator equation V_o = -RC(dV_in/dt), what happens if you double the value of the capacitor C?",
+            "options": ["The output voltage magnitude doubles for the same input signal", "The output voltage halves", "The time required to differentiate doubles", "The circuit becomes an integrator"],
+            "correctAnswer": "The output voltage magnitude doubles for the same input signal",
+            "explanation": "The multiplying factor is RC. Doubling C doubles the overall multiplication factor, producing twice as much voltage output for identical rates of change."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why can we state that the current through the input component equals the current through the feedback component (i_in = -i_feedback) in KCL analysis for both these circuits?",
+            "options": ["Because they are in parallel", "Because the op-amp's ideal input impedance is infinite, meaning no current flows into its internal terminals", "Because the virtual ground node has zero resistance", "Because of the conservation of energy law"],
+            "correctAnswer": "Because the op-amp's ideal input impedance is infinite, meaning no current flows into its internal terminals",
+            "explanation": "The infinite input impedance rule (i_ = 0) is central to deriving almost every op-amp circuit equation. All current must bypass the op-amp and travel through the feedback path."
+        }
+    ]
+}

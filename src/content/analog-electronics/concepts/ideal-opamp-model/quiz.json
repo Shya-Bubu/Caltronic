@@ -1,0 +1,75 @@
+{
+    "id": "quiz-ideal-opamp-model",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Which of the following describes the difference voltage (V_d) in a differential amplifier?",
+            "options": ["V_1 + V_2", "(V_1 + V_2) / 2", "V_1 - V_2", "(V_1 - V_2) / 2"],
+            "correctAnswer": "V_1 - V_2",
+            "explanation": "The difference voltage V_d is exactly that: the difference between the two input voltages, V_1 - V_2. The average (V_1 + V_2)/2 is the common-mode voltage V_cm."
+        },
+        {
+            "id": "q2",
+            "prompt": "An ideal differential amplifier should have:",
+            "options": ["Infinite A_vd and infinite A_cm", "Zero A_vd and zero A_cm", "Infinite A_vd and zero A_cm", "Zero A_vd and infinite A_cm"],
+            "correctAnswer": "Infinite A_vd and zero A_cm",
+            "explanation": "An ideal differential amplifier perfectly amplifies the difference between inputs (A_vd → ∞) and completely ignores signals common to both inputs (A_cm = 0). This gives an infinite CMRR."
+        },
+        {
+            "id": "q3",
+            "prompt": "In the common-mode rejection ratio equation CMRR = 1 + [2(1+h_fe)R_E] / h_ie, how can we theoretically maximise CMRR?",
+            "options": ["Make R_E as small as possible", "Make R_E as large as possible", "Make h_ie as large as possible", "Use a transistor with zero h_fe"],
+            "correctAnswer": "Make R_E as large as possible",
+            "explanation": "To maximise CMRR, the numerator term containing R_E must be as large as possible. This is why practical differential amplifiers replace the physical resistor R_E with a constant current source, which acts as a massive AC resistance."
+        },
+        {
+            "id": "q4",
+            "prompt": "Which of the following is NOT a property of an ideal operational amplifier?",
+            "options": ["Infinite input impedance", "Zero output impedance", "Infinite bandwidth", "Infinite common-mode gain"],
+            "correctAnswer": "Infinite common-mode gain",
+            "explanation": "An ideal op-amp has ZERO common-mode gain (it perfectly rejects common-mode signals). It does have infinite input impedance, zero output impedance, and infinite bandwidth."
+        },
+        {
+            "id": "q5",
+            "prompt": "Why is it safe to assume that no current flows into the input terminals of an ideal op-amp?",
+            "options": ["Because they are internally grounded", "Because the input impedance is infinite", "Because the output voltage is very high", "Because negative feedback blocks the current"],
+            "correctAnswer": "Because the input impedance is infinite",
+            "explanation": "The ideal op-amp model defines input impedance (R_in) as infinite. According to Ohm's law, I = V / R_in, so dividing any finite voltage by infinity results in zero current."
+        },
+        {
+            "id": "q6",
+            "prompt": "What condition MUST be met for the 'Virtual Short' concept to apply?",
+            "options": ["Both inputs must be grounded", "The op-amp must be in open-loop configuration", "Negative feedback must be applied", "The power supplies must be completely symmetrical"],
+            "correctAnswer": "Negative feedback must be applied",
+            "explanation": "The virtual short (V_+ = V_-) only occurs when negative feedback is applied. The feedback path allows the op-amp to adjust its output to force the difference between the inputs to zero."
+        },
+        {
+            "id": "q7",
+            "prompt": "If an ideal op-amp with negative feedback has 5V applied to its non-inverting terminal, what is the voltage at its inverting terminal?",
+            "options": ["0V (Ground)", "-5V", "5V", "Depends on the feedback resistor value"],
+            "correctAnswer": "5V",
+            "explanation": "Because negative feedback is present, the virtual short principle applies. The op-amp forces the voltage at the inverting terminal to exactly match the non-inverting terminal, so it must be 5V."
+        },
+        {
+            "id": "q8",
+            "prompt": "In a virtual short, do the two input terminals short circuit together and allow current to pass between them?",
+            "options": ["Yes, because they are at the same voltage", "No, because the input impedance is infinite", "Yes, but only if the output voltage is zero", "No, because the output impedance is zero"],
+            "correctAnswer": "No, because the input impedance is infinite",
+            "explanation": "It is a 'virtual' short. While they are forced to the exact same voltage (like a short circuit), there is no physical connection, and the rule of infinite input impedance means exactly zero current flows between them."
+        },
+        {
+            "id": "q9",
+            "prompt": "How does the output voltage of a basic op-amp without feedback relate to its inputs?",
+            "options": ["V_o = A_vd / (V_+ + V_-)", "V_o = A_vd * (V_+ + V_-)", "V_o = A_vd * (V_+ - V_-)", "V_o = (V_+ - V_-) / A_vd"],
+            "correctAnswer": "V_o = A_vd * (V_+ - V_-)",
+            "explanation": "The open-loop output voltage is the massive differential gain (A_vd) multiplied by the difference voltage (V_+ - V_-)."
+        },
+        {
+            "id": "q10",
+            "prompt": "What is the primary function of the constant current source (current mirror) used in the emitter tail of an op-amp's internal differential pair?",
+            "options": ["To increase the differential gain A_vd", "To act as a huge AC resistance to maximize CMRR", "To increase the input bias currents", "To reduce the power dissipation of the chip"],
+            "correctAnswer": "To act as a huge AC resistance to maximize CMRR",
+            "explanation": "The current mirror provides a stable DC bias current while offering an extremely high equivalent AC resistance. This massive AC resistance drastically reduces the common-mode gain, driving the CMRR towards infinity."
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-opamp-frequency-response",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "Write the fundamental equation defining overall Closed-Loop Gain (A_f) using A_d and β.",
+            "back": "A_f = A_d / (1 + A_d * β)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "What does the equation A_f = A_d / (1 + A_d * β) approximate to when A_d is extremely large?",
+            "back": "A_f ≈ 1 / β",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "Why is it vital that A_f ≈ 1 / β?",
+            "back": "It proves the closed-loop gain depends completely on the stable external physical resistors (β) and is totally immune to internal temperature/manufacturing fluctuations of the op-amp.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "Define the Gain-Bandwidth Product (GBP).",
+            "back": "For a standard op-amp, the multiplication of its closed-loop Gain by its maximum Bandwidth is a perfectly constant number (e.g., 1 MHz for an LM741).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "If an op-amp has a GBP of 10 MHz, what is its maximum bandwidth if configured as a Unity Gain Buffer (Gain = 1)?",
+            "back": "10 MHz / 1 = 10 MHz.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Why does the Open-Loop gain of an op-amp drop so aggressively after 10 Hz?",
+            "back": "Because manufacturers intentionally place a microscopic compensation capacitor inside the silicon to act as a low-pass filter, killing high-frequency gain to prevent the op-amp from oscillating.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "How do you physically trade gain for bandwidth in an op-amp circuit?",
+            "back": "By increasing the negative feedback fraction (β). The tighter you clamp down the massive open-loop gain to a much smaller closed-loop gain (like 10), the further out the bandwidth extends before hitting the curve.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "What does a roll-off of -20 dB/decade mean in voltage terms?",
+            "back": "It means every time the frequency multiplies by 10 (one decade), the voltage gain divides exactly by 10.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "What is the Unity Gain Frequency (f_T)?",
+            "back": "The incredibly high frequency where the open-loop gain curve finally crosses the 0 dB line (a voltage gain of exactly 1). It is numerically equal to the GBP.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "If you need both massive gain AND massive bandwidth that exceeds your op-amp's GBP, what is a circuit topology solution?",
+            "back": "Cascading (daisy-chaining). Use multiple op-amp stages set to very low individual gains (which preserves their high bandwidths). Their low gains will multiply together to create massive overall gain.",
+            "difficultyLevel": 3
+        }
+    ]
+}

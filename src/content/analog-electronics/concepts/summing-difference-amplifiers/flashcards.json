@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-summing-difference-amplifiers",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is the general equation for a 3-input inverting summing amplifier?",
+            "back": "V_o = -R_F * (V_1/R_1 + V_2/R_2 + V_3/R_3)",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Why don't the multiple input signals in a summing amplifier interfere or back-feed into each other?",
+            "back": "Because the node they all connect to is a Virtual Ground (0V). The op-amp sinks/sources current to keep that node perfectly at 0V regardless of what inputs do.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f3",
+            "front": "How do you turn a summing amplifier into a direct analogue addition circuit (V_o = -(V_1 + V_2))?",
+            "back": "Set all resistors to identical values. R_F = R_1 = R_2.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "What describes a 'binary weighted' resistor network?",
+            "back": "A set of resistors where each subsequent resistor is exactly double the previous one (R, 2R, 4R, 8R), used to convert binary bits into an analog voltage.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why aren't binary weighted DACs used for high bit depths (like 16 or 24 bits)?",
+            "back": "The ratio between the smallest and largest resistor becomes impossibly large (e.g., 1:32768 for 16-bit), making precise manufacturing on a single chip unfeasible.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is the primary function of a Difference Amplifier?",
+            "back": "To subtract one analog signal from another, while rejecting noise that is common to both signals.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f7",
+            "front": "What condition must the four resistors in a difference amplifier satisfy for perfect subtraction?",
+            "back": "R_1/R_2 = R_3/R_4. The ratio of the inverting network must match the ratio of the non-inverting voltage divider.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "If R_1/R_2 = R_3/R_4, what is the equation for V_o in a difference amplifier?",
+            "back": "V_o = (R_2/R_1) * (V_2 - V_1)",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f9",
+            "front": "In a difference amplifier, what happens to 'Common Mode' noise that appears identically on V_1 and V_2?",
+            "back": "It is mathematically subtracted from itself (Noise - Noise) and does not appear on the output. This is called Common Mode Rejection.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "What analysis technique is used to derive the difference amplifier equation?",
+            "back": "Superposition. Calculate the output caused by V_1 (with V_2 grounded), then the output caused by V_2 (with V_1 grounded), and add the results together.",
+            "difficultyLevel": 4
+        }
+    ]
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "noninverting-amp-schematic",
+    "type": "circuit-schematic",
+    "title": "The Non-Inverting Amplifier",
+    "description": "The input signal V_in is applied directly to the high-impedance non-inverting terminal. Feedback is still provided to the inverting terminal via R1 and R2 to stabilize the gain.",
+    "elements": [
+      { "component": "wire", "x1": 210, "y1": 134, "x2": 240, "y2": 134 },
+      { "component": "op-amp", "x": 288, "y": 144 },
+      { "component": "wire", "x1": 336, "y1": 144, "x2": 370, "y2": 144, "label": "V_o" },
+      { "component": "wire", "x1": 180, "y1": 168, "x2": 240, "y2": 168 },
+      { "component": "wire", "x1": 240, "y1": 168, "x2": 240, "y2": 154 },
+      { "component": "wire", "x1": 180, "y1": 134, "x2": 180, "y2": 100 },
+      { "component": "wire", "x1": 180, "y1": 100, "x2": 210, "y2": 100 },
+      { "component": "resistor", "x": 240, "y": 100, "label": "R_2" },
+      { "component": "wire", "x1": 270, "y1": 100, "x2": 350, "y2": 100 },
+      { "component": "wire", "x1": 350, "y1": 100, "x2": 350, "y2": 144 },
+      { "component": "resistor", "x": 150, "y": 134, "label": "R_1" },
+      { "component": "wire", "x1": 120, "y1": 134, "x2": 100, "y2": 134 },
+      { "component": "ground", "x": 100, "y": 134 },
+      { "component": "wire", "x1": 180, "y1": 168, "x2": 150, "y2": 168, "label": "V_{in}" },
+      { "component": "junction", "x": 180, "y": 134 },
+      { "component": "junction", "x": 350, "y": 144 }
+    ],
+    "width": 420,
+    "height": 220
+  },
+  {
+    "id": "falstad-noninverting-amp",
+    "type": "falstad-sim",
+    "title": "Interactive Non-Inverting Amplifier",
+    "description": "Notice that unlike the inverting amplifier, the output sine wave follows the input sine wave exactly in phase (both go positive at the same time).",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 112 256 112 160 0 1 40 2 0 0 0.5\nw 112 160 272 160 0\na 272 176 368 176 8 15 -15 1000000 0 0 100000\ng 112 256 112 272 0\nw 224 192 272 192 0\nr 224 192 224 256 0 1000\ng 224 256 224 272 0\nw 224 192 224 112 0\nr 224 112 384 112 0 10000\nw 368 176 384 176 0\nw 384 176 384 112 0\nO 384 176 448 176 2 0\no 12 64 0 4098 10 0.1 0 2 12 3\no 0 64 0 4098 20 0.1 0 2 0 3\n"
+  },
+  {
+    "id": "voltage-divider-feedback",
+    "type": "circuit-schematic",
+    "title": "The Feedback Network is a Voltage Divider",
+    "description": "By redrawing the circuit slightly, it becomes obvious that R1 and R2 form a simple voltage divider. The voltage at the inverting terminal is just a fraction of the output voltage.",
+    "elements": [
+      { "component": "wire", "x1": 50, "y1": 50, "x2": 100, "y2": 50, "label": "V_o" },
+      { "component": "resistor", "x": 100, "y": 80, "label": "R_2", "rotation": 90 },
+      { "component": "wire", "x1": 100, "y1": 50, "x2": 100, "y2": 80 },
+      { "component": "wire", "x1": 100, "y1": 140, "x2": 100, "y2": 160 },
+      { "component": "resistor", "x": 100, "y": 190, "label": "R_1", "rotation": 90 },
+      { "component": "wire", "x1": 100, "y1": 160, "x2": 100, "y2": 190 },
+      { "component": "wire", "x1": 100, "y1": 250, "x2": 100, "y2": 280 },
+      { "component": "ground", "x": 100, "y": 280 },
+      { "component": "wire", "x1": 100, "y1": 160, "x2": 180, "y2": 160, "label": "V_-" },
+      { "component": "junction", "x": 100, "y": 160 }
+    ],
+    "width": 250,
+    "height": 320
+  },
+  {
+    "id": "gain-comparison",
+    "type": "plotly",
+    "title": "Inverting vs. Non-Inverting Gain",
+    "description": "For identical resistor ratios (R2/R1), the non-inverting gain is always exactly 1 higher than the magnitude of the inverting gain.",
+    "traces": [
+      {
+        "x": [0.1, 1, 2, 5, 10, 20, 50, 100],
+        "y": [0.1, 1, 2, 5, 10, 20, 50, 100],
+        "mode": "lines+markers",
+        "name": "Inverting Mag |-R2/R1|",
+        "line": { "color": "#ff6b6b" }
+      },
+      {
+        "x": [0.1, 1, 2, 5, 10, 20, 50, 100],
+        "y": [1.1, 2, 3, 6, 11, 21, 51, 101],
+        "mode": "lines+markers",
+        "name": "Non-Inverting (1 + R2/R1)",
+        "line": { "color": "#4ecdc4" }
+      }
+    ],
+    "layout": {
+      "xaxis": { "title": "Resistor Ratio (R_2 / R_1)", "type": "log" },
+      "yaxis": { "title": "Voltage Gain Magnitude |A_v|", "type": "log" },
+      "title": "Gain Comparison"
+    }
+  },
+  {
+    "id": "impedance-comparison",
+    "type": "plotly",
+    "title": "Input Impedance Comparison",
+    "description": "The true superpower of the non-inverting amplifier is its massive input impedance.",
+    "traces": [
+      {
+        "x": ["Inverting Amp", "Non-Inverting Amp"],
+        "y": [10000, 10000000000],
+        "type": "bar",
+        "name": "Input Impedance (Ohms)",
+        "marker": { "color": ["#ff6b6b", "#4ecdc4"] }
+      }
+    ],
+    "layout": {
+      "yaxis": { "type": "log", "title": "Input Impedance (Ohms)" },
+      "title": "Circuit Input Impedance (Log Scale)"
+    }
+  },
+  {
+    "id": "unity-gain-buffer",
+    "type": "circuit-schematic",
+    "title": "The Unity Gain Buffer (Voltage Follower)",
+    "description": "The extreme case where R2 = 0 (a direct short) and R1 = ∞ (an open circuit). The gain is exactly 1.",
+    "elements": [
+      { "component": "wire", "x1": 80, "y1": 134, "x2": 130, "y2": 134, "label": "V_{in}" },
+      { "component": "wire", "x1": 130, "y1": 134, "x2": 180, "y2": 134 },
+      { "component": "op-amp", "x": 228, "y": 144 },
+      { "component": "wire", "x1": 276, "y1": 144, "x2": 320, "y2": 144, "label": "V_o" },
+      { "component": "wire", "x1": 180, "y1": 154, "x2": 150, "y2": 154 },
+      { "component": "wire", "x1": 150, "y1": 154, "x2": 150, "y2": 90 },
+      { "component": "wire", "x1": 150, "y1": 90, "x2": 300, "y2": 90 },
+      { "component": "wire", "x1": 300, "y1": 90, "x2": 300, "y2": 144 },
+      { "component": "junction", "x": 300, "y": 144 }
+    ],
+    "width": 380,
+    "height": 200
+  },
+  {
+    "id": "falstad-buffer-sim",
+    "type": "falstad-sim",
+    "title": "Buffer Rescuing a Weak Signal",
+    "description": "The source on the left has high internal resistance (10k) and tries to drive a heavy load (1k). The output voltage drops massively. The lower circuit uses a voltage buffer to isolate the load — perfect signal transfer!",
+    "circuitText": "$ 1 5e-6 10.20027730826997 50 5 43 5e-11\nv 80 192 80 112 0 1 40 5 0 0 0.5\nr 80 112 176 112 0 10000\nx 133 93 162 96 4 12 R_S=10k\nr 176 112 176 192 0 1000\nx 201 154 231 157 4 12 R_L=1k\nw 176 112 240 112 0\nO 240 112 288 112 2 0\ng 80 192 80 208 0\ng 176 192 176 208 0\nv 80 384 80 304 0 1 40 5 0 0 0.5\nr 80 304 176 304 0 10000\nx 133 285 162 288 4 12 R_S=10k\na 176 320 272 320 8 15 -15 1000000 0 0 100000\nw 272 320 288 320 0\nw 288 320 288 256 0\nw 288 256 160 256 0\nw 160 256 160 336 0\nw 160 336 176 336 0\nw 176 304 176 304 0\nr 288 320 288 384 0 1000\nx 313 355 343 358 4 12 R_L=1k\ng 80 384 80 400 0\ng 288 384 288 400 0\nO 288 320 352 320 2 0\no 7 64 0 4098 10 0.1 0 2 7 3\no 24 64 0 4098 10 0.1 0 2 24 3\n"
+  }
+]

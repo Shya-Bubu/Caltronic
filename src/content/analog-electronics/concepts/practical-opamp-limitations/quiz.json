@@ -1,0 +1,75 @@
+{
+    "id": "quiz-practical-opamp-limitations",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What primarily causes an op-amp's Input Offset Voltage (V_OS)?",
+            "options": ["High-frequency RF noise on the power lines", "Imperfect manufacturing symmetry between the internal input transistors", "Excessive current drawn by the load", "Operating the op-amp beyond its temperature limits"],
+            "correctAnswer": "Imperfect manufacturing symmetry between the internal input transistors",
+            "explanation": "If the two transistors in the differential pair are even slightly different in physical size or doping, they act as if there is a tiny built-in voltage difference between them."
+        },
+        {
+            "id": "q2",
+            "prompt": "If an op-amp has V_OS = 5mV, and it is wired as a non-inverting amplifier with a gain of 100, what will the output voltage be if the input signal is exactly 0V?",
+            "options": ["0mV", "5mV", "500mV", "It will saturate at V_CC"],
+            "correctAnswer": "500mV",
+            "explanation": "The internal error voltage acts exactly like a valid DC signal applied to the non-inverting terminal. It gets amplified by the full gain of the circuit (100 * 5mV = 500mV)."
+        },
+        {
+            "id": "q3",
+            "prompt": "Why are practical integrator circuits so incredibly vulnerable to V_OS?",
+            "options": ["They have identical input resistors", "Because they mathematically integrate the constant DC error voltage continuously over time, causing their output to ramp up until the op-amp hits physical saturation", "They use high-value capacitors", "They require dual power supplies"],
+            "correctAnswer": "Because they mathematically integrate the constant DC error voltage continuously over time, causing their output to ramp up until the op-amp hits physical saturation",
+            "explanation": "The integral of a tiny constant 1mV error over 5 seconds is a massive sweeping voltage ramp. Because capacitors block DC, there is no DC negative feedback path to stabilize the circuit."
+        },
+        {
+            "id": "q4",
+            "prompt": "What does the symbol α (alpha) represent in the context of op-amp errors?",
+            "options": ["The open-loop voltage gain", "The phase margin leading to oscillation", "The thermal drift: how the offset voltage (V_OS) changes per degree Celsius (ΔV_OS/ΔT)", "The ratio of input bias current to input offset current"],
+            "correctAnswer": "The thermal drift: how the offset voltage (V_OS) changes per degree Celsius (ΔV_OS/ΔT)",
+            "explanation": "Since transistors are highly temperature-dependent, the mismatch between two transistors won't stay static as the silicon warms up. α quantifies this drift."
+        },
+        {
+            "id": "q5",
+            "prompt": "What is Input Bias Current (I_B)?",
+            "options": ["The current required to power the IC chip itself from V_CC", "The tiny unavoidable DC current that internal amplifier transistors must physically draw to turn on and remain in their active linear region", "The maximum current the op-amp can output to a speaker", "The current drawn by the feedback resistor"],
+            "correctAnswer": "The tiny unavoidable DC current that internal amplifier transistors must physically draw to turn on and remain in their active linear region",
+            "explanation": "Specifically in Bipolar Junction Transistor (BJT) op-amps, the input pins are actually the Base terminals of transistors. A BJT literally cannot operate without a DC base current."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the difference between Input Bias Current (I_B) and Input Offset Current (I_OS)?",
+            "options": ["I_OS happens at DC, I_B happens at AC", "I_B is the average current drawn by the two input pins, while I_OS is the difference between them due to manufacturing mismatches", "They are identical names for the same thing", "I_OS causes heat, I_B causes noise"],
+            "correctAnswer": "I_B is the average current drawn by the two input pins, while I_OS is the difference between them due to manufacturing mismatches",
+            "explanation": "Input Bias Current is the average: I_B = (I_B+ + I_B-) / 2. Input Offset Current is the absolute difference: I_OS = | I_B+ - I_B- |."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why is it dangerous to use a 10 MΩ resistor connected to the input pin of a standard LM741 BJT op-amp?",
+            "options": ["It will cause the op-amp to oscillate", "The tiny input bias current flowing through that massive 10M resistor will create a massive voltage drop error right at the input pin (V=IR)", "It exceeds the power rating of the resistor", "It lowers the input impedance of the circuit"],
+            "correctAnswer": "The tiny input bias current flowing through that massive 10M resistor will create a massive voltage drop error right at the input pin (V=IR)",
+            "explanation": "Even a tiny 100nA bias current passing through 10MΩ generates a 1.0V voltage drop. The op-amp amplifies that 1.0V error, destroying the intended output."
+        },
+        {
+            "id": "q8",
+            "prompt": "How does 'Null Compensation' physically fix the V_OS error issue in analog circuits?",
+            "options": ["A technician turns an external potentiometer attached to specific pins to manually inject adjusting bias currents into the internal transistor stage until the output error says exactly zero", "A computer program digitally subtracts the error from the final reading", "The op-amp automatically recalibrates itself every time it is turned on by shorting its own inputs", "Adding a large capacitor in series with the input"],
+            "correctAnswer": "A technician turns an external potentiometer attached to specific pins to manually inject adjusting bias currents into the internal transistor stage until the output error says exactly zero",
+            "explanation": "Pins 1 and 5 are specifically wired to the emitters of the input stage current mirrors. Tuning the pot manually unbalances the mirror to perfectly cancel out the manufacturing mismatch."
+        },
+        {
+            "id": "q9",
+            "prompt": "Which type of op-amp technology inherently solves the massive Input Bias Current problem found in old BJT models like the 741?",
+            "options": ["Vacuum Tube op-amps", "FET-input op-amps (Field Effect Transistors)", "Diode-bridge op-amps", "Germanium op-amps"],
+            "correctAnswer": "FET-input op-amps (Field Effect Transistors)",
+            "explanation": "Instead of BJTs which require base current, FETs use an isolated electrostatic gate to control current. Their input bias currents are often less than 50 pico-amps, meaning high input resistors pose no problem."
+        },
+        {
+            "id": "q10",
+            "prompt": "If you are using a practical (lossy) integrator to stop DC drift, what new problem did you just create by adding the parallel DC feedback resistor?",
+            "options": ["It reduces the input impedance to zero", "It limits the maximum possible output current", "It prevents the op-amp from working as a perfect integrator at extremely low frequencies (approaching DC) because it acts like a normal inverting amplifier at those frequencies", "It introduces severe thermal drift"],
+            "correctAnswer": "It prevents the op-amp from working as a perfect integrator at extremely low frequencies (approaching DC) because it acts like a normal inverting amplifier at those frequencies",
+            "explanation": "At low frequencies, the capacitor's impedance is so huge that the parallel resistor dominates. The circuit stops integrating and just acts like a fixed-gain amplifier."
+        }
+    ]
+}

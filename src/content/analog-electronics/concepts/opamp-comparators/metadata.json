@@ -1,0 +1,9 @@
+{
+    "id": "opamp-comparators",
+    "title": "Op-Amp Comparators & Schmitt Triggers",
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json",
+    "visualsPath": "visuals.json"
+}

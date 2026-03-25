@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-practical-opamp-limitations",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What is Input Offset Voltage (V_OS)?",
+            "back": "A tiny internal DC error modeled as a battery in series with the input, caused by manufacturing mismatches in the input transistor pair.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "If V_OS = 2mV, what happens to the output of an inverting amplifier with a gain of -10 when the input is grounded?",
+            "back": "The V_OS error acts as a non-inverting input. The error is amplified by the non-inverting gain (1 + 10) = 11. Error = 11 * 2mV = 22mV output.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f3",
+            "front": "What does α (alpha) stand for in op-amp spec sheets?",
+            "back": "Thermal Drift. It signifies how much the Input Offset Voltage V_OS changes per degree Celsius (ΔV_OS/ΔT).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the purpose of the 'Offset Null' pins (1 & 5) on a 741?",
+            "back": "They allow a manual potentiometer to be attached, letting a human technician manually inject currents to perfectly cancel out the manufacturing offset errors.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why is an ideal integrator circuit guaranteed to fail in the real world?",
+            "back": "Because it will mathematically integrate the tiny internal V_OS error continuously. A constant integral becomes a linear ramp until the op-amp saturates.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "What is Input Bias Current (I_B)?",
+            "back": "The average of the tiny constant DC currents that must physically flow into the (+) and (-) pins to bias the internal transistors into linear operation.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f7",
+            "front": "What is Input Offset Current (I_OS)?",
+            "back": "The absolute difference between the two bias currents entering the (+) and (-) pins (|I_B+ - I_B-|).",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "Why can Input Bias Current (I_B) create huge errors in high-impedance circuits?",
+            "back": "Because that tiny current must flow through your input resistors. If the resistor is massive (e.g., 10MΩ), even tiny currents create massive voltage drops right at the input pin.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why are FET-input op-amps superior to BJT op-amps for extremely delicate, high-impedance sensor circuits?",
+            "back": "FETs have gate insulation drawing practically zero bias current (picoamps) compared to BJTs (nanoamps/microamps) that require constant base current.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "When performing the Null Compensation procedure on a 741, what state must the two input pins be in?",
+            "back": "Both the Inverting and Non-Inverting inputs MUST be shorted directly to Ground (0V) to ensure you are only neutralizing the internal error.",
+            "difficultyLevel": 2
+        }
+    ]
+}

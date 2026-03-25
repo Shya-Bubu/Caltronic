@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-opamp-comparators",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What happens to an op-amp when operated Open-Loop?",
+            "back": "Due to massive gain (e.g. 10^5), a tiny voltage difference between inputs causes the output to immediately saturate at the supply rails.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What is the function of a basic comparator?",
+            "back": "It compares an analog input voltage against a reference voltage, snapping its output to one of two digital states based on which is higher.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What is a Zero-Crossing Detector?",
+            "back": "A comparator with its reference voltage tied to 0V (Ground). It converts analog AC waves into digital square waves triggering exactly at 0V.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the severe practical weakness of a basic comparator?",
+            "back": "Chattering. If a noisy analog signal dawdles near the threshold, it will cross it multiple times rapidly, causing the output state to violently flip back and forth.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "How does a Schmitt Trigger differ from a basic comparator?",
+            "back": "A Schmitt Trigger uses Positive Feedback (output wired to the non-inverting terminal) to create Hysteresis, solving the noise chattering problem.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Define Hysteresis.",
+            "back": "A property where a system has different thresholds depending on its current state. A rising signal must cross a higher threshold (V_TU) to trigger; a falling signal must cross a lower threshold (V_TL).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Does the Virtual Short principle (V_+ = V_-) apply to a Schmitt Trigger?",
+            "back": "NO. Virtual Short relies entirely on Negative Feedback. Schmitt triggers use Positive feedback, intentionally driving the inputs far apart.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "In a Schmitt Trigger with a resistor divider from output (V_o) to V_+, how is the Upper Threshold Voltage (V_TU) calculated?",
+            "back": "V_TU = (+V_sat) * [ R_2 / (R_1 + R_2) ], where R_2 is the resistor to ground and +V_sat is the positive supply saturation limit.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "What is the 'Hysteresis Band'?",
+            "back": "The voltage gap between the Upper Threshold (V_TU) and Lower Threshold (V_TL). Any noise smaller than this band is ignored by the circuit.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f10",
+            "front": "Is a Schmitt Trigger considered an analog or digital circuit?",
+            "back": "Analog and Digital! It acts as an interface. It takes an analog continuous input and outputs a strict two-state digital output.",
+            "difficultyLevel": 3
+        }
+    ]
+}
