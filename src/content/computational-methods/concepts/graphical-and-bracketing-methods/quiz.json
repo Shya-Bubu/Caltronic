@@ -1,0 +1,125 @@
+{
+    "id": "quiz-graphical-and-bracketing-methods",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "In the direct graphical method, a real root of f(x)=0 is seen where:",
+            "options": [
+                "The graph reaches its maximum value",
+                "The graph intersects the x-axis",
+                "The derivative becomes zero",
+                "The graph becomes symmetric"
+            ],
+            "correctAnswer": "The graph intersects the x-axis",
+            "explanation": "A root is exactly a point where f(x)=0, so on the plot y=f(x) it appears where the curve crosses or touches the horizontal axis."
+        },
+        {
+            "id": "q2",
+            "prompt": "Why does plotting 1/|f(x)| help reveal roots?",
+            "options": [
+                "Because roots become local minima",
+                "Because the graph becomes linear",
+                "Because values near a root create large peaks",
+                "Because derivatives are no longer needed"
+            ],
+            "correctAnswer": "Because values near a root create large peaks",
+            "explanation": "When f(x) approaches zero, the denominator |f(x)| becomes very small, so 1/|f(x)| becomes very large. That makes root locations stand out visually."
+        },
+        {
+            "id": "q3",
+            "prompt": "A guaranteed bisection start requires which condition on [a,b]?",
+            "options": [
+                "f(a)=f(b)",
+                "f(a)f(b)<0 and continuity on the interval",
+                "f'(a) and f'(b) both exist",
+                "The midpoint must already be close to the root"
+            ],
+            "correctAnswer": "f(a)f(b)<0 and continuity on the interval",
+            "explanation": "Bisection relies on the Intermediate Value Theorem. A continuous function with opposite signs at the endpoints must cross zero somewhere in the interval."
+        },
+        {
+            "id": "q4",
+            "prompt": "The midpoint used in bisection is:",
+            "options": [
+                "(a-b)/2",
+                "ab/2",
+                "(a+b)/2",
+                "sqrt(ab)"
+            ],
+            "correctAnswer": "(a+b)/2",
+            "explanation": "Bisection literally halves the interval, so the candidate point is the midpoint x=(a+b)/2 before checking which half still contains the sign change."
+        },
+        {
+            "id": "q5",
+            "prompt": "If f(xm) has the same sign as f(a), what is the correct bisection update?",
+            "options": [
+                "Set b = xm",
+                "Set a = xm",
+                "Set xm = 0",
+                "Restart with a new random interval"
+            ],
+            "correctAnswer": "Set a = xm",
+            "explanation": "If f(xm) and f(a) share the same sign, the root cannot lie between a and xm. The valid sign change remains between xm and b, so the lower endpoint moves up."
+        },
+        {
+            "id": "q6",
+            "prompt": "How does the interval width change after each bisection step?",
+            "options": [
+                "It doubles",
+                "It is reduced by half",
+                "It stays unchanged",
+                "It becomes the square of the previous width"
+            ],
+            "correctAnswer": "It is reduced by half",
+            "explanation": "Each iteration selects one of the two half-intervals, so the new bracket length is exactly half of the previous one. That is the source of bisection's linear convergence."
+        },
+        {
+            "id": "q7",
+            "prompt": "Which expression is the standard bisection error bound after k steps?",
+            "options": [
+                "|xk-x*| <= (b-a)/(k+1)",
+                "|xk-x*| <= (b-a)/2^(k+1)",
+                "|xk-x*| <= (b-a)^k",
+                "|xk-x*| <= |f(xk)|^2"
+            ],
+            "correctAnswer": "|xk-x*| <= (b-a)/2^(k+1)",
+            "explanation": "Since the interval length shrinks by a factor of 2 each time and the midpoint lies at most half an interval away from the true root, the midpoint error is bounded by (b-a)/2^(k+1)."
+        },
+        {
+            "id": "q8",
+            "prompt": "What is the strongest advantage of bisection compared with Newton-Raphson?",
+            "options": [
+                "It converges quadratically",
+                "It never needs function values",
+                "It is guaranteed under the sign-change assumptions",
+                "It also finds all complex roots automatically"
+            ],
+            "correctAnswer": "It is guaranteed under the sign-change assumptions",
+            "explanation": "Bisection is slower, but it is robust. If the function is continuous and the initial interval contains a sign change, the method cannot lose the root."
+        },
+        {
+            "id": "q9",
+            "prompt": "Why is 1/|f(z)| useful in the complex plane?",
+            "options": [
+                "It eliminates imaginary numbers",
+                "It turns complex roots into visible peaks",
+                "It makes every function polynomial",
+                "It guarantees quadratic convergence"
+            ],
+            "correctAnswer": "It turns complex roots into visible peaks",
+            "explanation": "At complex roots, |f(z)| becomes small, so the reciprocal becomes large. Surface or contour plots then reveal the locations of complex zeros geometrically."
+        },
+        {
+            "id": "q10",
+            "prompt": "Bisection is called a bracketing method because:",
+            "options": [
+                "It approximates derivatives with brackets",
+                "It keeps the root trapped inside an interval",
+                "It uses square brackets in MATLAB code",
+                "It only works for bracket polynomials"
+            ],
+            "correctAnswer": "It keeps the root trapped inside an interval",
+            "explanation": "The whole idea is to maintain an interval whose endpoints keep opposite signs. That bracket surrounds the root at every step, which is why the method is so reliable."
+        }
+    ]
+}

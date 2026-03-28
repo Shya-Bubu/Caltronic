@@ -1,0 +1,137 @@
+{
+    "visuals": [
+        {
+            "id": "halley-vs-newton-error",
+            "type": "plotly",
+            "title": "Halley vs Newton: Higher Order Means Faster Local Error Decay",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3, 4],
+                    "y": [0.1, 0.01, 0.0001, 0.00000001, 0.0000000000000001],
+                    "name": "Newton (quadratic)",
+                    "mode": "lines+markers",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                },
+                {
+                    "x": [0, 1, 2, 3],
+                    "y": [0.1, 0.001, 0.000000001, 0.000000000000000000000000001],
+                    "name": "Halley (cubic)",
+                    "mode": "lines+markers",
+                    "line": { "color": "#ff6b8a", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "Representative error", "type": "log" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "householder-order-comparison",
+            "type": "v3-plot",
+            "title": "Householder Family: Order Rises with the Method Index",
+            "config": {
+                "xLabel": "Method index l",
+                "yLabel": "Local convergence order",
+                "curves": [
+                    {
+                        "label": "Order = l+1",
+                        "data": [[1, 2], [2, 3], [3, 4], [4, 5]],
+                        "color": "#2fbf8f"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "bisection-linear-convergence",
+            "type": "plotly",
+            "title": "Bisection Error Shrinks Linearly",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3, 4, 5, 6],
+                    "y": [1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625],
+                    "name": "Error bound",
+                    "mode": "lines+markers",
+                    "line": { "color": "#62c6ff", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "Bound on error", "type": "log" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "fixed-point-convergence-factor",
+            "type": "plotly",
+            "title": "Fixed-Point Iteration Speed Depends on the Contraction Factor",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3, 4, 5],
+                    "y": [1, 0.6, 0.36, 0.216, 0.1296, 0.07776],
+                    "name": "|1-mu f'(x*)| = 0.6",
+                    "mode": "lines+markers",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                },
+                {
+                    "x": [0, 1, 2, 3, 4, 5],
+                    "y": [1, 0.9, 0.81, 0.729, 0.6561, 0.59049],
+                    "name": "|1-mu f'(x*)| = 0.9",
+                    "mode": "lines+markers",
+                    "line": { "color": "#f0a03a", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "Representative error", "type": "log" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "newton-quadratic-convergence",
+            "type": "plotly",
+            "title": "Quadratic Convergence: Newton Squares the Small Error",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3, 4],
+                    "y": [0.1, 0.01, 0.0001, 0.00000001, 0.0000000000000001],
+                    "name": "Representative Newton error",
+                    "mode": "lines+markers",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "Error", "type": "log" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "method-selection-comparison",
+            "type": "plotly",
+            "title": "Method Comparison: Guarantee, Derivative Need, and Local Speed",
+            "traces": [
+                {
+                    "x": ["Bisection", "Fixed-point", "Newton", "Halley"],
+                    "y": [5, 3, 4, 5],
+                    "type": "bar",
+                    "name": "Information and setup burden",
+                    "marker": { "color": "#62c6ff" }
+                },
+                {
+                    "x": ["Bisection", "Fixed-point", "Newton", "Halley"],
+                    "y": [2, 2, 4, 5],
+                    "type": "bar",
+                    "name": "Local convergence speed",
+                    "marker": { "color": "#ff6b8a" }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Method" },
+                "yaxis": { "title": "Relative scale" },
+                "barmode": "group",
+                "showlegend": true
+            }
+        }
+    ]
+}

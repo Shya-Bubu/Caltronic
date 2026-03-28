@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-higher-order-methods-and-convergence",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State Halley's method.",
+            "back": "x_{k+1}=x_k-[2f(x_k)f'(x_k)]/[2(f'(x_k))^2-f(x_k)f''(x_k)]. It is a Newton-like method that also uses second-derivative information.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f2",
+            "front": "What local convergence order does Newton-Raphson have near a simple root?",
+            "back": "Quadratic convergence. The error behaves like a constant times the square of the previous error when f'(x*) is nonzero.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What local convergence order does Halley's method have near a simple root?",
+            "back": "Cubic convergence. Near a simple root, the error decays roughly like a constant times the cube of the previous error.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Why is bisection only linearly convergent?",
+            "back": "Because the bracket length is halved each step, so the midpoint error shrinks by a constant factor rather than by squaring or cubing the previous error.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What controls the local linear convergence speed of x_{k+1}=x_k-mu f(x_k)?",
+            "back": "The contraction factor |1-mu f'(x*)|. Smaller magnitude means faster local linear convergence, while magnitude above 1 leads to divergence.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Which Householder index gives Newton-Raphson?",
+            "back": "l=1. In the Householder family, the first nontrivial member is Newton's method.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Which Householder index gives Halley's method?",
+            "back": "l=2. This case produces the cubic-convergent Halley update.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Why are multiple roots troublesome for Newton-like local analysis?",
+            "back": "Because repeated roots often imply f'(x*)=0, and many convergence proofs for Newton and related methods assume a nonzero derivative at the root.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "What is the key practical trade-off in going from Newton to Halley?",
+            "back": "You gain higher local convergence order, but you also need second-derivative information and a more complicated update formula.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What does it mean when a method has order m convergence?",
+            "back": "It means the new error behaves like a constant times the previous error raised to the power m. Larger m means much faster local error reduction once you are close to the root.",
+            "difficultyLevel": 4
+        }
+    ]
+}

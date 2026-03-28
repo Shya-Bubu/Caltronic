@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-open-and-fixed-point-iterations",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the Newton-Raphson update.",
+            "back": "x_{k+1}=x_k-f(x_k)/f'(x_k). It is obtained by taking the x-axis intercept of the tangent line at the current iterate.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "What approximation leads to Newton-Raphson?",
+            "back": "A first-order Taylor expansion of f around the current guess, with higher-order terms neglected.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What is the main geometric idea behind Newton-Raphson?",
+            "back": "Draw the tangent line to the curve at x_k and use the tangent's x-axis crossing as the next estimate of the root.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f4",
+            "front": "How does the secant method differ from Newton-Raphson?",
+            "back": "It replaces the exact derivative with a finite slope computed from the two most recent iterates, making it derivative-free.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Write the general fixed-point iteration form.",
+            "back": "x_{k+1}=g(x_k). If the sequence converges, the limit x* must satisfy x*=g(x*).",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f6",
+            "front": "How can a root-finding problem be turned into a fixed-point problem?",
+            "back": "Choose a mapping like g(x)=x-mu f(x). Then fixed points of g correspond to roots of f(x)=0 when mu is nonzero.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is the local slope condition for fixed-point convergence?",
+            "back": "A standard sufficient local condition is |g'(x)|<1 near the fixed point, so the mapping acts like a contraction.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "For f(x)=ax+b and x_{k+1}=x_k-mu(ax_k+b), what range of mu gives convergence?",
+            "back": "The condition is |1-mu a|<1, which gives 0<mu<2/a when a is positive.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "Why is Newton-Raphson considered a local method?",
+            "back": "Its fast convergence depends on being sufficiently close to the root. From a poor starting point, the tangent-line jump can move the sequence away from the target.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "Why can two fixed-point rearrangements of the same equation behave differently?",
+            "back": "Because convergence depends on the chosen mapping g(x), especially its slope and whether it maps the chosen interval into itself, not only on the underlying root.",
+            "difficultyLevel": 4
+        }
+    ]
+}

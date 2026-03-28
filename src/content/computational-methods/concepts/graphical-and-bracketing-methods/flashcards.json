@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-graphical-and-bracketing-methods",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "In the direct graphical method, what indicates a real root?",
+            "back": "A real root appears where the graph of y=f(x) intersects the x-axis, because that is exactly where f(x)=0.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "Why does plotting 1/|f(x)| make roots easier to spot?",
+            "back": "Near a root, |f(x)| becomes very small, so its reciprocal becomes very large. The root therefore appears as a sharp peak rather than a crossing.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "What two conditions guarantee bisection can be applied on [a,b]?",
+            "back": "The function must be continuous on [a,b], and the endpoint values must have opposite signs so that f(a)f(b)<0.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "Write the midpoint formula used in bisection.",
+            "back": "The midpoint is x=(a+b)/2. It is tested to decide which half-interval still contains the sign change.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f5",
+            "front": "How does the bisection interval length change after each iteration?",
+            "back": "It is halved at every step. After k iterations, the interval width is |ak-bk|=(1/2^k)|a0-b0|.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "State the midpoint error bound for bisection.",
+            "back": "If x* is the true root in [a,b], then the midpoint after k steps satisfies |xk-x*|<=(b-a)/2^(k+1).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is the main strength of bisection?",
+            "back": "Its robustness. Once the sign-change assumptions are satisfied, the method keeps the root bracketed and converges predictably.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "What is the main weakness of bisection?",
+            "back": "Its convergence is only linear, so it can require many iterations to achieve very high accuracy compared with Newton-like methods.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "How can graphical root probing be extended to complex roots?",
+            "back": "By evaluating z=x+jy on a grid and plotting 1/|f(z)|. Complex roots appear as peaks in a contour or surface visualization.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Why is graphical inspection often done before using a numerical solver?",
+            "back": "It reveals the likely root locations, the number of real roots, and good starting intervals, which helps you choose a stable and efficient algorithm.",
+            "difficultyLevel": 3
+        }
+    ]
+}

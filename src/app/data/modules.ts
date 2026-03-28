@@ -210,7 +210,7 @@ export const modules: Module[] = [
     description: "Numerical methods and computation as an engineering tool.",
     category: "Computational",
     accent: "#62c6ff",
-    updatedToWeek: 4,
+    updatedToWeek: 5,
     lectures: [
       {
         id: "lesson-01",
@@ -231,6 +231,11 @@ export const modules: Module[] = [
         id: "lesson-04",
         title: "Complexity Analysis and Convergence",
         path: "/computational-methods/lesson-04",
+      },
+      {
+        id: "lesson-05",
+        title: "Methods for Solving Equations",
+        path: "/computational-methods/lesson-05",
       },
     ],
   },

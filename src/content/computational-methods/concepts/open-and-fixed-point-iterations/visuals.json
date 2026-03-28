@@ -1,0 +1,159 @@
+{
+    "visuals": [
+        {
+            "id": "newton-tangent-geometry",
+            "type": "plotly",
+            "title": "Newton-Raphson: Tangent Line Predicts the Next Root Estimate",
+            "traces": [
+                {
+                    "x": [0.8, 1.0, 1.2, 1.4, 1.6, 1.8],
+                    "y": [-1.36, -1, -0.56, -0.04, 0.56, 1.24],
+                    "name": "f(x)=x^2-2",
+                    "mode": "lines",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                },
+                {
+                    "x": [1.0, 1.5],
+                    "y": [-1.0, 0.0],
+                    "name": "Tangent at x0=1",
+                    "mode": "lines+markers",
+                    "line": { "color": "#ff6b8a", "dash": "dash", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "y" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "newton-iteration-history",
+            "type": "plotly",
+            "title": "Newton Iterates for Solving x^2-2=0",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3],
+                    "y": [1.0, 1.5, 1.416667, 1.414216],
+                    "name": "x_k",
+                    "mode": "lines+markers",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                },
+                {
+                    "x": [0, 1, 2, 3],
+                    "y": [-1.0, 0.25, 0.006944, 0.000006],
+                    "name": "f(x_k)",
+                    "mode": "lines+markers",
+                    "yaxis": "y2",
+                    "line": { "color": "#ff6b8a", "width": 2 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "x_k" },
+                "yaxis2": { "title": "f(x_k)", "overlaying": "y", "side": "right" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "secant-geometry",
+            "type": "plotly",
+            "title": "Secant Method Uses Two Function Samples Instead of a Derivative",
+            "traces": [
+                {
+                    "x": [0.6, 0.8, 1.0, 1.2, 1.4, 1.6],
+                    "y": [-1.64, -1.36, -1.0, -0.56, -0.04, 0.56],
+                    "name": "f(x)=x^2-2",
+                    "mode": "lines",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                },
+                {
+                    "x": [1.0, 2.0],
+                    "y": [-1.0, 2.0],
+                    "name": "Secant through two iterates",
+                    "mode": "lines+markers",
+                    "line": { "color": "#f0a03a", "dash": "dash", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "y" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "secant-iteration-history",
+            "type": "v3-plot",
+            "title": "Secant Iterates Quickly Approach sqrt(2)",
+            "config": {
+                "xLabel": "Iteration k",
+                "yLabel": "x_k",
+                "curves": [
+                    {
+                        "label": "Secant sequence",
+                        "data": [[1, 1.0], [2, 2.0], [3, 1.333333], [4, 1.4], [5, 1.414634], [6, 1.414211]],
+                        "color": "#2fbf8f"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "fixed-point-cobweb",
+            "type": "plotly",
+            "title": "Fixed-Point Geometry: Convergence Happens Against the Line y=x",
+            "traces": [
+                {
+                    "x": [0, 0.5, 1, 1.5, 2],
+                    "y": [0, 0.5, 1, 1.5, 2],
+                    "name": "y=x",
+                    "mode": "lines",
+                    "line": { "color": "#ff6b8a", "width": 2 }
+                },
+                {
+                    "x": [0, 0.5, 1, 1.5, 2],
+                    "y": [0.4, 0.75, 1.1, 1.35, 1.5],
+                    "name": "g(x)",
+                    "mode": "lines",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x_k" },
+                "yaxis": { "title": "x_{k+1}" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "mu-parameter-behavior",
+            "type": "plotly",
+            "title": "Changing mu Changes the Fixed-Point Geometry for g(x)=x-mu(x^2-2)",
+            "traces": [
+                {
+                    "x": [0, 0.5, 1, 1.5, 2],
+                    "y": [0.4, 0.7375, 1.1, 1.3875, 1.6],
+                    "name": "mu = 0.2",
+                    "mode": "lines",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                },
+                {
+                    "x": [0, 0.5, 1, 1.5, 2],
+                    "y": [1.0, 1.375, 1.5, 1.375, 1.0],
+                    "name": "mu = 0.5",
+                    "mode": "lines",
+                    "line": { "color": "#f0a03a", "width": 3 }
+                },
+                {
+                    "x": [0, 0.5, 1, 1.5, 2],
+                    "y": [1.4, 1.7375, 1.9, 1.8875, 1.7],
+                    "name": "mu = 0.7",
+                    "mode": "lines",
+                    "line": { "color": "#ff6b8a", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "g(x)" },
+                "showlegend": true
+            }
+        }
+    ]
+}

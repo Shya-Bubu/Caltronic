@@ -1,0 +1,164 @@
+{
+    "visuals": [
+        {
+            "id": "direct-graph-x2minus2",
+            "type": "plotly",
+            "title": "Direct Graphical Method for f(x)=x^2-2",
+            "traces": [
+                {
+                    "x": [-2, -1.5, -1.414, -1, 0, 1, 1.414, 1.5, 2],
+                    "y": [2, 0.25, 0, -1, -2, -1, 0, 0.25, 2],
+                    "name": "f(x)=x^2-2",
+                    "mode": "lines+markers",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                },
+                {
+                    "x": [-2, 2],
+                    "y": [0, 0],
+                    "name": "y=0",
+                    "mode": "lines",
+                    "line": { "color": "#ff6b8a", "dash": "dash" }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "f(x)" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "reciprocal-peak-x2minus2",
+            "type": "plotly",
+            "title": "Indirect Graphical Method: Peaks of 1/|x^2-2|",
+            "traces": [
+                {
+                    "x": [-2, -1.8, -1.6, -1.5, -1.45, -1.42, -1.4, -1.2, -1, 0, 1, 1.2, 1.4, 1.42, 1.45, 1.5, 1.6, 1.8, 2],
+                    "y": [0.5, 0.8, 1.8, 4, 10, 70, 25, 1.8, 1, 0.5, 1, 1.8, 25, 70, 10, 4, 1.8, 0.8, 0.5],
+                    "name": "1/|f(x)|",
+                    "mode": "lines",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "1/|f(x)|" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "multiple-roots-reciprocal",
+            "type": "plotly",
+            "title": "Multiple Roots Revealed by Reciprocal Plot",
+            "traces": [
+                {
+                    "x": [-2, -1.5, -1.2, -1.05, -1, -0.95, -0.5, -0.1, 0, 0.1, 0.5, 1, 1.5, 1.9, 2, 2.1, 2.5],
+                    "y": [0.09, 0.3, 2, 20, 200, 20, 1.3, 50, 500, 50, 0.8, 0.5, 2, 20, 200, 20, 0.3],
+                    "name": "1/|x^2(x-2)(x+1)|",
+                    "mode": "lines+markers",
+                    "line": { "color": "#f0a03a", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "Reciprocal magnitude", "type": "log" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "complex-root-plane",
+            "type": "plotly",
+            "title": "Complex Root View for z^2+z+1",
+            "traces": [
+                {
+                    "x": [-0.5, -0.5],
+                    "y": [0.866, -0.866],
+                    "mode": "markers+text",
+                    "name": "Complex roots",
+                    "text": ["-0.5 + j0.866", "-0.5 - j0.866"],
+                    "textposition": "top right",
+                    "marker": { "size": 12, "color": "#ff6b8a" }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Real part" },
+                "yaxis": { "title": "Imaginary part" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "bisection-interval-halving",
+            "type": "plotly",
+            "title": "Bisection Keeps Halving the Valid Bracket",
+            "traces": [
+                {
+                    "x": [0, 2],
+                    "y": [0, 0],
+                    "mode": "lines",
+                    "name": "Initial interval",
+                    "line": { "color": "#62c6ff", "width": 8 }
+                },
+                {
+                    "x": [1, 2],
+                    "y": [1, 1],
+                    "mode": "lines",
+                    "name": "After first sign test",
+                    "line": { "color": "#6b62ff", "width": 8 }
+                },
+                {
+                    "x": [1, 1.5],
+                    "y": [2, 2],
+                    "mode": "lines",
+                    "name": "After second sign test",
+                    "line": { "color": "#2fbf8f", "width": 8 }
+                },
+                {
+                    "x": [1.25, 1.5],
+                    "y": [3, 3],
+                    "mode": "lines",
+                    "name": "After third sign test",
+                    "line": { "color": "#ff6b8a", "width": 8 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "Iteration level" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "bisection-error-decay",
+            "type": "v3-plot",
+            "title": "Bisection Error Bound Shrinks by a Factor of 2",
+            "config": {
+                "xLabel": "Iteration k",
+                "yLabel": "Upper bound on |x_k-x*|",
+                "curves": [
+                    {
+                        "label": "(b-a)/2^(k+1) with [0,2]",
+                        "data": [[0, 1], [1, 0.5], [2, 0.25], [3, 0.125], [4, 0.0625], [5, 0.03125], [6, 0.015625]],
+                        "color": "#6b62ff"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "method-role-map",
+            "type": "plotly",
+            "title": "Role of the Early Methods in a Root-Finding Workflow",
+            "traces": [
+                {
+                    "x": ["Direct plot", "1/|f(x)|", "Complex scan", "Bisection"],
+                    "y": [2, 3, 4, 5],
+                    "type": "bar",
+                    "name": "Information gained",
+                    "marker": { "color": ["#62c6ff", "#2fbf8f", "#f0a03a", "#ff6b8a"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Method" },
+                "yaxis": { "title": "Relative value for diagnosis and guarantee" },
+                "showlegend": false
+            }
+        }
+    ]
+}

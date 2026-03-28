@@ -1,0 +1,17 @@
+{
+    "id": "lesson-05",
+    "title": "Methods for Solving Equations",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04"
+    ],
+    "concepts": [
+        "graphical-and-bracketing-methods",
+        "open-and-fixed-point-iterations",
+        "higher-order-methods-and-convergence"
+    ]
+}

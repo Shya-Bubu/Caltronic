@@ -1,0 +1,125 @@
+{
+    "id": "quiz-higher-order-methods-and-convergence",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Halley's method differs from Newton-Raphson mainly because it also uses:",
+            "options": [
+                "A random sample",
+                "The second derivative",
+                "A bracketing interval",
+                "A Fourier transform"
+            ],
+            "correctAnswer": "The second derivative",
+            "explanation": "Halley's update contains f''(xk) in addition to f(xk) and f'(xk), which lets it exploit curvature information and achieve a higher local order."
+        },
+        {
+            "id": "q2",
+            "prompt": "For a simple root, the local convergence order of Newton-Raphson is:",
+            "options": [
+                "Linear",
+                "Quadratic",
+                "Cubic",
+                "Exponential"
+            ],
+            "correctAnswer": "Quadratic",
+            "explanation": "Near a simple root with f'(x*) not equal to zero, Newton's error behaves like a constant times |xk-x*|^2, which is the definition of quadratic convergence."
+        },
+        {
+            "id": "q3",
+            "prompt": "For a simple root, Halley's method has local convergence order:",
+            "options": [
+                "Linear",
+                "Quadratic",
+                "Cubic",
+                "Sublinear"
+            ],
+            "correctAnswer": "Cubic",
+            "explanation": "Halley's method is the second member of the Newton-like higher-order family discussed in the lecture and gives cubic local convergence near a simple root."
+        },
+        {
+            "id": "q4",
+            "prompt": "Bisection is classified as linearly convergent because:",
+            "options": [
+                "It uses a straight-line approximation",
+                "Its error is reduced by a constant factor each step",
+                "Its graph is linear",
+                "It uses first derivatives"
+            ],
+            "correctAnswer": "Its error is reduced by a constant factor each step",
+            "explanation": "Each bisection step halves the interval, so the midpoint error shrinks by a fixed factor. That constant-ratio shrinkage is linear convergence."
+        },
+        {
+            "id": "q5",
+            "prompt": "The fixed-point iteration x_{k+1}=x_k-mu f(x_k) is locally convergent when:",
+            "options": [
+                "|1-mu f'(x*)|<1",
+                "|f(x*)|>1",
+                "mu=0",
+                "f''(x*)=0 always"
+            ],
+            "correctAnswer": "|1-mu f'(x*)|<1",
+            "explanation": "The local error behaves approximately like |1-mu f'(x*)| times the previous error, so that factor must be below 1 in magnitude for contraction."
+        },
+        {
+            "id": "q6",
+            "prompt": "Which Householder special case gives Newton-Raphson?",
+            "options": [
+                "l = 0",
+                "l = 1",
+                "l = 2",
+                "l = 3"
+            ],
+            "correctAnswer": "l = 1",
+            "explanation": "In the Householder family, the case l=1 reduces to Newton-Raphson, while l=2 gives Halley's method. The family organizes these methods into one hierarchy."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why can multiple roots slow or damage local convergence proofs?",
+            "options": [
+                "Because multiple roots do not satisfy f(x)=0",
+                "Because they often force f'(x*)=0",
+                "Because they remove continuity",
+                "Because they only occur in complex analysis"
+            ],
+            "correctAnswer": "Because they often force f'(x*)=0",
+            "explanation": "If x* is a repeated root, factors like (x-x*)^2 appear in f(x), which can make derivatives such as f'(x*) vanish. Many Newton-like local analyses assume a nonzero first derivative."
+        },
+        {
+            "id": "q8",
+            "prompt": "What is the main trade-off of higher-order methods like Halley?",
+            "options": [
+                "They require less information but are slower",
+                "They converge faster locally but need more derivative information",
+                "They only work on linear equations",
+                "They always guarantee global convergence"
+            ],
+            "correctAnswer": "They converge faster locally but need more derivative information",
+            "explanation": "Higher-order methods gain speed by exploiting richer local information, but that means more algebra, more derivative evaluation, and often more sensitivity to modeling details."
+        },
+        {
+            "id": "q9",
+            "prompt": "Which statement best summarizes Householder methods?",
+            "options": [
+                "They are graphical methods for complex roots",
+                "They are a hierarchy of root-finding methods with increasing local order",
+                "They are only for linear systems",
+                "They avoid function evaluations entirely"
+            ],
+            "correctAnswer": "They are a hierarchy of root-finding methods with increasing local order",
+            "explanation": "The lecture presents Householder methods as a systematic family. Newton and Halley appear as special cases, and the order increases with the family index."
+        },
+        {
+            "id": "q10",
+            "prompt": "If Newton has quadratic convergence, what is the practical implication near the root?",
+            "options": [
+                "The error shrinks by a fixed amount each step",
+                "The number of correct digits can grow very rapidly",
+                "The interval is halved each step",
+                "The derivative becomes irrelevant"
+            ],
+            "correctAnswer": "The number of correct digits can grow very rapidly",
+            "explanation": "Quadratic convergence means the new error is roughly proportional to the square of the old error. Once the error is small, squaring it makes it dramatically smaller."
+        }
+    ]
+}

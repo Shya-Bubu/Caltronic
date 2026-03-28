@@ -1,0 +1,125 @@
+{
+    "id": "quiz-open-and-fixed-point-iterations",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Newton-Raphson is derived by linearizing f(x) using:",
+            "options": [
+                "A Fourier series",
+                "A first-order Taylor expansion",
+                "A midpoint rule",
+                "A random sample average"
+            ],
+            "correctAnswer": "A first-order Taylor expansion",
+            "explanation": "The method starts from f(x)=f(xk)+(x-xk)f'(xk)+higher-order terms, then neglects the higher-order terms and solves the linear approximation for the next iterate."
+        },
+        {
+            "id": "q2",
+            "prompt": "The Newton-Raphson update formula is:",
+            "options": [
+                "x_{k+1}=x_k-f'(x_k)/f(x_k)",
+                "x_{k+1}=x_k-f(x_k)/f'(x_k)",
+                "x_{k+1}=f(x_k)/x_k",
+                "x_{k+1}=(x_k+x_{k-1})/2"
+            ],
+            "correctAnswer": "x_{k+1}=x_k-f(x_k)/f'(x_k)",
+            "explanation": "Newton uses the tangent line at xk and moves to its x-axis intercept, which gives x_{k+1}=x_k-f(x_k)/f'(x_k)."
+        },
+        {
+            "id": "q3",
+            "prompt": "What does the secant method replace in Newton's method?",
+            "options": [
+                "The function value with a random number",
+                "The derivative with a finite slope between two points",
+                "The root with the midpoint",
+                "The iteration with direct plotting"
+            ],
+            "correctAnswer": "The derivative with a finite slope between two points",
+            "explanation": "Secant approximates f'(xk) by [f(xk)-f(xk-1)]/[xk-xk-1], so it behaves like a derivative-free Newton-type method."
+        },
+        {
+            "id": "q4",
+            "prompt": "Why can Newton-Raphson fail from a poor initial guess?",
+            "options": [
+                "Because it never uses the function value",
+                "Because the tangent-based jump can move away from the desired root",
+                "Because it halves the interval too slowly",
+                "Because it only works on linear equations"
+            ],
+            "correctAnswer": "Because the tangent-based jump can move away from the desired root",
+            "explanation": "Newton is a local method. If the starting point is poor or the derivative is small, the tangent may point toward a completely different region instead of toward the root."
+        },
+        {
+            "id": "q5",
+            "prompt": "A fixed-point iteration has the general form:",
+            "options": [
+                "f(x)=0",
+                "x=g(x)",
+                "x_{k+1}=g(x_k)",
+                "x_{k+1}=f'(x_k)"
+            ],
+            "correctAnswer": "x_{k+1}=g(x_k)",
+            "explanation": "Fixed-point iteration repeatedly applies a mapping g to the current estimate. If it converges, the limit satisfies x*=g(x*)."
+        },
+        {
+            "id": "q6",
+            "prompt": "If g(x)=x-mu f(x), then a fixed point of g corresponds to:",
+            "options": [
+                "A local maximum of f",
+                "A root of f(x)=0 when mu is nonzero",
+                "A point where f'(x)=1",
+                "A midpoint of the interval"
+            ],
+            "correctAnswer": "A root of f(x)=0 when mu is nonzero",
+            "explanation": "If x*=g(x*), then x* = x* - mu f(x*), so mu f(x*) = 0. For nonzero mu, this forces f(x*) = 0."
+        },
+        {
+            "id": "q7",
+            "prompt": "Which slope condition is the standard local convergence check for fixed-point iteration?",
+            "options": [
+                "|g'(x)|>1",
+                "|g'(x)|<1",
+                "g'(x)=0 for every x",
+                "f'(x)=1"
+            ],
+            "correctAnswer": "|g'(x)|<1",
+            "explanation": "If the magnitude of the slope stays below 1 near the fixed point, the mapping acts like a contraction and pulls nearby iterates closer together."
+        },
+        {
+            "id": "q8",
+            "prompt": "For f(x)=ax+b with x_{k+1}=x_k-mu(ax_k+b), convergence requires:",
+            "options": [
+                "mu<0",
+                "0<mu<2/a",
+                "mu=1 only",
+                "mu>a"
+            ],
+            "correctAnswer": "0<mu<2/a",
+            "explanation": "The iteration becomes x_{k+1}=(1-mu a)x_k-mu b, so the geometric factor must satisfy |1-mu a|<1. Solving that inequality gives 0<mu<2/a."
+        },
+        {
+            "id": "q9",
+            "prompt": "Compared with Newton-Raphson, the secant method mainly saves the cost of:",
+            "options": [
+                "Function evaluation",
+                "Plotting",
+                "Derivative evaluation",
+                "Choosing initial guesses"
+            ],
+            "correctAnswer": "Derivative evaluation",
+            "explanation": "Secant still needs function values, but it avoids the exact derivative by estimating the slope from two recent points. That is its main practical advantage."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why can two equivalent rearrangements of f(x)=0 behave differently as fixed-point iterations?",
+            "options": [
+                "Because algebra changes the root value",
+                "Because g(x) changes, and convergence depends on the mapping geometry",
+                "Because fixed-point methods ignore the function entirely",
+                "Because only polynomials can be rearranged"
+            ],
+            "correctAnswer": "Because g(x) changes, and convergence depends on the mapping geometry",
+            "explanation": "Equivalent equations may generate very different iteration functions g(x). Their slopes and interval-mapping behavior can therefore differ dramatically, causing one form to converge and another to diverge."
+        }
+    ]
+}
