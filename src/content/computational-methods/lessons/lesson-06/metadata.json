@@ -1,0 +1,18 @@
+{
+    "id": "lesson-06",
+    "title": "Applications and Extensions of Methods for Solving Equations — Part I",
+    "overviewPath": "overview.md",
+    "synthesisPath": "synthesis.md",
+    "prerequisites": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04",
+        "lesson-05"
+    ],
+    "concepts": [
+        "optimization-as-equation-solving",
+        "gradient-methods-and-step-size",
+        "approximate-gradient-and-newton-optimization"
+    ]
+}

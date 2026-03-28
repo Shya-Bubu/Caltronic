@@ -1,0 +1,11 @@
+{
+    "id": "optimization-as-equation-solving",
+    "title": "Optimization as an Extension of Equation Solving",
+    "slug": "optimization-as-equation-solving",
+    "estimatedMinutes": 16,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

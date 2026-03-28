@@ -1,0 +1,171 @@
+{
+    "visuals": [
+        {
+            "id": "finite-difference-gradient",
+            "type": "plotly",
+            "title": "Finite-Difference Slope Approximates the Gradient",
+            "traces": [
+                {
+                    "x": [0, 0.5, 1, 1.5, 2],
+                    "y": [1, 0.4, 0.2, 0.35, 0.8],
+                    "name": "Objective samples",
+                    "mode": "lines+markers",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "f(x)" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "approx-gradient-update",
+            "type": "plotly",
+            "title": "Approximate Gradient Update Uses Recent Function Values",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3, 4, 5],
+                    "y": [4, 2.4, 1.3, 0.7, 0.35, 0.18],
+                    "name": "Approximate-gradient descent",
+                    "mode": "lines+markers",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "Representative distance from optimum" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "secant-slope-as-gradient",
+            "type": "plotly",
+            "title": "Approximate Gradient Uses a Secant-Like Slope",
+            "traces": [
+                {
+                    "x": [0.5, 1.0, 1.5, 2.0],
+                    "y": [1.0, 0.4, 0.25, 0.9],
+                    "name": "Objective curve samples",
+                    "mode": "lines+markers",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                },
+                {
+                    "x": [1.0, 1.5],
+                    "y": [0.4, 0.25],
+                    "name": "Secant slope used as gradient estimate",
+                    "mode": "lines",
+                    "line": { "color": "#ff6b8a", "dash": "dash", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "f(x)" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "newton-optimization-update",
+            "type": "plotly",
+            "title": "Newton Optimization Scales the Gradient by Curvature",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3, 4],
+                    "y": [3.0, 1.2, 0.25, 0.03, 0.002],
+                    "name": "Representative Newton optimization error",
+                    "mode": "lines+markers",
+                    "line": { "color": "#ff6b8a", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "Representative error", "type": "log" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "max-vs-min-newton",
+            "type": "plotly",
+            "title": "The Same Newton Formula Adapts Through the Sign of Curvature",
+            "traces": [
+                {
+                    "x": ["Minimum", "Maximum"],
+                    "y": [1, -1],
+                    "type": "bar",
+                    "marker": { "color": ["#2fbf8f", "#ff6b8a"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Stationary point type" },
+                "yaxis": { "title": "Sign of f''(x*)" },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "optimization-method-comparison",
+            "type": "plotly",
+            "title": "Approximate Gradient vs Newton Optimization",
+            "traces": [
+                {
+                    "x": ["Approx. gradient", "Newton optimization"],
+                    "y": [2, 4],
+                    "type": "bar",
+                    "name": "Derivative information used",
+                    "marker": { "color": "#62c6ff" }
+                },
+                {
+                    "x": ["Approx. gradient", "Newton optimization"],
+                    "y": [2, 5],
+                    "type": "bar",
+                    "name": "Local refinement strength",
+                    "marker": { "color": "#ff6b8a" }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Method" },
+                "yaxis": { "title": "Relative level" },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "damped-newton-optimization",
+            "type": "v3-plot",
+            "title": "Damping mu Can Make Newton Optimization More Practical",
+            "config": {
+                "xLabel": "Iteration k",
+                "yLabel": "Representative distance to optimum",
+                "curves": [
+                    {
+                        "label": "Full Newton step",
+                        "data": [[0, 2.5], [1, 0.7], [2, 0.2], [3, 0.02]],
+                        "color": "#ff6b8a"
+                    },
+                    {
+                        "label": "Damped Newton step",
+                        "data": [[0, 2.5], [1, 1.3], [2, 0.6], [3, 0.2], [4, 0.05]],
+                        "color": "#2fbf8f"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "lesson05-to-06-bridge",
+            "type": "plotly",
+            "title": "Lesson 05 to Lesson 06: The Same Structural Ideas Reappear",
+            "traces": [
+                {
+                    "x": ["Secant", "Approx. gradient", "Newton root-finding", "Newton optimization"],
+                    "y": [2, 2, 4, 4],
+                    "type": "bar",
+                    "marker": { "color": ["#62c6ff", "#2fbf8f", "#6b62ff", "#ff6b8a"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Method" },
+                "yaxis": { "title": "Relative use of local derivative information" },
+                "showlegend": false
+            }
+        }
+    ]
+}

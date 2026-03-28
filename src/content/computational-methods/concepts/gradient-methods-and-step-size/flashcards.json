@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-gradient-methods-and-step-size",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "State the gradient descent update for minimization.",
+            "back": "x_{k+1}=x_k-mu f'(x_k). It moves opposite the slope to reduce the objective value.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "State the gradient ascent update for maximization.",
+            "back": "x_{k+1}=x_k+mu f'(x_k). It moves in the direction of increasing function value.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What does the parameter mu control in gradient methods?",
+            "back": "It controls the step length. Small mu gives slow cautious motion, while large mu gives aggressive motion that may be unstable.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What is the local convergence order of gradient ascent/descent near the optimum?",
+            "back": "Linear convergence. The error contracts by an approximately constant factor determined by the step size and local curvature.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What is the local step-size bound from the lecture?",
+            "back": "0<mu<2/|f''(x*)|. This condition keeps the local error contraction factor below 1 in magnitude.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f6",
+            "front": "Why is curvature important in choosing mu?",
+            "back": "Curvature determines how rapidly the slope changes. Large curvature means the local model changes quickly, so large steps become risky.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "If minimizing and f'(x_k)>0, which way should you move?",
+            "back": "Toward smaller x, because the function rises as x increases and you want to move downhill.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f8",
+            "front": "If maximizing and f'(x_k)<0, which way should you move?",
+            "back": "Toward smaller x, because moving left goes uphill when the derivative is negative.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why does the lecture recommend a conservative step size over an interval?",
+            "back": "Because interval-wide curvature estimates are rough, and a step size that looks acceptable from a rough bound may still behave poorly away from the optimum.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "What is the main practical failure mode of choosing mu too large?",
+            "back": "Overshoot, oscillation, or outright divergence. The iteration stops acting like a stable local correction and becomes too aggressive.",
+            "difficultyLevel": 3
+        }
+    ]
+}

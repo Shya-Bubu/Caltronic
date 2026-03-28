@@ -1,0 +1,125 @@
+{
+    "id": "quiz-gradient-methods-and-step-size",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Which update corresponds to gradient descent for minimization?",
+            "options": [
+                "x_{k+1}=x_k+mu f'(x_k)",
+                "x_{k+1}=x_k-mu f'(x_k)",
+                "x_{k+1}=f'(x_k)-mu x_k",
+                "x_{k+1}=x_k-mu f''(x_k)"
+            ],
+            "correctAnswer": "x_{k+1}=x_k-mu f'(x_k)",
+            "explanation": "Gradient descent moves opposite the slope. If the derivative is positive, subtracting mu f'(x_k) moves left; if it is negative, it moves right toward lower values."
+        },
+        {
+            "id": "q2",
+            "prompt": "Which update corresponds to gradient ascent for maximization?",
+            "options": [
+                "x_{k+1}=x_k+mu f'(x_k)",
+                "x_{k+1}=x_k-mu f'(x_k)",
+                "x_{k+1}=x_k/f'(x_k)",
+                "x_{k+1}=x_k-mu/f'(x_k)"
+            ],
+            "correctAnswer": "x_{k+1}=x_k+mu f'(x_k)",
+            "explanation": "Gradient ascent moves in the direction of increasing function value, so it adds a positive multiple of the derivative instead of subtracting it."
+        },
+        {
+            "id": "q3",
+            "prompt": "If you are minimizing and f'(x_k)>0, what direction should the update move?",
+            "options": [
+                "Toward larger x",
+                "Toward smaller x",
+                "Nowhere, because the derivative is positive",
+                "Directly to the midpoint of the interval"
+            ],
+            "correctAnswer": "Toward smaller x",
+            "explanation": "Positive derivative means the function rises as x increases. To move downhill toward a minimum, you should decrease x, which gradient descent does automatically."
+        },
+        {
+            "id": "q4",
+            "prompt": "The step-size parameter mu mainly controls:",
+            "options": [
+                "Only the sign of the derivative",
+                "How far each iteration moves",
+                "Whether the derivative exists",
+                "The location of the optimum itself"
+            ],
+            "correctAnswer": "How far each iteration moves",
+            "explanation": "Mu scales the derivative term in the update. A small mu gives cautious steps, while a large mu gives aggressive steps that can be fast or unstable."
+        },
+        {
+            "id": "q5",
+            "prompt": "Near the optimum, the local convergence of gradient ascent/descent is:",
+            "options": [
+                "Linear",
+                "Quadratic",
+                "Cubic",
+                "Factorial"
+            ],
+            "correctAnswer": "Linear",
+            "explanation": "The lecture shows that the new error is approximately the old error multiplied by |1±mu f''(x*)|, which is the standard form of linear convergence."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the local step-size bound derived in the lecture?",
+            "options": [
+                "0<mu<|f''(x*)|",
+                "0<mu<2/|f''(x*)|",
+                "mu>|f''(x*)|",
+                "mu must equal 1"
+            ],
+            "correctAnswer": "0<mu<2/|f''(x*)|",
+            "explanation": "The contraction condition leads to -1<1±mu f''(x*)<1, which simplifies to the practical bound 0<mu<2/|f''(x*)| near the optimum."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why does large curvature usually require a smaller step size?",
+            "options": [
+                "Because the optimum disappears",
+                "Because the derivative changes rapidly, making overshoot more likely",
+                "Because mu must always equal curvature",
+                "Because the method becomes derivative-free"
+            ],
+            "correctAnswer": "Because the derivative changes rapidly, making overshoot more likely",
+            "explanation": "When curvature is large, the local slope changes quickly. A large step then uses stale local information and can jump too far, causing oscillation or divergence."
+        },
+        {
+            "id": "q8",
+            "prompt": "Why does the lecture recommend using mu much smaller than the rough interval-based upper estimate?",
+            "options": [
+                "Because the theorem is wrong",
+                "Because local bounds may not describe the whole interval accurately",
+                "Because smaller mu always gives one-step convergence",
+                "Because second derivatives should be ignored"
+            ],
+            "correctAnswer": "Because local bounds may not describe the whole interval accurately",
+            "explanation": "The local analysis is most reliable near the optimum. Away from that neighborhood, curvature variation can make a nominally allowed step size behave poorly, so conservative choices are safer."
+        },
+        {
+            "id": "q9",
+            "prompt": "What is common between the stability stories for gradient ascent and gradient descent?",
+            "options": [
+                "They have unrelated step-size conditions",
+                "Both reduce to a bound involving |f''(x*)|",
+                "Only descent can converge",
+                "Only ascent uses derivatives"
+            ],
+            "correctAnswer": "Both reduce to a bound involving |f''(x*)|",
+            "explanation": "Although ascent and descent use opposite update signs, the lecture shows that in both cases the local convergence condition can be expressed using the magnitude of curvature at the optimum."
+        },
+        {
+            "id": "q10",
+            "prompt": "What is the main practical danger of choosing mu too large?",
+            "options": [
+                "The derivative becomes zero everywhere",
+                "The algorithm may overshoot and diverge",
+                "The optimum moves to the boundary automatically",
+                "The objective becomes linear"
+            ],
+            "correctAnswer": "The algorithm may overshoot and diverge",
+            "explanation": "A very large step size can turn corrective movement into unstable jumping. Instead of approaching the optimum, the iterates may oscillate around it or move farther away."
+        }
+    ]
+}

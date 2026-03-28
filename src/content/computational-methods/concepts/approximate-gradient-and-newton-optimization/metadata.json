@@ -1,0 +1,11 @@
+{
+    "id": "approximate-gradient-and-newton-optimization",
+    "title": "Approximate Gradient Methods and Newton's Method for Optimization",
+    "slug": "approximate-gradient-and-newton-optimization",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

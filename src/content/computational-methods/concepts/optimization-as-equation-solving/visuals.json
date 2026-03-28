@@ -1,0 +1,128 @@
+{
+    "visuals": [
+        {
+            "id": "argmin-argmax-visual",
+            "type": "plotly",
+            "title": "Argmin and Argmax Pick the x-Location of the Best Value",
+            "traces": [
+                {
+                    "x": [-2, -1, 0, 1, 2, 3],
+                    "y": [5, 2, 1, 2, 5, 10],
+                    "name": "Example objective",
+                    "mode": "lines+markers",
+                    "line": { "color": "#6b62ff", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "f(x)" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "critical-point-geometry",
+            "type": "plotly",
+            "title": "At an Interior Optimum the Tangent is Horizontal",
+            "traces": [
+                {
+                    "x": [-2, -1, 0, 1, 2],
+                    "y": [4, 1, 0, 1, 4],
+                    "name": "f(x)",
+                    "mode": "lines",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                },
+                {
+                    "x": [-1, 1],
+                    "y": [0, 0],
+                    "name": "Horizontal tangent at x*=0",
+                    "mode": "lines",
+                    "line": { "color": "#ff6b8a", "dash": "dash", "width": 2 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "f(x)" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "second-derivative-test",
+            "type": "plotly",
+            "title": "Curvature Distinguishes Minima from Maxima",
+            "traces": [
+                {
+                    "x": [-2, -1, 0, 1, 2],
+                    "y": [4, 1, 0, 1, 4],
+                    "name": "Minimum case: f''(x*)>0",
+                    "mode": "lines",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                },
+                {
+                    "x": [-2, -1, 0, 1, 2],
+                    "y": [-4, -1, 0, -1, -4],
+                    "name": "Maximum case: f''(x*)<0",
+                    "mode": "lines",
+                    "line": { "color": "#ff6b8a", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "x" },
+                "yaxis": { "title": "f(x)" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "optimization-pipeline",
+            "type": "plotly",
+            "title": "Optimization Pipeline: Objective to Derivative to Stationary Point",
+            "traces": [
+                {
+                    "x": ["Objective f(x)", "Derivative f'(x)", "Solve f'(x)=0", "Classify with f''(x)"],
+                    "y": [1, 1, 1, 1],
+                    "type": "bar",
+                    "marker": { "color": ["#62c6ff", "#6b62ff", "#2fbf8f", "#ff6b8a"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Stage" },
+                "yaxis": { "visible": false },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "local-curvature-near-optimum",
+            "type": "v3-plot",
+            "title": "Near the Optimum, Curvature Governs the Local Behavior",
+            "config": {
+                "xLabel": "x-x*",
+                "yLabel": "Representative local derivative magnitude",
+                "curves": [
+                    {
+                        "label": "f'(x) near x*",
+                        "data": [[-1, -2], [-0.5, -1], [0, 0], [0.5, 1], [1, 2]],
+                        "color": "#6b62ff"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "slope-sign-direction",
+            "type": "plotly",
+            "title": "Derivative Sign Tells You Which Way is Downhill or Uphill",
+            "traces": [
+                {
+                    "x": ["f'(x)<0", "f'(x)=0", "f'(x)>0"],
+                    "y": [1, 0, -1],
+                    "type": "bar",
+                    "name": "Minimization move direction",
+                    "marker": { "color": ["#2fbf8f", "#f0a03a", "#ff6b8a"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Slope sign" },
+                "yaxis": { "title": "Suggested minimization direction" },
+                "showlegend": false
+            }
+        }
+    ]
+}

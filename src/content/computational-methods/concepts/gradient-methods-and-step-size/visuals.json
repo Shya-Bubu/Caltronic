@@ -1,0 +1,147 @@
+{
+    "visuals": [
+        {
+            "id": "gradient-descent-ascent-rules",
+            "type": "plotly",
+            "title": "Gradient Descent and Ascent Use Opposite Signs",
+            "traces": [
+                {
+                    "x": ["Descent", "Ascent"],
+                    "y": [-1, 1],
+                    "type": "bar",
+                    "marker": { "color": ["#2fbf8f", "#ff6b8a"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Method" },
+                "yaxis": { "title": "Sign in front of mu f'(x_k)" },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "direction-from-slope-sign",
+            "type": "plotly",
+            "title": "Slope Sign Determines Which Way You Move",
+            "traces": [
+                {
+                    "x": ["f'(x)>0", "f'(x)<0"],
+                    "y": [-1, 1],
+                    "type": "bar",
+                    "name": "Descent direction",
+                    "marker": { "color": "#2fbf8f" }
+                },
+                {
+                    "x": ["f'(x)>0", "f'(x)<0"],
+                    "y": [1, -1],
+                    "type": "bar",
+                    "name": "Ascent direction",
+                    "marker": { "color": "#ff6b8a" }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Derivative sign" },
+                "yaxis": { "title": "Direction (+ right, - left)" },
+                "barmode": "group",
+                "showlegend": true
+            }
+        },
+        {
+            "id": "step-size-effect",
+            "type": "plotly",
+            "title": "Effect of Step Size on a Gradient Iteration",
+            "traces": [
+                {
+                    "x": [0, 1, 2, 3, 4, 5],
+                    "y": [4, 2.8, 1.9, 1.2, 0.7, 0.4],
+                    "name": "Small mu",
+                    "mode": "lines+markers",
+                    "line": { "color": "#2fbf8f", "width": 3 }
+                },
+                {
+                    "x": [0, 1, 2, 3, 4, 5],
+                    "y": [4, 1.5, 0.3, -0.2, 0.15, -0.1],
+                    "name": "Large mu (oscillatory)",
+                    "mode": "lines+markers",
+                    "line": { "color": "#ff6b8a", "width": 3 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Iteration k" },
+                "yaxis": { "title": "Distance from optimum" },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "local-gradient-convergence",
+            "type": "v3-plot",
+            "title": "Local Linear Convergence of Gradient Methods",
+            "config": {
+                "xLabel": "Iteration k",
+                "yLabel": "Representative error",
+                "curves": [
+                    {
+                        "label": "Error with stable mu",
+                        "data": [[0, 1], [1, 0.6], [2, 0.36], [3, 0.216], [4, 0.1296], [5, 0.07776]],
+                        "color": "#6b62ff"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "step-size-stability-bound",
+            "type": "plotly",
+            "title": "Stable Step Size Region from 0 to 2/|f''(x*)|",
+            "traces": [
+                {
+                    "x": [0, 2],
+                    "y": [1, 1],
+                    "mode": "lines",
+                    "name": "Allowed mu region (normalized)",
+                    "line": { "color": "#2fbf8f", "width": 10 }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Normalized mu |f''(x*)|" },
+                "yaxis": { "visible": false },
+                "showlegend": true
+            }
+        },
+        {
+            "id": "conservative-step-size",
+            "type": "plotly",
+            "title": "Practice Favors a Conservative Step Size",
+            "traces": [
+                {
+                    "x": ["Aggressive", "Moderate", "Conservative"],
+                    "y": [0.95, 0.55, 0.25],
+                    "type": "bar",
+                    "marker": { "color": ["#ff6b8a", "#f0a03a", "#2fbf8f"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Relative step-size choice" },
+                "yaxis": { "title": "Relative stability risk" },
+                "showlegend": false
+            }
+        },
+        {
+            "id": "min-max-symmetry",
+            "type": "plotly",
+            "title": "Minimization and Maximization Share the Same Curvature Magnitude Bound",
+            "traces": [
+                {
+                    "x": ["Minimum case", "Maximum case"],
+                    "y": [2, 2],
+                    "type": "bar",
+                    "name": "Bound uses 2/|f''(x*)|",
+                    "marker": { "color": ["#2fbf8f", "#ff6b8a"] }
+                }
+            ],
+            "layout": {
+                "xaxis": { "title": "Case" },
+                "yaxis": { "title": "Normalized upper-bound factor" },
+                "showlegend": false
+            }
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-optimization-as-equation-solving",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What does argmin mean?",
+            "back": "It means the value of the variable x that makes the function as small as possible over the domain being considered.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f2",
+            "front": "What does argmax mean?",
+            "back": "It means the value of the variable x that makes the function as large as possible over the domain being considered.",
+            "difficultyLevel": 1
+        },
+        {
+            "id": "f3",
+            "front": "What equation identifies an interior stationary point of f(x)?",
+            "back": "The first-order condition is f'(x*)=0. This is why optimization can be treated as a root-finding problem on the derivative.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f4",
+            "front": "What does f''(x*)>0 suggest at a stationary point?",
+            "back": "It suggests a local minimum because the curve bends upward near the point.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "What does f''(x*)<0 suggest at a stationary point?",
+            "back": "It suggests a local maximum because the curve bends downward near the point.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f6",
+            "front": "Why is optimization called an extension of equation solving in this lesson?",
+            "back": "Because the condition for an interior optimum is f'(x)=0, so locating stationary points becomes a root-finding task.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "Why must endpoints be checked on a closed interval optimization problem?",
+            "back": "Because the global minimum or maximum may occur at a boundary point even if interior stationary points also exist.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "Near x*, what term mainly controls f'(x_k) in Taylor expansion?",
+            "back": "The dominant local term is usually (x_k-x*)f''(x*), so curvature controls how the derivative behaves near the optimum.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f9",
+            "front": "If you are minimizing and f'(x_k)>0, which direction should you move?",
+            "back": "You should move left, meaning decrease x, because positive slope means the function is increasing as x increases.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f10",
+            "front": "What is the difference between a stationary point and a confirmed optimum?",
+            "back": "A stationary point only satisfies f'(x)=0. A confirmed optimum also needs classification, such as a second-derivative test or endpoint comparison.",
+            "difficultyLevel": 4
+        }
+    ]
+}

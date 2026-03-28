@@ -1,0 +1,125 @@
+{
+    "id": "quiz-optimization-as-equation-solving",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "What does argmin f(x) mean?",
+            "options": [
+                "The minimum value of f(x)",
+                "The derivative of f(x)",
+                "The value of x that minimizes f(x)",
+                "The interval where f(x) is negative"
+            ],
+            "correctAnswer": "The value of x that minimizes f(x)",
+            "explanation": "Argmin refers to the argument, meaning the input value x at which the function reaches its minimum, not the minimum function value itself."
+        },
+        {
+            "id": "q2",
+            "prompt": "For an interior optimum x*, the standard first-order condition is:",
+            "options": [
+                "f(x*)=0",
+                "f'(x*)=0",
+                "f''(x*)=0",
+                "x*=0"
+            ],
+            "correctAnswer": "f'(x*)=0",
+            "explanation": "At an interior stationary point, the slope must vanish. That is why optimization can be reframed as solving the equation f'(x)=0."
+        },
+        {
+            "id": "q3",
+            "prompt": "Why is optimization presented as an extension of equation solving in this lesson?",
+            "options": [
+                "Because optimization never uses derivatives",
+                "Because you solve f'(x)=0 to locate stationary points",
+                "Because every optimization problem is linear",
+                "Because the objective function must be zero"
+            ],
+            "correctAnswer": "Because you solve f'(x)=0 to locate stationary points",
+            "explanation": "The lecture's core bridge is that minima and maxima are found by setting the derivative to zero, which turns optimization into a root-finding problem on f'(x)."
+        },
+        {
+            "id": "q4",
+            "prompt": "If f''(x*)>0 at a stationary point, the point is typically a:",
+            "options": [
+                "Local minimum",
+                "Local maximum",
+                "Root of f only",
+                "Point of divergence"
+            ],
+            "correctAnswer": "Local minimum",
+            "explanation": "Positive second derivative means the graph bends upward near x*, so the stationary point behaves like the bottom of a bowl and is therefore a local minimum."
+        },
+        {
+            "id": "q5",
+            "prompt": "If f''(x*)<0 at a stationary point, the point is typically a:",
+            "options": [
+                "Local minimum",
+                "Local maximum",
+                "Midpoint",
+                "Sign-change point"
+            ],
+            "correctAnswer": "Local maximum",
+            "explanation": "Negative second derivative means the graph bends downward near x*, so the point behaves like the top of a hill and is therefore a local maximum."
+        },
+        {
+            "id": "q6",
+            "prompt": "What is the most important difference between a stationary point and a guaranteed optimum?",
+            "options": [
+                "There is no difference",
+                "A stationary point only satisfies f'(x)=0, but still needs classification",
+                "A stationary point always has f(x)=0",
+                "An optimum must have f''(x)=0"
+            ],
+            "correctAnswer": "A stationary point only satisfies f'(x)=0, but still needs classification",
+            "explanation": "Zero derivative identifies a critical point, but you still need curvature or endpoint comparison to determine whether it is a minimum, a maximum, or something else."
+        },
+        {
+            "id": "q7",
+            "prompt": "Why must endpoints also be checked on a closed interval [a,b]?",
+            "options": [
+                "Because derivatives are undefined there by definition",
+                "Because the global optimum can occur at an endpoint",
+                "Because stationary points cannot exist inside the interval",
+                "Because numerical methods only work at endpoints"
+            ],
+            "correctAnswer": "Because the global optimum can occur at an endpoint",
+            "explanation": "Even if interior stationary points exist, the smallest or largest function value over a closed interval may still occur at a boundary point, so endpoints must be compared."
+        },
+        {
+            "id": "q8",
+            "prompt": "Near an optimum x*, the derivative f'(x_k) is mainly influenced by:",
+            "options": [
+                "Only the value of f(x*)",
+                "The local curvature through f''(x*)",
+                "The interval midpoint only",
+                "The sign of x_k alone"
+            ],
+            "correctAnswer": "The local curvature through f''(x*)",
+            "explanation": "The Taylor expansion in the lecture shows that near x*, the derivative behaves primarily like (x_k-x*)f''(x*), so curvature controls the local behavior of the optimization updates."
+        },
+        {
+            "id": "q9",
+            "prompt": "If you are minimizing and f'(x_k)>0, the next move should be generally toward:",
+            "options": [
+                "The right, to increase x",
+                "The left, to decrease x",
+                "A random point",
+                "The endpoint b"
+            ],
+            "correctAnswer": "The left, to decrease x",
+            "explanation": "Positive derivative means the function increases as x increases, so to go downhill toward a minimum you should move in the negative-x direction."
+        },
+        {
+            "id": "q10",
+            "prompt": "Which statement best captures the big idea of this concept?",
+            "options": [
+                "Optimization and equation solving are unrelated topics",
+                "Optimization becomes root-finding when you work with the derivative",
+                "Only maxima can be found numerically",
+                "Second derivatives are never needed"
+            ],
+            "correctAnswer": "Optimization becomes root-finding when you work with the derivative",
+            "explanation": "That is the central message of the lecture's opening section: by solving f'(x)=0, optimization problems inherit the logic and methods of equation solving."
+        }
+    ]
+}

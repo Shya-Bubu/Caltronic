@@ -1,0 +1,125 @@
+{
+    "id": "quiz-approximate-gradient-and-newton-optimization",
+    "questions": [
+        {
+            "id": "q1",
+            "prompt": "Why are approximate gradient methods introduced in the lecture?",
+            "options": [
+                "Because the objective function is always unknown",
+                "Because the derivative may be difficult to compute exactly",
+                "Because Newton's method never works",
+                "Because optimization does not use derivatives"
+            ],
+            "correctAnswer": "Because the derivative may be difficult to compute exactly",
+            "explanation": "The lecture explicitly notes that the objective f(x) may be known while its derivative is unavailable or awkward to calculate, so a numerical slope approximation becomes useful."
+        },
+        {
+            "id": "q2",
+            "prompt": "The lecture's approximate derivative formula is:",
+            "options": [
+                "f'(x_k)≈f(x_k)+f(x_{k-1})",
+                "f'(x_k)≈[f(x_k)-f(x_{k-1})]/[x_k-x_{k-1}]",
+                "f'(x_k)≈f''(x_k)/f(x_k)",
+                "f'(x_k)≈(x_k+x_{k-1})/2"
+            ],
+            "correctAnswer": "f'(x_k)≈[f(x_k)-f(x_{k-1})]/[x_k-x_{k-1}]",
+            "explanation": "This is a finite-difference slope between two recent points. It serves as an approximate local gradient when an exact derivative is unavailable."
+        },
+        {
+            "id": "q3",
+            "prompt": "Approximate gradient descent replaces the true derivative with:",
+            "options": [
+                "A midpoint",
+                "A finite-difference slope",
+                "A second derivative",
+                "A random sample"
+            ],
+            "correctAnswer": "A finite-difference slope",
+            "explanation": "The method estimates the gradient from changes in function value over changes in x, which is exactly the meaning of a finite-difference slope."
+        },
+        {
+            "id": "q4",
+            "prompt": "Newton's method for optimization is based on solving:",
+            "options": [
+                "f(x)=0",
+                "f''(x)=0",
+                "f'(x)=0",
+                "x=f(x)"
+            ],
+            "correctAnswer": "f'(x)=0",
+            "explanation": "Optimization looks for stationary points, so Newton's method is applied to the derivative equation. That is the conceptual route emphasized in the lecture."
+        },
+        {
+            "id": "q5",
+            "prompt": "The Newton optimization update given in the lecture is:",
+            "options": [
+                "x_{k+1}=x_k-mu f(x_k)/f'(x_k)",
+                "x_{k+1}=x_k-mu f'(x_k)/f''(x_k)",
+                "x_{k+1}=x_k+mu f''(x_k)/f'(x_k)",
+                "x_{k+1}=x_k-mu f''(x_k)"
+            ],
+            "correctAnswer": "x_{k+1}=x_k-mu f'(x_k)/f''(x_k)",
+            "explanation": "This comes from applying Newton-Raphson to the derivative function. The first derivative appears in the numerator and the second derivative appears in the denominator."
+        },
+        {
+            "id": "q6",
+            "prompt": "Why can the same Newton optimization formula be used for both minima and maxima in the lecture?",
+            "options": [
+                "Because maxima and minima are identical",
+                "Because the sign of f''(x_k) already changes with local curvature",
+                "Because mu is always negative",
+                "Because derivatives are ignored"
+            ],
+            "correctAnswer": "Because the sign of f''(x_k) already changes with local curvature",
+            "explanation": "At minima the curvature is positive, and at maxima it is negative. Dividing by f''(x_k) therefore changes the effective correction behavior automatically."
+        },
+        {
+            "id": "q7",
+            "prompt": "What is the main advantage of approximate gradients over Newton optimization?",
+            "options": [
+                "They need no function evaluations",
+                "They avoid exact derivative dependence",
+                "They always converge quadratically",
+                "They automatically classify maxima and minima"
+            ],
+            "correctAnswer": "They avoid exact derivative dependence",
+            "explanation": "Approximate gradient methods are attractive when the derivative is difficult to obtain exactly. They trade exact local information for easier implementation."
+        },
+        {
+            "id": "q8",
+            "prompt": "What is the main extra information Newton optimization requires compared with gradient descent?",
+            "options": [
+                "Boundary values only",
+                "Second-derivative information",
+                "Random initialization only",
+                "A sign-change interval"
+            ],
+            "correctAnswer": "Second-derivative information",
+            "explanation": "Gradient descent uses only the first derivative, while Newton optimization scales the update by the second derivative to incorporate local curvature."
+        },
+        {
+            "id": "q9",
+            "prompt": "Which lesson 05 method is most closely analogous to approximate gradient optimization?",
+            "options": [
+                "Bisection",
+                "Secant",
+                "Halley",
+                "Fixed-point with exact derivative"
+            ],
+            "correctAnswer": "Secant",
+            "explanation": "Both methods replace an exact derivative with a finite-difference approximation built from nearby function evaluations. That is the structural analogy highlighted by the lesson progression."
+        },
+        {
+            "id": "q10",
+            "prompt": "Why might Newton optimization still use a step-size parameter mu?",
+            "options": [
+                "Because Newton never uses curvature",
+                "Because the Newton correction can be damped or scaled for practical stability",
+                "Because second derivatives are always zero",
+                "Because maximizing requires a positive sign"
+            ],
+            "correctAnswer": "Because the Newton correction can be damped or scaled for practical stability",
+            "explanation": "The lecture writes the Newton optimization step with mu, showing that even curvature-aware methods may still need update scaling rather than taking the full correction every time."
+        }
+    ]
+}

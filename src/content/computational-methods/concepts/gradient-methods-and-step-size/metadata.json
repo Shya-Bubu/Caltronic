@@ -1,0 +1,11 @@
+{
+    "id": "gradient-methods-and-step-size",
+    "title": "Gradient Methods and the Step-Size Parameter",
+    "slug": "gradient-methods-and-step-size",
+    "estimatedMinutes": 18,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

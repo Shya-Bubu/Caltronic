@@ -1,0 +1,65 @@
+{
+    "id": "flashcards-approximate-gradient-and-newton-optimization",
+    "cards": [
+        {
+            "id": "f1",
+            "front": "What derivative approximation does the lecture use for approximate gradient methods?",
+            "back": "f'(x_k)≈[f(x_k)-f(x_{k-1})]/[x_k-x_{k-1}], which is a finite-difference slope between two recent points.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f2",
+            "front": "Why are approximate gradients useful?",
+            "back": "They help when the objective function is known but the exact derivative is unavailable or inconvenient to compute analytically.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f3",
+            "front": "How is Newton's method adapted for optimization?",
+            "back": "You apply Newton-Raphson to the stationary-point equation f'(x)=0, which gives the update x_{k+1}=x_k-mu f'(x_k)/f''(x_k).",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f4",
+            "front": "State the Newton optimization update.",
+            "back": "x_{k+1}=x_k-mu f'(x_k)/f''(x_k). It uses both the gradient and the curvature of the objective.",
+            "difficultyLevel": 2
+        },
+        {
+            "id": "f5",
+            "front": "Why can the same Newton optimization formula be used for minima and maxima in the lecture?",
+            "back": "Because the sign of the second derivative already changes between upward and downward curvature, so the denominator carries the local orientation information.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f6",
+            "front": "What lesson 05 method is approximate gradient optimization analogous to?",
+            "back": "The secant method, because both replace an exact derivative with a slope computed from nearby function samples.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f7",
+            "front": "What is the main advantage of Newton optimization over ordinary gradient descent?",
+            "back": "Newton uses curvature information through f''(x_k), so it can make a more intelligently scaled local correction near the optimum.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f8",
+            "front": "What is the main implementation burden of Newton optimization?",
+            "back": "It requires second-derivative information, which may be hard, noisy, or expensive to compute in real applications.",
+            "difficultyLevel": 3
+        },
+        {
+            "id": "f9",
+            "front": "Why might approximate gradients be chosen over Newton optimization even when they are less sophisticated?",
+            "back": "Because derivative or curvature formulas may be unavailable, while function evaluations are often easier to obtain or approximate numerically.",
+            "difficultyLevel": 4
+        },
+        {
+            "id": "f10",
+            "front": "Why does the lecture still include mu in the Newton optimization formula?",
+            "back": "Because even a Newton-style correction may need damping or scaling for stable and practical iterative behavior.",
+            "difficultyLevel": 4
+        }
+    ]
+}
