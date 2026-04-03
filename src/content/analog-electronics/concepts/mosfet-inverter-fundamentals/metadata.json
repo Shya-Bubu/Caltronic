@@ -1,0 +1,11 @@
+{
+    "id": "mosfet-inverter-fundamentals",
+    "title": "MOSFET Inverters — Resistive & Active Load",
+    "slug": "mosfet-inverter-fundamentals",
+    "estimatedMinutes": 25,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

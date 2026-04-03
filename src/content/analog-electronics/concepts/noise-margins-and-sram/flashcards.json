@@ -1,0 +1,15 @@
+{
+  "id": "flashcards-noise-margins-and-sram",
+  "cards": [
+    {"id": "f1", "front": "Define NMH (high-state noise margin).", "back": "NMH = VOH - VIH = 2.4V - 2.0V = 0.4V. It's the maximum noise voltage that can be added to a HIGH output without causing the next input to misinterpret it.", "difficultyLevel": 2},
+    {"id": "f2", "front": "Define NML (low-state noise margin).", "back": "NML = VIL - VOL = 0.8V - 0.4V = 0.4V. It's the maximum noise that a LOW signal can tolerate before being misinterpreted as HIGH.", "difficultyLevel": 2},
+    {"id": "f3", "front": "What are the four logic level voltage parameters?", "back": "VOL = 0.4V (max output LOW), VOH = 2.4V (min output HIGH), VIL = 0.8V (max input for LOW), VIH = 2.0V (min input for HIGH).", "difficultyLevel": 1},
+    {"id": "f4", "front": "Why are output specs tighter than input specs?", "back": "The gap between output and input specifications IS the noise margin. If they were equal, any noise at all would cause errors. The tighter output spec creates a safety buffer.", "difficultyLevel": 3},
+    {"id": "f5", "front": "What is the noise model for cascaded circuits?", "back": "VI2 = Vo1 + Vn, where Vn is the noise voltage picked up on the wire between circuits.", "difficultyLevel": 2},
+    {"id": "f6", "front": "How does the SRAM flip-flop store a bit?", "back": "Cross-coupled BJTs: T1's collector → T2's base, T2's collector → T1's base. This positive feedback creates two stable states (T1 ON/T2 OFF or vice versa). The state is held as long as power is applied.", "difficultyLevel": 3},
+    {"id": "f7", "front": "What determines the startup state of an SRAM cell?", "back": "The transistor with higher hFE reaches saturation first: hFE1 = hFE + ΔhFE > hFE2 = hFE - ΔhFE. The startup state is random/unpredictable.", "difficultyLevel": 4},
+    {"id": "f8", "front": "What is the steady-state output HIGH voltage with loading?", "back": "Vo = (Ro/(Ro + RC)) × Vcc. Heavy loads (small Ro) reduce the output below Vcc. Standard load: Ro = 400Ω, Co = 15pF.", "difficultyLevel": 3},
+    {"id": "f9", "front": "Why is CMOS better than DTL for noise margins?", "back": "CMOS with 5V supply has noise margins of ≈2V vs DTL's 0.4V — five times better. CMOS output swings rail-to-rail (0V to Vcc), giving maximum separation between HIGH and LOW.", "difficultyLevel": 3},
+    {"id": "f10", "front": "How is a real battery modelled as an equivalent circuit?", "back": "An ideal voltage source VBB in series with an internal resistance RS. Terminal voltage: VS = VBB - I·RS (drops under load).", "difficultyLevel": 2}
+  ]
+}

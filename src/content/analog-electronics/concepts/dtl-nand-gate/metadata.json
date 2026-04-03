@@ -1,0 +1,11 @@
+{
+    "id": "dtl-nand-gate",
+    "title": "DTL NAND Gate — Complete DC Analysis",
+    "slug": "dtl-nand-gate",
+    "estimatedMinutes": 28,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

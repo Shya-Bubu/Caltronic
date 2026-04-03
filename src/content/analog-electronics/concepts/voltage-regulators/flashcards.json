@@ -1,0 +1,16 @@
+{
+  "id": "flashcards-voltage-regulators",
+  "cards": [
+    {"id": "f1", "front": "What are the four blocks in a regulated DC power supply?", "back": "1. Step-down transformer (AC voltage reduction)\n2. Full bridge rectifier (AC to pulsating DC)\n3. Filter capacitor (smooths ripple)\n4. Voltage regulator (produces stable DC output)", "difficultyLevel": 1},
+    {"id": "f2", "front": "What is the output voltage of a Zener series regulator?", "back": "Vo = VZ - VBE,ON. The Zener sets the base reference, and the output at the emitter is one VBE drop below.", "difficultyLevel": 2},
+    {"id": "f3", "front": "What is the output voltage of the feedback series regulator?", "back": "Vo = (VZ + VBE2,ON) / β, where β = R1/(R1+R2). Since β < 1, the output exceeds VZ + VBE2. Adjusting R1/R2 controls Vo.", "difficultyLevel": 3},
+    {"id": "f4", "front": "How does the series pass transistor maintain regulation?", "back": "VCE automatically adjusts to absorb changes in Vin. If Vin increases by ΔVin, VCE increases by ΔVin (ideally), keeping Vo constant. The operating point moves along the load line.", "difficultyLevel": 3},
+    {"id": "f5", "front": "What is the DC load line equation for the series regulator?", "back": "IC = -(1/RL)VCE + Vin/RL. Slope = -1/RL, intercepts at IC = Vin/RL (y) and VCE = Vin (x).", "difficultyLevel": 3},
+    {"id": "f6", "front": "What are the standard 78xx series regulators?", "back": "7805 = +5V, 7812 = +12V, 7815 = +15V. Negative versions: 7905, 7912, 7915. All handle up to 1A output current.", "difficultyLevel": 1},
+    {"id": "f7", "front": "What is the power dissipated in a series voltage regulator?", "back": "Ploss = Io × (Vin - Vo) = Io × VCE. This heat must be managed with heat sinks, especially at high currents.", "difficultyLevel": 2},
+    {"id": "f8", "front": "In what region does T2 operate in the feedback regulator?", "back": "Active region (NOT saturation). T2 is the error amplifier — it must respond proportionally to small changes in its base voltage for the feedback loop to work correctly.", "difficultyLevel": 3},
+    {"id": "f9", "front": "Why are bypass capacitors needed on regulator ICs?", "back": "They provide low impedance paths (ZC = 1/jωC) at high frequencies, preventing oscillation due to lead inductance. The output capacitor's ESR also affects stability.", "difficultyLevel": 3},
+    {"id": "f10", "front": "What is a hybrid regulator topology?", "back": "A switching regulator (high efficiency, noisy) followed by a series linear regulator (low efficiency, clean). Combines the efficiency of switching with the low noise of linear regulation.", "difficultyLevel": 4},
+    {"id": "f11", "front": "Describe the feedback mechanism when Vin increases.", "back": "ΔVin → Vo tends to rise → β(Vo + Δvo) increases at T2 base → IB2↑ → IC2↑ → IB1 = I - IC2 decreases → T1 conducts less → VCE increases → Vo restored to constant.", "difficultyLevel": 5}
+  ]
+}

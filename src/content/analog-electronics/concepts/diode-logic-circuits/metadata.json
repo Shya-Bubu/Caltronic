@@ -1,0 +1,11 @@
+{
+    "id": "diode-logic-circuits",
+    "title": "Diode Logic Circuits — AND Gate Analysis",
+    "slug": "diode-logic-circuits",
+    "estimatedMinutes": 20,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

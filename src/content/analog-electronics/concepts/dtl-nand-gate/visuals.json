@@ -1,0 +1,212 @@
+{ "visuals": [
+    {
+        "id": "bjt-inverter-schematic",
+        "type": "circuit-schematic",
+        "title": "BJT Inverter — Basic Switching Circuit",
+        "width": 420,
+        "height": 380,
+        "elements": [
+            {"component": "wire", "x1": 256, "y1": 32, "x2": 256, "y2": 64},
+            {"component": "text", "x": 272, "y": 32, "text": "+Vcc (5V)", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 256, "y": 96, "label": "RC", "value": "2.2kΩ", "rotation": 90},
+            {"component": "wire", "x1": 256, "y1": 128, "x2": 256, "y2": 160},
+            {"component": "junction", "x": 256, "y": 160},
+            {"component": "wire", "x1": 256, "y1": 160, "x2": 352, "y2": 160},
+            {"component": "text", "x": 368, "y": 160, "text": "Vo (o/p)", "fontSize": 13, "color": "#4ecdc4"},
+            {"component": "wire", "x1": 256, "y1": 160, "x2": 256, "y2": 192},
+            {"component": "text", "x": 264, "y": 184, "text": "C", "fontSize": 11, "color": "#888"},
+            {"component": "wire", "x1": 192, "y1": 224, "x2": 256, "y2": 224},
+            {"component": "text", "x": 264, "y": 256, "text": "E", "fontSize": 11, "color": "#888"},
+            {"component": "wire", "x1": 256, "y1": 256, "x2": 256, "y2": 320},
+            {"component": "ground", "x": 256, "y": 320},
+            {"component": "resistor", "x": 128, "y": 224, "label": "RB"},
+            {"component": "wire", "x1": 64, "y1": 224, "x2": 96, "y2": 224},
+            {"component": "text", "x": 32, "y": 224, "text": "Vi", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "text", "x": 200, "y": 210, "text": "B", "fontSize": 11, "color": "#888"},
+            {"component": "text", "x": 224, "y": 192, "text": "T", "fontSize": 14, "color": "#ffa726"}
+        ]
+    },
+    {
+        "id": "dtl-nand-gate-schematic",
+        "type": "circuit-schematic",
+        "title": "DTL NAND Gate — Complete Circuit",
+        "width": 560,
+        "height": 480,
+        "elements": [
+            {"component": "wire", "x1": 192, "y1": 32, "x2": 192, "y2": 64},
+            {"component": "text", "x": 208, "y": 32, "text": "+Vcc (5V)", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 192, "y": 96, "label": "5kΩ", "rotation": 90},
+            {"component": "wire", "x1": 192, "y1": 128, "x2": 192, "y2": 160},
+            {"component": "junction", "x": 192, "y": 160},
+            {"component": "diode", "x": 128, "y": 192, "label": "A"},
+            {"component": "wire", "x1": 64, "y1": 192, "x2": 96, "y2": 192},
+            {"component": "wire", "x1": 160, "y1": 192, "x2": 192, "y2": 192},
+            {"component": "diode", "x": 128, "y": 224, "label": "B"},
+            {"component": "wire", "x1": 64, "y1": 224, "x2": 96, "y2": 224},
+            {"component": "wire", "x1": 160, "y1": 224, "x2": 192, "y2": 224},
+            {"component": "diode", "x": 128, "y": 256, "label": "C"},
+            {"component": "wire", "x1": 64, "y1": 256, "x2": 96, "y2": 256},
+            {"component": "wire", "x1": 160, "y1": 256, "x2": 192, "y2": 256},
+            {"component": "text", "x": 32, "y": 192, "text": "A", "fontSize": 14, "color": "#ffa726"},
+            {"component": "text", "x": 32, "y": 224, "text": "B", "fontSize": 14, "color": "#ffa726"},
+            {"component": "text", "x": 32, "y": 256, "text": "C", "fontSize": 14, "color": "#ffa726"},
+            {"component": "wire", "x1": 192, "y1": 160, "x2": 256, "y2": 160},
+            {"component": "diode", "x": 288, "y": 160, "label": "D1", "rotation": 90},
+            {"component": "wire", "x1": 288, "y1": 192, "x2": 288, "y2": 224},
+            {"component": "diode", "x": 288, "y": 256, "label": "D2", "rotation": 90},
+            {"component": "wire", "x1": 288, "y1": 288, "x2": 288, "y2": 320},
+            {"component": "junction", "x": 288, "y": 320},
+            {"component": "wire", "x1": 288, "y1": 320, "x2": 384, "y2": 320},
+            {"component": "text", "x": 300, "y": 310, "text": "B (base)", "fontSize": 10, "color": "#888"},
+            {"component": "resistor", "x": 288, "y": 384, "label": "RB 5kΩ", "rotation": 90},
+            {"component": "wire", "x1": 288, "y1": 320, "x2": 288, "y2": 352},
+            {"component": "wire", "x1": 288, "y1": 416, "x2": 288, "y2": 448},
+            {"component": "ground", "x": 288, "y": 448},
+            {"component": "wire", "x1": 416, "y1": 32, "x2": 416, "y2": 64},
+            {"component": "text", "x": 432, "y": 32, "text": "+Vcc", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 416, "y": 96, "label": "RC 2.2kΩ", "rotation": 90},
+            {"component": "wire", "x1": 416, "y1": 128, "x2": 416, "y2": 160},
+            {"component": "junction", "x": 416, "y": 160},
+            {"component": "wire", "x1": 416, "y1": 160, "x2": 480, "y2": 160},
+            {"component": "text", "x": 496, "y": 160, "text": "Y (o/p)", "fontSize": 13, "color": "#4ecdc4"},
+            {"component": "wire", "x1": 416, "y1": 160, "x2": 416, "y2": 256},
+            {"component": "wire", "x1": 416, "y1": 384, "x2": 416, "y2": 448},
+            {"component": "ground", "x": 416, "y": 448},
+            {"component": "text", "x": 400, "y": 304, "text": "T", "fontSize": 14, "color": "#ffa726"},
+            {"component": "current-arrow", "x": 168, "y": 80, "label": "I₁"}
+        ]
+    },
+    {
+        "id": "dtl-voltage-threshold",
+        "type": "plotly",
+        "title": "DTL Voltage Threshold Analysis — Why 0.9V Can't Turn ON T",
+        "traces": [
+            {
+                "x": ["Available\nvoltage\n(input LOW)", "Required\nvoltage\n(turn ON T)"],
+                "y": [0.9, 2.0],
+                "type": "bar",
+                "marker": {"color": ["#ff6b6b", "#4ecdc4"]},
+                "name": "Voltage (V)"
+            }
+        ],
+        "layout": {
+            "yaxis": {"title": "Voltage (V)", "range": [0, 2.5]},
+            "annotations": [
+                {"x": "Available\nvoltage\n(input LOW)", "y": 1.1, "text": "0.2V + 0.7V\n= 0.9V", "showarrow": false, "font": {"color": "#ff6b6b", "size": 12}},
+                {"x": "Required\nvoltage\n(turn ON T)", "y": 2.2, "text": "2×0.6V + 0.8V\n= 2.0V", "showarrow": false, "font": {"color": "#4ecdc4", "size": 12}},
+                {"x": 0.5, "y": 1.5, "text": "GAP → T stays OFF ✓", "showarrow": false, "font": {"color": "#ffa726", "size": 14}}
+            ]
+        }
+    },
+    {
+        "id": "dtl-all-high-circuit",
+        "type": "circuit-schematic",
+        "title": "DTL Analysis — All Inputs HIGH (Current Flow Paths)",
+        "width": 480,
+        "height": 360,
+        "elements": [
+            {"component": "wire", "x1": 160, "y1": 32, "x2": 160, "y2": 64},
+            {"component": "text", "x": 176, "y": 32, "text": "+Vcc (5V)", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 160, "y": 96, "label": "5kΩ (R)", "rotation": 90},
+            {"component": "wire", "x1": 160, "y1": 128, "x2": 160, "y2": 160},
+            {"component": "junction", "x": 160, "y": 160},
+            {"component": "text", "x": 128, "y": 144, "text": "VP = 2.2V", "fontSize": 11, "color": "#4ecdc4"},
+            {"component": "text", "x": 64, "y": 192, "text": "All inputs\nHIGH → OFF", "fontSize": 11, "color": "#888"},
+            {"component": "wire", "x1": 160, "y1": 160, "x2": 256, "y2": 160},
+            {"component": "text", "x": 200, "y": 180, "text": "D1", "fontSize": 11, "color": "#888"},
+            {"component": "text", "x": 200, "y": 224, "text": "D2", "fontSize": 11, "color": "#888"},
+            {"component": "junction", "x": 256, "y": 256},
+            {"component": "text", "x": 224, "y": 272, "text": "IB = 0.4mA", "fontSize": 11, "color": "#4ecdc4"},
+            {"component": "text", "x": 288, "y": 288, "text": "I2 = 0.16mA", "fontSize": 11, "color": "#ffa726"},
+            {"component": "text", "x": 352, "y": 128, "text": "IC = 2.182mA", "fontSize": 11, "color": "#ff6b6b"},
+            {"component": "current-arrow", "x": 128, "y": 80, "label": "I₁ = 0.56mA"},
+            {"component": "text", "x": 384, "y": 224, "text": "T → ON\n(saturated)", "fontSize": 12, "color": "#ffa726"}
+        ]
+    },
+    {
+        "id": "dtl-current-flow-plotly",
+        "type": "plotly",
+        "title": "DTL NAND Gate — DC Current Summary (All Inputs HIGH)",
+        "traces": [
+            {
+                "x": ["I₁\n(from Vcc\nvia 5kΩ)", "I₂\n(through\nRB)", "IB\n(into\nbase)", "IC\n(collector)"],
+                "y": [0.56, 0.16, 0.40, 2.182],
+                "type": "bar",
+                "marker": {"color": ["#ffa726", "#e040fb", "#4ecdc4", "#ff6b6b"]},
+                "name": "Current (mA)"
+            }
+        ],
+        "layout": {
+            "yaxis": {"title": "Current (mA)"},
+            "annotations": [
+                {"x": "IB\n(into\nbase)", "y": 0.55, "text": "IB = I₁ - I₂", "showarrow": false, "font": {"color": "#4ecdc4", "size": 12}},
+                {"x": "IC\n(collector)", "y": 2.4, "text": "IC = (Vcc-VCE,sat)/RC", "showarrow": false, "font": {"color": "#ff6b6b", "size": 11}}
+            ]
+        }
+    },
+    {
+        "id": "falstad-dtl-nand",
+        "type": "falstad-sim",
+        "title": "Interactive: DTL NAND Gate — Toggle Inputs",
+        "description": "Use the input switches to toggle A, B, C. When ALL inputs are HIGH, the transistor saturates and the output goes LOW. When any input is LOW, the transistor is OFF and the output goes HIGH. Watch the base current and collector current on the scope.",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nR 176 48 176 16 0 0 40 5 0 0 0.5\nr 176 48 176 128 0 5000\nw 176 128 176 160 0\nd 112 160 176 160 2 default\nd 112 192 176 192 2 default\nd 112 224 176 224 2 default\nw 176 160 176 192 0\nw 176 192 176 224 0\nw 176 160 240 160 0\nd 240 160 240 208 2 default\nd 240 208 240 256 2 default\nw 240 256 240 288 0\nr 240 288 240 368 0 5000\ng 240 368 240 400 0 0\nt 240 288 336 288 0 1 -4.675556254498468 0.5926996738460645 100\nR 336 48 336 16 0 0 40 5 0 0 0.5\nr 336 48 336 208 0 2200\nw 336 208 336 272 0\nw 336 304 336 368 0\ng 336 368 336 400 0 0\nR 112 160 64 160 0 0 40 5 0 0 0.5\n38 1 0 0 5 InputA\nR 112 192 64 192 0 0 40 5 0 0 0.5\n38 2 0 0 5 InputB\nR 112 224 64 224 0 0 40 5 0 0 0.5\n38 3 0 0 5 InputC\nw 336 208 416 208 0\nx 416 208 0 0 0 14 Y(output)\no 14 64 0 4099 5 0.1 0 2 5 3\n",
+        "height": 500
+    },
+    {
+        "id": "saturation-check-plotly",
+        "type": "plotly",
+        "title": "Saturation Check — IB vs IC/hFE",
+        "traces": [
+            {
+                "x": [5, 10, 20, 30, 50, 100],
+                "y": [0.4364, 0.2182, 0.1091, 0.0727, 0.0436, 0.0218],
+                "name": "IC/hFE (required minimum IB)",
+                "mode": "lines+markers",
+                "line": {"color": "#ff6b6b", "width": 2},
+                "marker": {"size": 8}
+            },
+            {
+                "x": [5, 10, 20, 30, 50, 100],
+                "y": [0.4, 0.4, 0.4, 0.4, 0.4, 0.4],
+                "name": "Actual IB = 0.4 mA",
+                "mode": "lines",
+                "line": {"color": "#4ecdc4", "width": 3, "dash": "dash"}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "hFE (current gain)"},
+            "yaxis": {"title": "Current (mA)"},
+            "annotations": [
+                {"x": 7, "y": 0.45, "text": "Saturated when\nIB > IC/hFE", "showarrow": false, "font": {"color": "#ffa726", "size": 12}},
+                {"x": 5, "y": 0.35, "text": "hFE,min ≈ 5", "showarrow": true, "arrowhead": 2, "ax": -40, "ay": 30, "font": {"color": "#ff6b6b", "size": 12}}
+            ],
+            "shapes": [
+                {"type": "rect", "x0": 5, "y0": 0, "x1": 100, "y1": 0.4, "fillcolor": "rgba(78,205,196,0.08)", "line": {"width": 0}}
+            ]
+        }
+    },
+    {
+        "id": "dtl-diode-iv-operating",
+        "type": "plotly",
+        "title": "Diode I-V Curve — Operating Point at 0.7V",
+        "traces": [
+            {
+                "x": [0, 0.2, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8],
+                "y": [0, 0, 0, 0.001, 0.005, 0.02, 0.08, 0.25, 0.7, 1.5],
+                "name": "Diode I-V (ID vs VD)",
+                "mode": "lines",
+                "line": {"color": "#4ecdc4", "width": 3}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "VD (V)"},
+            "yaxis": {"title": "ID (mA)"},
+            "annotations": [
+                {"x": 0.7, "y": 0.35, "text": "VD,ON ≈ 0.7V\n(assumed)", "showarrow": true, "arrowhead": 2, "ax": 50, "ay": -30, "font": {"color": "#ffa726", "size": 12}}
+            ],
+            "shapes": [
+                {"type": "line", "x0": 0.7, "y0": 0, "x1": 0.7, "y1": 1.6, "line": {"color": "#ffa726", "width": 1, "dash": "dash"}}
+            ]
+        }
+    }
+]}

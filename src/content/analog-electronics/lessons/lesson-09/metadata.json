@@ -1,22 +1,21 @@
 {
     "id": "lesson-09",
-    "title": "MOSFET Fundamentals & MOS Logic Families",
+    "title": "MOSFET Gates, Digital Logic & Voltage Regulators",
     "slug": "lesson-09",
-    "description": "Understand the physical structure and operation of enhancement and depletion MOSFETs (both N-channel and P-channel), then apply them to build MOS inverters, NMOS logic gates, CMOS inverters, and CMOS NAND/NOR gates.",
+    "description": "From MOSFET inverter circuits and switching delays, through diode logic and DTL NAND gates, to fan-out analysis, noise margins, SRAM cells, and series voltage regulators — this lesson covers the practical building blocks of digital and power electronics.",
     "prerequisites": [
         "lesson-06"
     ],
     "overviewPath": "overview.md",
     "synthesisPath": "synthesis.md",
     "concepts": [
-        "mosfet-physical-structure",
-        "nmos-enhancement-operation",
-        "pmos-enhancement-operation",
-        "depletion-mode-mosfet",
-        "mos-inverter-circuits",
-        "nmos-logic-gates",
-        "cmos-inverter",
-        "cmos-logic-gates"
+        "mosfet-inverter-fundamentals",
+        "mosfet-switching-characteristics",
+        "diode-logic-circuits",
+        "dtl-nand-gate",
+        "fanout-and-power-consumption",
+        "noise-margins-and-sram",
+        "voltage-regulators"
     ],
     "lectureWeek": 9,
     "estimatedMinutes": 360

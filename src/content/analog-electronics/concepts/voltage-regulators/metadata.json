@@ -1,0 +1,11 @@
+{
+    "id": "voltage-regulators",
+    "title": "Voltage Regulators — Zener, Feedback & Standard ICs",
+    "slug": "voltage-regulators",
+    "estimatedMinutes": 30,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

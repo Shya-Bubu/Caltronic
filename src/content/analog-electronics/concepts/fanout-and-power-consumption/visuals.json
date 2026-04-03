@@ -1,0 +1,182 @@
+{ "visuals": [
+    {
+        "id": "fanout-circuit-schematic",
+        "type": "circuit-schematic",
+        "title": "Fan-Out — One Driving Gate Connected to N Load Gates",
+        "width": 520,
+        "height": 360,
+        "elements": [
+            {"component": "wire", "x1": 192, "y1": 32, "x2": 192, "y2": 64},
+            {"component": "text", "x": 208, "y": 32, "text": "+Vcc", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 192, "y": 96, "label": "RC", "rotation": 90},
+            {"component": "wire", "x1": 192, "y1": 128, "x2": 192, "y2": 160},
+            {"component": "junction", "x": 192, "y": 160},
+            {"component": "text", "x": 208, "y": 152, "text": "VCE,sat", "fontSize": 10, "color": "#888"},
+            {"component": "wire", "x1": 192, "y1": 160, "x2": 192, "y2": 224},
+            {"component": "wire", "x1": 192, "y1": 224, "x2": 192, "y2": 288},
+            {"component": "ground", "x": 192, "y": 288},
+            {"component": "text", "x": 176, "y": 204, "text": "T (sat)", "fontSize": 12, "color": "#ffa726"},
+            {"component": "wire", "x1": 192, "y1": 160, "x2": 320, "y2": 160},
+            {"component": "junction", "x": 320, "y": 160},
+            {"component": "wire", "x1": 320, "y1": 160, "x2": 320, "y2": 192},
+            {"component": "wire", "x1": 320, "y1": 160, "x2": 384, "y2": 160},
+            {"component": "junction", "x": 384, "y": 160},
+            {"component": "wire", "x1": 384, "y1": 160, "x2": 384, "y2": 192},
+            {"component": "wire", "x1": 384, "y1": 160, "x2": 448, "y2": 160},
+            {"component": "wire", "x1": 448, "y1": 160, "x2": 448, "y2": 192},
+            {"component": "text", "x": 304, "y": 210, "text": "DA1", "fontSize": 10, "color": "#888"},
+            {"component": "text", "x": 368, "y": 210, "text": "DA2", "fontSize": 10, "color": "#888"},
+            {"component": "text", "x": 432, "y": 210, "text": "DA3", "fontSize": 10, "color": "#888"},
+            {"component": "text", "x": 304, "y": 240, "text": "cct₁", "fontSize": 12, "color": "#4ecdc4"},
+            {"component": "text", "x": 368, "y": 240, "text": "cct₂", "fontSize": 12, "color": "#4ecdc4"},
+            {"component": "text", "x": 432, "y": 240, "text": "cct₃", "fontSize": 12, "color": "#4ecdc4"},
+            {"component": "current-arrow", "x": 256, "y": 144, "label": "N × IL"},
+            {"component": "current-arrow", "x": 168, "y": 96, "label": "I₂"}
+        ]
+    },
+    {
+        "id": "load-current-calculation",
+        "type": "plotly",
+        "title": "Load Current IL — Voltage Drops in the Current Path",
+        "traces": [
+            {
+                "x": ["VCE,sat\n(0.2V)", "VDA,ON\n(0.7V)", "Voltage\nacross R\n(4.1V)"],
+                "y": [0.2, 0.7, 4.1],
+                "type": "bar",
+                "marker": {"color": ["#ff6b6b", "#ffa726", "#4ecdc4"]},
+                "name": "Voltage (V)"
+            }
+        ],
+        "layout": {
+            "yaxis": {"title": "Voltage (V)", "range": [0, 5.5]},
+            "annotations": [
+                {"x": 1.0, "y": 5.3, "text": "Vcc = 5V total", "showarrow": false, "font": {"color": "#888", "size": 13}},
+                {"x": "Voltage\nacross R\n(4.1V)", "y": 4.5, "text": "IL = 4.1V / 5kΩ = 0.82 mA", "showarrow": false, "font": {"color": "#4ecdc4", "size": 12}}
+            ]
+        }
+    },
+    {
+        "id": "fanout-vs-n-plotly",
+        "type": "plotly",
+        "title": "Fan-Out Analysis — Available IB vs Required IB for N Loads",
+        "traces": [
+            {
+                "x": [0, 2, 4, 6, 8, 10, 12, 14, 16],
+                "y": [0.0727, 0.127, 0.182, 0.236, 0.291, 0.345, 0.400, 0.454, 0.509],
+                "name": "Required IB = IC(total)/hFE",
+                "mode": "lines+markers",
+                "line": {"color": "#ff6b6b", "width": 2},
+                "marker": {"size": 6}
+            },
+            {
+                "x": [0, 2, 4, 6, 8, 10, 12, 14, 16],
+                "y": [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4],
+                "name": "Available IB = 0.4 mA",
+                "mode": "lines",
+                "line": {"color": "#4ecdc4", "width": 3, "dash": "dash"}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "Number of Load Gates (N)"},
+            "yaxis": {"title": "Base Current (mA)"},
+            "annotations": [
+                {"x": 12, "y": 0.42, "text": "← Limit: N ≈ 12", "showarrow": true, "arrowhead": 2, "ax": 40, "ay": -20, "font": {"color": "#ffa726", "size": 13}},
+                {"x": 6, "y": 0.15, "text": "Safe region\n(IB > required)", "showarrow": false, "font": {"color": "#4ecdc4", "size": 12}}
+            ],
+            "shapes": [
+                {"type": "rect", "x0": 0, "y0": 0, "x1": 12, "y1": 0.4, "fillcolor": "rgba(78,205,196,0.08)", "line": {"width": 0}}
+            ]
+        }
+    },
+    {
+        "id": "logic-levels-diagram",
+        "type": "plotly",
+        "title": "Logic Level Voltage Ranges",
+        "traces": [
+            {
+                "x": ["Valid LOW", "Forbidden Zone", "Valid HIGH"],
+                "y": [0.4, 2.0, 2.6],
+                "type": "bar",
+                "marker": {"color": ["#ff6b6b", "#888", "#4ecdc4"]}
+            }
+        ],
+        "layout": {
+            "yaxis": {"title": "Voltage (V)", "range": [0, 6]},
+            "annotations": [
+                {"x": "Valid LOW", "y": 0.6, "text": "< 0.4V", "showarrow": false, "font": {"color": "#ff6b6b", "size": 14}},
+                {"x": "Forbidden Zone", "y": 2.2, "text": "0.4V – 2.4V", "showarrow": false, "font": {"color": "#888", "size": 12}},
+                {"x": "Valid HIGH", "y": 5.3, "text": "> 2.4V", "showarrow": false, "font": {"color": "#4ecdc4", "size": 14}}
+            ]
+        }
+    },
+    {
+        "id": "power-high-circuit",
+        "type": "circuit-schematic",
+        "title": "Power When Output is HIGH — T is OFF",
+        "width": 400,
+        "height": 320,
+        "elements": [
+            {"component": "wire", "x1": 192, "y1": 32, "x2": 192, "y2": 64},
+            {"component": "text", "x": 208, "y": 32, "text": "+Vcc (5V)", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 192, "y": 96, "label": "5kΩ", "rotation": 90},
+            {"component": "wire", "x1": 192, "y1": 128, "x2": 192, "y2": 160},
+            {"component": "text", "x": 128, "y": 160, "text": "Input diode ON", "fontSize": 11, "color": "#4ecdc4"},
+            {"component": "text", "x": 224, "y": 224, "text": "T → OFF", "fontSize": 13, "color": "#888"},
+            {"component": "text", "x": 224, "y": 248, "text": "I₂ = 0", "fontSize": 12, "color": "#888"},
+            {"component": "text", "x": 96, "y": 256, "text": "Vo = Vcc (HIGH)", "fontSize": 12, "color": "#4ecdc4"},
+            {"component": "current-arrow", "x": 160, "y": 80, "label": "IS = 0.82mA"},
+            {"component": "text", "x": 96, "y": 288, "text": "P(1) = 5V × 0.82mA = 4.1mW", "fontSize": 12, "color": "#ffa726"}
+        ]
+    },
+    {
+        "id": "power-comparison-chart",
+        "type": "plotly",
+        "title": "Static Power Consumption — P(0) vs P(1) vs Average",
+        "traces": [
+            {
+                "x": ["P(1)\n(output HIGH)", "P(0)\n(output LOW)", "Pav\n(average)"],
+                "y": [4.1, 13.71, 8.905],
+                "type": "bar",
+                "marker": {"color": ["#4ecdc4", "#ff6b6b", "#ffa726"]}
+            }
+        ],
+        "layout": {
+            "yaxis": {"title": "Power (mW)", "range": [0, 16]},
+            "annotations": [
+                {"x": "P(1)\n(output HIGH)", "y": 4.6, "text": "4.1 mW", "showarrow": false, "font": {"color": "#4ecdc4", "size": 14}},
+                {"x": "P(0)\n(output LOW)", "y": 14.2, "text": "13.71 mW", "showarrow": false, "font": {"color": "#ff6b6b", "size": 14}},
+                {"x": "Pav\n(average)", "y": 9.4, "text": "≈ 9 mW", "showarrow": false, "font": {"color": "#ffa726", "size": 14}}
+            ]
+        }
+    },
+    {
+        "id": "falstad-power-demo",
+        "type": "falstad-sim",
+        "title": "Interactive: DTL Gate Power Consumption — Watch Supply Current",
+        "description": "Toggle the input between HIGH and LOW. Watch how the supply current changes dramatically: when output is LOW (transistor ON), supply current is high; when output is HIGH (transistor OFF), supply current drops. The scope shows the supply current.",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nR 176 48 176 16 0 0 40 5 0 0 0.5\nr 176 48 176 128 0 5000\nw 176 128 176 160 0\nd 112 160 176 160 2 default\nw 176 160 240 160 0\nd 240 160 240 208 2 default\nd 240 208 240 256 2 default\nw 240 256 240 288 0\nr 240 288 240 368 0 5000\ng 240 368 240 400 0 0\nt 240 288 336 288 0 1 -4.675556254498468 0.5926996738460645 100\nR 336 48 336 16 0 0 40 5 0 0 0.5\nr 336 48 336 208 0 2200\nw 336 208 336 272 0\nw 336 304 336 368 0\ng 336 368 336 400 0 0\nR 112 160 64 160 0 0 40 5 0 0 0.5\n38 1 0 0 5 Input\no 0 64 0 4099 0.625 0.00009765625 1 2 0 3\no 14 64 0 4099 5 0.1 0 2 5 3\n",
+        "height": 500
+    },
+    {
+        "id": "power-scaling-chart",
+        "type": "plotly",
+        "title": "Total Chip Power vs Number of DTL Gates (@9mW each)",
+        "traces": [
+            {
+                "x": [10, 50, 100, 500, 1000, 5000, 10000],
+                "y": [0.09, 0.45, 0.9, 4.5, 9, 45, 90],
+                "name": "Total power (W)",
+                "mode": "lines+markers",
+                "line": {"color": "#ff6b6b", "width": 3},
+                "marker": {"size": 8}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "Number of Gates", "type": "log"},
+            "yaxis": {"title": "Total Power (W)", "type": "log"},
+            "annotations": [
+                {"x": 3.7, "y": 1.65, "text": "5000 gates = 45W\n(impractical!)", "showarrow": true, "arrowhead": 2, "ax": -50, "ay": -30, "font": {"color": "#ffa726", "size": 12}}
+            ]
+        }
+    }
+]}

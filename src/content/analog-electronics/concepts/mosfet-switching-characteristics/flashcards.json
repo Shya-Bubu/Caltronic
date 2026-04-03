@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-mosfet-switching-characteristics",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What causes switching delays in a MOSFET inverter?",
+      "back": "The parasitic capacitance Co at the output node must be charged or discharged through the transistors' ON resistances, creating RC time constants.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "What is the time constant for the falling edge (output going LOW)?",
+      "back": "τ₁ = Co × Rsat(T₁), where Rsat(T₁) is the ON resistance of the driver transistor.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f3",
+      "front": "What is the time constant for the rising edge (output going HIGH)?",
+      "back": "τ₂ = Co × Rsat(T₂), where Rsat(T₂) is the ON resistance of the load transistor.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "Why is the rising edge slower than the falling edge in an NMOS inverter?",
+      "back": "Because Rsat(T₂) > Rsat(T₁). The load transistor (T₂, diode-connected) has a higher ON resistance than the driver (T₁, fully driven), giving a larger time constant.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f5",
+      "front": "What is the formula for ON resistance (Rsat)?",
+      "back": "Rsat = VDS(ON) / IDS — the ratio of drain-source voltage when ON to the drain current.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f6",
+      "front": "What is the steady-state output LOW voltage formula?",
+      "back": "Vo1 = (Ro / (Ro + Rsat)) × VDD — a voltage divider between the output resistance and the load's ON resistance.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "What is an open-drain output?",
+      "back": "A circuit where the transistor's drain is brought out of the IC without an internal pull-up. An external pull-up resistor must be connected to VDD to define the HIGH state.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f8",
+      "front": "Why are open-drain outputs used for shared buses?",
+      "back": "Multiple open-drain outputs can share a bus because they can only pull LOW. There's no push-pull conflict. The bus is HIGH (via pull-up) when all transistors are OFF.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What is time division multiplexing on a data bus?",
+      "back": "Multiple circuits take turns placing their data on a shared bus at different time intervals. Each circuit drives the bus during its allocated time slot while others are OFF.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f10",
+      "front": "What happens if you omit the pull-up resistor on an open-drain output?",
+      "back": "The output floats when the transistor is OFF, resulting in an undefined voltage level that can cause unpredictable behaviour in downstream logic.",
+      "difficultyLevel": 2
+    }
+  ]
+}

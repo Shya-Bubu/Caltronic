@@ -1,0 +1,11 @@
+{
+    "id": "mosfet-switching-characteristics",
+    "title": "Switching Characteristics & Open-Drain Outputs",
+    "slug": "mosfet-switching-characteristics",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

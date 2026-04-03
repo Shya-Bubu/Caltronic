@@ -1,0 +1,11 @@
+{
+    "id": "fanout-and-power-consumption",
+    "title": "Fan-Out Analysis & Power Consumption",
+    "slug": "fanout-and-power-consumption",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

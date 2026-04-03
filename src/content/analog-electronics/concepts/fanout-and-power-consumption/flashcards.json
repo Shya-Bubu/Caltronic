@@ -1,0 +1,15 @@
+{
+  "id": "flashcards-fanout-and-power-consumption",
+  "cards": [
+    {"id": "f1", "front": "What is fan-out?", "back": "The maximum number of gate inputs a single output can reliably drive while maintaining valid logic levels. Limited by the saturation condition IB > IC/hFE.", "difficultyLevel": 1},
+    {"id": "f2", "front": "What is the load current IL per gate in the DTL analysis?", "back": "IL = (Vcc - VCE,sat - VDA,ON) / R = (5 - 0.2 - 0.7) / 5000 = 0.82 mA", "difficultyLevel": 2},
+    {"id": "f3", "front": "What is the fan-out inequality?", "back": "IB > (IC + N × IL) / hFE. With the lecture values: 0.4 > (2.182 + 0.82N) / 30, giving N ≤ 11 (practically ≈ 10).", "difficultyLevel": 3},
+    {"id": "f4", "front": "What are the valid logic level voltage ranges?", "back": "Logic LOW: < 0.4V. Logic HIGH: > 2.4V. The gap between 0.4V and 2.4V is the forbidden zone.", "difficultyLevel": 2},
+    {"id": "f5", "front": "What is P(1) — power consumption when output is HIGH?", "back": "P(1) = Vcc × IS = 5V × 0.82 mA = 4.1 mW. Only the pull-up resistor current flows (T is OFF).", "difficultyLevel": 2},
+    {"id": "f6", "front": "What is P(0) — power consumption when output is LOW?", "back": "P(0) = Vcc × (I1 + I2) = 5V × (0.56 + 2.182) mA = 5 × 2.742 = 13.71 mW. The saturated transistor draws significant collector current.", "difficultyLevel": 3},
+    {"id": "f7", "front": "What is the average power consumption of the DTL gate?", "back": "Pav = (P(0) + P(1)) / 2 = (13.71 + 4.1) / 2 ≈ 9 mW per gate.", "difficultyLevel": 2},
+    {"id": "f8", "front": "Why is P(0) much larger than P(1)?", "back": "When output is LOW, T is saturated and IC = 2.182 mA flows through RC. When output is HIGH, T is OFF and only IL = 0.82 mA flows through the pull-up. The collector current dominates.", "difficultyLevel": 3},
+    {"id": "f9", "front": "Why does CMOS have much lower static power than DTL?", "back": "In CMOS, PMOS and NMOS are never both ON simultaneously. One always blocks the current path from Vcc to ground, making static power ≈ 0.", "difficultyLevel": 4},
+    {"id": "f10", "front": "How many gates would consume approximately 1W at 9mW each?", "back": "About 111 gates (1000 mW / 9 mW ≈ 111). For comparison, a modern CPU has billions of CMOS gates and consumes only tens of watts — proving why CMOS dominates.", "difficultyLevel": 3}
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "quiz-diode-logic-circuits",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the approximate ON voltage of a silicon diode in the diode logic model?",
+      "options": ["0.3V", "0.6V", "0.8V", "1.2V"],
+      "correctAnswer": "0.8V",
+      "explanation": "The ON voltage includes both the cut-in voltage and the forward resistance drop: VON = Vγ + ID(ON) × Rf ≈ 0.6V + 0.2V = 0.8V. This is the value used consistently in the lecture's diode logic analysis."
+    },
+    {
+      "id": "q2",
+      "prompt": "In the 2-input diode AND gate, where are the anodes of the diodes connected?",
+      "options": ["To the inputs A and B", "To the common output node", "To ground", "To +Vcc"],
+      "correctAnswer": "To the common output node",
+      "explanation": "The anodes of both diodes are tied together at the output node, with a pull-up resistor to +Vcc. The cathodes face the inputs. This orientation means that a LOW input forward-biases the diode, pulling the output LOW."
+    },
+    {
+      "id": "q3",
+      "prompt": "When both inputs of the diode AND gate are HIGH (+Vcc), what is the state of the diodes?",
+      "options": ["Both ON", "Both OFF", "DA ON, DB OFF", "DA OFF, DB ON"],
+      "correctAnswer": "Both OFF",
+      "explanation": "When both cathodes are at +Vcc and the anodes are pulled toward +Vcc by the resistor, there is no forward bias across either diode (anode can't exceed +Vcc). Both diodes are reverse-biased and OFF, so the output sits at +Vcc through the pull-up resistor."
+    },
+    {
+      "id": "q4",
+      "prompt": "When input A is LOW (0V) and input B is HIGH (+Vcc), what is the output voltage?",
+      "options": ["+Vcc", "0V", "Approximately 0.8V", "Vcc / 2"],
+      "correctAnswer": "Approximately 0.8V",
+      "explanation": "DA conducts because its cathode (0V) is much lower than its anode (pulled up by R). The output is clamped to VON ≈ 0.8V. DB is reverse-biased because its cathode (+Vcc) is higher than the output (0.8V). The output is LOW at approximately 0.8V."
+    },
+    {
+      "id": "q5",
+      "prompt": "What logic function does the 2-input diode gate with pull-up resistor and cathodes at inputs implement?",
+      "options": ["OR gate", "AND gate", "NAND gate", "NOR gate"],
+      "correctAnswer": "AND gate",
+      "explanation": "The output is HIGH only when both inputs are HIGH (both diodes OFF). Any LOW input activates its diode and pulls the output LOW. This matches the AND truth table: z = A · B. Output is 1 only when A = 1 AND B = 1."
+    },
+    {
+      "id": "q6",
+      "prompt": "In positive logic convention, what voltage represents logic 1?",
+      "options": ["0V (ground)", "+Vcc (supply voltage)", "-Vcc", "VTh (threshold)"],
+      "correctAnswer": "+Vcc (supply voltage)",
+      "explanation": "Positive logic convention maps: LOW voltage (≈ 0V) = logic 0, HIGH voltage (+Vcc) = logic 1. This is the standard convention used throughout the lecture and most digital electronics courses."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why can't diode logic gates be cascaded indefinitely?",
+      "options": ["Diodes break after too many stages", "Signal levels degrade — each stage adds a voltage offset of ~0.8V", "The pull-up resistor burns out", "The logic function changes"],
+      "correctAnswer": "Signal levels degrade — each stage adds a voltage offset of ~0.8V",
+      "explanation": "Each diode gate introduces a voltage drop of approximately 0.8V. After several cascaded stages, the LOW level rises and the HIGH level may drop, making it impossible to distinguish between logic states. Diode logic has no signal restoration capability."
+    },
+    {
+      "id": "q8",
+      "prompt": "What would the circuit implement if the diode orientations were reversed (anodes at inputs, cathodes at output)?",
+      "options": ["AND gate", "OR gate", "NOT gate", "XOR gate"],
+      "correctAnswer": "OR gate",
+      "explanation": "With reversed diodes, a HIGH input would forward-bias its diode and pull the output HIGH through the diode. The output would be LOW only when ALL inputs are LOW. This is the OR function. Diode orientation determines AND vs OR."
+    },
+    {
+      "id": "q9",
+      "prompt": "What is the forward resistance Rf in the diode ON model?",
+      "options": ["The bulk resistance of the semiconductor material", "The reverse leakage resistance", "The pull-up resistance", "The load resistance"],
+      "correctAnswer": "The bulk resistance of the semiconductor material",
+      "explanation": "Rf is the small forward resistance in the piecewise-linear diode model: VON = Vγ + ID × Rf. It represents the ohmic resistance of the semiconductor bulk and contacts. For signal diodes, Rf is typically a few ohms to tens of ohms."
+    },
+    {
+      "id": "q10",
+      "prompt": "In the diode AND gate, what determines the current through the pull-up resistor R when one input is LOW?",
+      "options": ["R and VDD only", "R, Vcc, and VON", "The number of inputs only", "The diode reverse current"],
+      "correctAnswer": "R, Vcc, and VON",
+      "explanation": "When one input is LOW, the conducting diode clamps the output to VON ≈ 0.8V. The current through R is I = (Vcc - VON) / R. It depends on the supply voltage Vcc, the diode ON voltage, and the pull-up resistance R."
+    }
+  ]
+}

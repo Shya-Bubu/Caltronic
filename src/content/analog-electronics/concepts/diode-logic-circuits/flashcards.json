@@ -1,0 +1,65 @@
+{
+  "id": "flashcards-diode-logic-circuits",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What is the approximate ON voltage of a silicon diode in logic circuit analysis?",
+      "back": "VON ≈ 0.8V (from Vγ ≈ 0.6V plus the forward resistance drop IDRf ≈ 0.2V)",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "How is a diode modelled when it is OFF?",
+      "back": "As an open circuit — no current flows. The reverse leakage current is negligible for logic circuit analysis.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "In the 2-input diode AND gate, how are the diodes oriented?",
+      "back": "Anodes connected to the common output node, cathodes facing the inputs (A and B). A pull-up resistor connects the output to +Vcc.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "When is the output of the diode AND gate HIGH?",
+      "back": "Only when BOTH inputs are HIGH (+Vcc). Both diodes are reverse-biased (OFF), and the pull-up resistor pulls the output to +Vcc.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is the output voltage when any input of the diode AND gate is LOW?",
+      "back": "Approximately 0.8V (LOW). The diode connected to the low input conducts, clamping the output to VON ≈ 0.8V.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "What is positive logic convention?",
+      "back": "LOW voltage (≈ 0V) = logic 0 (boolean zero). HIGH voltage (+Vcc) = logic 1 (boolean one). Higher voltage = higher logic value.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f7",
+      "front": "What logic gate results from reversing the diode orientations (anodes at inputs)?",
+      "back": "An OR gate. A HIGH input forward-biases its diode and pulls the output HIGH. Output is LOW only when all inputs are LOW.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is the main limitation of diode logic gates?",
+      "back": "No signal restoration — each stage degrades the voltage levels by approximately 0.8V. After cascading several stages, logic levels become indistinguishable.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f9",
+      "front": "What is the complete ON model of a silicon diode?",
+      "back": "An ideal diode in series with a voltage source Vγ (≈ 0.6V) and a forward resistance Rf. Total: VON = Vγ + ID × Rf.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f10",
+      "front": "Why was Diode-Transistor Logic (DTL) invented?",
+      "back": "To overcome diode logic's limitations — DTL adds a BJT that restores signal levels (amplifies), giving proper HIGH and LOW outputs regardless of the number of cascaded stages.",
+      "difficultyLevel": 4
+    }
+  ]
+}

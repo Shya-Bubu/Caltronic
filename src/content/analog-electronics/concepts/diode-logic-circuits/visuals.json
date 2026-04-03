@@ -1,0 +1,183 @@
+{ "visuals": [
+    {
+        "id": "diode-on-off-model",
+        "type": "circuit-schematic",
+        "title": "Diode ON/OFF Models for Logic Circuit Analysis",
+        "width": 520,
+        "height": 280,
+        "elements": [
+            {"component": "text", "x": 64, "y": 32, "text": "ON Model", "fontSize": 14, "color": "#4ecdc4"},
+            {"component": "diode", "x": 96, "y": 96, "label": "Ideal"},
+            {"component": "voltage-source", "x": 192, "y": 96, "label": "Vγ", "value": "0.6V"},
+            {"component": "resistor", "x": 288, "y": 96, "label": "Rf"},
+            {"component": "wire", "x1": 64, "y1": 96, "x2": 96, "y2": 96},
+            {"component": "wire", "x1": 128, "y1": 96, "x2": 160, "y2": 96},
+            {"component": "wire", "x1": 224, "y1": 96, "x2": 256, "y2": 96},
+            {"component": "wire", "x1": 320, "y1": 96, "x2": 384, "y2": 96},
+            {"component": "text", "x": 32, "y": 96, "text": "A", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "text", "x": 400, "y": 96, "text": "K", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "text", "x": 96, "y": 140, "text": "VON = Vγ + ID·Rf ≈ 0.8V", "fontSize": 11, "color": "#ffa726"},
+            {"component": "text", "x": 64, "y": 192, "text": "OFF Model", "fontSize": 14, "color": "#ff6b6b"},
+            {"component": "wire", "x1": 64, "y1": 224, "x2": 128, "y2": 224},
+            {"component": "wire", "x1": 224, "y1": 224, "x2": 384, "y2": 224},
+            {"component": "text", "x": 160, "y": 224, "text": "Open Circuit", "fontSize": 12, "color": "#888"},
+            {"component": "text", "x": 32, "y": 224, "text": "A", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "text", "x": 400, "y": 224, "text": "K", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "text", "x": 160, "y": 252, "text": "ID = 0", "fontSize": 11, "color": "#888"}
+        ]
+    },
+    {
+        "id": "diode-iv-characteristic",
+        "type": "plotly",
+        "title": "Silicon Diode I-V Characteristic",
+        "traces": [
+            {
+                "x": [-2, -1, -0.5, 0, 0.2, 0.4, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 1.0],
+                "y": [0, 0, 0, 0, 0, 0, 0.001, 0.005, 0.02, 0.08, 0.25, 0.7, 1.5, 3.0, 5.5, 12.0],
+                "name": "ID (mA)",
+                "mode": "lines",
+                "line": {"color": "#4ecdc4", "width": 3}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "Diode Voltage VD (V)", "range": [-2.5, 1.2]},
+            "yaxis": {"title": "Diode Current ID (mA)", "range": [-1, 14]},
+            "annotations": [
+                {"x": 0.6, "y": 0.02, "text": "Vγ ≈ 0.6V\n(cut-in)", "showarrow": true, "arrowhead": 2, "ax": -50, "ay": -40, "font": {"color": "#ff6b6b", "size": 12}},
+                {"x": 0.8, "y": 2.5, "text": "Operating\npoint ≈ 0.8V", "showarrow": true, "arrowhead": 2, "ax": 50, "ay": -20, "font": {"color": "#ffa726", "size": 12}}
+            ],
+            "shapes": [
+                {"type": "line", "x0": 0.6, "y0": 0, "x1": 0.6, "y1": 14, "line": {"color": "#ff6b6b", "width": 1, "dash": "dash"}}
+            ]
+        }
+    },
+    {
+        "id": "diode-and-gate-schematic",
+        "type": "circuit-schematic",
+        "title": "2-Input Diode AND Gate Circuit",
+        "width": 440,
+        "height": 340,
+        "elements": [
+            {"component": "wire", "x1": 256, "y1": 32, "x2": 256, "y2": 64},
+            {"component": "text", "x": 272, "y": 32, "text": "+Vcc", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 256, "y": 96, "label": "R", "rotation": 90},
+            {"component": "wire", "x1": 256, "y1": 128, "x2": 256, "y2": 160},
+            {"component": "junction", "x": 256, "y": 160},
+            {"component": "wire", "x1": 256, "y1": 160, "x2": 352, "y2": 160},
+            {"component": "text", "x": 368, "y": 160, "text": "o/p (z)", "fontSize": 13, "color": "#4ecdc4"},
+            {"component": "wire", "x1": 256, "y1": 160, "x2": 256, "y2": 192},
+            {"component": "junction", "x": 256, "y": 192},
+            {"component": "diode", "x": 192, "y": 192, "label": "DA"},
+            {"component": "wire", "x1": 160, "y1": 192, "x2": 96, "y2": 192},
+            {"component": "text", "x": 64, "y": 192, "text": "A", "fontSize": 14, "color": "#ffa726"},
+            {"component": "wire", "x1": 256, "y1": 192, "x2": 256, "y2": 256},
+            {"component": "diode", "x": 192, "y": 256, "label": "DB"},
+            {"component": "wire", "x1": 160, "y1": 256, "x2": 96, "y2": 256},
+            {"component": "text", "x": 64, "y": 256, "text": "B", "fontSize": 14, "color": "#ffa726"},
+            {"component": "text", "x": 128, "y": 172, "text": "K    A", "fontSize": 10, "color": "#888"},
+            {"component": "text", "x": 128, "y": 236, "text": "K    A", "fontSize": 10, "color": "#888"}
+        ]
+    },
+    {
+        "id": "diode-and-truth-table",
+        "type": "plotly",
+        "title": "Diode AND Gate — Output Voltage for All Input Combinations",
+        "traces": [
+            {
+                "x": ["A=0, B=0", "A=0, B=1", "A=1, B=0", "A=1, B=1"],
+                "y": [0.8, 0.8, 0.8, 5.0],
+                "name": "Output Voltage (V)",
+                "type": "bar",
+                "marker": {"color": ["#ff6b6b", "#ff6b6b", "#ff6b6b", "#4ecdc4"]}
+            }
+        ],
+        "layout": {
+            "yaxis": {"title": "Output Voltage Vo (V)", "range": [0, 6]},
+            "annotations": [
+                {"x": "A=0, B=0", "y": 1.2, "text": "LOW", "showarrow": false, "font": {"color": "#ff6b6b", "size": 12}},
+                {"x": "A=0, B=1", "y": 1.2, "text": "LOW", "showarrow": false, "font": {"color": "#ff6b6b", "size": 12}},
+                {"x": "A=1, B=0", "y": 1.2, "text": "LOW", "showarrow": false, "font": {"color": "#ff6b6b", "size": 12}},
+                {"x": "A=1, B=1", "y": 5.5, "text": "HIGH", "showarrow": false, "font": {"color": "#4ecdc4", "size": 12}}
+            ],
+            "shapes": [
+                {"type": "line", "x0": -0.5, "y0": 0.8, "x1": 3.5, "y1": 0.8, "line": {"color": "#ffa726", "width": 1, "dash": "dash"}}
+            ]
+        }
+    },
+    {
+        "id": "case-both-high",
+        "type": "circuit-schematic",
+        "title": "Case (d): Both Inputs HIGH — Both Diodes OFF",
+        "width": 440,
+        "height": 300,
+        "elements": [
+            {"component": "wire", "x1": 256, "y1": 32, "x2": 256, "y2": 64},
+            {"component": "text", "x": 272, "y": 32, "text": "+Vcc", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 256, "y": 96, "label": "R", "rotation": 90},
+            {"component": "wire", "x1": 256, "y1": 128, "x2": 256, "y2": 160},
+            {"component": "junction", "x": 256, "y": 160},
+            {"component": "text", "x": 336, "y": 160, "text": "Vo = +Vcc", "fontSize": 13, "color": "#4ecdc4"},
+            {"component": "text", "x": 64, "y": 192, "text": "A = +Vcc", "fontSize": 12, "color": "#ffa726"},
+            {"component": "text", "x": 160, "y": 192, "text": "OFF ✗", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "text", "x": 64, "y": 256, "text": "B = +Vcc", "fontSize": 12, "color": "#ffa726"},
+            {"component": "text", "x": 160, "y": 256, "text": "OFF ✗", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "text", "x": 128, "y": 128, "text": "I = 0", "fontSize": 11, "color": "#888"}
+        ]
+    },
+    {
+        "id": "case-one-low",
+        "type": "circuit-schematic",
+        "title": "Case (b): A=LOW, B=HIGH — DA Conducts",
+        "width": 440,
+        "height": 300,
+        "elements": [
+            {"component": "wire", "x1": 256, "y1": 32, "x2": 256, "y2": 64},
+            {"component": "text", "x": 272, "y": 32, "text": "+Vcc", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 256, "y": 96, "label": "R", "rotation": 90},
+            {"component": "wire", "x1": 256, "y1": 128, "x2": 256, "y2": 160},
+            {"component": "junction", "x": 256, "y": 160},
+            {"component": "text", "x": 336, "y": 160, "text": "Vo ≈ 0.8V", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "text", "x": 64, "y": 192, "text": "A = 0V", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "text", "x": 160, "y": 192, "text": "ON →", "fontSize": 12, "color": "#4ecdc4"},
+            {"component": "text", "x": 64, "y": 256, "text": "B = +Vcc", "fontSize": 12, "color": "#ffa726"},
+            {"component": "text", "x": 160, "y": 256, "text": "OFF ✗", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "current-arrow", "x": 224, "y": 80, "label": "I₁"}
+        ]
+    },
+    {
+        "id": "falstad-diode-and-gate",
+        "type": "falstad-sim",
+        "title": "Interactive: 2-Input Diode AND Gate",
+        "description": "Toggle inputs A and B independently using the switches. When both inputs are HIGH, both diodes are OFF and the output rises to +Vcc. When any input is LOW, that diode conducts and pulls the output to approximately 0.8V.",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nR 256 48 256 16 0 0 40 5 0 0 0.5\nr 256 48 256 128 0 5000\nw 256 128 256 176 0\nd 176 176 256 176 2 default\nd 176 240 256 240 2 default\nw 256 176 256 240 0\nw 256 128 368 128 0\nR 176 176 128 176 0 0 40 5 0 0 0.5\n38 1 0 0 5 InputA\nR 176 240 128 240 0 0 40 5 0 0 0.5\n38 2 0 0 5 InputB\ng 256 288 256 320 0 0\nw 256 240 256 288 0\no 3 64 0 4099 5 0.05 0 2 5 3\nx 368 128 0 0 0 14 Output\n",
+        "height": 450
+    },
+    {
+        "id": "diode-limitations-chart",
+        "type": "plotly",
+        "title": "Signal Degradation Through Cascaded Diode Logic Stages",
+        "traces": [
+            {
+                "x": ["Stage 1\nInput", "Stage 1\nOutput", "Stage 2\nOutput", "Stage 3\nOutput"],
+                "y": [0, 0.8, 1.6, 2.4],
+                "name": "LOW level (V) — gets worse!",
+                "type": "bar",
+                "marker": {"color": "#ff6b6b"}
+            },
+            {
+                "x": ["Stage 1\nInput", "Stage 1\nOutput", "Stage 2\nOutput", "Stage 3\nOutput"],
+                "y": [5.0, 5.0, 4.2, 3.4],
+                "name": "HIGH level (V)",
+                "type": "bar",
+                "marker": {"color": "#4ecdc4"}
+            }
+        ],
+        "layout": {
+            "barmode": "group",
+            "yaxis": {"title": "Voltage (V)", "range": [0, 6]},
+            "annotations": [
+                {"x": "Stage 3\nOutput", "y": 4.5, "text": "Levels\nmerging!", "showarrow": false, "font": {"color": "#ffa726", "size": 13}}
+            ]
+        }
+    }
+]}

@@ -1,0 +1,15 @@
+{
+  "id": "flashcards-dtl-nand-gate",
+  "cards": [
+    {"id": "f1", "front": "What are the BJT saturation parameters used in the DTL analysis?", "back": "VCE,sat = 0.2V, VBE,sat = 0.8V. These are the collector-emitter and base-emitter voltages when the transistor is in deep saturation.", "difficultyLevel": 1},
+    {"id": "f2", "front": "What logic function does the DTL gate implement?", "back": "NAND — the diode section does AND, the BJT inverts. Output is LOW only when ALL inputs are HIGH.", "difficultyLevel": 1},
+    {"id": "f3", "front": "What is the role of the two series diodes D1 and D2?", "back": "They create a 1.4V voltage offset (2 × 0.7V) that prevents the transistor from falsely turning ON when any input is LOW. The node voltage of 0.9V can't overcome this barrier.", "difficultyLevel": 3},
+    {"id": "f4", "front": "What is the node voltage VP when all inputs are HIGH?", "back": "VP = 2 × VD,ON + VBE,sat = 2(0.7) + 0.8 = 2.2V", "difficultyLevel": 2},
+    {"id": "f5", "front": "What are the key DC currents in the DTL gate? (all inputs HIGH)", "back": "I1 = 0.56 mA (from 5kΩ resistor), IC = 2.182 mA (through RC), I2 = 0.16 mA (through RB), IB = I1 - I2 = 0.4 mA", "difficultyLevel": 3},
+    {"id": "f6", "front": "How do you verify the transistor is in saturation?", "back": "Check that IB > IC/hFE. For hFE = 30: IC/hFE = 2.182/30 = 0.073 mA. Since IB = 0.4 mA > 0.073 mA, the transistor IS saturated.", "difficultyLevel": 4},
+    {"id": "f7", "front": "What is the minimum hFE for saturation in the DTL gate?", "back": "hFE,min = IC/IB = 2.182/0.4 ≈ 5.5, so hFE,min ≥ 5. Most practical transistors easily exceed this.", "difficultyLevel": 3},
+    {"id": "f8", "front": "Why can't the node voltage of 0.9V turn ON the transistor?", "back": "The minimum voltage needed is 2Vγ + VBE,ON = 2(0.6) + 0.8 = 2.0V. Since 0.9V < 2.0V, there isn't enough voltage to forward-bias D1, D2, AND the base-emitter junction.", "difficultyLevel": 4},
+    {"id": "f9", "front": "How does DTL solve the signal degradation problem of diode logic?", "back": "The BJT provides signal restoration — regardless of input degradation, the output is always near Vcc (HIGH) or 0.2V (LOW). The transistor amplifies the signal, restoring clean logic levels.", "difficultyLevel": 3},
+    {"id": "f10", "front": "What is the formula for base current using KCL at the base node?", "back": "IB = I1 - I2, where I1 = (Vcc - VP)/R is the current from the pull-up resistor and I2 = VBE,sat/RB is the current through the base resistor.", "difficultyLevel": 2}
+  ]
+}

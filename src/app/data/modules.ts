@@ -181,7 +181,7 @@ export const modules: Module[] = [
       },
       {
         id: "lesson-09",
-        title: "MOSFET Fundamentals & MOS Logic Families",
+        title: "MOSFET Gates, Digital Logic & Voltage Regulators",
         path: "/analog-electronics/lesson-09",
       },
       {

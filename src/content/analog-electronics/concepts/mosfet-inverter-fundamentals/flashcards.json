@@ -1,0 +1,71 @@
+{
+  "id": "flashcards-mosfet-inverter-fundamentals",
+  "cards": [
+    {
+      "id": "f1",
+      "front": "What condition must be met for an n-channel enhancement MOSFET to turn ON?",
+      "back": "VGS > +VTh (gate-to-source voltage must exceed the positive threshold voltage)",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f2",
+      "front": "In a resistive-load MOSFET inverter, what happens to the output when the input goes HIGH?",
+      "back": "The MOSFET turns ON, creating a low-resistance path to ground, pulling the output LOW (≈ 0V). Most of VDD drops across the drain resistor RD.",
+      "difficultyLevel": 1
+    },
+    {
+      "id": "f3",
+      "front": "Why is the substrate typically connected to the source in discrete MOSFETs?",
+      "back": "To eliminate the body effect (loading effect at the output). With VBS = 0, the threshold voltage remains stable and the device operates as a simple 3-terminal component.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f4",
+      "front": "What is the KCL equation for the active-load inverter?",
+      "back": "ID1 = ID2. Since T1 and T2 are in series, the same current flows through both transistors.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f5",
+      "front": "What is the KVL equation for the active-load inverter?",
+      "back": "VDS1 + VDS2 = VDD. The supply voltage divides between the driver transistor T1 and the load transistor T2.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f6",
+      "front": "Why does VGS2 = VDS2 in the active-load inverter?",
+      "back": "Because the gate of T2 is connected directly to its drain (diode-connected configuration). Since VG2 = VD2, we get VGS2 = VG2 - VS2 = VD2 - VS2 = VDS2.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f7",
+      "front": "Why is the load 'line' curved for a MOSFET active load?",
+      "back": "A MOSFET follows a nonlinear (square-law) I-V relationship: ID ∝ (VGS - VTh)². Unlike a resistor (linear V = IR), this produces a curved load characteristic on the ID vs VDS plot.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f8",
+      "front": "What is the main advantage of a MOSFET active load over a resistor in integrated circuits?",
+      "back": "Much smaller silicon area. Resistors occupy enormous IC area, while MOSFETs are very compact. This allows millions of inverters on a single chip.",
+      "difficultyLevel": 2
+    },
+    {
+      "id": "f9",
+      "front": "How do you find the operating point of an active-load inverter graphically?",
+      "back": "Find the intersection of the driver transistor's I-V curve (for the given VGS1) with the load transistor's curve on the ID vs VDS1 plot. This point simultaneously satisfies KCL (ID1 = ID2) and KVL (VDS1 + VDS2 = VDD).",
+      "difficultyLevel": 4
+    },
+    {
+      "id": "f10",
+      "front": "What does the parasitic capacitance Co at the output of a MOSFET inverter represent?",
+      "back": "It models the combined input capacitance of the next stage, the drain-substrate junction capacitance, and stray wiring capacitance. Co limits switching speed by requiring charge/discharge through the transistor ON resistances.",
+      "difficultyLevel": 3
+    },
+    {
+      "id": "f11",
+      "front": "What typical values are used for VTh and VDD in the lecture's active-load inverter?",
+      "back": "VTh = +3V to +4V, VDD = +15V to +20V. These are typical values for NMOS-only logic circuits.",
+      "difficultyLevel": 2
+    }
+  ]
+}

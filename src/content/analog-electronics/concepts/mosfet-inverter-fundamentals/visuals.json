@@ -1,0 +1,248 @@
+{ "visuals": [
+    {
+        "id": "nmos-symbol-enhancement",
+        "type": "circuit-schematic",
+        "title": "N-Channel Enhancement MOSFET — Circuit Symbol",
+        "width": 400,
+        "height": 320,
+        "elements": [
+            {"component": "wire", "x1": 200, "y1": 32, "x2": 200, "y2": 96},
+            {"component": "wire", "x1": 180, "y1": 96, "x2": 220, "y2": 96},
+            {"component": "wire", "x1": 180, "y1": 128, "x2": 220, "y2": 128},
+            {"component": "wire", "x1": 180, "y1": 160, "x2": 220, "y2": 160},
+            {"component": "wire", "x1": 160, "y1": 128, "x2": 180, "y2": 128},
+            {"component": "wire", "x1": 96, "y1": 128, "x2": 160, "y2": 128},
+            {"component": "wire", "x1": 200, "y1": 160, "x2": 200, "y2": 224},
+            {"component": "wire", "x1": 200, "y1": 224, "x2": 200, "y2": 288},
+            {"component": "text", "x": 224, "y": 32, "text": "D (Drain)", "fontSize": 13, "color": "#4ecdc4"},
+            {"component": "text", "x": 56, "y": 128, "text": "G (Gate)", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "text", "x": 224, "y": 288, "text": "S (Source)", "fontSize": 13, "color": "#ffa726"},
+            {"component": "text", "x": 256, "y": 160, "text": "Substrate →", "fontSize": 11, "color": "#888"},
+            {"component": "text", "x": 96, "y": 256, "text": "Enhancement type", "fontSize": 12, "color": "#aaa"},
+            {"component": "text", "x": 96, "y": 278, "text": "(broken channel line)", "fontSize": 11, "color": "#666"}
+        ]
+    },
+    {
+        "id": "resistive-load-inverter-schematic",
+        "type": "circuit-schematic",
+        "title": "Resistive-Load MOSFET Inverter (NOT Gate)",
+        "width": 480,
+        "height": 380,
+        "elements": [
+            {"component": "wire", "x1": 224, "y1": 32, "x2": 224, "y2": 64},
+            {"component": "text", "x": 240, "y": 32, "text": "+VDD", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "resistor", "x": 224, "y": 96, "label": "RD", "rotation": 90},
+            {"component": "wire", "x1": 224, "y1": 128, "x2": 224, "y2": 160},
+            {"component": "junction", "x": 224, "y": 160},
+            {"component": "wire", "x1": 224, "y1": 160, "x2": 320, "y2": 160},
+            {"component": "text", "x": 336, "y": 160, "text": "Vo (o/p)", "fontSize": 13, "color": "#4ecdc4"},
+            {"component": "wire", "x1": 224, "y1": 160, "x2": 224, "y2": 192},
+            {"component": "wire", "x1": 192, "y1": 192, "x2": 256, "y2": 192},
+            {"component": "wire", "x1": 192, "y1": 224, "x2": 256, "y2": 224},
+            {"component": "wire", "x1": 192, "y1": 256, "x2": 256, "y2": 256},
+            {"component": "wire", "x1": 128, "y1": 224, "x2": 192, "y2": 224},
+            {"component": "text", "x": 64, "y": 224, "text": "Vi (G)", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "wire", "x1": 224, "y1": 256, "x2": 224, "y2": 320},
+            {"component": "ground", "x": 224, "y": 320},
+            {"component": "text", "x": 260, "y": 192, "text": "D", "fontSize": 11, "color": "#888"},
+            {"component": "text", "x": 260, "y": 256, "text": "S", "fontSize": 11, "color": "#888"},
+            {"component": "capacitor", "x": 352, "y": 224, "label": "Co", "rotation": 90},
+            {"component": "wire", "x1": 320, "y1": 160, "x2": 352, "y2": 160},
+            {"component": "wire", "x1": 352, "y1": 160, "x2": 352, "y2": 192},
+            {"component": "wire", "x1": 352, "y1": 256, "x2": 352, "y2": 320},
+            {"component": "wire", "x1": 224, "y1": 320, "x2": 352, "y2": 320}
+        ]
+    },
+    {
+        "id": "resistive-inverter-transfer",
+        "type": "plotly",
+        "title": "Resistive-Load Inverter — Transfer Characteristic (Vo vs Vi)",
+        "traces": [
+            {
+                "x": [0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 6.0, 8.0, 10.0, 12.0, 15.0],
+                "y": [15.0, 15.0, 15.0, 14.8, 14.0, 12.0, 9.0, 6.0, 3.5, 1.5, 0.8, 0.3, 0.2, 0.15, 0.1],
+                "name": "Vo (output)",
+                "mode": "lines",
+                "line": {"color": "#4ecdc4", "width": 3}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "Input Voltage Vi (V)"},
+            "yaxis": {"title": "Output Voltage Vo (V)"},
+            "annotations": [
+                {"x": 1.0, "y": 15.0, "text": "T OFF → Vo = VDD", "showarrow": true, "arrowhead": 2, "ax": 60, "ay": -30, "font": {"color": "#ffa726", "size": 12}},
+                {"x": 10.0, "y": 0.5, "text": "T ON → Vo ≈ 0V", "showarrow": true, "arrowhead": 2, "ax": -60, "ay": -30, "font": {"color": "#ff6b6b", "size": 12}}
+            ],
+            "shapes": [
+                {"type": "line", "x0": 3.0, "y0": 0, "x1": 3.0, "y1": 16, "line": {"color": "#ff6b6b", "width": 1, "dash": "dash"}},
+                {"type": "rect", "x0": 0, "y0": 0, "x1": 3.0, "y1": 16, "fillcolor": "rgba(78,205,196,0.05)", "line": {"width": 0}}
+            ]
+        }
+    },
+    {
+        "id": "active-load-inverter-schematic",
+        "type": "circuit-schematic",
+        "title": "Active-Load MOSFET Inverter (T2 Load, T1 Driver)",
+        "width": 480,
+        "height": 440,
+        "elements": [
+            {"component": "wire", "x1": 224, "y1": 32, "x2": 224, "y2": 64},
+            {"component": "text", "x": 248, "y": 32, "text": "+VDD", "fontSize": 14, "color": "#ff6b6b"},
+            {"component": "junction", "x": 224, "y": 64},
+            {"component": "wire", "x1": 224, "y1": 64, "x2": 160, "y2": 64},
+            {"component": "wire", "x1": 160, "y1": 64, "x2": 160, "y2": 128},
+            {"component": "text", "x": 136, "y": 96, "text": "G₂", "fontSize": 12, "color": "#ff6b6b"},
+            {"component": "wire", "x1": 192, "y1": 96, "x2": 256, "y2": 96},
+            {"component": "wire", "x1": 192, "y1": 128, "x2": 256, "y2": 128},
+            {"component": "wire", "x1": 192, "y1": 160, "x2": 256, "y2": 160},
+            {"component": "wire", "x1": 160, "y1": 128, "x2": 192, "y2": 128},
+            {"component": "wire", "x1": 224, "y1": 64, "x2": 224, "y2": 96},
+            {"component": "text", "x": 264, "y": 80, "text": "T₂ (load)", "fontSize": 12, "color": "#ffa726"},
+            {"component": "text", "x": 288, "y": 128, "text": "VDS2", "fontSize": 11, "color": "#888"},
+            {"component": "wire", "x1": 224, "y1": 160, "x2": 224, "y2": 208},
+            {"component": "junction", "x": 224, "y": 208},
+            {"component": "wire", "x1": 224, "y1": 208, "x2": 352, "y2": 208},
+            {"component": "text", "x": 368, "y": 208, "text": "Vo (o/p)", "fontSize": 13, "color": "#4ecdc4"},
+            {"component": "text", "x": 264, "y": 160, "text": "S₂ / D₁", "fontSize": 11, "color": "#888"},
+            {"component": "wire", "x1": 224, "y1": 208, "x2": 224, "y2": 240},
+            {"component": "wire", "x1": 192, "y1": 240, "x2": 256, "y2": 240},
+            {"component": "wire", "x1": 192, "y1": 272, "x2": 256, "y2": 272},
+            {"component": "wire", "x1": 192, "y1": 304, "x2": 256, "y2": 304},
+            {"component": "wire", "x1": 128, "y1": 272, "x2": 192, "y2": 272},
+            {"component": "text", "x": 56, "y": 272, "text": "Vi (G₁)", "fontSize": 13, "color": "#ff6b6b"},
+            {"component": "text", "x": 264, "y": 256, "text": "T₁ (driver)", "fontSize": 12, "color": "#ffa726"},
+            {"component": "text", "x": 288, "y": 288, "text": "VDS1", "fontSize": 11, "color": "#888"},
+            {"component": "wire", "x1": 224, "y1": 304, "x2": 224, "y2": 384},
+            {"component": "ground", "x": 224, "y": 384},
+            {"component": "text", "x": 260, "y": 352, "text": "S₁", "fontSize": 11, "color": "#888"},
+            {"component": "current-arrow", "x": 264, "y": 176, "label": "ID2"},
+            {"component": "current-arrow", "x": 264, "y": 320, "label": "ID1"}
+        ]
+    },
+    {
+        "id": "active-load-iv-curves",
+        "type": "plotly",
+        "title": "Driver I-V Characteristics with Active Load Curve",
+        "traces": [
+            {
+                "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+                "y": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "name": "VGS1 = VTh (OFF)",
+                "mode": "lines",
+                "line": {"color": "#666", "width": 1, "dash": "dot"}
+            },
+            {
+                "x": [0, 0.5, 1.0, 1.5, 2.0, 3, 4, 5, 6, 8, 10, 12, 15],
+                "y": [0, 0.15, 0.28, 0.38, 0.45, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
+                "name": "VGS1 = VTh + 1V",
+                "mode": "lines",
+                "line": {"color": "#81c784", "width": 2}
+            },
+            {
+                "x": [0, 0.5, 1.0, 1.5, 2.0, 3, 4, 5, 6, 8, 10, 12, 15],
+                "y": [0, 0.55, 1.0, 1.35, 1.6, 1.8, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0],
+                "name": "VGS1 = VTh + 2V",
+                "mode": "lines",
+                "line": {"color": "#64b5f6", "width": 2}
+            },
+            {
+                "x": [0, 0.5, 1.0, 1.5, 2.0, 3, 4, 5, 6, 8, 10, 12, 15],
+                "y": [0, 1.1, 2.0, 2.7, 3.2, 3.8, 4.2, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5],
+                "name": "VGS1 = VTh + 3V",
+                "mode": "lines",
+                "line": {"color": "#ffa726", "width": 2}
+            },
+            {
+                "x": [0, 0.5, 1.0, 1.5, 2.0, 3, 4, 5, 6, 8, 10, 12, 15],
+                "y": [0, 1.8, 3.2, 4.4, 5.2, 6.4, 7.2, 7.8, 8.0, 8.0, 8.0, 8.0, 8.0],
+                "name": "VGS1 = VTh + 4V",
+                "mode": "lines",
+                "line": {"color": "#ff6b6b", "width": 2}
+            },
+            {
+                "x": [0, 1, 2, 3, 5, 7, 9, 11, 13, 15],
+                "y": [8.5, 7.2, 5.5, 4.2, 2.5, 1.5, 0.8, 0.3, 0.1, 0],
+                "name": "Load curve (T₂)",
+                "mode": "lines",
+                "line": {"color": "#e040fb", "width": 3, "dash": "dash"}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "VDS1 (V)", "range": [0, 16]},
+            "yaxis": {"title": "ID (mA)", "range": [0, 9]},
+            "annotations": [
+                {"x": 12, "y": 0.5, "text": "Load curve", "showarrow": false, "font": {"color": "#e040fb", "size": 12}},
+                {"x": 3, "y": 7.5, "text": "Operating points", "showarrow": true, "arrowhead": 2, "ax": 40, "ay": -20, "font": {"color": "#fff", "size": 11}}
+            ]
+        }
+    },
+    {
+        "id": "falstad-active-load-inverter",
+        "type": "falstad-sim",
+        "title": "Interactive: Active-Load MOSFET Inverter",
+        "description": "Adjust the input voltage slider to see how the output changes. Watch the drain current through both transistors — it's always equal (KCL). Observe the operating point shift on the built-in scope.",
+        "circuitText": "$ 1 0.000005 10.20027730826997 50 5 43 5e-11\nv 128 336 128 80 0 0 40 15 0 0 0.5\nw 128 80 272 80 0\nf 208 160 272 160 32 1.5 0.02\nw 272 80 272 144 0\nw 272 176 272 240 0\nf 208 304 272 304 32 1.5 0.02\nw 272 240 272 288 0\nw 272 320 272 336 0\nw 128 336 272 336 0\nw 208 160 208 80 0\nw 208 80 272 80 0\nR 208 304 160 304 0 0 40 5 0 0 0.5\n38 1 0 0 15 Vgate\ng 272 336 272 368 0 0\no 5 64 0 4099 10 0.1 0 2 5 3\n",
+        "height": 500
+    },
+    {
+        "id": "input-output-waveform-basic",
+        "type": "plotly",
+        "title": "Input and Output Waveforms — MOSFET Inverter",
+        "traces": [
+            {
+                "x": [0, 0.9, 1.0, 1.0, 3.0, 3.0, 3.1, 5.0],
+                "y": [0, 0, 0, 15, 15, 15, 0, 0],
+                "name": "Vi (input)",
+                "mode": "lines",
+                "line": {"color": "#ff6b6b", "width": 2},
+                "yaxis": "y"
+            },
+            {
+                "x": [0, 0.9, 1.0, 1.1, 1.3, 1.6, 2.0, 3.0, 3.0, 3.1, 3.4, 3.8, 4.5, 5.0],
+                "y": [15, 15, 14.5, 12, 6, 2.5, 0.8, 0.5, 0.5, 2, 6, 10, 13.5, 14.8],
+                "name": "Vo (output)",
+                "mode": "lines",
+                "line": {"color": "#4ecdc4", "width": 3},
+                "yaxis": "y2"
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "Time (μs)"},
+            "yaxis": {"title": "Vi (V)", "side": "left", "range": [0, 16], "color": "#ff6b6b"},
+            "yaxis2": {"title": "Vo (V)", "overlaying": "y", "side": "right", "range": [0, 16], "color": "#4ecdc4"},
+            "annotations": [
+                {"x": 1.0, "y": 7.5, "text": "t₁", "showarrow": false, "font": {"color": "#888"}},
+                {"x": 3.0, "y": 7.5, "text": "t₂", "showarrow": false, "font": {"color": "#888"}}
+            ]
+        }
+    },
+    {
+        "id": "active-load-output-decay",
+        "type": "plotly",
+        "title": "Active-Load Inverter Output — Nonlinear Decay",
+        "traces": [
+            {
+                "x": [0, 0.2, 0.5, 0.8, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0],
+                "y": [15.0, 12.0, 8.5, 5.5, 4.0, 2.0, 1.2, 0.8, 0.5, 0.4, 0.3],
+                "name": "Vo decay through T1 (fast)",
+                "mode": "lines",
+                "line": {"color": "#ff6b6b", "width": 3}
+            },
+            {
+                "x": [5.0, 5.2, 5.5, 5.8, 6.0, 6.5, 7.0, 7.5, 8.0, 9.0, 10.0],
+                "y": [0.3, 2.0, 4.5, 6.5, 8.0, 10.5, 12.0, 13.0, 13.8, 14.5, 14.9],
+                "name": "Vo charge through T2 (slow)",
+                "mode": "lines",
+                "line": {"color": "#4ecdc4", "width": 3}
+            }
+        ],
+        "layout": {
+            "xaxis": {"title": "Time (μs)"},
+            "yaxis": {"title": "Output Voltage Vo (V)", "range": [0, 16]},
+            "annotations": [
+                {"x": 1.5, "y": 10, "text": "τ₁ = Co × Rsat(T₁)", "showarrow": true, "arrowhead": 2, "ax": 50, "ay": -20, "font": {"color": "#ff6b6b"}},
+                {"x": 7.0, "y": 5, "text": "τ₂ = Co × Rsat(T₂)", "showarrow": true, "arrowhead": 2, "ax": 50, "ay": 20, "font": {"color": "#4ecdc4"}}
+            ]
+        }
+    }
+]}

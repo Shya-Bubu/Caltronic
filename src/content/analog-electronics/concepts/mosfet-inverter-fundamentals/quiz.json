@@ -1,0 +1,82 @@
+{
+  "id": "quiz-mosfet-inverter-fundamentals",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is the condition for an n-channel enhancement MOSFET to turn ON?",
+      "options": ["VGS < VTh", "VGS > +VTh", "VDS > VTh", "VGS = 0"],
+      "correctAnswer": "VGS > +VTh",
+      "explanation": "An n-channel enhancement MOSFET turns ON when the gate-to-source voltage exceeds the positive threshold voltage (VGS > +VTh). This creates an inversion layer (conducting channel) between drain and source. VDS is the drain-source voltage and doesn't directly control channel formation."
+    },
+    {
+      "id": "q2",
+      "prompt": "In a resistive-load MOSFET inverter, what is the output voltage when the input is HIGH?",
+      "options": ["Approximately +VDD", "Approximately 0V (LOW)", "Exactly VTh", "VDD / 2"],
+      "correctAnswer": "Approximately 0V (LOW)",
+      "explanation": "When the input is HIGH, VGS > VTh so the MOSFET turns ON. It provides a low-resistance path from the output to ground, pulling the output low. Most of VDD drops across RD, leaving the output near 0V. This is why the circuit acts as an inverter — high input produces low output."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is the substrate (body) terminal of a discrete MOSFET typically connected to the source?",
+      "options": ["To increase gain", "To eliminate the loading effect at the output", "To maximize VDS", "To create a depletion-mode device"],
+      "correctAnswer": "To eliminate the loading effect at the output",
+      "explanation": "Connecting the substrate to the source eliminates the body effect (back-gate bias), which would otherwise shift the threshold voltage and cause loading effects. With substrate tied to source, VBS = 0 and the device behaves as a simple three-terminal component."
+    },
+    {
+      "id": "q4",
+      "prompt": "In the active-load inverter, what is the relationship between the two drain currents?",
+      "options": ["ID1 = 2 × ID2", "ID1 + ID2 = VDD/RD", "ID1 = ID2", "ID1 = ID2 × hFE"],
+      "correctAnswer": "ID1 = ID2",
+      "explanation": "Since T1 and T2 are connected in series (drain of T1 to source of T2), the same current must flow through both by Kirchhoff's Current Law (KCL). There is no other path for current at the output node in a simple active-load inverter."
+    },
+    {
+      "id": "q5",
+      "prompt": "In the active-load inverter, what is the KVL equation relating the two transistor voltages?",
+      "options": ["VDS1 = VDS2", "VDS1 × VDS2 = VDD", "VDS1 + VDS2 = VDD", "VDS1 - VDS2 = VTh"],
+      "correctAnswer": "VDS1 + VDS2 = VDD",
+      "explanation": "Applying KVL around the loop from +VDD through T2, through T1, to ground: VDD = VDS2 + VDS1. This means VDS2 = VDD - VDS1. As VDS1 increases (output drops), VDS2 decreases, and vice versa."
+    },
+    {
+      "id": "q6",
+      "prompt": "Why is VGS2 = VDS2 in the active-load inverter?",
+      "options": ["Because T2 is in the triode region", "Because the gate of T2 is connected to its drain", "Because T1 and T2 are identical", "Because the substrate is grounded"],
+      "correctAnswer": "Because the gate of T2 is connected to its drain",
+      "explanation": "In the active-load configuration, the gate of T2 (G2) is tied directly to its drain, which connects to +VDD. Since VG2 = VD2, and VS2 is the output node, we get VGS2 = VG2 - VS2 = VD2 - VS2 = VDS2. This means the load transistor always operates as a diode-connected MOSFET."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why is the load 'line' for an active MOSFET load not a straight line?",
+      "options": ["Because the supply voltage fluctuates", "Because the MOSFET is a nonlinear resistive element", "Because the driver transistor is nonlinear", "Because the parasitic capacitance distorts it"],
+      "correctAnswer": "Because the MOSFET is a nonlinear resistive element",
+      "explanation": "A resistor gives a straight load line because V = IR is linear. But a MOSFET's I-V relationship follows a square-law (ID ∝ (VGS - VTh)²), making it a nonlinear element. Since T2 acts as the load with VGS2 = VDS2, its current varies nonlinearly with voltage, producing a curved load line."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the main advantage of using a MOSFET active load instead of a resistor in integrated circuits?",
+      "options": ["Higher voltage gain", "Much smaller silicon area", "Lower threshold voltage", "Higher power consumption"],
+      "correctAnswer": "Much smaller silicon area",
+      "explanation": "Resistors in IC fabrication occupy enormous silicon area compared to transistors. A 1kΩ resistor might take 100× more area than a MOSFET. Since ICs need millions of inverters, using MOSFET loads dramatically reduces chip size and cost."
+    },
+    {
+      "id": "q9",
+      "prompt": "If VDD = 15V and the active-load inverter output is at VDS1 = 5V, what is VDS2?",
+      "options": ["5V", "10V", "15V", "20V"],
+      "correctAnswer": "10V",
+      "explanation": "From KVL: VDS1 + VDS2 = VDD. So VDS2 = VDD - VDS1 = 15V - 5V = 10V. Since VGS2 = VDS2, the load transistor also has VGS2 = 10V, which is well above threshold."
+    },
+    {
+      "id": "q10",
+      "prompt": "What determines the operating point of the active-load inverter for a given input voltage?",
+      "options": ["The threshold voltage alone", "The intersection of the driver I-V curve and the load curve", "The supply voltage divided by 2", "The parasitic capacitance value"],
+      "correctAnswer": "The intersection of the driver I-V curve and the load curve",
+      "explanation": "For a given VGS1 (input voltage), the driver transistor has a specific I-V curve on the ID vs VDS plot. The load transistor provides another curve (the load 'line'). The operating point is where these two curves intersect, simultaneously satisfying both ID1 = ID2 (KCL) and VDS1 + VDS2 = VDD (KVL)."
+    },
+    {
+      "id": "q11",
+      "prompt": "In the resistive-load inverter circuit, what component models the parasitic capacitance at the output?",
+      "options": ["A series resistor", "A parallel capacitor Co between output and ground", "An inductor", "A feedback resistor"],
+      "correctAnswer": "A parallel capacitor Co between output and ground",
+      "explanation": "The parasitic capacitance Co appears in parallel between the output node and ground. It models the combined effect of: (1) the input capacitance of the next stage, (2) the drain-substrate capacitance of the MOSFET, and (3) any stray wiring capacitance. This Co limits switching speed."
+    }
+  ]
+}

@@ -1,33 +1,27 @@
-# MOSFET Fundamentals & MOS Logic Families
+# MOSFET Gates, Digital Logic & Voltage Regulators
 
-Welcome to the world of MOSFETs — the most important electronic device ever invented. Every smartphone, every computer, every digital system you've ever used runs on billions of these tiny transistors. If the BJT is the workhorse of analog circuit design, the MOSFET is the engine of the entire digital revolution.
-
-But here's the thing: **understanding MOSFETs starts with understanding their physical structure**. Unlike the BJT, where current flows through a sandwich of semiconductor materials, the MOSFET works by creating a conductive channel using an electric field — no current flows into the control terminal at all.
+Welcome to one of the most practical lessons in the course — where transistors stop being abstract devices and start becoming the building blocks of real digital circuits and power supplies. This lesson takes you on a journey from the MOSFET inverter sitting on your desk to the voltage regulator IC powering every circuit board in your lab.
 
 ## What You'll Learn
 
-This lesson builds your MOSFET knowledge from the ground up — literally from the silicon wafer:
+This lesson covers a remarkably wide range of topics, all connected by a single thread: **how transistors are used as switches in real circuits**.
 
-1. **What a MOSFET is and how it's built** — You'll see the four-terminal structure (Gate, Drain, Source, Body), the thin oxide layer that makes it all work, and why the metal-oxide-semiconductor sandwich is such a brilliant piece of engineering.
+1. **MOSFET inverter circuits** — You'll start with the most basic NOT gate built from a MOSFET and a drain resistor, then see how replacing that resistor with another MOSFET (an "active load") creates a more practical inverter. Along the way, you'll apply KCL and KVL to analyse the circuit, and use load lines on the $I_D$ vs $V_{DS}$ characteristic to find operating points.
 
-2. **How the N-channel enhancement MOSFET operates** — Apply a voltage to the gate, and a conductive channel appears between drain and source. You'll understand exactly why this happens at the physics level, and what the threshold voltage $V_T$ means.
+2. **Switching characteristics and delays** — Real circuits don't switch instantaneously. You'll see how parasitic capacitance ($C_o$) and ON resistance ($R_{sat}$) create time constants that govern how fast the output can change, and why open-drain outputs need external pull-up resistors.
 
-3. **The P-channel enhancement MOSFET** — The complement of the NMOS. Everything works in reverse: negative gate voltage, hole conduction, p-type channel in an n-type substrate.
+3. **Diode logic circuits** — Before transistors, engineers built logic gates from diodes. You'll analyse a 2-input diode AND gate, work through its truth table case by case, and understand why diode logic has limitations that led to the invention of DTL.
 
-4. **Depletion-mode MOSFETs** — These are "normally ON" devices with a pre-built channel. You need to apply a voltage to turn them OFF — the exact opposite of enhancement-mode devices.
+4. **Diode-Transistor Logic (DTL) NAND gates** — The DTL NAND gate combines diode logic with a BJT inverter. You'll perform a complete DC analysis: calculating collector current, base current, checking the saturation condition, and finding the minimum $h_{FE}$ required.
 
-5. **MOS inverter circuits** — Your first MOSFET circuit. Instead of using a resistor as a load (which wastes chip area), you'll see how another MOSFET acts as the load — either in enhancement or depletion mode.
+5. **Fan-out and power consumption** — How many gates can a single output drive? You'll calculate the fan-out limit, then compute the static power consumption in both logic states. The average power of approximately 9 mW per gate explains why TTL and CMOS eventually replaced DTL.
 
-6. **NMOS NOR and NAND gates** — How to build logic gates from transistors. NOR uses parallel drivers, NAND uses series drivers. You'll analyse the truth tables and understand why.
+6. **Noise margins and SRAM cells** — Logic levels need defined voltage ranges, and cascaded circuits need noise immunity. You'll define $V_{OH}$, $V_{OL}$, $V_{IH}$, $V_{IL}$, and calculate noise margins. Then you'll see how cross-coupled BJTs form a bistable flip-flop — the basic SRAM storage cell.
 
-7. **The CMOS inverter** — The circuit that changed everything. By pairing an NMOS and a PMOS transistor, you get an inverter with essentially zero static power consumption. This is why your phone battery lasts all day.
-
-8. **CMOS NAND and NOR gates** — The building blocks of every modern processor. NMOS drivers in series with PMOS loads in parallel give you NAND; swap the arrangement for NOR.
+7. **Voltage regulators** — The lesson concludes with power supply design. From the AC mains through a transformer, rectifier, and filter, you'll arrive at the series voltage regulator — first with a Zener reference, then with transistor feedback for improved regulation. You'll meet the 7805, 7812, and 7815 regulator ICs that you'll use in every lab project.
 
 ## Why This Matters
 
-The MOSFET is not an alternative to the BJT — it's a completely different beast with different strengths. While BJTs excel in analog amplification (as you saw in previous lessons), MOSFETs dominate digital logic because of three killer advantages: **zero gate current** (high input impedance), **small physical size** (billions fit on a single chip), and **low power consumption** (especially in CMOS configuration).
+These aren't theoretical exercises — every one of these circuits appears in real hardware. The DTL gate analysis teaches you systematic DC analysis of multi-transistor circuits. The fan-out and noise margin calculations are the foundation of digital design rules. And the voltage regulator section connects directly to every lab power supply you'll ever build.
 
-By the end of this lesson, you'll understand not just how individual MOSFETs work, but how they're combined to build the logic gates that form the foundation of every digital system.
-
-> **Take your time with the structure concepts.** The physics of channel formation might feel abstract at first, but once it clicks, everything else — from inverters to CMOS gates — follows naturally.
+> **This lesson is dense but rewarding.** Each concept builds on the previous one, so take them in order. By the end, you'll have analysed circuits from the gate level all the way to the power supply level — a complete picture of practical electronics.

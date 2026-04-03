@@ -1,0 +1,11 @@
+{
+    "id": "noise-margins-and-sram",
+    "title": "Noise Margins & SRAM Storage Cells",
+    "slug": "noise-margins-and-sram",
+    "estimatedMinutes": 22,
+    "contentPath": "content.md",
+    "examPath": "exam.md",
+    "visualsPath": "visuals.json",
+    "quizPath": "quiz.json",
+    "flashcardsPath": "flashcards.json"
+}

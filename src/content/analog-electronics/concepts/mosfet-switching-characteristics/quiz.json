@@ -1,0 +1,75 @@
+{
+  "id": "quiz-mosfet-switching-characteristics",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What causes the output of a MOSFET inverter to not switch instantaneously?",
+      "options": ["The threshold voltage is too high", "The parasitic capacitance Co must be charged/discharged", "The supply voltage VDD is limited", "The gate oxide breaks down"],
+      "correctAnswer": "The parasitic capacitance Co must be charged/discharged",
+      "explanation": "The parasitic capacitance Co at the output node stores charge. To change the output voltage, this charge must be added (charging) or removed (discharging) through the transistors' ON resistances. This takes time, creating the switching delay. The larger Co is, the slower the transition."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which time constant governs the falling edge (output going LOW) in an active-load inverter?",
+      "options": ["τ = Co × Rsat(T2)", "τ = Co × Rsat(T1)", "τ = Co × RD", "τ = Co × VDD"],
+      "correctAnswer": "τ = Co × Rsat(T1)",
+      "explanation": "The falling edge occurs when T1 (the driver) turns ON and discharges Co through its ON resistance. So the time constant is τ₁ = Co × Rsat(T1). T2 (the load) controls the rising edge."
+    },
+    {
+      "id": "q3",
+      "prompt": "Why is the rising edge of an NMOS active-load inverter slower than the falling edge?",
+      "options": ["T1 has a higher threshold voltage", "T2 has a higher ON resistance than T1", "The supply voltage drops during charging", "The capacitor is larger during charging"],
+      "correctAnswer": "T2 has a higher ON resistance than T1",
+      "explanation": "The rising edge is governed by τ₂ = Co × Rsat(T2). Since T2 is a diode-connected load with VGS2 = VDS2, it has a higher ON resistance than T1 (which is driven hard by the full gate voltage). Higher resistance means slower RC charging."
+    },
+    {
+      "id": "q4",
+      "prompt": "What is the formula for the ON resistance of a MOSFET?",
+      "options": ["Rsat = IDS / VDS(ON)", "Rsat = VDS(ON) / IDS", "Rsat = VGS / IDS", "Rsat = VDD / IDS"],
+      "correctAnswer": "Rsat = VDS(ON) / IDS",
+      "explanation": "The ON resistance is defined as the ratio of the drain-source voltage when ON to the drain current: Rsat = VDS(ON)/IDS. This is essentially Ohm's law applied to the transistor in its low-resistance state."
+    },
+    {
+      "id": "q5",
+      "prompt": "If Ro = 1kΩ, Rsat = 4kΩ, and VDD = 15V, what is the steady-state output LOW voltage?",
+      "options": ["0V", "3V", "5V", "12V"],
+      "correctAnswer": "3V",
+      "explanation": "Using the voltage divider formula: Vo1 = (Ro/(Ro + Rsat)) × VDD = (1k/(1k + 4k)) × 15V = (1/5) × 15V = 3V. The output doesn't reach 0V because of the voltage divider between Ro and the load's ON resistance."
+    },
+    {
+      "id": "q6",
+      "prompt": "What is the purpose of a pull-up resistor in an open-drain output circuit?",
+      "options": ["To limit the drain current", "To pull the output HIGH when the transistor is OFF", "To protect the transistor from overvoltage", "To reduce the switching delay"],
+      "correctAnswer": "To pull the output HIGH when the transistor is OFF",
+      "explanation": "An open-drain output can only pull LOW (when the transistor is ON). When the transistor is OFF, there's no internal path to pull the output HIGH. The external pull-up resistor provides this path, connecting the output to +VDD so it rises to logic HIGH when the transistor is OFF."
+    },
+    {
+      "id": "q7",
+      "prompt": "Why can multiple open-drain outputs share a common data bus without conflict?",
+      "options": ["They use different supply voltages", "They can only pull LOW — there's no push-pull conflict", "They operate at different frequencies", "They use different threshold voltages"],
+      "correctAnswer": "They can only pull LOW — there's no push-pull conflict",
+      "explanation": "Open-drain outputs can only actively drive the bus LOW. When OFF, they present high impedance. So if two outputs try to pull LOW simultaneously, both simply conduct — no conflict. The conflict only occurs with push-pull outputs where one drives HIGH while another drives LOW, creating a short circuit."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the technique called when multiple circuits take turns placing data on a shared bus?",
+      "options": ["Frequency division multiplexing", "Time division multiplexing", "Amplitude modulation", "Code division multiplexing"],
+      "correctAnswer": "Time division multiplexing",
+      "explanation": "When multiple open-drain circuits share a bus, they take turns driving the bus at different time intervals. This is called time division multiplexing (TDM). Each circuit gets a time slot to put its data on the bus, while all others keep their transistors OFF."
+    },
+    {
+      "id": "q9",
+      "prompt": "If Co = 15pF and Rsat(T1) = 200Ω, what is the falling edge time constant?",
+      "options": ["3 ns", "7.5 ns", "30 ns", "150 ns"],
+      "correctAnswer": "3 ns",
+      "explanation": "τ₁ = Co × Rsat(T1) = 15 × 10⁻¹² F × 200 Ω = 3 × 10⁻⁹ s = 3 ns. This is the time constant for the exponential decay of the output voltage during the falling edge."
+    },
+    {
+      "id": "q10",
+      "prompt": "What happens if you forget the external pull-up resistor on an open-drain output?",
+      "options": ["The output is always LOW", "The output is always HIGH", "The output floats when the transistor is OFF, causing unpredictable behaviour", "The transistor burns out"],
+      "correctAnswer": "The output floats when the transistor is OFF, causing unpredictable behaviour",
+      "explanation": "Without a pull-up resistor, when the transistor is OFF there is no path to pull the output to any defined voltage. It becomes a floating node that can pick up noise and hover at indeterminate voltages, causing unreliable logic operation in downstream circuits."
+    }
+  ]
+}
