@@ -1,7 +1,7 @@
 # CalTronic V2
 
 > ### ⚠️ This repository is **ARCHIVED** — No longer actively maintained
-> CalTronic served its purpose brilliantly during 3rd Year, 2nd Semester (Nov 2025 – May 2026). It has been superseded by [Avora](https://github.com/Shya-Bubu), a LaTeX-to-PDF pedagogical system, and its engine lives on as **[Lectron](#-whats-next)** — a clean, subject-agnostic version anyone can use.
+> CalTronic served its purpose brilliantly during 2nd Year, 1st Semester (Nov 2025 – May 2026). It has been superseded by [Avora](https://github.com/Shya-Bubu), a LaTeX-to-PDF pedagogical system, and its engine lives on as **[Lectron](#-whats-next)** — a clean, subject-agnostic version anyone can use.
 
 ---
 
