@@ -22,7 +22,7 @@ import {
     CircuitDiagram,
     Resistor, ResistorIEC, Capacitor, Inductor,
     Diode as DiodeSym, VoltageSource, CurrentSource,
-    OpAmp, Switch, Ground, Wire, JunctionNode,
+    OpAmp, NPN, Switch, Ground, Wire, JunctionNode,
     CurrentArrow, VoltageMark,
 } from '@/app/components/diagrams';
 
@@ -86,6 +86,8 @@ function renderElement(el: CircuitElement, idx: number) {
             return <CurrentSource key={key} {...common} />;
         case 'op-amp':
             return <OpAmp key={key} {...common} />;
+        case 'npn':
+            return <NPN key={key} {...common} />;
         case 'switch':
             return <Switch key={key} {...common} closed={el.closed} />;
         case 'ground':

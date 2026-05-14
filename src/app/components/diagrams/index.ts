@@ -18,6 +18,7 @@ export {
   VoltageSource,
   CurrentSource,
   OpAmp,
+  NPN,
   Switch,
   Ground,
   Wire,

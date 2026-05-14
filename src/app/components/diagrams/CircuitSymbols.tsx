@@ -340,6 +340,62 @@ export function OpAmp({
 }
 
 // ─────────────────────────────────────────────
+// NPN TRANSISTOR (IEEE style, with circle)
+// Base at (-20,0), Collector at (10,-25), Emitter at (10,25)
+// ─────────────────────────────────────────────
+export function NPN({
+  x, y, rotation = 0, label, labelPosition = 'right', value, color = 'var(--sim-text)', strokeWidth = 1.8
+}: SymbolProps) {
+  const lo = labelOffset(labelPosition, rotation);
+  const accent = color || 'var(--sim-text)';
+
+  return (
+    <g transform={tx(x, y, rotation)}>
+      <circle cx={0} cy={0} r={18} fill="none" stroke={accent} strokeWidth={strokeWidth} />
+
+      {/* Base plate and lead */}
+      <line x1={-2} y1={-10} x2={-2} y2={10} stroke={accent} strokeWidth={strokeWidth} />
+      <line x1={-20} y1={0} x2={-2} y2={0} stroke={accent} strokeWidth={strokeWidth} />
+
+      {/* Collector branch */}
+      <line x1={-2} y1={-6} x2={10} y2={-20} stroke={accent} strokeWidth={strokeWidth} />
+      <line x1={10} y1={-20} x2={10} y2={-25} stroke={accent} strokeWidth={strokeWidth} />
+
+      {/* Emitter branch */}
+      <line x1={-2} y1={6} x2={10} y2={20} stroke={accent} strokeWidth={strokeWidth} />
+      <line x1={10} y1={20} x2={10} y2={25} stroke={accent} strokeWidth={strokeWidth} />
+      {/* Arrow points away from base for NPN */}
+      <polygon points="10,20 5,14 12,15" fill={accent} />
+
+      {label && (
+        <text
+          x={lo.dx + 22}
+          y={lo.dy + 4}
+          textAnchor={lo.anchor}
+          fill="var(--sim-text-strong)"
+          fontSize="11"
+          fontFamily="var(--font-sans)"
+        >
+          {label}
+        </text>
+      )}
+      {value && (
+        <text
+          x={lo.dx + 22}
+          y={lo.dy + 16}
+          textAnchor={lo.anchor}
+          fill="var(--sim-text)"
+          fontSize="9"
+          fontFamily="var(--font-sans)"
+        >
+          {value}
+        </text>
+      )}
+    </g>
+  );
+}
+
+// ─────────────────────────────────────────────
 // CURRENT ARROW (annotation)
 // ─────────────────────────────────────────────
 export function CurrentArrow({
